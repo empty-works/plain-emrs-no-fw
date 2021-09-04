@@ -4,10 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome</title>
+<title>Welcome! Please log in.</title>
 </head>
 <body>
 	<form action="loginServlet" method="post">
+		Username: <input type="text" name="userName"/><br/>
+		Password: <input type="password" name="password"/><br/>
+		
+		<input type="submit" />
 	</form>	
 </body>
 </html>
