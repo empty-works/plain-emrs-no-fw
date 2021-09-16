@@ -8,10 +8,20 @@
 </head>
 <body>
 	<form action="loginServlet" method="post">
-		Username: <input type="text" name="userName"/><br/>
-		Password: <input type="password" name="password"/><br/>
-		
-		<input type="submit" />
+	<table>
+	<tr>
+		<td>Username:</td>
+		<td><input type="text" name="userName"/></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="password" name="password"/></td>
+	</tr>	
+	<tr>
+		<td></td>
+		<td><input type="submit" /></input><input type="reset" value="Reset"></input></td>
+	</tr>
+	</table>
 	</form>	
 </body>
 </html>
