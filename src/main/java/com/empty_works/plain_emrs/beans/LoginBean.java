@@ -2,7 +2,7 @@ package com.empty_works.plain_emrs.beans;
 
 import java.util.Date;
 
-public class User {
+public class LoginBean {
 
 	private String username;
 	private String password;
