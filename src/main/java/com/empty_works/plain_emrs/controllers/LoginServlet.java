@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.beans.LoginBean;
+import com.empty_works.plain_emrs.contants.PlainEmrsRole;
+import com.empty_works.plain_emrs.dao.LoginDao;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -32,8 +36,20 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userName = request.getParameter("userName");
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
+		LoginBean loginBean = new LoginBean();
+		loginBean.setUsername(username);
+		loginBean.setPassword(password);
+		
+		LoginDao loginDao = new LoginDao();
+		
+		String userRole = loginDao.authenticateUser(loginBean);
+		if(userRole.equals(PlainEmrsRole.adminRole)) {
+			
+			
+		}
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
