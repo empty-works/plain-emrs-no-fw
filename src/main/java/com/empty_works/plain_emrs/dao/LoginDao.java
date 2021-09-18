@@ -7,11 +7,12 @@ import java.sql.SQLException;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
+import com.empty_works.plain_emrs.roles.RolePair;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class LoginDao {
 
-	public String authenticateUser(LoginBean login) {
+	public RolePair authenticateUser(LoginBean login) {
 
 		String username = login.getUsername();
 		String password = login.getPassword();
@@ -30,12 +31,20 @@ public class LoginDao {
 				String passwordDb = rs.getString("password");
 				String roleDb = rs.getString("authority");
 				
-				if(usernameDb.equals(username) && passwordDb.equals(password)) 
-					return PlainEmrsRoles.getRole(roleDb);
+				if(usernameDb.equals(username) && passwordDb.equals(password)) {
+					
+					for(RolePair rolePair : PlainEmrsRoles.roleList) {
+						
+						if(rolePair.getRoleDb().equals(roleDb)) {
+							
+							return rolePair;
+						}
+					}
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Invalid user";
+		return PlainEmrsRoles.invalidUser; 
 	}
 }

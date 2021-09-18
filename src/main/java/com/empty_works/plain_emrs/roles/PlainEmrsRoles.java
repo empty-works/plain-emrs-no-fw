@@ -22,7 +22,8 @@ public class PlainEmrsRoles {
 			add(new RolePair("ROLE_UNKNOWN", "Unknown"));
 		}
 	};
-
+	
+	final public static RolePair invalidUser = new RolePair("INVALID_USER", "Invalid user");
 	final public static String adminRole = "ROLE_ADMIN";
 	final public static String patientRole = "ROLE_PATIENT";
 	final public static String doctorRole = "ROLE_DOCTOR";
