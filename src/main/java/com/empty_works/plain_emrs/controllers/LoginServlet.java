@@ -2,11 +2,7 @@ package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.dao.LoginDao;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
+import com.empty_works.plain_emrs.roles.RolePair;
 
 /**
  * Servlet implementation class LoginServlet
@@ -24,7 +21,6 @@ import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Connection connection;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
@@ -45,11 +41,8 @@ public class LoginServlet extends HttpServlet {
 		
 		LoginDao loginDao = new LoginDao();
 		
-		String userRole = loginDao.authenticateUser(loginBean);
-		if(userRole.equals(PlainEmrsRoles.adminRole)) {
-			
-			
-		}
+		RolePair userRole = loginDao.authenticateUser(loginBean);
+		setSessionUserAndRole(userRole, username);
 	}
 
 	/**
@@ -57,13 +50,13 @@ public class LoginServlet extends HttpServlet {
 	 * @param role
 	 * @param username
 	 */
-	private void setSessionUserAndRole(String role, String username) {
+	private void setSessionUserAndRole(RolePair role, String username) {
 		
-		System.out.println(role + "'s " + "Home");
+		System.out.println(role.getRole() + "'s " + "Home");
 		HttpSession session = request.getSession();
 		session.setAttribute(username, username);
 		try {
-			request.getRequestDispatcher("/jsp/" + role + ".jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/" + role.getRole() + ".jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
