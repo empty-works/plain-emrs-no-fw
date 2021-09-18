@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
-import com.empty_works.plain_emrs.roles.PlainEmrsRole;
+import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class LoginDao {
@@ -31,7 +31,7 @@ public class LoginDao {
 				String roleDb = rs.getString("authority");
 				
 				if(usernameDb.equals(username) && passwordDb.equals(password)) 
-					return PlainEmrsRole.getRole(roleDb);
+					return PlainEmrsRoles.getRole(roleDb);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

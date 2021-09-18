@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.dao.LoginDao;
-import com.empty_works.plain_emrs.roles.PlainEmrsRole;
+import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 
 /**
  * Servlet implementation class LoginServlet
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 		LoginDao loginDao = new LoginDao();
 		
 		String userRole = loginDao.authenticateUser(loginBean);
-		if(userRole.equals(PlainEmrsRole.adminRole)) {
+		if(userRole.equals(PlainEmrsRoles.adminRole)) {
 			
 			
 		}

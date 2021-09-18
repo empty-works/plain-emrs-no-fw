@@ -4,6 +4,12 @@ public class RolePair {
 
 	private String roleDb;
 	private String role;
+	
+	public RolePair(String roleDb, String role) {
+		
+		this.roleDb = roleDb;
+		this.role = role;
+	}
 
 	public String getRoleDb() {
 		return roleDb;
