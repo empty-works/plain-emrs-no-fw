@@ -1,7 +1,15 @@
-package com.empty_works.plain_emrs.contants;
+package com.empty_works.plain_emrs.roles;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlainEmrsRole {
 
+	final public static List<Pair> roleList = new ArrayList<>() {
+		{
+			add("ROLE_ADMIN");
+		}
+	};
 	final public static String adminRole = "ROLE_ADMIN";
 	final public static String patientRole = "ROLE_PATIENT";
 	final public static String doctorRole = "ROLE_DOCTOR";

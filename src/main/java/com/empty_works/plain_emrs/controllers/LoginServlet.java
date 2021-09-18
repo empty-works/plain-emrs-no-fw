@@ -12,10 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
-import com.empty_works.plain_emrs.contants.PlainEmrsRole;
 import com.empty_works.plain_emrs.dao.LoginDao;
+import com.empty_works.plain_emrs.roles.PlainEmrsRole;
 
 /**
  * Servlet implementation class LoginServlet
@@ -23,19 +24,18 @@ import com.empty_works.plain_emrs.dao.LoginDao;
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Connection connection;
+	private Connection connection;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
 	
-	public void init(ServletConfig config) {
-		
-		ServletContext context = config.getServletContext();
-		
-	}
-       
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		this.request = request;
+		this.response = response;
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -50,17 +50,22 @@ public class LoginServlet extends HttpServlet {
 			
 			
 		}
+	}
+
+	/**
+	 * 
+	 * @param role
+	 * @param username
+	 */
+	private void setSessionUserAndRole(String role, String username) {
 		
+		System.out.println(role + "'s " + "Home");
+		HttpSession session = request.getSession();
+		session.setAttribute(username, username);
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/PlainEMRS", "root", "root");
-			
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
+			request.getRequestDispatcher("/jsp/" + role + ".jsp").forward(request, response);
+		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 }

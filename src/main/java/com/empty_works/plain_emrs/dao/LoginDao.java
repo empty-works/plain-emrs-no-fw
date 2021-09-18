@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
-import com.empty_works.plain_emrs.contants.PlainEmrsRole;
+import com.empty_works.plain_emrs.roles.PlainEmrsRole;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class LoginDao {
