@@ -38,6 +38,8 @@ public class LoginDao {
 					
 					for(RolePair rolePair : PlainEmrsRoles.roleList) {
 						
+						System.out.println("From user: " + username);
+						System.out.println("From user: " + password);
 						System.out.println("From user: " + rolePair.getRoleDb());
 						if(rolePair.getRoleDb().equals(roleDb)) {
 							

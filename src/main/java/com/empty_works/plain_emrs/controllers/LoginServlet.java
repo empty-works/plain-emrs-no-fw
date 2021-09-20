@@ -54,7 +54,8 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println(role.getRole() + "'s " + "Home");
 		HttpSession session = request.getSession();
-		session.setAttribute(username, username);
+		session.setAttribute(role.getRole(), username);
+		request.setAttribute(username, username);
 		try {
 			request.getRequestDispatcher("/jsp/" + role.getRole() + ".jsp").forward(request, response);
 		} catch (ServletException | IOException e) {

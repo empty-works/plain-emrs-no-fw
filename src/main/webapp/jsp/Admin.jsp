@@ -9,7 +9,7 @@
 <% 	// If Admin session is not set, redirect to the default page
 	if((request.getSession(false).getAttribute("Admin") == null)) {
 %>
-<jsp:forward page="/jsp/default.jsp"></jsp:forward>
+<jsp:forward page="/default.jsp"></jsp:forward>
 <%} %>
 
 </head>
