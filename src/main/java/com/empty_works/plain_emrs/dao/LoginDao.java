@@ -30,11 +30,15 @@ public class LoginDao {
 				String usernameDb = rs.getString("username");
 				String passwordDb = rs.getString("password");
 				String roleDb = rs.getString("authority");
+				System.out.println("Resultset user: " + usernameDb);
+				System.out.println("Resultset pass: " + passwordDb);
+				System.out.println("Resultset role: " + roleDb);
 				
 				if(usernameDb.equals(username) && passwordDb.equals(password)) {
 					
 					for(RolePair rolePair : PlainEmrsRoles.roleList) {
 						
+						System.out.println("From user: " + rolePair.getRoleDb());
 						if(rolePair.getRoleDb().equals(roleDb)) {
 							
 							return rolePair;
