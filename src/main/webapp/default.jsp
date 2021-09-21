@@ -7,7 +7,7 @@
 <title>Welcome! Please log in.</title>
 </head>
 <body>
-	<form action="loginServlet" method="post">
+	<form action="LoginServlet" method="post">
 	<table>
 	<tr>
 		<td>Username:</td>

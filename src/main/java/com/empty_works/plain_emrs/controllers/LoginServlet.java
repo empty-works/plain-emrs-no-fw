@@ -18,7 +18,7 @@ import com.empty_works.plain_emrs.roles.RolePair;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/loginServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HttpServletRequest request;
