@@ -7,6 +7,7 @@ public class NonPatient {
 	private String givenName;
 	private String middleName;
 	private String lastName;
+	private String email;
 	private String organization;
 	private Date dateOfBirth;
 	private String description;
@@ -28,6 +29,12 @@ public class NonPatient {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getOrganization() {
 		return organization;

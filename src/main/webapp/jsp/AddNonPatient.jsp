@@ -11,19 +11,23 @@
 	<table>
 		<tr>
 		<td>Given Name: </td>
-		<td><input type="text" name="firstNameNonPatient" /></td>
+		<td><input type="text" name="firstName" /></td>
 		</tr>	
 		<tr>
 		<td>Middle Name: </td>
-		<td><input type="text" name="middleNameNonPatient" /></td>
+		<td><input type="text" name="middleName" /></td>
 		</tr>
 		<tr>
 		<td>Last Name: </td>
-		<td><input type="text" name="lastNameNonPatient" /></td>
+		<td><input type="text" name="lastName" /></td>
+		</tr>
+		<tr>
+		<td>Email: </td>
+		<td><input type="email" name="email" /></td>
 		</tr>
 		<tr>
 		<td>Date of Birth: </td>
-		<td><input type="date" name="dateOfBirthNonPatient" /></td>
+		<td><input type="date" name="dateOfBirth" /></td>
 		</tr>
 		<tr>
 		<td>Organization: </td>
