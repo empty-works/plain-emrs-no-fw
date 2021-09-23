@@ -2,12 +2,12 @@ package com.empty_works.plain_emrs.beans;
 
 import java.util.Date;
 
-public class NonPatient {
+public class NonPatientBean {
 
 	private String givenName;
 	private String middleName;
 	private String lastName;
-	private String email;
+	private String emailAddress;
 	private String organization;
 	private Date dateOfBirth;
 	private String description;
@@ -30,11 +30,11 @@ public class NonPatient {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getEmail() {
-		return email;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAddress(String email) {
+		this.emailAddress = email;
 	}
 	public String getOrganization() {
 		return organization;

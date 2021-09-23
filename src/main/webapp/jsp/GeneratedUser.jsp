@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Plain EMRS - Add User</title>
+<title>Plain EMRS - Generated User</title>
 </head>
 <body>
-
-	<form action="AddUserServlet" method="post">
+	<form action="GeneratedUserServlet" method="post">
 	<table>
 		<tr>
 		<td></td>

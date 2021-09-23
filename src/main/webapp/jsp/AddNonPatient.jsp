@@ -11,7 +11,7 @@
 	<table>
 		<tr>
 		<td>Given Name: </td>
-		<td><input type="text" name="firstName" /></td>
+		<td><input type="text" name="givenName" /></td>
 		</tr>	
 		<tr>
 		<td>Middle Name: </td>
@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 		<td>Email: </td>
-		<td><input type="email" name="email" /></td>
+		<td><input type="email" name="emailAddress" /></td>
 		</tr>
 		<tr>
 		<td>Date of Birth: </td>
