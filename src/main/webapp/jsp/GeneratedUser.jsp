@@ -13,6 +13,30 @@
 		<td>Given Name: </td>
 		<td><c:out value="${npbean.givenName}"></c:out></td>
 		</tr>
+		<tr>
+		<td>Middle Name: </td>
+		<td><c:out value="${npbean.middleName}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Last Name: </td>
+		<td><c:out value="${npbean.lastName}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Email Address: </td>
+		<td><c:out value="${npbean.emailAddress}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Date of Birth: </td>
+		<td><c:out value="${npbean.dateOfBirth}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Organization: </td>
+		<td><c:out value="${npbean.organization}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Description: </td>
+		<td><c:out value="${npbean.description}"></c:out></td>
+		</tr>
 	</table>
 	<form action="GeneratedUserServlet" method="post">
 	</form>

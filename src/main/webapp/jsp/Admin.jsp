@@ -18,6 +18,7 @@
 	<h2>Admin's Home</h2>
 	Welcome <%=request.getAttribute("username") %>
 	
+	<br><br>
 	<a href="<c:url value="/AddNonPatient.jsp" />">Add Non-Patient</a>
 		
 </body>
