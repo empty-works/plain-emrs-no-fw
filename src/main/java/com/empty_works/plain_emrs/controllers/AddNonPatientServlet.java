@@ -50,7 +50,7 @@ public class AddNonPatientServlet extends HttpServlet {
 	private GeneratedUserBean autoGenerate(NonPatientBean npb) {
 		
 		GeneratedUserBean gub = new GeneratedUserBean();
-
+		gub.setUsername(npb.getGivenName() + npb.getMiddleName() + npb.getLastName() + npb.hashCode());
 		
 		return gub;
 	}
