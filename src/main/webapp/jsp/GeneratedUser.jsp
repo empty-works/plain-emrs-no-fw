@@ -11,7 +11,7 @@
 	<table>
 		<tr>
 		<td>Given Name: </td>
-		<c:out value="${npbean.givenName}"></c:out>
+		<td><c:out value="${npbean.givenName}"></c:out></td>
 		</tr>
 	</table>
 	<form action="GeneratedUserServlet" method="post">

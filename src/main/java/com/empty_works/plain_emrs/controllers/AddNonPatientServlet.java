@@ -34,6 +34,7 @@ public class AddNonPatientServlet extends HttpServlet {
 			np.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy")
 					.parse(request.getParameter("dateOfBirth")));
 		} catch (ParseException e) {
+			System.out.println("Cannot set date of birth...");
 			e.printStackTrace();
 		}
 		np.setOrganization(request.getParameter("organization"));
