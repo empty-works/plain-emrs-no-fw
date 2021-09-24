@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute(role.getRole(), username);
 		request.setAttribute("username", username);
 		try {
-			request.getRequestDispatcher("/jsp/" + role.getRole() + ".jsp").forward(request, response);
+			request.getRequestDispatcher("/" + role.getRole() + ".jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}

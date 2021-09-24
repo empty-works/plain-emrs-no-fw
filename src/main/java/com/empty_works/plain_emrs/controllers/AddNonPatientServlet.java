@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.GeneratedUserBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.util.PasswordUtil;
 
 /**
  * Servlet implementation class AddNonPatientServlet
@@ -44,14 +45,14 @@ public class AddNonPatientServlet extends HttpServlet {
 		System.out.println("Forwarding to GeneratedUser JSP...");
 		request.setAttribute("npbean", np);
 		request.setAttribute("gubean", autoGenerate(np)); // Set generated user bean
-		request.getRequestDispatcher("/jsp/GeneratedUser.jsp").forward(request, response);
+		request.getRequestDispatcher("/GeneratedUser.jsp").forward(request, response);
 	}
 	
 	private GeneratedUserBean autoGenerate(NonPatientBean npb) {
 		
 		GeneratedUserBean gub = new GeneratedUserBean();
 		gub.setUsername(npb.getGivenName() + npb.getMiddleName() + npb.getLastName() + npb.hashCode());
-		
+		gub.setPassword(PasswordUtil.generate(5));
 		return gub;
 	}
 }
