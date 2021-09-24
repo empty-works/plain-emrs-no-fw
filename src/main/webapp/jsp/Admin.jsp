@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +17,8 @@
 <body>
 	<h2>Admin's Home</h2>
 	Welcome <%=request.getAttribute("username") %>
+	
+	<a href="<c:url value="/jsp/AddNonPatient.jsp" />">Add Non-Patient</a>
 		
 </body>
 </html>
