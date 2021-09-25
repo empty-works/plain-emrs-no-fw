@@ -50,6 +50,7 @@ public class AddNonPatientServlet extends HttpServlet {
 		gub.setPassword(npb.getEmailAddress());
 		gub.setEnabled(true);
 		gub.setCreatedOn(new java.sql.Date(System.currentTimeMillis())); // Set current date
+
 		return gub;
 	}
 }
