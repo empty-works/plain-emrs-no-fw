@@ -1,7 +1,5 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.util.Date;
-
 public class NonPatientBean {
 
 	private String givenName;
@@ -9,7 +7,7 @@ public class NonPatientBean {
 	private String lastName;
 	private String emailAddress;
 	private String organization;
-	private Date dateOfBirth;
+	private java.sql.Date dateOfBirth;
 	private String description;
 
 	public String getGivenName() {
@@ -42,10 +40,10 @@ public class NonPatientBean {
 	public void setOrganization(String organization) {
 		this.organization = organization;
 	}
-	public Date getDateOfBirth() {
+	public java.sql.Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(java.sql.Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getDescription() {

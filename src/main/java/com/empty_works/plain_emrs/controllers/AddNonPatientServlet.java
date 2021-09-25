@@ -1,8 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,13 +31,8 @@ public class AddNonPatientServlet extends HttpServlet {
 		np.setMiddleName(request.getParameter("middleName"));
 		np.setLastName(request.getParameter("lastName"));
 		np.setEmailAddress(request.getParameter("emailAddress"));
-		try {
-			np.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy")
-					.parse(request.getParameter("dateOfBirth")));
-		} catch (ParseException e) {
-			System.out.println("Cannot set date of birth...");
-			e.printStackTrace();
-		}
+		// TODO: MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
+		np.setDateOfBirth(Date.valueOf(request.getParameter("dateOfBirth")));
 		np.setOrganization(request.getParameter("organization"));
 		np.setDescription(request.getParameter("description"));
 		
@@ -53,6 +47,9 @@ public class AddNonPatientServlet extends HttpServlet {
 		GeneratedUserBean gub = new GeneratedUserBean();
 		gub.setUsername(npb.getGivenName() + npb.getMiddleName() + npb.getLastName() + npb.hashCode());
 		gub.setPassword(PasswordUtil.generate(5));
+		gub.setPassword(npb.getEmailAddress());
+		gub.setEnabled(true);
+		gub.setCreatedOn(new java.sql.Date(System.currentTimeMillis())); // Set current date
 		return gub;
 	}
 }
