@@ -15,17 +15,18 @@ final public class NonPatientIdUtil {
 	private static String nameId(String givenName, String lastName) {
 		
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
-		
-		String gnSub = (givenName.length() > 1) ? "" + givenName.charAt(0) + givenName.charAt(1) : 
-			"" + givenName.charAt(0);
-		
-		String lnSub = (lastName.length() > 1) ? "" + lastName.charAt(0) + lastName.charAt(1) : 
-			"" + lastName.charAt(0);
+		String gnSub = getNameSub(givenName);
+		String lnSub = getNameSub(lastName);
 
 		int[] nameNums = new int[4];
 		nameNums[0] = lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)));
 		if(gnSub.length() < 1) nameNums[1] = lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)));
 		nameNums[2] = lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)));
 		if(lnSub.length() < 1) nameNums[3] = lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)));
+	}
+	
+	private static String getNameSub(String name) {
+		
+		return (name.length() > 1) ? "" + name.charAt(0) + name.charAt(1) : "" + name.charAt(0);
 	}
 }
