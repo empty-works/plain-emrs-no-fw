@@ -17,16 +17,22 @@ final public class NonPatientIdUtil {
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
 		String gnSub = getNameSub(givenName);
 		String lnSub = getNameSub(lastName);
+		
+		StringBuilder namesSb = new StringBuilder("");
 
 		int[] nameNums = new int[4];
-		nameNums[0] = lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)));
-		if(gnSub.length() < 1) nameNums[1] = lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)));
-		nameNums[2] = lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)));
-		if(lnSub.length() < 1) nameNums[3] = lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)));
+		namesSb.append(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0))));
+		if(gnSub.length() < 1) namesSb.append(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1))));
+		namesSb.append(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0))));
+		if(lnSub.length() < 1) namesSb.append(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1))));
+		
+		
 	}
 	
 	private static String getNameSub(String name) {
 		
 		return (name.length() > 1) ? "" + name.charAt(0) + name.charAt(1) : "" + name.charAt(0);
 	}
+	
+	
 }
