@@ -12,7 +12,9 @@ final public class NonPatientIdUtil {
 
 		idSb.append(getNameId(np.getGivenName(), np.getLastName()));
 		idSb.append(getDobId(np.getDateOfBirth()));
-
+		idSb.append("-" + System.currentTimeMillis());
+		
+		System.out.println("Final non-patient ID: " + idSb.toString());
 		return idSb.toString();
 	}
 	
