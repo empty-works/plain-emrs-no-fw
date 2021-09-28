@@ -11,7 +11,8 @@ final public class NonPatientIdUtil {
 		StringBuilder idSb = new StringBuilder("PENP-");
 
 		idSb.append(getNameId(np.getGivenName(), np.getLastName()));
-		
+		idSb.append(getDobId(np.getDateOfBirth()));
+
 		return idSb.toString();
 	}
 	
@@ -35,9 +36,20 @@ final public class NonPatientIdUtil {
 		return namesSb.toString();
 	}
 	
-	private static String dobId(LocalDate dob) {
+	private static String getDobId(LocalDate dob) {
 		
-		//TODO: convert ALL dates to LocalDate objects!!!
+		int day = dob.getDayOfMonth();
+		int month = dob.getMonthValue();
+		int year = dob.getYear();
+		final int DOUBLE_DIGITS = 10;
+		
+		StringBuilder dobSb = new StringBuilder("");
+		dobSb.append(day < DOUBLE_DIGITS ? "0" + day : "" + day);
+		dobSb.append(month < DOUBLE_DIGITS ? "0" +  month : "" + month);
+		dobSb.append("" + year);
+		
+		System.out.println("DOB portion of non-patient ID: " + dobSb.toString());
+		return dobSb.toString();
 	}
 	
 	// getNameId helper
