@@ -2,6 +2,8 @@ package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +34,7 @@ public class AddNonPatientServlet extends HttpServlet {
 		np.setLastName(request.getParameter("lastName"));
 		np.setEmailAddress(request.getParameter("emailAddress"));
 		// TODO: MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
-		np.setDateOfBirth(Date.valueOf(request.getParameter("dateOfBirth")));
+		np.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
 		np.setOrganization(request.getParameter("organization"));
 		np.setDescription(request.getParameter("description"));
 		
@@ -49,7 +51,7 @@ public class AddNonPatientServlet extends HttpServlet {
 		gub.setPassword(PasswordUtil.generate(5));
 		gub.setPassword(npb.getEmailAddress());
 		gub.setEnabled(true);
-		gub.setCreatedOn(new java.sql.Date(System.currentTimeMillis())); // Set current date
+		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time
 
 		return gub;
 	}

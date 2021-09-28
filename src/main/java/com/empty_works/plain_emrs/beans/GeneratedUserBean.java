@@ -1,12 +1,14 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.time.LocalDateTime;
+
 public class GeneratedUserBean {
 
 	private String username;
 	private String password;
 	private String emailAddress;
 	private boolean enabled;
-	private java.sql.Date createdOn;
+	private LocalDateTime createdOn;
 	private int patientId;
 	private int nonpatientId;
 
@@ -34,10 +36,10 @@ public class GeneratedUserBean {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	public java.sql.Date getCreatedOn() {
+	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(java.sql.Date createdOn) {
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 	public int getPatientId() {

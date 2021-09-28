@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.util;
 
+import java.time.LocalDate;
+
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 final public class NonPatientIdUtil {
@@ -31,6 +33,11 @@ final public class NonPatientIdUtil {
 		System.out.println("Name portion of non-patient ID: " + namesSb.toString());
 		
 		return namesSb.toString();
+	}
+	
+	private static String dobId(LocalDate dob) {
+		
+		//TODO: convert ALL dates to LocalDate objects!!!
 	}
 	
 	// getNameId helper
