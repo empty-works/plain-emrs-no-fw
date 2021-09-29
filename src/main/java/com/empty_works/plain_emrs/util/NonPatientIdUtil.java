@@ -6,12 +6,19 @@ import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 final public class NonPatientIdUtil {
 	
+	final public static String INVALID = "Invalid inputs";
 
 	final public static String get(NonPatientBean np) {
 		
 		StringBuilder idSb = new StringBuilder("PENP-");
 
-		idSb.append(getNameId(np.getGivenName(), np.getLastName()));
+		String nameId = getNameId(np.getGivenName(), np.getLastName());
+		// If either name is empty, name is invalid. 
+		if(!nameId.equals(INVALID)) {
+			
+			idSb.append(nameId);
+		}
+		else return INVALID;
 		idSb.append(getDobId(np.getDateOfBirth()));
 		idSb.append("-" + System.currentTimeMillis());
 		
@@ -21,14 +28,13 @@ final public class NonPatientIdUtil {
 	
 	protected static String getNameId(String givenName, String lastName) {
 		
+		// Should not be necessary, but will check for empty strings
+		if(givenName.isEmpty() || lastName.isEmpty()) return INVALID;
+
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
 		String gnSub = getNameSub(givenName);
 		String lnSub = getNameSub(lastName);
-		
 		StringBuilder namesSb = new StringBuilder("");
-
-		// Should not be necessary, but will check for empty strings
-		
 		
 		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
 		if(gnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
