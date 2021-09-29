@@ -13,5 +13,4 @@ public class PasswordUtilTest {
 		String nameId = NonPatientIdUtil.getNameId("Fatima", "Garcia");
 		Assertions.assertEquals("05", "");
 	}
-	
 }

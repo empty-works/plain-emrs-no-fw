@@ -27,10 +27,10 @@ final public class NonPatientIdUtil {
 		StringBuilder namesSb = new StringBuilder("");
 
 		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
-		if(gnSub.length() > 1) namesSb.append(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1))));
+		if(gnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
 		else namesSb.append("00");
-		namesSb.append(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0))));
-		if(lnSub.length() > 1) namesSb.append(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1))));
+		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)))));
+		if(lnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)))));
 		else namesSb.append("00");
 		
 		System.out.println("Name portion of non-patient ID: " + namesSb.toString());
@@ -59,9 +59,9 @@ final public class NonPatientIdUtil {
 		
 		int DOUBLE_DIGITS = 10;
 		if(index < DOUBLE_DIGITS) {
-			return "0" + index;
+			return "0" + ++index;
 		}
-		return "" + index;
+		return "" + ++index;
 	}
 	
 	// getNameId helper
