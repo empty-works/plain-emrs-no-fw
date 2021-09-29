@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 final public class NonPatientIdUtil {
+	
 
 	final public static String get(NonPatientBean np) {
 		
@@ -26,6 +27,9 @@ final public class NonPatientIdUtil {
 		
 		StringBuilder namesSb = new StringBuilder("");
 
+		// Should not be necessary, but will check for empty strings
+		
+		
 		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
 		if(gnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
 		else namesSb.append("00");
@@ -59,7 +63,7 @@ final public class NonPatientIdUtil {
 		
 		int DOUBLE_DIGITS = 10;
 		if(index < DOUBLE_DIGITS) {
-			return "0" + ++index;
+			return "0" + ++index; // Need to add 1 so the index remains greater than zero.
 		}
 		return "" + ++index;
 	}
