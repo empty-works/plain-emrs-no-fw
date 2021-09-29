@@ -18,7 +18,7 @@ final public class NonPatientIdUtil {
 		return idSb.toString();
 	}
 	
-	private static String getNameId(String givenName, String lastName) {
+	protected static String getNameId(String givenName, String lastName) {
 		
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
 		String gnSub = getNameSub(givenName);
@@ -38,7 +38,7 @@ final public class NonPatientIdUtil {
 		return namesSb.toString();
 	}
 	
-	private static String getDobId(LocalDate dob) {
+	protected static String getDobId(LocalDate dob) {
 		
 		int day = dob.getDayOfMonth();
 		int month = dob.getMonthValue();
