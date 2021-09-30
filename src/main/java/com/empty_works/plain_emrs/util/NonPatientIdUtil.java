@@ -32,11 +32,11 @@ final public class NonPatientIdUtil {
 		String lnSub = getNameSub(lastName);
 		StringBuilder namesSb = new StringBuilder("");
 		
-		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
-		if(gnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
+		namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
+		if(gnSub.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
 		else namesSb.append("00");
-		namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)))));
-		if(lnSub.length() > 1) namesSb.append(normalizeNum(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)))));
+		namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)))));
+		if(lnSub.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)))));
 		else namesSb.append("00");
 		
 		System.out.println("Name portion of non-patient ID: " + namesSb.toString());
@@ -60,8 +60,8 @@ final public class NonPatientIdUtil {
 		return dobSb.toString();
 	}
 	
-	// getNameId helper
-	private static String normalizeNum(int index) {
+	// index helper method
+	private static String normalizeIndex(int index) {
 		
 		int DOUBLE_DIGITS = 10;
 		if(index < DOUBLE_DIGITS) {
