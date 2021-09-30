@@ -1,7 +1,7 @@
 package com.empty_works.plain_emrs.util;
 
 import java.time.LocalDate;
-
+import java.util.Random;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 final public class NonPatientIdUtil {
@@ -16,7 +16,7 @@ final public class NonPatientIdUtil {
 		if(nameId.equals(INVALID)) return INVALID;
 		idSb.append(nameId);
 		idSb.append(getDobId(np.getDateOfBirth()));
-		idSb.append("-" + System.currentTimeMillis());
+		idSb.append(getRandomSequence());
 		
 		System.out.println("Final non-patient ID: " + idSb.toString());
 		return idSb.toString();
@@ -58,6 +58,33 @@ final public class NonPatientIdUtil {
 		
 		System.out.println("DOB portion of non-patient ID: " + dobSb.toString());
 		return dobSb.toString();
+	}
+	
+	protected static String getRandomSequence() {
+		
+		final int SEQUENCE_BOUND = 1000;
+		final int SEQUENCE_LENGTH = 6;
+		StringBuilder seqSb = new StringBuilder();
+
+		// Calculate seconds first
+		long millis = System.currentTimeMillis();
+		long seconds = millis/1000;
+		long sum = 0;
+		
+		// Generate random sequence
+		Random rand = new Random();
+		for(int i = 0; i < SEQUENCE_LENGTH; i++) {
+			
+			sum += rand.nextInt(SEQUENCE_BOUND);
+		}
+		
+		// Add the number of seconds with the random sequence
+		// Then extract only a portion of that sequence to ensure a limit on the sequence
+		String rawSequence = "" + (seconds + sum);
+		for(int i = rawSequence.length() - 1; i >= 0; i--) {
+			seqSb.append(rawSequence.charAt(i));
+		}
+		return seqSb.subSequence(0, 7).toString();
 	}
 	
 	// index helper method

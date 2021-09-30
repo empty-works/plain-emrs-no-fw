@@ -1,9 +1,7 @@
 package com.empty_works.plain_emrs.util;
 
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-
 import org.junit.jupiter.api.Assertions;
 
 public class PasswordUtilTest {
