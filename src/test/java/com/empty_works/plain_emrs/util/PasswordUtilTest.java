@@ -37,4 +37,20 @@ public class PasswordUtilTest {
 		String nameId = NonPatientIdUtil.getNameId("", "");
 		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
 	}
+	
+	@Test
+	void testGetNameId_emptyStringGivenName() {
+		
+		// Should be checked for in the interface layer but still checks if first name is empty.
+		String nameId = NonPatientIdUtil.getNameId("", "Helioport");
+		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
+	}
+	
+	@Test
+	void testGetNameId_emptyStringLastName() {
+		
+		// Should be checked for in the interface layer but still checks if last name is empty.
+		String nameId = NonPatientIdUtil.getNameId("Allison", "");
+		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
+	}
 }

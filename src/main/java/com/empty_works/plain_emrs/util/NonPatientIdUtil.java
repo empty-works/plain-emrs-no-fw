@@ -13,6 +13,7 @@ final public class NonPatientIdUtil {
 		StringBuilder idSb = new StringBuilder("PENP-");
 
 		String nameId = getNameId(np.getGivenName(), np.getLastName());
+		if(nameId.equals(INVALID)) return INVALID;
 		idSb.append(nameId);
 		idSb.append(getDobId(np.getDateOfBirth()));
 		idSb.append("-" + System.currentTimeMillis());
