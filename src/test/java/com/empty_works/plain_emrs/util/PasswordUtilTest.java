@@ -31,5 +31,10 @@ public class PasswordUtilTest {
 	}
 	
 	@Test
-	void test 
+	void testGetNameId_emptyStringBothNames() {
+		
+		// Should be checked for in the interface layer but included just in case.
+		String nameId = NonPatientIdUtil.getNameId("", "");
+		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
+	}
 }
