@@ -50,7 +50,7 @@ public class NonPatientUserServlet extends HttpServlet {
 		GeneratedUserBean gub = new GeneratedUserBean();
 		gub.setUsername(NonPatientIdUtil.get(npb));
 		gub.setPassword(PasswordUtil.generate(5));
-		gub.setPassword(npb.getEmailAddress());
+		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);
 		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time
 

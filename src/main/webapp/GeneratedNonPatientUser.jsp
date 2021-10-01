@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h2>New User Input by User</h2>
+	<form action="" method="post">
 	<table>
 		<tr>
 		<td>Given Name: </td>
@@ -38,7 +39,6 @@
 		<td><c:out value="${npbean.description}"></c:out></td>
 		</tr>
 	</table>
-	<form action="" method="post">
 	</form>
 </body>
 </html>
