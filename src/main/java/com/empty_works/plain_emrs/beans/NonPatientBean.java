@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class NonPatientBean {
 
+	private String id;
 	private String givenName;
 	private String middleName;
 	private String lastName;
@@ -12,6 +13,12 @@ public class NonPatientBean {
 	private LocalDate dateOfBirth;
 	private String description;
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getGivenName() {
 		return givenName;
 	}

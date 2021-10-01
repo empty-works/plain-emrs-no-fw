@@ -38,6 +38,7 @@ public class NonPatientUserServlet extends HttpServlet {
 		np.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
 		np.setOrganization(request.getParameter("organization"));
 		np.setDescription(request.getParameter("description"));
+		np.setId(NonPatientIdUtil.get(np));
 		
 		System.out.println("Forwarding to GeneratedUser JSP...");
 		request.setAttribute("npbean", np);

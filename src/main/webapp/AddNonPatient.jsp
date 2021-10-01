@@ -7,7 +7,7 @@
 <title>Plain EMRS - Add Non-Patient</title>
 </head>
 <body>
-	<form action="AddNonPatientServlet" method="post">
+	<form action="GenerateNonPatientUser" method="post">
 	<table>
 		<tr>
 		<td>Given Name: </td>

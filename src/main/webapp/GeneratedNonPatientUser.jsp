@@ -7,9 +7,13 @@
 <title>Plain EMRS - Generated User</title>
 </head>
 <body>
-	<h2>New User Input by User</h2>
+	<h2>Non-patient Info</h2>
 	<form action="" method="post">
 	<table>
+		<tr>
+		<td>Non-patient ID: </td>
+		<td><c:out value="${npbean.getId()}"></c:out></td>
+		</tr>
 		<tr>
 		<td>Given Name: </td>
 		<td><c:out value="${npbean.givenName}"></c:out></td>
@@ -38,6 +42,12 @@
 		<td>Description: </td>
 		<td><c:out value="${npbean.description}"></c:out></td>
 		</tr>
+	</table>
+	<h2>Generated Non-patient User Info</h2>	
+	<table>
+		<tr>
+		<td>Username: </td>
+		</tr>	
 	</table>
 	</form>
 </body>
