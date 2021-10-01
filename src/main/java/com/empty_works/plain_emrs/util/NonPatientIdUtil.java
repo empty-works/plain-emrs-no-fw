@@ -84,6 +84,7 @@ final public class NonPatientIdUtil {
 		for(int i = rawSequence.length() - 1; i >= 0; i--) {
 			seqSb.append(rawSequence.charAt(i));
 		}
+		System.out.println("Random sequence portion of non-patient ID: " + seqSb.subSequence(0, 7).toString());
 		return seqSb.subSequence(0, 7).toString();
 	}
 	
