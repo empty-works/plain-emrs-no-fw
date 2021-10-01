@@ -85,4 +85,12 @@ public class PasswordUtilTest {
 		String dobId = NonPatientIdUtil.getDobId(LocalDate.of(1999, 10, 1));
 		Assertions.assertEquals("01101999", dobId);
 	}
+	
+	@Test
+	void testGetRandomSequence() {
+		
+		// Only checks for the length of the returned sequence
+		String seqId = NonPatientIdUtil.getRandomSequence();
+		Assertions.assertEquals(7, seqId.length());
+	}
 }
