@@ -1,11 +1,18 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.empty_works.plain_emrs.beans.GeneratedUserBean;
+import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.util.NonPatientIdUtil;
+import com.empty_works.plain_emrs.util.PasswordUtil;
 
 /**
  * Servlet implementation class UserServlet
@@ -26,6 +33,17 @@ public class GeneratedUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	}
 
+	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {
+		
+		GeneratedUserBean gub = new GeneratedUserBean();
+		gub.setUsername(NonPatientIdUtil.get(npb));
+		gub.setPassword(PasswordUtil.generate(5));
+		gub.setPassword(npb.getEmailAddress());
+		gub.setEnabled(true);
+		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time
+
+		return gub;
 	}
 }

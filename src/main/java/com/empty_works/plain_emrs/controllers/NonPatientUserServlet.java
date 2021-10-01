@@ -19,8 +19,8 @@ import com.empty_works.plain_emrs.util.PasswordUtil;
 /**
  * Servlet implementation class AddNonPatientServlet
  */
-@WebServlet("/AddNonPatientServlet")
-public class AddNonPatientServlet extends HttpServlet {
+@WebServlet("/GenerateNonPatientUser")
+public class NonPatientUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -42,7 +42,7 @@ public class AddNonPatientServlet extends HttpServlet {
 		System.out.println("Forwarding to GeneratedUser JSP...");
 		request.setAttribute("npbean", np);
 		request.setAttribute("gubean", autoGenerateUser(np)); // Set generated user bean
-		request.getRequestDispatcher("/GeneratedUser.jsp").forward(request, response);
+		request.getRequestDispatcher("/GeneratedNonPatientUser.jsp").forward(request, response);
 	}
 	
 	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {

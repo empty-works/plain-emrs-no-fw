@@ -38,7 +38,7 @@
 		<td><c:out value="${npbean.description}"></c:out></td>
 		</tr>
 	</table>
-	<form action="GeneratedUserServlet" method="post">
+	<form action="" method="post">
 	</form>
 </body>
 </html>
