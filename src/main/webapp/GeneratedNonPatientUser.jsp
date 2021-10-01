@@ -16,31 +16,31 @@
 		</tr>
 		<tr>
 		<td>Given Name: </td>
-		<td><c:out value="${npbean.givenName}"></c:out></td>
+		<td><c:out value="${npbean.getGivenName()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Middle Name: </td>
-		<td><c:out value="${npbean.middleName}"></c:out></td>
+		<td><c:out value="${npbean.getMiddleName()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Last Name: </td>
-		<td><c:out value="${npbean.lastName}"></c:out></td>
+		<td><c:out value="${npbean.getLastName()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Email Address: </td>
-		<td><c:out value="${npbean.emailAddress}"></c:out></td>
+		<td><c:out value="${npbean.getEmailAddress()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Date of Birth: </td>
-		<td><c:out value="${npbean.dateOfBirth}"></c:out></td>
+		<td><c:out value="${npbean.getDateOfBirth()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Organization: </td>
-		<td><c:out value="${npbean.organization}"></c:out></td>
+		<td><c:out value="${npbean.getOrganization()}"></c:out></td>
 		</tr>
 		<tr>
 		<td>Description: </td>
-		<td><c:out value="${npbean.description}"></c:out></td>
+		<td><c:out value="${npbean.getDescription()}"></c:out></td>
 		</tr>
 	</table>
 	<h2>Generated Non-patient User Info</h2>	
