@@ -49,7 +49,7 @@ public class NonPatientUserServlet extends HttpServlet {
 	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {
 		
 		GeneratedUserBean gub = new GeneratedUserBean();
-		gub.setUsername(NonPatientIdUtil.get(npb));
+		gub.setUsername(npb.getGivenName() + npb.getLastName() + npb.hashCode());
 		gub.setPassword(PasswordUtil.generate(5));
 		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);

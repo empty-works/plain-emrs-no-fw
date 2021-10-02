@@ -47,6 +47,7 @@
 	<table>
 		<tr>
 		<td>Username: </td>
+		<td><c:out value="${gubean.getUsername()}"></c:out></td>
 		</tr>	
 	</table>
 	</form>

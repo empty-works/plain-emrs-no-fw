@@ -6,6 +6,7 @@ import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 final public class NonPatientIdUtil {
 	
+	//TODO: Make this class a superclass with nonpatient and patient children
 	final public static String INVALID = "Invalid inputs";
 
 	final public static String get(NonPatientBean np) {
@@ -64,6 +65,8 @@ final public class NonPatientIdUtil {
 		
 		final int SEQUENCE_BOUND = 1000;
 		final int SEQUENCE_LENGTH = 6;
+		final int START_SEQUENCE = 1;
+		final int END_SEQUENCE = 7;
 		StringBuilder seqSb = new StringBuilder();
 
 		// Calculate seconds first
@@ -84,8 +87,9 @@ final public class NonPatientIdUtil {
 		for(int i = rawSequence.length() - 1; i >= 0; i--) {
 			seqSb.append(rawSequence.charAt(i));
 		}
-		System.out.println("Random sequence portion of non-patient ID: " + seqSb.subSequence(0, 7).toString());
-		return seqSb.subSequence(0, 7).toString();
+		System.out.println("Random sequence portion of non-patient ID: " + 
+				seqSb.subSequence(START_SEQUENCE, END_SEQUENCE).toString());
+		return seqSb.subSequence(START_SEQUENCE, END_SEQUENCE).toString();
 	}
 	
 	// index helper method
