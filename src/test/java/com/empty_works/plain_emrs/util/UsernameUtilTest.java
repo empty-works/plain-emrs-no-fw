@@ -8,7 +8,7 @@ public class UsernameUtilTest {
 	@Test
 	public void testGetNameId_fourOrMoreChars() {
 		
-		String nameId = UsernameUtil.getNameId("", UsernameUtil.getNameId("Martha", "Rodriguez"));
+		String nameId = UsernameUtil.getNameId("Martha", "Rodriguez");
 		Assertions.assertEquals("martrodr", nameId);
 	}
 }
