@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Assertions;
 
-public class PasswordUtilTest {
+public class NonPatientIdUtilTest {
 
 	@Test
 	void testGetNameId_singleDigitIndex() {
@@ -28,30 +28,6 @@ public class PasswordUtilTest {
 		// Names only have one letter
 		String nameId = NonPatientIdUtil.getNameId("Q", "B");
 		Assertions.assertEquals("17000200", nameId);
-	}
-	
-	@Test
-	void testGetNameId_emptyStringBothNames() {
-		
-		// Should be checked for in the interface layer but included just in case.
-		String nameId = NonPatientIdUtil.getNameId("", "");
-		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
-	}
-	
-	@Test
-	void testGetNameId_emptyStringGivenName() {
-		
-		// Should be checked for in the interface layer but still checks if first name is empty.
-		String nameId = NonPatientIdUtil.getNameId("", "Helioport");
-		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
-	}
-	
-	@Test
-	void testGetNameId_emptyStringLastName() {
-		
-		// Should be checked for in the interface layer but still checks if last name is empty.
-		String nameId = NonPatientIdUtil.getNameId("Allison", "");
-		Assertions.assertEquals(NonPatientIdUtil.INVALID, nameId);
 	}
 	
 	@Test
@@ -91,6 +67,6 @@ public class PasswordUtilTest {
 		
 		// Only checks for the length of the returned sequence
 		String seqId = NonPatientIdUtil.getRandomSequence();
-		Assertions.assertEquals(7, seqId.length());
+		Assertions.assertEquals(NonPatientIdUtil.SEQUENCE_LENGTH, seqId.length());
 	}
 }

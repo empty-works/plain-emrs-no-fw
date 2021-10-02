@@ -7,14 +7,14 @@ import com.empty_works.plain_emrs.beans.NonPatientBean;
 final public class NonPatientIdUtil {
 	
 	//TODO: Make this class a superclass with nonpatient and patient children
-	final public static String INVALID = "Invalid inputs";
+	final public static String INVALID = "Invalid ID due to invalid inputs.";
 
 	final public static String get(NonPatientBean np) {
 		
 		StringBuilder idSb = new StringBuilder("PENP-");
 
+		if(np.getGivenName().isEmpty() || np.getLastName().isEmpty()) return INVALID;
 		String nameId = getNameId(np.getGivenName(), np.getLastName());
-		if(nameId.equals(INVALID)) return INVALID;
 		idSb.append(nameId);
 		idSb.append(getDobId(np.getDateOfBirth()));
 		idSb.append(getRandomSequence());
@@ -25,9 +25,6 @@ final public class NonPatientIdUtil {
 	
 	protected static String getNameId(String givenName, String lastName) {
 		
-		// Should not be necessary, but will check for empty strings
-		if(givenName.isEmpty() || lastName.isEmpty()) return INVALID;
-
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
 		String gnSub = getNameSub(givenName);
 		String lnSub = getNameSub(lastName);
@@ -61,10 +58,10 @@ final public class NonPatientIdUtil {
 		return dobSb.toString();
 	}
 	
+	public final static int SEQUENCE_LENGTH = 6;
 	protected static String getRandomSequence() {
 		
 		final int SEQUENCE_BOUND = 1000;
-		final int SEQUENCE_LENGTH = 6;
 		final int START_SEQUENCE = 1;
 		final int END_SEQUENCE = 7;
 		StringBuilder seqSb = new StringBuilder();

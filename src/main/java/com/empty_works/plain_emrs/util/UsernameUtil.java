@@ -5,14 +5,16 @@ import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 public class UsernameUtil {
 
+	final static String INVALID = "Username invalid due to invalid inputs.";
+
 	public static String get(NonPatientBean npb) {
 		
 		String givenName = npb.getGivenName();
 		String lastName = npb.getLastName();
 		StringBuilder unSb = new StringBuilder();
+		if(givenName.isEmpty() || lastName.isEmpty()) return INVALID;
 		
-		
-		return "";
+		return unSb.toString();
 	}
 	
 	protected static String getNameId(String givenName, String lastName) {
