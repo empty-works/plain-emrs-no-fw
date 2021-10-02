@@ -1,12 +1,10 @@
 package com.empty_works.plain_emrs.util;
 
 import java.util.Random;
-
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 public class UsernameUtil {
 
-	//TODO: generate a username with only select letters from name and other stuff
 	public static String get(NonPatientBean npb) {
 		
 		String givenName = npb.getGivenName();
@@ -23,11 +21,14 @@ public class UsernameUtil {
 		StringBuilder nSb = new StringBuilder();
 		
 		nSb.append(givenName.length() >= NAME_PART_LENGTH ? 
-				givenName.substring(0, NAME_PART_LENGTH) : fillName(givenName, NAME_PART_LENGTH));
+				givenName.substring(0, NAME_PART_LENGTH).toLowerCase() : 
+					fillName(givenName, NAME_PART_LENGTH));
 		
 		nSb.append(lastName.length() >= NAME_PART_LENGTH ? 
-				lastName.substring(0, NAME_PART_LENGTH) : fillName(lastName, NAME_PART_LENGTH));
+				lastName.substring(0, NAME_PART_LENGTH).toLowerCase() : 
+					fillName(lastName, NAME_PART_LENGTH));
 
+		System.out.println("Username generator name portion: " + nSb.toString());
 		return nSb.toString(); 
 	}
 	
@@ -38,7 +39,7 @@ public class UsernameUtil {
 		
 		Random rand = new Random();
 		int fillNum = namePartLength - name.length();
-		nSb.append(name);
+		nSb.append(name.toLowerCase());
 		for(int i = 0; i < fillNum; i++) {
 			
 			nSb.append(lowercase.charAt(rand.nextInt(lowercase.length())));
