@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.util;
 
+import java.util.Random;
+
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 
 public class UsernameUtil {
@@ -17,16 +19,31 @@ public class UsernameUtil {
 	
 	protected static String getNameId(String givenName, String lastName) {
 		
-
-		String lowercase = "abcdefghijklmnopqrstuvwxyz";
+		final int NAME_PART_LENGTH = 4;
+		StringBuilder nSb = new StringBuilder();
 		
-		if(givenName.length < )
-		return "";
+		nSb.append(givenName.length() >= NAME_PART_LENGTH ? 
+				givenName.substring(0, NAME_PART_LENGTH) : fillName(givenName, NAME_PART_LENGTH));
+		
+		nSb.append(lastName.length() >= NAME_PART_LENGTH ? 
+				lastName.substring(0, NAME_PART_LENGTH) : fillName(lastName, NAME_PART_LENGTH));
+
+		return nSb.toString(); 
 	}
 	
-	private static String getNameHelper(String name) {
+	private static String fillName(String name, int namePartLength) {
 		
-
-		return "";
+		String lowercase = "abcdefghijklmnopqrstuvwxyz";
+		StringBuilder nSb = new StringBuilder();
+		
+		Random rand = new Random();
+		int fillNum = namePartLength - name.length();
+		nSb.append(name);
+		for(int i = 0; i < fillNum; i++) {
+			
+			nSb.append(lowercase.charAt(rand.nextInt(lowercase.length())));
+		}
+		
+		return nSb.toString();
 	}
 }
