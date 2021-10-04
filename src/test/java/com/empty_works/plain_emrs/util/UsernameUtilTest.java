@@ -32,4 +32,6 @@ public class UsernameUtilTest {
 		String nameId = UsernameUtil.getNameId("Q", "Shoemaker");
 		Assertions.assertEquals(8, nameId.length());
 	}
+	
+	//TODO Create tests for last name and random sequence
 }

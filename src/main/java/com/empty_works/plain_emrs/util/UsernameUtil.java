@@ -14,6 +14,8 @@ public class UsernameUtil {
 		StringBuilder unSb = new StringBuilder();
 		if(givenName.isEmpty() || lastName.isEmpty()) return INVALID;
 		
+		unSb.append(getNameId(givenName, lastName));
+		
 		return unSb.toString();
 	}
 	
@@ -32,6 +34,18 @@ public class UsernameUtil {
 
 		System.out.println("Username generator name portion: " + nSb.toString());
 		return nSb.toString(); 
+	}
+	
+	final static int SEQUENCE_LENGTH = 5;
+	protected static String getRandomSequence() {
+		
+		String nums = "0123456789";
+		String symbols = "?)(!$%&_.,<>#+-";
+		StringBuilder seqSb = new StringBuilder();
+
+		//TODO: get random characters from the above into a sequence of 5.
+		
+		return "";
 	}
 	
 	private static String fillName(String name, int namePartLength) {
