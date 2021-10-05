@@ -11,49 +11,49 @@ public class RandomCharsUtil {
 	final public static String getLetters(int length) {
 		
 		String seq = scramble(length, letters);
-		System.out.println("RandomCharsUtil.getLetters=" + seq);
+		System.out.println("RandomCharsUtil.getLetters= " + seq);
 		return seq;
 	}
 	
 	final public static String getNums(int length) {
 		
 		String seq = scramble(length, nums);
-		System.out.println("RandomCharsUtil.getNums=" + seq);
+		System.out.println("RandomCharsUtil.getNums= " + seq);
 		return seq;
 	}
 	
 	final public static String getSymbols(int length) {
 		
 		String seq = scramble(length, symbols);
-		System.out.println("RandomCharsUtil.getSymbols=" + seq);
+		System.out.println("RandomCharsUtil.getSymbols= " + seq);
 		return seq;
 	}
 	
 	final public static String getLettersNums(int length) {
 		
 		String seq = scramble(length, letters, nums);
-		System.out.println("RandomCharsUtil.getLettersNums=" + seq);
+		System.out.println("RandomCharsUtil.getLettersNums= " + seq);
 		return seq;
 	}
 	
 	final public static String getLettersSymbols(int length) {
 		
 		String seq = scramble(length, letters, symbols);
-		System.out.println("RandomCharsUtil.getLettersSymbols=" + seq);
+		System.out.println("RandomCharsUtil.getLettersSymbols= " + seq);
 		return seq;
 	}
 
 	final public static String getLettersNumsSymbols(int length) {
 		
 		String seq = scramble(length, letters, nums, symbols);
-		System.out.println("RandomCharsUtil.getLettersNumsSymbols=" + seq);
+		System.out.println("RandomCharsUtil.getLettersNumsSymbols= " + seq);
 		return seq;
 	}
 
 	final public static String getNumsSymbols(int length) {
 		
 		String seq = scramble(length, letters, symbols);
-		System.out.println("RandomCharsUtil.getLettersSymbols=" + seq);
+		System.out.println("RandomCharsUtil.getNumsSymbols= " + seq);
 		return seq;
 	}
 	
