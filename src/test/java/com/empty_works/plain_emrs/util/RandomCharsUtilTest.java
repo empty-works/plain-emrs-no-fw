@@ -29,6 +29,4 @@ public class RandomCharsUtilTest {
 		System.out.println("Test if all characters are alphabetic= " + sequence);
 		Assertions.assertEquals(true, isAlphabetic);
 	}
-	
-	
 }

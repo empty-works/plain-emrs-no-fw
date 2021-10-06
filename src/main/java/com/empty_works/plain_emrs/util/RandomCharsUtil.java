@@ -1,5 +1,8 @@
 package com.empty_works.plain_emrs.util;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class RandomCharsUtil {
@@ -11,49 +14,42 @@ public class RandomCharsUtil {
 	final public static String getLetters(int length) {
 		
 		String seq = scramble(length, letters);
-		System.out.println("RandomCharsUtil.getLetters= " + seq);
 		return seq;
 	}
 	
 	final public static String getNums(int length) {
 		
 		String seq = scramble(length, nums);
-		System.out.println("RandomCharsUtil.getNums= " + seq);
 		return seq;
 	}
 	
 	final public static String getSymbols(int length) {
 		
 		String seq = scramble(length, symbols);
-		System.out.println("RandomCharsUtil.getSymbols= " + seq);
 		return seq;
 	}
 	
 	final public static String getLettersNums(int length) {
 		
 		String seq = scramble(length, letters, nums);
-		System.out.println("RandomCharsUtil.getLettersNums= " + seq);
 		return seq;
 	}
 	
 	final public static String getLettersSymbols(int length) {
 		
 		String seq = scramble(length, letters, symbols);
-		System.out.println("RandomCharsUtil.getLettersSymbols= " + seq);
 		return seq;
 	}
 
 	final public static String getLettersNumsSymbols(int length) {
 		
 		String seq = scramble(length, letters, nums, symbols);
-		System.out.println("RandomCharsUtil.getLettersNumsSymbols= " + seq);
 		return seq;
 	}
 
 	final public static String getNumsSymbols(int length) {
 		
 		String seq = scramble(length, letters, symbols);
-		System.out.println("RandomCharsUtil.getNumsSymbols= " + seq);
 		return seq;
 	}
 	
@@ -68,13 +64,40 @@ public class RandomCharsUtil {
 			
 			seqSb.append(seq);
 		}
-		String comboSeq = seqSb.toString();
+		String comboSeq = Collections.shuffle(seqSb.);
 		
 		for(int i = 0; i < length; i++) {
 			
 			sb.append(comboSeq.charAt(rand.nextInt(comboSeq.length())));
 		}
 		
+		return sb.toString();
+	}
+	
+	private static String shuffleSeqs(String...strings) {
+		
+		List<Integer> indexList = new ArrayList<>();
+		String sequence = "";
+		Random rand = new Random();
+		StringBuilder sb = new StringBuilder();
+
+		for(String seq : strings) {
+			
+			sequence += seq;
+		}
+
+		for(int i = 0; i < sequence.length(); i++) {
+			
+			indexList.add(rand.nextInt(sequence.length()));
+		}
+
+		Collections.shuffle(indexList);
+		for(int i = 0; i < indexList.size(); i++) {
+			
+			sb.append(sequence.charAt(indexList.get(i)));
+		}
+
+		System.out.println("RandomCharsUtil shuffleSeqs() result= " + sb.toString());
 		return sb.toString();
 	}
 }
