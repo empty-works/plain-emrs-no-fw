@@ -70,14 +70,14 @@ public class RandomCharsUtilTest {
 		boolean isSymbol = true;
 		for(int i = 0; i < sequence.length(); i++) {
 			
-			if(!Character.isLetter(sequence.charAt(i))) {
+			if(Character.isLetterOrDigit(sequence.charAt(i))) {
 				
 				isSymbol = false;
 				break;
 			}
 		}
 		System.out.println("RandomCharsUtil.getSymbols test if all characters are digits= " + sequence);
-		Assertions.assertEquals(true, isSymbol);
+		Assertions.assertTrue(isSymbol);
 	}
 	
 	@Test
