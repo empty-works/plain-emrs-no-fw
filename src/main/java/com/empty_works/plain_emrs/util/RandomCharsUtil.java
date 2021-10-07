@@ -83,11 +83,6 @@ public class RandomCharsUtil {
 		for(int i = 0; i < sequence.length(); i++) {
 			
 			indexList.add(rand.nextInt(sequence.length()));
-		}
-
-		Collections.shuffle(indexList);
-		for(int i = 0; i < indexList.size(); i++) {
-			
 			sb.append(sequence.charAt(indexList.get(i)));
 		}
 
