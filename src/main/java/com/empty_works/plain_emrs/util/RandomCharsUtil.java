@@ -57,14 +57,8 @@ public class RandomCharsUtil {
 		
 		Random rand = new Random();
 		StringBuilder sb = new StringBuilder();
-		StringBuilder seqSb = new StringBuilder();
 		
-		// Combine varargs
-		for(String seq : chars) {
-			
-			seqSb.append(seq);
-		}
-		String comboSeq = Collections.shuffle(seqSb.);
+		String comboSeq = shuffleSeqs(chars);
 		
 		for(int i = 0; i < length; i++) {
 			
