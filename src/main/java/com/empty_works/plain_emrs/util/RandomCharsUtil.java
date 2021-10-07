@@ -41,18 +41,18 @@ public class RandomCharsUtil {
 		return seq;
 	}
 
+	final public static String getNumsSymbols(int length) {
+		
+		String seq = scramble(length, nums, symbols);
+		return seq;
+	}
+
 	final public static String getLettersNumsSymbols(int length) {
 		
 		String seq = scramble(length, letters, nums, symbols);
 		return seq;
 	}
 
-	final public static String getNumsSymbols(int length) {
-		
-		String seq = scramble(length, letters, symbols);
-		return seq;
-	}
-	
 	private static String scramble(int length, String... chars) {
 		
 		Random rand = new Random();

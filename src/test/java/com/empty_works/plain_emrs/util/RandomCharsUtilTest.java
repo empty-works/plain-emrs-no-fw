@@ -20,14 +20,14 @@ public class RandomCharsUtilTest {
 		boolean isAlphabetic = true;
 		for(int i = 0; i < sequence.length(); i++) {
 			
-			if(!Character.isAlphabetic(sequence.charAt(i))) {
+			if(!Character.isLetter(sequence.charAt(i))) {
 				
 				isAlphabetic = false;
 				break;
 			}
 		}
 		System.out.println("RandomCharsUtil.getLetters test if all characters are alphabetic= " + sequence);
-		Assertions.assertEquals(true, isAlphabetic);
+		Assertions.assertTrue(isAlphabetic);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class RandomCharsUtilTest {
 			}
 		}
 		System.out.println("RandomCharsUtil.getNums test if all characters are digits= " + sequence);
-		Assertions.assertEquals(true, isNumeric);
+		Assertions.assertTrue(isNumeric);
 	}
 	
 	@Test
@@ -102,6 +102,56 @@ public class RandomCharsUtilTest {
 			}
 		}
 		System.out.println("RandomCharsUtil.getLettersNums test if all characters are digits= " + sequence);
-		Assertions.assertEquals(true, isLetterNum);
+		Assertions.assertTrue(isLetterNum);
+	}
+	
+	@Test
+	void testLettersSymbols_sequenceLength() {
+		
+		String sequence = RandomCharsUtil.getLettersSymbols(5);
+		System.out.println("RandomCharsUtil.getLettersSymbols test if length is 5 characters long= " + sequence);
+		Assertions.assertEquals(5, sequence.length());
+	}
+	
+	@Test
+	void testGetLettersSymbols_containsAllLettersSymbols() {
+		
+		String sequence = RandomCharsUtil.getLettersSymbols(5);
+		boolean isLetterSymbol = true;
+		for(int i = 0; i < sequence.length(); i++) {
+			
+			if(Character.isDigit(sequence.charAt(i))) {
+				
+				isLetterSymbol = false;
+				break;
+			}
+		}
+		System.out.println("RandomCharsUtil.getLettersSymbols test if all characters are digits= " + sequence);
+		Assertions.assertTrue(isLetterSymbol);
+	}
+	
+	@Test
+	void testNumsSymbols_sequenceLength() {
+		
+		String sequence = RandomCharsUtil.getNumsSymbols(5);
+		System.out.println("RandomCharsUtil.getNumsSymbols test if length is 5 characters long= " + sequence);
+		Assertions.assertEquals(5, sequence.length());
+	}
+	
+	@Test
+	void testGetNumsSymbols_containsAllNumsSymbols() {
+		
+		String sequence = RandomCharsUtil.getNumsSymbols(5);
+		boolean isNumSymbol = true;
+		for(int i = 0; i < sequence.length(); i++) {
+			
+			if(Character.isLetter(sequence.charAt(i))) {
+				
+				isNumSymbol = false;
+				break;
+			}
+		}
+		System.out.println("RandomCharsUtil.getNumsSymbols test if all characters are digits= " + sequence);
+		Assertions.assertTrue(isNumSymbol);
 	}
 }
