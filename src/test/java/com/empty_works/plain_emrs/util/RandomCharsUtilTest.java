@@ -1,6 +1,9 @@
 package com.empty_works.plain_emrs.util;
 
 import org.junit.jupiter.api.Test;
+
+import com.empty_works.plain_emrs.util.helpers.RandomCharsUtil;
+
 import org.junit.jupiter.api.Assertions;
 
 public class RandomCharsUtilTest {

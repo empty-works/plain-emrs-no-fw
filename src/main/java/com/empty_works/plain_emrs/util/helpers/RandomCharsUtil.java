@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.util;
+package com.empty_works.plain_emrs.util.helpers;
 
 import java.util.ArrayList;
 import java.util.Collections;

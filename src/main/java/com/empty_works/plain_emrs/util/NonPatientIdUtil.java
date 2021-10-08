@@ -14,7 +14,8 @@ final public class NonPatientIdUtil {
 		StringBuilder idSb = new StringBuilder("PENP-");
 
 		if(np.getGivenName().isEmpty() || np.getLastName().isEmpty()) return INVALID;
-		String nameId = getNameId(np.getGivenName(), np.getLastName());
+		//String nameId = getNameId(np.getGivenName(), np.getLastName());
+		String nameId = UsernameUtil.
 		idSb.append(nameId);
 		idSb.append(getDobId(np.getDateOfBirth()));
 		idSb.append(getRandomSequence());
