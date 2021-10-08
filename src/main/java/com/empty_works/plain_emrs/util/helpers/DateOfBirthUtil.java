@@ -16,7 +16,6 @@ public class DateOfBirthUtil {
 		dobSb.append(month < DOUBLE_DIGITS ? "0" +  month : "" + month);
 		dobSb.append("" + year);
 		
-		System.out.println("DateOfBirthUtil getDobId: " + dobSb.toString());
 		return dobSb.toString();
 	}
 }

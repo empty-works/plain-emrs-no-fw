@@ -7,7 +7,6 @@ import com.empty_works.plain_emrs.util.helpers.DateOfBirthUtil;
 
 final public class NonPatientIdUtil {
 	
-	//TODO: Make this class a superclass with nonpatient and patient children
 	final public static String INVALID = "Invalid ID due to invalid inputs.";
 
 	final public static String get(NonPatientBean np) {
@@ -55,6 +54,7 @@ final public class NonPatientIdUtil {
 		return DateOfBirthUtil.getDobId(dob);
 	}
 	
+	// Creates sequence based on current time in milliseconds
 	public final static int SEQUENCE_LENGTH = 6;
 	protected static String getRandomSequence() {
 		
