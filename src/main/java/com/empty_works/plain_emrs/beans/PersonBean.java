@@ -8,6 +8,7 @@ public class PersonBean {
 	protected String givenName;
 	protected String middleName;
 	protected String lastName;
+	protected String emailAddress;
 	protected LocalDate dateOfBirth;
 
 	public String getId() {
@@ -33,6 +34,12 @@ public class PersonBean {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
