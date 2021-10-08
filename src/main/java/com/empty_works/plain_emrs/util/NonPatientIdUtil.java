@@ -3,6 +3,7 @@ package com.empty_works.plain_emrs.util;
 import java.time.LocalDate;
 import java.util.Random;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.util.helpers.DateOfBirthUtil;
 
 final public class NonPatientIdUtil {
 	
@@ -15,7 +16,7 @@ final public class NonPatientIdUtil {
 
 		if(np.getGivenName().isEmpty() || np.getLastName().isEmpty()) return INVALID;
 		//String nameId = getNameId(np.getGivenName(), np.getLastName());
-		String nameId = UsernameUtil.
+		String nameId = UsernameUtil.get(np);
 		idSb.append(nameId);
 		idSb.append(getDobId(np.getDateOfBirth()));
 		idSb.append(getRandomSequence());
@@ -42,21 +43,16 @@ final public class NonPatientIdUtil {
 		
 		return namesSb.toString();
 	}
+
+	// getNameId helper
+	private static String getNameSub(String name) {
+		
+		return (name.length() > 1) ? "" + name.charAt(0) + name.charAt(1) : "" + name.charAt(0);
+	}
 	
 	protected static String getDobId(LocalDate dob) {
 		
-		int day = dob.getDayOfMonth();
-		int month = dob.getMonthValue();
-		int year = dob.getYear();
-		final int DOUBLE_DIGITS = 10;
-		
-		StringBuilder dobSb = new StringBuilder("");
-		dobSb.append(day < DOUBLE_DIGITS ? "0" + day : "" + day);
-		dobSb.append(month < DOUBLE_DIGITS ? "0" +  month : "" + month);
-		dobSb.append("" + year);
-		
-		System.out.println("DOB portion of non-patient ID: " + dobSb.toString());
-		return dobSb.toString();
+		return DateOfBirthUtil.getDobId(dob);
 	}
 	
 	public final static int SEQUENCE_LENGTH = 6;
@@ -98,11 +94,5 @@ final public class NonPatientIdUtil {
 			return "0" + ++index; // Need to add 1 so the index remains greater than zero.
 		}
 		return "" + ++index;
-	}
-	
-	// getNameId helper
-	private static String getNameSub(String name) {
-		
-		return (name.length() > 1) ? "" + name.charAt(0) + name.charAt(1) : "" + name.charAt(0);
 	}
 }
