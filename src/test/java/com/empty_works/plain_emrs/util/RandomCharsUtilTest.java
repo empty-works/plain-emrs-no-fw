@@ -154,4 +154,12 @@ public class RandomCharsUtilTest {
 		System.out.println("RandomCharsUtil.getNumsSymbols test if all characters are digits= " + sequence);
 		Assertions.assertTrue(isNumSymbol);
 	}
+	
+	@Test
+	void testLettersNumsSymbols_sequenceLength() {
+		
+		String sequence = RandomCharsUtil.getLettersNumsSymbols(5);
+		System.out.println("RandomCharsUtil.getLettersNumsSymbols test if length is 5 characters long= " + sequence);
+		Assertions.assertEquals(5, sequence.length());
+	}
 }
