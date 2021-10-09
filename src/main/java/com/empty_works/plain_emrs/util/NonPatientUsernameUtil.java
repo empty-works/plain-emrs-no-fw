@@ -7,6 +7,6 @@ public class NonPatientUsernameUtil {
 
 	public final static String get(NonPatientBean npb) {
 		
-		return UsernameUtil.get(npb);
+		return UsernameUtil.get(npb) + "-NP";
 	}
 }

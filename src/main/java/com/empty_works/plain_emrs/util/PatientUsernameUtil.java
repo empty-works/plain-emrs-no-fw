@@ -7,6 +7,6 @@ public class PatientUsernameUtil {
 
 	public final static String get(PatientBean pb) {
 		
-		return UsernameUtil.get(pb);
+		return UsernameUtil.get(pb) + "-P";
 	}
 }

@@ -9,7 +9,7 @@ public class RandomCharsUtil {
 
 	private static String letters = "abcdefghijklmnopqrstuvwxyz";
 	private static String nums = "0123456789";
-	private static String symbols = "!$%&/()?+-:.,<>*#";
+	private static String symbols = "!$%&/()?+:.,<>*#";
 	
 	final public static String getLetters(int length) {
 		

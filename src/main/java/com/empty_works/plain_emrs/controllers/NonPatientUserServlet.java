@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.empty_works.plain_emrs.beans.GeneratedUserBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.util.NonPatientIdUtil;
+import com.empty_works.plain_emrs.util.NonPatientUsernameUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
 
 /**
@@ -49,7 +50,7 @@ public class NonPatientUserServlet extends HttpServlet {
 	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {
 		
 		GeneratedUserBean gub = new GeneratedUserBean();
-		gub.setUsername(npb.getGivenName() + npb.getLastName() + npb.hashCode());
+		gub.setUsername(NonPatientUsernameUtil.get(npb));
 		gub.setPassword(PasswordUtil.generate(5));
 		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);
