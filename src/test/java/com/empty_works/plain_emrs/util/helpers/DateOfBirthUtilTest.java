@@ -20,7 +20,7 @@ public class DateOfBirthUtilTest {
 	void testGetDobId_doubleDigitDates() {
 		
 		// Checking if month and day are properly normalized if they are double digits
-		String dobId = NonPatientIdUtil.getDobId(LocalDate.of(1999, 12, 25));
+		String dobId = DateOfBirthUtil.getDobId(LocalDate.of(1999, 12, 25));
 		System.out.println("DateOfBirthUtil getDobId_doubleDigitDates: " + dobId);
 		Assertions.assertEquals("25121999", dobId);
 	}
@@ -29,7 +29,7 @@ public class DateOfBirthUtilTest {
 	void testGetDobId_singleMonthDoubleDayDigits() {
 		
 		// Checking when month is single digit and day is double digit.
-		String dobId = NonPatientIdUtil.getDobId(LocalDate.of(1999, 2, 14));
+		String dobId = DateOfBirthUtil.getDobId(LocalDate.of(1999, 2, 14));
 		System.out.println("DateOfBirthUtil getDobId_singleMonthDoubleDayDigits: " + dobId);
 		Assertions.assertEquals("14021999", dobId);
 	}
@@ -38,7 +38,7 @@ public class DateOfBirthUtilTest {
 	void testGetDobId_doubleMonthSingleDayDigits() {
 		
 		// Checking when month is double digit and day is single digit.
-		String dobId = NonPatientIdUtil.getDobId(LocalDate.of(1999, 10, 1));
+		String dobId = DateOfBirthUtil.getDobId(LocalDate.of(1999, 10, 1));
 		System.out.println("DateOfBirthUtil getDobId_doubleMonthSingleDayDigits: " + dobId);
 		Assertions.assertEquals("01101999", dobId);
 	}
