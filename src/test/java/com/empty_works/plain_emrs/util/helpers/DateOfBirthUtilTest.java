@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.util;
+package com.empty_works.plain_emrs.util.helpers;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ public class DateOfBirthUtilTest {
 	void testGetDobId_singleDigitDates() {
 		
 		// Checking if month and day are properly normalized if they are single digit
-		String dobId = NonPatientIdUtil.getDobId(LocalDate.of(1999, 5, 9));
+		String dobId = DateOfBirthUtil.getDobId(LocalDate.of(1999, 5, 9));
 		System.out.println("DateOfBirthUtil getDobId_singleDigitDates: " + dobId);
 		Assertions.assertEquals("09051999", dobId);
 	}
