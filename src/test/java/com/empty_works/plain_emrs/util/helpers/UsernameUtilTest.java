@@ -1,6 +1,9 @@
-package com.empty_works.plain_emrs.util;
+package com.empty_works.plain_emrs.util.helpers;
 
 import org.junit.jupiter.api.Test;
+
+import com.empty_works.plain_emrs.util.helpers.UsernameUtil;
+
 import org.junit.jupiter.api.Assertions;
 
 public class UsernameUtilTest {

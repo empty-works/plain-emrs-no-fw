@@ -1,25 +1,23 @@
-package com.empty_works.plain_emrs.util;
+package com.empty_works.plain_emrs.util.helpers;
 
 import java.time.LocalDate;
 import java.util.Random;
 
-import com.empty_works.plain_emrs.beans.NonPatientBean;
-import com.empty_works.plain_emrs.util.helpers.DateOfBirthUtil;
-import com.empty_works.plain_emrs.util.helpers.RandomCharsUtil;
+import com.empty_works.plain_emrs.beans.PersonBean;
 
 public class UsernameUtil {
 
 	final static String INVALID = "Username invalid due to invalid inputs.";
 
-	public static String get(NonPatientBean npb) {
+	public static String get(PersonBean person) {
 		
-		String givenName = npb.getGivenName();
-		String lastName = npb.getLastName();
+		String givenName = person.getGivenName();
+		String lastName = person.getLastName();
 		StringBuilder unSb = new StringBuilder();
 		if(givenName.isEmpty() || lastName.isEmpty()) return INVALID;
 		
 		unSb.append(getName(givenName, lastName));
-		unSb.append(getDob(npb.getDateOfBirth()));
+		unSb.append(getDob(person.getDateOfBirth()));
 		unSb.append(getRandomSequence());
 		
 		return unSb.toString();
