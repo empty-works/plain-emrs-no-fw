@@ -1,15 +1,18 @@
-package com.empty_works.plain_emrs.util;
+package com.empty_works.plain_emrs.util.helpers;
 
 import org.junit.jupiter.api.Test;
+
+import com.empty_works.plain_emrs.util.NonPatientIdUtil;
+
 import org.junit.jupiter.api.Assertions;
 
-public class NonPatientIdUtilTest {
+public class IdUtilTest {
 
 	@Test
 	void testGetNameId_singleDigitIndex() {
 		
 		// The indices of the first two characters of each name are less than 10.
-		String nameId = NonPatientIdUtil.getNameId("Fatima", "Garcia");
+		String nameId = IdUtil.getNameId("Fatima", "Garcia");
 		Assertions.assertEquals("06010701", nameId);
 	}
 	
@@ -17,7 +20,7 @@ public class NonPatientIdUtilTest {
 	void testGetNameId_doubleDigitIndex() {
 		
 		// The indices of the first two characters of each name are equal to or greater than 10.
-		String nameId = NonPatientIdUtil.getNameId("Monique", "Rooney");
+		String nameId = IdUtil.getNameId("Monique", "Rooney");
 		Assertions.assertEquals("13151815", nameId);
 	}
 	
@@ -25,7 +28,7 @@ public class NonPatientIdUtilTest {
 	void testGetNameId_singleLetterNames() {
 		
 		// Names only have one letter
-		String nameId = NonPatientIdUtil.getNameId("Q", "B");
+		String nameId = IdUtil.getNameId("Q", "B");
 		Assertions.assertEquals("17000200", nameId);
 	}
 	
@@ -33,7 +36,7 @@ public class NonPatientIdUtilTest {
 	void testGetRandomSequence() {
 		
 		// Only checks for the length of the returned sequence
-		String seqId = NonPatientIdUtil.getRandomSequence();
-		Assertions.assertEquals(NonPatientIdUtil.SEQUENCE_LENGTH, seqId.length());
+		String seqId = IdUtil.getRandomSequence();
+		Assertions.assertEquals(IdUtil.SEQUENCE_LENGTH, seqId.length());
 	}
 }
