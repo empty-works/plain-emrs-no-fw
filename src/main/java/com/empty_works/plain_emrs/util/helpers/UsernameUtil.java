@@ -18,7 +18,7 @@ public class UsernameUtil {
 		
 		unSb.append(getName(givenName, lastName));
 		unSb.append(getDob(person.getDateOfBirth()));
-		unSb.append(getRandomSequence());
+		unSb.append("_" + getRandomSequence());
 		
 		return unSb.toString();
 	}
@@ -26,7 +26,7 @@ public class UsernameUtil {
 	// Protected for unit test
 	protected static String getName(String givenName, String lastName) {
 		
-		final int NAME_PART_LENGTH = 4;
+		final int NAME_PART_LENGTH = 2;
 		StringBuilder nSb = new StringBuilder();
 		
 		nSb.append(givenName.length() >= NAME_PART_LENGTH ? 
@@ -63,9 +63,9 @@ public class UsernameUtil {
 		return DateOfBirthUtil.getDobId(dob);
 	}
 	
-	final static int SEQUENCE_LENGTH = 5;
+	final static int SEQUENCE_LENGTH = 4;
 	private static String getRandomSequence() {
 		
-		return "_" + RandomCharsUtil.getNumsSymbols(SEQUENCE_LENGTH);
+		return RandomCharsUtil.getLettersNums(SEQUENCE_LENGTH);
 	}
 }

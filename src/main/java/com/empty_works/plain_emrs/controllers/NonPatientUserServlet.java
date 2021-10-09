@@ -35,7 +35,7 @@ public class NonPatientUserServlet extends HttpServlet {
 		np.setMiddleName(request.getParameter("middleName"));
 		np.setLastName(request.getParameter("lastName"));
 		np.setEmailAddress(request.getParameter("emailAddress"));
-		// TODO: MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
+		// MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
 		np.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
 		np.setOrganization(request.getParameter("organization"));
 		np.setDescription(request.getParameter("description"));

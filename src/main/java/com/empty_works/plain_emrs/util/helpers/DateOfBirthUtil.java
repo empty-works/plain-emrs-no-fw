@@ -12,9 +12,9 @@ public class DateOfBirthUtil {
 		final int DOUBLE_DIGITS = 10;
 		
 		StringBuilder dobSb = new StringBuilder("");
-		dobSb.append(day < DOUBLE_DIGITS ? "0" + day : "" + day);
-		dobSb.append(month < DOUBLE_DIGITS ? "0" +  month : "" + month);
-		dobSb.append("" + year);
+		dobSb.append((day < DOUBLE_DIGITS ? "0" + day : "" + day).charAt(1));
+		dobSb.append((month < DOUBLE_DIGITS ? "0" +  month : "" + month).charAt(1));
+		dobSb.append(("" + year).substring(2));
 		
 		return dobSb.toString();
 	}
