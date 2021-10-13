@@ -4,9 +4,9 @@ public class NonPatientBean extends PersonBean {
 
 	private String organization;
 	private String description;
-	private String wardId = "";
-	private String staffPositionId = "";
-	private String specialtyId = "";
+	private String ward = "Not applicable";
+	private String staffPosition = "Not applicable";
+	private String specialty = "Not applicable";
 
 	public String getOrganization() {
 		return organization;
@@ -20,22 +20,22 @@ public class NonPatientBean extends PersonBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getWardId() {
-		return wardId;
+	public String getWard() {
+		return ward;
 	}
-	public void setWardId(String wardId) {
-		this.wardId = wardId;
+	public void setWard(String ward) {
+		this.ward = ward;
 	}
-	public String getStaffPositionId() {
-		return staffPositionId;
+	public String getStaffPosition() {
+		return staffPosition;
 	}
-	public void setStaffPositionId(String staffPositionId) {
-		this.staffPositionId = staffPositionId;
+	public void setStaffPosition(String staffPosition) {
+		this.staffPosition = staffPosition;
 	}
-	public String getSpecialtyId() {
-		return specialtyId;
+	public String getSpecialty() {
+		return specialty;
 	}
-	public void setSpecialtyId(String specialtyId) {
-		this.specialtyId = specialtyId;
+	public void setSpecialty(String specialty) {
+		this.specialty = specialty;
 	}
 }

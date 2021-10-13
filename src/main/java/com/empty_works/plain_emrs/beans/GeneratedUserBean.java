@@ -48,10 +48,10 @@ public class GeneratedUserBean {
 	public void setPatientId(int patientId) {
 		this.patientId = patientId;
 	}
-	public int getNonpatientId() {
+	public int getNonPatientId() {
 		return nonpatientId;
 	}
-	public void setNonpatientId(int nonpatientId) {
+	public void setNonPatientId(int nonpatientId) {
 		this.nonpatientId = nonpatientId;
 	}
 }

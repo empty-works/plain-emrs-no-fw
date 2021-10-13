@@ -42,13 +42,29 @@
 		<td>Description: </td>
 		<td><c:out value="${npbean.getDescription()}"></c:out></td>
 		</tr>
+		<tr>
+		<td>Ward: </td>
+		<td><c:out value="${npbean.}"></c:out>
+		</tr>
 	</table>
 	<h2>Generated Non-patient User Info</h2>	
 	<table>
 		<tr>
+		<td>Non-patient ID: </td>
+		<td><c:out value="${gubean.getNonPatientId} "></c:out>
+		</tr>
+		<tr>
 		<td>Username: </td>
 		<td><c:out value="${gubean.getUsername()}"></c:out></td>
 		</tr>	
+		<tr>
+		<td>Password: </td>
+		<td><c:out value="${gubean.getPassword()}"></c:out></td>
+		</tr>
+		<tr>
+		<td>Created: </td>
+		<td><c:out value="${gubean.getCreatedOn()}"></c:out>
+		</tr>
 	</table>
 	</form>
 </body>
