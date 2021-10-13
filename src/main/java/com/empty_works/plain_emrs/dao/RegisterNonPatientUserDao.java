@@ -53,6 +53,6 @@ public class RegisterNonPatientUserDao {
 			e.printStackTrace();
 		}
 		
-		return "";
+		return "Something went wrong in RegisterNonPatientUserDao...";
 	}
 }

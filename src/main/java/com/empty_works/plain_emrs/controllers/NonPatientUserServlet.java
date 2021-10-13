@@ -1,7 +1,6 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.GeneratedUserBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.dao.RegisterNonPatientUserDao;
 import com.empty_works.plain_emrs.util.NonPatientIdUtil;
 import com.empty_works.plain_emrs.util.NonPatientUsernameUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
@@ -30,21 +30,34 @@ public class NonPatientUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Setting parameters to NonPatientBean...");
-		NonPatientBean np = new NonPatientBean();
-		np.setGivenName(request.getParameter("givenName"));
-		np.setMiddleName(request.getParameter("middleName"));
-		np.setLastName(request.getParameter("lastName"));
-		np.setEmailAddress(request.getParameter("emailAddress"));
+		NonPatientBean npb = new NonPatientBean();
+		npb.setGivenName(request.getParameter("givenName"));
+		npb.setMiddleName(request.getParameter("middleName"));
+		npb.setLastName(request.getParameter("lastName"));
+		npb.setEmailAddress(request.getParameter("emailAddress"));
 		// MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
-		np.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
-		np.setOrganization(request.getParameter("organization"));
-		np.setDescription(request.getParameter("description"));
-		np.setId(NonPatientIdUtil.get(np));
+		npb.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
+		npb.setOrganization(request.getParameter("organization"));
+		npb.setDescription(request.getParameter("description"));
+		npb.setId(NonPatientIdUtil.get(npb));
 		
-		System.out.println("Forwarding to GeneratedUser JSP...");
-		request.setAttribute("npbean", np);
-		request.setAttribute("gubean", autoGenerateUser(np)); // Set generated user bean
-		request.getRequestDispatcher("/GeneratedNonPatientUser.jsp").forward(request, response);
+		RegisterNonPatientUserDao rnpud = new RegisterNonPatientUserDao();
+		// Write to database
+		System.out.println("Registering non-patient user...");
+		String registrationResult = rnpud.register(npb);
+		if(registrationResult.equals(RegisterNonPatientUserDao.NONPATIENTDAO_SUCCESS)) {
+			
+			System.out.println("User registration successful! Forwarding to GeneratedUser JSP...");
+			request.setAttribute("npbean", npb);
+			request.setAttribute("gubean", autoGenerateUser(npb)); // Set generated user bean
+			request.getRequestDispatcher("/GeneratedNonPatientUser.jsp").forward(request, response);
+		}
+		else {
+			
+			System.out.println("User registration failed! Going back to registration page...");
+			request.setAttribute("errMessage", registrationResult);
+			request.getRequestDispatcher("/AddNonPatient.jsp").forward(request, response);
+		}
 	}
 	
 	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {
