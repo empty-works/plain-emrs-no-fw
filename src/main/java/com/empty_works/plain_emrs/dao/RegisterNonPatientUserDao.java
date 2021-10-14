@@ -22,9 +22,9 @@ public class RegisterNonPatientUserDao {
 		String organization = npb.getOrganization();
 		LocalDate dateOfBirth = npb.getDateOfBirth();
 		String description = npb.getDescription();
-		String wardId = npb.getWardId();
-		String staffPositionId = npb.getStaffPositionId();
-		String specialtyId = npb.getSpecialtyId();
+		String wardId = npb.getWard();
+		String staffPositionId = npb.getStaffPosition();
+		String specialtyId = npb.getSpecialty();
 		
 		Connection con = null;
 		PreparedStatement preparedStatement = null;
