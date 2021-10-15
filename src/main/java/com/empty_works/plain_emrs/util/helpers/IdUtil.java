@@ -23,6 +23,17 @@ public class IdUtil {
 		return idSb.toString();
 	}
 	
+	final public static String get(String...texts) {
+		
+		StringBuilder idSb = new StringBuilder();
+		String nameId = getNameId(texts);
+		idSb.append(nameId);
+
+		
+		System.out.println("Final non-patient ID: " + idSb.toString());
+		return idSb.toString();
+	}
+	
 	protected static String getNameId(String givenName, String lastName) {
 		
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -39,6 +50,23 @@ public class IdUtil {
 		
 		System.out.println("Name portion of non-patient ID: " + namesSb.toString());
 		
+		return namesSb.toString();
+	}
+	
+	protected static String getNameId(String...texts) {
+		
+		String lowercase = "abcdefghijklmnopqrstuvwxyz";
+		
+		StringBuilder namesSb = new StringBuilder();
+		for(String text : texts) {
+			
+			String tempSub = getNameSub(text);
+			
+			namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(text.charAt(0)))));
+			if(text.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
+			else namesSb.append("00");
+		}
+
 		return namesSb.toString();
 	}
 
