@@ -39,7 +39,8 @@ public class NonPatientUserServlet extends HttpServlet {
 		npb.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
 		npb.setOrganization(request.getParameter("organization"));
 		npb.setDescription(request.getParameter("description"));
-		npb.setId(NonPatientIdUtil.get(npb));
+		npb.setId(NonPatientIdUtil.get(npb.getGivenName(), npb.getLastName(), 
+				npb.getDateOfBirth().toString()));
 		
 		RegisterNonPatientUserDao rnpud = new RegisterNonPatientUserDao();
 		// Write to database

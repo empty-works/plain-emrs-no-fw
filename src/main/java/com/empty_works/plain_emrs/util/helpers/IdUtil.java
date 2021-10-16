@@ -3,67 +3,32 @@ package com.empty_works.plain_emrs.util.helpers;
 import java.time.LocalDate;
 import java.util.Random;
 
-import com.empty_works.plain_emrs.beans.PersonBean;
-
 public class IdUtil {
 
 	final public static String INVALID = "Invalid ID due to invalid inputs.";
 
-	final public static String get(PersonBean person) {
+	final public static String get(String...texts) {
 		
 		StringBuilder idSb = new StringBuilder();
-
-		if(person.getGivenName().isEmpty() || person.getLastName().isEmpty()) return INVALID;
-		String nameId = getNameId(person.getGivenName(), person.getLastName());
-		idSb.append(nameId);
-		idSb.append(getDobId(person.getDateOfBirth()));
+		idSb.append(getFirstPartId(texts));
 		idSb.append(getRandomSequence());
 		
 		System.out.println("Final non-patient ID: " + idSb.toString());
 		return idSb.toString();
 	}
 	
-	final public static String get(String...texts) {
+	protected static String getFirstPartId(String...texts) {
 		
-		StringBuilder idSb = new StringBuilder();
-		String nameId = getNameId(texts);
-		idSb.append(nameId);
-
-		
-		System.out.println("Final non-patient ID: " + idSb.toString());
-		return idSb.toString();
-	}
-	
-	protected static String getNameId(String givenName, String lastName) {
-		
-		String lowercase = "abcdefghijklmnopqrstuvwxyz";
-		String gnSub = getNameSub(givenName);
-		String lnSub = getNameSub(lastName);
-		StringBuilder namesSb = new StringBuilder("");
-		
-		namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(0)))));
-		if(gnSub.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
-		else namesSb.append("00");
-		namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(0)))));
-		if(lnSub.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(lnSub.charAt(1)))));
-		else namesSb.append("00");
-		
-		System.out.println("Name portion of non-patient ID: " + namesSb.toString());
-		
-		return namesSb.toString();
-	}
-	
-	protected static String getNameId(String...texts) {
-		
-		String lowercase = "abcdefghijklmnopqrstuvwxyz";
+		String lowercase = "abcdefghijklmnopqrstuvwxyz0123456789";
 		
 		StringBuilder namesSb = new StringBuilder();
 		for(String text : texts) {
 			
 			String tempSub = getNameSub(text);
 			
-			namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(text.charAt(0)))));
-			if(text.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(gnSub.charAt(1)))));
+			namesSb.append(normalizeIndex(lowercase.indexOf(Character.toLowerCase(tempSub.charAt(0)))));
+			if(tempSub.length() > 1) namesSb.append(normalizeIndex(lowercase.indexOf(
+					Character.toLowerCase(tempSub.charAt(1)))));
 			else namesSb.append("00");
 		}
 
