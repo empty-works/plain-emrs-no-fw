@@ -9,8 +9,8 @@ public class GeneratedUserBean {
 	private String emailAddress;
 	private boolean enabled;
 	private LocalDateTime createdOn;
-	private int patientId;
-	private int nonpatientId;
+	private String patientId;
+	private String nonpatientId;
 
 	public String getUsername() {
 		return username;
@@ -42,16 +42,16 @@ public class GeneratedUserBean {
 	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
-	public int getPatientId() {
+	public String getPatientId() {
 		return patientId;
 	}
-	public void setPatientId(int patientId) {
+	public void setPatientId(String patientId) {
 		this.patientId = patientId;
 	}
-	public int getNonPatientId() {
+	public String getNonPatientId() {
 		return nonpatientId;
 	}
-	public void setNonPatientId(int nonpatientId) {
+	public void setNonPatientId(String nonpatientId) {
 		this.nonpatientId = nonpatientId;
 	}
 }

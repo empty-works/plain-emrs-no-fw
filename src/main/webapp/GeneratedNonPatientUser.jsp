@@ -50,7 +50,7 @@
 	<table>
 		<tr>
 		<td>Non-patient ID: </td>
-		<td><c:out value="${gubean.getNonPatientId} "></c:out>
+		<td><c:out value="${gubean.getNonPatientId()} "></c:out>
 		</tr>
 		<tr>
 		<td>Username: </td>
