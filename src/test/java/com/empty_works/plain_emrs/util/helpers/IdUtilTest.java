@@ -29,6 +29,15 @@ public class IdUtilTest {
 		String nameId = IdUtil.getFirstPartId("Q", "B");
 		Assertions.assertEquals("17000200", nameId);
 	}
+
+	@Test
+	void testGetNameId_firstLastNamesDob() {
+		
+		// Names only have one letter
+		String nameId = IdUtil.getFirstPartId("Kayla", "Barnes", "99");
+		System.out.println(nameId);
+		Assertions.assertEquals("110102013636", nameId);
+	}
 	
 	@Test
 	void testGetRandomSequence() {

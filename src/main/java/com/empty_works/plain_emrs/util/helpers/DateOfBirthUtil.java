@@ -12,10 +12,18 @@ public class DateOfBirthUtil {
 		final int DOUBLE_DIGITS = 10;
 		
 		StringBuilder dobSb = new StringBuilder("");
-		dobSb.append((day < DOUBLE_DIGITS ? "0" + day : "" + day).charAt(1));
-		dobSb.append((month < DOUBLE_DIGITS ? "0" +  month : "" + month).charAt(1));
+		dobSb.append((day < DOUBLE_DIGITS ? "0" + day : "" + day));
+		dobSb.append((month < DOUBLE_DIGITS ? "0" +  month : "" + month));
 		dobSb.append(("" + year).substring(2));
 		
 		return dobSb.toString();
+	}
+	
+	public static String getShortYear(LocalDate dob) {
+		
+		int year = dob.getYear();
+		String justYear = "" + year;
+		// Return short form of year, i.e. - 1999 becomes 99.
+		return "" + justYear.charAt(justYear.length() - 2) + justYear.charAt(justYear.length() - 1);
 	}
 }

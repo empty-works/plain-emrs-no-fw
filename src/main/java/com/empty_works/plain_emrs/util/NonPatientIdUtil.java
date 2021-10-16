@@ -6,6 +6,8 @@ final public class NonPatientIdUtil {
 	
 	final public static String get(String...texts) {
 		
-		return "PENP-" + IdUtil.get(texts);
+		String id = "PENP-" + IdUtil.get(texts);
+		System.out.println("NonPatientIdUtil= " + id);
+		return id;
 	}
 }

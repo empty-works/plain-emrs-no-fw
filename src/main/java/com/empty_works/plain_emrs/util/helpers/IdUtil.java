@@ -19,7 +19,7 @@ public class IdUtil {
 	
 	protected static String getFirstPartId(String...texts) {
 		
-		String lowercase = "abcdefghijklmnopqrstuvwxyz0123456789";
+		String lowercase = "abcdefghijklmnopqrstuvwxyz0123456789-_/";
 		
 		StringBuilder namesSb = new StringBuilder();
 		for(String text : texts) {

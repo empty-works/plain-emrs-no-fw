@@ -16,6 +16,7 @@ import com.empty_works.plain_emrs.dao.RegisterNonPatientUserDao;
 import com.empty_works.plain_emrs.util.NonPatientIdUtil;
 import com.empty_works.plain_emrs.util.NonPatientUsernameUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
+import com.empty_works.plain_emrs.util.helpers.DateOfBirthUtil;
 
 /**
  * Servlet implementation class AddNonPatientServlet
@@ -40,12 +41,13 @@ public class NonPatientUserServlet extends HttpServlet {
 		npb.setOrganization(request.getParameter("organization"));
 		npb.setDescription(request.getParameter("description"));
 		npb.setId(NonPatientIdUtil.get(npb.getGivenName(), npb.getLastName(), 
-				npb.getDateOfBirth().toString()));
+				DateOfBirthUtil.getShortYear(npb.getDateOfBirth())));
 		
 		RegisterNonPatientUserDao rnpud = new RegisterNonPatientUserDao();
-		// Write to database
 		System.out.println("Registering non-patient user...");
+		// Write to database
 		String registrationResult = rnpud.register(npb);
+		//+++++++++++++++++++++++++++++++++++++++++++++
 		if(registrationResult.equals(RegisterNonPatientUserDao.NONPATIENTDAO_SUCCESS)) {
 			
 			System.out.println("User registration successful! Forwarding to GeneratedUser JSP...");

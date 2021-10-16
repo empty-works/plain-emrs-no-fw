@@ -44,7 +44,6 @@
 		</tr>
 		<tr>
 		<td>Ward: </td>
-		<td><c:out value="${npbean.}"></c:out>
 		</tr>
 	</table>
 	<h2>Generated Non-patient User Info</h2>	
