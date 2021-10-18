@@ -9,8 +9,8 @@ public class GeneratedUserBean {
 	private String emailAddress;
 	private boolean enabled;
 	private LocalDateTime createdOn;
-	private String patientId;
-	private String nonpatientId;
+	private String patientId = "Not applicable";
+	private String nonpatientId = "Not applicable";
 
 	public String getUsername() {
 		return username;

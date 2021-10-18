@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.GeneratedUserBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.dao.RegisterGeneratedUserDao;
 import com.empty_works.plain_emrs.dao.RegisterNonPatientUserDao;
 import com.empty_works.plain_emrs.util.NonPatientIdUtil;
 import com.empty_works.plain_emrs.util.NonPatientUsernameUtil;
@@ -43,22 +44,24 @@ public class NonPatientUserServlet extends HttpServlet {
 		npb.setId(NonPatientIdUtil.get(npb.getGivenName(), npb.getLastName(), 
 				DateOfBirthUtil.getShortYear(npb.getDateOfBirth())));
 		
-		RegisterNonPatientUserDao rnpud = new RegisterNonPatientUserDao();
 		System.out.println("Registering non-patient user...");
 		// Write to database
-		String registrationResult = rnpud.register(npb);
+		String nonPatientRegistrationResult = RegisterNonPatientUserDao.register(npb);
+		GeneratedUserBean gub = autoGenerateUser(npb);
+		String generatedUserRegistrationResult = RegisterGeneratedUserDao.register(gub); 
 		//+++++++++++++++++++++++++++++++++++++++++++++
-		if(registrationResult.equals(RegisterNonPatientUserDao.NONPATIENTDAO_SUCCESS)) {
+		if(nonPatientRegistrationResult.equals(RegisterNonPatientUserDao.NONPATIENTDAO_SUCCESS) && 
+				generatedUserRegistrationResult.equals(RegisterGeneratedUserDao.GENERATEDUSERDAO_SUCCESS)) {
 			
 			System.out.println("User registration successful! Forwarding to GeneratedUser JSP...");
 			request.setAttribute("npbean", npb);
-			request.setAttribute("gubean", autoGenerateUser(npb)); // Set generated user bean
+			request.setAttribute("gubean", gub); // Set generated user bean
 			request.getRequestDispatcher("/GeneratedNonPatientUser.jsp").forward(request, response);
 		}
 		else {
 			
 			System.out.println("User registration failed! Going back to registration page...");
-			request.setAttribute("errMessage", registrationResult);
+			request.setAttribute("errMessage", nonPatientRegistrationResult);
 			request.getRequestDispatcher("/AddNonPatient.jsp").forward(request, response);
 		}
 	}
@@ -68,7 +71,7 @@ public class NonPatientUserServlet extends HttpServlet {
 		GeneratedUserBean gub = new GeneratedUserBean();
 		gub.setNonPatientId(npb.getId());
 		gub.setUsername(NonPatientUsernameUtil.get(npb));
-		gub.setPassword(PasswordUtil.generate(5));
+		gub.setPassword(PasswordUtil.generate(7));
 		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);
 		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time

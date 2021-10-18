@@ -13,7 +13,7 @@ public class RegisterNonPatientUserDao {
 
 	final public static String NONPATIENTDAO_SUCCESS = "SUCCESS";
 	
-	public String register(NonPatientBean npb) {
+	public static String register(NonPatientBean npb) {
 		
 		String id = npb.getId();
 		String givenName = npb.getGivenName();
