@@ -19,6 +19,8 @@
 	Welcome <%=request.getAttribute("username") %>
 	
 	<br><br>
+	<a href="<c:url value="/FacilitySetup.jsp" />">Set Up Facility</a>
+	<br><br>
 	<a href="<c:url value="/AddNonPatient.jsp" />">Add Non-Patient</a>
 		
 </body>

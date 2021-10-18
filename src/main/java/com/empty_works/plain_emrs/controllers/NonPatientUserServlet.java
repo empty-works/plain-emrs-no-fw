@@ -22,7 +22,7 @@ import com.empty_works.plain_emrs.util.helpers.DateOfBirthUtil;
 /**
  * Servlet implementation class AddNonPatientServlet
  */
-@WebServlet("/GenerateNonPatientUser")
+@WebServlet("/NonPatientUserServlet")
 public class NonPatientUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
