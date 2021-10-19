@@ -1,11 +1,14 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.empty_works.plain_emrs.beans.FacilityBean;
 
 /**
  * Servlet implementation class FacilityServlet
@@ -19,7 +22,6 @@ public class FacilityServlet extends HttpServlet {
      */
     public FacilityServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -33,6 +35,16 @@ public class FacilityServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+
+		System.out.println("Setting parameters to FacilityBean...");
+		FacilityBean fb = new FacilityBean();
+		fb.setName(request.getParameter("facilityName"));
+		fb.setStreetAddress(request.getParameter("facilityStreetAddress"));
+		fb.setCity(request.getParameter("facilityCity"));
+		fb.setState(request.getParameter("facilityState"));
+		fb.setCountry(request.getParameter("facilityCountry"));
+		fb.setZipCode(request.getParameter("facilityZipCode"));
+		
+		
 	}
 }

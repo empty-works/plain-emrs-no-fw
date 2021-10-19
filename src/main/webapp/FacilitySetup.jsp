@@ -10,6 +10,7 @@
 	<h2>Facility Setup</h2>	
 	<br><br>	
 	<form action="FacilitySetup">
+	<!-- TODO: Make controller for facility -->
 	<table>
 		<tr>
 		<td>Name: </td>
