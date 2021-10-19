@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
+import com.empty_works.plain_emrs.dao.RegisterFacilityDao;
+import com.empty_works.plain_emrs.util.FacilityIdUtil;
 
 /**
  * Servlet implementation class FacilityServlet
@@ -44,7 +46,10 @@ public class FacilityServlet extends HttpServlet {
 		fb.setState(request.getParameter("facilityState"));
 		fb.setCountry(request.getParameter("facilityCountry"));
 		fb.setZipCode(request.getParameter("facilityZipCode"));
+		fb.setFacilityId(FacilityIdUtil.get(fb));
 		
-		
+		System.out.println("Registering facility to database...");
+		String FacilityRegistrationResult = RegisterFacilityDao.register(fb);
+
 	}
 }
