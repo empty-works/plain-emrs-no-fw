@@ -2,11 +2,14 @@ package com.empty_works.plain_emrs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class RegisterFacilityDao {
+	
+	final static String FACILITYDAO_SUCCESS = "Success";
 
 	public static String register(FacilityBean fb) {
 		
@@ -21,8 +24,25 @@ public class RegisterFacilityDao {
 		PreparedStatement preparedStatement = null;
 		
 		con = ConnectionUtil.getConnection();
-		String query = "";
+		String query = "insert into facilities("
+				+ "facility_id, name, street_address, city, state, country, zip_code) "
+				+ "values (?,?,?,?,?,?,?)";
 		
-		return "";
+		try {
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, name);
+			preparedStatement.setString(3, streetAddress);
+			preparedStatement.setString(4, city);
+			preparedStatement.setString(5, country);
+			preparedStatement.setString(6, zipCode);
+
+			int i = preparedStatement.executeUpdate();
+			if(i != 0) return FACILITYDAO_SUCCESS;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "Something went wrong registering the facility into the database...";
 	}
 }
