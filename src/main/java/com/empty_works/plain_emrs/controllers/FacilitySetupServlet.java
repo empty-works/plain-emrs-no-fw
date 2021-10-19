@@ -32,7 +32,7 @@ public class FacilitySetupServlet extends HttpServlet {
 		fb.setState(request.getParameter("facilityState"));
 		fb.setCountry(request.getParameter("facilityCountry"));
 		fb.setZipCode(request.getParameter("facilityZipCode"));
-		fb.setFacilityId(FacilityIdUtil.get(fb));
+		fb.setId(FacilityIdUtil.get(fb));
 		
 		System.out.println("Registering facility to database...");
 		String facilityRegistrationResult = FacilitySetupDao.register(fb);

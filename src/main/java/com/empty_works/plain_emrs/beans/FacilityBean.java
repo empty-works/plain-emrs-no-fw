@@ -10,10 +10,10 @@ public class FacilityBean {
 	String country;
 	String zipCode;
 
-	public String getFacilityId() {
+	public String getId() {
 		return facilityId;
 	}
-	public void setFacilityId(String facilityId) {
+	public void setId(String facilityId) {
 		this.facilityId = facilityId;
 	}
 	public String getName() {

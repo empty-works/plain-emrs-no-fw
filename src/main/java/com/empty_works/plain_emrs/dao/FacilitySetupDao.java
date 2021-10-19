@@ -13,7 +13,7 @@ public class FacilitySetupDao {
 
 	public static String register(FacilityBean fb) {
 		
-		String id = fb.getFacilityId();
+		String id = fb.getId();
 		String name = fb.getName();
 		String streetAddress = fb.getStreetAddress();
 		String city = fb.getCity();

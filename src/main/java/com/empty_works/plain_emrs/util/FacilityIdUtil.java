@@ -7,8 +7,8 @@ public class FacilityIdUtil {
 
 	final public static String get(FacilityBean fb) {
 		
-		String id = IdUtil.get("PEFA-" + fb.getName(), fb.getCity(), fb.getCountry());
+		String id = IdUtil.get(fb.getName(), fb.getCity(), fb.getCountry());
 		System.out.println("FacilityIdUtil ID result= " + id);
-		return id;
+		return "PEF" + id;
 	}
 }
