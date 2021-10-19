@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
-public class RegisterFacilityDao {
+public class FacilitySetupDao {
 	
 	final public static String FACILITYDAO_SUCCESS = "Success";
 
@@ -17,6 +17,7 @@ public class RegisterFacilityDao {
 		String name = fb.getName();
 		String streetAddress = fb.getStreetAddress();
 		String city = fb.getCity();
+		String state = fb.getState();
 		String country = fb.getCountry();
 		String zipCode = fb.getZipCode();
 		
@@ -34,8 +35,9 @@ public class RegisterFacilityDao {
 			preparedStatement.setString(2, name);
 			preparedStatement.setString(3, streetAddress);
 			preparedStatement.setString(4, city);
-			preparedStatement.setString(5, country);
-			preparedStatement.setString(6, zipCode);
+			preparedStatement.setString(5, state);
+			preparedStatement.setString(6, country);
+			preparedStatement.setString(7, zipCode);
 
 			int i = preparedStatement.executeUpdate();
 			if(i != 0) return FACILITYDAO_SUCCESS;

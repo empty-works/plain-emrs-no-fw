@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
-import com.empty_works.plain_emrs.dao.RegisterFacilityDao;
+import com.empty_works.plain_emrs.dao.FacilitySetupDao;
 import com.empty_works.plain_emrs.util.FacilityIdUtil;
 
 /**
  * Servlet implementation class FacilityServlet
  */
-@WebServlet("/FacilityServlet")
-public class FacilityServlet extends HttpServlet {
+@WebServlet("/FacilitySetupServlet")
+public class FacilitySetupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -35,12 +35,12 @@ public class FacilityServlet extends HttpServlet {
 		fb.setFacilityId(FacilityIdUtil.get(fb));
 		
 		System.out.println("Registering facility to database...");
-		String facilityRegistrationResult = RegisterFacilityDao.register(fb);
-		if(facilityRegistrationResult.equals(RegisterFacilityDao.FACILITYDAO_SUCCESS)) {
+		String facilityRegistrationResult = FacilitySetupDao.register(fb);
+		if(facilityRegistrationResult.equals(FacilitySetupDao.FACILITYDAO_SUCCESS)) {
 			
 			System.out.println("Success! Facility now registered in the database.");
 			request.setAttribute("fbean", fb);
-			request.getRequestDispatcher("/").forward(request, response);
+			request.getRequestDispatcher("/Facility.jsp").forward(request, response);
 		}
 		else {
 			

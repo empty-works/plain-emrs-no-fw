@@ -9,8 +9,7 @@
 <body>
 	<h2>Facility Setup</h2>	
 	<br><br>	
-	<form action="FacilitySetup">
-	<!-- TODO: Make controller for facility -->
+	<form action="FacilitySetupServlet" method="post">
 	<table>
 		<tr>
 		<td>Name: </td>
