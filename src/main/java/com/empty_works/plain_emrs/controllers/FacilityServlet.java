@@ -49,7 +49,18 @@ public class FacilityServlet extends HttpServlet {
 		fb.setFacilityId(FacilityIdUtil.get(fb));
 		
 		System.out.println("Registering facility to database...");
-		String FacilityRegistrationResult = RegisterFacilityDao.register(fb);
-
+		String facilityRegistrationResult = RegisterFacilityDao.register(fb);
+		if(facilityRegistrationResult.equals(RegisterFacilityDao.FACILITYDAO_SUCCESS)) {
+			
+			System.out.println("Success! Facility now registered in the database.");
+			request.setAttribute("fcbean", fb);
+			request.getRequestDispatcher("/").forward(request, response);
+		}
+		else {
+			
+			System.out.println("Facility setup failed! Returning to facility setup form...");
+			request.setAttribute("errMessage", facilityRegistrationResult);
+			request.getRequestDispatcher("/FacilitySetup.jsp").forward(request, response);
+		}
 	}
 }

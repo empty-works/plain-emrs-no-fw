@@ -9,7 +9,7 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class RegisterFacilityDao {
 	
-	final static String FACILITYDAO_SUCCESS = "Success";
+	final public static String FACILITYDAO_SUCCESS = "Success";
 
 	public static String register(FacilityBean fb) {
 		
