@@ -9,6 +9,8 @@ public class FacilityBean {
 	String state;
 	String country;
 	String zipCode;
+	int numberOfBeds = 3;
+	String description = "No description given.";
 
 	public String getId() {
 		return facilityId;
@@ -51,5 +53,17 @@ public class FacilityBean {
 	}
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+	public int getNumberOfBeds() {
+		return numberOfBeds;
+	}
+	public void setNumberOfBeds(int numberOfBeds) {
+		this.numberOfBeds = numberOfBeds;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

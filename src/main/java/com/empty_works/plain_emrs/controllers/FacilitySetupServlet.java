@@ -32,6 +32,8 @@ public class FacilitySetupServlet extends HttpServlet {
 		fb.setState(request.getParameter("facilityState"));
 		fb.setCountry(request.getParameter("facilityCountry"));
 		fb.setZipCode(request.getParameter("facilityZipCode"));
+		fb.setNumberOfBeds(Integer.parseInt(request.getParameter("facilityNumBeds")));
+		fb.setDescription(request.getParameter("facilityDescription"));
 		fb.setId(FacilityIdUtil.get(fb));
 		
 		System.out.println("Registering facility to database...");
