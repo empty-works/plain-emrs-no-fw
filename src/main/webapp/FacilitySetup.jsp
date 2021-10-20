@@ -16,7 +16,7 @@
 		<td><input type="text" name="facilityName" /></td>
 		</tr>
 		<tr>
-		<td>Street Address: </td>
+		<td>Street address: </td>
 		<td><input type="text" name="facilityStreetAddress" /></td>
 		</tr>
 		<tr>
@@ -32,8 +32,16 @@
 		<td><input type="text" name="facilityCountry" /></td>
 		</tr>
 		<tr>
-		<td>Zip Code: </td>
+		<td>Zip code: </td>
 		<td><input type="text" name="facilityZipCode" /></td>
+		</tr>
+		<tr>
+		<td>Number of beds: </td>
+		<td><input type="number" name="facilityNumBeds" min="3" max="100000" /></td>
+		</tr>
+		<tr>
+		<td>Description: </td>
+		<td><input type="text" name="facilityDescription" /></td>
 		</tr>
 		<tr>
 		<td><input type="submit" /><input type="reset" name="Reset" /></td>
