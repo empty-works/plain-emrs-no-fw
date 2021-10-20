@@ -36,5 +36,12 @@
 	<td><c:out value="${fbean.getZipCode()}"></c:out></td>
 	</tr>
 	</table>
+	
+	<h2>Facility Peripherals</h2>
+	<table>
+	<tr>
+	<td><a href="<c:url value="/FacilityType.jsp" />">Se</a></td>
+	</tr>	
+	</table>
 </body>
 </html>
