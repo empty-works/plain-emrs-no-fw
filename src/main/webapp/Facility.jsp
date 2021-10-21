@@ -8,6 +8,7 @@
 <title>Facility Overview</title>
 </head>
 <body>
+
 	<h2>Facility Overview</h2>
 	<br><br>	
 	<table>
@@ -47,6 +48,9 @@
 	
 	<h2>Facility Peripherals</h2>
 	<table>
+	<tr>
+	<td><a href="<c:url value="/FacilityWard.jsp" />">Facility Wards</a></td>
+	</tr>
 	</table>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.empty_works.plain_emrs.beans;
 public class WardBean {
 
 	String wardId;
+	String facilityId;
 	String name;
 	String location;
 
@@ -11,6 +12,12 @@ public class WardBean {
 	}
 	public void setWardId(String wardId) {
 		this.wardId = wardId;
+	}
+	public String getFacilityId() {
+		return facilityId;
+	}
+	public void setFacilityId(String facilityId) {
+		this.facilityId = facilityId;
 	}
 	public String getName() {
 		return name;
