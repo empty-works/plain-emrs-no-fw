@@ -35,13 +35,18 @@
 	<td>Zip Code: </td>
 	<td><c:out value="${fbean.getZipCode()}"></c:out></td>
 	</tr>
+	<tr>
+	<td>Number of beds: </td>
+	<td><c:out value="${fbean.getNumberOfBeds()}"></c:out></td>
+	</tr>
+	<tr>
+	<td>Description: </td>
+	<td><c:out value="${fbean.getDescription()}"></c:out></td>
+	</tr>
 	</table>
 	
 	<h2>Facility Peripherals</h2>
 	<table>
-	<tr>
-	<td><a href="<c:url value="/FacilityType.jsp" />">Se</a></td>
-	</tr>	
 	</table>
 </body>
 </html>
