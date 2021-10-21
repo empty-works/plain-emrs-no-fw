@@ -20,14 +20,16 @@ public class FacilitySetupDao {
 		String state = fb.getState();
 		String country = fb.getCountry();
 		String zipCode = fb.getZipCode();
+		int numberOfBeds = fb.getNumberOfBeds();
+		String description = fb.getDescription();
 		
 		Connection con = null;
 		PreparedStatement preparedStatement = null;
 		
 		con = ConnectionUtil.getConnection();
 		String query = "insert into facilities("
-				+ "facility_id, name, street_address, city, state, country, zip_code) "
-				+ "values (?,?,?,?,?,?,?)";
+				+ "facility_id, name, street_address, city, state, country, zip_code, number_of_beds, description) "
+				+ "values (?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -38,6 +40,8 @@ public class FacilitySetupDao {
 			preparedStatement.setString(5, state);
 			preparedStatement.setString(6, country);
 			preparedStatement.setString(7, zipCode);
+			preparedStatement.setInt(8, numberOfBeds);
+			preparedStatement.setString(9, description);
 
 			int i = preparedStatement.executeUpdate();
 			if(i != 0) return FACILITYDAO_SUCCESS;
