@@ -1,14 +1,16 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+
+import com.empty_works.plain_emrs.beans.FacilityBean;
+import com.empty_works.plain_emrs.dao.FacilityDao;
 
 /**
  * Servlet implementation class FacilitiesServlet
@@ -17,16 +19,11 @@ import javax.sql.DataSource;
 public class FacilitiesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	@Resource(name="jdbc/plain_emrs")
-	private DataSource dataSource;
-	private 
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FacilitiesServlet() {
         super();
-
     }
 
 	/**
@@ -34,6 +31,8 @@ public class FacilitiesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		List<FacilityBean> facilitiesList = FacilityDao.getList();
+		request.setAttribute("facilitiesList", facilitiesList);
+		request.getRequestDispatcher("/Facilities.jsp").forward(request, response);
 	}
 }

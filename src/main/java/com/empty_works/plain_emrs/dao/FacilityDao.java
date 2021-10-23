@@ -14,7 +14,7 @@ public class FacilityDao {
 	
 	final public static String FACILITYDAO_SUCCESS = "Success";
 	
-	public List<FacilityBean> getList() {
+	public static List<FacilityBean> getList() {
 		
 		List<FacilityBean> facilitiesList = new ArrayList<>();
 		
