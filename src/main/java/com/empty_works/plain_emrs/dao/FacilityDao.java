@@ -42,6 +42,7 @@ public class FacilityDao {
 				facility.setNumberOfBeds(resultSet.getInt("number_of_beds"));
 				java.sql.Blob daBlob = resultSet.getBlob("description"); // Convert blob to String
 				facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
+				System.out.println("FacilityDao facility ID: " + facility.getId());
 				facilitiesList.add(facility);
 			}
 		} catch (SQLException e) {

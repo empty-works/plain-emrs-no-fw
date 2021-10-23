@@ -18,7 +18,7 @@
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
 			<td>Name: <c:out value="${facility.getName()}" /></td>
 			<td>City: <c:out value="${facility.getCity()}" /></td>
-			<td>Country: <c:out value="${facilty.getCountry()}" /></td>
+			<td>Country: <c:out value="${facility.getCountry()}" /></td>
 			</tr>	
 		</c:forEach>
 	</table>
