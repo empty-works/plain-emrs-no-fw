@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
-import com.empty_works.plain_emrs.dao.FacilitySetupDao;
+import com.empty_works.plain_emrs.dao.FacilityDao;
 import com.empty_works.plain_emrs.util.FacilityIdUtil;
 
 /**
@@ -37,8 +37,8 @@ public class FacilitySetupServlet extends HttpServlet {
 		fb.setId(FacilityIdUtil.get(fb));
 		
 		System.out.println("Registering facility to database...");
-		String facilityRegistrationResult = FacilitySetupDao.register(fb);
-		if(facilityRegistrationResult.equals(FacilitySetupDao.FACILITYDAO_SUCCESS)) {
+		String facilityRegistrationResult = FacilityDao.register(fb);
+		if(facilityRegistrationResult.equals(FacilityDao.FACILITYDAO_SUCCESS)) {
 			
 			System.out.println("Success! Facility now registered in the database.");
 			request.setAttribute("fbean", fb);
