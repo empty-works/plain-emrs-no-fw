@@ -32,6 +32,8 @@ public class FacilityServlet extends HttpServlet {
 		FacilityBean fb = new FacilityBean();
 		fb.setId(request.getParameter("facilityId"));
 		fb.setName(request.getParameter("facilityName"));
+		System.out.println("FacilityServlet ID: " + fb.getId());
+		System.out.println("FacilityServlet Name: " + fb.getName());
 		request.setAttribute("facility", fb);
 		request.getRequestDispatcher("/Facility.jsp").forward(request, response);
 	}

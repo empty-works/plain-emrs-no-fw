@@ -15,13 +15,14 @@
 	<table>
 		<c:forEach items="${facilitiesList}" var="facility">
 			<tr>
-			<td>--------------------------------------------------------------</td>
+			<td>--------------------------------------------------------------
+				<br><br>	
+			</td>
 			</tr>
 			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
-			<td>Name: <a href="<c:url value="/FacilityServlet"> 
-					<c:set var="facilityId" value="${facility.getId()}" scope="request" />		
-					<c:set var="facilityName" value="${facility.getName()}" scope="request" />		
+			<td>Name: <a href="<c:url value="/Facility.jsp" > 
+					<c:param name="facNam" value="${facility.getName()}" />		
 				</c:url>"> <c:out value="${facility.getName()}" /></a>
 			</td>
 			<td>City: <c:out value="${facility.getCity()}" /></td>
