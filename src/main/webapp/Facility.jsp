@@ -8,6 +8,6 @@
 <title><c:out value="" /></title>
 </head>
 <body>
-	<h2>Facility: </h2>
+	<h2>Facility: <c:out value="${facility.getName()}" /></h2>
 </body>
 </html>

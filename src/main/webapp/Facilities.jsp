@@ -19,8 +19,9 @@
 			</tr>
 			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
-			<td>Name: <a href="<c:url value="/Facility.jsp"> 
-					<c:param name="facility" value="${facility}" />		
+			<td>Name: <a href="<c:url value="/FacilityServlet"> 
+					<c:set var="facilityId" value="${facility.getId()}" scope="request" />		
+					<c:set var="facilityName" value="${facility.getName()}" scope="request" />		
 				</c:url>"> <c:out value="${facility.getName()}" /></a>
 			</td>
 			<td>City: <c:out value="${facility.getCity()}" /></td>
