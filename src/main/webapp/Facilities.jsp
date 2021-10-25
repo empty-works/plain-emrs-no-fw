@@ -16,6 +16,8 @@
 		<c:forEach items="${facilitiesList}" var="facility">
 			<tr>
 			<td>--------------------------------------------------------------</td>
+			</tr>
+			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
 			<td>Name: <a href="<c:url value="/Facility.jsp" />"> <c:out value="${facility.getName()}" /></a></td>
 			<td>City: <c:out value="${facility.getCity()}" /></td>

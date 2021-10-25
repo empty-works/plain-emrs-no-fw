@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Facility: <c:out value="" /></title>
+<title><c:out value="" /></title>
 </head>
 <body>
-
+	<h2>Facility: </h2>
 </body>
 </html>
