@@ -19,7 +19,10 @@
 			</tr>
 			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
-			<td>Name: <a href="<c:url value="/Facility.jsp" />"> <c:out value="${facility.getName()}" /></a></td>
+			<td>Name: <a href="<c:url value="/Facility.jsp"> 
+					<c:param name="facility" value="${facility}" />		
+				</c:url>"> <c:out value="${facility.getName()}" /></a>
+			</td>
 			<td>City: <c:out value="${facility.getCity()}" /></td>
 			<td>Country: <c:out value="${facility.getCountry()}" /></td>
 			</tr>	
