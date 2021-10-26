@@ -10,7 +10,10 @@
 	<h2>Facility Wards</h2>
 	<br><br>
 	<table>
-	<td>
+	<c:forEach items=""
+	<tr>
+	<td></td>	
+	</tr>
 	</table>		
 </body>
 </html>

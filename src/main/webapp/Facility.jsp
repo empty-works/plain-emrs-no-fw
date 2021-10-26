@@ -44,5 +44,14 @@
 	<td><c:out value="${param.facDescription}" /></td>
 	</tr>	
 	</table>
+	
+	<br><br>
+	
+	<table>
+	<tr>
+	<td><a href="<c:url value="/FacilityWardServlet" />">Wards</a></td>	
+	</tr>	
+	</table>
+			
 </body>
 </html>

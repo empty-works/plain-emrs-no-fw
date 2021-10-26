@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.WardBean;
+import com.empty_works.plain_emrs.beans.FacilityWardBean;
 
 /**
  * Servlet implementation class WardServlet
  */
-@WebServlet("/WardServlet")
-public class WardServlet extends HttpServlet {
+@WebServlet("/FacilityWardServlet")
+public class FacilityWardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WardServlet() {
+    public FacilityWardServlet() {
         super();
     }
 
@@ -36,8 +36,8 @@ public class WardServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		WardBean wb = new WardBean();
-		wb.setFacilityId(request.getParameter("facId"));
+		FacilityWardBean wb = new FacilityWardBean();
+		wb.setWardId(request.getParameter("facId"));
 		System.out.println("Testing facility ID: " + wb.getFacilityId());
 	}
 }

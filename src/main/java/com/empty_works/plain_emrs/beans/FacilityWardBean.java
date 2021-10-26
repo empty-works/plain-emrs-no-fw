@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class WardBean {
+public class FacilityWardBean {
 
 	String wardId;
 	String facilityId;
