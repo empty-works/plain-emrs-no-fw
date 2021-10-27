@@ -10,7 +10,7 @@
 <% 	// If Admin session is not set, redirect to the default page
 	if((request.getSession(false).getAttribute("Admin") == null)) {
 %>
-<jsp:forward page="/WEB-INF/default.jsp"></jsp:forward>
+<jsp:forward page="/default.jsp"></jsp:forward>
 <%} %>
 
 </head>
@@ -19,7 +19,7 @@
 	Welcome <%=request.getAttribute("username") %>
 	
 	<br><br>
-	<a href="<c:url value="/WEB-INF/FacilitiesServlet" />">Facilities</a>
+	<a href="<c:url value="/FacilitiesServlet" />">Facilities</a>
 	<br><br>
 	<a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a>
 		
