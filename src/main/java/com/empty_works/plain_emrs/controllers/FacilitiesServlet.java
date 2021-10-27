@@ -33,6 +33,6 @@ public class FacilitiesServlet extends HttpServlet {
 		
 		List<FacilityBean> facilitiesList = FacilityDao.getList();
 		request.setAttribute("facilitiesList", facilitiesList);
-		request.getRequestDispatcher("/Facilities.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Facilities.jsp").forward(request, response);
 	}
 }

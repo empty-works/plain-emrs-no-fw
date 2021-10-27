@@ -35,7 +35,7 @@ public class FacilityServlet extends HttpServlet {
 		System.out.println("FacilityServlet ID: " + fb.getId());
 		System.out.println("FacilityServlet Name: " + fb.getName());
 		request.setAttribute("facility", fb);
-		request.getRequestDispatcher("/Facility.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 	}
 
 	/**

@@ -42,13 +42,13 @@ public class FacilitySetupServlet extends HttpServlet {
 			
 			System.out.println("Success! Facility now registered in the database.");
 			request.setAttribute("fbean", fb);
-			request.getRequestDispatcher("/Facility.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 		}
 		else {
 			
 			System.out.println("Facility setup failed! Returning to facility setup form...");
 			request.setAttribute("errMessage", facilityRegistrationResult);
-			request.getRequestDispatcher("/FacilitySetup.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/FacilitySetup.jsp").forward(request, response);
 		}
 	}
 }

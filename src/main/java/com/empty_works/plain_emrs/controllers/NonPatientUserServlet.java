@@ -56,13 +56,13 @@ public class NonPatientUserServlet extends HttpServlet {
 			System.out.println("User registration successful! Forwarding to GeneratedUser JSP...");
 			request.setAttribute("npbean", npb);
 			request.setAttribute("gubean", gub); // Set generated user bean
-			request.getRequestDispatcher("/GeneratedNonPatientUser.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/GeneratedNonPatientUser.jsp").forward(request, response);
 		}
 		else {
 			
 			System.out.println("User registration failed! Going back to registration page...");
 			request.setAttribute("errMessage", nonPatientRegistrationResult);
-			request.getRequestDispatcher("/AddNonPatient.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/AddNonPatient.jsp").forward(request, response);
 		}
 	}
 	

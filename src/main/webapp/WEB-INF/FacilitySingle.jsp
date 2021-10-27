@@ -49,7 +49,7 @@
 	<h2>Facility Peripherals</h2>
 	<table>
 	<tr>
-	<td><a href="<c:url value="/FacilityWard.jsp" />">Facility Wards</a></td>
+	<td><a href="<c:url value="/WEB-INF/FacilityWard.jsp" />">Facility Wards</a></td>
 	</tr>
 	</table>
 </body>

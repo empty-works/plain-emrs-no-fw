@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>Add Facility</h2>
-	<a href="<c:url value="/FacilitySetup.jsp" />">Add Facility</a>
+	<a href="<c:url value="/WEB-INF/FacilitySetup.jsp" />">Add Facility</a>
 	<br><br>
 	<h2>Facility List</h2>	
 	<table>
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
-			<td>Name: <a href="<c:url value="/Facility.jsp" > 
+			<td>Name: <a href="<c:url value="/WEB-INF/Facility.jsp" > 
 					<c:param name="facId" value="${facility.getId()}" />		
 					<c:param name="facNam" value="${facility.getName()}" />		
 					<c:param name="facStreet" value="${facility.getStreetAddress()}" />		
