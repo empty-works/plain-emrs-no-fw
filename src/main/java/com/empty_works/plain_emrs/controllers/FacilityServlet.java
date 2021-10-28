@@ -30,7 +30,7 @@ public class FacilityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		FacilityBean fb = new FacilityBean();
-		fb.setId(request.getParameter("facilityId"));
+		fb.setId(request.getParameter("facId"));
 		fb.setName(request.getParameter("facilityName"));
 		System.out.println("FacilityServlet ID: " + fb.getId());
 		System.out.println("FacilityServlet Name: " + fb.getName());

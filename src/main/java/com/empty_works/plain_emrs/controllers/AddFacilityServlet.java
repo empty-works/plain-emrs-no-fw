@@ -16,7 +16,7 @@ import com.empty_works.plain_emrs.util.FacilityIdUtil;
  * Servlet implementation class FacilityServlet
  */
 @WebServlet("/FacilitySetupServlet")
-public class FacilitySetupServlet extends HttpServlet {
+public class AddFacilityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**

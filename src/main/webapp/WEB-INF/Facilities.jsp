@@ -21,7 +21,8 @@
 			</tr>
 			<tr>
 			<td>ID: <c:out value="${facility.getId()}" /></td>	
-			<td>Name: <a href="<c:url value="/WEB-INF/Facility.jsp" > 
+			<td>Name: <a href="<c:url value="/FacilityServlet" > 
+					
 					<c:param name="facId" value="${facility.getId()}" />		
 					<c:param name="facNam" value="${facility.getName()}" />		
 					<c:param name="facStreet" value="${facility.getStreetAddress()}" />		

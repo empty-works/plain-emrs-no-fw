@@ -29,16 +29,6 @@ public class FacilityWardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		FacilityWardBean wb = new FacilityWardBean();
-		wb.setWardId(request.getParameter("facId"));
-		System.out.println("Testing facility ID: " + wb.getFacilityId());
+			
 	}
 }
