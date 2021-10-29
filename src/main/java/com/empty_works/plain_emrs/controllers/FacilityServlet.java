@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
+import com.empty_works.plain_emrs.beans.FacilityWardBean;
 
 /**
  * Servlet implementation class FacilityServlet
@@ -29,18 +30,10 @@ public class FacilityServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		FacilityBean fb = new FacilityBean();
-		fb.setId(request.getParameter("facId"));
-		fb.setName(request.getParameter("facilityName"));
-		System.out.println("FacilityServlet ID: " + fb.getId());
-		System.out.println("FacilityServlet Name: " + fb.getName());
-		request.setAttribute("facility", fb);
+		// Get list of wards
+		FacilityWardBean fwb = new FacilityWardBean();
+		
+		request.setAttribute("facilityWard", fwb);
 		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 }
