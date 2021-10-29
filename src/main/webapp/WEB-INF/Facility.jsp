@@ -47,10 +47,22 @@
 	
 	<br><br>
 	
+	<h2>Facility Wards</h2>
 	<table>
-	<tr>
-	<td><a href="<c:url value="/FacilityWardServlet" />">Wards</a></td>	
-	</tr>	
+		<c:forEach items="${facilityWardList}" var="facWard">
+			<tr>
+			<c:choose>
+				<c:when test="${facilityWardList == null}">
+					<td>No wards added yet!</td>
+				</c:when>
+				<c:when test="${facilityWardList != null}">
+					<td>ID: <c:out value="${facWard.getWardId()}" /></td>	
+					<td>Name: <c:out value="${facWard.getName()}" /></td>
+					<td>Location: <c:out value="${facWard.getLocation()}" /></td>
+				</c:when>
+			</c:choose>
+			</tr>	
+		</c:forEach>
 	</table>
 			
 </body>
