@@ -1,3 +1,8 @@
 @charset "UTF-8";
 
 #addFacilityForm{display:none;}
+
+.facilityBox {
+	display: flex;
+	flex-direction: column;
+}

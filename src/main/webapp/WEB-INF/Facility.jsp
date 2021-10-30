@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
 <title><c:out value="" /></title>
 </head>
 <body>
@@ -66,6 +67,13 @@
 			</tr>	
 		</c:forEach>
 	</table>
-			
+	<form id="addFacilityForm" action="AddFacilityWardServlet" method="post">
+	<div class="facilityBox">
+		<div>Name: </div>				
+		<div><input type="text" name="facilityName" /></div>
+		<div>Location: </div>
+		<div><input type="text" name="facilityLocation" /></div>
+	</div>
+	</form>
 </body>
 </html>
