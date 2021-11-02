@@ -11,7 +11,7 @@
 <body>
 	<h2>Facility: <c:out value="${param.facNam}" /></h2>
 	<br><br>
-	<div class="facilityBox">
+	<div class="facilityGrid">
 		<div>Facility ID: <c:out value="${param.facId}" /></div>
 		<div>Street Address: <c:out value="${param.facStreet}" /></div>
 		<div>City: <c:out value="${param.facCity}" /></div>
