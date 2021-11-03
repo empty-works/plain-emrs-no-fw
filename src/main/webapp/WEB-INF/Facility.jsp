@@ -11,23 +11,23 @@
 <body>
 	<h2>Facility: <c:out value="${param.facNam}" /></h2>
 	<br><br>
-	<div class="facilityGridWrapper">
-		<div class="facilityLabel">Facility ID: </div>
-		<div class="facilityData"><c:out value="${param.facId}" /></div>
-		<div class="facilityLabel">Street Address: </div>
-		<div class="facilityData"><c:out value="${param.facStreet}" /></div>
-		<div class="facilityLabel">City: </div>
-		<div class="facilityData"><c:out value="${param.facCity}" /></div>
-		<div class="facilityLabel">State: </div>
-		<div class="facilityData"><c:out value="${param.facState}" /></div>
-		<div class="facilityLabel">Country: </div>
-		<div class="facilityData"><c:out value="${param.facCountry}" /></div>
-		<div class="facilityLabel">Zip code: </div>
-		<div class="facilityData"><c:out value="${param.facZipCode}" /></div>
-		<div class="facilityLabel">Number of beds: </div>
-		<div class="facilityData"><c:out value="${param.facNumBeds}" /></div>
-		<div class="facilityLabel">Description: </div>
-		<div class="facilityData"><c:out value="${param.facDescription}" /></div>
+	<div class="facility-grid-wrapper">
+		<div class="facility-label">Facility ID: </div>
+		<div class="facility-data"><c:out value="${param.facId}" /></div>
+		<div class="facility-label">Street Address: </div>
+		<div class="facility-data"><c:out value="${param.facStreet}" /></div>
+		<div class="facility-label">City: </div>
+		<div class="facility-data"><c:out value="${param.facCity}" /></div>
+		<div class="facility-label">State: </div>
+		<div class="facility-data"><c:out value="${param.facState}" /></div>
+		<div class="facility-label">Country: </div>
+		<div class="facility-data"><c:out value="${param.facCountry}" /></div>
+		<div class="facility-label">Zip code: </div>
+		<div class="facility-data"><c:out value="${param.facZipCode}" /></div>
+		<div class="facility-label">Number of beds: </div>
+		<div class="facility-data"><c:out value="${param.facNumBeds}" /></div>
+		<div class="facility-label">Description: </div>
+		<div class="facility-data"><c:out value="${param.facDescription}" /></div>
 	</div>
 	
 	<br><br>
