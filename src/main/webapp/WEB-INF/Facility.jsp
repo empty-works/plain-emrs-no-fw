@@ -59,6 +59,7 @@
 		<div><input type="text" name="facilityName" /></div>
 		<div>Location: </div>
 		<div><input type="text" name="facilityLocation" /></div>
+		<div><input type="submit" name="Submit"></input><input id="cancelAddWardButton" type="button" value="Cancel" onclick="cancelAddWardForm()"></input></div>
 	</div>
 	</form>
 </body>

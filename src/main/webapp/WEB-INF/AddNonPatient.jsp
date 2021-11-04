@@ -38,7 +38,7 @@
 		<td><input type="text" name="description" /></td>
 		</tr>
 		<tr>
-		<td><input type="submit" /></input><input type="reset" value="Reset"></input></td>	
+		<td><input type="submit" value="Submit"></input><input type="reset" value="Reset"></input></td>	
 		</tr>	
 	</table>		
 	</form>
