@@ -51,7 +51,8 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<form id="addFacilityForm" action="AddFacilityWardServlet" method="post">
+	<div><input id="addWardButton" type="button" value="Add" onclick="showAddWardForm()"></div>
+	<form id="addWardForm" action="AddFacilityWardServlet" method="post">
 	<div class="facilityBox">
 		<div>Name: </div>				
 		<div><input type="text" name="facilityName" /></div>
