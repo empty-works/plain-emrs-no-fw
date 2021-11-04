@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
+<script src="${pageContext.request.contextPath}/js/facility.js"></script>
 <title><c:out value="" /></title>
 </head>
 <body>
@@ -51,7 +52,7 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<div><input id="addWardButton" type="button" value="Add" onclick="showAddWardForm()"></div>
+	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()"></div>
 	<form id="addWardForm" action="AddFacilityWardServlet" method="post">
 	<div class="facilityBox">
 		<div>Name: </div>				
