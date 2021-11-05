@@ -56,7 +56,7 @@
 	<form id="addWardForm" action="AddFacilityWardServlet" method="post">
 	<div class="facilityBox">
 		<div>Name: </div>				
-		<div><input type="text" name="facilityName" /></div>
+		<div><input id="facAddName" type="text" name="facilityName" /></div>
 		<div>Location: </div>
 		<div><input type="text" name="facilityLocation" /></div>
 		<div><input type="submit" name="Submit"></input>
