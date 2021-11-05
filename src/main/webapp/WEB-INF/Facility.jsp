@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
+<meta charset="UTF-8">
 <title><c:out value="" /></title>
 </head>
 <body>
@@ -53,14 +53,14 @@
 		</c:forEach>
 	</table>
 	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()"></div>
-	<form id="addWardForm" action="AddFacilityWardServlet" method="post">
+	<form id="addWardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm();">
 	<div class="facilityBox">
 		<div>Name: </div>				
 		<div><input id="facAddName" type="text" name="facilityName" /></div>
 		<div>Location: </div>
-		<div><input type="text" name="facilityLocation" /></div>
-		<div><input type="submit" name="Submit"></input>
-			<input id="cancelAddWardButton" type="button" value="Cancel" 
+		<div><input type="text" name="facilityLocation"  /></div>
+		<div><input type="submit" value="Submit" ></input>
+			 <input id="cancelAddWardButton" type="button" value="Cancel" 
 				onclick="cancelAddWardForm()"></input></div>
 	</div>
 	</form>

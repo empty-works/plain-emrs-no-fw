@@ -20,11 +20,12 @@ function cancelAddWardForm() {
 // Validate add facility ward form input by user
 function validateAddWardForm() {
 	
-	var facName = document.getElementById("facAddName");	
+	var facName = document.getElementById("facAddName").nodeValue;	
 	var valid = true;
-	if(facName.nodeValue.length <= 0) {
+	console.log("facility.js - validateAddWardForm facName=" + facName);
+	if(facName == null) {
 		
-		alert("Cannot leave facility name empty");
+		alert("Cannot leave facility name empty!");
 		valid = false;	
 	}
 	return valid;
