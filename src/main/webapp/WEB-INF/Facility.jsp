@@ -53,7 +53,7 @@
 		</c:forEach>
 	</table>
 	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()"></div>
-	<form id="addWardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm();">
+	<form id="addWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
 		<div>Name*: </div>				
 		<div><input id="facAddName" type="text" name="facilityName" /></div>

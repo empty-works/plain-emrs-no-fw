@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
+import com.empty_works.plain_emrs.util.FacilityWardIdUtil;
 
 /**
  * Servlet implementation class AddFacilityWardServlet
@@ -31,8 +32,9 @@ public class AddFacilityWardServlet extends HttpServlet {
 
 		FacilityWardBean wb = new FacilityWardBean();
 		wb.setFacilityId(request.getParameter("facId"));
-		wb.setWardId()
-		wb.setName(request.getParameter("facName"));
 		System.out.println("Testing facility ID: " + wb.getFacilityId());
+		wb.setName(request.getParameter("facilityName"));
+		wb.setLocation(request.getParameter("facilityLocation"));
+		wb.setWardId(FacilityWardIdUtil.get(wb));
 	}
 }
