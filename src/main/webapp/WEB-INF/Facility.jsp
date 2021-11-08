@@ -56,9 +56,9 @@
 	<form id="addWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
 		<div>Name*: </div>				
-		<div><input id="facAddName" type="text" name="facilityName" /></div>
+		<div><input id="facWardAddName" type="text" name="facilityWardName" /></div>
 		<div>Location: </div>
-		<div><input type="text" name="facilityLocation"  /></div>
+		<div><input type="text" name="facilityWardLocation"  /></div>
 		<div><input type="submit" value="Submit" ></input>
 			 <input id="cancelAddWardButton" type="button" value="Cancel" 
 				onclick="cancelAddWardForm()"></input></div>
