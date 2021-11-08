@@ -35,6 +35,8 @@ public class AddFacilityWardServlet extends HttpServlet {
 		System.out.println("Testing facility ID: " + wb.getFacilityId());
 		wb.setName(request.getParameter("facilityName"));
 		wb.setLocation(request.getParameter("facilityLocation"));
-		wb.setWardId(FacilityWardIdUtil.get(wb));
+		String wbId = FacilityWardIdUtil.get(wb);
+		System.out.println("Facility Ward Bean ID result= " + wbId);
+		wb.setWardId(wbId);
 	}
 }
