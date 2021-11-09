@@ -55,6 +55,7 @@
 	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()"></div>
 	<form id="addWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
+		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
 		<div>Name*: </div>				
 		<div><input id="facWardAddName" type="text" name="facilityWardName" /></div>
 		<div>Location: </div>
