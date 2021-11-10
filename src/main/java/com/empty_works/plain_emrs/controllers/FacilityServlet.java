@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
+import com.empty_works.plain_emrs.dao.FacilityDao;
 import com.empty_works.plain_emrs.dao.FacilityWardDao;
 
 /**
@@ -32,7 +34,8 @@ public class FacilityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Get specified facility
-		FacilityBean 
+		FacilityBean facility = FacilityDao.getFacility(request.getParameter("facId"));
+		request.setAttribute("facility", facility);
 		// Get list of wards
 		List<FacilityWardBean> fwbList = FacilityWardDao.getList();
 		request.setAttribute("facilityWardList", fwbList);

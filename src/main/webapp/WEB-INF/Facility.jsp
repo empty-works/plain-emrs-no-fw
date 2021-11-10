@@ -10,25 +10,25 @@
 <title><c:out value="" /></title>
 </head>
 <body>
-	<h2>Facility: <c:out value="${param.facNam}" /></h2>
+	<h2>Facility: <c:out value="${facility.facNam}" /></h2>
 	<br><br>
 	<div class="facility-grid-wrapper">
 		<div class="facility-label">Facility ID: </div>
-		<div class="facility-data"><c:out value="${param.facId}" /></div>
+		<div class="facility-data"><c:out value="${facility.facId}" /></div>
 		<div class="facility-label">Street Address: </div>
-		<div class="facility-data"><c:out value="${param.facStreet}" /></div>
+		<div class="facility-data"><c:out value="${facility.facStreet}" /></div>
 		<div class="facility-label">City: </div>
-		<div class="facility-data"><c:out value="${param.facCity}" /></div>
+		<div class="facility-data"><c:out value="${facility.facCity}" /></div>
 		<div class="facility-label">State: </div>
-		<div class="facility-data"><c:out value="${param.facState}" /></div>
+		<div class="facility-data"><c:out value="${facility.facState}" /></div>
 		<div class="facility-label">Country: </div>
-		<div class="facility-data"><c:out value="${param.facCountry}" /></div>
+		<div class="facility-data"><c:out value="${facility.facCountry}" /></div>
 		<div class="facility-label">Zip code: </div>
-		<div class="facility-data"><c:out value="${param.facZipCode}" /></div>
+		<div class="facility-data"><c:out value="${facility.facZipCode}" /></div>
 		<div class="facility-label">Number of beds: </div>
-		<div class="facility-data"><c:out value="${param.facNumBeds}" /></div>
+		<div class="facility-data"><c:out value="${facility.facNumBeds}" /></div>
 		<div class="facility-label">Description: </div>
-		<div class="facility-data"><c:out value="${param.facDescription}" /></div>
+		<div class="facility-data"><c:out value="${facility.facDescription}" /></div>
 	</div>
 	
 	<br><br>
