@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
+import com.empty_works.plain_emrs.dao.AddFacilityWardDao;
 import com.empty_works.plain_emrs.util.FacilityWardIdUtil;
 
 /**
@@ -38,5 +39,12 @@ public class AddFacilityWardServlet extends HttpServlet {
 		String wbId = FacilityWardIdUtil.get(wb);
 		System.out.println("Facility Ward Bean ID result= " + wbId);
 		wb.setWardId(wbId);
+		
+		String addFacWardResult = AddFacilityWardDao.add(wb);
+		if(addFacWardResult.equals(AddFacilityWardDao.ADDFACWARDDAO_SUCCESS)) {
+			
+			System.out.println("Success! Facility ward added to the database.");
+			request.getRequestDispatcher(addFacWardResult)
+		}
 	}
 }

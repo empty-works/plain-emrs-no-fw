@@ -36,7 +36,7 @@ public class AddFacilityServlet extends HttpServlet {
 		fb.setDescription(request.getParameter("facilityDescription"));
 		fb.setId(FacilityIdUtil.get(fb));
 		
-		System.out.println("Registering facility to database...");
+		System.out.println("Adding facility to database...");
 		String facilityRegistrationResult = FacilityDao.register(fb);
 		if(facilityRegistrationResult.equals(FacilityDao.FACILITYDAO_SUCCESS)) {
 			

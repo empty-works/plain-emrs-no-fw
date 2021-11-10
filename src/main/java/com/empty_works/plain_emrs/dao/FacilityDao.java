@@ -14,6 +14,29 @@ public class FacilityDao {
 	
 	final public static String FACILITYDAO_SUCCESS = "Success";
 	
+	public static FacilityBean getFacility(String facilityId) {
+		
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		String query = "select name, street_address, city, state, country, zip_code, "
+				+ "number_of_beds, description from facilities where facility_id=?";
+		
+		
+
+		FacilityBean facility = new FacilityBean();
+		facility.setId(resultSet.getString("facility_id"));
+		facility.setName(resultSet.getString("name"));
+		//facility.setStreetAddress(resultSet.getString("street_address"));
+		facility.setCity(resultSet.getString("city"));
+		//facility.setState(resultSet.getString("state"));
+		facility.setCountry(resultSet.getString("country"));
+		//facility.setZipCode(resultSet.getString("zip_code"));
+		//facility.setNumberOfBeds(resultSet.getInt("number_of_beds"));
+		//java.sql.Blob daBlob = resultSet.getBlob("description"); // Convert blob to String
+		//facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
+	}
+	
 	public static List<FacilityBean> getList() {
 		
 		List<FacilityBean> facilitiesList = new ArrayList<>();
@@ -21,9 +44,7 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 	
-		String query = 
-				"select facility_id, name, street_address, city, state, country, zip_code, "
-				+ "number_of_beds, description from facilities";
+		String query = "select facility_id, name, city, country";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -34,17 +55,20 @@ public class FacilityDao {
 				FacilityBean facility = new FacilityBean();
 				facility.setId(resultSet.getString("facility_id"));
 				facility.setName(resultSet.getString("name"));
-				facility.setStreetAddress(resultSet.getString("street_address"));
+				//facility.setStreetAddress(resultSet.getString("street_address"));
 				facility.setCity(resultSet.getString("city"));
-				facility.setState(resultSet.getString("state"));
+				//facility.setState(resultSet.getString("state"));
 				facility.setCountry(resultSet.getString("country"));
-				facility.setZipCode(resultSet.getString("zip_code"));
-				facility.setNumberOfBeds(resultSet.getInt("number_of_beds"));
-				java.sql.Blob daBlob = resultSet.getBlob("description"); // Convert blob to String
-				facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
+				//facility.setZipCode(resultSet.getString("zip_code"));
+				//facility.setNumberOfBeds(resultSet.getInt("number_of_beds"));
+				//java.sql.Blob daBlob = resultSet.getBlob("description"); // Convert blob to String
+				//facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
 				System.out.println("FacilityDao facility ID: " + facility.getId());
 				facilitiesList.add(facility);
 			}
+			
+			con.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

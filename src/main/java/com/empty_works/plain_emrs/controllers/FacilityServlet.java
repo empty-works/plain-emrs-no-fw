@@ -30,7 +30,9 @@ public class FacilityServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+		// Get specified facility
+		FacilityBean 
 		// Get list of wards
 		List<FacilityWardBean> fwbList = FacilityWardDao.getList();
 		request.setAttribute("facilityWardList", fwbList);
