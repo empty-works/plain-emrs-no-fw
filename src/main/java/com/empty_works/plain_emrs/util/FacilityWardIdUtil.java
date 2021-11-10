@@ -8,15 +8,14 @@ public class FacilityWardIdUtil {
 	final public static String get(FacilityWardBean fwb) {
 		
 		String id;
-		if(fwb.getLocation() != null) {
-			
-			id = IdUtil.get(fwb.getName(), fwb.getLocation());
-		}
-		else {
+		if(fwb.getLocation().equals("")) {
 			
 			id = IdUtil.get(fwb.getName(), "WARD_LOCATION");
 		}
-		System.out.println("FacilityWardIdUtil ID result= " + id);
+		else {
+			
+			id = IdUtil.get(fwb.getName(), fwb.getLocation());
+		}
 		return "WARD-" + id;
 	}
 }
