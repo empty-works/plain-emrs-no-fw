@@ -1,5 +1,6 @@
 package com.empty_works.plain_emrs.dao;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,6 +29,8 @@ public class FacilityDao {
 			preparedStatement.setString(1, facilityId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
+			if (resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
+			
 			facility.setId(facilityId);
 			facility.setName(resultSet.getString("name"));
 			facility.setStreetAddress(resultSet.getString("street_address"));
@@ -40,8 +43,7 @@ public class FacilityDao {
 			facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
 			
 			con.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
@@ -55,7 +57,7 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 	
-		String query = "select facility_id, name, city, country";
+		String query = "select facility_id, name, city, country from facilities";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -116,6 +118,7 @@ public class FacilityDao {
 			if(i != 0) return FACILITYDAO_SUCCESS;
 			
 			con.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

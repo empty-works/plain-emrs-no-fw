@@ -35,7 +35,8 @@ public class FacilityServlet extends HttpServlet {
 
 		// Get specified facility
 		FacilityBean facility = FacilityDao.getFacility(request.getParameter("facId"));
-		request.setAttribute("facility", facility);
+		System.out.println("FacilityServlet doGet facility name= " + facility.getName());
+		request.setAttribute("facilityDb", facility);
 		// Get list of wards
 		List<FacilityWardBean> fwbList = FacilityWardDao.getList();
 		request.setAttribute("facilityWardList", fwbList);
