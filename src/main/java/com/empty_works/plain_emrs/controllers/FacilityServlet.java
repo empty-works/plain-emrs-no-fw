@@ -44,4 +44,11 @@ public class FacilityServlet extends HttpServlet {
 		// Get list of staff specialties
 		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
 }
