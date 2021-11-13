@@ -25,6 +25,13 @@ public class AddFacilityWardServlet extends HttpServlet {
     public AddFacilityWardServlet() {
         super();
     }
+    
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,8 +40,7 @@ public class AddFacilityWardServlet extends HttpServlet {
 
 		FacilityWardBean wb = new FacilityWardBean();
 		String facilityId = request.getParameter("setFacId");
-		wb.setFacilityId(request.getParameter("setFacId"));
-		request.setAttribute("facId", request.getParameter("setFacId"));
+		wb.setFacilityId(facilityId);
 		System.out.println("Testing facility ID: " + wb.getFacilityId());
 		wb.setName(request.getParameter("facilityWardName"));
 		wb.setLocation(request.getParameter("facilityWardLocation"));
@@ -43,10 +49,12 @@ public class AddFacilityWardServlet extends HttpServlet {
 		wb.setWardId(wbId);
 		
 		String addFacWardResult = AddFacilityWardDao.add(wb);
+		System.out.println("AddFacilityWardServlet addFacWardResult = " + addFacWardResult);
 		if(addFacWardResult.equals(AddFacilityWardDao.ADDFACWARDDAO_SUCCESS)) {
 			
 			System.out.println("Success! Facility ward added to the database.");
-			request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+			request.setAttribute("facId", facilityId);
+			doGet(request, response);
 		}
 	}
 }

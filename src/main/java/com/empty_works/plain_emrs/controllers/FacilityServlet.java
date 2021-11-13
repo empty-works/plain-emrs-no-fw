@@ -34,7 +34,8 @@ public class FacilityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Get specified facility
-		FacilityBean facility = FacilityDao.getFacility(request.getParameter("facId"));
+		System.out.println("FacilityServlet doGet facility ID = " + (String)request.getAttribute("facId"));
+		FacilityBean facility = FacilityDao.getFacility((String)request.getAttribute("facId"));
 		System.out.println("FacilityServlet doGet facility name= " + facility.getName());
 		request.setAttribute("facilityDb", facility);
 		// Get list of wards
