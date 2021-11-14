@@ -24,9 +24,8 @@ function validateAddWardForm() {
 	console.log("facility.js - validateAddWardForm facWardName=" + facWardName);
 	if(facWardName == "") {
 		
-		alert("Cannot leave facility ward name is empty!");
+		alert("Cannot leave facility ward name empty!");
 		return false;
 	}
 	return true;
 }
- 

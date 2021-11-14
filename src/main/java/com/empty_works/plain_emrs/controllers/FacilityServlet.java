@@ -13,6 +13,7 @@ import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
 import com.empty_works.plain_emrs.dao.FacilityDao;
 import com.empty_works.plain_emrs.dao.FacilityWardDao;
+import com.empty_works.plain_emrs.util.ParamAttribHandler;
 
 /**
  * Servlet implementation class FacilityServlet
@@ -34,8 +35,9 @@ public class FacilityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Get specified facility
-		System.out.println("FacilityServlet doGet facility ID = " + (String)request.getAttribute("facId"));
-		FacilityBean facility = FacilityDao.getFacility((String)request.getAttribute("facId"));
+		String facilityId = ParamAttribHandler.get(request, "facId");
+		System.out.println("FacilityServlet doGet facility ID = " + facilityId);
+		FacilityBean facility = FacilityDao.getFacility(facilityId);
 		System.out.println("FacilityServlet doGet facility name= " + facility.getName());
 		request.setAttribute("facilityDb", facility);
 		// Get list of wards

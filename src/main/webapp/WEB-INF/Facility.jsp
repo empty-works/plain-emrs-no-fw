@@ -10,8 +10,9 @@
 <title><c:out value="" /></title>
 </head>
 <body>
+	
+	<h3><a ></a></h3>
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
-	<br><br>
 	<div class="facility-grid-wrapper">
 		<div class="facility-label">Facility ID: </div>
 		<div class="facility-data"><c:out value="${facilityDb.getId()}" /></div>

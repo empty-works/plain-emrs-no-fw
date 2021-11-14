@@ -52,7 +52,6 @@ public class AddFacilityWardServlet extends HttpServlet {
 		System.out.println("AddFacilityWardServlet addFacWardResult = " + addFacWardResult);
 		if(addFacWardResult.equals(AddFacilityWardDao.ADDFACWARDDAO_SUCCESS)) {
 			
-			System.out.println("Success! Facility ward added to the database.");
 			request.setAttribute("facId", facilityId);
 			doGet(request, response);
 		}
