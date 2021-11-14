@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<h3><a ></a></h3>
+	<h3><a href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></h3>
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 	<div class="facility-grid-wrapper">
 		<div class="facility-label">Facility ID: </div>
