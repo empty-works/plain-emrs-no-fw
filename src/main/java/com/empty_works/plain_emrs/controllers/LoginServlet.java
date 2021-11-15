@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute(userRole.getRole(), username);
 		session.setAttribute("rolePair", userRole);
-		request.setAttribute("username", username);
+		session.setAttribute("username", username);
 		setSessionUserAndRole(userRole);
 	}
 

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<h2>Admin's Home</h2>
-	Welcome <%=request.getAttribute("username") %>
+	Welcome <%=session.getAttribute("username") %>
 	
 	<br><br>
 	<a href="<c:url value="/FacilitiesServlet" />">Facilities</a>
