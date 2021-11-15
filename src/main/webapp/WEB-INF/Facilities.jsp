@@ -8,6 +8,7 @@
 <title>Facilities</title>
 </head>
 <body>
+	<h3><a href="<c:url value="${pageContext.request.contextPath}/WEB-INF/Admin.jsp" />">Back to admin</a></h3>
 	<h2>Add Facility</h2>
 	<a href="<c:url value="/WEB-INF/FacilitySetup.jsp" />">Add Facility</a>
 	<br><br>
