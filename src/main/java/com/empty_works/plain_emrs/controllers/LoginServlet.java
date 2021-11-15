@@ -24,6 +24,13 @@ public class LoginServlet extends HttpServlet {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		RolePair userRole = (RolePair)session.getAttribute("rolePair");
+		setSessionUserAndRole(userRole);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -42,22 +49,23 @@ public class LoginServlet extends HttpServlet {
 		LoginDao loginDao = new LoginDao();
 		
 		RolePair userRole = loginDao.authenticateUser(loginBean);
-		setSessionUserAndRole(userRole, username);
+		HttpSession session = request.getSession();
+		session.setAttribute(userRole.getRole(), username);
+		session.setAttribute("rolePair", userRole);
+		request.setAttribute("username", username);
+		setSessionUserAndRole(userRole);
 	}
 
 	/**
 	 * 
-	 * @param role
+	 * @param userRole
 	 * @param username
 	 */
-	private void setSessionUserAndRole(RolePair role, String username) {
+	private void setSessionUserAndRole(RolePair userRole) {
 		
-		System.out.println(role.getRole() + "'s " + "Home");
-		HttpSession session = request.getSession();
-		session.setAttribute(role.getRole(), username);
-		request.setAttribute("username", username);
+		System.out.println(userRole.getRole() + "'s " + "Home");
 		try {
-			request.getRequestDispatcher("/WEB-INF/" + role.getRole() + ".jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/" + userRole.getRole() + ".jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
