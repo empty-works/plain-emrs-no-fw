@@ -6,10 +6,10 @@ public class StaffPositionBean {
 	String name;
 	String description;
 	
-	public String getStaffPositionId() {
+	public String getId() {
 		return staffPositionId;
 	}
-	public void setStaffPositionId(String staffPositionId) {
+	public void setId(String staffPositionId) {
 		this.staffPositionId = staffPositionId;
 	}
 	public String getName() {

@@ -21,7 +21,7 @@
 		<div><input type="text" name="facilityState" /></div>
 		<div>Country: </div>
 		<div><input type="text" name="facilityCountry" /></div>
-		<div>Zip code: </div>
+		<div>ZIP code: </div>
 		<div><input type="text" name="facilityZipCode" /></div>
 		<div>Number of beds: </div>
 		<div><input type="number" name="facilityNumBeds" min="3" max="100000" /></div>

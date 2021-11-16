@@ -12,6 +12,7 @@
 <body>
 	
 	<h3><a href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></h3>
+
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 	<div class="facility-grid-wrapper">
 		<div class="facility-label">Facility ID: </div>
@@ -53,7 +54,7 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()"></div>
+	<div><input id="addWardButton" type="button" value="Add Ward" onclick="showAddWardForm()" /></div>
 	<form id="addWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
 		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
@@ -66,5 +67,27 @@
 				onclick="cancelAddWardForm()"></input></div>
 	</div>
 	</form>
+	
+	<h2>Facility Staff Positions</h2>	
+	<table>
+		<tr>
+		<c:if test="${empty positionsList}">
+			<td>No staff positions added yet!</td>
+		</c:if>
+		</tr>
+		<c:forEach items="${positionsList}" var="position">
+			<tr>
+				<td>ID: <c:out value="${position.getId()}" /></td>		
+			</tr>			
+			<tr>
+				<td>Name: <c:out value="${position.getName()}" /></td>
+			</tr>
+			<tr>
+				<td>Description: <c:out value="${position.getDescription()}" /></td>
+			</tr>
+		</c:forEach>
+	</table>	
+	<div><input id="addStaffPositionButton" type="button" value="Add Staff Position" onclick="showStaffPositionForm()" /></div>
+
 </body>
 </html>
