@@ -3,17 +3,18 @@
  */
  
 // Simply unhides the add facility ward form
-function showAddForm() {
+function showAddForm(button, form) {
 	
 	// Hide add button. Show add form
-	document.getElementByClassName("show-fac-form-button").style.display = "none";
-	document.getElementByClassName("add-sub-fac-form").style.display = "block";
-	document.getElementByClassName("add-sub-fac-form").scrollIntoView();
+	document.getElementById(button).style.display = "none";
+	document.getElementById(form).style.display = "block";
+	document.getElementById(form).scrollIntoView();
 }
  
 // Hides add facility ward form
 function cancelAddWardForm() {
 	
+	document.getel
 	document.getElementByClassName("add-sub-fac-form").style.display = "none";
 	document.getElementByClassName("show-fac-form-button").style.display = "block";
 }

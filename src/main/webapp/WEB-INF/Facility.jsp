@@ -54,8 +54,8 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<div><input class="show-fac-form-button" type="button" value="Add Ward" onclick="showAddForm()" /></div>
-	<form class="add-sub-fac-form" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
+	<div><input id="showFacFormButton" type="button" value="Add Ward" onclick="showAddForm('showFacFormButton', 'addSubFacForm')" /></div>
+	<form id="addSubFacForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
 		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
 		<div>Name*: </div>				
@@ -87,12 +87,5 @@
 			</tr>
 		</c:forEach>
 	</table>	
-	<div><input id="addStaffPositionButton" type="button" value="Add Staff Position" onclick="showStaffPositionForm()" /></div>
-	<form id="addPositionForm" name="positionForm" action="AddFacilityStaffPositionServlet" method="post" onsubmit="return validateAddPositionForm()">
-	<div class="facilityBox">
-		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
-		<div>Name: </div>	
-	</div>	
-	</form>
 </body>
 </html>

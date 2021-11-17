@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-#addWardForm{display:none;}
+#addSubFacForm {
+	display: none;
+}
 
 /*Flexbox layout*/
 .facilityBox {
