@@ -3,11 +3,11 @@
  */
  
 // Simply unhides the add facility ward form
-function showAddWardForm() {
+function showAddForm() {
 	
-	document.getElementById("addWardButton").style.display = "none";
-	document.getElementById("addWardForm").style.display = "block";
-	document.getElementById("addWardForm").scrollIntoView();
+	document.getElementByClassName("show-fac-add-form-button").style.display = "none";
+	document.getElementByClassName("show-fac-add-form-button").style.display = "block";
+	document.getElementById("show-fac-add-form-button").scrollIntoView();
 }
  
 // Hides add facility ward form
