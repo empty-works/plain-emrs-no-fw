@@ -5,16 +5,17 @@
 // Simply unhides the add facility ward form
 function showAddForm() {
 	
-	document.getElementByClassName("show-fac-add-form-button").style.display = "none";
-	document.getElementByClassName("show-fac-add-form-button").style.display = "block";
-	document.getElementById("show-fac-add-form-button").scrollIntoView();
+	// Hide add button. Show add form
+	document.getElementByClassName("show-fac-form-button").style.display = "none";
+	document.getElementByClassName("add-sub-fac-form").style.display = "block";
+	document.getElementByClassName("add-sub-fac-form").scrollIntoView();
 }
  
 // Hides add facility ward form
 function cancelAddWardForm() {
 	
-	document.getElementById("addWardForm").style.display = "none";
-	document.getElementById("addWardButton").style.display = "block";
+	document.getElementByClassName("add-sub-fac-form").style.display = "none";
+	document.getElementByClassName("show-fac-form-button").style.display = "block";
 }
 
 // Validate add facility ward form input by user

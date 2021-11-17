@@ -54,8 +54,8 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<div><input class="show-fac-add-form-button" type="button" value="Add Ward" onclick="showAddForm()" /></div>
-	<form id="addWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
+	<div><input class="show-fac-form-button" type="button" value="Add Ward" onclick="showAddForm()" /></div>
+	<form class="add-sub-fac-form" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
 		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
 		<div>Name*: </div>				
