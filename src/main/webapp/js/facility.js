@@ -12,11 +12,10 @@ function showAddForm(button, form) {
 }
  
 // Hides add facility ward form
-function cancelAddWardForm() {
+function cancelAddForm(button, form) {
 	
-	document.getel
-	document.getElementByClassName("add-sub-fac-form").style.display = "none";
-	document.getElementByClassName("show-fac-form-button").style.display = "block";
+	document.getElementById(button).style.display = "block";
+	document.getElementById(form).style.display = "none";
 }
 
 // Validate add facility ward form input by user

@@ -64,7 +64,7 @@
 		<div><input type="text" name="facilityWardLocation"  /></div>
 		<div><input type="submit" value="Submit" ></input>
 			 <input id="cancelAddWardButton" type="button" value="Cancel" 
-				onclick="cancelAddWardForm()"></input></div>
+				onclick="cancelAddForm('showFacFormButton', 'addSubFacForm')"></input></div>
 	</div>
 	</form>
 	
