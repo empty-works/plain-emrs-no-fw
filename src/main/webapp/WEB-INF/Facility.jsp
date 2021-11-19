@@ -63,7 +63,7 @@
 		<div>Location: </div>
 		<div><input type="text" name="facilityWardLocation"  /></div>
 		<div><input type="submit" value="Submit" ></input>
-			 <input id="cancelAddWardButton" type="button" value="Cancel" 
+			 <input class="cancelAddButton" type="button" value="Cancel" 
 				onclick="cancelAddForm('showFacWardFormButton', 'addFacWardForm')"></input></div>
 	</div>
 	</form>
@@ -87,6 +87,18 @@
 			</tr>
 		</c:forEach>
 	</table>	
-	<div><input id="showFacPosition" type="button" value="Add Staff Position" onclick="showAddForm()" /></div>
+	<div><input id="showFacPositionFormButton" type="button" value="Add Staff Position" onclick="showAddForm()" /></div>
+	<form id="addFacPositionForm" action="AddFacilityPositionServlet" method="post">
+	<div class="facilityBox">
+	<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>			
+	<div>Name: </div>	
+	<div><input id="facPositionAddName" type="text" name="facilityPositionName" /></div>
+	<div>Description: </div>
+	<div><input type="text" name="facilityPositionDescription" /></div>
+	<div><input type="submit" value="Submit" ></input>
+		 <input class="cancelAddButton" type="button" value="Cancel" 
+			onclick="cancelAddForm('showFacPositionFormButton', 'addFacPositionForm')"></input></div>
+	</div>
+	</form>
 </body>
 </html>

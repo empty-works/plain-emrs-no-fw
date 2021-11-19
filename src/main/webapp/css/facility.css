@@ -4,6 +4,10 @@
 	display: none;
 }
 
+#addFacPositionForm {
+	display: none;
+}
+
 /*Flexbox layout*/
 .facilityBox {
 	display: flex;
