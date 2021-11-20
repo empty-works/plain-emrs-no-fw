@@ -36,6 +36,6 @@ public class AddFacilityWardDao {
 			e.printStackTrace();
 		}
 		
-		return "Something went wrong. Could not add facility ward.";
+		return "Something went wrong! Could not add facility ward.";
 	}
 }
