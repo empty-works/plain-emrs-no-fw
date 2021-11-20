@@ -87,7 +87,7 @@
 			</tr>
 		</c:forEach>
 	</table>	
-	<div><input id="showFacPositionFormButton" type="button" value="Add Staff Position" onclick="showAddForm()" /></div>
+	<div><input id="showFacPositionFormButton" type="button" value="Add Staff Position" onclick="showAddForm('showFacPositionFormButton', 'addFacPositionForm')" /></div>
 	<form id="addFacPositionForm" action="AddFacilityPositionServlet" method="post">
 	<div class="facilityBox">
 	<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>			
