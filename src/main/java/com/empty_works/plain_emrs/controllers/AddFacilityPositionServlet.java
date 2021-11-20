@@ -36,7 +36,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 		String facilityId = request.getParameter("setFacId");
 		String positionName = request.getParameter("facilityPositionName");
 		String positionDescription = request.getParameter("facilityPositionDescription");
-		
+		String staffPositionId = 
 		
 		doGet(request, response);
 	}
