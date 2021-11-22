@@ -30,7 +30,8 @@ public class AddFacilityPositionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 		System.out.println("AddFacilityPositionServlet facPositionResult = " + facPositionResult);
 		if(facPositionResult.equals(AddFacilityPositionDao.ADDFACPOSITIONDAO_SUCCESS)) {
 			
-			request.setAttribute("", facilityId);
+			request.setAttribute("facId", facilityId);
 			doGet(request, response);
 		}
 	}

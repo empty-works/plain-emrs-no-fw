@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
+import com.empty_works.plain_emrs.dao.FacilityWardDao;
+import com.empty_works.plain_emrs.util.FacilityWardIdUtil;
 
 /**
  * Servlet implementation class WardServlet
@@ -29,6 +31,27 @@ public class FacilityWardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FacilityWardBean fwb = new FacilityWardBean();
+		String facilityId = request.getParameter("setFacId");
+		fwb.setFacilityId(facilityId);
+		fwb.setName(request.getParameter("facilityWardName"));
+		fwb.setLocation(request.getParameter("facilityWardLocation"));
+		fwb.setWardId(FacilityWardIdUtil.get(fwb));
+		
+		String facWardResult = FacilityWardDao.add(fwb);
+		System.out.println("FacilityWardServlet facWardResult = " + facWardResult);
+		if(facWardResult.equals(FacilityWardDao.ADDFACWARDDAO_SUCCESS)) {
 			
+			request.setAttribute("facId", facilityId);
+			doGet(request, response);
+		}
 	}
 }
