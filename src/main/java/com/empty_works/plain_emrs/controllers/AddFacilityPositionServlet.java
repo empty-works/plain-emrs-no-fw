@@ -1,11 +1,16 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
+import com.empty_works.plain_emrs.dao.AddFacilityPositionDao;
+import com.empty_works.plain_emrs.util.FacilityPositionIdUtil;
 
 /**
  * Servlet implementation class AddFacilityPositionServlet
@@ -33,12 +38,19 @@ public class AddFacilityPositionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
 		String facilityId = request.getParameter("setFacId");
-		String positionName = request.getParameter("facilityPositionName");
-		String positionDescription = request.getParameter("facilityPositionDescription");
-		String staffPositionId = 
+		fspb.setFacilityId(facilityId);
+		fspb.setName(request.getParameter("facilityPositionName"));
+		fspb.setDescription(request.getParameter("facilityPositionDescription"));
+		fspb.setStaffPositionId(FacilityPositionIdUtil.get(fspb));
 		
-		doGet(request, response);
+		String facPositionResult = AddFacilityPositionDao.add(fspb);
+		System.out.println("AddFacilityPositionServlet facPositionResult = " + facPositionResult);
+		if(facPositionResult.equals(AddFacilityPositionDao.ADDFACPOSITIONDAO_SUCCESS)) {
+			
+			request.setAttribute("", facilityId);
+			doGet(request, response);
+		}
 	}
-
 }
