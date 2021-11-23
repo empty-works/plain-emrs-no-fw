@@ -42,7 +42,7 @@ public class FacilityWardDao {
 		return "Something went wrong! Could not add facility ward.";
 	}
 
-	public static List<FacilityWardBean> getList() {
+	public static List<FacilityWardBean> getList(String facilityId) {
 		
 		List<FacilityWardBean> list = new ArrayList<>();
 		
@@ -50,7 +50,8 @@ public class FacilityWardDao {
 		PreparedStatement ps = null;
 
 		try {
-			ps = con.prepareStatement("select ward_id, name, location from wards");
+			ps = con.prepareStatement("select ward_id, name, location from wards where id=?");
+			ps.setString(1, facilityId);
 			ResultSet resultSet = ps.executeQuery();
 			
 			while(resultSet.next()) {

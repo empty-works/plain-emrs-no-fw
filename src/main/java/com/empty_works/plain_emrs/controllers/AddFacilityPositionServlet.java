@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
-import com.empty_works.plain_emrs.dao.AddFacilityPositionDao;
+import com.empty_works.plain_emrs.dao.FacilityPositionDao;
 import com.empty_works.plain_emrs.util.FacilityPositionIdUtil;
 
 /**
@@ -30,8 +30,8 @@ public class AddFacilityPositionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -46,9 +46,9 @@ public class AddFacilityPositionServlet extends HttpServlet {
 		fspb.setDescription(request.getParameter("facilityPositionDescription"));
 		fspb.setStaffPositionId(FacilityPositionIdUtil.get(fspb));
 		
-		String facPositionResult = AddFacilityPositionDao.add(fspb);
+		String facPositionResult = FacilityPositionDao.add(fspb);
 		System.out.println("AddFacilityPositionServlet facPositionResult = " + facPositionResult);
-		if(facPositionResult.equals(AddFacilityPositionDao.ADDFACPOSITIONDAO_SUCCESS)) {
+		if(facPositionResult.equals(FacilityPositionDao.ADDFACPOSITIONDAO_SUCCESS)) {
 			
 			request.setAttribute("facId", facilityId);
 			doGet(request, response);

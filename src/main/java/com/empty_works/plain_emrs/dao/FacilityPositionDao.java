@@ -3,11 +3,13 @@ package com.empty_works.plain_emrs.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
-public class AddFacilityPositionDao {
+public class FacilityPositionDao {
 	
 	public static String ADDFACPOSITIONDAO_SUCCESS = "Success";
 
@@ -36,5 +38,22 @@ public class AddFacilityPositionDao {
 		}
 		
 		return "Something went wrong with adding facility staff positions to the database!";
+	}
+	
+	public static List<FacilityStaffPositionBean> getList(String facilityId) {
+		
+		// Declare list
+		List<FacilityStaffPositionBean> fspbList = new ArrayList<>();
+		
+		// Make connection and prepared statement
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		// Make and execute query
+		String query = ""
+		
+		// Loop through result set and create new facility positions beans and add to list
+		
+		
 	}
 }
