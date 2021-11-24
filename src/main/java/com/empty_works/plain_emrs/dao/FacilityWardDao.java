@@ -50,7 +50,7 @@ public class FacilityWardDao {
 		PreparedStatement ps = null;
 
 		try {
-			ps = con.prepareStatement("select ward_id, name, location from wards where id=?");
+			ps = con.prepareStatement("select ward_id, name, location from wards where facility_id=?");
 			ps.setString(1, facilityId);
 			ResultSet resultSet = ps.executeQuery();
 			

@@ -71,19 +71,19 @@
 	<h2>Facility Staff Positions</h2>	
 	<table>
 		<tr>
-		<c:if test="${empty positionsList}">
+		<c:if test="${empty facilityPositionList}">
 			<td>No staff positions added yet!</td>
 		</c:if>
 		</tr>
-		<c:forEach items="${positionsList}" var="position">
+		<c:forEach items="${facilityPositionList}" var="facPosition">
 			<tr>
-				<td>ID: <c:out value="${position.getId()}" /></td>		
+				<td>ID: <c:out value="${facPosition.getId()}" /></td>		
 			</tr>			
 			<tr>
-				<td>Name: <c:out value="${position.getName()}" /></td>
+				<td>Name: <c:out value="${facPosition.getName()}" /></td>
 			</tr>
 			<tr>
-				<td>Description: <c:out value="${position.getDescription()}" /></td>
+				<td>Description: <c:out value="${facPosition.getDescription()}" /></td>
 			</tr>
 		</c:forEach>
 	</table>	

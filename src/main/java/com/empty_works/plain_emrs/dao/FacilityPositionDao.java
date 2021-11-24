@@ -2,6 +2,7 @@ package com.empty_works.plain_emrs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,12 +49,28 @@ public class FacilityPositionDao {
 		// Make connection and prepared statement
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
+
 		
 		// Make and execute query
-		String query = ""
+		try {
+			preparedStatement = con.prepareStatement("SELECT staff_position_id, name, description FROM staff_positions WHERE facility_id=?");
+			preparedStatement.setString(1, facilityId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			// Loop through result set and create new facility positions beans and add to list
+			while(resultSet.next()) {
+				
+				FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
+				fspb.setFacilityId(facilityId);
+				fspb.setStaffPositionId(resultSet.getString("staff_position_id"));
+				fspb.setName(resultSet.getString("name"));
+				fspb.setDescription(resultSet.getString("description"));
+				fspbList.add(fspb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		// Loop through result set and create new facility positions beans and add to list
-		
-		
+		return fspbList;
 	}
 }

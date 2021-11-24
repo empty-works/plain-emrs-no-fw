@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
+import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
 import com.empty_works.plain_emrs.dao.FacilityDao;
+import com.empty_works.plain_emrs.dao.FacilityPositionDao;
 import com.empty_works.plain_emrs.dao.FacilityWardDao;
 import com.empty_works.plain_emrs.util.ParamAttribHandler;
 
@@ -44,7 +46,8 @@ public class FacilityServlet extends HttpServlet {
 		List<FacilityWardBean> fwbList = FacilityWardDao.getList(facility.getId());
 		request.setAttribute("facilityWardList", fwbList);
 		// Get list of staff positions
-		List<FacilityStaffPositionBean> fspbList = FacilityPositionDao.
+		List<FacilityStaffPositionBean> fspbList = FacilityPositionDao.getList(facility.getId());
+		request.setAttribute("facilityPositionList", fspbList);
 		// Get list of staff specialties
 		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 	}
