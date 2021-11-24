@@ -13,10 +13,10 @@ public class FacilityStaffPositionBean {
 	public void setFacilityId(String facilityId) {
 		this.facilityId = facilityId;
 	}
-	public String getStaffPositionId() {
+	public String getId() {
 		return staffPositionId;
 	}
-	public void setStaffPositionId(String staffPositionId) {
+	public void setId(String staffPositionId) {
 		this.staffPositionId = staffPositionId;
 	}
 	public String getName() {

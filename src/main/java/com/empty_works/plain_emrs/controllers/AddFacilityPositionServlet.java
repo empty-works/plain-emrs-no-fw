@@ -44,7 +44,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 		fspb.setFacilityId(facilityId);
 		fspb.setName(request.getParameter("facilityPositionName"));
 		fspb.setDescription(request.getParameter("facilityPositionDescription"));
-		fspb.setStaffPositionId(FacilityPositionIdUtil.get(fspb));
+		fspb.setId(FacilityPositionIdUtil.get(fspb));
 		
 		String facPositionResult = FacilityPositionDao.add(fspb);
 		System.out.println("AddFacilityPositionServlet facPositionResult = " + facPositionResult);
