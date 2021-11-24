@@ -100,5 +100,26 @@
 			onclick="cancelAddForm('showFacPositionFormButton', 'addFacPositionForm')"></input></div>
 	</div>
 	</form>
+	
+	<h2>Facility Staff Specialties</h2>
+	<table>
+		<tr>
+		<c:if test="${empty facilitySpecialtyList}">
+			<td>No staff specialties added yet!</td>
+		</c:if>
+		</tr>
+		<c:forEach items="${facilitySpecialtyList}" var="facSpecialty">
+			<tr>
+				<td>ID: <c:out value="${facSpecialty.getId()}" /></td>
+			</tr>				
+			<tr>
+				<td>Name: <c:out value="${facSpecialty.getName()}" /></td>
+			</tr>
+			<tr>
+				<td>Description: <c:out value="${facSpecialty.getDescription()}" /></td>
+			</tr>
+		</c:forEach>	
+	</table>
+	
 </body>
 </html>
