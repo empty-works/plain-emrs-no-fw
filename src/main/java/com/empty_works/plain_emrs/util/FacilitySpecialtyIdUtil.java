@@ -3,7 +3,7 @@ package com.empty_works.plain_emrs.util;
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.util.helpers.IdUtil;
 
-public class FacilitySpecialtyUtil {
+public class FacilitySpecialtyIdUtil {
 
 	final public static String get(FacilityStaffSpecialtyBean fssb) {
 		
