@@ -2,7 +2,10 @@ package com.empty_works.plain_emrs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
@@ -36,5 +39,29 @@ public class FacilitySpecialtyDao {
 		}
 		
 		return "Something went wrong writing staff specialty to the database.";
+	}
+	
+	public static List<FacilityStaffSpecialtyBean> getList(String facilityId) {
+		
+		List<FacilityStaffSpecialtyBean> theList = new ArrayList<>();
+		// Make connection and prepared statement
+		Connection con = ConnectionUtil.getConnection();
+		try {
+			PreparedStatement ps = con.prepareStatement("SELECT specialty_id, facility_id, name, description "
+					+ "FROM staff_specialties WHERE facility_id=?");
+			ps.setString(1, facilityId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				
+				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
+				fssb.setId(rs.getString("specialty_id"));
+				fssb.setName(rs.getString("name"));
+				fssb.setDescription("description");
+				theList.add(fssb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return theList;
 	}
 }
