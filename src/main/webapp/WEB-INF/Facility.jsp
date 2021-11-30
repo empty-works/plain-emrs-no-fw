@@ -120,6 +120,19 @@
 			</tr>
 		</c:forEach>	
 	</table>
+	<div><input id="showFacSpecialtyFormButton" type="button" value="Add Staff Specialty" onclick="showAddForm('showFacSpecialtyFormButton', 'addFacSpecialtyForm')" /></div>	
+	<form id="addFacSpecialtyForm" action="AddFacilitySpecialtyServlet" method="post">
+	<div class="facilityBox">
+	<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>			
+	<div>Name: </div>	
+	<div><input id="facSpecialtyAddName" type="text" name="facilitySpecialtyName" /></div>
+	<div>Description: </div>
+	<div><input type="text" name="facilitySpecialtyDescription" /></div>
+	<div><input type="submit" value="Submit" ></input>
+		 <input class="cancelAddButton" type="button" value="Cancel" 
+			onclick="cancelAddForm('showFacSpecialtyFormButton', 'addFacSpecialtyForm')"></input></div>
+	</div>
+	</form>
 	
 </body>
 </html>
