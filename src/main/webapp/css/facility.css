@@ -8,6 +8,10 @@
 	display: none;
 }
 
+#addFacSpecialtyForm {
+	display: none;
+}
+
 /*Flexbox layout*/
 .facilityBox {
 	display: flex;
