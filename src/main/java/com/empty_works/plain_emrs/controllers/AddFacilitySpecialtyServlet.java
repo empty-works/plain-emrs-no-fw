@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
+import com.empty_works.plain_emrs.dao.FacilitySpecialtyDao;
 import com.empty_works.plain_emrs.util.FacilitySpecialtyIdUtil;
 
 /**
@@ -30,6 +31,7 @@ public class AddFacilitySpecialtyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
 	}
 
 	/**
@@ -39,13 +41,17 @@ public class AddFacilitySpecialtyServlet extends HttpServlet {
 		
 		// Retrieve user input from form
 		FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
-		fssb.setFacilityId(request.getParameter("facilityId"));
-		fssb.setName(request.getParameter("facilityId"));
+		String facilityId = request.getParameter("setFacId");
+		fssb.setFacilityId(facilityId);
+		fssb.setName(request.getParameter("specialtyName"));
 		fssb.setDescription(request.getParameter("specialtyDescription"));
 		fssb.setId(FacilitySpecialtyIdUtil.get(fssb));
 		
-		
-		
-		doGet(request, response);
+		String result = FacilitySpecialtyDao.add(fssb);
+		if(result.equals(FacilitySpecialtyDao.SPECIALTYDAO_SUCCESS)) {
+			
+			request.setAttribute("facId", facilityId);
+			doGet(request, response);
+		}
 	}
 }
