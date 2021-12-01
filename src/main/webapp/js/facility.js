@@ -30,3 +30,15 @@ function validateAddWardForm() {
 	}
 	return true;
 }
+
+// Validate add facility sub-categories (ward, staff position, staff specialty). Just checks if name is empty
+function validateAddForm(name) {
+	
+	let facSubCatName = name.value;
+	if(facSubCatName == "")	{
+		
+		alert("Cannot leave name empty!");
+		return false;
+	}
+	return true;
+}
