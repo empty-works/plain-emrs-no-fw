@@ -23,19 +23,13 @@ function validateAddWardForm() {
 	
 	let facWardName = document.forms["wardForm"]["facilityWardName"].value;	
 	console.log("facility.js - validateAddWardForm facWardName=" + facWardName);
-	if(facWardName == "") {
-		
-		alert("Cannot leave facility ward name empty!");
-		return false;
-	}
-	return true;
+	return validateAddForm(facWardName);
 }
 
 // Validate add facility sub-categories (ward, staff position, staff specialty). Just checks if name is empty
 function validateAddForm(name) {
 	
-	let facSubCatName = name.value;
-	if(facSubCatName == "")	{
+	if(name == "")	{
 		
 		alert("Cannot leave name empty!");
 		return false;
