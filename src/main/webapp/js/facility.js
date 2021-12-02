@@ -18,12 +18,22 @@ function cancelAddForm(button, form) {
 	document.getElementById(form).style.display = "none";
 }
 
-// Validate add facility ward form input by user
 function validateAddWardForm() {
 	
 	let facWardName = document.forms["wardForm"]["facilityWardName"].value;	
-	console.log("facility.js - validateAddWardForm facWardName=" + facWardName);
 	return validateAddForm(facWardName);
+}
+
+function validateAddPositionForm() {
+	
+	let facPositionName = document.forms["positionForm"]["facilityPositionName"].value;
+	return validateAddForm(facPositionName);
+}
+
+function validateAddSpecialtyForm() {
+	
+	let facSpecialtyName = document.forms["specialtyForm"]["facilitySpecialtyName"].value;
+	return validateAddForm(facSpecialtyName);
 }
 
 // Validate add facility sub-categories (ward, staff position, staff specialty). Just checks if name is empty
