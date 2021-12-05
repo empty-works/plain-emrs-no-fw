@@ -19,6 +19,7 @@
 	<h3>Welcome <%=session.getAttribute("username") %></h3>
 	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+	<div><a href="">Roles</a></div>
 	<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
 		
 </body>
