@@ -2,16 +2,16 @@ package com.empty_works.plain_emrs.beans;
 
 public class RoleBean {
 
-	String roleId;
+	String id;
 	String name;
 	String group;
 	String description;
 
-	public String getRoleId() {
-		return roleId;
+	public String getId() {
+		return id;
 	}
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
