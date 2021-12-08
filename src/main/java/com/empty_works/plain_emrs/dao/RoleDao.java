@@ -9,7 +9,7 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class RoleDao {
 
-	String ROLEDAO_SUCCESS = "Success";
+	public static String ROLEDAO_SUCCESS = "Success";
 	
 	public static String add(RoleBean rb) {
 		
