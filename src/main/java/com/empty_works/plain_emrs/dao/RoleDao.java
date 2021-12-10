@@ -2,6 +2,7 @@ package com.empty_works.plain_emrs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,21 @@ public class RoleDao {
 		List<RoleBean> roles = new ArrayList<>();
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
-		preparedStatement = con.prepareStatement("SELECT ");
+		try {
+			preparedStatement = con.prepareStatement("SELECT role_id, name, group, description FROM roles");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				
+				RoleBean rb = new RoleBean();
+				rb.setId(resultSet.getString("role_id"));
+				rb.setName(resultSet.getString("name"));
+				rb.setGroup(resultSet.getString("group"));
+				rb.setDescription(resultSet.getString("description"));
+				roles.add(rb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return roles;
 	}
 }

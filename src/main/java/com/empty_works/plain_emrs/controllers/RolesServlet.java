@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.dao.RoleDao;
 
 /**
  * Servlet implementation class RolesServlet
@@ -32,7 +33,9 @@ public class RolesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<RoleBean> roles = new ArrayList<>();
-		roles = 
+		roles = RoleDao.getList();
+		request.setAttribute("rolesList", roles);
+		request.getRequestDispatcher("/WEB-INFO/Role.jsp").forward(request, response);
 	}
 
 	/**
