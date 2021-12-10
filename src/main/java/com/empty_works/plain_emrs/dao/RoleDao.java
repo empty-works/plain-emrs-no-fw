@@ -3,6 +3,8 @@ package com.empty_works.plain_emrs.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.RoleBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
@@ -13,10 +15,10 @@ public class RoleDao {
 	
 	public static String add(RoleBean rb) {
 		
-		String roleId = rb.getId();
 		String roleName = rb.getName();
 		String roleGroup = rb.getGroup();
 		String roleDescription = rb.getDescription();
+		String roleId =  
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -36,5 +38,13 @@ public class RoleDao {
 		}
 		
 		return "There was a problem writing the role to the database.";
+	}
+	
+	public static List<RoleBean> getList() {
+		
+		List<RoleBean> roles = new ArrayList<>();
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		preparedStatement = con.prepareStatement("SELECT ");
 	}
 }
