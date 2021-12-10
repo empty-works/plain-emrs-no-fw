@@ -17,7 +17,7 @@
 			<td>No roles added yet!</td>
 		</c:if>
 		</tr>				
-		<c:forEach items="rolesList" var="role">
+		<c:forEach items="${rolesList}" var="role">
 			<tr>
 				<td>ID: <c:out value="${role.getId()}" /></td>
 			</tr>	

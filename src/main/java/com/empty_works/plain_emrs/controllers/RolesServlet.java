@@ -35,7 +35,7 @@ public class RolesServlet extends HttpServlet {
 		List<RoleBean> roles = new ArrayList<>();
 		roles = RoleDao.getList();
 		request.setAttribute("rolesList", roles);
-		request.getRequestDispatcher("/WEB-INFO/Role.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Role.jsp").forward(request, response);
 	}
 
 	/**
