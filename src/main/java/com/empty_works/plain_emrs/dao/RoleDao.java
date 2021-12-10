@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.RoleBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
+import com.empty_works.plain_emrs.util.RoleIdUtil;
 
 public class RoleDao {
 
@@ -18,7 +19,7 @@ public class RoleDao {
 		String roleName = rb.getName();
 		String roleGroup = rb.getGroup();
 		String roleDescription = rb.getDescription();
-		String roleId =  
+		String roleId = RoleIdUtil.get(rb);
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
