@@ -55,9 +55,9 @@ public class RoleDao {
 				
 				RoleBean rb = new RoleBean();
 				rb.setId(resultSet.getString("role_id"));
-				rb.setName(resultSet.getString("name"));
-				rb.setGroup(resultSet.getString("group"));
-				rb.setDescription(resultSet.getString("description"));
+				rb.setName(resultSet.getString("role_name"));
+				rb.setGroup(resultSet.getString("role_group"));
+				rb.setDescription(resultSet.getString("role_description"));
 				roles.add(rb);
 			}
 		} catch (SQLException e) {
