@@ -24,7 +24,7 @@ public class FacilityWardDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "insert into wards(ward_id, facility_id, name, location) values (?,?,?,?)";
+		String query = "insert into wards(ward_id, facility_id, ward_name, ward_location) values (?,?,?,?)";
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, wardId);
@@ -50,7 +50,7 @@ public class FacilityWardDao {
 		PreparedStatement ps = null;
 
 		try {
-			ps = con.prepareStatement("select ward_id, name, location from wards where facility_id=?");
+			ps = con.prepareStatement("select ward_id, ward_name, ward_location from wards where facility_id=?");
 			ps.setString(1, facilityId);
 			ResultSet resultSet = ps.executeQuery();
 			
@@ -58,8 +58,8 @@ public class FacilityWardDao {
 				
 				FacilityWardBean fwb = new FacilityWardBean();
 				fwb.setWardId(resultSet.getString("ward_id"));
-				fwb.setName(resultSet.getString("name"));
-				fwb.setLocation(resultSet.getString("location"));
+				fwb.setName(resultSet.getString("ward_name"));
+				fwb.setLocation(resultSet.getString("ward_location"));
 				list.add(fwb);
 			}
 		} catch (SQLException e) {

@@ -25,7 +25,8 @@ public class FacilitySpecialtyDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "INSERT INTO staff_specialties(specialty_id, facility_id, name, description) values (?,?,?,?)";
+		String query = "INSERT INTO staff_specialties(specialty_id, facility_id, specialty_name, "
+				+ "specialty_description) values (?,?,?,?)";
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, specialtyId);
@@ -47,16 +48,17 @@ public class FacilitySpecialtyDao {
 		// Make connection and prepared statement
 		Connection con = ConnectionUtil.getConnection();
 		try {
-			PreparedStatement ps = con.prepareStatement("SELECT specialty_id, facility_id, name, description "
-					+ "FROM staff_specialties WHERE facility_id=?");
+			PreparedStatement ps = con.prepareStatement("select specialty_id, facility_id, specialty_name, "
+					+ "specialty_description "
+					+ "from staff_specialties where facility_id=?");
 			ps.setString(1, facilityId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				
 				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
 				fssb.setId(rs.getString("specialty_id"));
-				fssb.setName(rs.getString("name"));
-				fssb.setDescription("description");
+				fssb.setName(rs.getString("specialty_name"));
+				fssb.setDescription("specialty_description");
 				theList.add(fssb);
 			}
 		} catch (SQLException e) {

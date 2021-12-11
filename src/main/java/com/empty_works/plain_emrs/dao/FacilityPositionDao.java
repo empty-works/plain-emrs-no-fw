@@ -25,7 +25,8 @@ public class FacilityPositionDao {
 		PreparedStatement preparedStatement = null;
 		
 		con = ConnectionUtil.getConnection();
-		String query = "insert into staff_positions(staff_position_id, facility_id, name, description) values (?,?,?,?)";
+		String query = "insert into staff_positions(staff_position_id, facility_id, staff_position_name, "
+				+ "staff_position_description) values (?,?,?,?)";
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, staffPositionId);
@@ -53,7 +54,8 @@ public class FacilityPositionDao {
 		
 		// Make and execute query
 		try {
-			preparedStatement = con.prepareStatement("SELECT staff_position_id, name, description FROM staff_positions WHERE facility_id=?");
+			preparedStatement = con.prepareStatement("select staff_position_id, staff_position_name, "
+					+ "staff_position_description from staff_positions WHERE facility_id=?");
 			preparedStatement.setString(1, facilityId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -63,8 +65,8 @@ public class FacilityPositionDao {
 				FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
 				fspb.setFacilityId(facilityId);
 				fspb.setId(resultSet.getString("staff_position_id"));
-				fspb.setName(resultSet.getString("name"));
-				fspb.setDescription(resultSet.getString("description"));
+				fspb.setName(resultSet.getString("staff_position_name"));
+				fspb.setDescription(resultSet.getString("staff_position_description"));
 				fspbList.add(fspb);
 			}
 		} catch (SQLException e) {
