@@ -30,8 +30,10 @@ public class RegisterNonPatientUserDao {
 		PreparedStatement preparedStatement = null;
 		
 		con = ConnectionUtil.getConnection();
-		String query = "insert into nonpatients(nonpatient_id, given_name, middle_name, last_name, "
-				+ "organization, date_of_birth, description, ward_id, staff_position_id, specialty_id) values (?,?,?,?,?,?,?,?,?,?)";
+		String query = "insert into nonpatients(nonpatient_id, nonpatient_given_name, nonpatient_middle_name, "
+				+ "nonpatient_last_name, "
+				+ "nonpatient_organization, nonpatient_date_of_birth, nonpatient_description, ward_id, "
+				+ "staff_position_id, specialty_id) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);

@@ -26,7 +26,7 @@ public class RegisterGeneratedUserDao {
 		
 		con = ConnectionUtil.getConnection();
 		String query = "insert into users("
-				+ "username, password, email_address, created_on, patient_id, nonpatient_id) "
+				+ "user_name, user_password, user_email_address, user_created_on, patient_id, nonpatient_id) "
 				+ "values (?,?,?,?,?,?)";
 		
 		try {
