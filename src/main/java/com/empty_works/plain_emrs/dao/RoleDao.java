@@ -48,7 +48,8 @@ public class RoleDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = con.prepareStatement("SELECT role_id, name, group, description FROM roles");
+			String query = "select role_id, role_name, role_group, role_description from roles";
+			preparedStatement = con.prepareStatement(query);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				
