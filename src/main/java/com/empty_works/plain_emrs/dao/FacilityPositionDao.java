@@ -66,7 +66,8 @@ public class FacilityPositionDao {
 				fspb.setFacilityId(facilityId);
 				fspb.setId(resultSet.getString("staff_position_id"));
 				fspb.setName(resultSet.getString("staff_position_name"));
-				fspb.setDescription(resultSet.getString("staff_position_description"));
+				java.sql.Blob spd = resultSet.getBlob("staff_position_description");
+				fspb.setDescription(new String(spd.getBytes(1L, (int) spd.length())));
 				fspbList.add(fspb);
 			}
 		} catch (SQLException e) {

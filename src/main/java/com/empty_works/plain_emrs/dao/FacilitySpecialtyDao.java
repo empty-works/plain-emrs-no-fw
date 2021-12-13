@@ -58,7 +58,8 @@ public class FacilitySpecialtyDao {
 				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
 				fssb.setId(rs.getString("specialty_id"));
 				fssb.setName(rs.getString("specialty_name"));
-				fssb.setDescription("specialty_description");
+				java.sql.Blob sd = rs.getBlob("specialty_description");
+				fssb.setDescription(new String(sd.getBytes(1L, (int) sd.length())));
 				theList.add(fssb);
 			}
 		} catch (SQLException e) {
