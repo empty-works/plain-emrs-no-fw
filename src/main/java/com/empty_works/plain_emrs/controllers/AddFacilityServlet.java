@@ -15,10 +15,15 @@ import com.empty_works.plain_emrs.util.FacilityIdUtil;
 /**
  * Servlet implementation class FacilityServlet
  */
-@WebServlet("/FacilitySetupServlet")
+@WebServlet("/AddFacilityServlet")
 public class AddFacilityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.getRequestDispatcher("/WEB-INF/AddFacility.jsp").forward(request, response);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

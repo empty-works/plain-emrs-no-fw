@@ -9,7 +9,7 @@
 <body>
 	<h2>Facility Setup</h2>	
 	<br><br>	
-	<form action="FacilitySetupServlet" method="post">
+	<form action="AddFacilityServlet" method="post">
 		
 		<div>Name: </div>
 		<div><input type="text" name="facilityName" /></div>
