@@ -47,6 +47,10 @@ public class FacilityDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
 		
 		return facility;
 	}
@@ -57,13 +61,14 @@ public class FacilityDao {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 	
 		String query = "select facility_id, facility_name, facility_city, facility_country from "
 				+ "facilities";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
 				
@@ -80,6 +85,10 @@ public class FacilityDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 		
 		return facilitiesList;
@@ -124,6 +133,10 @@ public class FacilityDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
 		
 		return "Something went wrong registering the facility into the database...";

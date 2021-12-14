@@ -41,7 +41,7 @@ public class AddFacilitySpecialtyServlet extends HttpServlet {
 		
 		// Retrieve user input from form
 		FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
-		String facilityId = request.getParameter("setFacId");
+		String facilityId = request.getParameter("facId");
 		fssb.setFacilityId(facilityId);
 		fssb.setName(request.getParameter("facilitySpecialtyName"));
 		fssb.setDescription(request.getParameter("facilitySpecialtyDescription"));

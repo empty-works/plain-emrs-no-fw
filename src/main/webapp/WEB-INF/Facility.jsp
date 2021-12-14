@@ -57,7 +57,7 @@
 	<div><input id="showFacWardFormButton" type="button" value="Add Ward" onclick="showAddForm('showFacWardFormButton', 'addFacWardForm')" /></div>
 	<form id="addFacWardForm" name="wardForm" action="AddFacilityWardServlet" method="post" onsubmit="return validateAddWardForm()">
 	<div class="facilityBox">
-		<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>
+		<div><input type="hidden" name="facId" value="${param.facId}" /></div>
 		<div>Name*: </div>				
 		<div><input id="facWardAddName" type="text" name="facilityWardName" /></div>
 		<div>Location: </div>
@@ -90,7 +90,7 @@
 	<div><input id="showFacPositionFormButton" type="button" value="Add Staff Position" onclick="showAddForm('showFacPositionFormButton', 'addFacPositionForm')" /></div>
 	<form id="addFacPositionForm" name="positionForm" action="AddFacilityPositionServlet" method="post" onsubmit="return validateAddPositionForm()">
 	<div class="facilityBox">
-	<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>			
+	<div><input type="hidden" name="facId" value="${param.facId}" /></div>			
 	<div>Name: </div>	
 	<div><input id="facPositionAddName" type="text" name="facilityPositionName" /></div>
 	<div>Description: </div>
@@ -123,7 +123,7 @@
 	<div><input id="showFacSpecialtyFormButton" type="button" value="Add Staff Specialty" onclick="showAddForm('showFacSpecialtyFormButton', 'addFacSpecialtyForm')" /></div>	
 	<form id="addFacSpecialtyForm" name="specialtyForm" action="AddFacilitySpecialtyServlet" method="post" onsubmit="return validateAddSpecialtyForm()">
 	<div class="facilityBox">
-	<div><input type="hidden" name="setFacId" value="${param.facId}" /></div>			
+	<div><input type="hidden" name="facId" value="${param.facId}" /></div>			
 	<div>Name: </div>	
 	<div><input id="facSpecialtyAddName" type="text" name="facilitySpecialtyName" /></div>
 	<div>Description: </div>

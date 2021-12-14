@@ -40,7 +40,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
-		String facilityId = request.getParameter("setFacId");
+		String facilityId = request.getParameter("facId");
 		fspb.setFacilityId(facilityId);
 		fspb.setName(request.getParameter("facilityPositionName"));
 		fspb.setDescription(request.getParameter("facilityPositionDescription"));

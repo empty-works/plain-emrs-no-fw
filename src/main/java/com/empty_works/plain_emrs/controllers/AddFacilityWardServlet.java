@@ -40,7 +40,7 @@ public class AddFacilityWardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		FacilityWardBean fwb = new FacilityWardBean();
-		String facilityId = request.getParameter("setFacId");
+		String facilityId = request.getParameter("facId");
 		fwb.setFacilityId(facilityId);
 		fwb.setName(request.getParameter("facilityWardName"));
 		fwb.setLocation(request.getParameter("facilityWardLocation"));
