@@ -25,6 +25,7 @@ import com.empty_works.plain_emrs.util.ParamAttribHandler;
 @WebServlet("/FacilityServlet")
 public class FacilityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static String facilityDbAttribute = "facilityDb";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,7 +44,7 @@ public class FacilityServlet extends HttpServlet {
 		System.out.println("FacilityServlet doGet facility ID = " + facilityId);
 		FacilityBean facility = FacilityDao.getFacility(facilityId);
 		System.out.println("FacilityServlet doGet facility name= " + facility.getName());
-		request.setAttribute("facilityDb", facility);
+		request.setAttribute(facilityDbAttribute, facility);
 		// Get list of wards
 		List<FacilityWardBean> fwbList = FacilityWardDao.getList(facility.getId());
 		request.setAttribute("facilityWardList", fwbList);

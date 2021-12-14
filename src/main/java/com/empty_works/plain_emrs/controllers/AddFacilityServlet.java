@@ -46,7 +46,7 @@ public class AddFacilityServlet extends HttpServlet {
 		if(facilityRegistrationResult.equals(FacilityDao.FACILITYDAO_SUCCESS)) {
 			
 			System.out.println("Success! Facility now registered in the database.");
-			request.setAttribute("fbean", fb);
+			request.setAttribute(FacilityServlet.facilityDbAttribute, fb);
 			request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 		}
 		else {
