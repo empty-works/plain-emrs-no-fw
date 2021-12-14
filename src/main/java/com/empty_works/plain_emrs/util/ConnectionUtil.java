@@ -1,6 +1,8 @@
 package com.empty_works.plain_emrs.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -23,5 +25,30 @@ public class ConnectionUtil {
 			e.printStackTrace();
 		}
 		return connection;
+	}
+	
+	public static void closeConnection(Connection con, PreparedStatement ps, ResultSet rs) {
+		
+		try {
+			
+			if(con != null) {
+				
+				con.close();
+			}
+			
+			if(ps != null) {
+				
+				ps.close();
+			}
+			
+			if(rs != null) {
+				
+				rs.close();
+			}
+		}
+		catch(SQLException e) {
+			
+			e.printStackTrace();
+		}
 	}
 }

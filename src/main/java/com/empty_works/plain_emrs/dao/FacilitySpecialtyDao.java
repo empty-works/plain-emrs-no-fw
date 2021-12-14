@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
@@ -38,6 +39,10 @@ public class FacilitySpecialtyDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
 		
 		return "Something went wrong writing staff specialty to the database.";
 	}
@@ -47,12 +52,14 @@ public class FacilitySpecialtyDao {
 		List<FacilityStaffSpecialtyBean> theList = new ArrayList<>();
 		// Make connection and prepared statement
 		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 		try {
-			PreparedStatement ps = con.prepareStatement("select specialty_id, facility_id, specialty_name, "
+			ps = con.prepareStatement("select specialty_id, facility_id, specialty_name, "
 					+ "specialty_description "
 					+ "from staff_specialties where facility_id=?");
 			ps.setString(1, facilityId);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				
 				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
@@ -64,6 +71,10 @@ public class FacilitySpecialtyDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, ps, rs);
 		}
 		return theList;
 	}
