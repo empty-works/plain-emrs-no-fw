@@ -20,15 +20,15 @@ public class LoginDao {
 		Connection connection = ConnectionUtil.getConnection();
 		try {
 			PreparedStatement statement = connection.prepareStatement(
-					"SELECT users.username, users.password, authorities.authority FROM users "
-					+ "INNER JOIN authorities ON users.username=authorities.username");
+					"SELECT users.user_name, users.user_password, authorities.authority FROM users "
+					+ "INNER JOIN authorities ON users.user_name=authorities.user_name");
 			
 			ResultSet rs = statement.executeQuery();
 			
 			while(rs.next()) {
 				
-				String usernameDb = rs.getString("username");
-				String passwordDb = rs.getString("password");
+				String usernameDb = rs.getString("user_name");
+				String passwordDb = rs.getString("user_password");
 				String roleDb = rs.getString("authority");
 				System.out.println("Resultset user: " + usernameDb);
 				System.out.println("Resultset pass: " + passwordDb);
