@@ -38,6 +38,10 @@ public class FacilityPositionDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
 		
 		return "Something went wrong with adding facility staff positions to the database!";
 	}
@@ -50,14 +54,14 @@ public class FacilityPositionDao {
 		// Make connection and prepared statement
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
-
+		ResultSet resultSet = null;
 		
 		// Make and execute query
 		try {
 			preparedStatement = con.prepareStatement("select staff_position_id, staff_position_name, "
 					+ "staff_position_description from staff_positions WHERE facility_id=?");
 			preparedStatement.setString(1, facilityId);
-			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 
 			// Loop through result set and create new facility positions beans and add to list
 			while(resultSet.next()) {
@@ -72,6 +76,10 @@ public class FacilityPositionDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 		
 		return fspbList;

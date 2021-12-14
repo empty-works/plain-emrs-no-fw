@@ -38,6 +38,10 @@ public class FacilityWardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
 		
 		return "Something went wrong! Could not add facility ward.";
 	}
@@ -47,12 +51,13 @@ public class FacilityWardDao {
 		List<FacilityWardBean> list = new ArrayList<>();
 		
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement ps = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 
 		try {
-			ps = con.prepareStatement("select ward_id, ward_name, ward_location from wards where facility_id=?");
-			ps.setString(1, facilityId);
-			ResultSet resultSet = ps.executeQuery();
+			preparedStatement = con.prepareStatement("select ward_id, ward_name, ward_location from wards where facility_id=?");
+			preparedStatement.setString(1, facilityId);
+			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
 				
@@ -64,6 +69,10 @@ public class FacilityWardDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 		
 		return list;

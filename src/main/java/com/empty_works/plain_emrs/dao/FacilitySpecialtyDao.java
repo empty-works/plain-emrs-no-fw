@@ -52,20 +52,20 @@ public class FacilitySpecialtyDao {
 		List<FacilityStaffSpecialtyBean> theList = new ArrayList<>();
 		// Make connection and prepared statement
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		try {
-			ps = con.prepareStatement("select specialty_id, facility_id, specialty_name, "
+			preparedStatement = con.prepareStatement("select specialty_id, facility_id, specialty_name, "
 					+ "specialty_description "
 					+ "from staff_specialties where facility_id=?");
-			ps.setString(1, facilityId);
-			rs = ps.executeQuery();
-			while(rs.next()) {
+			preparedStatement.setString(1, facilityId);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
 				
 				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
-				fssb.setId(rs.getString("specialty_id"));
-				fssb.setName(rs.getString("specialty_name"));
-				java.sql.Blob sd = rs.getBlob("specialty_description");
+				fssb.setId(resultSet.getString("specialty_id"));
+				fssb.setName(resultSet.getString("specialty_name"));
+				java.sql.Blob sd = resultSet.getBlob("specialty_description");
 				fssb.setDescription(new String(sd.getBytes(1L, (int) sd.length())));
 				theList.add(fssb);
 			}
@@ -74,7 +74,7 @@ public class FacilitySpecialtyDao {
 		}
 		finally {
 			
-			ConnectionUtil.closeConnection(con, ps, rs);
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 		return theList;
 	}
