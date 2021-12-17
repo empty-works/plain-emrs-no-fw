@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;

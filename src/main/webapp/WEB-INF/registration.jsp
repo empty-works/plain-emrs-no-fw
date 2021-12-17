@@ -35,7 +35,7 @@
 
 	<h2>Plain EMRS User Registration</h2>	
 	<form name="form" action="PlainEmrsRegistrationServlet" method="post" onsubmit="return validate()">
-		<table align="center">
+		<table>
 			<tr>
 			<td>Username</td>
 			</tr>	

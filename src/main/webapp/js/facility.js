@@ -46,3 +46,4 @@ function validateAddForm(name) {
 	}
 	return true;
 }
+

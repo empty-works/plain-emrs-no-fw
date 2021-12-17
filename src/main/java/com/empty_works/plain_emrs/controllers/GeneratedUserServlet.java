@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.GeneratedUserBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
-import com.empty_works.plain_emrs.util.NonPatientIdUtil;
 import com.empty_works.plain_emrs.util.NonPatientUsernameUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
 

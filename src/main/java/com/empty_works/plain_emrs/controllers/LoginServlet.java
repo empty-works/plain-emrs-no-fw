@@ -1,7 +1,6 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.dao.LoginDao;
-import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.roles.RolePair;
 
 /**
