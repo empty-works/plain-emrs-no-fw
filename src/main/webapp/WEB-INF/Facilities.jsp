@@ -11,8 +11,8 @@
 	<h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>
 	<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
 	<h2>Facility List</h2>	
-	<table>
 		<c:forEach items="${facilitiesList}" var="facility">
+		<table>
 			<tr>
 			<td>--------------------------------------------------------------
 				<br><br>	
@@ -36,7 +36,8 @@
 			<tr>
 				<td>Country: <c:out value="${facility.getCountry()}" /></td>
 			</tr>	
+
+		</table>
 		</c:forEach>
-	</table>
 </body>
 </html>
