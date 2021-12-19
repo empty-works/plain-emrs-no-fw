@@ -31,6 +31,7 @@
 		<div class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label">Description: </div>
 		<div class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
+		<div ></div>
 	</div>
 	
 	<br><br>
