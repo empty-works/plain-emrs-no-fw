@@ -15,22 +15,22 @@
 
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 	<div class="facility-grid-wrapper">
-		<div class="facility-label">Facility ID: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getId()}" /></div>
-		<div class="facility-label">Street Address: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getStreetAddress()}" /></div>
-		<div class="facility-label">City: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getCity()}" /></div>
-		<div class="facility-label">State: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getState()}" /></div>
-		<div class="facility-label">Country: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getCountry()}" /></div>
-		<div class="facility-label">Zip code: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getZipCode()}" /></div>
-		<div class="facility-label">Number of beds: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
-		<div class="facility-label">Description: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
+		<div class="facility-label facility-edit-form">Facility ID: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getId()}" /></div>
+		<div class="facility-label facility-edit-form">Street Address: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getStreetAddress()}" /></div>
+		<div class="facility-label facility-edit-form">City: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getCity()}" /></div>
+		<div class="facility-label facility-edit-form">State: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getState()}" /></div>
+		<div class="facility-label facility-edit-form">Country: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getCountry()}" /></div>
+		<div class="facility-label facility-edit-form">Zip code: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getZipCode()}" /></div>
+		<div class="facility-label facility-edit-form">Number of beds: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
+		<div class="facility-label facility-edit-form">Description: </div>
+		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getDescription()}" /></div>
 		<div ></div>
 	</div>
 	
