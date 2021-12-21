@@ -37,8 +37,8 @@ function validateAddSpecialtyForm() {
 }
 
 // Validate add facility sub-categories (ward, staff position, staff specialty). Just checks if name is empty
-function validateAddForm(name) {
-	
+function validateAddForm(name) {	
+
 	if(name == "")	{
 		
 		alert("Cannot leave name empty!");
@@ -47,3 +47,15 @@ function validateAddForm(name) {
 	return true;
 }
 
+function makeFormEditable() {
+	
+	var isEditable = document.getElementsByClassName("facility-edit-form").contentEditable;
+	if(isEditable == false) {
+		
+		document.getElementsByClassName("facility-edit-form").contentEditable = true;
+	}
+	else {
+		
+		document.getElementsByClassName("facility-edit-form").contentEditable = false;
+	}
+}

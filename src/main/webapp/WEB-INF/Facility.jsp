@@ -31,7 +31,7 @@
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label facility-edit-form">Description: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getDescription()}" /></div>
-		<div ></div>
+		<div><input  /></div>
 	</div>
 	
 	<br><br>
