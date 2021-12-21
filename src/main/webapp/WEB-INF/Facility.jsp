@@ -31,7 +31,7 @@
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label facility-edit-form">Description: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getDescription()}" /></div>
-		<div><input  /></div>
+		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable()" /></div>
 	</div>
 	
 	<br><br>
