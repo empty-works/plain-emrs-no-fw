@@ -17,7 +17,7 @@
 	<h1 class="h3 mb-3 fw-normal">Please sign in</h1>	
 	
 	<div class="form-floating">
-		<label for="floatingInput">User Name</label>
+		<label for="floatingInput">Username</label>
 		<input type="text" id="floatingInput" class="form-control" name="username" />
 	</div>
 	<div class="form-floating">
@@ -25,7 +25,7 @@
 		<input type="password" id="floatingPassword" class="form-control" name="password" />
 	</div>
 	
-	<input type="submit" class="w-100 btn btn-lg btn-primary" value="Submit" /></input>
+	<button type="submit" class="w-100 btn btn-lg btn-primary">Sign in</button>
 	</form>	
 	</main>	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	
