@@ -8,13 +8,14 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 
 <title>Welcome! Please log in.</title>
 </head>
-<body class="text-center">
+<body class="text-center main-font">
 	<main class="form-signin">
 	<form action="LoginServlet" method="post">
-	<h1 class="h3 mb-3 fw-normal">Please sign in</h1>	
+	<h2 class="h3 mb-3 fw-normal">Please sign in</h2>	
 	
 	<div class="form-floating">
 		<label for="floatingInput">Username</label>
