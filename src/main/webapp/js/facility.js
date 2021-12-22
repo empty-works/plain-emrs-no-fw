@@ -47,15 +47,22 @@ function validateAddForm(name) {
 	return true;
 }
 
-function makeFormEditable() {
+function makeFormEditable(editable) {
 	
-	var isEditable = document.getElementsByClassName("facility-edit-form").contentEditable;
+	document.getElementsByClassName(editable).contentEditable = true;
+	/*
+	var isEditable = document.getElementsByClassName(editable).contentEditable;
 	if(isEditable == false) {
 		
-		document.getElementsByClassName("facility-edit-form").contentEditable = true;
 	}
 	else {
 		
-		document.getElementsByClassName("facility-edit-form").contentEditable = false;
+		document.getElementsByClassName(editable).contentEditable = false;
 	}
+	*/
+}
+
+function makeFormEditable() {
+	
+	document.getElementById("form-edit-test").contentEditable = true;
 }

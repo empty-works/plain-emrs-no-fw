@@ -4,9 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<!-- Required meta tags for Bootstrap -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
-<meta charset="UTF-8">
 <title><c:out value="" /></title>
 </head>
 <body>
@@ -15,23 +21,23 @@
 
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 	<div class="facility-grid-wrapper">
-		<div class="facility-label facility-edit-form">Facility ID: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getId()}" /></div>
-		<div class="facility-label facility-edit-form">Street Address: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getStreetAddress()}" /></div>
-		<div class="facility-label facility-edit-form">City: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getCity()}" /></div>
-		<div class="facility-label facility-edit-form">State: </div>
+		<div class="facility-label">Facility ID: </div>
+		<div class="facility-data"><c:out value="${facilityDb.getId()}" /></div>
+		<div class="facility-label">Street Address: </div>
+		<div class="facility-data facility-edit-form" contentEditable="true"><c:out value="${facilityDb.getStreetAddress()}" /></div>
+		<div class="facility-label">City: </div>
+		<div id="form-edit-test"><c:out value="${facilityDb.getCity()}" /></div>
+		<div class="facility-label">State: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getState()}" /></div>
-		<div class="facility-label facility-edit-form">Country: </div>
+		<div class="facility-label">Country: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getCountry()}" /></div>
-		<div class="facility-label facility-edit-form">Zip code: </div>
+		<div class="facility-label">Zip code: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getZipCode()}" /></div>
-		<div class="facility-label facility-edit-form">Number of beds: </div>
+		<div class="facility-label">Number of beds: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
-		<div class="facility-label facility-edit-form">Description: </div>
+		<div class="facility-label">Description: </div>
 		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getDescription()}" /></div>
-		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable()" /></div>
+		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable('facility-edit-form')" /></div>
 	</div>
 	
 	<br><br>
@@ -135,5 +141,8 @@
 	</div>
 	</form>
 	
+	<!-- Bootstrap bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>
