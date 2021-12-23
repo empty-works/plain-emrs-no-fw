@@ -18,12 +18,10 @@
 	<h2 class="h3 mb-3 fw-normal">Please sign in</h2>	
 	
 	<div class="form-floating">
-		<label for="floatingInput">Username</label>
-		<input type="text" id="floatingInput" class="form-control" name="username" />
+		<input type="text" id="floatingInput" class="form-control" name="username" placeholder="Username" />
 	</div>
 	<div class="form-floating">
-		<label for="floatingInput">Password</label>
-		<input type="password" id="floatingPassword" class="form-control" name="password" />
+		<input type="password" id="floatingPassword" class="form-control" name="password" placeholder="Password" />
 	</div>
 	
 	<button type="submit" class="w-100 btn btn-lg btn-primary">Sign in</button>
