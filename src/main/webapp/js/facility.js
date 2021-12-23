@@ -47,9 +47,10 @@ function validateAddForm(name) {
 	return true;
 }
 
-function makeFormEditable(editable) {
+function makeFormEditable() {
 	
-	document.getElementsByClassName(editable).contentEditable = true;
+	document.getElementById("fac-address").contentEditable = true;
+	document.getElementById("fac-city").contentEditable = true;
 	/*
 	var isEditable = document.getElementsByClassName(editable).contentEditable;
 	if(isEditable == false) {
@@ -60,9 +61,4 @@ function makeFormEditable(editable) {
 		document.getElementsByClassName(editable).contentEditable = false;
 	}
 	*/
-}
-
-function makeFormEditable() {
-	
-	document.getElementById("form-edit-test").contentEditable = true;
 }

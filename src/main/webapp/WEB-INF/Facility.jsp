@@ -24,20 +24,20 @@
 		<div class="facility-label">Facility ID: </div>
 		<div class="facility-data"><c:out value="${facilityDb.getId()}" /></div>
 		<div class="facility-label">Street Address: </div>
-		<div class="facility-data facility-edit-form" contentEditable="true"><c:out value="${facilityDb.getStreetAddress()}" /></div>
+		<div id="fac-address" class="facility-data"><c:out value="${facilityDb.getStreetAddress()}" /></div>
 		<div class="facility-label">City: </div>
-		<div id="form-edit-test"><c:out value="${facilityDb.getCity()}" /></div>
+		<div id="fac-city" class="facility-data"><c:out value="${facilityDb.getCity()}" /></div>
 		<div class="facility-label">State: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getState()}" /></div>
+		<div class="facility-data"><c:out value="${facilityDb.getState()}" /></div>
 		<div class="facility-label">Country: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getCountry()}" /></div>
+		<div class="facility-data"><c:out value="${facilityDb.getCountry()}" /></div>
 		<div class="facility-label">Zip code: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getZipCode()}" /></div>
+		<div class="facility-data"><c:out value="${facilityDb.getZipCode()}" /></div>
 		<div class="facility-label">Number of beds: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
+		<div class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label">Description: </div>
-		<div class="facility-data facility-edit-form"><c:out value="${facilityDb.getDescription()}" /></div>
-		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable('facility-edit-form')" /></div>
+		<div class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
+		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable()" /></div>
 	</div>
 	
 	<br><br>
