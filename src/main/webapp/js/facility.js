@@ -51,6 +51,11 @@ function makeFormEditable() {
 	
 	document.getElementById("fac-address").contentEditable = true;
 	document.getElementById("fac-city").contentEditable = true;
+	document.getElementById("fac-state").contentEditable = true;
+	document.getElementById("fac-country").contentEditable = true;
+	document.getElementById("fac-zip").contentEditable = true;
+	document.getElementById("fac-num-beds").contentEditable = true;
+	document.getElementById("fac-desc").contentEditable = true;
 	/*
 	var isEditable = document.getElementsByClassName(editable).contentEditable;
 	if(isEditable == false) {

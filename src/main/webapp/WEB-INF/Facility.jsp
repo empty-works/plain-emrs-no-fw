@@ -28,16 +28,18 @@
 		<div class="facility-label">City: </div>
 		<div id="fac-city" class="facility-data"><c:out value="${facilityDb.getCity()}" /></div>
 		<div class="facility-label">State: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getState()}" /></div>
+		<div id="fac-state" class="facility-data"><c:out value="${facilityDb.getState()}" /></div>
 		<div class="facility-label">Country: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getCountry()}" /></div>
+		<div id="fac-country" class="facility-data"><c:out value="${facilityDb.getCountry()}" /></div>
 		<div class="facility-label">Zip code: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getZipCode()}" /></div>
+		<div id="fac-zip" class="facility-data"><c:out value="${facilityDb.getZipCode()}" /></div>
 		<div class="facility-label">Number of beds: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
+		<div id="fac-num-beds" class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label">Description: </div>
-		<div class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
+		<div id="fac-desc" class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
 		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable()" /></div>
+		<div id="fac-save-cancel">
+		</div>
 	</div>
 	
 	<br><br>
