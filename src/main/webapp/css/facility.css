@@ -12,6 +12,10 @@
 	display: none;
 }
 
+#fac-save-cancel {
+	display: none;
+}
+
 /*Flexbox layout*/
 .facilityBox {
 	display: flex;

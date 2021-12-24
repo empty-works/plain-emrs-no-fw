@@ -49,6 +49,9 @@ function validateAddForm(name) {
 
 function makeFormEditable() {
 	
+	document.getElementById("fac-edit-button").style.display = "none";
+	document.getElementById("fac-save-cancel").style.display = "block";
+	
 	document.getElementById("fac-address").contentEditable = true;
 	document.getElementById("fac-city").contentEditable = true;
 	document.getElementById("fac-state").contentEditable = true;
@@ -56,14 +59,18 @@ function makeFormEditable() {
 	document.getElementById("fac-zip").contentEditable = true;
 	document.getElementById("fac-num-beds").contentEditable = true;
 	document.getElementById("fac-desc").contentEditable = true;
-	/*
-	var isEditable = document.getElementsByClassName(editable).contentEditable;
-	if(isEditable == false) {
-		
-	}
-	else {
-		
-		document.getElementsByClassName(editable).contentEditable = false;
-	}
-	*/
+}
+
+function makeFormNotEditable() {
+	
+	document.getElementById("fac-edit-button").style.display = "block";
+	document.getElementById("fac-save-cancel").style.display = "none";
+	
+	document.getElementById("fac-address").contentEditable = false;
+	document.getElementById("fac-city").contentEditable = false;
+	document.getElementById("fac-state").contentEditable = false;
+	document.getElementById("fac-country").contentEditable = false;
+	document.getElementById("fac-zip").contentEditable = false;
+	document.getElementById("fac-num-beds").contentEditable = false;
+	document.getElementById("fac-desc").contentEditable = false;
 }

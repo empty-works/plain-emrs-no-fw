@@ -37,8 +37,9 @@
 		<div id="fac-num-beds" class="facility-data"><c:out value="${facilityDb.getNumberOfBeds()}" /></div>
 		<div class="facility-label">Description: </div>
 		<div id="fac-desc" class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
-		<div><input id="editFacilityButton" type="button" value="Edit" onclick="makeFormEditable()" /></div>
+		<div><input id="fac-edit-button" type="button" value="Edit" onclick="makeFormEditable()" /></div>
 		<div id="fac-save-cancel">
+			<input id="fac-save-button" type="button" value="Save" onclick="" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
 		</div>
 	</div>
 	
