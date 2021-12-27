@@ -20,7 +20,7 @@
 	<h3><a href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></h3>
 
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
-	<div class="facility-grid-wrapper">
+	<div id="facility-data" class="facility-grid-wrapper">
 		<div class="facility-label">Facility ID: </div>
 		<div class="facility-data"><c:out value="${facilityDb.getId()}" /></div>
 		<div class="facility-label">Street Address: </div>
@@ -42,6 +42,10 @@
 			<input id="fac-save-button" type="button" value="Save" onclick="" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
 		</div>
 	</div>
+	
+	<form id="edit-facility-form">
+				
+	</form>
 	
 	<br><br>
 	

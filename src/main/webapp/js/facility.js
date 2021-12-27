@@ -74,3 +74,8 @@ function makeFormNotEditable() {
 	document.getElementById("fac-num-beds").contentEditable = false;
 	document.getElementById("fac-desc").contentEditable = false;
 }
+
+function saveFacilityInfo() {
+	
+		
+}

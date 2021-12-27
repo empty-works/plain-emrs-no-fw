@@ -16,6 +16,10 @@
 	display: none;
 }
 
+#edit-facility-form {
+	display: none;
+}
+
 /*Flexbox layout*/
 .facilityBox {
 	display: flex;
