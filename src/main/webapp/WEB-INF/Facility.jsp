@@ -38,13 +38,28 @@
 		<div class="facility-label">Description: </div>
 		<div id="fac-desc" class="facility-data"><c:out value="${facilityDb.getDescription()}" /></div>
 		<div><input id="fac-edit-button" type="button" value="Edit" onclick="makeFormEditable()" /></div>
+	</div>
+	
+	<form id="edit-facility-form" name="editFacilityForm" action="EditFacilityServlet" method="post">
+		<div>Name: </div>
+		<div><input type="text" name="facilityName" value="${facilityDb.getStreetAddress()}" /></div>
+		<div>Street address: </div>
+		<div><input type="text" name="facilityStreetAddress" /></div>
+		<div>City: </div>
+		<div><input type="text" name="facilityCity" /></div>
+		<div>State: </div>
+		<div><input type="text" name="facilityState" /></div>
+		<div>Country: </div>
+		<div><input type="text" name="facilityCountry" /></div>
+		<div>ZIP code: </div>
+		<div><input type="text" name="facilityZipCode" /></div>
+		<div>Number of beds: </div>
+		<div><input type="number" name="facilityNumBeds" min="3" max="100000" /></div>
+		<div>Description: </div>
+		<div><input type="text" name="facilityDescription" /></div>
 		<div id="fac-save-cancel">
 			<input id="fac-save-button" type="button" value="Save" onclick="" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
 		</div>
-	</div>
-	
-	<form id="edit-facility-form">
-				
 	</form>
 	
 	<br><br>

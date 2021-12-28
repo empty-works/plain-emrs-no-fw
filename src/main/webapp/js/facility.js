@@ -52,6 +52,10 @@ function makeFormEditable() {
 	document.getElementById("fac-edit-button").style.display = "none";
 	document.getElementById("fac-save-cancel").style.display = "block";
 	
+
+	document.getElementById("facility-data").style.display = "none";
+	document.getElementById("edit-facility-form").style.display = "block";
+	/*
 	document.getElementById("fac-address").contentEditable = true;
 	document.getElementById("fac-city").contentEditable = true;
 	document.getElementById("fac-state").contentEditable = true;
@@ -59,6 +63,7 @@ function makeFormEditable() {
 	document.getElementById("fac-zip").contentEditable = true;
 	document.getElementById("fac-num-beds").contentEditable = true;
 	document.getElementById("fac-desc").contentEditable = true;
+	*/
 }
 
 function makeFormNotEditable() {
@@ -66,6 +71,10 @@ function makeFormNotEditable() {
 	document.getElementById("fac-edit-button").style.display = "block";
 	document.getElementById("fac-save-cancel").style.display = "none";
 	
+	document.getElementById("facility-data").style.display = "block";
+	document.getElementById("edit-facility-form").style.display = "none";
+
+	/*
 	document.getElementById("fac-address").contentEditable = false;
 	document.getElementById("fac-city").contentEditable = false;
 	document.getElementById("fac-state").contentEditable = false;
@@ -73,6 +82,7 @@ function makeFormNotEditable() {
 	document.getElementById("fac-zip").contentEditable = false;
 	document.getElementById("fac-num-beds").contentEditable = false;
 	document.getElementById("fac-desc").contentEditable = false;
+	*/
 }
 
 function saveFacilityInfo() {
