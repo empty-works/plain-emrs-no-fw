@@ -42,23 +42,23 @@
 	
 	<form id="edit-facility-form" name="editFacilityForm" action="EditFacilityServlet" method="post">
 		<div>Name: </div>
-		<div><input type="text" name="facilityName" value="${facilityDb.getStreetAddress()}" /></div>
+		<div><input type="text" name="facilityName" value="${facilityDb.getName()}" /></div>
 		<div>Street address: </div>
-		<div><input type="text" name="facilityStreetAddress" /></div>
+		<div><input type="text" name="facilityStreetAddress" value="${facilityDb.getStreetAddress()}" /></div>
 		<div>City: </div>
-		<div><input type="text" name="facilityCity" /></div>
+		<div><input type="text" name="facilityCity" value="${facilityDb.getCity()}"/></div>
 		<div>State: </div>
-		<div><input type="text" name="facilityState" /></div>
+		<div><input type="text" name="facilityState" value="${facilityDb.getState()}"/></div>
 		<div>Country: </div>
-		<div><input type="text" name="facilityCountry" /></div>
+		<div><input type="text" name="facilityCountry" value="${facilityDb.getCountry()}"/></div>
 		<div>ZIP code: </div>
-		<div><input type="text" name="facilityZipCode" /></div>
+		<div><input type="text" name="facilityZipCode" value="${facilityDb.getZipCode()}"/></div>
 		<div>Number of beds: </div>
-		<div><input type="number" name="facilityNumBeds" min="3" max="100000" /></div>
+		<div><input type="number" name="facilityNumBeds" min="3" max="100000" value="${facilityDb.getNumberOfBeds()}"/></div>
 		<div>Description: </div>
-		<div><input type="text" name="facilityDescription" /></div>
+		<div><input type="text" name="facilityDescription" value="${facilityDb.getDescription()}"/></div>
 		<div id="fac-save-cancel">
-			<input id="fac-save-button" type="button" value="Save" onclick="" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
+			<input id="fac-save-button" type="submit" value="Save" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
 		</div>
 	</form>
 	

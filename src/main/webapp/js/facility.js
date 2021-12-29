@@ -84,8 +84,3 @@ function makeFormNotEditable() {
 	document.getElementById("fac-desc").contentEditable = false;
 	*/
 }
-
-function saveFacilityInfo() {
-	
-		
-}
