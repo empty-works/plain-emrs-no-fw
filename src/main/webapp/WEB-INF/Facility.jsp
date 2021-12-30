@@ -41,6 +41,8 @@
 	</div>
 	
 	<form id="edit-facility-form" name="editFacilityForm" action="EditFacilityServlet" method="post">
+
+		<div><input type="hidden" name="facId" value="${facilityDb.getId()}" /></div>
 		<div>Name: </div>
 		<div><input type="text" name="facilityName" value="${facilityDb.getName()}" /></div>
 		<div>Street address: </div>

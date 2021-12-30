@@ -141,4 +141,10 @@ public class FacilityDao {
 		
 		return "Something went wrong registering the facility into the database...";
 	}
+	
+	public static String update(FacilityBean fb) {
+		
+		
+		return "";
+	}
 }

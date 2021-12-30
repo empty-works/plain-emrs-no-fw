@@ -36,7 +36,16 @@ public class EditFacilityServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		FacilityBean fb = new FacilityBean();
-		fb.setName(request.getParameter(""));
-		doGet(request, response);
+		fb.setId(request.getParameter("facId"));
+		fb.setName(request.getParameter("facilityName"));
+		fb.setStreetAddress(request.getParameter("facilityStreetAddress"));
+		fb.setCity(request.getParameter("facilityCity"));
+		fb.setState(request.getParameter("facilityState"));
+		fb.setCountry(request.getParameter("facilityCountry"));
+		fb.setZipCode(request.getParameter("facilityZipCode"));
+		fb.setNumberOfBeds(Integer.parseInt(request.getParameter("facilityNumBeds")));
+		fb.setDescription(request.getParameter("facilityDescription"));
+		
+		//doGet(request, response);
 	}
 }
