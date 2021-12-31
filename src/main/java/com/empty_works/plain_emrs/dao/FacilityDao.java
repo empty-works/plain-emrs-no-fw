@@ -15,6 +15,11 @@ public class FacilityDao {
 	
 	final public static String FACILITYDAO_SUCCESS = "Success";
 	
+	/**
+	 * 
+	 * @param facilityId
+	 * @return
+	 */
 	public static FacilityBean getFacility(String facilityId) {
 		
 		Connection con = ConnectionUtil.getConnection();
@@ -43,7 +48,6 @@ public class FacilityDao {
 			java.sql.Blob daBlob = resultSet.getBlob("facility_description"); // Convert blob to String
 			facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
 			
-			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -55,6 +59,10 @@ public class FacilityDao {
 		return facility;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static List<FacilityBean> getList() {
 		
 		List<FacilityBean> facilitiesList = new ArrayList<>();
@@ -80,9 +88,6 @@ public class FacilityDao {
 				System.out.println("FacilityDao facility ID: " + facility.getId());
 				facilitiesList.add(facility);
 			}
-			
-			con.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,6 +99,11 @@ public class FacilityDao {
 		return facilitiesList;
 	}
 
+	/**
+	 * 
+	 * @param fb
+	 * @return
+	 */
 	public static String register(FacilityBean fb) {
 		
 		String id = fb.getId();
@@ -129,7 +139,6 @@ public class FacilityDao {
 			int i = preparedStatement.executeUpdate();
 			if(i != 0) return FACILITYDAO_SUCCESS;
 			
-			con.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -142,9 +151,50 @@ public class FacilityDao {
 		return "Something went wrong registering the facility into the database...";
 	}
 	
+	/**
+	 * 
+	 * @param fb
+	 * @return
+	 */
 	public static String update(FacilityBean fb) {
 		
+		String id = fb.getId();
+		String name = fb.getName();
+		String streetAddress = fb.getStreetAddress();
+		String city = fb.getCity();
+		String state = fb.getState();
+		String country = fb.getCountry();
+		String zipCode = fb.getZipCode();
+		int numberOfBeds = fb.getNumberOfBeds();
+		String description = fb.getDescription();
 		
-		return "";
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		String query = "update facilities set facility_name=?, facility_street_address=?, facility_city=?, facility_state=?, "
+				+ "facility_country=?, facility_zip_code=?, facility_number_of_beds=?, facility_description=? where facility_id=?";
+		
+		try {
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2, streetAddress);
+			preparedStatement.setString(3, city);
+			preparedStatement.setString(4, state);
+			preparedStatement.setString(5, country);
+			preparedStatement.setString(6, zipCode);
+			preparedStatement.setInt(7, numberOfBeds);
+			preparedStatement.setString(8, description);
+			preparedStatement.setString(9, id);
+			int i = preparedStatement.executeUpdate();
+			if(i != 0) return FACILITYDAO_SUCCESS;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
+		return "Something went wrong with updating the facility to the database!";
 	}
 }
