@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
+import com.empty_works.plain_emrs.dao.FacilityDao;
 
 /**
  * Servlet implementation class EditFacilityServlet
@@ -46,6 +47,19 @@ public class EditFacilityServlet extends HttpServlet {
 		fb.setNumberOfBeds(Integer.parseInt(request.getParameter("facilityNumBeds")));
 		fb.setDescription(request.getParameter("facilityDescription"));
 		
+		System.out.println("Updating facility...");
+		String editFacilityResult = FacilityDao.update(fb);
+		if(editFacilityResult.equals(FacilityDao.FACILITYDAO_SUCCESS)) {
+			
+			System.out.println("Facility updated successfully!");
+			request.setAttribute(FacilityServlet.facilityDbAttribute, fb);
+		}
+		else {
+			
+			System.out.println("Facility update failed! Returning to facility...");
+			request.setAttribute("errMessage", editFacilityResult);
+		}
+		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 		//doGet(request, response);
 	}
 }
