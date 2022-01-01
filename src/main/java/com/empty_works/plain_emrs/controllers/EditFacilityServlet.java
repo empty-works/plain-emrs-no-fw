@@ -60,6 +60,5 @@ public class EditFacilityServlet extends HttpServlet {
 			request.setAttribute("errMessage", editFacilityResult);
 		}
 		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
-		//doGet(request, response);
 	}
 }
