@@ -12,12 +12,22 @@
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
 <title><c:out value="" /></title>
 </head>
 <body>
-	
-	<h3><a href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></h3>
+
+<h3><a href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></h3>
+
+<div class="sidenav">
+	<a href="">Overview</a>
+	<a href="">Wards</a>
+	<a href="">Staff Positions</a>
+	<a href="">Staff Specialties</a>
+</div>
+
+<div class="main">
 
 	<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 	<div id="facility-data" class="facility-grid-wrapper">
@@ -63,7 +73,7 @@
 			<input id="fac-save-button" type="submit" value="Save" /><input id="fac-cancel-button" type="button" value="Cancel" onclick="makeFormNotEditable()" />
 		</div>
 	</form>
-	
+</div>
 	<br><br>
 	
 	<h2>Facility Wards</h2>
