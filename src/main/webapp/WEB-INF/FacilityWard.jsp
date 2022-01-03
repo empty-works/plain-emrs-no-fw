@@ -25,6 +25,7 @@
 	<a href="">Staff Specialties</a>
 </div>
 
+<div class="main">
 	<h2>Facility Wards</h2>
 	<table>
 		<tr>
@@ -57,5 +58,6 @@
 				onclick="cancelAddForm('showFacWardFormButton', 'addFacWardForm')"></input></div>
 	</div>
 	</form>
+</div>
 </body>
 </html>

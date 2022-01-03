@@ -25,7 +25,9 @@
 
 <div class="sidenav">
 	<a href="">Overview</a>
-	<a href="<c:url value="/FacilityWardServlet"></c:url>">Wards</a>
+	<a href="<c:url value="/FacilityWardServlet">
+		<c:param name="facId" value="${facilityDb.getId()}"></c:param>	
+		</c:url>">Wards</a>
 	<a href="">Staff Positions</a>
 	<a href="">Staff Specialties</a>
 </div>
