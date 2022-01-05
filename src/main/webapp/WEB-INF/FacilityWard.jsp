@@ -15,13 +15,13 @@
 <body>
 
 <div class="topnav">
-	<a href="<c:url value="/FacilityServlet">
-		<c:param name="facId" value="${param.facId}"></c:param>
-	</c:url>" class="active">Back to facility</a>
+	<a href="<c:url value="/FacilitiesServlet"></c:url>" class="active">Back to facility</a>
 </div>
 
 <div class="sidenav">
-	<a class="active" href="">Wards</a>
+	<a href="<c:url value="/FacilityServlet">
+		<c:param name="facId" value="${param.facId}"></c:param>
+	</c:url>">Overview</a>
 	<a href="">Staff Positions</a>
 	<a href="">Staff Specialties</a>
 </div>
