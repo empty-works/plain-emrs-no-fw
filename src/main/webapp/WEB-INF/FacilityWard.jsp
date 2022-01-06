@@ -28,7 +28,9 @@
 	<a href="<c:url value="/FacilityServlet">
 		<c:param name="facId" value="${param.facId}"></c:param>
 	</c:url>">Overview</a>
-	<a href="">Staff Positions</a>
+	<a href="<c:url value="/FacilityPositionServlet">
+		<c:param name="facId" value="${param.facId}"></c:param>
+	</c:url>">Staff Positions</a>
 	<a href="">Staff Specialties</a>
 </div>
 

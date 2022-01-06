@@ -27,7 +27,9 @@
 	<a href="<c:url value="/FacilityWardServlet">
 		<c:param name="facId" value="${facilityDb.getId()}"></c:param>	
 		</c:url>">Wards</a>
-	<a href="">Staff Positions</a>
+	<a href="<c:url value="/FacilityPositionServlet">
+		<c:param name="facId" value="${param.facId}"></c:param>
+	</c:url>">Staff Positions</a>
 	<a href="">Staff Specialties</a>
 </div>
 
