@@ -37,9 +37,7 @@ public class FacilityWardServlet extends HttpServlet {
 		// Get list of wards
 		String facilityId = ParamAttribHandler.get(request, "facId");
 		System.out.println("FacilityWardServlet facilityId: " + facilityId);
-		FacilityBean facility = FacilityDao.getFacility(facilityId);
-		System.out.println("FacilityWardServlet FacilityBean - facility ID: " + facility.getId());
-		List<FacilityWardBean> fwbList = FacilityWardDao.getList(facility.getId());
+		List<FacilityWardBean> fwbList = FacilityWardDao.getList(facilityId);
 		request.setAttribute("facId", facilityId);
 		request.setAttribute("facilityWardList", fwbList);
 		request.getRequestDispatcher("/WEB-INF/FacilityWard.jsp").forward(request, response);

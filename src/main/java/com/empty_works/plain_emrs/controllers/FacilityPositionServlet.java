@@ -1,15 +1,16 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
-import com.empty_works.plain_emrs.dao.FacilityDao;
+import com.empty_works.plain_emrs.dao.FacilityPositionDao;
 import com.empty_works.plain_emrs.util.ParamAttribHandler;
 
 /**
@@ -23,10 +24,11 @@ public class FacilityPositionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
 		String facilityId = ParamAttribHandler.get(request, "facId");
-		FacilityBean facility = FacilityDao.getFacility(facilityId);
-		
+		List<FacilityStaffPositionBean> fspbList = FacilityPositionDao.getList(facilityId);
+		request.setAttribute("facId", facilityId);
+		request.setAttribute("facilityPositionList", fspbList);
+		request.getRequestDispatcher("/WEB-INF/FacilityStaffPosition").forward(request, response);
 	}
 
 	/**
