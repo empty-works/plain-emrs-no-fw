@@ -28,7 +28,7 @@ public class FacilityPositionServlet extends HttpServlet {
 		List<FacilityStaffPositionBean> fspbList = FacilityPositionDao.getList(facilityId);
 		request.setAttribute("facId", facilityId);
 		request.setAttribute("facilityPositionList", fspbList);
-		request.getRequestDispatcher("/WEB-INF/FacilityStaffPosition").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/FacilityStaffPosition.jsp").forward(request, response);
 	}
 
 	/**
