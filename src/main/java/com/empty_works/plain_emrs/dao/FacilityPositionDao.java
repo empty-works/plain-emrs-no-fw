@@ -16,7 +16,7 @@ public class FacilityPositionDao {
 
 	public static String add(FacilityStaffPositionBean fspb) {
 		
-		String staffPositionId = fspb.getId();
+		String staffPositionId = fspb.getStaffPositionId();
 		String facilityId = fspb.getFacilityId();
 		String positionName = fspb.getName();
 		String positionDescription = fspb.getDescription();
@@ -68,7 +68,7 @@ public class FacilityPositionDao {
 				
 				FacilityStaffPositionBean fspb = new FacilityStaffPositionBean();
 				fspb.setFacilityId(facilityId);
-				fspb.setId(resultSet.getString("staff_position_id"));
+				fspb.setStaffPositionId(resultSet.getString("staff_position_id"));
 				fspb.setName(resultSet.getString("staff_position_name"));
 				java.sql.Blob spd = resultSet.getBlob("staff_position_description");
 				fspb.setDescription(new String(spd.getBytes(1L, (int) spd.length())));

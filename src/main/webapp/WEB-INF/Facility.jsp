@@ -81,38 +81,6 @@
 	<br><br>
 	
 	
-	<h2>Facility Staff Positions</h2>	
-	<table>
-		<tr>
-		<c:if test="${empty facilityPositionList}">
-			<td>No staff positions added yet!</td>
-		</c:if>
-		</tr>
-		<c:forEach items="${facilityPositionList}" var="facPosition">
-			<tr>
-				<td>ID: <c:out value="${facPosition.getId()}" /></td>		
-			</tr>			
-			<tr>
-				<td>Name: <c:out value="${facPosition.getName()}" /></td>
-			</tr>
-			<tr>
-				<td>Description: <c:out value="${facPosition.getDescription()}" /></td>
-			</tr>
-		</c:forEach>
-	</table>	
-	<div><input id="showFacPositionFormButton" type="button" value="Add Staff Position" onclick="showAddForm('showFacPositionFormButton', 'addFacPositionForm')" /></div>
-	<form id="addFacPositionForm" name="positionForm" action="AddFacilityPositionServlet" method="post" onsubmit="return validateAddPositionForm()">
-	<div class="facilityBox">
-	<div><input type="hidden" name="facId" value="${param.facId}" /></div>			
-	<div>Name: </div>	
-	<div><input id="facPositionAddName" type="text" name="facilityPositionName" /></div>
-	<div>Description: </div>
-	<div><input type="text" name="facilityPositionDescription" /></div>
-	<div><input type="submit" value="Submit" ></input>
-		 <input class="cancelAddButton" type="button" value="Cancel" 
-			onclick="cancelAddForm('showFacPositionFormButton', 'addFacPositionForm')"></input></div>
-	</div>
-	</form>
 	
 	<h2>Facility Staff Specialties</h2>
 	<table>
