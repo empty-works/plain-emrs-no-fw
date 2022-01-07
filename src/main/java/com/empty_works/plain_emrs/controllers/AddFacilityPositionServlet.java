@@ -31,7 +31,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+		request.getRequestDispatcher("/FacilityPositionServlet").forward(request, response);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class AddFacilityPositionServlet extends HttpServlet {
 		fspb.setFacilityId(facilityId);
 		fspb.setName(request.getParameter("facilityPositionName"));
 		fspb.setDescription(request.getParameter("facilityPositionDescription"));
-		fspb.setId(FacilityPositionIdUtil.get(fspb));
+		fspb.setStaffPositionId(FacilityPositionIdUtil.get(fspb));
 		
 		String facPositionResult = FacilityPositionDao.add(fspb);
 		System.out.println("AddFacilityPositionServlet facPositionResult = " + facPositionResult);

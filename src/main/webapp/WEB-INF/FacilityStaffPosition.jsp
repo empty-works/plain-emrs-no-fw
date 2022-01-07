@@ -44,7 +44,7 @@
 		</tr>
 		<c:forEach items="${facilityPositionList}" var="facPosition">
 			<tr>
-				<td>ID: <c:out value="${facPosition.getId()}" /></td>		
+				<td>ID: <c:out value="${facPosition.getStaffPositionId()}" /></td>		
 			</tr>			
 			<tr>
 				<td>Name: <c:out value="${facPosition.getName()}" /></td>
