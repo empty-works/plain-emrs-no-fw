@@ -18,7 +18,7 @@ public class FacilitySpecialtyDao {
 		
 		// Extract attributes
 		String facilityId = fssb.getFacilityId();
-		String specialtyId = fssb.getId();
+		String specialtyId = fssb.getStaffSpecialtyId();
 		String specialtyName = fssb.getName();
 		String specialtyDescription = fssb.getDescription();
 		
@@ -62,7 +62,7 @@ public class FacilitySpecialtyDao {
 			while(resultSet.next()) {
 				
 				FacilityStaffSpecialtyBean fssb = new FacilityStaffSpecialtyBean();
-				fssb.setId(resultSet.getString("specialty_id"));
+				fssb.setStaffSpecialtyId(resultSet.getString("specialty_id"));
 				fssb.setName(resultSet.getString("specialty_name"));
 				java.sql.Blob sd = resultSet.getBlob("specialty_description");
 				fssb.setDescription(new String(sd.getBytes(1L, (int) sd.length())));

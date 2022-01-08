@@ -13,10 +13,10 @@ public class FacilityStaffSpecialtyBean {
 	public void setFacilityId(String facilityId) {
 		this.facilityId = facilityId;
 	}
-	public String getId() {
+	public String getStaffSpecialtyId() {
 		return specialtyId;
 	}
-	public void setId(String specialtyId) {
+	public void setStaffSpecialtyId(String specialtyId) {
 		this.specialtyId = specialtyId;
 	}
 	public String getName() {

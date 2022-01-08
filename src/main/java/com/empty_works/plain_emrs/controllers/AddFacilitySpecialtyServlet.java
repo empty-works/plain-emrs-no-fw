@@ -45,7 +45,7 @@ public class AddFacilitySpecialtyServlet extends HttpServlet {
 		fssb.setFacilityId(facilityId);
 		fssb.setName(request.getParameter("facilitySpecialtyName"));
 		fssb.setDescription(request.getParameter("facilitySpecialtyDescription"));
-		fssb.setId(FacilitySpecialtyIdUtil.get(fssb));
+		fssb.setStaffSpecialtyId(FacilitySpecialtyIdUtil.get(fssb));
 		
 		String result = FacilitySpecialtyDao.add(fssb);
 		if(result.equals(FacilitySpecialtyDao.SPECIALTYDAO_SUCCESS)) {
