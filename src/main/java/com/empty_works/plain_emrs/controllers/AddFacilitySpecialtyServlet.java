@@ -31,7 +31,7 @@ public class AddFacilitySpecialtyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
+		request.getRequestDispatcher("/FacilitySpecialtyServlet").forward(request, response);
 	}
 
 	/**
