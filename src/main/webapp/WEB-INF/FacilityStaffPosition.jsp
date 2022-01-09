@@ -21,7 +21,7 @@
 <body>
 
 <div class="topnav">
-	<a href="<c:url value="/FacilitiesServlet"></c:url>" class="active">Back to facility</a>
+	<a href="<c:url value="/FacilitiesServlet"></c:url>" class="active">Back to facilities</a>
 </div>
 
 <div class="sidenav">
