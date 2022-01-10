@@ -15,12 +15,16 @@
 
 </head>
 <body>
-	<h2>Admin's Home</h2>
-	<h3>Welcome <%=session.getAttribute("username") %></h3>
-	
+
+<div class="sidenav">	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 	<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 	<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
-		
+</div>
+
+<div class="main">
+	<h2>Admin's Home</h2>
+	<h3>Welcome <%=session.getAttribute("username") %></h3>
+</div>
 </body>
 </html>
