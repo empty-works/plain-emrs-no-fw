@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-01-12T00:45:31.848Z" agent="5.0 (Windows)" etag="LqTLW8AIDWTz5X3WBMJj" version="16.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-01-12T01:39:41.771Z" agent="5.0 (Windows)" etag="BvTEnGuVZf5jjPc3D_QH" version="16.2.4" type="github">
   <diagram id="ZlVDRE46efvJjWPG35-X" name="Page-1">
     <mxGraphModel dx="974" dy="2740" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,17 +7,8 @@
         <mxCell id="k_VhqZwvHw_klteU0AoN-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="10" y="40" width="830" height="750" as="geometry" />
         </mxCell>
-        <mxCell id="k_VhqZwvHw_klteU0AoN-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="10" y="40" width="830" height="50" as="geometry" />
-        </mxCell>
         <mxCell id="k_VhqZwvHw_klteU0AoN-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="10" y="140" width="180" height="430" as="geometry" />
-        </mxCell>
-        <mxCell id="k_VhqZwvHw_klteU0AoN-4" value="LOGO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="20" y="50" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="k_VhqZwvHw_klteU0AoN-10" value="ADMIN NAME" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="650" y="50" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="k_VhqZwvHw_klteU0AoN-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="10" y="90" width="830" height="50" as="geometry" />
@@ -72,6 +63,18 @@
         </mxCell>
         <mxCell id="cs2jw7C7ojxvi7_q9Mmo-10" value="Admin Landing Page Mockup 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="251.5" y="-1110" width="355" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cs2jw7C7ojxvi7_q9Mmo-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="40" width="830" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cs2jw7C7ojxvi7_q9Mmo-12" value="LOGO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cs2jw7C7ojxvi7_q9Mmo-13" value="ADMIN NAME" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="50" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cs2jw7C7ojxvi7_q9Mmo-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.acute_triangle;dx=0.45;fontSize=14;rotation=-180;" vertex="1" parent="1">
+          <mxGeometry x="807" y="60" width="17" height="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
