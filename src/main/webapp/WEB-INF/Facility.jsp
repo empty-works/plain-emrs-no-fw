@@ -24,7 +24,6 @@
 </div>
 
 <div class="sidenav">
-	<span>Overview</span>
 	<a href="<c:url value="/FacilityWardServlet">
 		<c:param name="facId" value="${facilityDb.getId()}"></c:param>	
 		</c:url>">Wards</a>
