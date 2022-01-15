@@ -37,3 +37,14 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.label-text {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#sign-in-btn {
+	margin-left: 26%;
+	margin-right: 26%;
+	height: 20%;	
+}
