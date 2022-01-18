@@ -12,7 +12,7 @@
 
 <title>Welcome! Please log in.</title>
 </head>
-<body class="text-center main-font">
+<body id="login-grid" class="text-center main-font">
 	<main class="form-signin">
 	<form action="LoginServlet" method="post">
 	<h2 class="h5 label-text">Please sign in</h2>	
