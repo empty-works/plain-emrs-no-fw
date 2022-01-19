@@ -16,18 +16,20 @@
 	<main class="form-signin">
 	<form action="LoginServlet" method="post">
 	
-	<div class="item4and3">
+	<div class="item-signin-label">
 		<h2 class="h5 label-text">Please sign in</h2>	
 	</div>
 
-	<div class="form-floating">
+	<div class="item-signin-username">
 		<input type="text" id="floatingInput" class="form-control" name="username" placeholder="Username" />
 	</div>
-	<div class="form-floating">
+	<div class="item-signin-password">
 		<input type="password" id="floatingPassword" class="form-control" name="password" placeholder="Password" />
 	</div>
 	
-	<button type="submit" id="sign-in-btn" class="label-text">Sign in</button>
+	<div class="item-signin-submit">
+		<button type="submit" id="sign-in-btn" class="label-text">Sign in</button>
+	</div>
 	</form>	
 	</main>	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	

@@ -15,8 +15,7 @@ body {
 	
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
-	grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
-	justify-content: space-evenly;
+	grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
 #sign-in-btn {
@@ -25,9 +24,30 @@ body {
 	height: 20%;	
 }
 
-.item4and3 {
+.item-signin-label {
+	grid-row-start: 3;
+	grid-row-end: 3;
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+.item-signin-username {
 	grid-row-start: 4;
 	grid-row-end: 4;
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+.item-signin-password {
+	grid-row-start: 5;
+	grid-row-end: 5;
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+.item-signin-submit {
+	grid-row-start: 6;
+	grid-row-end: 6;
 	grid-column-start: 3;
 	grid-column-end: 3;
 }
