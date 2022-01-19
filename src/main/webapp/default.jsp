@@ -15,8 +15,11 @@
 <body id="login-grid" class="text-center main-font">
 	<main class="form-signin">
 	<form action="LoginServlet" method="post">
-	<h2 class="h5 label-text">Please sign in</h2>	
 	
+	<div class="item4and3">
+		<h2 class="h5 label-text">Please sign in</h2>	
+	</div>
+
 	<div class="form-floating">
 		<input type="text" id="floatingInput" class="form-control" name="username" placeholder="Username" />
 	</div>
