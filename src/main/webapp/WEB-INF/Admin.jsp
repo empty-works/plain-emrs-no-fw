@@ -21,15 +21,18 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
 
 </head>
 <body>
 
-<div class="topnav">
-	<a href="">LOGO</a>
-</div>
+<!-- Top bar -->
+<nav class="navbar">
+	<span class="navbar-brand h1">Plain EMRS</span>
+	<form class="form-inline">
+		<a class="">User</a>	
+	</form>
+</nav>
 
 <div class="sidenav">	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
