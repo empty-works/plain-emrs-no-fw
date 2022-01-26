@@ -27,7 +27,7 @@
 <body>
 
 <!-- Top bar -->
-<nav class="navbar">
+<nav class="navbar text-white" style="background-color: #476072;">
 	<span class="navbar-brand h1">Plain EMRS</span>
 	<form class="form-inline">
 		<a class="">User</a>	

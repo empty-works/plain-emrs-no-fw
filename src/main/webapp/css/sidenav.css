@@ -5,7 +5,8 @@
 	width: 18%; 
 	position: fixed;
 	z-index: 1;
-	top: 50px;
+	margin-top: 7%;
+	margin-left: 6%;
 	background-color: #548CA8;
 	overflow-x: hidden;
 	padding: 8px 0;
@@ -24,7 +25,9 @@
 }
 
 .main {
-	margin-left: 18%; 
+	margin-left: 24%; 
+	margin-top: 2%;
+	margin-bottom: 2%;
 	font-size: 20px;
 	padding: 50px 10px;
 }
