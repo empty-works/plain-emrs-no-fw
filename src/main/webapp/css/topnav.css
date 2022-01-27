@@ -7,7 +7,8 @@ html, body {
 .topnav-ul {
 	list-style-type: none;
 	height: 10%;
-	margin-left: 24%;
+	left: 18%;
+	margin-left: 18%;
 	padding: 0;
 	overflow: hidden;
 	background-color: #548CA8;
