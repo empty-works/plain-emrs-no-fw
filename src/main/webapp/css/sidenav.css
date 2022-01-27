@@ -9,7 +9,6 @@ html, body {
 	width: 18%; 
 	position: fixed;
 	z-index: 1;
-	margin-top: 5%;
 	margin-left: 6%;
 	background-color: #548CA8;
 	overflow-x: hidden;
@@ -30,10 +29,9 @@ html, body {
 
 .main {
 	margin-left: 24%; 
-	margin-top: 5%;
 	margin-bottom: 2%;
 	font-size: 20px;
-	padding: 50px 10px;
+	padding: 20px 10px;
 }
 
 @media screen and (max-height: 450px) {
