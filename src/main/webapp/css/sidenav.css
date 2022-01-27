@@ -1,11 +1,15 @@
 @charset "ISO-8859-1";
 
+html, body {
+	height: 100%;
+}
+
 .sidenav {
 	height: 100%;
 	width: 18%; 
 	position: fixed;
 	z-index: 1;
-	margin-top: 6%;
+	margin-top: 5%;
 	margin-left: 6%;
 	background-color: #548CA8;
 	overflow-x: hidden;
@@ -26,7 +30,7 @@
 
 .main {
 	margin-left: 24%; 
-	margin-top: 2%;
+	margin-top: 5%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding: 50px 10px;

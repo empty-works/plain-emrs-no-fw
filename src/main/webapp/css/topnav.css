@@ -1,8 +1,12 @@
 @charset "ISO-8859-1";
 
+html, body {
+	height: 100%;
+}
+
 .topnav-ul {
 	list-style-type: none;
-	height: 15%;
+	height: 11%;
 	margin-left: 24%;
 	margin-top: 1%;
 	padding: 0;
@@ -28,4 +32,9 @@
 
 .topnav-active {
 	background-color: green;
+}
+
+@media screen and (max-height: 450px) {
+	.topnav-ul {padding-top: 15px;}
+	.topnav-ul a {font-size: 18px;}
 }
