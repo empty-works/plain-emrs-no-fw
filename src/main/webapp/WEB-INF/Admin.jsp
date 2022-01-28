@@ -38,12 +38,14 @@
 	<div class="topnav-li">Hello</div>		
 </div>
 
+<!-- Side navigation -->
 <div class="sidenav">	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 	<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 	<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
 </div>
 
+<!-- Main content --> 
 <div class="main">
 	<h2>Admin's Home</h2>
 	<h3>Welcome <%=session.getAttribute("username") %></h3>
