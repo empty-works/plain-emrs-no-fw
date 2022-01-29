@@ -1,26 +1,36 @@
 @charset "ISO-8859-1";
 
 html, body {
+
 	height: 100%;
 }
 
-.topnav-ul {
-	list-style-type: none;
-	position: fixed;
+.topnav {
+	
 	height: 11%;
 	width: 100%;
 	z-index: 2;
-	overflow: hidden;
+	position: fixed;
 	background-color: #476072;
-	padding: 8px 8px 6px 16px;
+}
+
+.topnav-ul {
+
+	display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-auto-flow: column;
+	overflow: hidden;
 	font-size: 23px;
 }
 
 .topnav-li {
-	float: left;
+
+	width: 100%;
+	align-self: center;
 }
 
 .topnav-li a {
+
 	display: block;
 	color: white;
 	text-align: center;
@@ -28,7 +38,7 @@ html, body {
 	text-decoration: none;
 }
 
-.topnav-li a:hover:not(.active) {
+.topnav-li a:hover:not(.topnav-active) {
 	background-color: #111;
 }
 
@@ -38,5 +48,5 @@ html, body {
 
 @media screen and (max-height: 450px) {
 	.topnav-ul {padding-top: 15px;}
-	.topnav-ul a {font-size: 18px;}
+	.topnav-li a {font-size: 18px;}
 }

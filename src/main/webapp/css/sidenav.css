@@ -19,7 +19,7 @@ html, body {
 	padding: 8px 8px 6px 16px;
 	text-decoration: none;
 	font-size: 18px;
-	color: #EEE;
+	color: #fff;
 	display: block;
 }
 
@@ -31,6 +31,7 @@ html, body {
 	margin-top: 7%;
 	margin-left: 19%; 
 	margin-bottom: 2%;
+	background-color: #FFF;
 	font-size: 20px;
 	padding: 20px 10px;
 }

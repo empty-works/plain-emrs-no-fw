@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <title>Admin Page</title>
 
 <% 	// If Admin session is not set, redirect to the default page
