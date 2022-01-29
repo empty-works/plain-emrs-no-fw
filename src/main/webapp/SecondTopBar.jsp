@@ -11,10 +11,10 @@
 
 <div class="topnav">
 	<div class="topnav-ul">
-		<div class="topnav-li topnav-active"><a href="">Hello</a></div>		
-		<div class="topnav-li"><a href="">Hello</a></div>		
-		<div class="topnav-li"><a href="">Hello</a></div>		
-		<div class="topnav-li"><a href="">Hello</a></div>		
+		<div class="topnav-active"><a href="">Hello</a></div>		
+		<div><a href="">Hello</a></div>		
+		<div><a href="">Hello</a></div>		
+		<div><a href="">Hello</a></div>		
 	</div>
 </div>
 
