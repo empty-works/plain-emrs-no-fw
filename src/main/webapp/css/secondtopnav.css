@@ -7,28 +7,32 @@ html, body {
 
 .topnav {
 	
-	height: 11%;
+	height: 10%;
 	width: 100%;
 	z-index: 2;
 	position: fixed;
 	background-color: #476072;
 }
 
+.topnav-ul, .topnav-ul a {
+	
+	height: 100%;
+}
+
 .topnav-ul {
 
 	display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	overflow: hidden;
-	font-size: 23px;
+	font-size: 19px;
 }
 
 .topnav-ul a {
 
-	align-self: center;
 	display: block;
+	align-self: center;
 	color: white;
 	text-align: center;
-	padding: 14px 16px;
 	text-decoration: none;
 }
 
