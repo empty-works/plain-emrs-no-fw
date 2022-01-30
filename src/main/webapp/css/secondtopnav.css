@@ -29,8 +29,8 @@ html, body {
 
 .topnav-ul a {
 
+	padding: 5% 0;
 	display: block;
-	align-self: center;
 	color: white;
 	text-align: center;
 	text-decoration: none;
