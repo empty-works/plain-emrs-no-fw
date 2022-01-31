@@ -11,11 +11,9 @@
 
 <div class="topnav">
 	<div class="topnav-ul">
-		<div class="topnav-active"><a href="">Hello</a></div>		
-		<div><a href="">Hello</a></div>		
-		<div><a href="">Hello</a></div>		
-		<div><a href="">Hello</a></div>		
-		<div><a href="">Hello</a></div>		
+		<span class="topnav-active">Setup</span>		
+		<div><a href="">Users</a></div>		
+		<div><a href="">Settings</a></div>		
 	</div>
 </div>
 
