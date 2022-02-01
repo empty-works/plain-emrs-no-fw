@@ -7,19 +7,14 @@ html, body {
 
 .topnav {
 	
-	top: 0;
 	height: 8%;
 	width: 100%;
-	position: -webkit-sticky;
-	position: sticky;
-	/*z-index: 2;*/
+	position: fixed;
 	background-color: #476072;
 }
 
 .topnav-ul, .topnav-ul a {
 	
-	position: -webkit-sticky;
-	position: sticky;
 	height: 100%;
 }
 
@@ -27,7 +22,7 @@ html, body {
 
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
-	/*overflow: hidden;*/
+	overflow: hidden;
 	font-size: 16px;
 }
 
