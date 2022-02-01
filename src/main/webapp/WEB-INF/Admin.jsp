@@ -27,8 +27,10 @@
 <body>
 
 <!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
-<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-
+<!--  <script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
+-->
+<!-- Top navigation -->
+<script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 <!-- Top navigation -->
 <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 

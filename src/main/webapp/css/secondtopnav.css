@@ -7,7 +7,7 @@ html, body {
 
 .topnav {
 	
-	height: 10%;
+	height: 8%;
 	width: 100%;
 	z-index: 2;
 	position: fixed;
@@ -24,12 +24,12 @@ html, body {
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	overflow: hidden;
-	font-size: 19px;
+	font-size: 16px;
 }
 
 .topnav-ul a, .topnav-ul span {
 
-	padding: 5% 0;
+	padding: 3% 0;
 	display: block;
 	color: white;
 	text-align: center;
