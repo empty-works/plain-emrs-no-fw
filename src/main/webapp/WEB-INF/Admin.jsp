@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <title>Admin Page</title>
 
 <% 	// If Admin session is not set, redirect to the default page
@@ -17,6 +16,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
@@ -25,13 +25,13 @@
 <body>
 
 <!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
-<!--  <script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
--->
+<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
+
 <!-- Top navigation -->
 <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 
 <!-- Side navigation -->
-<div class="sidenav">	
+<div class="sidenav main-font">	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 	<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 	<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>

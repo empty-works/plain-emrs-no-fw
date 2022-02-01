@@ -1,7 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
+</head>
+<body>
 <!-- Top bar -->
-<nav class="navbar text-white" style="background-color: #334257;">
-	<span class="navbar-brand h1">Plain EMRS</span>
-	<form class="form-inline">
-		<a class="">User</a>	
+<div class="k" style="background-color: #334257;">
+	<span>Plain EMRS</span>
+	<form>
+		<a>User</a>	
 	</form>
-</nav>
+</div>
+</body>

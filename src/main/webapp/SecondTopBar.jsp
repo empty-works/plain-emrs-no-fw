@@ -5,11 +5,12 @@
 <head>
 <meta charset="ISO-8859-1">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/secondtopnav.css" />
 </head>
 <body>
 
-<div class="topnav">
+<div class="topnav main-font">
 	<div class="topnav-ul">
 		<span class="topnav-active">Setup</span>		
 		<div><a href="">Users</a></div>		
