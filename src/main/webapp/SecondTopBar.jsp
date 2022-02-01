@@ -10,9 +10,9 @@
 </head>
 <body>
 
-<div class="topnav main-font">
-	<div class="topnav-ul">
-		<span class="topnav-active">Setup</span>		
+<div class="sectopnav main-font">
+	<div class="sectopnav-ul">
+		<span class="sectopnav-active">Setup</span>		
 		<div><a href="">Users</a></div>		
 		<div><a href="">Settings</a></div>		
 	</div>

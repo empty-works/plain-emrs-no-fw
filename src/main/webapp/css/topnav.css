@@ -3,10 +3,13 @@
 html, body {
 
 	height: 100%;
+	margin: 0; /*To eliminate default browser user agent margin of 8px*/
+	padding: 0;
 }
 
 .topnav {
 	
+	top: 0;
 	height: 8%;
 	width: 100%;
 	position: fixed;

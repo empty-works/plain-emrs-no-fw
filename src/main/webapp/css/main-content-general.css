@@ -1,6 +1,7 @@
 @charset "ISO-8859-1";
 
 .main {
+	top: 16%;
 	width: 84%;
 	height: 100%;
 	background-color: #548CA8;

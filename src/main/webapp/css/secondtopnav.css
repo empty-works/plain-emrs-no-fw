@@ -3,25 +3,25 @@
 html, body {
 
 	height: 100%;
+	margin: 0; /*To eliminate default browser user agent margin of 8px*/
+	padding: 0;
 }
 
-.topnav {
+.sectopnav {
 	
-	top: 0;
+	top: 8%;
 	height: 8%;
 	width: 100%;
-	position: -webkit-sticky;
-	position: sticky;
-	z-index: 2;
+	position: fixed;
 	background-color: #476072;
 }
 
-.topnav-ul, .topnav-ul a {
+.sectopnav-ul, .sectopnav-ul a {
 	
 	height: 100%;
 }
 
-.topnav-ul {
+.sectopnav-ul {
 
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
@@ -29,7 +29,7 @@ html, body {
 	font-size: 15px;
 }
 
-.topnav-ul a, .topnav-ul span {
+.sectopnav-ul a, .sectopnav-ul span {
 
 	padding: 3% 0;
 	display: block;
@@ -38,15 +38,15 @@ html, body {
 	text-decoration: none;
 }
 
-.topnav-ul a:hover:not(.topnav-active) {
+.sectopnav-ul a:hover:not(.sectopnav-active) {
 	background-color: #111;
 }
 
-.topnav-active {
+.sectopnav-active {
 	background-color: green;
 }
 
 @media screen and (max-height: 450px) {
-	.topnav-ul {padding-top: 15px;}
-	.topnav-ul a {font-size: 18px;}
+	.sectopnav-ul {padding-top: 15px;}
+	.sectopnav-ul a {font-size: 18px;}
 }
