@@ -2,9 +2,7 @@
 
 .main {
 	overflow-x: hidden;
-	margin-top: 0%;
-	width: 84%;
-	height: 100%;
+	top: 50%;
 	background-color: #548CA8;
 	margin-left: 16%; 
 	font-size: 12px;

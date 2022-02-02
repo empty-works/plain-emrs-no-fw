@@ -29,6 +29,7 @@
 <!-- Top navigation -->
 <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 
+<div class="sidemain-container">
 <!-- Side navigation -->
 <div class="sidenav main-font">	
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
@@ -37,11 +38,11 @@
 </div>
 
 <!-- Main content --> 
-<div class="main">
+<div class="main main-font">
 	<h2>Admin's Home</h2>
 	<h3>Welcome <%=session.getAttribute("username") %></h3>
 </div>
-
+</div>
 
 </body>
 </html>

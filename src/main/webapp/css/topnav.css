@@ -27,6 +27,7 @@ html, body {
 }
 
 .topnav-brand {
+	font-weight: bold;
 	padding-left: 16px;
 	grid-column: 1 / 1;
 }
