@@ -1,12 +1,12 @@
 @charset "ISO-8859-1";
 
 .main {
-	top: 16%;
+	overflow-x: hidden;
+	margin-top: 0%;
 	width: 84%;
 	height: 100%;
 	background-color: #548CA8;
 	margin-left: 16%; 
 	font-size: 12px;
 	padding: 20px 10px;
-	overflow-x: hidden;
 }

@@ -8,9 +8,9 @@
 </head>
 <body>
 <!-- Top bar -->
-<div class="topnav" style="background-color: #334257;">
-	<span>Plain EMRS</span>
-	<form>
+<div class="topnav main-font">
+	<span class="topnav-brand">Plain EMRS</span>
+	<form class="topnav-user">
 		<a>User</a>	
 	</form>
 </div>

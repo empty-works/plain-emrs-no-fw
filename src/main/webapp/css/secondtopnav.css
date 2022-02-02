@@ -3,13 +3,13 @@
 html, body {
 
 	height: 100%;
-	margin: 8px; /*To eliminate default browser user agent margin of 8px*/
+	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 }
 
 .sectopnav {
 	
-	top: 8%;
+	top: 6%;
 	height: 8%;
 	width: 100%;
 	position: fixed;
@@ -26,7 +26,7 @@ html, body {
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	overflow: hidden;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .sectopnav-ul a, .sectopnav-ul span {

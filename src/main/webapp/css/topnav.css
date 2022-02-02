@@ -3,17 +3,36 @@
 html, body {
 
 	height: 100%;
-	margin: 8px; /*To eliminate default browser user agent margin of 8px*/
+	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 }
 
 .topnav {
 	
+	display: grid;
+    grid-template-columns: auto auto auto; 
 	top: 0;
-	height: 8%;
+	height: 6%;
 	width: 100%;
 	position: fixed;
-	background-color: #476072;
+	background-color: #334257;
+}
+
+.topnav-brand, .topnav-user {
+	padding: 2% 0;
+	font-size: 15px;
+	color: white;
+}
+
+.topnav-brand {
+	padding-left: 16px;
+	grid-column: 1 / 3;
+}
+
+.topnav-user {
+	text-align: right;
+	padding-right: 16px;
+	grid-column: 3 / 3;
 }
 
 .topnav-ul, .topnav-ul a {

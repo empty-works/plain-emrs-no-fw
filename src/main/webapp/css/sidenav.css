@@ -2,12 +2,12 @@
 
 html, body {
 	height: 100%;
-	margin: 8px; /*To eliminate default browser user agent margin of 8px*/
+	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 }
 
 .sidenav {
-	top: 16%;
+	top: 14%;
 	height: 100%;
 	width: 16%; 
 	position: fixed;
