@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- Top bar -->
-<div class="k" style="background-color: #334257;">
+<div class="topnav" style="background-color: #334257;">
 	<span>Plain EMRS</span>
 	<form>
 		<a>User</a>	

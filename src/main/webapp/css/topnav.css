@@ -3,7 +3,7 @@
 html, body {
 
 	height: 100%;
-	margin: 0; /*To eliminate default browser user agent margin of 8px*/
+	margin: 8px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 }
 
