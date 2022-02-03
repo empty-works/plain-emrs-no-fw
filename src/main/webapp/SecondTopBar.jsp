@@ -12,7 +12,8 @@
 
 <div class="sectopnav main-font">
 	<div class="sectopnav-ul">
-		<span class="sectopnav-active">Setup</span>		
+		<span class="sectopnav-active">Log</span>		
+		<div><a href="">Setup</a></div>		
 		<div><a href="">Users</a></div>		
 		<div><a href="">Settings</a></div>		
 	</div>

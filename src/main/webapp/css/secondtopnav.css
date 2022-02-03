@@ -34,7 +34,7 @@ html, body {
 	border-style: none solid;
 	border-width: 1px;
 	border-color: #334257;
-	padding: 3% 0;
+	padding: 5% 0;
 	display: block;
 	color: white;
 	text-align: center;
@@ -42,7 +42,7 @@ html, body {
 }
 
 .sectopnav-ul a:hover:not(.sectopnav-active) {
-	background-color: #111;
+	background-color: #334257;
 }
 
 .sectopnav-active {

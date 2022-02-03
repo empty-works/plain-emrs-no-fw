@@ -11,7 +11,7 @@
 <div class="topnav main-font">
 	<span class="topnav-brand">Plain EMRS</span>
 	<form class="topnav-user">
-		<a>User</a>	
+		<a><%=session.getAttribute("username") %></a>	
 	</form>
 </div>
 </body>

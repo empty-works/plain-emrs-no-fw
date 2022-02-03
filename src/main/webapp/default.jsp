@@ -19,7 +19,7 @@
 
 <div class="sidenav">
 	<div class="login-main-text">
-		<h2>Plain EMRS<br> by Empty Works</h2>
+		<h2 class="font-weight-bold">Plain EMRS<br> by Empty Works</h2>
 		<p>Login or register from here to access.</p>
 	</div>
 </div>
