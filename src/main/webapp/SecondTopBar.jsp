@@ -12,9 +12,10 @@
 
 <div class="sectopnav main-font">
 	<div class="sectopnav-ul">
-		<span class="sectopnav-active">Log</span>		
+		<span class="sectopnav-active">Updates</span>		
 		<div><a href="">Setup</a></div>		
 		<div><a href="">Users</a></div>		
+		<div><a href="">Patients</a></div>		
 		<div><a href="">Settings</a></div>		
 	</div>
 </div>
