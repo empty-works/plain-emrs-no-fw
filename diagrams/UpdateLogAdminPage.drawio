@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-03T17:18:11.006Z" agent="5.0 (Windows)" etag="jHdT1VEigH-Izd5tojpX" version="16.4.7" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-03T17:35:25.383Z" agent="5.0 (Windows)" etag="McJSHacx-WsAZOW8HjZw" version="16.4.7" type="github">
   <diagram id="FnWV5NLoxbRLEsKErp7k" name="Page-1">
     <mxGraphModel dx="974" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -36,6 +36,15 @@
         </mxCell>
         <mxCell id="pf35QM6oEobiXe0ObKEP-11" value="Users Logged In" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="310" y="270" width="450" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pf35QM6oEobiXe0ObKEP-12" value="Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pf35QM6oEobiXe0ObKEP-13" value="Patient List" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="90" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pf35QM6oEobiXe0ObKEP-14" value="User List" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="220" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
