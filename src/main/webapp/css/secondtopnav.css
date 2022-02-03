@@ -31,7 +31,7 @@ html, body {
 
 .sectopnav-ul a, .sectopnav-ul span {
 
-	border-style: solid;
+	border-style: none solid;
 	border-width: 1px;
 	border-color: #334257;
 	padding: 3% 0;

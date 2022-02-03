@@ -8,9 +8,6 @@ html, body {
 
 .sidemain-container {
 	height: 100%;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #334257;
 }
 
 .sidenav {
