@@ -1,10 +1,18 @@
 @charset "ISO-8859-1";
 
+html, body {
+
+	height: 100%;
+	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
+	padding: 0;
+	overflow: hidden;
+}
+
 .main {
 	overflow-x: hidden;
 	background-color: #548CA8;
 	margin-left: 20%; 
 	font-size: 12px;
-	padding: 20px 10px;
+	padding: 6% 10px;
 	height: 100%;
 }
