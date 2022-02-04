@@ -38,11 +38,12 @@
 
 <!-- Main content --> 
 <div class="main main-font">
-	<div class="main-grid">
-		
-	</div>
 	<h2>Admin's Home</h2>
-	<h3>Welcome <%=session.getAttribute("username") %></h3>
+	<div class="main-grid">
+		<div class="grid-item-updates">Updates</div>
+		<div class="grid-item-update-patient">Last Updated Patient</div>
+		<div class="grid-item-add-patient">Last Added Patient</div>
+	</div>
 </div>
 
 </body>
