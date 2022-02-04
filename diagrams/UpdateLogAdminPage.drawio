@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-04T14:50:11.453Z" agent="5.0 (Windows)" etag="Y5p7ZWEvaXc1fdX3acoC" version="16.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-04T14:53:14.530Z" agent="5.0 (Windows)" etag="05MPHNsSj0cMIRP2449a" version="16.5.3" type="github">
   <diagram id="FnWV5NLoxbRLEsKErp7k" name="Page-1">
     <mxGraphModel dx="974" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -17,7 +17,7 @@
           <mxGeometry x="790" y="70" width="465" height="120" as="geometry" />
         </mxCell>
         <mxCell id="pf35QM6oEobiXe0ObKEP-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="305" y="70" width="465" height="500" as="geometry" />
+          <mxGeometry x="305" y="70" width="465" height="490" as="geometry" />
         </mxCell>
         <mxCell id="pf35QM6oEobiXe0ObKEP-9" value="Last Updated Patient" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="797.5" y="230" width="450" height="30" as="geometry" />
@@ -27,15 +27,6 @@
         </mxCell>
         <mxCell id="pf35QM6oEobiXe0ObKEP-11" value="Updates" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="312.5" y="80" width="450" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="pf35QM6oEobiXe0ObKEP-12" value="Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="60" y="60" width="200" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="pf35QM6oEobiXe0ObKEP-13" value="Patient List" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="50" y="90" width="220" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="pf35QM6oEobiXe0ObKEP-14" value="User List" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="50" y="120" width="220" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
