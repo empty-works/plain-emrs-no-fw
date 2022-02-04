@@ -38,6 +38,9 @@
 
 <!-- Main content --> 
 <div class="main main-font">
+	<div class="main-grid">
+		
+	</div>
 	<h2>Admin's Home</h2>
 	<h3>Welcome <%=session.getAttribute("username") %></h3>
 </div>
