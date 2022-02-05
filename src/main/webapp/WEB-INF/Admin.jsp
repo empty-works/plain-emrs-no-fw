@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-updates.css" />
 
 </head>
 <body>
@@ -30,16 +30,17 @@
 <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 
 <!-- Side navigation -->
-<div class="sidenav main-font">	
+<!--  <div class="sidenav main-font">	-->
 	<!--  <div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div> -->
 	<!--  <div><a href="<c:url value="/RolesServlet" />">Roles</a></div> -->
 	<!--  <div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div> -->
-</div>
+<!--  </div> -->
 
 <!-- Main content --> 
 <div class="main main-font">
 	<h2>Admin's Home</h2>
 	<div class="main-grid">
+		<div class="grid-item-users-logged-in">Logged-in Users</div>
 		<div class="grid-item-updates">Updates</div>
 		<div class="grid-item-update-patient">Last Updated Patient</div>
 		<div class="grid-item-add-patient">Last Added Patient</div>
