@@ -41,6 +41,18 @@ html, body {
 	text-decoration: none;
 }
 
+.sectopnav-button {
+	
+	border-style: none solid;
+	border-width: 1px;
+	border-color: #334257;
+	padding: 7% 0;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
 .sectopnav-ul a:hover:not(.sectopnav-active) {
 	background-color: #334257;
 }

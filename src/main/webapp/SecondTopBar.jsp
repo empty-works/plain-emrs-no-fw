@@ -12,11 +12,11 @@
 
 <div class="sectopnav main-font">
 	<div class="sectopnav-ul">
-		<span class="sectopnav-active">Updates</span>		
-		<div><a href="">Setup</a></div>		
-		<div><a href="">Users</a></div>		
-		<div><a href="">Patients</a></div>		
-		<div><a href="">Settings</a></div>		
+		<button class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" type="button" onclick="">Updates</button>		
+		<button class="sectopnav-button" name="adminSetupBtn" type="button" onclick="">Setup</button>		
+		<button class="sectopnav-button" name="adminUsersBtn" type="button" onclick="">Users</button>		
+		<button class="sectopnav-button" name="adminPatientsBtn" type="button" onclick="">Patients</button>		
+		<button class="sectopnav-button" name="adminSettingsBtn" type="button" onclick="">Settings</button>		
 	</div>
 </div>
 
