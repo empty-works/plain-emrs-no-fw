@@ -10,3 +10,7 @@ fetch('SecondTopBar.jsp')
     newelem.innerHTML = text;
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
+
+function makeBtnActive(btnId) {
+	
+}

@@ -12,15 +12,13 @@
 <body>
 
 <div class="sectopnav main-font">
-	<div class="sectopnav-ul">
-		<form>
-		<button formaction="" class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" onclick="">Updates</button>		
-		<button formaction="" class="sectopnav-button" name="adminSetupBtn" onclick="">Setup</button>		
-		<button class="sectopnav-button" name="adminUsersBtn" onclick="">Users</button>		
-		<button class="sectopnav-button" name="adminPatientsBtn" onclick="">Patients</button>		
-		<button class="sectopnav-button" name="adminSettingsBtn" onclick="">Settings</button>		
-		</form>
-	</div>
+	<form class="sectopnav-ul">
+	<button formaction="<c:url value="/AdminServlet" />" class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" onclick="">Updates</button>		
+	<button formaction="<c:url value="/AdminSetupServlet" />" class="sectopnav-button" name="adminSetupBtn" onclick="">Setup</button>		
+	<button class="sectopnav-button" name="adminUsersBtn" onclick="">Users</button>		
+	<button class="sectopnav-button" name="adminPatientsBtn" onclick="">Patients</button>		
+	<button class="sectopnav-button" name="adminSettingsBtn" onclick="">Settings</button>		
+	</form>
 </div>
 
 </body>

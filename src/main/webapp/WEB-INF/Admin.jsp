@@ -12,7 +12,6 @@
 	<jsp:forward page="/default.jsp"></jsp:forward>
 <%} %>
 
-<!-- Required meta tags for Bootstrap -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,13 +27,6 @@
 
 <!-- Top navigation -->
 <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
-
-<!-- Side navigation -->
-<!--  <div class="sidenav main-font">	-->
-	<!--  <div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div> -->
-	<!--  <div><a href="<c:url value="/RolesServlet" />">Roles</a></div> -->
-	<!--  <div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div> -->
-<!--  </div> -->
 
 <!-- Main content --> 
 <div class="main main-font">
