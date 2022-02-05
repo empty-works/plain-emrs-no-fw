@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -12,11 +13,13 @@
 
 <div class="sectopnav main-font">
 	<div class="sectopnav-ul">
-		<button class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" type="button" onclick="">Updates</button>		
-		<button class="sectopnav-button" name="adminSetupBtn" type="button" onclick="">Setup</button>		
-		<button class="sectopnav-button" name="adminUsersBtn" type="button" onclick="">Users</button>		
-		<button class="sectopnav-button" name="adminPatientsBtn" type="button" onclick="">Patients</button>		
-		<button class="sectopnav-button" name="adminSettingsBtn" type="button" onclick="">Settings</button>		
+		<form>
+		<button formaction="" class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" onclick="">Updates</button>		
+		<button formaction="" class="sectopnav-button" name="adminSetupBtn" onclick="">Setup</button>		
+		<button class="sectopnav-button" name="adminUsersBtn" onclick="">Users</button>		
+		<button class="sectopnav-button" name="adminPatientsBtn" onclick="">Patients</button>		
+		<button class="sectopnav-button" name="adminSettingsBtn" onclick="">Settings</button>		
+		</form>
 	</div>
 </div>
 
