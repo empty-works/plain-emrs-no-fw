@@ -16,33 +16,18 @@ html, body {
 	background-color: #476072;
 }
 
-.sectopnav-ul, .sectopnav-ul a {
-	
-	height: 100%;
-}
-
 .sectopnav-ul {
 
+	height: 100%;
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	overflow: hidden;
 	font-size: 14px;
 }
 
-.sectopnav-ul a, .sectopnav-ul span {
-
-	border-style: none solid;
-	border-width: 1px;
-	border-color: #334257;
-	padding: 7% 0;
-	display: block;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-}
-
 .sectopnav-button {
 	
+	background-color: #476072;
 	border-style: none solid;
 	border-width: 1px;
 	border-color: #334257;
@@ -53,8 +38,9 @@ html, body {
 	text-decoration: none;
 }
 
-.sectopnav-ul a:hover:not(.sectopnav-active) {
+.sectopnav-button:hover:not(.sectopnav-active) {
 	background-color: #334257;
+	cursor: pointer;
 }
 
 .sectopnav-active {
