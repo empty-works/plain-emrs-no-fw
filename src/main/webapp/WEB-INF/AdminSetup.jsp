@@ -22,15 +22,15 @@
 	<script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
 
 	<!-- Side navigation -->
-	<!--  <div class="sidenav main-font">	-->
-		<!--  <div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div> -->
-		<!--  <div><a href="<c:url value="/RolesServlet" />">Roles</a></div> -->
-		<!--  <div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div> -->
-	<!--  </div> -->
+	<div class="sidenav main-font">	
+		<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+		<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
+		<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
+	</div>
 
 	<!-- Main content --> 
 	<div class="main main-font">
-		<h2>Admin's Home</h2>
+		<h2>Setup</h2>
 		<div class="main-grid">
 		</div>
 	</div>
