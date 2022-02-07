@@ -11,7 +11,11 @@ fetch('SecondTopBar.jsp')
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
 
-function makeButtonActive() {
+function makeButtonActive(buttonName) {
+	
+	var clickedButton = document.getElementsByName(buttonName);
+	clickedButton.className += " sectopnav-active";
+/*	
 	var buttonContainer = document.getElementById("sectopnav-ul");
 	var buttons = buttonContainer.getElementsByName("sectopnav-button");
 
@@ -19,7 +23,8 @@ function makeButtonActive() {
 		buttons[i].addEventListener("click", function() {
 			var current = document.getElementsByClassName("sectopnav-active");
 			current[0].className = current[0].className.replace(" sectopnav-active", "");
-			this.className += " active";
+			this.className += " sectopnav-active";
 		});
 	}
+	*/
 }
