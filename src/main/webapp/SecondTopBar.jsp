@@ -8,18 +8,18 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/secondtopnav.css" />
-<script src="${pageContext.request.contextPath}/js/secondtopbar.js"></script>
+<script src="${pageContext.request.contextPath}/js/secondtopbarbuttons.js"></script>
 
 </head>
 <body>
 
 <div class="sectopnav main-font">
 	<form class="sectopnav-ul">
-	<button formaction="<c:url value="/AdminServlet" />" class="sectopnav-button sectopnav-active" name="adminUpdatesBtn" onclick="makeButtonActive(this.name)">Updates</button>		
-	<button formaction="<c:url value="/AdminSetupServlet" />" class="sectopnav-button" name="adminSetupBtn" onclick="makeButtonActive(this.name)">Setup</button>		
-	<button class="sectopnav-button" name="adminUsersBtn" onclick="">Users</button>		
-	<button class="sectopnav-button" name="adminPatientsBtn" onclick="">Patients</button>		
-	<button class="sectopnav-button" name="adminSettingsBtn" onclick="">Settings</button>		
+	<button class="sectopnav-button sectopnav-active" id="adminUpdatesBtn" onclick="testYellow(this.id)">Updates</button>		
+	<button class="sectopnav-button" id="adminSetupBtn" onclick="testYellow(this.id)">Setup</button>		
+	<button class="sectopnav-button" id="adminUsersBtn" onclick="">Users</button>		
+	<button class="sectopnav-button" id="adminPatientsBtn" onclick="">Patients</button>		
+	<button class="sectopnav-button" id="adminSettingsBtn" onclick="">Settings</button>		
 	</form>
 </div>
 

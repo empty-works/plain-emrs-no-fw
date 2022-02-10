@@ -29,6 +29,12 @@ html, body {
 	color: #064579;
 }
 
+.sidenav-active {
+	background-color: #EEEEEE;
+	color: #476072;
+	display: block;
+}
+
 @media screen and (max-height: 450px) {
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}

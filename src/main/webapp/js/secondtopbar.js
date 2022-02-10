@@ -11,7 +11,8 @@ fetch('SecondTopBar.jsp')
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
 
-function makeButtonActive(buttonName) {
+var makeButtonActive = function(buttonName) {
+
 	
 	var clickedButton = document.getElementsByName(buttonName);
 	clickedButton.className += " sectopnav-active";

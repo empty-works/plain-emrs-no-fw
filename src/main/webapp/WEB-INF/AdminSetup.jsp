@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/secondtopnav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-updates.css" />
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
 	<!-- Top navigation -->
-	<!-- <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script> -->
+	<!--  <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script> -->
 	
 	<div class="sectopnav main-font">
 		<form class="sectopnav-ul">
@@ -34,6 +35,8 @@
 
 	<!-- Side navigation -->
 	<div class="sidenav main-font">	
+		
+		<div class="sidenav-active">Overview</div>
 		<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 		<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 		<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
