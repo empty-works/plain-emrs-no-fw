@@ -22,7 +22,6 @@ html, body {
 	display: grid;
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	overflow: hidden;
-	font-size: 14px;
 }
 
 .sectopnav-button {
@@ -36,6 +35,8 @@ html, body {
 	color: white;
 	text-align: center;
 	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .sectopnav-button:hover:not(.sectopnav-active) {

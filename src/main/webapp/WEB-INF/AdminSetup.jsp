@@ -15,8 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>ADMIN SETUP PAGE</h1>
-
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
