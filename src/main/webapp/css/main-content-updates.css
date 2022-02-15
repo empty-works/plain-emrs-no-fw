@@ -47,13 +47,6 @@ html, body {
 	background-color: #EEEEEE;
 }
 
-.grid-item-updates, .grid-item-update-patient, .grid-item-add-patient, .grid-item-users-logged-in {
-	background-color: #EEEEEE;
-	border-style: solid;
-	border-width: 10px 1px 1px;
-	border-color: #548CA8;
-}
-
 .grid-item-users-logged-in {
 	grid-column: 1 / 1;
 	grid-row: 1 / span 4;

@@ -39,10 +39,15 @@
 	</form>
 </div>
 
+<h2>Test</h2>
+
 <!-- Main content --> 
 <div class="main main-font">
 	<div class="main-grid">
-		<div class="grid-item-users-logged-in">Logged-in Users</div>
+		<div class="grid-item-container grid-item-users-logged-in">
+			<div class="grid-item-container-label">Logged-in Users</div>	
+			<div class="grid-item-container-content">Yoooooooooooooo</div>
+		</div>
 		<div class="grid-item-updates">Updates</div>
 		<div class="grid-item-update-patient">Last Updated Patient</div>
 		<div class="grid-item-add-patient">Last Added Patient</div>
