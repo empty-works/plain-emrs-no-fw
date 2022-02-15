@@ -41,7 +41,6 @@
 
 <!-- Main content --> 
 <div class="main main-font">
-	<h2>Admin's Home</h2>
 	<div class="main-grid">
 		<div class="grid-item-users-logged-in">Logged-in Users</div>
 		<div class="grid-item-updates">Updates</div>
