@@ -39,8 +39,6 @@
 	</form>
 </div>
 
-<h2>Test</h2>
-
 <!-- Main content --> 
 <div class="main main-font">
 	<div class="main-grid">

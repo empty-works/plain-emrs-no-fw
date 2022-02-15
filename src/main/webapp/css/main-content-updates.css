@@ -26,7 +26,7 @@ html, body {
 .grid-item-container {
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto;
 	background-color: #EEEEEE;
 	border-style: solid;
 	border-width: 1px;
@@ -36,15 +36,16 @@ html, body {
 .grid-item-container-label {
 	grid-column: 1 / 1; 
 	grid-row: 1 / span 1;
-	height: 5%;
+	height: 25%;
 	display: block;
 	background-color: #548CA8;
 }
 
 .grid-item-container-content {
 	grid-column: 1 / 1; 
-	grid-row: 2 / span 3;
+	grid-row: 1 / span 5;
 	background-color: #EEEEEE;
+	margin-top: 15%;
 }
 
 .grid-item-users-logged-in {
