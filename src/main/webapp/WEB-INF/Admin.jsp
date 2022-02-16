@@ -46,9 +46,18 @@
 			<div class="grid-item-container-label">Logged-in Users</div>	
 			<div class="grid-item-container-content">Yoooooooooooooo</div>
 		</div>
-		<div class="grid-item-updates">Updates</div>
-		<div class="grid-item-update-patient">Last Updated Patient</div>
-		<div class="grid-item-add-patient">Last Added Patient</div>
+		<div class="grid-item-container grid-item-updates">
+			<div class="grid-item-container-label">Updates</div>	
+			<div class="grid-item-container-content"></div>
+		</div>
+		<div class="grid-item-container grid-item-update-patient">
+			<div class="grid-item-container-label">Last Updated Patient</div>	
+			<div class="grid-item-container-content"></div>
+		</div>
+		<div class="grid-item-container grid-item-add-patient">
+			<div class="grid-item-container-label">Last Added Patient</div>	
+			<div class="grid-item-container-content"></div>
+		</div>
 	</div>
 </div>
 
