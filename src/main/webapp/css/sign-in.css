@@ -20,6 +20,7 @@ body {
 }
 
 .main {
+	height: 100%;
     background-color: #EEEEEE;
 }
 
@@ -51,8 +52,7 @@ body {
     }
 
     .login-form{
-    	height: 100%;
-        margin-top: 40%;
+        padding-top: 40%;
     }
 
     .register-form{
