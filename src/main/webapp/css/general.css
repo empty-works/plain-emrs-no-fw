@@ -16,11 +16,9 @@
 }
 
 .btn:hover {
-	background-color: #EEEEEE;
-	color: #334257;
+	background-color: #476072!important;
+	color: white;
 	cursor: pointer;
-	border-width: 1px;
-	border-color: #334257;
 }
 
 .btn-space {
