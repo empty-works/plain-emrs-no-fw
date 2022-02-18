@@ -48,13 +48,24 @@ html, body {
     }
 
     .login-form{
-        padding-top: 45%;
+        padding-top: 40%;
         padding-left: 5%;
     }
 }
 
 .form-group {
-	
+	padding: 7px 0px;	
+}
+
+.form-group label {
+	display: block;
+	text-align: left;
+}
+
+.form-control {
+	width: 25%;
+	padding: 7px 10px;
+	margin: 2px 0px;
 }
 
 .login-main-text{

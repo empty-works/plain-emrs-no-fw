@@ -26,7 +26,7 @@
 		<div class="login-form">
 			<form action="LoginServlet" method="post">
 				<div class="form-group">
-					<label for="loginUsername">User Name</label>
+					<label for="loginUsername">Username</label>
 					<input type="text" class="form-control" id="loginUsername" name="username" placeholder="Username">
 				</div>
 				<div class="form-group">
