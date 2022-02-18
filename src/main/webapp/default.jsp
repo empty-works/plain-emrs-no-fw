@@ -26,12 +26,12 @@
 		<div class="login-form">
 			<form action="LoginServlet" method="post">
 				<div class="form-group">
-					<label for="loginUsername">Username</label>
-					<input type="text" class="form-control" id="loginUsername" name="username" placeholder="Username">
+					<label for="loginUsername">Username:</label>
+					<input type="text" class="form-control" id="loginUsername" name="username">
 				</div>
 				<div class="form-group">
-					<label for="loginPassword">Password</label>
-					<input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password">
+					<label for="loginPassword">Password:</label>
+					<input type="password" class="form-control" id="loginPassword" name="password">
 				</div>
 				<button type="submit" class="btn btn-black btn-primary btn-space">Login</button>
 			</form>

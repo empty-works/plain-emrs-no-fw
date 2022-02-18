@@ -5,6 +5,24 @@
 	font-family: Verdana, Arial, sans-serif;
 }
 
+.btn {
+	background-color: #334257;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn:hover {
+	background-color: #EEEEEE;
+	color: #334257;
+	cursor: pointer;
+	border-width: 1px;
+	border-color: #334257;
+}
+
 .btn-space {
 	margin-top: 15px;
 }
