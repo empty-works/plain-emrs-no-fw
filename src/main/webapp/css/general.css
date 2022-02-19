@@ -1,7 +1,10 @@
 @charset "ISO-8859-1";
 
-.color-1 {
-	background-color: #
+:root {
+	--darkest-blue: #334257;
+	--darker-blue: #476072;
+	--light-blue: #548CA8;
+	--off-white: #EEEEEE;
 }
 
 .main-font {

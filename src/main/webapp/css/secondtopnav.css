@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+/*CSS variables are in general.css*/
+
 html, body {
 
 	height: 100%;
@@ -14,10 +16,10 @@ html, body {
 	height: 7%;
 	width: 100%;
 	position: fixed;
-	background-color: #476072;
+	background-color: var(--darker-blue);
 	border-style: solid;
 	border-width: 2px;
-	border-color: #EEEEEE;
+	border-color: var(--off-white);
 }
 
 .sectopnav-ul {
@@ -30,10 +32,10 @@ html, body {
 
 .sectopnav-button {
 	
-	background-color: #476072;
+	background-color: var(--darker-blue);
 	border-style: none solid;
 	border-width: 1px;
-	border-color: #EEEEEE;
+	border-color: var(--off-white);
 	padding: 5% 0;
 	display: block;
 	color: white;
@@ -44,7 +46,7 @@ html, body {
 }
 
 .sectopnav-button:hover:not(.sectopnav-active) {
-	background-color: #334257;
+	background-color: var(--darkest-blue);
 	cursor: pointer;
 }
 

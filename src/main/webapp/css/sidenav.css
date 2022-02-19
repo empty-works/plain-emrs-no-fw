@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+/*CSS variables are in general.css*/
+
 html, body {
 	height: 100%;
 	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
@@ -7,11 +9,11 @@ html, body {
 }
 
 .sidenav {
-	top: 14%;
+	top: 13%;
 	height: 100%;
 	width: 20%; 
 	position: fixed;
-	background-color: #548CA8;
+	background-color: var(--light-blue);
 	overflow-x: hidden;
 	padding: 15% 0;
 }
@@ -30,8 +32,8 @@ html, body {
 }
 
 .sidenav .sidenav-active {
-	background-color: #EEEEEE;
-	color: #476072;
+	background-color: var(--off-white);
+	color: var(--darker-blue);
 	display: block;
 }
 

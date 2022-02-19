@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+/*CSS variables are in general.css*/
+
 html, body {
 
 	height: 100%;
@@ -10,7 +12,7 @@ html, body {
 
 .main {
 	overflow-x: hidden;
-	background-color: #EEEEEE;
+	background-color: var(--off-white);
 	font-size: 12px;
 	padding: 7% 10px;
 	height: 100%;
@@ -26,20 +28,20 @@ html, body {
 
 .content-container {
 	display: block;
-	background-color: #EEEEEE;
+	background-color: var(--off-white);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #548CA8;
+	border-color: var(--light-blue);
 }
 
 .content-label {
 	color: white;
-	background-color: #548CA8;
+	background-color: var(--light-blue);
 	padding: 5px;
 }
 
 .content-box {
-	background-color: #EEEEEE;
+	background-color: var(--off-white);
 	padding: 10px;
 }
 
