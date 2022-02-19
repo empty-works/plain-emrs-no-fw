@@ -33,9 +33,9 @@ html, body {
 }
 
 .content-label {
+	color: white;
 	background-color: #548CA8;
 	padding: 10px;
-	width: 100%;
 }
 
 .content-box {
