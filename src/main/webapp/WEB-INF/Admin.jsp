@@ -42,21 +42,21 @@
 <!-- Main content --> 
 <div class="main main-font">
 	<div class="main-grid">
-		<div class="grid-item-container grid-item-users-logged-in">
-			<div class="grid-item-container-label">Logged-in Users</div>	
-			<div class="grid-item-container-content">Yoooooooooooooo</div>
+		<div class="content-container grid-item-users-logged-in">
+			<div class="content-label">Logged-in Users</div>	
+			<div class="content-box">Yoooooooooooooo</div>
 		</div>
-		<div class="grid-item-container grid-item-updates">
-			<div class="grid-item-container-label">Updates</div>	
-			<div class="grid-item-container-content"></div>
+		<div class="content-container grid-item-updates">
+			<div class="content-label">Updates</div>	
+			<div class="content-box"></div>
 		</div>
-		<div class="grid-item-container grid-item-update-patient">
-			<div class="grid-item-container-label">Last Updated Patient</div>	
-			<div class="grid-item-container-content"></div>
+		<div class="content-container grid-item-update-patient">
+			<div class="content-label">Last Updated Patient</div>	
+			<div class="content-box"></div>
 		</div>
-		<div class="grid-item-container grid-item-add-patient">
-			<div class="grid-item-container-label">Last Added Patient</div>	
-			<div class="grid-item-container-content"></div>
+		<div class="content-container grid-item-add-patient">
+			<div class="content-label">Last Added Patient</div>	
+			<div class="content-box"></div>
 		</div>
 	</div>
 </div>
