@@ -42,10 +42,12 @@
 <!-- Main content --> 
 <div class="main main-font">
 	<div class="main-grid">
+		<!--  
 		<div class="content-container grid-item-users-logged-in">
 			<div class="content-label">Logged-in Users</div>	
 			<div class="content-box">Yoooooooooooooo</div>
 		</div>
+-->
 		<div class="content-container grid-item-updates">
 			<div class="content-label">Updates</div>	
 			<div class="content-box"></div>

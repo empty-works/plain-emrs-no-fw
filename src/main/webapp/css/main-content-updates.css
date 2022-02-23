@@ -19,7 +19,7 @@ html, body {
 }
 
 .main-grid {
-	padding-top: 10px;
+	padding: 25px;
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto;
 	grid-template-rows: auto auto auto auto;
@@ -29,13 +29,14 @@ html, body {
 .content-container {
 	display: block;
 	background-color: var(--off-white);
+	margin: 7px;
 }
 
 .content-label {
 	color: var(--darkest-blue);
 	padding: 3px 5px;
 	margin: 1px;
-	border-bottom: 1px solid var(--light-blue);
+	border-bottom: 2px solid var(--light-blue);
 }
 
 .content-box {
@@ -49,16 +50,16 @@ html, body {
 }
 
 .grid-item-updates {
-	grid-column: 2 / span 5;
-	grid-row: 1 / span 2;
+	grid-column: 1 / span 4;
+	grid-row: 1 / span 4;
 }
 
 .grid-item-update-patient {
-	grid-column: 2 / span 2;
-	grid-row: 3 / span 2;
+	grid-column: 5 / span 2;
+	grid-row: 1 / span 2;
 }
 
 .grid-item-add-patient {
-	grid-column: 4 / span 2;
+	grid-column: 5 / span 2;
 	grid-row: 3 / span 2;
 }
