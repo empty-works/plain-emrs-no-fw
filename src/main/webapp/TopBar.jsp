@@ -10,7 +10,26 @@
 <!-- Top bar -->
 <div class="topnav main-font">
 	<span class="topnav-brand">Plain EMRS</span>
-	<button class=""></button>
+	<button class="topnav-menu-btn">
+		<span class="top-bar"></span>
+		<span class="menu-text">Updates</span>
+	</button>
+	<button class="topnav-menu-btn">
+		<span class="top-bar"></span>
+		<span class="menu-text">Setup</span>
+	</button>
+	<button class="topnav-menu-btn">
+		<span class="top-bar"></span>
+		<span class="menu-text">Users</span>
+	</button>
+	<button class="topnav-menu-btn">
+		<span class="top-bar"></span>
+		<span class="menu-text">Patients</span>
+	</button>
+	<button class="topnav-menu-btn">
+		<span class="top-bar"></span>
+		<span class="menu-text">Settings</span>
+	</button>
 	<form class="topnav-user">
 		<a><%=session.getAttribute("username") %></a>	
 	</form>

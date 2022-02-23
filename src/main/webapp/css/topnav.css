@@ -11,7 +11,7 @@ html, body {
     grid-template-columns: auto auto auto auto auto auto auto; 
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
 	top: 0;
-	height: 6%;
+	height: 7%;
 	width: 100%;
 	background-color: var(--darkest-blue);
 }
@@ -31,19 +31,23 @@ html, body {
 .topnav-menu-btn {
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: auto auto auto auto;
-	padding: 3px;
+	grid-template-rows: auto auto auto auto auto;
+	padding: 0;
+	border-radius: 0%;
+	border: none;
 }
 
-.topnav-menu-btn menu-text {
+.topnav-menu-btn .menu-text {
 	grid-column: 1 / 1;
-	grid-row: 3 / span 1;
+	grid-row: 3 / span 3;
 	background-color: var(--darker-blue);
+	color: white;
+	padding: 2px;
 }
 
-.topnav-menu-btn top-bar {
+.topnav-menu-btn .top-bar {
 	grid-column: 1 / 1;
-	grid-row: 1 / span 1;
+	grid-row: 1 / span 2;
 	background-color: var(--darkest-blue);
 }
 
