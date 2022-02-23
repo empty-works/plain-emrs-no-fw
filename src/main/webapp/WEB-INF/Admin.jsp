@@ -29,6 +29,7 @@
 <!-- Top navigation -->
 <!-- <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script> -->
 
+<!--  
 <div class="sectopnav main-font">
 	<form class="sectopnav-ul">
 	<button formaction="<c:url value="/AdminServlet" />" class="sectopnav-button sectopnav-active" name="adminUpdatesBtn">Updates</button>		
@@ -38,6 +39,7 @@
 	<button class="sectopnav-button" name="adminSettingsBtn" onclick="">Settings</button>		
 	</form>
 </div>
+-->
 
 <!-- Main content --> 
 <div class="main main-font">
