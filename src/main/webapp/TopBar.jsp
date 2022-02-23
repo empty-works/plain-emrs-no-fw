@@ -10,6 +10,7 @@
 <!-- Top bar -->
 <div class="topnav main-font">
 	<span class="topnav-brand">Plain EMRS</span>
+	<button class=""></button>
 	<form class="topnav-user">
 		<a><%=session.getAttribute("username") %></a>	
 	</form>
