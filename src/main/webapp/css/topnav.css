@@ -14,6 +14,7 @@ html, body {
 	height: 15%;
 	width: 100%;
 	background-color: var(--darkest-blue);
+	z-index: 1;
 }
 
 .topnav-brand, .topnav-user {

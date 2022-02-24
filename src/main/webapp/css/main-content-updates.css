@@ -11,25 +11,26 @@ html, body {
 }
 
 .main {
-	overflow-x: hidden;
+	overflow: hidden;
 	background-color: var(--off-white);
 	font-size: 12px;
 	height: 100%;
-	display: block;
+	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
+	flex-direction: column;
 }
 
 .main-grid {
-	padding: 25px;
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto;
 	grid-template-rows: auto auto auto auto;
-	height: 80%;
+	margin: 1px;
+	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
 .content-container {
 	display: block;
 	background-color: var(--off-white);
-	margin: 7px;
+	margin: 2px;
 }
 
 .content-label {
@@ -39,9 +40,7 @@ html, body {
 }
 
 .content-box {
-	background-color: var(--off-white);
 	padding: 10px;
-	border: 2px solid var(--light-blue);
 	height: 100%;
 }
 
@@ -53,14 +52,18 @@ html, body {
 .grid-item-updates {
 	grid-column: 1 / span 4;
 	grid-row: 1 / span 4;
+	background-color: var(--lightest-blue);
+
 }
 
 .grid-item-update-patient {
 	grid-column: 5 / span 2;
 	grid-row: 1 / span 2;
+	background-color: var(--lightest-green);
 }
 
 .grid-item-add-patient {
 	grid-column: 5 / span 2;
 	grid-row: 3 / span 2;
+	background-color: var(--lightest-green);
 }
