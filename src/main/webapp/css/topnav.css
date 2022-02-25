@@ -21,7 +21,7 @@ html, body {
 }
 
 .topnav-brand, .topnav-user {
-	padding: 2% 0;
+	padding: 4% 0;
 	color: white;
 	vertical-align: middle;
 }
@@ -48,14 +48,13 @@ html, body {
 	border-radius: 0%;
 	border: none;
 	background-color: var(--darker-blue);
+	padding: 5px 0;
 }
 
 .topnav-menu-btn .menu-text {
 	grid-column: 1 / 1;
 	grid-row: 3 / span 1;
-	background-color: var(--darker-blue);
 	color: white;
-	height: 100%;
 }
 
 @media screen and (max-height: 450px) {
