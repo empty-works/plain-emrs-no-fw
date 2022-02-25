@@ -9,6 +9,7 @@
 <body>
 <!-- Top bar -->
 <div class="topnav main-font">
+	<div class="topnav-grid">
 	<span class="topnav-brand">Plain EMRS</span>
 	<button class="topnav-menu-btn">
 		<span class="top-bar"></span>
@@ -33,5 +34,6 @@
 	<form class="topnav-user">
 		<a><%=session.getAttribute("username") %></a>	
 	</form>
+	</div>
 </div>
 </body>

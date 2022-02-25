@@ -7,14 +7,18 @@ html, body {
 }
 
 .topnav {
+	top: 0;
+	height: 30%;
+	padding: 10%;
+	background-color: var(--darkest-blue);
+}
+
+.topnav-grid {
 	display: grid;
     grid-template-columns: auto auto auto auto auto auto auto; 
     grid-auto-flow: column; /*Makes items flow across columns into a single row*/ 
-	top: 0;
-	height: 15%;
 	width: 100%;
-	background-color: var(--darkest-blue);
-	z-index: 1;
+	height: 100%;
 }
 
 .topnav-brand, .topnav-user {
@@ -34,10 +38,10 @@ html, body {
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: auto auto auto auto auto;
+	grid-auto-flow: row;
 	padding: 0;
 	border-radius: 0%;
 	border: none;
-	grid-auto-flow: row;
 }
 
 .topnav-menu-btn .menu-text {
