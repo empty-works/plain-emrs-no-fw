@@ -8,7 +8,7 @@ html, body {
 
 .topnav {
 	top: 0;
-	padding: 0.8% 0.8% 0;
+	padding: 0.8% 0.8% 1px;
 	background-color: var(--darkest-blue);
 }
 
@@ -32,6 +32,12 @@ html, body {
 	padding-left: 16px;
 }
 
+.topnav-user {
+	font-size: 12px;
+	text-align: right;
+	padding-right: 16px;
+}
+
 .topnav-menu-btn {
 	height: 100%;
 	display: grid;
@@ -41,27 +47,15 @@ html, body {
 	padding: 0;
 	border-radius: 0%;
 	border: none;
+	background-color: var(--darker-blue);
 }
 
 .topnav-menu-btn .menu-text {
 	grid-column: 1 / 1;
-	grid-row: 3 / span 3;
+	grid-row: 3 / span 1;
 	background-color: var(--darker-blue);
 	color: white;
 	height: 100%;
-}
-
-.topnav-menu-btn .top-bar {
-	grid-column: 1 / 1;
-	grid-row: 1 / span 2;
-	background-color: var(--darkest-blue);
-	display: block;
-}
-
-.topnav-user {
-	font-size: 12px;
-	text-align: right;
-	padding-right: 16px;
 }
 
 @media screen and (max-height: 450px) {
