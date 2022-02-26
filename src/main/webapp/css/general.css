@@ -8,6 +8,8 @@
 	
 	--lightest-blue: #E1E5EA;
 	--lightest-green: #D3DEDC;
+	
+	--round-corner-radius: 5px;
 }
 
 .main-font {
@@ -23,6 +25,7 @@
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
+	border-radius: var(--round-corner-radius);
 }
 
 .btn:hover {
