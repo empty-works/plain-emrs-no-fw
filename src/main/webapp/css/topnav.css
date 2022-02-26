@@ -50,6 +50,7 @@ html, body {
 	background-color: var(--darker-blue);
 	padding: 7px 0;
 	font-size: 12px;
+	font-weight: bold;
 }
 
 .topnav-menu-btn:hover {

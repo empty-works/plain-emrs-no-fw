@@ -14,19 +14,19 @@
 	<div class="topnav-grid">
 	<span class="topnav-brand">Plain EMRS</span>
 	<button formaction="<c:url value="/AdminServlet" />" class="topnav-menu-btn topnav-menu-btn-first">
-		<span class="menu-text">UPDATES</span>
+		<span class="menu-text">Updates</span>
 	</button>
 	<button formaction="<c:url value="/AdminSetupServlet" />" class="topnav-menu-btn">
-		<span class="menu-text">SETUP</span>
+		<span class="menu-text">Setup</span>
 	</button>
 	<button class="topnav-menu-btn">
-		<span class="menu-text">USERS</span>
+		<span class="menu-text">Users</span>
 	</button>
 	<button class="topnav-menu-btn">
-		<span class="menu-text">PATIENTS</span>
+		<span class="menu-text">Patients</span>
 	</button>
 	<button class="topnav-menu-btn topnav-menu-btn-last">
-		<span class="menu-text">SETTINGS</span>
+		<span class="menu-text">Settings</span>
 	</button>
 	<a class="topnav-user"><%=session.getAttribute("username") %></a>	
 	</div>
