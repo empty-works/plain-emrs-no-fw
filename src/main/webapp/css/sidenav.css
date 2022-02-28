@@ -9,10 +9,8 @@ html, body {
 }
 
 .sidenav {
-	top: 13%;
 	height: 100%;
-	width: 20%; 
-	position: fixed;
+	width: 16%; 
 	background-color: var(--light-blue);
 	overflow-x: hidden;
 	padding: 15% 0;

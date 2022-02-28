@@ -1,11 +1,15 @@
 @charset "ISO-8859-1";
 
 html, body {
-
 	height: 100%;
 	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
-	overflow: hidden;
+}
+
+.main-container {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
 }
 
 .main {
@@ -14,8 +18,6 @@ html, body {
 	font-size: 12px;
 	padding: 7% 10px;
 	height: 100%;
-	margin-top: 20%;
-	margin-left: 20%;
 }
 
 .main-grid {
@@ -24,6 +26,7 @@ html, body {
 	grid-template-rows: auto auto auto auto;
 	grid-gap: 10px;
 	height: 75%;
+	background-color: #EEEEEE;
 }
 
 .grid-item-updates, .grid-item-update-patient, .grid-item-add-patient, .grid-item-users-logged-in {
