@@ -12,6 +12,25 @@
 	--lightest-green: #D3DEDC;
 	
 	--rounded-corner-radius: 5px;
+	
+	--sidenav-width: 16%;
+}
+
+html, body {
+	height: 100%;
+	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
+	padding: 0;
+	overflow: hidden;
+	background-color: #EEEEEE;
+}
+
+.main-container {
+	height: 100%;
+	width: 100%;
+}
+
+div.main-container > div {
+	float: left;
 }
 
 .main-font {

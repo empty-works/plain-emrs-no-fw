@@ -10,7 +10,7 @@ html, body {
 
 .sidenav {
 	height: 100%;
-	width: 16%; 
+	width: var(--sidenav-width); 
 	background-color: var(--light-blue);
 	overflow-x: hidden;
 	padding: 15% 0;
@@ -22,7 +22,6 @@ html, body {
 	font-size: 14px;
 	color: #fff;
 	display: block;
-	
 }
 
 .sidenav a:hover {

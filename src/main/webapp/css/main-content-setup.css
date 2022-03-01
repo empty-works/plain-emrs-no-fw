@@ -6,18 +6,13 @@ html, body {
 	padding: 0;
 }
 
-.main-container {
-	display: inline-block;
-	height: 100%;
-	width: 100%;
-}
-
 .main {
 	overflow-x: hidden;
 	background-color: #EEEEEE;
 	font-size: 12px;
 	padding: 7% 10px;
 	height: 100%;
+	width: calc((100% - var(--sidenav-width)) - 1);
 }
 
 .main-grid {
