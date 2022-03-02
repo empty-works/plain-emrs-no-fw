@@ -16,7 +16,7 @@
 	<button formaction="<c:url value="/AdminServlet" />" class="topnav-menu-btn topnav-menu-btn-first">
 		<span class="menu-text">Updates</span>
 	</button>
-	<button formaction="<c:url value="/AdminSetupServlet" />" class="topnav-menu-btn">
+	<button formaction="<c:url value="/FacilitiesServlet" />" class="topnav-menu-btn">
 		<span class="menu-text">Setup</span>
 	</button>
 	<button class="topnav-menu-btn">

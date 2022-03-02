@@ -4,14 +4,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
 <title>Facilities</title>
 </head>
 <body>
-	<h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>
+	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
+	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
+
+	<!-- Top navigation -->
+	<!--  <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script> -->
+	
+	<div class="main-container">
+		<!-- Side navigation -->
+		<div class="sidenav main-font">	
+			<div class="sidenav-active"><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+			<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
+			<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
+		</div>
+
+		<!-- Main content --> 
+		<div class="main main-font">
+			
+	<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
 	<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
 	<h2>Facility List</h2>	
-	<table>
+		<table>
 		<c:forEach items="${facilitiesList}" var="facility">
 			<tr>
 			<td>--------------------------------------------------------------
@@ -23,7 +45,6 @@
 			</tr>
 			<tr>
 				<td>Name: <a href="<c:url value="/FacilityServlet" > 
-				
 					<c:param name="facId" value="${facility.getId()}" />		
 					<c:param name="facNam" value="${facility.getName()}" />		
 					<c:param name="facCity" value="${facility.getCity()}" />		
@@ -39,5 +60,7 @@
 			</tr>	
 		</c:forEach>
 		</table>
+		</div>
+	</div>
 </body>
 </html>
