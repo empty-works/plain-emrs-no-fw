@@ -24,9 +24,7 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">	
-			
-			<div class="sidenav-active">Overview</div>
-			<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+			<div class="sidenav-active"><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 			<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 			<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
 		</div>

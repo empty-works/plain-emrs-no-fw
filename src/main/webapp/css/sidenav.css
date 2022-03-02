@@ -16,7 +16,7 @@ html, body {
 	padding: 15% 0;
 }
 
-.sidenav a, .sidenav-active {
+.sidenav a {
 	padding: 8px 8px 6px 25px;
 	text-decoration: none;
 	font-size: 14px;
@@ -28,7 +28,7 @@ html, body {
 	color: #064579;
 }
 
-.sidenav .sidenav-active {
+.sidenav .sidenav-active > a {
 	background-color: var(--off-white);
 	color: var(--darker-blue);
 	display: block;
