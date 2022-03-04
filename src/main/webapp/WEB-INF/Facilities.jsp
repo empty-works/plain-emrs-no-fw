@@ -16,13 +16,10 @@
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
-	<!-- Top navigation -->
-	<!--  <script id="replace_with_secondtopbar" src="${pageContext.request.contextPath}/js/secondtopbar.js"></script> -->
-	
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">	
-			<div class="sidenav-active"><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+			<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 			<div><a href="<c:url value="/RolesServlet" />">Roles</a></div>
 			<div><a href="<c:url value="/WEB-INF/AddNonPatient.jsp" />">Add Non-Patient</a></div>
 		</div>
@@ -30,36 +27,36 @@
 		<!-- Main content --> 
 		<div class="main main-font">
 			
-	<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
-	<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
-	<h2>Facility List</h2>	
-		<table>
-		<c:forEach items="${facilitiesList}" var="facility">
-			<tr>
-			<td>--------------------------------------------------------------
-				<br><br>	
-			</td>
-			</tr>
-			<tr>
-				<td>ID: <c:out value="${facility.getId()}" /></td>	
-			</tr>
-			<tr>
-				<td>Name: <a href="<c:url value="/FacilityServlet" > 
-					<c:param name="facId" value="${facility.getId()}" />		
-					<c:param name="facNam" value="${facility.getName()}" />		
-					<c:param name="facCity" value="${facility.getCity()}" />		
-					<c:param name="facCountry" value="${facility.getCountry()}" />		
-				</c:url>"> <c:out value="${facility.getName()}" /></a>
-			</td>
-			</tr>
-			<tr>
-				<td>City: <c:out value="${facility.getCity()}" /></td>
-			</tr>
-			<tr>
-				<td>Country: <c:out value="${facility.getCountry()}" /></td>
-			</tr>	
-		</c:forEach>
-		</table>
+		<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
+		<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
+		<h2>Facility List</h2>	
+			<table>
+			<c:forEach items="${facilitiesList}" var="facility">
+				<tr>
+				<td>--------------------------------------------------------------
+					<br><br>	
+				</td>
+				</tr>
+				<tr>
+					<td>ID: <c:out value="${facility.getId()}" /></td>	
+				</tr>
+				<tr>
+					<td>Name: <a href="<c:url value="/FacilityServlet" > 
+						<c:param name="facId" value="${facility.getId()}" />		
+						<c:param name="facNam" value="${facility.getName()}" />		
+						<c:param name="facCity" value="${facility.getCity()}" />		
+						<c:param name="facCountry" value="${facility.getCountry()}" />		
+					</c:url>"> <c:out value="${facility.getName()}" /></a>
+				</td>
+				</tr>
+				<tr>
+					<td>City: <c:out value="${facility.getCity()}" /></td>
+				</tr>
+				<tr>
+					<td>Country: <c:out value="${facility.getCountry()}" /></td>
+				</tr>	
+			</c:forEach>
+			</table>
 		</div>
 	</div>
 </body>
