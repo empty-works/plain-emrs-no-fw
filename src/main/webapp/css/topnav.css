@@ -55,7 +55,7 @@ html, body {
 
 .topnav-menu-btn:hover {
 	cursor: pointer;
-	background-color: var(--darker-blue-hover);
+	background-color: var(--dark-blue-hover);
 }
 
 .topnav-menu-btn-first {
