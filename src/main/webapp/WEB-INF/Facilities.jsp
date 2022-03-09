@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
 <title>Facilities</title>
 </head>
 <body>

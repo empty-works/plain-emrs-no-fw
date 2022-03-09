@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
-<script src="${pageContext.request.contextPath}/js/role.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
+<script src="${pageContext.request.contextPath}/js/facility.js"></script>
 <title>Roles</title>
 </head>
 
@@ -29,6 +30,8 @@
 
 		<!-- Main content --> 
 		<div class="main main-font">
+		
+		<h2>Facility: </h2>
 			
 		<h2>Roles</h2>
 		<table>
