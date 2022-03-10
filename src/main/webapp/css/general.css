@@ -14,6 +14,8 @@
 	--rounded-corner-radius: 5px;
 	
 	--sidenav-width: 18%;
+	
+	--text-padding: 4em;
 }
 
 html, body {

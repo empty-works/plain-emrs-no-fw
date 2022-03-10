@@ -3,7 +3,6 @@
 /*CSS variables are in general.css*/
 
 html, body {
-
 	height: 100%;
 	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
@@ -35,12 +34,12 @@ html, body {
 
 .content-label {
 	color: var(--darkest-blue);
-	padding: 10px;
+	padding: var(--text-padding);
 	margin: 1px;
 }
 
 .content-box {
-	padding: 10px;
+	padding: var(--text-padding);
 	height: 100%;
 }
 
