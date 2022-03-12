@@ -37,7 +37,7 @@ public class LoginFormValidation extends HttpServlet {
 			errorMessages.put("alphanumError", "Cannot leave empty.");
 		}
 		else if(!alphanumError.matches("\\p{Alnum}+")) {
-			errorMessages.put("", alphanumError)
+			errorMessages.put("alphanumError", "Please only enter characters or numbers.");
 		}
 		doGet(request, response);
 	}
