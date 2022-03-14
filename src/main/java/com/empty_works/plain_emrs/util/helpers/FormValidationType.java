@@ -1,8 +1,8 @@
 package com.empty_works.plain_emrs.util.helpers;
 
-public class FormValidationType {
+public enum FormValidationType {
 
-	public static String ALPHANUM = "alphanum";
-	public static String ALPHA = "alpha";
-	public static String NUM = "num";
+	ALPHANUM,
+	ALPHA,
+	NUM
 }
