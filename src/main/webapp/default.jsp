@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,11 +28,11 @@
 			<form action="LoginServlet" method="post">
 				<div class="form-group">
 					<label for="loginUsername">Username:</label>
-					<input type="text" class="form-control" id="loginUsername" name="username">
+					<input type="text" class="form-control" id="loginUsername" name="username" value="${fn:escapeXml(param.loginname)}">
 				</div>
 				<div class="form-group">
 					<label for="loginPassword">Password:</label>
-					<input type="password" class="form-control" id="loginPassword" name="password">
+					<input type="password" class="form-control" id="loginPassword" name="password" value="${fn:escapeXml(param.loginpassword)}">
 				</div>
 				<button type="submit" class="btn btn-space">Login</button>
 			</form>
