@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.util.FormValidationUtil;
+
 /**
  * Servlet implementation class FormValidation
  */
@@ -29,9 +31,11 @@ public class LoginFormValidation extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidationUtil formVal = new FormValidationUtil();
 		Map<String, String> errorMessages = new HashMap<String, String>();
 		request.setAttribute("errorMessages", errorMessages);
-		
+
+		errorMessages
 		String alphanumError = request.getParameter("alphanumError");
 		if(alphanumError == null || alphanumError.trim().isEmpty()) {
 			errorMessages.put("alphanumError", "Cannot leave empty.");

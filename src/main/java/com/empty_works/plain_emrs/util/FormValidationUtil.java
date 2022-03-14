@@ -1,19 +1,28 @@
 package com.empty_works.plain_emrs.util;
 
-public class FormValidationUtil {
+import java.util.HashMap;
+import java.util.Map;
 
-	public static String checkAlphaNum(String input) {
+public class FormValidationUtil {
+	
+	Map<String, String> errorMessages = new HashMap<>();
+	
+	public void validate(String input) {
+		errorMessages.put(input, "");
+	}
+	
+	public String checkAlphaNum(String input) {
 		
 		if(isEmpty(input)) {
-			return "Cannot be empty.";
+			errorMessages.put(input, "Cannot be empty.");
 		}
 		else if(!input.matches("\\p{Alnum}+")) {
-			return "Please only enter letters or numbers.";
+			errorMessages.put(input, "Please only enter letters or numbers.");
 		}
 		return "";
 	}
 	
-	public static String checkLettersOnly(String input) {
+	public String checkLettersOnly(String input) {
 		
 		if(isEmpty(input)) {
 			return "Cannot be empty";
@@ -24,7 +33,7 @@ public class FormValidationUtil {
 		return "";
 	}
 
-	public static String checkNumbersOnly(String input) {
+	public String checkNumbersOnly(String input) {
 		
 		if(isEmpty(input)) {
 			return "Cannot be empty";
@@ -35,7 +44,7 @@ public class FormValidationUtil {
 		return "";
 	}
 	
-	private static boolean isEmpty(String input) {
+	private boolean isEmpty(String input) {
 		
 		return input == null || input.trim().isEmpty();
 	}
