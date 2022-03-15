@@ -35,7 +35,8 @@ public class LoginFormValidation extends HttpServlet {
 		Map<String, String> errorMessages = new HashMap<String, String>();
 		request.setAttribute("errorMessages", errorMessages);
 
-		errorMessages
+		formVal.validate(request.getParameter("loginname"), );
+		errorMessages 
 		String alphanumError = request.getParameter("alphanumError");
 		if(alphanumError == null || alphanumError.trim().isEmpty()) {
 			errorMessages.put("alphanumError", "Cannot leave empty.");
