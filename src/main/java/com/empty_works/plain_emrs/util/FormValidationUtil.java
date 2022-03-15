@@ -11,6 +11,10 @@ public class FormValidationUtil {
 	
 	public void validate(String input, FormValidationType TYPE) {
 		
+		if(isEmpty(input)) {
+			errorMessages.put(input, "Cannot be empty.");
+		}
+
 		switch(TYPE) {
 		
 			case ALPHANUM: checkAlphaNum(input); 
@@ -21,40 +25,27 @@ public class FormValidationUtil {
 			break;
 			default:
 		}
-		errorMessages.put(input, "");
 	}
 	
-	private String checkAlphaNum(String input) {
+	private void checkAlphaNum(String input) {
 		
-		if(isEmpty(input)) {
-			errorMessages.put(input, "Cannot be empty.");
-		}
-		else if(!input.matches("\\p{Alnum}+")) {
+		if(!input.matches("\\p{Alnum}+")) {
 			errorMessages.put(input, "Please only enter letters or numbers.");
 		}
-		return "";
 	}
 	
-	private String checkLettersOnly(String input) {
+	private void checkLettersOnly(String input) {
 		
-		if(isEmpty(input)) {
-			return "Cannot be empty";
+		if(!input.matches("\\d+")) {
+			errorMessages.put(input, "Please only enter letters.");
 		}
-		else if(!input.matches("\\d+")) {
-			return "Please only enter letters.";
-		}
-		return "";
 	}
 
-	private String checkNumbersOnly(String input) {
+	private void checkNumbersOnly(String input) {
 		
-		if(isEmpty(input)) {
-			return "Cannot be empty";
+		if(input.matches("\\d+")) {
+			errorMessages.put(input, "Please only enter numbers.");
 		}
-		else if(input.matches("\\d+")) {
-			return "Please only enter numbers.";
-		}
-		return "";
 	}
 	
 	private boolean isEmpty(String input) {
