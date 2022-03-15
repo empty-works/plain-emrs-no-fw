@@ -12,18 +12,22 @@ public class FormValidationUtil {
 	public void validate(String input, FormValidationType TYPE) {
 		
 		if(isEmpty(input)) {
+
 			errorMessages.put(input, "Cannot be empty.");
 		}
 
-		switch(TYPE) {
-		
-			case ALPHANUM: checkAlphaNum(input); 
-			break;
-			case ALPHA: checkLettersOnly(input);
-			break;
-			case NUM: checkNumbersOnly(input);
-			break;
-			default:
+		if(!TYPE.equals(FormValidationType.ONLYEMPTY)) {
+			
+			switch(TYPE) {
+			
+				case ALPHANUM: checkAlphaNum(input); 
+				break;
+				case ALPHA: checkLettersOnly(input);
+				break;
+				case NUM: checkNumbersOnly(input);
+				break;
+				default:
+			}
 		}
 	}
 	
@@ -51,5 +55,10 @@ public class FormValidationUtil {
 	private boolean isEmpty(String input) {
 		
 		return input == null || input.trim().isEmpty();
+	}
+	
+	public Map<String, String> getErrorMessages() {
+		
+		return errorMessages; 
 	}
 }

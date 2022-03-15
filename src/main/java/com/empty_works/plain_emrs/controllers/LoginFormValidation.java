@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.util.FormValidationUtil;
+import com.empty_works.plain_emrs.util.helpers.FormValidationType;
 
 /**
  * Servlet implementation class FormValidation
@@ -23,8 +24,8 @@ public class LoginFormValidation extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/AdminServlet").forward(request, response);
 	}
 
 	/**
@@ -32,18 +33,19 @@ public class LoginFormValidation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FormValidationUtil formVal = new FormValidationUtil();
-		Map<String, String> errorMessages = new HashMap<String, String>();
-		request.setAttribute("errorMessages", errorMessages);
+		Map<String, String> errorMessages;
 
-		formVal.validate(request.getParameter("loginname"), );
-		errorMessages 
-		String alphanumError = request.getParameter("alphanumError");
-		if(alphanumError == null || alphanumError.trim().isEmpty()) {
-			errorMessages.put("alphanumError", "Cannot leave empty.");
+		formVal.validate(request.getParameter(request.getParameter("loginname")), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter(request.getParameter("loginPassword")), FormValidationType.ONLYEMPTY);
+		errorMessages = formVal.getErrorMessages(); 
+		if(errorMessages.isEmpty()) {
+			
+			doGet(request, response);
 		}
-		else if(!alphanumError.matches("\\p{Alnum}+")) {
-			errorMessages.put("alphanumError", "Please only enter characters or numbers.");
+		else {
+			
+			request.setAttribute("errorMessages", errorMessages);
+			request.getRequestDispatcher("/LoginServlet").forward(request, response);
 		}
-		doGet(request, response);
 	}
 }
