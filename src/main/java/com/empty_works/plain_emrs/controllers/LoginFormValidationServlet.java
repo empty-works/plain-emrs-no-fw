@@ -16,8 +16,8 @@ import com.empty_works.plain_emrs.util.helpers.FormValidationType;
 /**
  * Servlet implementation class FormValidation
  */
-@WebServlet("/FormValidation")
-public class LoginFormValidation extends HttpServlet {
+@WebServlet("/LoginFormValidationServlet")
+public class LoginFormValidationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -35,8 +35,8 @@ public class LoginFormValidation extends HttpServlet {
 		FormValidationUtil formVal = new FormValidationUtil();
 		Map<String, String> errorMessages;
 
-		formVal.validate(request.getParameter(request.getParameter("loginname")), FormValidationType.ONLYEMPTY);
-		formVal.validate(request.getParameter(request.getParameter("loginPassword")), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("loginname"), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("loginPassword"), FormValidationType.ONLYEMPTY);
 		errorMessages = formVal.getErrorMessages(); 
 		if(errorMessages.isEmpty()) {
 			
@@ -45,7 +45,7 @@ public class LoginFormValidation extends HttpServlet {
 		else {
 			
 			request.setAttribute("errorMessages", errorMessages);
-			request.getRequestDispatcher("/LoginServlet").forward(request, response);
+			request.getRequestDispatcher("/default.jsp").forward(request, response);
 		}
 	}
 }

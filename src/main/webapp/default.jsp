@@ -25,7 +25,7 @@
 	</div>
 	<div class="main">
 		<div class="login-form">
-			<form action="LoginServlet" method="post">
+			<form action="LoginFormValidationServlet" method="post">
 				<div class="form-group">
 					<label for="loginUsername">Username:</label>
 					<input type="text" class="form-control" id="loginUsername" name="username" value="${fn:escapeXml(param.loginname)}">

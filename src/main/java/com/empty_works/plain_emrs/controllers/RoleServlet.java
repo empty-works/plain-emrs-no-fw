@@ -51,5 +51,4 @@ public class RoleServlet extends HttpServlet {
 			doGet(request, response);
 		}
 	}
-
 }
