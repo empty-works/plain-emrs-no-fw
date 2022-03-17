@@ -34,18 +34,20 @@ public class LoginFormValidationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FormValidationUtil formVal = new FormValidationUtil();
 		Map<String, String> errorMessages;
+		
+		System.out.println(request.getParameter("loginName"));
 
-		formVal.validate(request.getParameter("loginname"), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("loginName"), FormValidationType.ONLYEMPTY);
 		formVal.validate(request.getParameter("loginPassword"), FormValidationType.ONLYEMPTY);
 		errorMessages = formVal.getErrorMessages(); 
-		if(errorMessages.isEmpty()) {
-			
-			doGet(request, response);
-		}
-		else {
+		if(formVal.hasErrorMessages()) {
 			
 			request.setAttribute("errorMessages", errorMessages);
 			request.getRequestDispatcher("/default.jsp").forward(request, response);
+		}
+		else {
+			
+			doGet(request, response);
 		}
 	}
 }

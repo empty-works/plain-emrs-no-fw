@@ -28,11 +28,11 @@
 			<form action="LoginFormValidationServlet" method="post">
 				<div class="form-group">
 					<label for="loginUsername">Username:</label>
-					<input type="text" class="form-control" id="loginUsername" name="username" value="${fn:escapeXml(param.loginname)}">
+					<input type="text" class="form-control" id="loginUsername" name="username" value="${fn:escapeXml(param.loginName)}">
 				</div>
 				<div class="form-group">
 					<label for="loginPassword">Password:</label>
-					<input type="password" class="form-control" id="loginPassword" name="password" value="${fn:escapeXml(param.loginpassword)}">
+					<input type="password" class="form-control" id="loginPassword" name="password" value="${fn:escapeXml(param.loginPassword)}">
 				</div>
 				<button type="submit" class="btn btn-space">Login</button>
 			</form>

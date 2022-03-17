@@ -8,12 +8,13 @@ import com.empty_works.plain_emrs.util.helpers.FormValidationType;
 public class FormValidationUtil {
 	
 	Map<String, String> errorMessages = new HashMap<>();
+	boolean hasErrorMessages;
 	
 	public void validate(String input, FormValidationType TYPE) {
 		
 		if(isEmpty(input)) {
 
-			errorMessages.put(input, "Cannot be empty.");
+			put(input, "Cannot be empty.");
 		}
 
 		if(!TYPE.equals(FormValidationType.ONLYEMPTY)) {
@@ -34,21 +35,24 @@ public class FormValidationUtil {
 	private void checkAlphaNum(String input) {
 		
 		if(!input.matches("\\p{Alnum}+")) {
-			errorMessages.put(input, "Please only enter letters or numbers.");
+			
+			put(input, "Please only enter letters or numbers.");
 		}
 	}
 	
 	private void checkLettersOnly(String input) {
 		
 		if(!input.matches("\\d+")) {
-			errorMessages.put(input, "Please only enter letters.");
+			
+			put(input, "Please only enter letters.");
 		}
 	}
 
 	private void checkNumbersOnly(String input) {
 		
 		if(input.matches("\\d+")) {
-			errorMessages.put(input, "Please only enter numbers.");
+			
+			put(input, "Please only enter numbers.");
 		}
 	}
 	
@@ -57,8 +61,19 @@ public class FormValidationUtil {
 		return input == null || input.trim().isEmpty();
 	}
 	
+	private void put(String input, String message) {
+		
+		errorMessages.put(input, message);
+		hasErrorMessages = true;
+	}
+	
 	public Map<String, String> getErrorMessages() {
 		
 		return errorMessages; 
+	}
+	
+	public boolean hasErrorMessages() {
+		
+		return hasErrorMessages;
 	}
 }
