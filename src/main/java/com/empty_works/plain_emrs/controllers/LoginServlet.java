@@ -22,14 +22,12 @@ import com.empty_works.plain_emrs.util.helpers.FormValidationType;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private HttpServletRequest request;
-	private HttpServletResponse response;
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
 		RolePair userRole = (RolePair)session.getAttribute("rolePair");
-		setSessionUserAndRole(userRole);
+		setSessionUserAndRole(userRole, request, response);
 	}
 	
 	/**
@@ -64,8 +62,11 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute(userRole.getRole(), username);
 			session.setAttribute("rolePair", userRole);
 			session.setAttribute("username", username);
+			
+			System.out.println("Username: " + username);
+			System.out.println("Password: " + password);
 
-			setSessionUserAndRole(userRole);
+			setSessionUserAndRole(userRole, request, response);
 		}
 	}
 
@@ -74,7 +75,7 @@ public class LoginServlet extends HttpServlet {
 	 * @param userRole
 	 * @param username
 	 */
-	private void setSessionUserAndRole(RolePair userRole) {
+	private void setSessionUserAndRole(RolePair userRole, HttpServletRequest request, HttpServletResponse response) {
 		
 		System.out.println(userRole.getRole() + "'s " + "Home");
 		try {
