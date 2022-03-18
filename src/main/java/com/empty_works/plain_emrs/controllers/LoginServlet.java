@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.dao.LoginDao;
 import com.empty_works.plain_emrs.roles.RolePair;
+import com.empty_works.plain_emrs.util.FormValidationUtil;
+import com.empty_works.plain_emrs.util.helpers.FormValidationType;
 
 /**
  * Servlet implementation class LoginServlet
@@ -34,24 +37,36 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.request = request;
-		this.response = response;
+		FormValidationUtil formVal = new FormValidationUtil();
+		Map<String, String> errorMessages;
 
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
-		LoginBean loginBean = new LoginBean();
-		loginBean.setUsername(username);
-		loginBean.setPassword(password);
-		
-		LoginDao loginDao = new LoginDao();
-		
-		RolePair userRole = loginDao.authenticateUser(loginBean);
-		HttpSession session = request.getSession();
-		session.setAttribute(userRole.getRole(), username);
-		session.setAttribute("rolePair", userRole);
-		session.setAttribute("username", username);
-		setSessionUserAndRole(userRole);
+		formVal.validate(request.getParameter("username"), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("password"), FormValidationType.ONLYEMPTY);
+		errorMessages = formVal.getErrorMessages(); 
+		if(formVal.hasErrorMessages()) {
+			
+			request.setAttribute("errorMessages", errorMessages);
+			request.getRequestDispatcher("/default.jsp").forward(request, response);
+		}
+		else {
+			
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			
+			LoginBean loginBean = new LoginBean();
+			loginBean.setUsername(username);
+			loginBean.setPassword(password);
+			
+			LoginDao loginDao = new LoginDao();
+			
+			RolePair userRole = loginDao.authenticateUser(loginBean);
+			HttpSession session = request.getSession();
+			session.setAttribute(userRole.getRole(), username);
+			session.setAttribute("rolePair", userRole);
+			session.setAttribute("username", username);
+
+			setSessionUserAndRole(userRole);
+		}
 	}
 
 	/**

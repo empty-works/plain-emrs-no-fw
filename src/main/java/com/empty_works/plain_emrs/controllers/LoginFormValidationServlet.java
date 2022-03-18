@@ -35,10 +35,10 @@ public class LoginFormValidationServlet extends HttpServlet {
 		FormValidationUtil formVal = new FormValidationUtil();
 		Map<String, String> errorMessages;
 		
-		System.out.println(request.getParameter("loginName"));
+		System.out.println(request.getParameter("username"));
 
-		formVal.validate(request.getParameter("loginName"), FormValidationType.ONLYEMPTY);
-		formVal.validate(request.getParameter("loginPassword"), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("username"), FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("password"), FormValidationType.ONLYEMPTY);
 		errorMessages = formVal.getErrorMessages(); 
 		if(formVal.hasErrorMessages()) {
 			
