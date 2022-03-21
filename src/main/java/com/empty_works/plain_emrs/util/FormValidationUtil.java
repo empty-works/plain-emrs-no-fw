@@ -10,49 +10,51 @@ public class FormValidationUtil {
 	Map<String, String> errorMessages = new HashMap<>();
 	boolean hasErrorMessages;
 	
-	public void validate(String input, FormValidationType TYPE) {
+	public void validate(String input, String key, FormValidationType TYPE) {
 		
 		if(isEmpty(input)) {
+			
+			System.out.println("Form Validation Utility - input: " + input + " is empty...");
 
-			put(input, "Cannot be empty.");
+			put(key, "Cannot be empty.");
 		}
 
 		if(!TYPE.equals(FormValidationType.ONLYEMPTY)) {
 			
 			switch(TYPE) {
 			
-				case ALPHANUM: checkAlphaNum(input); 
+				case ALPHANUM: checkAlphaNum(input, key); 
 				break;
-				case ALPHA: checkLettersOnly(input);
+				case ALPHA: checkLettersOnly(input, key);
 				break;
-				case NUM: checkNumbersOnly(input);
+				case NUM: checkNumbersOnly(input, key);
 				break;
 				default:
 			}
 		}
 	}
 	
-	private void checkAlphaNum(String input) {
+	private void checkAlphaNum(String input, String key) {
 		
 		if(!input.matches("\\p{Alnum}+")) {
 			
-			put(input, "Please only enter letters or numbers.");
+			put(key, "Please only enter letters or numbers.");
 		}
 	}
 	
-	private void checkLettersOnly(String input) {
+	private void checkLettersOnly(String input, String key) {
 		
 		if(!input.matches("\\d+")) {
 			
-			put(input, "Please only enter letters.");
+			put(key, "Please only enter letters.");
 		}
 	}
 
-	private void checkNumbersOnly(String input) {
+	private void checkNumbersOnly(String input, String key) {
 		
 		if(input.matches("\\d+")) {
 			
-			put(input, "Please only enter numbers.");
+			put(key, "Please only enter numbers.");
 		}
 	}
 	
@@ -61,9 +63,9 @@ public class FormValidationUtil {
 		return input == null || input.trim().isEmpty();
 	}
 	
-	private void put(String input, String message) {
+	private void put(String key, String message) {
 		
-		errorMessages.put(input, message);
+		errorMessages.put(key, message);
 		hasErrorMessages = true;
 	}
 	
