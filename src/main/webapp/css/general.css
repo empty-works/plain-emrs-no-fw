@@ -14,7 +14,7 @@
 	--rounded-corner-radius: 5px;
 	
 	--sidenav-width: 18%;
-	
+
 	--text-padding: 3.5em;
 }
 
@@ -58,4 +58,11 @@ div.main-container > div {
 
 .btn-space {
 	margin-top: 15px;
+}
+
+/* ERROR stuff*/
+.error-message {
+	font-size: 0.7em;
+	color: red;
+	padding: 0px 5px;
 }

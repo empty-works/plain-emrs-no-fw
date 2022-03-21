@@ -30,12 +30,12 @@
 				<div class="form-group">
 					<label for="loginUsername">Username:</label>
 					<input type="text" class="form-control" id="loginUsername" name="username">
-					<span>${errorMessages.username}</span>
+					<span class="error-message">${errorMessages.username}</span>
 				</div>
 				<div class="form-group">
 					<label for="loginPassword">Password:</label>
 					<input type="password" class="form-control" id="loginPassword" name="password">
-					<span>${errorMessages.password}</span>
+					<span class="error-message">${errorMessages.password}</span>
 				</div>
 				<button type="submit" class="btn btn-space">Login</button>
 			</form>
