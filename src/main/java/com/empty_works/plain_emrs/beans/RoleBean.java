@@ -5,6 +5,7 @@ public class RoleBean {
 	String id;
 	String name;
 	String group;
+	String facility;
 	String description;
 
 	public String getId() {
@@ -24,6 +25,12 @@ public class RoleBean {
 	}
 	public void setGroup(String group) {
 		this.group = group;
+	}
+	public String getFacility() {
+		return facility;
+	}
+	public void setFacility(String facility) {
+		this.facility = facility;
 	}
 	public String getDescription() {
 		return description;

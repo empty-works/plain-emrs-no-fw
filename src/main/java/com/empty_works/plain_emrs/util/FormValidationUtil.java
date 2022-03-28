@@ -15,7 +15,6 @@ public class FormValidationUtil {
 		if(isEmpty(input)) {
 			
 			System.out.println("Form Validation Utility - input: " + input + " is empty...");
-
 			put(key, "Cannot be empty.");
 		}
 

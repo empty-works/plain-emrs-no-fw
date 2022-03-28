@@ -17,7 +17,7 @@
 		<span class="menu-text">Updates</span>
 	</button>
 	<button formaction="<c:url value="/FacilitiesServlet" />" class="topnav-menu-btn">
-		<span class="menu-text">Setup</span>
+		<span class="menu-text">Facilities</span>
 	</button>
 	<button class="topnav-menu-btn">
 		<span class="menu-text">Users</span>
