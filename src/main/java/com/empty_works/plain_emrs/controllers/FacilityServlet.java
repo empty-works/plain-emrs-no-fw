@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,10 +14,12 @@ import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
+import com.empty_works.plain_emrs.beans.RoleBean;
 import com.empty_works.plain_emrs.dao.FacilityDao;
 import com.empty_works.plain_emrs.dao.FacilityPositionDao;
 import com.empty_works.plain_emrs.dao.FacilitySpecialtyDao;
 import com.empty_works.plain_emrs.dao.FacilityWardDao;
+import com.empty_works.plain_emrs.dao.RoleDao;
 import com.empty_works.plain_emrs.util.ParamAttribHandler;
 
 /**
@@ -51,6 +54,11 @@ public class FacilityServlet extends HttpServlet {
 		// Get list of staff specialties
 		List<FacilityStaffSpecialtyBean> fssbList = FacilitySpecialtyDao.getList(facility.getId());
 		request.setAttribute("facilitySpecialtyList", fssbList);
+		
+		// Facility-specific roles
+		List<RoleBean> roles = new ArrayList<>();
+		roles = RoleDao.getList();
+		request.setAttribute("rolesList", roles);
 		
 		request.getRequestDispatcher("/WEB-INF/Facility.jsp").forward(request, response);
 	}
