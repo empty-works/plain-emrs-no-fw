@@ -15,7 +15,7 @@ public class RoleDao {
 
 	public static String ROLEDAO_SUCCESS = "Success";
 	
-	public static String add(RoleBean rb) {
+	public static String add(RoleBean rb, String facilityId) {
 		
 		String roleName = rb.getName();
 		String roleGroup = rb.getGroup();
@@ -23,18 +23,30 @@ public class RoleDao {
 		String roleId = RoleIdUtil.get(rb);
 		
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		PreparedStatement roleStatement = null;
+		PreparedStatement roleFacilityStatement = null; 
 		
-		String query = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
+		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
+		String roleFacilityQuery = "INSERT INTO facilities_roles(role_id, facility_id) values(?,?)"; 
 		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, roleId);
-			preparedStatement.setString(2, roleName);
-			preparedStatement.setString(3, roleGroup);
-			preparedStatement.setString(4, roleDescription);
+			roleStatement = con.prepareStatement(roleQuery);
+			roleStatement.setString(1, roleId);
+			roleStatement.setString(2, roleName);
+			roleStatement.setString(3, roleGroup);
+			roleStatement.setString(4, roleDescription);
 			
-			int i = preparedStatement.executeUpdate();
-			if(i != 0) return ROLEDAO_SUCCESS;
+			int roleSuccess = roleStatement.executeUpdate();
+			
+			roleFacilityStatement = con.prepareStatement(roleFacilityQuery); 
+			roleFacilityStatement.setString(1, roleId);
+			roleFacilityStatement.setString(2, facilityId);
+			
+			int roleFacilitySuccess = roleFacilityStatement.executeUpdate();
+			
+			if(roleSuccess != 0 && roleFacilitySuccess != 0) {
+				
+				return ROLEDAO_SUCCESS;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
