@@ -44,7 +44,7 @@ public class RoleServlet extends HttpServlet {
 		rb.setGroup(request.getParameter("roleGroup"));
 		rb.setDescription(request.getParameter("roleDescription"));
 		
-		String result = RoleDao.add(rb);
+		String result = RoleDao.add(rb, request.getParameter("facId"));
 		System.out.println("RoleServlet result = " + result);
 		if(result.equals(RoleDao.ROLEDAO_SUCCESS)) {
 			
