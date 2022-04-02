@@ -29,19 +29,19 @@ public class RoleDao {
 		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
 		String roleFacilityQuery = "INSERT INTO facilities_roles(role_id, facility_id) values(?,?)"; 
 		try {
+			con.setAutoCommit(false);
 			roleStatement = con.prepareStatement(roleQuery);
 			roleStatement.setString(1, roleId);
 			roleStatement.setString(2, roleName);
 			roleStatement.setString(3, roleGroup);
 			roleStatement.setString(4, roleDescription);
-			
-			int roleSuccess = roleStatement.executeUpdate();
+			roleStatement.addBatch();
 			
 			roleFacilityStatement = con.prepareStatement(roleFacilityQuery); 
 			roleFacilityStatement.setString(1, roleId);
 			roleFacilityStatement.setString(2, facilityId);
-			
-			int roleFacilitySuccess = roleFacilityStatement.executeUpdate();
+			roleFacilityStatement.addBatch();
+			roleFacilityStatement
 			
 			if(roleSuccess != 0 && roleFacilitySuccess != 0) {
 				
