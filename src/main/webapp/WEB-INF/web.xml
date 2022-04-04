@@ -12,7 +12,7 @@
   
   <context-param>
  	<param-name>dbUrl</param-name> 
- 	<param-value>jdbc:mysql://localhost/PlainEMRS</param-value>
+ 	<param-value>jdbc:mysql://localhost/PlainEMRS?allowMultiQueries=true</param-value>
   </context-param> 
   <context-param>
  	<param-name>dbUser</param-name> 

@@ -24,26 +24,20 @@ public class RoleDao {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement roleStatement = null;
-		PreparedStatement roleFacilityStatement = null; 
 		
-		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
-		String roleFacilityQuery = "INSERT INTO facilities_roles(role_id, facility_id) values(?,?)"; 
+		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?); INSERT INTO facilities_roles(role_id, facility_id) values(?,?)";
 		try {
-			con.setAutoCommit(false);
 			roleStatement = con.prepareStatement(roleQuery);
 			roleStatement.setString(1, roleId);
 			roleStatement.setString(2, roleName);
 			roleStatement.setString(3, roleGroup);
 			roleStatement.setString(4, roleDescription);
-			roleStatement.addBatch();
+			roleStatement.setString(5, roleId);
+			roleStatement.setString(6, facilityId);
 			
-			roleFacilityStatement = con.prepareStatement(roleFacilityQuery); 
-			roleFacilityStatement.setString(1, roleId);
-			roleFacilityStatement.setString(2, facilityId);
-			roleFacilityStatement.addBatch();
-			roleFacilityStatement
+			int success = roleStatement.executeUpdate();
 			
-			if(roleSuccess != 0 && roleFacilitySuccess != 0) {
+			if(success != 0) {
 				
 				return ROLEDAO_SUCCESS;
 			}
