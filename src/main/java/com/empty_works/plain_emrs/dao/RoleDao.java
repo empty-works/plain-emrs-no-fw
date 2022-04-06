@@ -25,6 +25,8 @@ public class RoleDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement roleStatement = null;
 		
+		System.out.println("Facility ID in RoleDao: " + facilityId);
+		
 		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?); INSERT INTO facilities_roles(role_id, facility_id) values(?,?)";
 		try {
 			roleStatement = con.prepareStatement(roleQuery);

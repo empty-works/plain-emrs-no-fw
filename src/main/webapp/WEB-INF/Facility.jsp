@@ -108,6 +108,8 @@
 	<h2>Add Role</h2>
 	<form id="addRoleForm" name="roleForm" action="RoleServlet" method="post">
 	<div class="facilityBox">
+
+		<div><input type="hidden" name="facId" value="${facilityDb.getId()}" /></div>
 		<div>Name: </div>	
 		<div><input id="roleAddName" type="text" name="roleName" /></div>
 		<div>Group: </div>
