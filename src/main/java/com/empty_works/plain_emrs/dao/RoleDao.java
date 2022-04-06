@@ -24,22 +24,28 @@ public class RoleDao {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement roleStatement = null;
+		PreparedStatement facilityRoleStatement = null;
 		
 		System.out.println("Facility ID in RoleDao: " + facilityId);
 		
-		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?); INSERT INTO facilities_roles(role_id, facility_id) values(?,?)";
+		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
+		String facilityRoleQuery = "INSERT INTO facilities_roles(role_id, facility_id) values(?,?)";
 		try {
 			roleStatement = con.prepareStatement(roleQuery);
 			roleStatement.setString(1, roleId);
 			roleStatement.setString(2, roleName);
 			roleStatement.setString(3, roleGroup);
 			roleStatement.setString(4, roleDescription);
-			roleStatement.setString(5, roleId);
-			roleStatement.setString(6, facilityId);
+
+			int roleSuccess = roleStatement.executeUpdate();
 			
-			int success = roleStatement.executeUpdate();
+			facilityRoleStatement = con.prepareStatement(facilityRoleQuery);
+			facilityRoleStatement.setString(1, roleId);
+			facilityRoleStatement.setString(2, facilityId);
 			
-			if(success != 0) {
+			int facilityRoleSuccess = facilityRoleStatement.executeUpdate(); 
+			
+			if(roleSuccess != 0 && facilityRoleSuccess != 0) {
 				
 				return ROLEDAO_SUCCESS;
 			}
