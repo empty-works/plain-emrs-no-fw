@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.RoleBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
+import com.empty_works.plain_emrs.util.FacilityRoleIdUtil;
 import com.empty_works.plain_emrs.util.RoleIdUtil;
 
 public class RoleDao {
@@ -21,6 +22,7 @@ public class RoleDao {
 		String roleGroup = rb.getGroup();
 		String roleDescription = rb.getDescription();
 		String roleId = RoleIdUtil.get(rb);
+		String facilityRoleId = FacilityRoleIdUtil.get(facilityId, roleId);
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement roleStatement = null;
@@ -29,7 +31,7 @@ public class RoleDao {
 		System.out.println("Facility ID in RoleDao: " + facilityId);
 		
 		String roleQuery = "INSERT INTO roles(role_id, role_name, role_group, role_description) values(?,?,?,?)";
-		String facilityRoleQuery = "INSERT INTO facilities_roles(role_id, facility_id) values(?,?)";
+		String facilityRoleQuery = "INSERT INTO facilities_roles(facilities_roles_id, role_id, facility_id) values(?,?,?)";
 		try {
 			roleStatement = con.prepareStatement(roleQuery);
 			roleStatement.setString(1, roleId);
@@ -40,8 +42,9 @@ public class RoleDao {
 			int roleSuccess = roleStatement.executeUpdate();
 			
 			facilityRoleStatement = con.prepareStatement(facilityRoleQuery);
-			facilityRoleStatement.setString(1, roleId);
-			facilityRoleStatement.setString(2, facilityId);
+			facilityRoleStatement.setString(1, facilityRoleId);
+			facilityRoleStatement.setString(2, roleId);
+			facilityRoleStatement.setString(3, facilityId);
 			
 			int facilityRoleSuccess = facilityRoleStatement.executeUpdate(); 
 			
