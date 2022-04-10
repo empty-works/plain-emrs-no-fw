@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,31 +33,38 @@
 		<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
 		<h2>Facility List</h2>	
 			<table>
-			<c:forEach items="${facilitiesList}" var="facility">
-				<tr>
-				<td>--------------------------------------------------------------
-					<br><br>	
-				</td>
-				</tr>
-				<tr>
-					<td>ID: <c:out value="${facility.getId()}" /></td>	
-				</tr>
-				<tr>
-					<td>Name: <a href="<c:url value="/FacilityServlet" > 
-						<c:param name="facId" value="${facility.getId()}" />		
-						<c:param name="facNam" value="${facility.getName()}" />		
-						<c:param name="facCity" value="${facility.getCity()}" />		
-						<c:param name="facCountry" value="${facility.getCountry()}" />		
-					</c:url>"> <c:out value="${facility.getName()}" /></a>
-				</td>
-				</tr>
-				<tr>
-					<td>City: <c:out value="${facility.getCity()}" /></td>
-				</tr>
-				<tr>
-					<td>Country: <c:out value="${facility.getCountry()}" /></td>
-				</tr>	
-			</c:forEach>
+			<c:choose>
+			<c:when test="${fn:length(facilitiesList) > 1}">
+				<c:forEach items="${facilitiesList}" var="facility">
+					<tr>
+					<td>--------------------------------------------------------------
+						<br><br>	
+					</td>
+					</tr>
+					<tr>
+						<td>ID: <c:out value="${facility.getId()}" /></td>	
+					</tr>
+					<tr>
+						<td>Name: <a href="<c:url value="/FacilityServlet" > 
+							<c:param name="facId" value="${facility.getId()}" />		
+							<c:param name="facNam" value="${facility.getName()}" />		
+							<c:param name="facCity" value="${facility.getCity()}" />		
+							<c:param name="facCountry" value="${facility.getCountry()}" />		
+						</c:url>"> <c:out value="${facility.getName()}" /></a>
+					</td>
+					</tr>
+					<tr>
+						<td>City: <c:out value="${facility.getCity()}" /></td>
+					</tr>
+					<tr>
+						<td>Country: <c:out value="${facility.getCountry()}" /></td>
+					</tr>	
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<div>NO FACILITIES!</div>
+			</c:otherwise>
+			</c:choose>
 			</table>
 		</div>
 	</div>
