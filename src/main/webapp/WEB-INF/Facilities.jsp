@@ -29,9 +29,8 @@
 		<!-- Main content --> 
 		<div class="main main-font">
 			
-		<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
-		<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
-		<h2>Facility List</h2>	
+			<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
+			<h2>Facility List</h2>	
 			<table>
 			<c:choose>
 			<c:when test="${fn:length(facilitiesList) > 1}">
@@ -66,6 +65,8 @@
 			</c:otherwise>
 			</c:choose>
 			</table>
+			
+			<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
 		</div>
 	</div>
 </body>

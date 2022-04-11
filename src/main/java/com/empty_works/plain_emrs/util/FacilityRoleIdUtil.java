@@ -5,14 +5,14 @@ public class FacilityRoleIdUtil {
 	/**
 	 * 
 	 * @param facId
-	 * @param roleId
+	 * @param roleName
 	 * @return
 	 */
-	public static String get(String facId, String roleId) {
+	public static String get(String facId, String roleName) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(facId);
-		sb.append(roleId);
+		sb.append(roleName);
 		return sb.toString();
 	}
 }
