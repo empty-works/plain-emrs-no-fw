@@ -22,7 +22,7 @@ public class RoleDao {
 		String roleName = rb.getName();
 		String roleGroup = rb.getGroup();
 		String roleDescription = rb.getDescription();
-		String roleId = RoleIdUtil.get(rb);
+		String roleId = RoleIdUtil.get(facilityId, roleName);
 		String facilityRoleId = FacilityRoleIdUtil.get(facilityId, roleName);
 		
 		Connection con = ConnectionUtil.getConnection();

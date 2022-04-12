@@ -30,7 +30,7 @@ public class RoleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/RoleServlet").forward(request, response);
+		request.getRequestDispatcher("/FacilityServlet").forward(request, response);
 	}
 
 	/**
@@ -49,6 +49,10 @@ public class RoleServlet extends HttpServlet {
 		if(result.equals(RoleDao.ROLEDAO_SUCCESS)) {
 			
 			doGet(request, response);
+		}
+		else {
+			
+			request.setAttribute("roleResult", result);
 		}
 	}
 }
