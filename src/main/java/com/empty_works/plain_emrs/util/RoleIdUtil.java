@@ -19,4 +19,12 @@ public class RoleIdUtil {
 		
 		return "ROLE-" + id;
 	}
+	
+	final public static String get(String facId, String roleName) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(facId);
+		sb.append(roleName);
+		return sb.toString();
+	}
 }
