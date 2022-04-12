@@ -119,6 +119,7 @@
 		<div><input type="submit" value="Add Role" />
 			 <input class="cancelAddButton" type="button" value="Cancel" />
 		</div>
+		<div><c:out value="${roleResult}" /></div>
 	</div>	
 	</form>
 	</div>	

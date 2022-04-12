@@ -19,6 +19,7 @@ public class RoleDao {
 	
 	public static String add(RoleBean rb, String facilityId) {
 		
+		String message = "There was a problem writing the role to the database.";
 		String roleName = rb.getName();
 		String roleGroup = rb.getGroup();
 		String roleDescription = rb.getDescription();
@@ -51,17 +52,19 @@ public class RoleDao {
 			
 			if(roleSuccess != 0 && facilityRoleSuccess != 0) {
 				
-				return ROLEDAO_SUCCESS;
+				message = ROLEDAO_SUCCESS;
+				return message;
 			}
 		} 
 		catch (SQLIntegrityConstraintViolationException sicve) {
 			System.out.println("Duplicate role!");
+			message = "This role already exists for this facility.";
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return "There was a problem writing the role to the database.";
+		return message;
 	}
 	
 	public static List<RoleBean> getList() {
