@@ -20,6 +20,7 @@
 
 html, body {
 	height: 100%;
+	width: 100%;
 	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 	overflow: hidden;
