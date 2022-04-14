@@ -13,6 +13,6 @@ html, body {
 	background-color: #EEE;
 	font-size: 12px;
 	padding: var(--text-padding);
-	height: 65%;
+	height: 78%;
 	width: calc((100% - var(--sidenav-width)) - 6.5%);
 }
