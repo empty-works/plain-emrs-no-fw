@@ -5,16 +5,6 @@ html, body {
 	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
 	padding: 0;
 }
-/*
-.main {
-	overflow-x: hidden;
-	background-color: #EEEEEE;
-	font-size: 12px;
-	padding: 20px;
-	height: 100%;
-	width: calc((100% - var(--sidenav-width)) - 1);
-}
-*/
 
 .main-grid {
 	display: grid;

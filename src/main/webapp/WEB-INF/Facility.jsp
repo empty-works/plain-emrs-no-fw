@@ -24,9 +24,6 @@
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 	
-	<div class="topnav">
-		<a class="active" href="<c:url value="/FacilitiesServlet" />">Back to facilities</a>
-	</div>
 
 	<div class="main-container">
 
@@ -43,6 +40,10 @@
 		</div>
 
 		<div class="main main-font">
+		
+			<div class="topnav">
+				<a class="active" href="<c:url value="/FacilitiesServlet" />">Back to facilities</a>
+			</div>
 
 			<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 			<div id="facility-data" class="facility-grid-wrapper">
