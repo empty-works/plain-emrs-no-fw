@@ -50,6 +50,7 @@ public class LoginDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 		}
 		return PlainEmrsRoles.invalidUser; 
 	}

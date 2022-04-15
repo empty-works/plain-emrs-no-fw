@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.LoginBean;
 import com.empty_works.plain_emrs.dao.LoginDao;
+import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.roles.RolePair;
 import com.empty_works.plain_emrs.util.FormValidationUtil;
 import com.empty_works.plain_emrs.util.helpers.FormValidationType;
@@ -44,9 +45,7 @@ public class LoginServlet extends HttpServlet {
 		if(formVal.hasErrorMessages()) {
 			
 			System.out.println("ERROR USERNAME: " + errorMessages.get("username"));
-			
-			request.setAttribute("errorMessages", errorMessages);
-			request.getRequestDispatcher("/default.jsp").forward(request, response);
+			handleError(errorMessages, request, response);
 		}
 		else {
 			
@@ -60,15 +59,24 @@ public class LoginServlet extends HttpServlet {
 			LoginDao loginDao = new LoginDao();
 			
 			RolePair userRole = loginDao.authenticateUser(loginBean);
-			HttpSession session = request.getSession();
-			session.setAttribute(userRole.getRole(), username);
-			session.setAttribute("rolePair", userRole);
-			session.setAttribute("username", username);
 			
-			System.out.println("Username: " + username);
-			System.out.println("Password: " + password);
+			if(userRole.equals(PlainEmrsRoles.invalidUser)) {
+				
+				System.out.println("Wrong username/password!");
+				handleError("", request, response);
+			}
+			else {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute(userRole.getRole(), username);
+				session.setAttribute("rolePair", userRole);
+				session.setAttribute("username", username);
+				
+				System.out.println("Username: " + username);
+				System.out.println("Password: " + password);
 
-			setSessionUserAndRole(userRole, request, response);
+				setSessionUserAndRole(userRole, request, response);
+			}
 		}
 	}
 
@@ -81,8 +89,35 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println(userRole.getRole() + "'s " + "Home");
 		try {
+
 			request.getRequestDispatcher("/WEB-INF/" + userRole.getRole() + ".jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	private void handleError(String errorMessage, HttpServletRequest request, HttpServletResponse response) {
+		
+		System.out.println("Error: " + errorMessage);
+		request.setAttribute("errorMessage", errorMessage);
+		try {
+
+			request.getRequestDispatcher("/default.jsp").forward(request, response);
+		} catch(ServletException | IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	private void handleError(Map<String, String> errorMessages, HttpServletRequest request, HttpServletResponse response) {
+		
+		request.setAttribute("errorMessages", errorMessages);
+		try {
+
+			request.getRequestDispatcher("/default.jsp").forward(request, response);
+		} catch(ServletException | IOException e) {
+			
 			e.printStackTrace();
 		}
 	}
