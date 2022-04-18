@@ -41,9 +41,7 @@
 
 		<div class="main main-font">
 		
-			<div class="topnav">
-				<a class="active" href="<c:url value="/FacilitiesServlet" />">Back to facilities</a>
-			</div>
+			<div><a class="active" href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></div>
 
 			<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 			<div id="facility-data" class="facility-grid-wrapper">
