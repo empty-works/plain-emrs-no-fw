@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 			if(userRole.equals(PlainEmrsRoles.invalidUser)) {
 				
 				System.out.println("Wrong username/password!");
-				handleError("", request, response);
+				handleError("Incorrect username or password.", request, response);
 			}
 			else {
 				
