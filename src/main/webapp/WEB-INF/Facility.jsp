@@ -28,6 +28,8 @@
 	<div class="main-container">
 
 		<div class="sidenav main-font">
+			<a class="active" href="<c:url value="/FacilitiesServlet" />">← Back to facilities</a>
+		<!--  
 			<a href="<c:url value="/FacilityWardServlet">
 				<c:param name="facId" value="${facilityDb.getId()}"></c:param>	
 				</c:url>">Wards</a>
@@ -37,12 +39,12 @@
 			<a href="<c:url value="/FacilitySpecialtyServlet">
 				<c:param name="facId" value="${param.facId}"></c:param>
 				</c:url>">Staff Specialties</a>
+
+		-->
 		</div>
 
 		<div class="main main-font">
 		
-			<div><a class="active" href="<c:url value="/FacilitiesServlet" />">Back to facilities</a></div>
-
 			<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 			<div id="facility-data" class="facility-grid-wrapper">
 				<div class="facility-label">Facility ID: </div>
