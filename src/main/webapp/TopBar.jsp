@@ -20,7 +20,7 @@
 		<span class="menu-text">Facilities</span>
 	</button>
 	<button class="topnav-menu-btn">
-		<span class="menu-text">Users</span>
+		<span class="menu-text">Non-patients</span>
 	</button>
 	<button class="topnav-menu-btn">
 		<span class="menu-text">Patients</span>
