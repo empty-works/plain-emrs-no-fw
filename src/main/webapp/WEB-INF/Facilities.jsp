@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
 <title>Facilities</title>
 </head>
+
 <body>
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
@@ -22,6 +23,7 @@
 		<!-- Side navigation -->
 		<div class="sidenav main-font">	
 			<div><a href="<c:url value="/FacilitiesServlet" />">Overview</a></div>
+			<div><a href="<c:url value="" />">Settings</a></div>
 		</div>
 
 		<!-- Main content --> 
