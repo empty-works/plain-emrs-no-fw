@@ -19,7 +19,16 @@
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 	
 	<div class="main-container">
+		<!-- Side navigation -->
+		<div class="sidenav main-font">	
+			<div><a href="<c:url value="" />">Search</a></div>
+			<div><a href="<c:url value="" />">Tracked Patients</a></div>
+		</div>
 		
+		<!-- Main content --> 
+		<div class="main main-font">
+			
+		</div>
 	</div>
 </body>
 </html>
