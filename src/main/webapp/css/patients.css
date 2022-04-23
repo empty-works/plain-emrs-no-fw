@@ -1,2 +1,18 @@
 @charset "ISO-8859-1";
 
+.patients-grid-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-columns: auto;
+	height: 100%;
+}
+
+#patients-grid-recent {
+	grid-column: 1 / span 3;
+	background-color: var(--lightest-green);
+}
+
+#patients-grid-recent {
+	grid-column: 2 / span 1;
+	background-color: var(--lightest-blue);
+}

@@ -3,13 +3,6 @@
 /*CSS file for default.jsp*/
 /*CSS variables are in general.css*/
 
-html, body {
-	height: 100%;
-	margin: 0px; /*To eliminate default browser user agent margin of 8px*/
-	padding: 0;
-    font-family: "Lato", sans-serif;
-}
-
 .login-grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto; 

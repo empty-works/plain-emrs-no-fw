@@ -52,7 +52,6 @@ html, body {
 	grid-column: 1 / span 4;
 	grid-row: 1 / span 4;
 	background-color: var(--lightest-green);
-
 }
 
 .grid-item-update-patient {
