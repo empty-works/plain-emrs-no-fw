@@ -22,7 +22,7 @@
 	<button class="topnav-menu-btn">
 		<span class="menu-text">Non-patients</span>
 	</button>
-	<button class="topnav-menu-btn">
+	<button formaction="<c:url value="/PatientsServlet" />" class="topnav-menu-btn">
 		<span class="menu-text">Patients</span>
 	</button>
 	<button class="topnav-menu-btn topnav-menu-btn-last">
