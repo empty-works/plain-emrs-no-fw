@@ -19,21 +19,18 @@
 
 <div class="login-grid-container">
 	<div class="sidenav">
-		<div class="login-main-text">
+		<div class="login-main-text main-font">
 			<h2 class="font-weight-bold">Plain EMRS<br> by Empty Works</h2>
 			<p>Login or register from here to access.</p>
 		</div>
 	</div>
-	<div class="main">
-
+	<div class="main main-font">
 		<div class="login-form">
 			<form action="LoginServlet" method="post">
-
 				<c:if test="${errorMessage != null}">
 					<div class="error-message"><c:out value="${errorMessage}" /></div>
 				</c:if>
 				<div class="form-group">
-
 					<label for="loginUsername">Username:</label>
 					<input type="text" class="form-control" id="loginUsername" name="username">
 					<span class="error-message">${errorMessages.username}</span>
