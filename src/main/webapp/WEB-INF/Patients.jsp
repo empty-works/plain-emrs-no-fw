@@ -27,7 +27,10 @@
 		
 		<!-- Main content --> 
 		<div class="main main-font">
-			
+			<div class="patients-grid-container">
+				<div id="patients-grid-recent">RECENT</div>
+				<div id="patients-grid-search">SEARCH</div>
+			</div>	
 		</div>
 	</div>
 </body>

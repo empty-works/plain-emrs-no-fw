@@ -2,7 +2,7 @@
 
 .patients-grid-container {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto auto auto auto auto;
 	grid-template-columns: auto;
 	height: 100%;
 }
@@ -12,7 +12,7 @@
 	background-color: var(--lightest-green);
 }
 
-#patients-grid-recent {
-	grid-column: 2 / span 1;
+#patients-grid-search {
+	grid-column: 4 / span 2;
 	background-color: var(--lightest-blue);
 }
