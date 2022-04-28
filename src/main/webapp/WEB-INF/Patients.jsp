@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,13 +9,12 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
 <title>Patients</title>
 </head>
 
 <body>
-		
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 	
@@ -27,10 +27,14 @@
 		
 		<!-- Main content --> 
 		<div class="main main-font">
-			<div class="patients-grid-container">
-				<div id="patients-grid-recent">RECENT</div>
-				<div id="patients-grid-search">SEARCH</div>
-			</div>	
+			<div class="main-grid">
+				<div class="content-container">
+					<div id="patients-grid-recent">RECENT</div>
+				</div>	
+				<div class="content-container">
+					<div id="patients-grid-search">SEARCH</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

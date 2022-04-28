@@ -1,10 +1,26 @@
 @charset "ISO-8859-1";
 
-.patients-grid-container {
+#main {
+	overflow: hidden;
+	background-color: var(--off-white);
+	font-size: 12px;
+	height: 100%;
+	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
+	flex-direction: column;
+}
+
+#patients-grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	grid-template-columns: auto;
-	height: 100%;
+	margin: 1px;
+	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
+}
+
+#content-container {
+	display: block;
+	background-color: var(--off-white);
+	margin: 2px;
 }
 
 #patients-grid-recent {
