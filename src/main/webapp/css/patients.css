@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-#main {
+#patients-main {
 	overflow: hidden;
 	background-color: var(--off-white);
 	font-size: 12px;
@@ -9,11 +9,12 @@
 	flex-direction: column;
 }
 
-#patients-grid-container {
+#patients-main-grid {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	grid-template-columns: auto;
 	margin: 1px;
+	height: 100%;
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
