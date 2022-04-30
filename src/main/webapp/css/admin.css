@@ -8,3 +8,25 @@
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
+#admin-grid-item-users-logged-in {
+	grid-column: 1 / 1;
+	grid-row: 1 / span 4;
+}
+
+#admin-grid-item-updates {
+	grid-column: 1 / span 4;
+	grid-row: 1 / span 4;
+	background-color: var(--lightest-green);
+}
+
+#admin-grid-item-update-patient {
+	grid-column: 5 / span 2;
+	grid-row: 1 / span 2;
+	background-color: var(--lightest-blue);
+}
+
+#admin-grid-item-add-patient {
+	grid-column: 5 / span 2;
+	grid-row: 3 / span 2;
+	background-color: var(--lightest-blue);
+}

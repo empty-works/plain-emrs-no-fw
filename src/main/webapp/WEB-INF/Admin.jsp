@@ -17,6 +17,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 
 </head>
@@ -27,16 +28,16 @@
 
 <!-- Main content --> 
 <div class="main-grid-container main-font">
-	<div class="main-grid">
-		<div class="content-container grid-item-updates">
+	<div id="admin-main-grid">
+		<div class="content-container" id="admin-grid-item-updates">
 			<div class="content-label">Updates</div>	
 			<div class="content-box"></div>
 		</div>
-		<div class="content-container grid-item-update-patient">
+		<div class="content-container" id="admin-grid-item-update-patient">
 			<div class="content-label">Last Updated Patient</div>	
 			<div class="content-box"></div>
 		</div>
-		<div class="content-container grid-item-add-patient">
+		<div class="content-container" id="admin-grid-item-add-patient">
 			<div class="content-label">Last Added Patient</div>	
 			<div class="content-box"></div>
 		</div>
