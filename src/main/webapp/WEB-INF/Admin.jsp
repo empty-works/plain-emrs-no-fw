@@ -26,7 +26,7 @@
 <script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
 <!-- Main content --> 
-<div class="main main-font">
+<div class="main-grid-container main-font">
 	<div class="main-grid">
 		<div class="content-container grid-item-updates">
 			<div class="content-label">Updates</div>	

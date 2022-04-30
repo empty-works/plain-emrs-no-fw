@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <title>Facilities</title>
 </head>
 
@@ -27,7 +27,7 @@
 		</div>
 
 		<!-- Main content --> 
-		<div class="main main-font">
+		<div class="main-grid-container-side-nav main-font">
 			
 			<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
 			<h2>Facility List</h2>	

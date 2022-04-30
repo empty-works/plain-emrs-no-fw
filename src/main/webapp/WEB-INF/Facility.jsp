@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
@@ -43,7 +43,7 @@
 		-->
 		</div>
 
-		<div class="main main-font">
+		<div class="main-grid-container-side-nav main-font">
 		
 			<h2>Facility: <c:out value="${facilityDb.getName()}" /></h2>
 			<div id="facility-data" class="facility-grid-wrapper">

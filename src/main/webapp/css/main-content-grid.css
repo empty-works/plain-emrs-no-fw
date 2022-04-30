@@ -2,11 +2,22 @@
 
 /*CSS variables are in general.css*/
 
-.main {
+.main-grid-container {
 	overflow: hidden;
 	background-color: var(--off-white);
 	font-size: 12px;
 	height: 100%;
+	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
+	flex-direction: column;
+}
+
+.main-grid-container-side-nav {
+	overflow-x: hidden;
+	background-color: var(--off-white);
+	font-size: 12px;
+	padding: var(--text-padding);
+	height: 78%;
+	width: calc((100% - var(--sidenav-width)) - 6.5%);
 	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
 	flex-direction: column;
 }
