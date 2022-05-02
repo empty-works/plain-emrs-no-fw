@@ -1,14 +1,5 @@
 @charset "ISO-8859-1";
 
-#patients-main {
-	overflow: hidden;
-	background-color: var(--off-white);
-	font-size: 12px;
-	height: 100%;
-	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
-	flex-direction: column;
-}
-
 #patients-main-grid {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
@@ -18,18 +9,14 @@
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
-#content-container {
-	display: block;
-	background-color: var(--off-white);
-	margin: 2px;
-}
-
 #patients-grid-recent {
 	grid-column: 1 / span 3;
+	grid-row: 1;
 	background-color: var(--lightest-green);
 }
 
 #patients-grid-search {
 	grid-column: 4 / span 2;
+	grid-row: 1;
 	background-color: var(--lightest-blue);
 }

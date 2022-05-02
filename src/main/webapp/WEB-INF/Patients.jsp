@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <title>Patients</title>
 </head>
@@ -27,7 +26,7 @@
 		</div>
 		
 		<!-- Main content --> 
-		<div class="main-grid-container main-font">
+		<div class="main-grid-container-side-nav main-font">
 			<div id="patients-main-grid">
 				<div class="content-container" id="patients-grid-recent">
 					<div class="content-label">RECENT</div>
