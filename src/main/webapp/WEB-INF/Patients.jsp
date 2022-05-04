@@ -20,11 +20,14 @@
 	
 	<div class="main-container">
 		<!-- Side navigation -->
+		<script type="text/javascript"></script>
+		<!-- 
 		<div class="sidenav main-font">	
 			<div><a href="<c:url value="" />">Search</a></div>
-			<div><a href="<c:url value="" />">Tracked Patients</a></div>
-			<div><a href="<c:url value="" />"></a>Add Patient</div>
+			<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
+			<div><a href="<c:url value="/AddPatientServlet" />">Add Patient</a></div>
 		</div>
+ 		-->
 		
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
