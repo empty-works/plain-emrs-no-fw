@@ -20,7 +20,7 @@
 	
 	<div class="main-container">
 		<!-- Side navigation -->
-		<div class="sidenav">
+		<div class="sidenav main-font">
 			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
 		<!-- 
