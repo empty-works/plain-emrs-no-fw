@@ -23,14 +23,7 @@
 		<div class="sidenav main-font">
 			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
-		<!-- 
-		<div class="sidenav main-font">	
-			<div><a href="<c:url value="" />">Search</a></div>
-			<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
-			<div><a href="<c:url value="/AddPatientServlet" />">Add Patient</a></div>
-		</div>
- 		-->
-		
+
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
 			<div id="patients-main-grid">

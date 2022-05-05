@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TrackedPatients
  */
-@WebServlet("/TrackedPatients")
-public class TrackedPatients extends HttpServlet {
+@WebServlet("/TrackedPatientsServlet")
+public class TrackedPatientsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
