@@ -9,10 +9,8 @@
 </head>
 <body>
 	<!-- Side navigation -->
-	<div class="sidenav main-font">	
-		<div><a href="<c:url value="" />">Search</a></div>
-		<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
-		<div><a href="<c:url value="/AddPatientServlet" />">Add Patient</a></div>
-	</div>
+	<div><a href="<c:url value="" />">Search</a></div>
+	<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
+	<div><a href="<c:url value="/AddPatientServlet" />">Add Patient</a></div>
 </body>
 </html>

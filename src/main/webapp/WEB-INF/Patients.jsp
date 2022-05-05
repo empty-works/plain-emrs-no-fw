@@ -20,7 +20,9 @@
 	
 	<div class="main-container">
 		<!-- Side navigation -->
-		<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
+		<div class="sidenav">
+			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
+		</div>
 		<!-- 
 		<div class="sidenav main-font">	
 			<div><a href="<c:url value="" />">Search</a></div>
