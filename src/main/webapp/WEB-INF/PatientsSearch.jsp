@@ -26,12 +26,12 @@
 
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
-			<div id="patients-main-grid">
-				<div class="content-container" id="patients-grid-recent">
+			<div id="patients-search-main-grid">
+				<div class="content-container" id="patients-search-grid-recent">
 					<div class="content-label">RECENT</div>
 					<div class="content-box"></div>
 				</div>	
-				<div class="content-container" id="patients-grid-search">
+				<div class="content-container" id="patients-search-grid-search">
 					<div class="content-label">SEARCH</div>
 					<div class="content-box"></div>
 				</div>

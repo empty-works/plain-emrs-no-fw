@@ -1,6 +1,7 @@
 @charset "ISO-8859-1";
 
-#patients-main-grid {
+/*Patients Search Page*/
+#patients-search-main-grid {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	grid-template-columns: auto;
@@ -9,13 +10,13 @@
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
-#patients-grid-search {
+#patients-search-grid-search {
 	grid-column: 1 / span 3;
 	grid-row: 1;
 	background-color: var(--lightest-blue);
 }
 
-#patients-grid-recent {
+#patients-search-grid-recent {
 	grid-column: 4 / span 2;
 	grid-row: 1;
 	background-color: var(--lightest-green);
