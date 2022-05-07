@@ -27,16 +27,44 @@
 		
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
-			<div id="patients-main-grid">
-				<div class="content-container" id="patients-grid-recent">
-					<div class="content-label">RECENT</div>
-					<div class="content-box"></div>
-				</div>	
-				<div class="content-container" id="patients-grid-search">
-					<div class="content-label">SEARCH</div>
-					<div class="content-box"></div>
-				</div>
-			</div>
+			<form action="AddPatientServlet" method="post">
+				<label>Given Name: </label>	
+				<div><input type="text" id="patientGivenName" name="patientGivenName" /></div>
+				<label>Middle Initial: </label>
+				<div><input type="text" id="patientMiddleInitial" name="patientMiddleInitial" /></div>
+				<label>Last Name: </label>
+				<div><input type="text" id="patientLastName" name="patientLastName" /></div>
+				<label>Date of Birth: </label>
+				<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
+				<label>Gender: </label>
+				<div><input type="text" id="patientGender" name="patientGender" /></div>
+				<label>Type: </label>
+				<div><input type="text" id="patientType" name="patientType" /></div>
+				<label>Race: </label>
+				<div><input type="text" id="patientRace" name="patientRace" /></div>
+				<label>Ethnicity: </label>
+				<div><input type="text" id="patientEthnicity" name="patientEthnicity" /></div>
+				<label>Email Address: </label>
+				<div><input type="text" id="patientEmailAddress" name="patientEmailAddress" /></div>
+				<label>Street Address: </label>
+				<div><input type="text" id="patientStreetAddress" name="patientStreetAddress" /></div>
+				<label>City: </label>
+				<div><input type="text" id="patientCity" name="patientCity" /></div>
+				<label>State: </label>
+				<div><input type="text" id="patientCountry" name="patientCountry" /></div>
+				<label>Phone Number: </label>
+				<div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div>
+				<label>Provider: </label>
+				<div><input type="text" id="patientProvider" name="patientProvider" /></div>
+				<label>Provider ID: </label>
+				<div><input type="number" id="patientProviderId" name="patientProviderId" /></div>
+				<label>Facility ID: </label>
+				<div><input type="text" id="patientFacilityId" name="patientFacilityId" /></div>
+				<label>Room: </label>
+				<div><input type="text" id="patientRoom" name="patientRoom" /></div>
+				<label>Language Preference: </label>
+				<div><input type="text" id="patientLanguagePreference" name="patientLanguagePreference" /></div>
+			</form>
 		</div>
 	</div>
 

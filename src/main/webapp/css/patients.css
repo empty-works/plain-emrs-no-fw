@@ -21,3 +21,14 @@
 	grid-row: 1;
 	background-color: var(--lightest-green);
 }
+
+/*Add Patients Page*/
+#patients-add-main-grid {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-columns: auto;
+	margin: 1px;
+	height: 100%;
+	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
+}
+
