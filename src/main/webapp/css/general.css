@@ -67,3 +67,7 @@ div.main-container > div {
 	color: red;
 	padding: 0px;
 }
+
+.content-padding {
+	padding: var(--text-padding);
+}

@@ -27,7 +27,7 @@
 		
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
-			<form action="AddPatientServlet" method="post">
+			<form class="content-padding" action="AddPatientServlet" method="post">
 				<label>Given Name: </label>	
 				<div><input type="text" id="patientGivenName" name="patientGivenName" /></div>
 				<label>Middle Initial: </label>

@@ -17,6 +17,7 @@
 	font-size: 12px;
 	height: 90%;
 	width: calc((100% - var(--sidenav-width)) - 0.5%);
+	left: 30px;
 	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
 	flex-direction: column;
 }
