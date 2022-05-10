@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.time.LocalDate;
+
 public class PatientBean extends PersonBean {
 
 	private String provider;
@@ -14,6 +16,13 @@ public class PatientBean extends PersonBean {
 	private String city;
 	private String state;
 	private String country;
+	private String givenName;
+	private String middleInitial;
+	private String lastName;
+	private LocalDate dateOfBirth;
+	private String emailAddress;
+	private String phoneNumber;
+	private String facilityId;
 
 	public String getProvider() {
 		return provider;
@@ -86,5 +95,47 @@ public class PatientBean extends PersonBean {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public String getGivenName() {
+		return givenName;
+	}
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+	public String getMiddleInitial() {
+		return middleInitial;
+	}
+	public void setMiddleInitial(String middleInitial) {
+		this.middleInitial = middleInitial;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getFacilityId() {
+		return facilityId;
+	}
+	public void setFacilityId(String facilityId) {
+		this.facilityId = facilityId;
 	}
 }

@@ -64,6 +64,7 @@
 				<div><input type="text" id="patientRoom" name="patientRoom" /></div>
 				<label>Language Preference: </label>
 				<div><input type="text" id="patientLanguagePreference" name="patientLanguagePreference" /></div>
+				<div><input type="submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>
