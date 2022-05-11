@@ -20,7 +20,6 @@ public class PatientBean extends PersonBean {
 	private String middleInitial;
 	private String lastName;
 	private LocalDate dateOfBirth;
-	private String emailAddress;
 	private String phoneNumber;
 	private String facilityId;
 
@@ -119,12 +118,6 @@ public class PatientBean extends PersonBean {
 	}
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-	public String getEmailAddress() {
-		return emailAddress;
-	}
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;
