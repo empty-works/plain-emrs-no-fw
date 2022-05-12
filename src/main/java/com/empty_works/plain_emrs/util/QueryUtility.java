@@ -2,6 +2,12 @@ package com.empty_works.plain_emrs.util;
 
 public class QueryUtility {
 
+	/**
+	 * 
+	 * @param table
+	 * @param args DAO fields
+	 * @return
+	 */
 	public static String get(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("insert into ");
