@@ -1,18 +1,8 @@
 package com.empty_works.plain_emrs.util;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+public class QueryUtility {
 
-public class PreparedStatementUtility {
-
-	public static int get(String table, String ... args) {
-		
-		Connection con = ConnectionUtil.getConnection();
-
-		return 0;
-	}
-	
-	private static String makePS(String table, String ... args) {
+	public static String get(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("insert into ");
 		int counter = 0;
