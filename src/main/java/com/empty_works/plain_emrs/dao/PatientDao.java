@@ -1,10 +1,12 @@
 package com.empty_works.plain_emrs.dao;
 
+import java.sql.Connection;
 import java.time.LocalDate;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.util.ConnectionUtil;
 
-public class AddPatientDao {
+public class PatientDao {
 
 	//TODO: write to database. First, update database
 	public String register(PatientBean pb) {
@@ -25,6 +27,9 @@ public class AddPatientDao {
 		String provider = pb.getProvider();
 		String providerId = pb.getProviderId();
 		int roomNumber = pb.getRoomNumber();
+		
+		Connection con = ConnectionUtil.getConnection();
+		
 		
 		return "";
 	}

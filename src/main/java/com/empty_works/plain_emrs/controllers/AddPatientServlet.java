@@ -49,6 +49,10 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setProvider(request.getParameter("patientProvider"));
 		pb.setProviderId(request.getParameter("patientProviderId"));
 		pb.setRoomNumber(Integer.parseInt(request.getParameter("patientRoom")));
+		
+		System.out.println("Adding patient to the database...");
+		String addPatientResult = PatientDao 
+		
 		doGet(request, response);
 	}
 }
