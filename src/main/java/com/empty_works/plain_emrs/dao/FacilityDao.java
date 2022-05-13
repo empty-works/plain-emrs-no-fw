@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
+import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class FacilityDao {
 	
@@ -119,10 +120,15 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
+		/*
 		String query = "insert into facilities("
 				+ "facility_id, facility_name, facility_street_address, facility_city, facility_state, "
 				+ "facility_country, facility_zip_code, facility_number_of_beds, facility_description) "
 				+ "values (?,?,?,?,?,?,?,?,?)";
+		*/
+		
+		String query = QueryUtil.insert("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
+				"facility_state", "facility_country", "facility_zip_code", "facility_number_of_beds", "facility_description");
 		
 		try {
 			preparedStatement = con.prepareStatement(query);

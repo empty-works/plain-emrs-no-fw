@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class QueryUtilityTest {
+class QueryUtilTest {
 
 	@Test
 	void testGet() {
@@ -13,7 +13,8 @@ class QueryUtilityTest {
 		String query = "insert into patients("
 				+ "given_name,middle_initial,last_name)"
 				+ " values (?,?,?)";
-		String producedQuery = QueryUtility.get("patients", "given_name", "middle_initial", "last_name");
+		String producedQuery = QueryUtil.insert("patients", "given_name", "middle_initial", "last_name");
+		System.out.println(producedQuery);
 		Assertions.assertEquals(query, producedQuery);
 	}
 }

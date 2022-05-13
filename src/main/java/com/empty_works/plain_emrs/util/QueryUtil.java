@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.util;
 
-public class QueryUtility {
+public class QueryUtil {
 
 	/**
 	 * 
@@ -8,7 +8,7 @@ public class QueryUtility {
 	 * @param args DAO fields
 	 * @return
 	 */
-	public static String get(String table, String ... args) {
+	public static String insert(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("insert into ");
 		int counter = 0;
