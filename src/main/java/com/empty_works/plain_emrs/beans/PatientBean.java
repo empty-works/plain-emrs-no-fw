@@ -6,7 +6,7 @@ public class PatientBean extends PersonBean {
 
 	private String provider;
 	private String providerId;
-	private int roomNumber;
+	private String roomNumber;
 	private String gender;
 	private String type;
 	private String race;
@@ -35,10 +35,10 @@ public class PatientBean extends PersonBean {
 	public void setProviderId(String providerId) {
 		this.providerId = providerId;
 	}
-	public int getRoomNumber() {
+	public String getRoomNumber() {
 		return roomNumber;
 	}
-	public void setRoomNumber(int roomNumber) {
+	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
 	public String getGender() {
