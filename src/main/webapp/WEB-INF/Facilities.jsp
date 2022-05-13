@@ -28,45 +28,45 @@
 
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
-			
-			<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
-			<h2>Facility List</h2>	
-			<table>
-			<c:choose>
-			<c:when test="${fn:length(facilitiesList) > 1}">
-				<c:forEach items="${facilitiesList}" var="facility">
-					<tr>
-					<td>--------------------------------------------------------------
-						<br><br>	
-					</td>
-					</tr>
-					<tr>
-						<td>ID: <c:out value="${facility.getId()}" /></td>	
-					</tr>
-					<tr>
-						<td>Name: <a href="<c:url value="/FacilityServlet" > 
-							<c:param name="facId" value="${facility.getId()}" />		
-							<c:param name="facNam" value="${facility.getName()}" />		
-							<c:param name="facCity" value="${facility.getCity()}" />		
-							<c:param name="facCountry" value="${facility.getCountry()}" />		
-						</c:url>"> <c:out value="${facility.getName()}" /></a>
-					</td>
-					</tr>
-					<tr>
-						<td>City: <c:out value="${facility.getCity()}" /></td>
-					</tr>
-					<tr>
-						<td>Country: <c:out value="${facility.getCountry()}" /></td>
-					</tr>	
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<div>NO FACILITIES!</div>
-			</c:otherwise>
-			</c:choose>
-			</table>
-			
-			<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
+			<div class="content-padding">	
+				<!--  <h3><a href="<c:url value="/LoginServlet" />">Back to admin</a></h3>-->
+				<h2>Facility List</h2>	
+				<table>
+				<c:choose>
+				<c:when test="${fn:length(facilitiesList) > 1}">
+					<c:forEach items="${facilitiesList}" var="facility">
+						<tr>
+						<td>--------------------------------------------------------------
+							<br><br>	
+						</td>
+						</tr>
+						<tr>
+							<td>ID: <c:out value="${facility.getId()}" /></td>	
+						</tr>
+						<tr>
+							<td>Name: <a href="<c:url value="/FacilityServlet" > 
+								<c:param name="facId" value="${facility.getId()}" />		
+								<c:param name="facNam" value="${facility.getName()}" />		
+								<c:param name="facCity" value="${facility.getCity()}" />		
+								<c:param name="facCountry" value="${facility.getCountry()}" />		
+							</c:url>"> <c:out value="${facility.getName()}" /></a>
+						</td>
+						</tr>
+						<tr>
+							<td>City: <c:out value="${facility.getCity()}" /></td>
+						</tr>
+						<tr>
+							<td>Country: <c:out value="${facility.getCountry()}" /></td>
+						</tr>	
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div>NO FACILITIES!</div>
+				</c:otherwise>
+				</c:choose>
+				</table>
+				<h2><a href="<c:url value="/AddFacilityServlet" />">Add Facility</a></h2>
+			</div>	
 		</div>
 	</div>
 </body>
