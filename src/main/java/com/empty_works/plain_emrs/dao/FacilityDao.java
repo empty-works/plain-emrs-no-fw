@@ -105,7 +105,7 @@ public class FacilityDao {
 	 * @param fb
 	 * @return
 	 */
-	public static String register(FacilityBean fb) {
+	public static String add(FacilityBean fb) {
 		
 		String id = fb.getId();
 		String name = fb.getName();

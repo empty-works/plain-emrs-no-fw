@@ -13,7 +13,7 @@ public class PatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Success";
 
-	public String register(PatientBean pb) {
+	public static String add(PatientBean pb) {
 		
 		String id = pb.getId();
 		String givenName = pb.getGivenName();

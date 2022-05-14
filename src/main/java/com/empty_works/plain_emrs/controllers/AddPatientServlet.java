@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.dao.PatientDao;
 
 /**
  * Servlet implementation class AddPatientServlet
@@ -48,9 +49,10 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setPhoneNumber(request.getParameter("patientPhoneNumber"));
 		pb.setProvider(request.getParameter("patientProvider"));
 		pb.setProviderId(request.getParameter("patientProviderId"));
-		pb.setRoomNumber(Integer.parseInt(request.getParameter("patientRoom")));
+		pb.setRoomNumber(request.getParameter("patientRoom"));
 		
 		System.out.println("Adding patient to the database...");
+		String patientAddResult = PatientDao.add(pb);
 		
 		doGet(request, response);
 	}
