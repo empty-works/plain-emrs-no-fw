@@ -53,7 +53,18 @@ public class AddPatientServlet extends HttpServlet {
 		
 		System.out.println("Adding patient to the database...");
 		String patientAddResult = PatientDao.add(pb);
+		if(patientAddResult.equals(PatientDao.PATIENTDAO_SUCCESS)) {
+			
+			System.out.println("Patient successfully added to the database!");
+			request.setAttribute(PatientServlet.patientDbAttribute, pb);
+		}
+		else {
+			
+			System.out.println("Patient setup failed!");
+			request.setAttribute("errMessage", patientAddResult);
+		}
 		
+		request.getRequestDispatcher("/WEB-INF/AddPatient.jsp").forward(request, response);
 		doGet(request, response);
 	}
 }

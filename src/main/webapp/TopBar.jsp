@@ -19,7 +19,7 @@
 	<button formaction="<c:url value="/FacilitiesServlet" />" class="topnav-menu-btn">
 		<span class="menu-text">Facilities</span>
 	</button>
-	<button formaction="<c:url value="/PatientsSearchServlet" />" class="topnav-menu-btn">
+	<button formaction="<c:url value="/PatientServlet" />" class="topnav-menu-btn">
 		<span class="menu-text">Patients</span>
 	</button>
 	<button class="topnav-menu-btn">

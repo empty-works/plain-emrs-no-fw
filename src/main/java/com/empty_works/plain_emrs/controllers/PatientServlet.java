@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PatientsServlet
  */
-@WebServlet("/PatientsSearchServlet")
-public class PatientsSearchServlet extends HttpServlet {
+@WebServlet("/PatientServlet")
+public class PatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static String patientDbAttribute = "patientDb";
        
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
