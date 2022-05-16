@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class QueryUtilTest {
 
 	@Test
-	void testGet() {
+	void testInsert() {
 		
 		String query = "insert into patients("
 				+ "given_name,middle_initial,last_name)"
@@ -16,5 +16,14 @@ class QueryUtilTest {
 		String producedQuery = QueryUtil.insert("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(producedQuery);
 		Assertions.assertEquals(query, producedQuery);
+	}
+	
+	@Test
+	void testGetNoCondition() {
+		
+		String query = "select given_name,middle_initial,last_name from patients";
+		String produceQuery = QueryUtil.get("patients", "given_name", "middle_initial", "last_name");
+		System.out.println(produceQuery);
+		Assertions.assertEquals(query, produceQuery);
 	}
 }
