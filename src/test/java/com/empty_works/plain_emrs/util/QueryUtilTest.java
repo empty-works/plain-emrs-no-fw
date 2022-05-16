@@ -22,8 +22,10 @@ class QueryUtilTest {
 	void testGetNoCondition() {
 		
 		String query = "select given_name,middle_initial,last_name from patients";
-		String produceQuery = QueryUtil.get("patients", "given_name", "middle_initial", "last_name");
+		String produceQuery = QueryUtil.getAll("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(produceQuery);
 		Assertions.assertEquals(query, produceQuery);
 	}
+	
+	
 }

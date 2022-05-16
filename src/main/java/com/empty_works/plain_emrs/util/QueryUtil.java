@@ -41,7 +41,7 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
-	public static String get(String table, String ... args) {
+	public static String getAll(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("select ");
 		for(String arg : args) {
@@ -55,6 +55,16 @@ public class QueryUtil {
 		
 		sb.append(" from ");
 		sb.append(table);
+		
+		return sb.toString();
+	}
+	
+	public static String getCondition(String table, String condition, String ... args) {
+		
+		StringBuilder sb = new StringBuilder(getAll(table, args));
+		sb.append(" where ");
+		sb.append(condition);
+		sb.append("=?");
 		
 		return sb.toString();
 	}
