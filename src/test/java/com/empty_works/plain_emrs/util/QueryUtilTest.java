@@ -13,7 +13,7 @@ class QueryUtilTest {
 		String query = "insert into patients("
 				+ "given_name,middle_initial,last_name)"
 				+ " values (?,?,?)";
-		String producedQuery = QueryUtil.insert("patients", "given_name", "middle_initial", "last_name");
+		String producedQuery = QueryUtil.add("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(producedQuery);
 		Assertions.assertEquals(query, producedQuery);
 	}

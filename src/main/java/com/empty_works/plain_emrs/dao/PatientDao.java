@@ -13,6 +13,7 @@ public class PatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Success";
 
+	
 	public static String add(PatientBean pb) {
 		
 		String id = pb.getId();
@@ -38,7 +39,7 @@ public class PatientDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.insert("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
+		String query = QueryUtil.add("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
 				"patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", "patient_type", 
 				"patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", "patient_state", 
 				"patient_country", "patient_phone_number", "patient_facility_id");
@@ -79,4 +80,6 @@ public class PatientDao {
 		
 		return "Something went wrong registering the patient into the database...";
 	}
+	
+	
 }

@@ -10,7 +10,7 @@ public class QueryUtil {
 	 * @param args DAO fields
 	 * @return
 	 */
-	public static String insert(String table, String ... args) {
+	public static String add(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("insert into ");
 		int counter = 0;
