@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.util;
 
+import com.empty_works.plain_emrs.beans.PatientBean;
+
 public class QueryUtil {
 
 	/**
@@ -36,6 +38,24 @@ public class QueryUtil {
 		sb.deleteCharAt(sb.length() - 1);
 		sb.append(")");
 
+		return sb.toString();
+	}
+	
+	public static String get(String table, String ... args) {
+		
+		StringBuilder sb = new StringBuilder("select ");
+		for(String arg : args) {
+			
+			sb.append(arg);
+			sb.append(",");
+		}
+		
+		// Remove last comma
+		sb.deleteCharAt(sb.length() - 1);
+		
+		sb.append(" from ");
+		sb.append(table);
+		
 		return sb.toString();
 	}
 }
