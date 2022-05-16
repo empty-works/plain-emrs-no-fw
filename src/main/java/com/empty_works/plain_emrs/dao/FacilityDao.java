@@ -26,9 +26,15 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
+		/*
 		String query = "select facility_name, facility_street_address, facility_city, facility_state, "
 				+ "facility_country, facility_zip_code, "
 				+ "facility_number_of_beds, facility_description from facilities where facility_id=?";
+		*/
+		
+		String query = QueryUtil.getCondition("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
+				"facility_country", "facility_zip_code", "facility_number_of_beds", "facility_description");
+		System.out.println("Get facility query: " + query);
 		
 		FacilityBean facility = new FacilityBean();
 		try {

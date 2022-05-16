@@ -27,5 +27,12 @@ class QueryUtilTest {
 		Assertions.assertEquals(query, produceQuery);
 	}
 	
-	
+	@Test
+	void testGetWithCondition() {
+		
+		String query = "select given_name,middle_initial,last_name from patients where patient_id=?";
+		String produceQuery = QueryUtil.getCondition("patients", "patient_id", "given_name", "middle_initial", "last_name");
+		System.out.println(produceQuery);
+		Assertions.assertEquals(query, produceQuery);
+	}
 }
