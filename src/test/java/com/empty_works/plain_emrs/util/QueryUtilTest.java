@@ -35,4 +35,31 @@ class QueryUtilTest {
 		System.out.println(produceQuery);
 		Assertions.assertEquals(query, produceQuery);
 	}
+	
+	@Test
+	void testGetAll() {
+		
+		String query = "select given_name,middle_initial,last_name from patients";
+		String produceQuery = QueryUtil.getAll("patients", "given_name", "middle_initial", "last_name");
+		System.out.println(produceQuery);
+		Assertions.assertEquals(query, produceQuery);
+	}
+	
+	@Test
+	void testUpdateWithCondition() {
+		
+		String query = "update facilities set given_name=?,middle_initial=?,last_name=? where patient_id=?";
+		String produceQuery = QueryUtil.updateWithCondition("facilities", "patient_id", "given_name", "middle_initial", "last_name");
+		System.out.println(produceQuery);
+		Assertions.assertEquals(query, produceQuery);
+	}
+	
+	@Test
+	void testUpdateAll() {
+		
+		String query = "update facilities set given_name=?,middle_initial=?,last_name=?";
+		String produceQuery = QueryUtil.updateAll("facilities", "given_name", "middle_initial", "last_name");
+		System.out.println(produceQuery);
+		Assertions.assertEquals(query, produceQuery);
+	}
 }

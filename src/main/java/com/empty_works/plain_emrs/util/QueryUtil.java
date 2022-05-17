@@ -41,6 +41,13 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param table
+	 * @param condition
+	 * @param args
+	 * @return
+	 */
 	public static String getWithCondition(String table, String condition, String ... args) {
 		
 		StringBuilder sb = new StringBuilder(getAll(table, args));
@@ -51,6 +58,12 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param table
+	 * @param args
+	 * @return
+	 */
 	public static String getAll(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("select ");
@@ -69,9 +82,17 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param table
+	 * @param condition
+	 * @param args
+	 * @return
+	 */
 	public static String updateWithCondition(String table, String condition, String ... args) {
 		
-		StringBuilder sb = new StringBuilder("update");
+		StringBuilder sb = new StringBuilder("update ");
+		sb.append(table);
 		sb.append(" set ");
 		for(String arg : args) {
 			
@@ -89,9 +110,16 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param table
+	 * @param args
+	 * @return
+	 */
 	public static String updateAll(String table, String ... args) {
 		
-		StringBuilder sb = new StringBuilder("update");
+		StringBuilder sb = new StringBuilder("update ");
+		sb.append(table);
 		sb.append(" set ");
 		for(String arg : args) {
 			
