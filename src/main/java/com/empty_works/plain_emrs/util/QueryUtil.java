@@ -41,6 +41,16 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
+	public static String getWithCondition(String table, String condition, String ... args) {
+		
+		StringBuilder sb = new StringBuilder(getAll(table, args));
+		sb.append(" where ");
+		sb.append(condition);
+		sb.append("=?");
+		
+		return sb.toString();
+	}
+	
 	public static String getAll(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("select ");
@@ -59,12 +69,38 @@ public class QueryUtil {
 		return sb.toString();
 	}
 	
-	public static String getCondition(String table, String condition, String ... args) {
+	public static String updateWithCondition(String table, String condition, String ... args) {
 		
-		StringBuilder sb = new StringBuilder(getAll(table, args));
+		StringBuilder sb = new StringBuilder("update");
+		sb.append(" set ");
+		for(String arg : args) {
+			
+			sb.append(arg);
+			sb.append("=?,");
+		}
+		
+		// Remove last comma
+		sb.deleteCharAt(sb.length() - 1);
+		
 		sb.append(" where ");
 		sb.append(condition);
 		sb.append("=?");
+		
+		return sb.toString();
+	}
+	
+	public static String updateAll(String table, String ... args) {
+		
+		StringBuilder sb = new StringBuilder("update");
+		sb.append(" set ");
+		for(String arg : args) {
+			
+			sb.append(arg);
+			sb.append("=?,");
+		}
+		
+		// Remove last comma
+		sb.deleteCharAt(sb.length() - 1);
 		
 		return sb.toString();
 	}
