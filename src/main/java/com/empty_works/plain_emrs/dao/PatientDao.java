@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.InputStream;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
@@ -66,6 +68,52 @@ public class PatientDao {
 		}
 		
 		return patient;
+	}
+	
+	public static List<PatientBean> getList() {
+		
+		List<PatientBean> patientsList = new ArrayList<>();
+		
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		String query = QueryUtil.getAll("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
+				"patient_last_name", "patient_date_of_birth", "patient_gender", 
+				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_facility_id");
+		
+		try {
+
+			preparedStatement = con.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				PatientBean patient = new PatientBean();
+				patient.setId(resultSet.getString("patient_id"));
+				patient.setGivenName(resultSet.getString("patient_given_name"));
+				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
+				patient.setLastName(resultSet.getString("patient_last_name"));
+				patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
+				patient.setGender(resultSet.getString("patient_gender"));
+				patient.setType(resultSet.getString("patient_type"));
+				patient.setRace(resultSet.getString("patient_race"));
+				patient.setEthnicity(resultSet.getString("patient_ethnicity"));
+				patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
+				patient.setFacilityId(resultSet.getString("patient_facility_id"));
+				patientsList.add(patient);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
+		}
+		
+		return patientsList;
 	}
 	
 	/**
