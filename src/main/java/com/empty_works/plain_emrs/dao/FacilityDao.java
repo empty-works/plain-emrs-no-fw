@@ -50,6 +50,7 @@ public class FacilityDao {
 			facility.setDescription(new String(daBlob.getBytes(1L, (int) daBlob.length())));
 			
 		} catch (SQLException e) {
+
 			e.printStackTrace();
 		}
 		finally {

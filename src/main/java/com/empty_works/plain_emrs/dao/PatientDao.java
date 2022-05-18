@@ -1,7 +1,6 @@
 package com.empty_works.plain_emrs.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ public class PatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Success";
 
-	public static String getPatient(String patientId) {
+	public static PatientBean getPatient(String patientId) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -42,11 +41,31 @@ public class PatientDao {
 			patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 			patient.setLastName(resultSet.getString("patient_last_name"));
 			patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
+			patient.setProvider(resultSet.getString("patient_provider"));
+			patient.setProviderId(resultSet.getString("patient_provider_id"));
+			patient.setRoomNumber(resultSet.getString("patient_room"));
+			patient.setGender(resultSet.getString("patient_gender"));
+			patient.setType(resultSet.getString("patient_type"));
+			patient.setRace(resultSet.getString("patient_race"));
+			patient.setEthnicity(resultSet.getString("patient_ethnicity"));
+			patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
+			patient.setStreetAddress(resultSet.getString("patient_street_address"));
+			patient.setCity(resultSet.getString("patient_city"));
+			patient.setState(resultSet.getString("patient_state"));
+			patient.setCountry(resultSet.getString("patient_country"));
+			patient.setPhoneNumber(resultSet.getString("patient_phone_number"));
+			patient.setFacilityId(resultSet.getString("patient_facility_id"));
 			
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
+		
+		return patient;
 	}
 	
 	/**
