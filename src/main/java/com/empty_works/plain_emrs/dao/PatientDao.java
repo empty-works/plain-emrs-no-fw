@@ -187,4 +187,6 @@ public class PatientDao {
 		
 		return "Something went wrong registering the patient into the database...";
 	}
+	
+	
 }

@@ -5,7 +5,6 @@
 <html>
 <head>
 
-<!-- Required meta tags for Bootstrap -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +22,6 @@
 
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-	
 
 	<div class="main-container">
 

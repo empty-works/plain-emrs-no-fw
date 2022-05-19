@@ -64,7 +64,7 @@ public class AddPatientServlet extends HttpServlet {
 			request.setAttribute("errMessage", patientAddResult);
 		}
 		
-		request.getRequestDispatcher("/WEB-INF/AddPatient.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 		doGet(request, response);
 	}
 }
