@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.dao.PatientDao;
+import com.empty_works.plain_emrs.util.PatientIdUtil;
 
 /**
  * Servlet implementation class AddPatientServlet
@@ -34,9 +35,12 @@ public class AddPatientServlet extends HttpServlet {
 		
 		System.out.println("Settings parameters to patient bean...");
 		PatientBean pb = new PatientBean();
-		pb.setGivenName(request.getParameter("patientGivenName"));
-		pb.setMiddleInitial(request.getParameter("patientMiddleInitial"));
-		pb.setLastName(request.getParameter("patientLastName"));
+		String givenName = request.getParameter("patientGivenName");
+		String middleInitial = request.getParameter("patientMiddleInitial");
+		String lastName = request.getParameter("patientLastName");
+		pb.setGivenName(givenName);
+		pb.setMiddleInitial(middleInitial);
+		pb.setLastName(lastName);
 		pb.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		pb.setGender(request.getParameter("patientGender"));
 		pb.setType(request.getParameter("patientType"));
@@ -50,6 +54,7 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setProvider(request.getParameter("patientProvider"));
 		pb.setProviderId(request.getParameter("patientProviderId"));
 		pb.setRoomNumber(request.getParameter("patientRoom"));
+		pb.setId(PatientIdUtil.get(givenName, middleInitial, lastName));
 		
 		System.out.println("Adding patient to the database...");
 		String patientAddResult = PatientDao.add(pb);
@@ -57,14 +62,15 @@ public class AddPatientServlet extends HttpServlet {
 			
 			System.out.println("Patient successfully added to the database!");
 			request.setAttribute(PatientServlet.patientDbAttribute, pb);
+			request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 		}
 		else {
 			
 			System.out.println("Patient setup failed!");
 			request.setAttribute("errMessage", patientAddResult);
+			request.getRequestDispatcher("/WEB-INF/AddPatient.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 		doGet(request, response);
 	}
 }
