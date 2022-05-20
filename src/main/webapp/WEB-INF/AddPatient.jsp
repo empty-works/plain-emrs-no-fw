@@ -51,6 +51,8 @@
 				<label>City: </label>
 				<div><input type="text" id="patientCity" name="patientCity" /></div>
 				<label>State: </label>
+				<div><input type="text" id="patientState" name="patientState" /></div>
+				<label>Country: </label>
 				<div><input type="text" id="patientCountry" name="patientCountry" /></div>
 				<label>Phone Number: </label>
 				<div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div>
