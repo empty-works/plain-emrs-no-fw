@@ -37,7 +37,13 @@
 				<label>Date of Birth: </label>
 				<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
 				<label>Gender: </label>
-				<div><input type="text" id="patientGender" name="patientGender" /></div>
+				<div>
+					<select type="text" id="patientGender" name="patientGender">
+						<option>Male</option>	
+						<option>Female</option>	
+						<option>Other</option>	
+					</select>	
+				</div>
 				<label>Type: </label>
 				<div><input type="text" id="patientType" name="patientType" /></div>
 				<label>Race: </label>
