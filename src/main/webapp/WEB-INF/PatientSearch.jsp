@@ -27,14 +27,23 @@
 		<!-- Main content --> 
 		<div class="main-grid-container-side-nav main-font">
 			<div id="patients-search-main-grid">
+				<div class="content-container" id="patients-search-grid-search">
+					<div class="content-label">SEARCH</div>
+					<div class="content-box">
+						<form>
+							<label for="patientId">Patient ID</label>	
+							<input type="text" id="patientId" name="patientId">
+							
+							<c:if test="${}">
+									
+							</c:if>
+						</form>
+					</div>
+				</div>
 				<div class="content-container" id="patients-search-grid-recent">
 					<div class="content-label">RECENT</div>
 					<div class="content-box"></div>
 				</div>	
-				<div class="content-container" id="patients-search-grid-search">
-					<div class="content-label">SEARCH</div>
-					<div class="content-box"></div>
-				</div>
 			</div>
 		</div>
 	</div>

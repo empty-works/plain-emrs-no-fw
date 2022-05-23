@@ -20,8 +20,7 @@ public class PatientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		request.getRequestDispatcher("/WEB-INF/PatientsSearch.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 	}
 
 	/**
