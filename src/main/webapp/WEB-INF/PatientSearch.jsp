@@ -34,7 +34,7 @@
 							<label for="patientId">Patient ID</label>	
 							<input type="text" id="patientId" name="patientId">
 							
-							<c:if test="${!patientIdCheck.isEmpty()}">
+							<c:if test="${not empty patientIdCheck}">
 								<div>PATIENT NOT EMPTY!</div>		
 							</c:if>
 						</form>
