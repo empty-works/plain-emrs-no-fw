@@ -22,13 +22,6 @@ public class PatientSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(!request.getParameter("patientId").isEmpty()) {
-			
-			String patientId = request.getParameter("patientId");
-			System.out.println("Retrieving request patient data...");
-			PatientBean patient = PatientDao.getPatient(patientId);
-			request.setAttribute("patientDb", patient);
-		}
 		request.getRequestDispatcher("/WEB-INF/PatientSearch.jsp").forward(request, response);
 	}
 
@@ -37,6 +30,15 @@ public class PatientSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String patientId = "";
+		if(!request.getParameter("patientId").isEmpty()) {
+			
+			patientId = request.getParameter("patientId");
+			System.out.println("Retrieving request patient data...");
+			PatientBean patient = PatientDao.getPatient(patientId);
+			request.setAttribute("patientDb", patient);
+		}
+		request.setAttribute("patientIdCheck", patientId);
 		doGet(request, response);
 	}
 }
