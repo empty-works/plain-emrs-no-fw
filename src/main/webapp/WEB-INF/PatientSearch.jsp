@@ -31,14 +31,18 @@
 					<div class="content-label">SEARCH</div>
 					<div class="content-box">
 						<form action="PatientSearchServlet" method="post">
-							<label for="patientId">Patient ID</label>	
+							<label for="facilityId">Select Facility:</label>
+							<select name="facilities" id="facilities">
+									
+							</select>
+							<label for="patientId">Patient ID:</label>	
 							<input type="text" id="patientId" name="patientId">
 								
 							<button type="submit" class="btn btn-space">Submit</button>
 						</form>
 						<div>
 							<c:if test="${not empty patientIdCheck}">
-								<div>PATIENT NOT EMPTY!</div>		
+								<div>Patient Patient ID: ${patientDb.getId()}</div>
 								<div>Patient Given Name: ${patientDb.getGivenName()}</div>
 								<div>Patient Middle Initial: ${patientDb.getMiddleInitial()}</div>
 								<div>Patient Last Name: ${patientDb.getLastName()}</div>
