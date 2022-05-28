@@ -10,7 +10,7 @@ public class QueryUtil {
 	 * @param args DAO fields
 	 * @return
 	 */
-	public static String add(String table, String ... args) {
+	public static String insert(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("insert into ");
 		int counter = 0;
@@ -48,9 +48,9 @@ public class QueryUtil {
 	 * @param args
 	 * @return
 	 */
-	public static String getWithCondition(String table, String condition, String ... args) {
+	public static String selectWithCondition(String table, String condition, String ... args) {
 		
-		StringBuilder sb = new StringBuilder(getAll(table, args));
+		StringBuilder sb = new StringBuilder(selectAll(table, args));
 		sb.append(" where ");
 		sb.append(condition);
 		sb.append("=?");
@@ -64,7 +64,7 @@ public class QueryUtil {
 	 * @param args
 	 * @return
 	 */
-	public static String getAll(String table, String ... args) {
+	public static String selectAll(String table, String ... args) {
 		
 		StringBuilder sb = new StringBuilder("select ");
 		for(String arg : args) {

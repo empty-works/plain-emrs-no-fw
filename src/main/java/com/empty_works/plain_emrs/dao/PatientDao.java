@@ -22,7 +22,7 @@ public class PatientDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.getWithCondition("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
+		String query = QueryUtil.selectWithCondition("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
 				"patient_last_name", "patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", 
 				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", 
 				"patient_state", "patient_country", "patient_phone_number", "patient_facility_id");
@@ -78,7 +78,7 @@ public class PatientDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String query = QueryUtil.getAll("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
+		String query = QueryUtil.selectAll("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
 				"patient_last_name", "patient_date_of_birth", "patient_gender", 
 				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_facility_id");
 		
@@ -146,7 +146,7 @@ public class PatientDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.add("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
+		String query = QueryUtil.insert("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
 				"patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", "patient_type", 
 				"patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", "patient_state", 
 				"patient_country", "patient_phone_number", "patient_facility_id");

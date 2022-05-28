@@ -26,7 +26,7 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.getWithCondition("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
+		String query = QueryUtil.selectWithCondition("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
 				"facility_country", "facility_zip_code", "facility_number_of_beds", "facility_description");
 		System.out.println("Get facility query: " + query);
 		
@@ -73,7 +73,7 @@ public class FacilityDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String query = QueryUtil.getAll("facilities", "facility_id", "facility_name", "facility_city", "facility_country");
+		String query = QueryUtil.selectAll("facilities", "facility_id", "facility_name", "facility_city", "facility_country");
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -120,7 +120,7 @@ public class FacilityDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.add("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
+		String query = QueryUtil.insert("facilities", "facility_id", "facility_name", "facility_street_address", "facility_city", 
 				"facility_state", "facility_country", "facility_zip_code", "facility_number_of_beds", "facility_description");
 		
 		try {

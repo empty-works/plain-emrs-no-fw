@@ -13,7 +13,7 @@ class QueryUtilTest {
 		String query = "insert into patients("
 				+ "given_name,middle_initial,last_name)"
 				+ " values (?,?,?)";
-		String producedQuery = QueryUtil.add("patients", "given_name", "middle_initial", "last_name");
+		String producedQuery = QueryUtil.insert("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(producedQuery);
 		Assertions.assertEquals(query, producedQuery);
 	}
@@ -22,7 +22,7 @@ class QueryUtilTest {
 	void testGetNoCondition() {
 		
 		String query = "select given_name,middle_initial,last_name from patients";
-		String produceQuery = QueryUtil.getAll("patients", "given_name", "middle_initial", "last_name");
+		String produceQuery = QueryUtil.selectAll("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(produceQuery);
 		Assertions.assertEquals(query, produceQuery);
 	}
@@ -31,7 +31,7 @@ class QueryUtilTest {
 	void testGetWithCondition() {
 		
 		String query = "select given_name,middle_initial,last_name from patients where patient_id=?";
-		String produceQuery = QueryUtil.getWithCondition("patients", "patient_id", "given_name", "middle_initial", "last_name");
+		String produceQuery = QueryUtil.selectWithCondition("patients", "patient_id", "given_name", "middle_initial", "last_name");
 		System.out.println(produceQuery);
 		Assertions.assertEquals(query, produceQuery);
 	}
@@ -40,7 +40,7 @@ class QueryUtilTest {
 	void testGetAll() {
 		
 		String query = "select given_name,middle_initial,last_name from patients";
-		String produceQuery = QueryUtil.getAll("patients", "given_name", "middle_initial", "last_name");
+		String produceQuery = QueryUtil.selectAll("patients", "given_name", "middle_initial", "last_name");
 		System.out.println(produceQuery);
 		Assertions.assertEquals(query, produceQuery);
 	}
