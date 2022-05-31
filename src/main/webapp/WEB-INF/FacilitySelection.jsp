@@ -22,7 +22,7 @@
 		<div class="main-grid-container-side-nav main-font">
 			<div>Select facility: </div>	
 			<div class="facility-selection-box">
-				
+							
 			</div>
 		</div>
 	</div>	
