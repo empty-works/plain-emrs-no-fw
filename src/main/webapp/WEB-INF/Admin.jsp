@@ -23,26 +23,32 @@
 </head>
 <body>
 
-<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
-<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
+	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
+	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
-<!-- Main content --> 
-<div class="main-grid-container main-font">
-	<div id="admin-main-grid">
-		<div class="content-container" id="admin-grid-item-updates">
-			<div class="content-label">Updates</div>	
-			<div class="content-box"></div>
+	<div class="main-container">
+		<!-- Side navigation -->
+		<div class="sidenav main-font">
+			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
-		<div class="content-container" id="admin-grid-item-update-patient">
-			<div class="content-label">Last Updated Patient</div>	
-			<div class="content-box"></div>
-		</div>
-		<div class="content-container" id="admin-grid-item-add-patient">
-			<div class="content-label">Last Added Patient</div>	
-			<div class="content-box"></div>
+
+		<!-- Main content --> 
+		<div class="main-grid-container main-font">
+			<div id="admin-main-grid">
+				<div class="content-container" id="admin-grid-item-updates">
+					<div class="content-label">Updates</div>	
+					<div class="content-box"></div>
+				</div>
+				<div class="content-container" id="admin-grid-item-update-patient">
+					<div class="content-label">Last Updated Patient</div>	
+					<div class="content-box"></div>
+				</div>
+				<div class="content-container" id="admin-grid-item-add-patient">
+					<div class="content-label">Last Added Patient</div>	
+					<div class="content-box"></div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-
 </body>
 </html>

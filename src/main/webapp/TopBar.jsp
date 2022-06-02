@@ -14,6 +14,9 @@
 	<div class="topnav-grid">
 	<span class="topnav-brand">Plain EMRS</span>
 	<button formaction="<c:url value="/AdminServlet" />" class="topnav-menu-btn topnav-menu-btn-first">
+		<span class="menu-text">Admin</span>
+	</button>
+	<button formaction="<c:url value="" />" class="topnav-menu-btn">
 		<span class="menu-text">Updates</span>
 	</button>
 	<button formaction="<c:url value="/FacilitiesServlet" />" class="topnav-menu-btn">

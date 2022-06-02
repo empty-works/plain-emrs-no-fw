@@ -59,6 +59,8 @@ public class LoginServlet extends HttpServlet {
 			LoginDao loginDao = new LoginDao();
 			
 			RolePair userRole = loginDao.authenticateUser(loginBean);
+			// TODO:Implement this after implementing add user functionality
+			//List<String> facilitiesList = 
 			
 			if(userRole.equals(PlainEmrsRoles.invalidUser)) {
 				
