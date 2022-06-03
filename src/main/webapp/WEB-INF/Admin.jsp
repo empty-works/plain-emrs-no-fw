@@ -33,7 +33,7 @@
 		</div>
 
 		<!-- Main content --> 
-		<div class="main-grid-container main-font">
+		<div class="main-grid-container-side-nav main-font">
 			<div id="admin-main-grid">
 				<div class="content-container" id="admin-grid-item-updates">
 					<div class="content-label">Updates</div>	

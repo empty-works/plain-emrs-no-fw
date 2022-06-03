@@ -21,7 +21,6 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-
 			<!-- Side navigation -->
 			<div><a href="<c:url value="/PatientSearchServlet" />">Search</a></div>
 			<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
