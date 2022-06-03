@@ -2,7 +2,7 @@
  * 
  */
 
-fetch('PatientsSideNav.jsp')
+fetch('./sidenavjsps/PatientsSideNav.jsp')
 .then(res => res.text())
 .then(text => {
     let oldelem = document.querySelector("script#replace_with_sidenav");

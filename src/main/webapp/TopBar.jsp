@@ -19,9 +19,6 @@
 	<button formaction="<c:url value="" />" class="topnav-menu-btn">
 		<span class="menu-text">Updates</span>
 	</button>
-	<button formaction="<c:url value="/FacilitiesServlet" />" class="topnav-menu-btn">
-		<span class="menu-text">Facilities</span>
-	</button>
 	<button formaction="<c:url value="/PatientSearchServlet" />" class="topnav-menu-btn">
 		<span class="menu-text">Patients</span>
 	</button>

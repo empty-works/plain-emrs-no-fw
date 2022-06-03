@@ -29,7 +29,9 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
+			<div><a href="<c:url value="" />">Users</a></div>
+			<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
+			<!-- <script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script> -->
 		</div>
 
 		<!-- Main content --> 
