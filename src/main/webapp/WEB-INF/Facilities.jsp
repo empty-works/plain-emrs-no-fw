@@ -22,8 +22,10 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">	
+		<!-- 
 			<div><a href="<c:url value="/FacilitiesServlet" />">Overview</a></div>
-			<div><a href="<c:url value="" />">Settings</a></div>
+			<div><a href="<c:url value="" />">Settings</a></div> -->
+			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/adminsidenav.js"></script>
 		</div>
 
 		<!-- Main content --> 
