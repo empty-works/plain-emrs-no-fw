@@ -2,7 +2,7 @@
  * 
  */
 
-fetch('SecondTopBar.jsp')
+fetch('./topnavjsps/SecondTopBar.jsp')
 .then(res => res.text())
 .then(text => {
     let oldelem = document.querySelector("script#replace_with_secondtopbar");
