@@ -10,6 +10,7 @@
 </head>
 <body>
 	<!-- Side navigation -->
+	<div><a href="<c:url value="/AdminServlet" />">Overview</a></div>
 	<div><a href="<c:url value="" />">Users</a></div>
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 </body>
