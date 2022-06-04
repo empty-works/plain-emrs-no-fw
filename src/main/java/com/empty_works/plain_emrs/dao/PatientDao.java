@@ -15,7 +15,7 @@ import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class PatientDao {
 
-	final public static String PATIENTDAO_SUCCESS = "Success";
+	final public static String PATIENTDAO_SUCCESS = "Success!";
 
 	public static PatientBean getPatient(String patientId) {
 		
@@ -121,7 +121,7 @@ public class PatientDao {
 	 * @param pb
 	 * @return
 	 */
-	public static String add(PatientBean pb) {
+	public static String insert(PatientBean pb) {
 		
 		String id = pb.getId();
 		String givenName = pb.getGivenName();
