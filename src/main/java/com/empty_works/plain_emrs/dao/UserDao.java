@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
@@ -20,7 +22,7 @@ public class UserDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.selectWithCondition("users", "user_name", "user_email_address", "user_enabled", "user_created_on", "user_id", 
+		String query = QueryUtil.selectWithCondition("users", "user_name", "user_email_address", "user_enabled", "user_created_on", "patient_id", 
 				"nonpatient_id", "current_facility_id");
 		
 		System.out.println("User get query: " + query);
@@ -52,5 +54,45 @@ public class UserDao {
 		}
 		
 		return user;
+	}
+	
+	public static List<UserBean> getList() {
+		
+		List<UserBean> userList = new ArrayList<>();
+		
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		String query = QueryUtil.selectAll("users", "user_name", "user_email_address", "user_enabled", "user_created_on", "patient_id", 
+				"nonpatient_id", "current_facility_id");
+		
+		try {
+
+			preparedStatement = con.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				UserBean user = new UserBean();
+				user.setUsername(resultSet.getString("user_name"));
+				user.setEmailAddress(resultSet.getString("user_email_address"));
+				user.setUserEnabled(resultSet.getBoolean("user_enabled"));
+				user.setDateCreated(resultSet.getObject("user_created_on", LocalDateTime.class));
+				user.setPatientId(resultSet.getString("patient_id"));
+				user.setNonPatientId(resultSet.getString("nonpatient_id"));
+				user.setCurrentFacilityId(resultSet.getString("current_facility_id"));
+				userList.add(user);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
+		}
+		
+		return userList;
 	}
 }
