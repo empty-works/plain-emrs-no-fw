@@ -22,10 +22,11 @@ public class PatientDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.selectWithCondition("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
-				"patient_last_name", "patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", 
-				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", 
-				"patient_state", "patient_country", "patient_phone_number", "patient_facility_id");
+		String query = "SELECT patient_given_name, patient_middle_initial, patient_last_name, patient_date_of_birth, "
+				+ "patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
+				+ "patient_race, patient_ethnicity, patient_language_preference, patient_street_address, "
+				+ "patient_city, patient_state, patient_country, patient_phone_number, patient_facility_id"
+				+ " FROM patients WHERE patient_id=?";
 		
 		System.out.println("Patient get query: " + query);
 		
@@ -78,9 +79,13 @@ public class PatientDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
+		String query = "SELECT patient_id, patient_given_name, patient_middle_initial, patient_last_name, patient_date_of_birth, patient_gender, "
+				+ "patient_type, patient_race, patient_ethnicity, patient_language_preference, patient_facility_id FROM patients";
+		/*
 		String query = QueryUtil.selectAll("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
 				"patient_last_name", "patient_date_of_birth", "patient_gender", 
 				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_facility_id");
+		*/
 		
 		try {
 
@@ -146,6 +151,7 @@ public class PatientDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
+		String query = "INSERT INTO patients(patient_id, patient_given_name)";
 		String query = QueryUtil.insert("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
 				"patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", "patient_type", 
 				"patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", "patient_state", 

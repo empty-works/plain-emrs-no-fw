@@ -1,9 +1,34 @@
 package com.empty_works.plain_emrs.util;
 
-import com.empty_works.plain_emrs.beans.PatientBean;
-
 public class QueryUtil {
 
+	String tableName;
+	String condition;
+	StringBuilder fields;
+	
+	public QueryUtil() {
+		
+	}
+	
+	public void setTable(String tableName) {
+		
+		this.tableName = tableName;
+	}
+	
+	public void setFields(String ... args) {
+		
+		for(String arg : args) {
+			
+			fields.append(arg);
+		}
+	}
+	
+	public void setCondition(String condition) {
+		
+		this.condition = condition;
+	}
+	
+	
 	/**
 	 * 
 	 * @param table

@@ -56,7 +56,7 @@ public class UserDao {
 		return user;
 	}
 	
-	public static List<UserBean> getList() {
+	public static List<UserBean> getList(String firstName, String lastName) {
 		
 		List<UserBean> userList = new ArrayList<>();
 		
