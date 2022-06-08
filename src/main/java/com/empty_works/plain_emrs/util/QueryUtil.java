@@ -1,26 +1,21 @@
 package com.empty_works.plain_emrs.util;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.empty_works.plain_emrs.util.helpers.QueryField;
+
 public class QueryUtil {
 
 	String tableName;
 	String condition;
-	StringBuilder fields;
-	
-	public QueryUtil() {
-		
-	}
+	List<QueryField> fieldList = new ArrayList<>();
 	
 	public void setTable(String tableName) {
 		
 		this.tableName = tableName;
-	}
-	
-	public void setFields(String ... args) {
-		
-		for(String arg : args) {
-			
-			fields.append(arg);
-		}
 	}
 	
 	public void setCondition(String condition) {
@@ -28,6 +23,28 @@ public class QueryUtil {
 		this.condition = condition;
 	}
 	
+	public void addField(QueryField field) {
+		
+		fieldList.add(field);
+	}
+	
+	public int select() {
+		
+		// Make connection
+		Connection con = ConnectionUtil.getConnection();
+		
+		// Make prepared statement
+		PreparedStatement preparedStatement = null;
+		
+		// Create query from field list
+		String query = 
+		
+		// Check for conditions
+		
+		// Add conditions if they exist
+	}
+
+	private 
 	
 	/**
 	 * 
