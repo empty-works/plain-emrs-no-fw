@@ -79,14 +79,10 @@ public class PatientDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String query = "SELECT patient_id, patient_given_name, patient_middle_initial, patient_last_name, patient_date_of_birth, patient_gender, "
-				+ "patient_type, patient_race, patient_ethnicity, patient_language_preference, patient_facility_id FROM patients";
-		/*
-		String query = QueryUtil.selectAll("patients", "patient_id", "patient_given_name", "patient_middle_initial", 
-				"patient_last_name", "patient_date_of_birth", "patient_gender", 
-				"patient_type", "patient_race", "patient_ethnicity", "patient_language_preference", "patient_facility_id");
-		*/
-		
+		String query = "SELECT patient_id, patient_given_name, patient_middle_initial, patient_last_name, "
+				+ "patient_date_of_birth, patient_gender, patient_type, patient_race, patient_ethnicity, "
+				+ "patient_language_preference, patient_facility_id FROM patients";
+
 		try {
 
 			preparedStatement = con.prepareStatement(query);
@@ -155,10 +151,6 @@ public class PatientDao {
 				+ "patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, patient_race, patient_ethnicity, "
 				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
 				+ "patient_facility_id) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		String query = QueryUtil.insert("patients", "patient_id", "patient_given_name", "patient_middle_initial", "patient_last_name", 
-				"patient_date_of_birth", "patient_provider", "patient_provider_id", "patient_room", "patient_gender", "patient_type", 
-				"patient_race", "patient_ethnicity", "patient_language_preference", "patient_street_address", "patient_city", "patient_state", 
-				"patient_country", "patient_phone_number", "patient_facility_id");
 		
 		try {
 
@@ -196,6 +188,4 @@ public class PatientDao {
 		
 		return "Something went wrong registering the patient into the database...";
 	}
-	
-	
 }

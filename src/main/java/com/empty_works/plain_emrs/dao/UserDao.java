@@ -22,8 +22,8 @@ public class UserDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = QueryUtil.selectWithCondition("users", "user_name", "user_email_address", "user_enabled", "user_created_on", "patient_id", 
-				"nonpatient_id", "current_facility_id");
+		String query = "SELECT user_email_address, user_enabled, user_created_on, patient_id, "
+				+ "nonpatient_id, current_facility_id FROM users WHERE user_name=?";
 		
 		System.out.println("User get query: " + query);
 		
@@ -64,9 +64,9 @@ public class UserDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String query = QueryUtil.selectAll("users", "user_name", "user_email_address", "user_enabled", "user_created_on", "patient_id", 
-				"nonpatient_id", "current_facility_id");
-		
+		String query = "select user_name, user_email_address, user_enabled, user_created_on, patient_id, "
+				+ "nonpatient_id, current_facility_id";
+
 		try {
 
 			preparedStatement = con.prepareStatement(query);

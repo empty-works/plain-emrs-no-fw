@@ -11,6 +11,7 @@ public class QueryUtil {
 
 	String tableName;
 	String condition;
+	String join;
 	List<QueryField> fieldList = new ArrayList<>();
 	
 	public void setTable(String tableName) {
@@ -21,6 +22,11 @@ public class QueryUtil {
 	public void setCondition(String condition) {
 		
 		this.condition = condition;
+	}
+	
+	public void setJoin(String join) {
+		
+		this.join = join;
 	}
 	
 	public void addField(QueryField field) {
@@ -37,14 +43,14 @@ public class QueryUtil {
 		PreparedStatement preparedStatement = null;
 		
 		// Create query from field list
-		String query = 
 		
 		// Check for conditions
 		
 		// Add conditions if they exist
+		
+		return 0;
 	}
 
-	private 
 	
 	/**
 	 * 
