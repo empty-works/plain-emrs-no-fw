@@ -9,10 +9,21 @@ import com.empty_works.plain_emrs.util.helpers.QueryField;
 
 public class QueryUtil {
 
-	String tableName;
-	String condition;
-	String join;
-	List<QueryField> fieldList = new ArrayList<>();
+	private Connection con;
+	private PreparedStatement preparedStatement = null;
+	private StringBuilder fullQuery = new StringBuilder();
+	private StringBuilder fieldsSb = new StringBuilder();
+	private String fields;
+	private String tableName;
+	private String condition;
+	private String join;
+	private List<QueryField> fieldList = new ArrayList<>();
+	
+	public QueryUtil() {
+		
+		// Make connection
+		con = ConnectionUtil.getConnection();
+	}
 	
 	public void setTable(String tableName) {
 		
@@ -36,13 +47,11 @@ public class QueryUtil {
 	
 	public int select() {
 		
-		// Make connection
-		Connection con = ConnectionUtil.getConnection();
-		
-		// Make prepared statement
-		PreparedStatement preparedStatement = null;
-		
+		fullQuery.append("select ");
+
 		// Create query from field list
+		fields = getFields();
+		fullQuery.append(fields);
 		
 		// Check for conditions
 		
@@ -51,7 +60,20 @@ public class QueryUtil {
 		return 0;
 	}
 
-	
+	private String getFields() {
+		
+		if(!fieldList.isEmpty()) {
+			
+			for(QueryField field : fieldList) {
+				
+				fieldsSb.append(field.getField());
+				fieldsSb.append(",");
+			}
+			// Remove last comma.
+			fieldsSb.deleteCharAt(fieldsSb.length() - 1);
+		}
+		return fieldsSb.toString();
+	}
 	/**
 	 * 
 	 * @param table
