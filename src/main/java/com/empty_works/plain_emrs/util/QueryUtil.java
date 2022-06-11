@@ -15,8 +15,8 @@ public class QueryUtil {
 	private StringBuilder fieldsSb = new StringBuilder();
 	private String fields;
 	private String tableName;
-	private String condition;
-	private String join;
+	private String condition = "";
+	private String join = "";
 	private List<QueryField> fieldList = new ArrayList<>();
 	
 	public QueryUtil() {
@@ -30,14 +30,14 @@ public class QueryUtil {
 		this.tableName = tableName;
 	}
 	
-	public void setCondition(String condition) {
-		
-		this.condition = condition;
-	}
-	
 	public void setJoin(String join) {
 		
 		this.join = join;
+	}
+	
+	public void setCondition(String condition) {
+		
+		this.condition = condition;
 	}
 	
 	public void addField(QueryField field) {
@@ -53,9 +53,20 @@ public class QueryUtil {
 		fields = getFields();
 		fullQuery.append(fields);
 		
-		// Check for conditions
+		// From table
+		fullQuery.append(" FROM ");
+		fullQuery.append(tableName);
+		
+		// Join tables
+		fullQuery.append(" JOIN ");
+		fullQuery.append(join);
 		
 		// Add conditions if they exist
+		if(!condition.isEmpty()) {
+			
+			fullQuery.append(" WHERE ");
+			fullQuery.append(condition);
+		}
 		
 		return 0;
 	}
