@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.empty_works.plain_emrs.util.helpers.QueryCondition;
 import com.empty_works.plain_emrs.util.helpers.QueryField;
 
 public class QueryUtil {
@@ -15,9 +16,9 @@ public class QueryUtil {
 	private StringBuilder fieldsSb = new StringBuilder();
 	private String fields;
 	private String tableName;
-	private String condition = "";
 	private String join = "";
 	private List<QueryField> fieldList = new ArrayList<>();
+	private List<QueryCondition> conditionList = new ArrayList<>();
 	
 	public QueryUtil() {
 		
@@ -35,9 +36,9 @@ public class QueryUtil {
 		this.join = join;
 	}
 	
-	public void setCondition(String condition) {
+	public void addCondition(QueryCondition condition) {
 		
-		this.condition = condition;
+		conditionList.add(condition);
 	}
 	
 	public void addField(QueryField field) {
@@ -62,10 +63,13 @@ public class QueryUtil {
 		fullQuery.append(join);
 		
 		// Add conditions if they exist
-		if(!condition.isEmpty()) {
+		if(!conditionList.isEmpty()) {
 			
 			fullQuery.append(" WHERE ");
-			fullQuery.append(condition);
+			for(QueryCondition condition : conditionList) {
+				
+				fullQuery.append(condition.getCondition());
+			}
 		}
 		
 		return 0;

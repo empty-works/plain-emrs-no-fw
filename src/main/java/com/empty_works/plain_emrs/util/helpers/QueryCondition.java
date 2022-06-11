@@ -2,8 +2,8 @@ package com.empty_works.plain_emrs.util.helpers;
 
 public class QueryCondition {
 
-	public static String AND = "AND";
-	public static String OR = "OR";
+	public static String AND = " AND ";
+	public static String OR = " OR ";
 	private String operator;
 	private String condition;
 	
