@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.util.helpers.QueryCondition;
 import com.empty_works.plain_emrs.util.helpers.QueryField;
+import com.empty_works.plain_emrs.util.helpers.QueryJoin;
 
 public class QueryUtil {
 
@@ -16,7 +17,7 @@ public class QueryUtil {
 	private StringBuilder fieldsSb = new StringBuilder();
 	private String fields;
 	private String tableName;
-	private String join = "";
+	private QueryJoin join = null;
 	private List<QueryField> fieldList = new ArrayList<>();
 	private List<QueryCondition> conditionList = new ArrayList<>();
 	
@@ -26,12 +27,17 @@ public class QueryUtil {
 		con = ConnectionUtil.getConnection();
 	}
 	
+	public QueryUtil(String test) {
+		
+		// Dummy constructor for testing.
+	}
+	
 	public void setTable(String tableName) {
 		
 		this.tableName = tableName;
 	}
-	
-	public void setJoin(String join) {
+
+	public void setJoin(QueryJoin join) {
 		
 		this.join = join;
 	}
@@ -46,9 +52,9 @@ public class QueryUtil {
 		fieldList.add(field);
 	}
 	
-	public int select() {
+	public String select() {
 		
-		fullQuery.append("select ");
+		fullQuery.append("SELECT ");
 
 		// Create query from field list
 		fields = getFields();
@@ -59,8 +65,10 @@ public class QueryUtil {
 		fullQuery.append(tableName);
 		
 		// Join tables
-		fullQuery.append(" JOIN ");
-		fullQuery.append(join);
+		if(join != null) {
+			
+			fullQuery.append(join);
+		}
 		
 		// Add conditions if they exist
 		if(!conditionList.isEmpty()) {
@@ -72,7 +80,7 @@ public class QueryUtil {
 			}
 		}
 		
-		return 0;
+		return fullQuery.toString();
 	}
 
 	private String getFields() {
