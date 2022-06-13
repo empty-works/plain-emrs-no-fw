@@ -20,6 +20,6 @@ public class QueryCondition {
 	
 	public String getCondition() {
 		
-		return operator + " " + condition;
+		return operator + condition;
 	}
 }
