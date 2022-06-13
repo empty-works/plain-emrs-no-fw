@@ -2,13 +2,13 @@ package com.empty_works.plain_emrs.util.helpers;
 
 public class QueryJoin {
 
-	private static String JOIN = " JOIN ";
-	private static String LEFT_JOIN = " LEFT JOIN ";
-	private static String RIGHT_JOIN = " RIGHT JOIN ";
-	private static String FULL_JOIN = " FULL JOIN ";
-	private static String join;
-	private static String table;
-	private static String joinCondition;
+	public static String JOIN = " JOIN ";
+	public static String LEFT_JOIN = " LEFT JOIN ";
+	public static String RIGHT_JOIN = " RIGHT JOIN ";
+	public static String FULL_JOIN = " FULL JOIN ";
+	private String joinType;
+	private String table;
+	private String joinCondition;
 	
 	/**
 	 * 
@@ -16,15 +16,15 @@ public class QueryJoin {
 	 * @param table
 	 * @param joinCondition
 	 */
-	public QueryJoin(String join, String table, String joinCondition) {
+	public QueryJoin(String joinType, String table, String joinCondition) {
 		
-		this.join = join;
+		this.joinType = joinType;
 		this.table = table;
 		this.joinCondition = joinCondition;
 	}
 	
 	public String getJoin() {
 		
-		return join + " ON " + joinCondition; 
+		return joinType + table + " ON " + joinCondition; 
 	}
 }

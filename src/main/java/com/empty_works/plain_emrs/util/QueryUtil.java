@@ -67,7 +67,7 @@ public class QueryUtil {
 		// Join tables
 		if(join != null) {
 			
-			fullQuery.append(join);
+			fullQuery.append(join.getJoin());
 		}
 		
 		// Add conditions if they exist
