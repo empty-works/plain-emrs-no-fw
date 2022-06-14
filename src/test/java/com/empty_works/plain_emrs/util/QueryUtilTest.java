@@ -42,16 +42,32 @@ class QueryUtilTest {
 	}
 	
 	@Test
-	void testSelectWithConditions() {
+	void testSelectWithOneCondition() {
 		
 		String testQuery = "SELECT user_home_address,user_email_address FROM users WHERE user_name=?";
 		QueryUtil qu = new QueryUtil(""); // Dummy constructor
 		qu.addField(new QueryField(QueryDataType.STRING, "user_home_address"));
 		qu.addField(new QueryField(QueryDataType.STRING, "user_email_address"));
 		qu.setTable("users");
-		qu.addCondition(new QueryCondition("", "user_name=?"));
+		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_name=?"));
 		String finalQuery = qu.select();
 		System.out.println("Select final query with a condition: " + finalQuery);
+		Assertions.assertEquals(testQuery, finalQuery);
+	}
+	
+	@Test
+	void testSelectWithConditions() {
+		
+		String testQuery = "SELECT user_name,user_home_address,user_email_address FROM users WHERE user_home_address=? AND user_email_address=?";
+		QueryUtil qu = new QueryUtil(""); // Dummy constructor
+		qu.addField(new QueryField(QueryDataType.STRING, "user_name"));
+		qu.addField(new QueryField(QueryDataType.STRING, "user_home_address"));
+		qu.addField(new QueryField(QueryDataType.STRING, "user_email_address"));
+		qu.setTable("users");
+		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_home_address=?"));
+		qu.addCondition(new QueryCondition(QueryCondition.AND, "user_email_address=?"));
+		String finalQuery = qu.select();
+		System.out.println("Select final query with conditions: " + finalQuery);
 		Assertions.assertEquals(testQuery, finalQuery);
 	}
 	
