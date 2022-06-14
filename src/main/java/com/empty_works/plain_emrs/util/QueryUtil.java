@@ -80,6 +80,8 @@ public class QueryUtil {
 			}
 		}
 		
+		
+		
 		return fullQuery.toString();
 	}
 
