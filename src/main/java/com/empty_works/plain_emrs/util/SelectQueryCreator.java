@@ -6,6 +6,7 @@ import java.util.List;
 import com.empty_works.plain_emrs.util.helpers.QueryCondition;
 import com.empty_works.plain_emrs.util.helpers.QueryField;
 import com.empty_works.plain_emrs.util.helpers.QueryJoin;
+import com.empty_works.plain_emrs.util.helpers.SelectQueryResult;
 
 public class SelectQueryCreator {
 
@@ -16,6 +17,7 @@ public class SelectQueryCreator {
 	private StringBuilder fieldsSb = new StringBuilder();
 	private QueryJoin join = null;
 	private StringBuilder fullQuery = new StringBuilder();
+	private String fullQueryString;
 
 	public void setTable(String tableName) {
 		
@@ -37,13 +39,14 @@ public class SelectQueryCreator {
 		fieldList.add(field);
 	}
 	
-	public String select() {
+	public SelectQueryResult select() {
 		
 		fullQuery.append("SELECT ");
 
 		// Create query from field list
 		fields = getFields();
 		fullQuery.append(fields);
+		
 		
 		// From table
 		fullQuery.append(" FROM ");
