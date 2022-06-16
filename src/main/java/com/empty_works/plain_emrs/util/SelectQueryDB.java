@@ -2,20 +2,22 @@ package com.empty_works.plain_emrs.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.empty_works.plain_emrs.beans.UserBean;
+import com.empty_works.plain_emrs.util.helpers.SelectQueryResult;
 
 public class SelectQueryDB {
 
 	Connection con = null;
 	PreparedStatement preparedStatement = null;
-	private String selectQuery;
+	private SelectQueryResult selectQueryResult;
 	
-	public SelectQueryDB(String selectQuery) {
+	public SelectQueryDB(SelectQueryResult selectQueryResult) {
 		
 		con = ConnectionUtil.getConnection();
-		this.selectQuery = selectQuery;
+		this.selectQueryResult = selectQueryResult;
 	}
 	
 	public UserBean send() {
@@ -23,7 +25,10 @@ public class SelectQueryDB {
 		try {
 
 			UserBean user = new UserBean();
-			preparedStatement = con.prepareStatement(selectQuery);
+			preparedStatement = con.prepareStatement(selectQueryResult.getFullQueryString());
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			//	Set 
 			
 			
 		} catch (SQLException e) {

@@ -6,6 +6,7 @@ import java.util.List;
 public class SelectQueryResult {
 
 	private List<QueryField> fieldList = new ArrayList<>();
+	private List<QueryCondition> conditionList = new ArrayList<>();
 	private String fullQueryString;
 
 	public List<QueryField> getFieldList() {
@@ -19,5 +20,11 @@ public class SelectQueryResult {
 	}
 	public void setFullQueryString(String fullQueryString) {
 		this.fullQueryString = fullQueryString;
+	}
+	public List<QueryCondition> getConditionList() {
+		return conditionList;
+	}
+	public void setConditionList(List<QueryCondition> conditionList) {
+		this.conditionList = conditionList;
 	}
 }
