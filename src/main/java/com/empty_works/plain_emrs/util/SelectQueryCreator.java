@@ -18,6 +18,7 @@ public class SelectQueryCreator {
 	private QueryJoin join = null;
 	private StringBuilder fullQuery = new StringBuilder();
 	private String fullQueryString;
+	private SelectQueryResult result = new SelectQueryResult();
 
 	public void setTable(String tableName) {
 		
@@ -46,7 +47,7 @@ public class SelectQueryCreator {
 		// Create query from field list
 		fields = getFields();
 		fullQuery.append(fields);
-		
+		result.setFieldList(fieldList);
 		
 		// From table
 		fullQuery.append(" FROM ");
@@ -68,7 +69,9 @@ public class SelectQueryCreator {
 			}
 		}
 		
-		return fullQuery.toString();
+		fullQueryString = fullQuery.toString();
+		result.setFullQueryString(fullQueryString);
+		return result;
 	}
 	
 	private String getFields() {
