@@ -6,6 +6,7 @@ public class QueryCondition {
 	public static String AND = " AND ";
 	public static String OR = " OR ";
 	private String operator;
+	private String dataType;
 	private String condition;
 	private String match;
 	
@@ -19,6 +20,7 @@ public class QueryCondition {
 	public QueryCondition(String operator, String dataType, String condition, String match) {
 		
 		this.operator = operator;
+		this.dataType = dataType;
 		this.condition = condition;
 		this.match = match;
 	}
@@ -31,5 +33,10 @@ public class QueryCondition {
 	public String getMatch() {
 		
 		return match;
+	}
+	
+	public String getDataType() {
+		
+		return dataType;
 	}
 }
