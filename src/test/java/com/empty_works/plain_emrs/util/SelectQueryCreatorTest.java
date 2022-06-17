@@ -49,7 +49,7 @@ class SelectQueryCreatorTest {
 		qu.addField(new QueryField(QueryDataType.STRING, "user_home_address"));
 		qu.addField(new QueryField(QueryDataType.STRING, "user_email_address"));
 		qu.setTable("users");
-		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_name=?", "username"));
+		qu.addCondition(new QueryCondition(QueryCondition.FIRST, QueryDataType.STRING, "user_name=?", "dummy"));
 		String finalQuery = qu.select();
 		System.out.println("Select final query with a condition: " + finalQuery);
 		Assertions.assertEquals(testQuery, finalQuery);
@@ -64,8 +64,8 @@ class SelectQueryCreatorTest {
 		qu.addField(new QueryField(QueryDataType.STRING, "user_home_address"));
 		qu.addField(new QueryField(QueryDataType.STRING, "user_email_address"));
 		qu.setTable("users");
-		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_home_address=?"));
-		qu.addCondition(new QueryCondition(QueryCondition.AND, "user_email_address=?"));
+		qu.addCondition(new QueryCondition(QueryCondition.FIRST, QueryDataType.STRING, "user_home_address=?", "dummy1"));
+		qu.addCondition(new QueryCondition(QueryCondition.AND, QueryDataType.STRING, "user_email_address=?", "dummy2"));
 		String finalQuery = qu.select();
 		System.out.println("Select final query with conditions: " + finalQuery);
 		Assertions.assertEquals(testQuery, finalQuery);

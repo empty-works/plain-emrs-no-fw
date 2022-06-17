@@ -25,6 +25,8 @@ public class SelectQueryDB {
 		try {
 
 			UserBean user = new UserBean();
+			// Insert any matches for conditions here
+			
 			preparedStatement = con.prepareStatement(selectQueryResult.getFullQueryString());
 			ResultSet rs = preparedStatement.executeQuery();
 			
@@ -33,5 +35,10 @@ public class SelectQueryDB {
 
 			e.printStackTrace();
 		}
+	}
+	
+	private void setMatches() {
+		
+		
 	}
 }

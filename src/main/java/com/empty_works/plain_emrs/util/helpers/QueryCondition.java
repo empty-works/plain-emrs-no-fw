@@ -12,9 +12,11 @@ public class QueryCondition {
 	/**
 	 * 
 	 * @param operator
+	 * @param dataType
 	 * @param condition
+	 * @param match
 	 */
-	public QueryCondition(String operator, String condition, String match) {
+	public QueryCondition(String operator, String dataType, String condition, String match) {
 		
 		this.operator = operator;
 		this.condition = condition;
