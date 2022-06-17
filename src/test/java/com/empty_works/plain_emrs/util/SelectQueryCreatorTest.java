@@ -49,7 +49,7 @@ class SelectQueryCreatorTest {
 		qu.addField(new QueryField(QueryDataType.STRING, "user_home_address"));
 		qu.addField(new QueryField(QueryDataType.STRING, "user_email_address"));
 		qu.setTable("users");
-		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_name=?"));
+		qu.addCondition(new QueryCondition(QueryCondition.FIRST, "user_name=?", "username"));
 		String finalQuery = qu.select();
 		System.out.println("Select final query with a condition: " + finalQuery);
 		Assertions.assertEquals(testQuery, finalQuery);

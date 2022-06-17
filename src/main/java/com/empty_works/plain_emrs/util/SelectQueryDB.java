@@ -20,15 +20,13 @@ public class SelectQueryDB {
 		this.selectQueryResult = selectQueryResult;
 	}
 	
-	public UserBean send() {
+	public UserBean get() {
 		
 		try {
 
 			UserBean user = new UserBean();
 			preparedStatement = con.prepareStatement(selectQueryResult.getFullQueryString());
 			ResultSet rs = preparedStatement.executeQuery();
-			
-			//	Set 
 			
 			
 		} catch (SQLException e) {
