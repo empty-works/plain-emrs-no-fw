@@ -8,7 +8,7 @@ public class QueryCondition {
 	private String operator;
 	private String dataType;
 	private String condition;
-	private String match;
+	private Object match;
 	
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class QueryCondition {
 	 * @param condition
 	 * @param match
 	 */
-	public QueryCondition(String operator, String dataType, String condition, String match) {
+	public QueryCondition(String operator, String dataType, String condition, Object match) {
 		
 		this.operator = operator;
 		this.dataType = dataType;
@@ -30,7 +30,7 @@ public class QueryCondition {
 		return operator + condition;
 	}
 	
-	public String getMatch() {
+	public Object getMatch() {
 		
 		return match;
 	}
