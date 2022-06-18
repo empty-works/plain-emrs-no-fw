@@ -47,9 +47,8 @@ public class SelectQueryDB {
 		return user;
 	}
 	
-	String setMatches() {
+	public void setMatches() {
 		
-		StringBuilder sbForTest = new StringBuilder();
 		try {
 			
 			for(int i = 0; i < selectQueryResult.getConditionList().size(); i++) {
@@ -57,30 +56,19 @@ public class SelectQueryDB {
 				switch(selectQueryResult.getConditionList().get(i).getDataType()) {
 				
 				case QueryDataType.STRING : 
-					String testStr = (String)selectQueryResult.getConditionList().get(i).getMatch();
-					//preparedStatement.setString(i + 1, (String)selectQueryResult.getConditionList().get(i).getMatch());
-					sbForTest.append(QueryDataType.STRING);
-					sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch());
+					preparedStatement.setString(i + 1, (String)selectQueryResult.getConditionList().get(i).getMatch());
 					break;
 				case QueryDataType.INT : 
 					preparedStatement.setInt(i + 1, (Integer)selectQueryResult.getConditionList().get(i).getMatch());
-					sbForTest.append(QueryDataType.INT);
-					sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
 					break;
 				case QueryDataType.DOUBLE : 
 					preparedStatement.setDouble(i + 1, (Double)selectQueryResult.getConditionList().get(i).getMatch());
-					sbForTest.append(QueryDataType.DOUBLE);
-					sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
 					break;
 				case QueryDataType.DATE: 
 					preparedStatement.setObject(i + 1, (LocalDate)selectQueryResult.getConditionList().get(i).getMatch());
-					sbForTest.append(QueryDataType.DATE);
-					sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
 					break;
 				case QueryDataType.DATE_TIME: 
 					preparedStatement.setObject(i + 1, (LocalDateTime)selectQueryResult.getConditionList().get(i).getMatch());
-					sbForTest.append(QueryDataType.DATE_TIME);
-					sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
 					break;
 				}
 			}
@@ -88,8 +76,44 @@ public class SelectQueryDB {
 			
 			e.getStackTrace();
 		}
-		return sbForTest.toString();
 	}
 	
-	String 
+	/**
+	 * 
+	 * @param selectQueryResult
+	 * @return matchString
+	 */
+	String setMatchesTest() {
+		
+		StringBuilder sbForTest = new StringBuilder();
+
+		for(int i = 0; i < selectQueryResult.getConditionList().size(); i++) {
+			
+			switch(selectQueryResult.getConditionList().get(i).getDataType()) {
+			
+			case QueryDataType.STRING : 
+				sbForTest.append(QueryDataType.STRING);
+				sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch());
+				break;
+			case QueryDataType.INT : 
+				sbForTest.append(QueryDataType.INT);
+				sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
+				break;
+			case QueryDataType.DOUBLE : 
+				sbForTest.append(QueryDataType.DOUBLE);
+				sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
+				break;
+			case QueryDataType.DATE: 
+				sbForTest.append(QueryDataType.DATE);
+				sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
+				break;
+			case QueryDataType.DATE_TIME: 
+				sbForTest.append(QueryDataType.DATE_TIME);
+				sbForTest.append(selectQueryResult.getConditionList().get(i).getMatch().toString());
+				break;
+			}
+		}
+
+		return sbForTest.toString();
+	}
 }

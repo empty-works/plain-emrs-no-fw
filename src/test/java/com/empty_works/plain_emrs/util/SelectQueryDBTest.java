@@ -23,7 +23,7 @@ class SelectQueryDBTest {
 		SelectQueryResult sqr = new SelectQueryResult();
 		sqr.setConditionList(conditionList);
 		SelectQueryDB sqdb = new SelectQueryDB(sqr);
-		String resultMatch = sqdb.setMatches();
+		String resultMatch = sqdb.setMatchesTest();
 		System.out.println("setMatch() one string: " + resultMatch);
 		Assertions.assertEquals(testMatch, resultMatch);
 	}
