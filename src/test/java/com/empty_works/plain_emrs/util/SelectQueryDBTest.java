@@ -27,4 +27,19 @@ class SelectQueryDBTest {
 		System.out.println("setMatch() one string: " + resultMatch);
 		Assertions.assertEquals(testMatch, resultMatch);
 	}
+	
+	@Test
+	void testSetMatchesTwoStrings() {
+		
+		String testMatch = "StringuserHomeAddressStringuserEmailAddress";
+		List<QueryCondition> conditionList = new ArrayList<>();
+		conditionList.add(new QueryCondition("", QueryDataType.STRING, "user_home_address=?", "userHomeAddress"));
+		conditionList.add(new QueryCondition("", QueryDataType.STRING, "user_email_address=?", "userEmailAddress"));
+		SelectQueryResult sqr = new SelectQueryResult();
+		sqr.setConditionList(conditionList);
+		SelectQueryDB sqdb = new SelectQueryDB(sqr);
+		String resultMatch = sqdb.setMatchesTest();
+		System.out.println("setMatch() one string: " + resultMatch);
+		Assertions.assertEquals(testMatch, resultMatch);
+	}
 }
