@@ -27,7 +27,13 @@ public class ConnectionUtil {
 		return connection;
 	}
 	
-	public static void closeConnection(Connection con, PreparedStatement ps, ResultSet rs) {
+	/**
+	 * 
+	 * @param con
+	 * @param preparedStatement
+	 * @param resultSet
+	 */
+	public static void closeConnection(Connection con, PreparedStatement preparedStatement, ResultSet resultSet) {
 		
 		try {
 			
@@ -36,14 +42,14 @@ public class ConnectionUtil {
 				con.close();
 			}
 			
-			if(ps != null) {
+			if(preparedStatement != null) {
 				
-				ps.close();
+				preparedStatement.close();
 			}
 			
-			if(rs != null) {
+			if(resultSet != null) {
 				
-				rs.close();
+				resultSet.close();
 			}
 		}
 		catch(SQLException e) {

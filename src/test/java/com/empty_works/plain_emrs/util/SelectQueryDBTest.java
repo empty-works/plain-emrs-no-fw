@@ -17,7 +17,7 @@ class SelectQueryDBTest {
 	@Test
 	void testSetMatchesOneString() {
 		
-		String testMatch = "Stringdummy1Stringdummy2";
+		String testMatch = "StringuserHomeAddress";
 		List<QueryCondition> conditionList = new ArrayList<>();
 		conditionList.add(new QueryCondition("", QueryDataType.STRING, "user_home_address=?", "userHomeAddress"));
 		SelectQueryResult sqr = new SelectQueryResult();
@@ -27,5 +27,4 @@ class SelectQueryDBTest {
 		System.out.println("setMatch() one string: " + resultMatch);
 		Assertions.assertEquals(testMatch, resultMatch);
 	}
-
 }
