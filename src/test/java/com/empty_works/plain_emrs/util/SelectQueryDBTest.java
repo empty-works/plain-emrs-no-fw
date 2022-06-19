@@ -42,4 +42,48 @@ class SelectQueryDBTest {
 		System.out.println("setMatch() one string: " + resultMatch);
 		Assertions.assertEquals(testMatch, resultMatch);
 	}
+	
+	@Test
+	void testSetMatchesOneInt() {
+		
+		String testMatch = "intage";
+		List<QueryCondition> conditionList = new ArrayList<>();
+		conditionList.add(new QueryCondition("", QueryDataType.INT, "age=?", "age"));
+		SelectQueryResult sqr = new SelectQueryResult();
+		sqr.setConditionList(conditionList);
+		SelectQueryDB sqdb = new SelectQueryDB(sqr);
+		String resultMatch = sqdb.setMatchesTest();
+		System.out.println("setMatch() one int: " + resultMatch);
+		Assertions.assertEquals(testMatch, resultMatch);
+	}
+
+	@Test
+	void testSetMatchesTwoInts() {
+		
+		String testMatch = "intageintroomNumber";
+		List<QueryCondition> conditionList = new ArrayList<>();
+		conditionList.add(new QueryCondition("", QueryDataType.INT, "age=?", "age"));
+		conditionList.add(new QueryCondition("", QueryDataType.INT, "room_number=?", "roomNumber"));
+		SelectQueryResult sqr = new SelectQueryResult();
+		sqr.setConditionList(conditionList);
+		SelectQueryDB sqdb = new SelectQueryDB(sqr);
+		String resultMatch = sqdb.setMatchesTest();
+		System.out.println("setMatch() two ints: " + resultMatch);
+		Assertions.assertEquals(testMatch, resultMatch);
+	}
+
+	@Test
+	void testSetMatchesOneStringOneInt() {
+		
+		String testMatch = "StringuserHomeAddressintage";
+		List<QueryCondition> conditionList = new ArrayList<>();
+		conditionList.add(new QueryCondition("", QueryDataType.STRING, "user_home_address=?", "userHomeAddress"));
+		conditionList.add(new QueryCondition("", QueryDataType.INT, "age=?", "age"));
+		SelectQueryResult sqr = new SelectQueryResult();
+		sqr.setConditionList(conditionList);
+		SelectQueryDB sqdb = new SelectQueryDB(sqr);
+		String resultMatch = sqdb.setMatchesTest();
+		System.out.println("setMatch() one int one String: " + resultMatch);
+		Assertions.assertEquals(testMatch, resultMatch);
+	}
 }
