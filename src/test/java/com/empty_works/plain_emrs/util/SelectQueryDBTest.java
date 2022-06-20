@@ -86,4 +86,20 @@ class SelectQueryDBTest {
 		System.out.println("setMatch() one int one String: " + resultMatch);
 		Assertions.assertEquals(testMatch, resultMatch);
 	}
+
+	@Test
+	void testSetMatchesOneDateOneStringOneInt() {
+		
+		String testMatch = "datedateCreationStringuserHomeAddressintage";
+		List<QueryCondition> conditionList = new ArrayList<>();
+		conditionList.add(new QueryCondition("", QueryDataType.DATE, "user_created_on=?", "dateCreation"));
+		conditionList.add(new QueryCondition("", QueryDataType.STRING, "user_home_address=?", "userHomeAddress"));
+		conditionList.add(new QueryCondition("", QueryDataType.INT, "age=?", "age"));
+		SelectQueryResult sqr = new SelectQueryResult();
+		sqr.setConditionList(conditionList);
+		SelectQueryDB sqdb = new SelectQueryDB(sqr);
+		String resultMatch = sqdb.setMatchesTest();
+		System.out.println("setMatch() one date one int one String: " + resultMatch);
+		Assertions.assertEquals(testMatch, resultMatch);
+	}
 }

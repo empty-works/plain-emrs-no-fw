@@ -1,22 +1,26 @@
 package com.empty_works.plain_emrs.util;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.helpers.QueryCondition;
 import com.empty_works.plain_emrs.util.helpers.QueryDataType;
+import com.empty_works.plain_emrs.util.helpers.QueryField;
 import com.empty_works.plain_emrs.util.helpers.SelectQueryResult;
 
 public class SelectQueryDB {
 
 	Connection con = null;
 	PreparedStatement preparedStatement = null;
-	ResultSet rs = null;
+	ResultSet resultSet = null;
 	private SelectQueryResult selectQueryResult;
 	
 	public SelectQueryDB(SelectQueryResult selectQueryResult) {
@@ -33,7 +37,13 @@ public class SelectQueryDB {
 			// Insert any matches for conditions here
 			preparedStatement = con.prepareStatement(selectQueryResult.getFullQueryString());
 			setMatches();
-			rs = preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
+			// Check if the result set is empty.
+			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
+			
+			// Set bean data from result set
+			List<QueryField> fieldList = new ArrayList<>();
+			
 			
 		} catch (SQLException e) {
 
@@ -41,7 +51,7 @@ public class SelectQueryDB {
 		}
 		finally {
 			
-			ConnectionUtil.closeConnection(con, preparedStatement, rs);
+			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 
 		return user;
