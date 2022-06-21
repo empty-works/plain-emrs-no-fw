@@ -34,7 +34,7 @@ public class NonPatientUserServlet extends HttpServlet {
 		System.out.println("Setting parameters to NonPatientBean...");
 		NonPatientBean npb = new NonPatientBean();
 		npb.setGivenName(request.getParameter("givenName"));
-		npb.setMiddleName(request.getParameter("middleName"));
+		npb.setMiddleInitial(request.getParameter("middleInitial"));
 		npb.setLastName(request.getParameter("lastName"));
 		// MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
 		npb.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));

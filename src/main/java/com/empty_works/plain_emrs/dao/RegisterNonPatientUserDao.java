@@ -15,9 +15,9 @@ public class RegisterNonPatientUserDao {
 	
 	public static String register(NonPatientBean npb) {
 		
-		String id = npb.getId();
+		String id = npb.getNonPatientId();
 		String givenName = npb.getGivenName();
-		String middleName = npb.getMiddleName();
+		String middleName = npb.getMiddleInitial();
 		String lastName = npb.getLastName();
 		String organization = npb.getOrganization();
 		LocalDate dateOfBirth = npb.getDateOfBirth();

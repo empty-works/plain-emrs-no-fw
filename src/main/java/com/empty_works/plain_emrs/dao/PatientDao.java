@@ -39,7 +39,7 @@ public class PatientDao {
 			// Check if the result set is empty.
 			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
 			
-			patient.setId(patientId);
+			patient.setPatientId(patientId);
 			patient.setGivenName(resultSet.getString("patient_given_name"));
 			patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 			patient.setLastName(resultSet.getString("patient_last_name"));
@@ -91,7 +91,7 @@ public class PatientDao {
 			while(resultSet.next()) {
 				
 				PatientBean patient = new PatientBean();
-				patient.setId(resultSet.getString("patient_id"));
+				patient.setPatientId(resultSet.getString("patient_id"));
 				patient.setGivenName(resultSet.getString("patient_given_name"));
 				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 				patient.setLastName(resultSet.getString("patient_last_name"));
@@ -124,7 +124,7 @@ public class PatientDao {
 	 */
 	public static String insert(PatientBean pb) {
 		
-		String id = pb.getId();
+		String id = pb.getPatientId();
 		String givenName = pb.getGivenName();
 		String middleInitial = pb.getMiddleInitial();
 		String lastName = pb.getLastName();
