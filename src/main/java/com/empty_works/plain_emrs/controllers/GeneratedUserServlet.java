@@ -40,7 +40,6 @@ public class GeneratedUserServlet extends HttpServlet {
 		GeneratedUserBean gub = new GeneratedUserBean();
 		gub.setUsername(NonPatientUsernameUtil.get(npb));
 		gub.setPassword(PasswordUtil.generate(5));
-		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);
 		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time
 

@@ -46,7 +46,6 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setType(request.getParameter("patientType"));
 		pb.setRace(request.getParameter("patientRace"));
 		pb.setEthnicity(request.getParameter("patientEthnicity"));
-		pb.setEmailAddress(request.getParameter("patientEmailAddress"));
 		pb.setStreetAddress(request.getParameter("patientStreetAddress"));
 		pb.setCity(request.getParameter("patientCity"));
 		pb.setState(request.getParameter("patientState"));
@@ -55,7 +54,8 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setProvider(request.getParameter("patientProvider"));
 		pb.setProviderId(request.getParameter("patientProviderId"));
 		pb.setRoomNumber(request.getParameter("patientRoom"));
-		pb.setId(PatientIdUtil.get(givenName, lastName));
+		pb.setFacilityId(request.getParameter("patientFacilityId"));
+		pb.setPatientId(PatientIdUtil.get(givenName, lastName));
 		
 		System.out.println("Adding patient to the database...");
 		String patientAddResult = PatientDao.insert(pb);

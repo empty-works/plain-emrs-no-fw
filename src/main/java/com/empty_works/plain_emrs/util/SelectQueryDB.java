@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.empty_works.plain_emrs.beans.GeneralBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.helpers.QueryCondition;
 import com.empty_works.plain_emrs.util.helpers.QueryDataType;
@@ -28,10 +29,10 @@ public class SelectQueryDB {
 		this.selectQueryResult = selectQueryResult;
 	}
 	
-	public UserBean get() {
+	public GeneralBean get() {
 		
 		con = ConnectionUtil.getConnection();
-		UserBean user = new UserBean();
+		GeneralBean bean = new GeneralBean();
 		try {
 
 			// Insert any matches for conditions here
@@ -54,7 +55,7 @@ public class SelectQueryDB {
 			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
 
-		return user;
+		return bean;
 	}
 	
 	public void setMatches() {

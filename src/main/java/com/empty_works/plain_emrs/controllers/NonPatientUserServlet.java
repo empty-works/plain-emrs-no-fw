@@ -36,12 +36,11 @@ public class NonPatientUserServlet extends HttpServlet {
 		npb.setGivenName(request.getParameter("givenName"));
 		npb.setMiddleName(request.getParameter("middleName"));
 		npb.setLastName(request.getParameter("lastName"));
-		npb.setEmailAddress(request.getParameter("emailAddress"));
 		// MAKE SURE TO ONLY ALLOW USER TO SELECT FROM DROP-DOWN BOXES
 		npb.setDateOfBirth(LocalDate.parse((request.getParameter("dateOfBirth"))));
 		npb.setOrganization(request.getParameter("organization"));
 		npb.setDescription(request.getParameter("description"));
-		npb.setId(NonPatientIdUtil.get(npb.getGivenName(), npb.getLastName(), 
+		npb.setNonPatientId(NonPatientIdUtil.get(npb.getGivenName(), npb.getLastName(), 
 				DateOfBirthUtil.getShortYear(npb.getDateOfBirth())));
 		
 		System.out.println("Registering non-patient user...");
@@ -69,10 +68,9 @@ public class NonPatientUserServlet extends HttpServlet {
 	private GeneratedUserBean autoGenerateUser(NonPatientBean npb) {
 		
 		GeneratedUserBean gub = new GeneratedUserBean();
-		gub.setNonPatientId(npb.getId());
+		gub.setNonPatientId(npb.getNonPatientId());
 		gub.setUsername(NonPatientUsernameUtil.get(npb));
 		gub.setPassword(PasswordUtil.generate(7));
-		gub.setEmailAddress(npb.getEmailAddress());
 		gub.setEnabled(true);
 		gub.setCreatedOn(LocalDateTime.now()); // Set current date and time
 

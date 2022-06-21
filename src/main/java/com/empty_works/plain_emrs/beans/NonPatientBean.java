@@ -1,13 +1,20 @@
 package com.empty_works.plain_emrs.beans;
 
-public class NonPatientBean extends GeneralBean {
+public class NonPatientBean extends PersonBean {
 
+	private String nonPatientId;
 	private String organization;
 	private String description;
 	private String ward = "Not applicable";
 	private String staffPosition = "Not applicable";
 	private String specialty = "Not applicable";
 
+	public String getNonPatientId() {
+		return nonPatientId;
+	}
+	public void setNonPatientId(String nonPatientId) {
+		this.nonPatientId = nonPatientId;
+	}
 	public String getOrganization() {
 		return organization;
 	}
