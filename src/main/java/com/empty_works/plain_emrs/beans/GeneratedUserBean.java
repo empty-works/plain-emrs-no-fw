@@ -2,7 +2,7 @@ package com.empty_works.plain_emrs.beans;
 
 import java.time.LocalDateTime;
 
-public class GeneratedUserBean {
+public class GeneratedUserBean extends GeneralBean {
 
 	private String username;
 	private String password;

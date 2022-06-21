@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class LoginBean {
+public class LoginBean extends GeneralBean {
 
 	private String username;
 	private String password;

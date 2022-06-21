@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class FacilityStaffPositionBean {
+public class FacilityStaffPositionBean extends GeneralBean {
 
 	private String facilityId;
 	private String staffPositionId;

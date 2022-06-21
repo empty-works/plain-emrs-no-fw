@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class RoleBean {
+public class RoleBean extends GeneralBean {
 
 	String id;
 	String name;

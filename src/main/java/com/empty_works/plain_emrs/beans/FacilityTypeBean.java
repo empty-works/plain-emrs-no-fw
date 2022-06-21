@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class FacilityTypeBean {
+public class FacilityTypeBean extends GeneralBean {
 
 	String facilityTypeId;
 	String name;

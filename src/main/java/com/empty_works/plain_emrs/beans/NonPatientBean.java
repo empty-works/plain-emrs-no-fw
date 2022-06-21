@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-public class NonPatientBean extends PersonBean {
+public class NonPatientBean extends GeneralBean {
 
 	private String organization;
 	private String description;

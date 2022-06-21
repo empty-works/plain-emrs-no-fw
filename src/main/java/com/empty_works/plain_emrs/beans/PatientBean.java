@@ -2,7 +2,7 @@ package com.empty_works.plain_emrs.beans;
 
 import java.time.LocalDate;
 
-public class PatientBean extends PersonBean {
+public class PatientBean extends GeneralBean {
 
 	private String provider;
 	private String providerId;
