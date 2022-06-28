@@ -31,8 +31,8 @@ public class SelectQueryDB {
 	
 	public GeneralBean get() {
 		
-		con = ConnectionUtil.getConnection();
 		GeneralBean bean = new GeneralBean();
+		con = ConnectionUtil.getConnection();
 		try {
 
 			// Insert any matches for conditions here
@@ -42,8 +42,6 @@ public class SelectQueryDB {
 			// Check if the result set is empty.
 			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
 			
-			// Set bean data from result set
-			List<QueryField> fieldList = new ArrayList<>();
 			
 			
 		} catch (SQLException e) {
@@ -87,6 +85,19 @@ public class SelectQueryDB {
 			
 			e.getStackTrace();
 		}
+	}
+	
+	public GeneralBean setBean() {
+		
+		GeneralBean bean = new GeneralBean();
+		List<QueryField> fieldList = selectQueryResult.getFieldList();
+		
+		// Set bean data from result set
+		for(QueryField field : fieldList) {
+			
+			
+		}
+		return bean;
 	}
 	
 	/**

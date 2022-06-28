@@ -8,6 +8,10 @@ import com.empty_works.plain_emrs.util.helpers.QueryField;
 import com.empty_works.plain_emrs.util.helpers.QueryJoin;
 import com.empty_works.plain_emrs.util.helpers.SelectQueryResult;
 
+/*
+ * To use the SelectQueryCreator, create a SelectQueryCreator object. Set the table and add the fields with QueryField objects. 
+ * Then optionally add conditions or joins. Then get result by calling the select method. 
+ * */
 public class SelectQueryCreator {
 
 	private String tableName;
@@ -20,26 +24,46 @@ public class SelectQueryCreator {
 	private String fullQueryString;
 	private SelectQueryResult result = new SelectQueryResult();
 
+	/**
+	 * 
+	 * @param tableName
+	 */
 	public void setTable(String tableName) {
 		
 		this.tableName = tableName;
 	}
 
+	/**
+	 * 
+	 * @param join
+	 */
 	public void setJoin(QueryJoin join) {
 		
 		this.join = join;
 	}
 	
+	/**
+	 * 
+	 * @param condition
+	 */
 	public void addCondition(QueryCondition condition) {
 		
 		conditionList.add(condition);
 	}
 	
+	/**
+	 * 
+	 * @param field
+	 */
 	public void addField(QueryField field) {
 		
 		fieldList.add(field);
 	}
 	
+	/**
+	 * 
+	 * @return SelectQueryResult result
+	 */
 	public SelectQueryResult select() {
 		
 		fullQuery.append("SELECT ");

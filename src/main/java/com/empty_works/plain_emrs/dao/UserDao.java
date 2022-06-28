@@ -12,6 +12,8 @@ import java.util.List;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 import com.empty_works.plain_emrs.util.QueryUtil;
+import com.empty_works.plain_emrs.util.SelectQueryCreator;
+import com.empty_works.plain_emrs.util.helpers.QueryField;
 
 public class UserDao {
 
@@ -21,6 +23,11 @@ public class UserDao {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
+		
+		SelectQueryCreator queryCreator = new SelectQueryCreator();
+		queryCreator.setTable("users");
+		queryCreator.addField(new QueryField(QueryField.STRING, "user_email_address"));
+		
 		
 		String query = "SELECT user_email_address, user_enabled, user_created_on, patient_id, "
 				+ "nonpatient_id, current_facility_id FROM users WHERE user_name=?";

@@ -17,7 +17,7 @@ import com.empty_works.plain_emrs.util.PasswordUtil;
 /**
  * Servlet implementation class UserServlet
  */
-@WebServlet("/UserServlet")
+@WebServlet("/GeneratedUserServlet")
 public class GeneratedUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
