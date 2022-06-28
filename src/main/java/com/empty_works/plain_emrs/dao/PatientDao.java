@@ -159,7 +159,7 @@ public class PatientDao {
 			preparedStatement.setString(2, givenName);
 			preparedStatement.setString(3, middleInitial);
 			preparedStatement.setString(4, lastName);
-			preparedStatement.setDate(5, java.sql.Date.valueOf(dateOfBirth));
+			preparedStatement.setObject(5, dateOfBirth);
 			preparedStatement.setString(6, provider);
 			preparedStatement.setString(7, providerId);
 			preparedStatement.setString(8, roomNumber);

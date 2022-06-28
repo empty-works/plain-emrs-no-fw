@@ -11,13 +11,14 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
+import com.empty_works.plain_emrs.util.PasswordUtil;
 import com.empty_works.plain_emrs.util.QueryUtil;
 import com.empty_works.plain_emrs.util.SelectQueryCreator;
 import com.empty_works.plain_emrs.util.helpers.QueryField;
 
 public class UserDao {
 
-	final public static String USERDAO_SUCCESS = "Success!";
+	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
 	public static UserBean getUser(String username) {
 		
@@ -101,5 +102,40 @@ public class UserDao {
 		}
 		
 		return userList;
+	}
+	
+	public static String add(UserBean user) {
+		
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		String query = QueryUtil.insert("users", "user_name", "user_password", "user_email_address", "user_enabled", "user_created_on", 
+				"patient_id", "nonpatient_id", "current_facility_id");
+		
+		try {
+
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, user.getUsername());
+			short passwordLength = 7;
+			preparedStatement.setString(2, PasswordUtil.generate(passwordLength));
+			preparedStatement.setString(3, user.getEmailAddress());
+			preparedStatement.setBoolean(4, user.isUserEnabled());
+			preparedStatement.setObject(5, user.getDateCreated());
+			preparedStatement.setString(6, user.getPatientId());
+			preparedStatement.setString(7, user.getNonPatientId());
+			preparedStatement.setString(8, user.getCurrentFacilityId());
+			
+			int i = preparedStatement.executeUpdate();
+			if(i != 0) return USERDAO_SUCCESS;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
+		
+		return "Something went wrong. User could not be added to the database!";
 	}
 }

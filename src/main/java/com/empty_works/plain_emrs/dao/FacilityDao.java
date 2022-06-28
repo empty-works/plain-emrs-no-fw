@@ -14,7 +14,7 @@ import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class FacilityDao {
 	
-	final public static String FACILITYDAO_SUCCESS = "Success";
+	final public static String FACILITYDAO_SUCCESS = "Facility successfully added!";
 	
 	/**
 	 * 
