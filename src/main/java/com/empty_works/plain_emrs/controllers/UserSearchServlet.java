@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UsersServlet
  */
-@WebServlet("/UsersServlet")
-public class UsersServlet extends HttpServlet {
+@WebServlet("/UserSearchServlet")
+public class UserSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -19,8 +19,7 @@ public class UsersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		request.getRequestDispatcher("/WEB-INF/Users.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/UserSearch.jsp").forward(request, response);
 	}
 
 	/**
@@ -28,6 +27,7 @@ public class UsersServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		doGet(request, response);
 	}
 
