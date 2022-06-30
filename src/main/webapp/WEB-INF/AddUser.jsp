@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
+<script src="${pageContext.request.contextPath}/js/user.js"></script>
 
 <title>Add User</title>
 </head>
@@ -47,7 +49,11 @@
 				<label>Current Facility ID (optional): </label>
 				<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
 				<label>Role: </label>
-				<div><input type="text" id="userRole" name="userRole" /></div>
+				<div>
+					<select id="roleDropdown" name="roleDropdown">
+						
+					</select>
+				</div>
 			</form>
 		</div>
 	</div>

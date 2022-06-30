@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
+
 /**
  * Servlet implementation class AddUserServlet
  */
@@ -19,6 +21,7 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
 
@@ -27,7 +30,6 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		doGet(request, response);
 	}
 
