@@ -51,7 +51,9 @@
 				<label>Role: </label>
 				<div>
 					<select id="roleDropdown" name="roleDropdown">
-						
+						<c:forEach items="${roleList}" var="userRole">
+							<option><c:out value="${userRole.getRole()}" /></option>
+						</c:forEach>
 					</select>
 				</div>
 			</form>
