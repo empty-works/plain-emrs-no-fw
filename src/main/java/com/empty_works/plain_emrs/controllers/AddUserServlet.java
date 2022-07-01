@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 
 /**
@@ -30,7 +31,13 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		doGet(request, response);
+		UserBean user = new UserBean();
+		user.setEmailAddress(request.getParameter("userEmailAddress"));
+		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
+		user.setPatientId(request.getParameter("userPatientId"));
+		user.setNonPatientId(request.getParameter("userNonPatientId"));
+		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
+		user
 	}
 
 }

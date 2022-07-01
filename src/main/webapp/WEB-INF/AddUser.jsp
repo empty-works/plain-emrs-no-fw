@@ -31,8 +31,7 @@
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
 			<form class="content-padding" action="/AddUserServlet" method="post">
-				<label>Username: </label>	
-				<div><input type="text" id="userUsername" name="userUsername" /></div>
+				<h3>Username will be automatically generated based on the following inputs! </h3>	
 				<label>User Email Address: </label>
 				<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
 				<label>User Enabled: </label>
@@ -56,6 +55,7 @@
 						</c:forEach>
 					</select>
 				</div>
+				<div><input type="submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>
