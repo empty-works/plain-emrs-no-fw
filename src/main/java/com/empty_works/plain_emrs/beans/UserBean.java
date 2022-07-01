@@ -11,6 +11,7 @@ public class UserBean extends GeneralBean {
 	private String patientId;
 	private String nonPatientId;
 	private String currentFacilityId;
+	private String role;
 
 	public String getUsername() {
 		return username;
@@ -53,5 +54,11 @@ public class UserBean extends GeneralBean {
 	}
 	public void setCurrentFacilityId(String currentFacilityId) {
 		this.currentFacilityId = currentFacilityId;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

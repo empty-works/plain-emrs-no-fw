@@ -37,7 +37,8 @@ public class AddUserServlet extends HttpServlet {
 		user.setPatientId(request.getParameter("userPatientId"));
 		user.setNonPatientId(request.getParameter("userNonPatientId"));
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
-		user
+		user.setRole(request.getParameter("roleDropdown"));
+		request.setAttribute("userBean", user);
+		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
-
 }
