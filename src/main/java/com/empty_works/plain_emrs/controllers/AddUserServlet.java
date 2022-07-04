@@ -40,6 +40,9 @@ public class AddUserServlet extends HttpServlet {
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
 		user.setRole(request.getParameter("roleDropdown"));
 		request.setAttribute("userBean", user);
+		
+		
+		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 }
