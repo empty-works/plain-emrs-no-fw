@@ -30,6 +30,9 @@
 		
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
+			<h2>Adding a patient or non-patient?</h2>
+			<button></button>
+			
 			<form class="content-padding" action="/AddUserServlet" method="post">
 				<h3>Username will be automatically generated based on the following inputs! </h3>	
 				<label>User Email Address: </label>

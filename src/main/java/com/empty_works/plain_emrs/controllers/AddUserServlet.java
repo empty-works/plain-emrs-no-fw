@@ -32,6 +32,7 @@ public class AddUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UserBean user = new UserBean();
+		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
 		user.setPatientId(request.getParameter("userPatientId"));

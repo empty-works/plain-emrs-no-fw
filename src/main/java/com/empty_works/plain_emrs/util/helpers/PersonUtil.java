@@ -4,8 +4,9 @@ import java.time.LocalDate;
 import java.util.Random;
 
 import com.empty_works.plain_emrs.beans.PersonBean;
+import com.empty_works.plain_emrs.beans.UserBean;
 
-public class UsernameUtil {
+public class PersonUtil {
 
 	final static String INVALID = "Username invalid due to invalid inputs.";
 
@@ -21,6 +22,12 @@ public class UsernameUtil {
 		unSb.append("_" + getRandomSequence());
 		
 		return unSb.toString();
+	}
+	
+	public static String get(UserBean user) {
+		
+		
+		return "";
 	}
 	
 	// Protected for unit test

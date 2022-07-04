@@ -8,28 +8,28 @@ public class UsernameUtilTest {
 	@Test
 	public void testGetNameId_fourOrMoreChars() {
 		
-		String nameId = UsernameUtil.getName("Martha", "Rodriguez");
+		String nameId = PersonUtil.getName("Martha", "Rodriguez");
 		Assertions.assertEquals("martrodr", nameId);
 	}
 	
 	@Test
 	public void testGetNameId_givenNameThreeChars() {
 		
-		String nameId = UsernameUtil.getName("Les", "Siddhartha");
+		String nameId = PersonUtil.getName("Les", "Siddhartha");
 		Assertions.assertEquals(8, nameId.length());
 	}
 	
 	@Test
 	public void testGetNameId_givenNameTwoChars() {
 		
-		String nameId = UsernameUtil.getName("Pi", "Lomelia");
+		String nameId = PersonUtil.getName("Pi", "Lomelia");
 		Assertions.assertEquals(8, nameId.length());
 	}
 	
 	@Test
 	public void testGetNameId_givenNameOneChar() {
 		
-		String nameId = UsernameUtil.getName("Q", "Shoemaker");
+		String nameId = PersonUtil.getName("Q", "Shoemaker");
 		Assertions.assertEquals(8, nameId.length());
 	}
 	
