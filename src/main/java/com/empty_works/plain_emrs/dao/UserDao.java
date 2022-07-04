@@ -45,7 +45,7 @@ public class UserDao {
 			// Check if the result set is empty.
 			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
 			
-			user.setUsername(username);
+			user.setUserId(username);
 			user.setEmailAddress(resultSet.getString("user_email_address"));
 			user.setUserEnabled(resultSet.getBoolean("user_enabled"));
 			user.setDateCreated(resultSet.getObject("user_created_on", LocalDateTime.class));
@@ -83,7 +83,7 @@ public class UserDao {
 			while(resultSet.next()) {
 				
 				UserBean user = new UserBean();
-				user.setUsername(resultSet.getString("user_name"));
+				user.setUserId(resultSet.getString("user_name"));
 				user.setEmailAddress(resultSet.getString("user_email_address"));
 				user.setUserEnabled(resultSet.getBoolean("user_enabled"));
 				user.setDateCreated(resultSet.getObject("user_created_on", LocalDateTime.class));
@@ -115,7 +115,7 @@ public class UserDao {
 		try {
 
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(1, user.getUserId());
 			short passwordLength = 7;
 			preparedStatement.setString(2, PasswordUtil.generate(passwordLength));
 			preparedStatement.setString(3, user.getEmailAddress());

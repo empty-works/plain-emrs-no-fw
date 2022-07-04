@@ -4,20 +4,21 @@ import java.time.LocalDateTime;
 
 public class UserBean extends GeneralBean {
 
-	private String username;
+	private String userId;
 	private String emailAddress;
 	private boolean userEnabled;
 	private LocalDateTime dateCreated;
-	private String patientId;
-	private String nonPatientId;
+	private String firstName;
+	private String middleInitial;
+	private String lastName;
 	private String currentFacilityId;
 	private String role;
 
-	public String getUsername() {
-		return username;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(String username) {
+		this.userId = username;
 	}
 	public String getEmailAddress() {
 		return emailAddress;
@@ -37,17 +38,23 @@ public class UserBean extends GeneralBean {
 	public void setDateCreated(LocalDateTime dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	public String getPatientId() {
-		return patientId;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getNonPatientId() {
-		return nonPatientId;
+	public String getMiddleInitial() {
+		return middleInitial;
 	}
-	public void setNonPatientId(String nonPatientId) {
-		this.nonPatientId = nonPatientId;
+	public void setMiddleInitial(String middleInitial) {
+		this.middleInitial = middleInitial;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getCurrentFacilityId() {
 		return currentFacilityId;
