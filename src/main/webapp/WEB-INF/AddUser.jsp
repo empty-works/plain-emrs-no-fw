@@ -31,9 +31,9 @@
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
 			<h2>Adding a patient or non-patient?</h2>
-			<button id="nonpatientButton"></button><button id="patientButton"></button>
+			<button id="patientButton" onclick="showPatientForm()">Add Patient</button><button id="nonpatientButton">Add Non-patient</button>
 			
-
+			<h2 id="patientTitle">Patient Form</h2><h2 id="nonpatientTitle">Non-patient Form</h2>
 			<form class="content-padding" action="/AddUserServlet" method="post">
 				<h3>Username will be automatically generated based on the following inputs! </h3>	
 				<label>User Email Address: </label>
