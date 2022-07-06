@@ -20,7 +20,7 @@ public class LoginDao {
 		try {
 			PreparedStatement statement = connection.prepareStatement(
 					"SELECT users.user_id, users.user_password, authorities.authority FROM users "
-					+ "INNER JOIN authorities ON users.user_name=authorities.user_name");
+					+ "INNER JOIN authorities ON users.user_id=authorities.user_id");
 			
 			ResultSet rs = statement.executeQuery();
 			

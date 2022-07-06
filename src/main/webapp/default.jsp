@@ -33,7 +33,7 @@
 				<div class="form-group">
 					<label for="loginUserId">User ID:</label>
 					<input type="text" class="form-control" id="loginUserId" name="userId">
-					<span class="error-message">${errorMessages.username}</span>
+					<span class="error-message">${errorMessages.userId}</span>
 				</div>
 				<div class="form-group">
 					<label for="loginPassword">Password:</label>
