@@ -39,21 +39,21 @@ public class LoginServlet extends HttpServlet {
 		FormValidationUtil formVal = new FormValidationUtil();
 		Map<String, String> errorMessages;
 
-		formVal.validate(request.getParameter("username"), "username", FormValidationType.ONLYEMPTY);
+		formVal.validate(request.getParameter("userId"), "userId", FormValidationType.ONLYEMPTY);
 		formVal.validate(request.getParameter("password"), "password", FormValidationType.ONLYEMPTY);
 		errorMessages = formVal.getErrorMessages(); 
 		if(formVal.hasErrorMessages()) {
 			
-			System.out.println("ERROR USERNAME: " + errorMessages.get("username"));
+			System.out.println("ERROR USER ID: " + errorMessages.get("userId"));
 			handleError(errorMessages, request, response);
 		}
 		else {
 			
-			String username = request.getParameter("username");
+			String userId = request.getParameter("userId");
 			String password = request.getParameter("password");
 			
 			LoginBean loginBean = new LoginBean();
-			loginBean.setUsername(username);
+			loginBean.setUserId(userId);
 			loginBean.setPassword(password);
 			
 			LoginDao loginDao = new LoginDao();
@@ -64,17 +64,17 @@ public class LoginServlet extends HttpServlet {
 			
 			if(userRole.equals(PlainEmrsRoles.invalidUser)) {
 				
-				System.out.println("Wrong username/password!");
-				handleError("Incorrect username or password.", request, response);
+				System.out.println("Wrong user ID/password!");
+				handleError("Incorrect user ID or password.", request, response);
 			}
 			else {
 				
 				HttpSession session = request.getSession();
-				session.setAttribute(userRole.getRole(), username);
+				session.setAttribute(userRole.getRole(), userId);
 				session.setAttribute("rolePair", userRole);
-				session.setAttribute("username", username);
+				session.setAttribute("userId", userId);
 				
-				System.out.println("Username: " + username);
+				System.out.println("User ID: " + userId);
 				System.out.println("Password: " + password);
 
 				setSessionUserAndRole(userRole, request, response);

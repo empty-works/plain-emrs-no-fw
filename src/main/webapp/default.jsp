@@ -31,8 +31,8 @@
 					<div class="error-message"><c:out value="${errorMessage}" /></div>
 				</c:if>
 				<div class="form-group">
-					<label for="loginUsername">Username:</label>
-					<input type="text" class="form-control" id="loginUsername" name="username">
+					<label for="loginUserId">User ID:</label>
+					<input type="text" class="form-control" id="loginUserId" name="userId">
 					<span class="error-message">${errorMessages.username}</span>
 				</div>
 				<div class="form-group">
