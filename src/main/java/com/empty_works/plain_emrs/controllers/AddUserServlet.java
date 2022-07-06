@@ -35,8 +35,8 @@ public class AddUserServlet extends HttpServlet {
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
-		user.setPatientId(request.getParameter("userPatientId"));
-		user.setNonPatientId(request.getParameter("userNonPatientId"));
+		//user.setPatientId(request.getParameter("userPatientId"));
+		//user.setNonPatientId(request.getParameter("userNonPatientId"));
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
 		user.setRole(request.getParameter("roleDropdown"));
 		request.setAttribute("userBean", user);

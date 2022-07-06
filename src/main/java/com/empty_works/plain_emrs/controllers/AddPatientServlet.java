@@ -38,10 +38,10 @@ public class AddPatientServlet extends HttpServlet {
 		String givenName = request.getParameter("patientGivenName");
 		String middleInitial = request.getParameter("patientMiddleInitial");
 		String lastName = request.getParameter("patientLastName");
-		pb.setGivenName(givenName);
+		//pb.setGivenName(givenName);
 		pb.setMiddleInitial(middleInitial);
 		pb.setLastName(lastName);
-		pb.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
+		//pb.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		pb.setGender(request.getParameter("patientGender"));
 		pb.setType(request.getParameter("patientType"));
 		pb.setRace(request.getParameter("patientRace"));
@@ -55,7 +55,7 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setProviderId(request.getParameter("patientProviderId"));
 		pb.setRoomNumber(request.getParameter("patientRoom"));
 		pb.setFacilityId(request.getParameter("patientFacilityId"));
-		pb.setPatientId(PatientIdUtil.get(givenName, lastName));
+		//pb.setPatientId(PatientIdUtil.get(givenName, lastName));
 		
 		System.out.println("Adding patient to the database...");
 		String patientAddResult = PatientDao.insert(pb);

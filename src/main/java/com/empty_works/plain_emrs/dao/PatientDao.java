@@ -39,11 +39,11 @@ public class PatientDao {
 			// Check if the result set is empty.
 			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
 			
-			patient.setPatientId(patientId);
-			patient.setGivenName(resultSet.getString("patient_given_name"));
+			//patient.setPatientId(patientId);
+			//patient.setGivenName(resultSet.getString("patient_given_name"));
 			patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 			patient.setLastName(resultSet.getString("patient_last_name"));
-			patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
+			//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
 			patient.setProvider(resultSet.getString("patient_provider"));
 			patient.setProviderId(resultSet.getString("patient_provider_id"));
 			patient.setRoomNumber(resultSet.getString("patient_room"));
@@ -91,11 +91,11 @@ public class PatientDao {
 			while(resultSet.next()) {
 				
 				PatientBean patient = new PatientBean();
-				patient.setPatientId(resultSet.getString("patient_id"));
-				patient.setGivenName(resultSet.getString("patient_given_name"));
+				//patient.setPatientId(resultSet.getString("patient_id"));
+				//patient.setGivenName(resultSet.getString("patient_given_name"));
 				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 				patient.setLastName(resultSet.getString("patient_last_name"));
-				patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
+				//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
 				patient.setGender(resultSet.getString("patient_gender"));
 				patient.setType(resultSet.getString("patient_type"));
 				patient.setRace(resultSet.getString("patient_race"));
@@ -124,11 +124,11 @@ public class PatientDao {
 	 */
 	public static String insert(PatientBean pb) {
 		
-		String id = pb.getPatientId();
-		String givenName = pb.getGivenName();
+		//String id = pb.getPatientId();
+		//String givenName = pb.getGivenName();
 		String middleInitial = pb.getMiddleInitial();
 		String lastName = pb.getLastName();
-		LocalDate dateOfBirth = pb.getDateOfBirth(); 
+		//LocalDate dateOfBirth = pb.getDateOfBirth(); 
 		String gender = pb.getGender();
 		String type = pb.getType();
 		String race = pb.getRace();
@@ -155,11 +155,11 @@ public class PatientDao {
 		try {
 
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, id);
-			preparedStatement.setString(2, givenName);
+			//preparedStatement.setString(1, id);
+			//preparedStatement.setString(2, givenName);
 			preparedStatement.setString(3, middleInitial);
 			preparedStatement.setString(4, lastName);
-			preparedStatement.setObject(5, dateOfBirth);
+			//preparedStatement.setObject(5, dateOfBirth);
 			preparedStatement.setString(6, provider);
 			preparedStatement.setString(7, providerId);
 			preparedStatement.setString(8, roomNumber);

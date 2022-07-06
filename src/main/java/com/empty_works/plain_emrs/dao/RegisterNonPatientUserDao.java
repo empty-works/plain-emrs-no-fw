@@ -15,12 +15,12 @@ public class RegisterNonPatientUserDao {
 	
 	public static String register(NonPatientBean npb) {
 		
-		String id = npb.getNonPatientId();
-		String givenName = npb.getGivenName();
+		//String id = npb.getNonPatientId();
+		//String givenName = npb.getGivenName();
 		String middleName = npb.getMiddleInitial();
 		String lastName = npb.getLastName();
 		String organization = npb.getOrganization();
-		LocalDate dateOfBirth = npb.getDateOfBirth();
+		//LocalDate dateOfBirth = npb.getDateOfBirth();
 		String description = npb.getDescription();
 		String wardId = npb.getWard();
 		String staffPositionId = npb.getStaffPosition();
@@ -37,12 +37,12 @@ public class RegisterNonPatientUserDao {
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, id);
-			preparedStatement.setString(2, givenName);
+			//preparedStatement.setString(1, id);
+			//preparedStatement.setString(2, givenName);
 			preparedStatement.setString(3, middleName);
 			preparedStatement.setString(4, lastName);
 			preparedStatement.setString(5, organization);
-			preparedStatement.setDate(6, Date.valueOf(dateOfBirth));
+			//preparedStatement.setDate(6, Date.valueOf(dateOfBirth));
 			preparedStatement.setString(7, description);
 			preparedStatement.setString(8, wardId);
 			preparedStatement.setString(9, staffPositionId);

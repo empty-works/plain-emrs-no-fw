@@ -49,8 +49,8 @@ public class UserDao {
 			user.setEmailAddress(resultSet.getString("user_email_address"));
 			user.setUserEnabled(resultSet.getBoolean("user_enabled"));
 			user.setDateCreated(resultSet.getObject("user_created_on", LocalDateTime.class));
-			user.setPatientId(resultSet.getString("user_id"));
-			user.setNonPatientId(resultSet.getString("nonpatient_id"));
+			//user.setPatientId(resultSet.getString("user_id"));
+			//user.setNonPatientId(resultSet.getString("nonpatient_id"));
 			user.setCurrentFacilityId(resultSet.getString("current_facility_id"));
 		} catch (SQLException e) {
 
@@ -87,8 +87,8 @@ public class UserDao {
 				user.setEmailAddress(resultSet.getString("user_email_address"));
 				user.setUserEnabled(resultSet.getBoolean("user_enabled"));
 				user.setDateCreated(resultSet.getObject("user_created_on", LocalDateTime.class));
-				user.setPatientId(resultSet.getString("patient_id"));
-				user.setNonPatientId(resultSet.getString("nonpatient_id"));
+				//user.setPatientId(resultSet.getString("patient_id"));
+				//user.setNonPatientId(resultSet.getString("nonpatient_id"));
 				user.setCurrentFacilityId(resultSet.getString("current_facility_id"));
 				userList.add(user);
 			}
@@ -121,8 +121,8 @@ public class UserDao {
 			preparedStatement.setString(3, user.getEmailAddress());
 			preparedStatement.setBoolean(4, user.isUserEnabled());
 			preparedStatement.setObject(5, user.getDateCreated());
-			preparedStatement.setString(6, user.getPatientId());
-			preparedStatement.setString(7, user.getNonPatientId());
+			//preparedStatement.setString(6, user.getPatientId());
+			//preparedStatement.setString(7, user.getNonPatientId());
 			preparedStatement.setString(8, user.getCurrentFacilityId());
 			
 			int i = preparedStatement.executeUpdate();
