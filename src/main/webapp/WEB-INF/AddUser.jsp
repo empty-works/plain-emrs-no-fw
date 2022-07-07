@@ -35,19 +35,22 @@
 			
 			<h2 id="patientTitle">Patient Form</h2><h2 id="nonpatientTitle">Non-patient Form</h2>
 			<form class="content-padding" action="/AddUserServlet" method="post">
-				<h3>Username will be automatically generated based on the following inputs! </h3>	
-				<label>User Email Address: </label>
-				<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
-				<label>User Enabled: </label>
-				<div>
-					<select type="text" id="userEnabled" name="userEnabled">
-						<option>True</option>
-						<option>False</option>
-					</select>	
-				</div>
+				<!--  User ID will be generated based on the following inputs! -->	
+				<label>First Name: </label>
+				<div><input type="text" id="userFirstName" name="userFirstName" /></div>
+				<label>Middle Initial: </label>
+				<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
+				<label>Last Name: </label>
+				<div><input type="text" id="userLastName" name="userLastName" /></div>
+				<label>Date of Birth: </label>
+				<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
 				<label>Current Facility ID (optional): </label>
 				<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
+				<label>User Email Address: </label>
+				<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
 				
+				<input type="hidden" id="userEnabled" name="userEnabled" value="true">	
+
 				<!-- Patient section -->	
 				<div id="patientSection">
 					<h3>PATIENT SECTION</h3>
