@@ -32,7 +32,8 @@
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
 			<h2>Adding a patient or non-patient?</h2>
-			<button id="patientButton" onclick="showPatientForm()">Add Patient</button><button id="nonpatientButton">Add Non-patient</button>
+			<button id="patientButton" onclick="showPatientForm()">Add Patient</button>
+			<button id="nonpatientButton" onclick="showNonpatientForm()">Add Non-patient</button>
 			
 			<h2 id="patientTitle">Patient Form</h2><h2 id="nonpatientTitle">Non-patient Form</h2>
 			<form id="addUserForm" class="content-padding" action="/AddUserServlet" method="post">
