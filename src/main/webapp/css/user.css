@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+#patientTitle {
+	display: none;
+}
+
+#nonpatientTitle {
+	display: none;
+}
+
+#addUserForm {
+	display: none;
+}

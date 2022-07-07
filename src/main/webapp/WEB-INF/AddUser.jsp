@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user.css" />
 <script src="${pageContext.request.contextPath}/js/user.js"></script>
 
 <title>Add User</title>
@@ -34,7 +35,7 @@
 			<button id="patientButton" onclick="showPatientForm()">Add Patient</button><button id="nonpatientButton">Add Non-patient</button>
 			
 			<h2 id="patientTitle">Patient Form</h2><h2 id="nonpatientTitle">Non-patient Form</h2>
-			<form class="content-padding" action="/AddUserServlet" method="post">
+			<form id="addUserForm" class="content-padding" action="/AddUserServlet" method="post">
 				<!--  User ID will be generated based on the following inputs! -->	
 				<label>First Name: </label>
 				<div><input type="text" id="userFirstName" name="userFirstName" /></div>
