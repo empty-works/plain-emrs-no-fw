@@ -55,11 +55,38 @@
 
 				<!-- Patient section -->	
 				<div id="patientSection">
-					<h3>PATIENT SECTION</h3>
+					<input type="hidden" id="userType" name="userType" value="patient">
+					<label>Current Gender: </label>
+					<div>
+						<select id="userCurrentGender" name="userCurrentGender">
+							<option>Male</option>	
+							<option>Female</option>	
+							<option>Transgender Male/Transgender Man/Female-to-Male (FtM)</option>	
+							<option>Transgender Female/Transgender Woman/Male-to-Female (MtF)</option>	
+							<option>Genderqueer - neither exclusively male nor female</option>	
+							<option>Other</option>	
+							<option>Choose not to disclose</option>	
+						</select>
+					</div>
+					<label>Sex Assigned at Birth: </label>
+					<div>
+						<select id="userBirthSex" name="userBirthSex">
+							<option>Male</option>	
+							<option>Female</option>	
+							<option>Choose not to disclose</option>	
+						</select>	
+					</div>
+					<label>Race: </label>
+					<div>
+						<select id="">
+									
+						</select>	
+					</div>
 				</div>
 				
 				<!-- Non-patient section -->
 				<div id="nonpatientSection">
+					<input type="hidden" id="userType" name="userType" value="nonpatient">
 					<h3>NONPATIENT SECTION</h3>	
 				</div>
 				
