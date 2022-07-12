@@ -58,8 +58,37 @@
 
 				<!-- Patient section -->	
 				<div id="patientSection">
+
 					<input type="hidden" id="userType" name="userType" value="patient">
-					<label>Current Gender: </label>
+
+					<label>Race: </label>
+					<div>
+						<!-- Race drop-down -->
+						<select id="userRaceDropdown" name="userRaceDropdown">
+							<c:forEach items="${raceList}" var="race">
+								<option><c:out value="${race}" /></option>	
+							</c:forEach>			
+						</select>	
+					</div>
+					<label>Relationship status: </label>
+					<div>
+						<!-- Relationship status drop-down -->
+						<select id="relationshipStatusDropdown" name="relationshipStatusDropdown">
+							<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
+								<option><c:out value="${relationshipStatus}" /></option>	
+							</c:forEach>	
+						</select>
+					</div>
+					<label>Living arrangement: </label>
+					<div>
+						<!-- Living arrangement drop-down -->
+						<select id="livingArrangmentDropdown" name="livingArrangmentDropdown">
+							<c:forEach items="${livingArrangementList}" var="arrangement">
+								<option><c:out value="${arrangement}" /></option>	
+							</c:forEach>	
+						</select>
+					</div>
+					<label>Current gender: </label>
 					<div>
 						<!-- Current gender drop-down -->
 						<select id="userCurrentGenderDropdown" name="userCurrentGenderDropdown">
@@ -68,19 +97,23 @@
 							</c:forEach>
 						</select>
 					</div>
-					<label>Sex Assigned at Birth: </label>
+					<label>Sex assigned at birth: </label>
 					<div>
+						<!-- Gender at birth drop-down -->
 						<select id="userBirthSex" name="userBirthSex">
 							<option>Male</option>	
 							<option>Female</option>	
 							<option>Choose not to disclose</option>	
 						</select>	
 					</div>
-					<label>Race: </label>
+					<label>Sexual orientation: </label>
 					<div>
-						<select id="">
-									
-						</select>	
+						<!-- Sexual orientation drop-down -->
+						<select id="sexualOrientationDropdown" name="sexualOrientationDropdown">
+							<c:forEach items="${sexualOrientationList}" var="sexualOrientation">
+								<option><c:out value="${sexualOrientation}" /></option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 				
