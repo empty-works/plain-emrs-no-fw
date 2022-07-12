@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 
+import user_choices.UserRaces;
+import user_choices.UserRelationGender;
+
 /**
  * Servlet implementation class AddUserServlet
  */
@@ -22,6 +25,12 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setAttribute("raceList", UserRaces.raceHash.values());
+		request.setAttribute("relationshipStatusList", UserRelationGender.relationshipStatusHash);
+		request.setAttribute("livingArrangementList", UserRelationGender.livingArrangementHash);
+		request.setAttribute("currentGenderList", UserRelationGender.currentGenderHash);
+		request.setAttribute("genderAtBirthList", UserRelationGender.genderAtBirthHash);
+		request.setAttribute("sexualOrientationList", UserRelationGender.sexualOrientationHash);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
@@ -40,8 +49,6 @@ public class AddUserServlet extends HttpServlet {
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
 		user.setRole(request.getParameter("roleDropdown"));
 		request.setAttribute("userBean", user);
-		
-		
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}

@@ -35,7 +35,10 @@
 			<button id="patientButton" onclick="showPatientForm()">Add Patient</button>
 			<button id="nonpatientButton" onclick="showNonpatientForm()">Add Non-patient</button>
 			
-			<h2 id="patientTitle">Patient Form</h2><h2 id="nonpatientTitle">Non-patient Form</h2>
+			<!-- Title of form depends on which button the user selects above -->
+			<h2 id="patientTitle">Patient Form</h2>
+			<h2 id="nonpatientTitle">Non-patient Form</h2>
+
 			<form id="addUserForm" class="content-padding" action="/AddUserServlet" method="post">
 				<!--  User ID will be generated based on the following inputs! -->	
 				<label>First Name: </label>
@@ -58,14 +61,11 @@
 					<input type="hidden" id="userType" name="userType" value="patient">
 					<label>Current Gender: </label>
 					<div>
-						<select id="userCurrentGender" name="userCurrentGender">
-							<option>Male</option>	
-							<option>Female</option>	
-							<option>Transgender Male/Transgender Man/Female-to-Male (FtM)</option>	
-							<option>Transgender Female/Transgender Woman/Male-to-Female (MtF)</option>	
-							<option>Genderqueer - neither exclusively male nor female</option>	
-							<option>Other</option>	
-							<option>Choose not to disclose</option>	
+						<!-- Current gender drop-down -->
+						<select id="userCurrentGenderDropdown" name="userCurrentGenderDropdown">
+							<c:forEach items="${currentGenderList}" var="currentGender">
+								<option><c:out value="${currentGender}" /></option>
+							</c:forEach>
 						</select>
 					</div>
 					<label>Sex Assigned at Birth: </label>
