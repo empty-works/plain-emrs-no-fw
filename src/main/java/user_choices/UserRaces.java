@@ -1,7 +1,6 @@
 package user_choices;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -12,31 +11,23 @@ import java.util.List;
 public class UserRaces {
 	
 	final public static List<UserRaceUnit> raceList = new ArrayList<>() {
-		{
-			
-		}
-	};
-	
-	final public static HashMap<String, String> raceHash = new HashMap<>()
-		{/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6214395715920744505L;
 
 		{
-			put("American Indian or Alaska Native","A person having origins in any of the original "
-					+ "peoples of North and South America (including Central America), and who maintains "
-					+ "tribal affiliation or community attachment.");
-			put("Asian","A person having origins in any of the original peoples of the Far East, Southeast "
+			add(new UserRaceUnit("ameriIndAlasNat", "American Indian or Alaska Native", "A person having origins in any of the original "
+					+ "peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment."));
+			add(new UserRaceUnit("asian", "Asian", "A person having origins in any of the original peoples of the Far East, Southeast "
 					+ "Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, "
-					+ "Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.");
-			put("Black or African American","A person having origins in any of the black racial groups of Africa. "
-					+ "Terms such as \"Haitian\" or \"Negro\" can be used in addition to \"Black or African American.\"");
-			put("Hispanic or Latino","A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish "
-					+ "culture or origin, regardless of race. The term, \"Spanish origin,\" can be used in addition to \"Hispanic or Latino.\"");
-			put("Native Hawaiian or Other Pacific Islander","A person having origins in any of the original peoples "
-					+ "of Hawaii, Guam, Samoa, or other Pacific Islands.");
-			put("White","A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.");
+					+ "Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam."));
+			add(new UserRaceUnit("blackAfroAmeri", "Black or African American", "A person having origins in any of the black racial groups of Africa."));
+			add(new UserRaceUnit("hispanLat", "Hispanic or Latino", "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish "
+					+ "culture or origin, regardless of race."));
+			add(new UserRaceUnit("natiHawPacIsl", "Native Hawaiian or Other Pacific Islander", "A person having origins in any of the original peoples "
+					+ "of Hawaii, Guam, Samoa, or other Pacific Islands."));
+			add(new UserRaceUnit("white", "White", "A person having origins in any of the original peoples of Europe, the Middle East, or North Africa."));
 		}
 	};
 }
