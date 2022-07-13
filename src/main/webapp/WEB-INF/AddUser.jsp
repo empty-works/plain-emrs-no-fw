@@ -64,6 +64,9 @@
 					<label>Race: </label>
 					<div>
 						<!-- Race drop-down -->
+						<c:forEach items="${raceList}" var="race">
+							<label></label>	
+						</c:forEach>
 						<select id="userRaceDropdown" name="userRaceDropdown">
 							<c:forEach items="${raceList}" var="race">
 								<option><c:out value="${race}" /></option>	

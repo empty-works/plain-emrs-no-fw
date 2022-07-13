@@ -1,6 +1,8 @@
 package user_choices;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /*
  * Descriptions of races taken from the Office of Diversity, Inclusion and Civil Rights of 
@@ -8,6 +10,12 @@ import java.util.HashMap;
  * */
 
 public class UserRaces {
+	
+	final public static List<UserRaceUnit> raceList = new ArrayList<>() {
+		{
+			
+		}
+	};
 	
 	final public static HashMap<String, String> raceHash = new HashMap<>()
 		{/**
