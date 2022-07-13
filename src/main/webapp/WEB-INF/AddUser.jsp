@@ -40,20 +40,22 @@
 			<h2 id="nonpatientTitle">Non-patient Form</h2>
 
 			<form id="addUserForm" class="content-padding" action="/AddUserServlet" method="post">
-				<!--  User ID will be generated based on the following inputs! -->	
-				<label>First Name: </label>
-				<div><input type="text" id="userFirstName" name="userFirstName" /></div>
-				<label>Middle Initial: </label>
-				<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
-				<label>Last Name: </label>
-				<div><input type="text" id="userLastName" name="userLastName" /></div>
-				<label>Date of Birth: </label>
-				<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
-				<label>Current Facility ID (optional): </label>
-				<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
-				<label>User Email Address: </label>
-				<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
-				
+				<fieldSet>
+					<legend>General: </legend>
+					<!--  User ID will be generated based on the following inputs! -->	
+					<label>First Name: </label>
+					<div><input type="text" id="userFirstName" name="userFirstName" /></div>
+					<label>Middle Initial: </label>
+					<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
+					<label>Last Name: </label>
+					<div><input type="text" id="userLastName" name="userLastName" /></div>
+					<label>Date of Birth: </label>
+					<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
+					<label>Current Facility ID (optional): </label>
+					<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
+					<label>User Email Address: </label>
+					<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
+				</fieldSet>
 				<input type="hidden" id="userEnabled" name="userEnabled" value="true">	
 
 				<!-- Patient section -->	
@@ -61,7 +63,7 @@
 
 					<input type="hidden" id="userType" name="userType" value="patient">
 
-					<fieldSet>
+					<fieldset>
 					<legend>Race: </legend>
 						<!-- Race selection -->
 						<c:forEach items="${raceList}" var="race">
@@ -70,25 +72,26 @@
 								<label for="${race.getRaceId()}">${race.getRaceName()} - ${race.getRaceDescription()}</label>	
 							</div>
 						</c:forEach>
-					</fieldSet>
-					<label>Relationship status: </label>
-					<div>
+					</fieldset>
+					<fieldset>
+					<legend>Relationship status: </legend>
 						<!-- Relationship status drop-down -->
 						<select id="relationshipStatusDropdown" name="relationshipStatusDropdown">
 							<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
 								<option><c:out value="${relationshipStatus}" /></option>	
 							</c:forEach>	
 						</select>
-					</div>
-					<label>Living arrangement: </label>
-					<div>
-						<!-- Living arrangement drop-down -->
-						<select id="livingArrangmentDropdown" name="livingArrangmentDropdown">
-							<c:forEach items="${livingArrangementList}" var="arrangement">
-								<option><c:out value="${arrangement}" /></option>	
-							</c:forEach>	
-						</select>
-					</div>
+					</fieldset>
+					<fieldset>
+					<legend>Living arrangement: </legend>	
+						<!-- Living arrangement selection -->
+						<c:forEach items="${livingArrangementList}" var="living">
+							<div>
+								<input type="checkbox" id="${living.getArrangementId()}" name="raceOption" value="${living.getArrangementId()}">
+								<label for="${living.getArrangementId()}">${living.getArrangement()}</label>	
+							</div>	
+						</c:forEach>
+					</fieldset>
 					<label>Current gender: </label>
 					<div>
 						<!-- Current gender drop-down -->

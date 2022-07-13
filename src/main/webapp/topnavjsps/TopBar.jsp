@@ -25,7 +25,7 @@
 	<button class="topnav-menu-btn topnav-menu-btn-last">
 		<span class="menu-text">Settings</span>
 	</button>
-	<a class="topnav-user"><%=session.getAttribute("username") %></a>	
+	<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
 	</div>
 </div>
 </form>
