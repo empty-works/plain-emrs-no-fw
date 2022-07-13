@@ -25,7 +25,7 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setAttribute("raceList", UserRaces.raceHash.values());
+		request.setAttribute("raceList", UserRaces.raceList);
 		request.setAttribute("relationshipStatusList", UserRelationGender.relationshipStatusHash);
 		request.setAttribute("livingArrangementList", UserRelationGender.livingArrangementHash);
 		request.setAttribute("currentGenderList", UserRelationGender.currentGenderHash);

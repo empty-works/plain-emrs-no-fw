@@ -61,18 +61,16 @@
 
 					<input type="hidden" id="userType" name="userType" value="patient">
 
-					<label>Race: </label>
-					<div>
-						<!-- Race drop-down -->
+					<fieldSet>
+					<legend>Race: </legend>
+						<!-- Race selection -->
 						<c:forEach items="${raceList}" var="race">
-							<label></label>	
+							<div>
+								<input type="checkbox" id="${race.getRaceId()}" name="raceOption" value="${race.getRaceId()}">
+								<label for="${race.getRaceId()}">${race.getRaceName()} - ${race.getRaceDescription()}</label>	
+							</div>
 						</c:forEach>
-						<select id="userRaceDropdown" name="userRaceDropdown">
-							<c:forEach items="${raceList}" var="race">
-								<option><c:out value="${race}" /></option>	
-							</c:forEach>			
-						</select>	
-					</div>
+					</fieldSet>
 					<label>Relationship status: </label>
 					<div>
 						<!-- Relationship status drop-down -->
