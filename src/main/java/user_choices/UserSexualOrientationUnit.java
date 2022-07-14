@@ -1,11 +1,11 @@
 package user_choices;
 
-public class SexualOrientationUnit {
+public class UserSexualOrientationUnit {
 
 	private String sexualOrientationId;
 	private String sexualOrientation;
 	
-	public SexualOrientationUnit(String sexualOrientationId, String sexualOrientation) {
+	public UserSexualOrientationUnit(String sexualOrientationId, String sexualOrientation) {
 		
 		this.sexualOrientationId = sexualOrientationId;
 		this.sexualOrientation = sexualOrientation;

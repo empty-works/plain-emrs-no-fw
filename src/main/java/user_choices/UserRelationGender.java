@@ -59,31 +59,31 @@ public class UserRelationGender {
 		}
 	};
 
-	final public static HashSet<String> genderAtBirthHash = new HashSet<>()
-	{
+	final public static List<UserSexAssignedBirthUnit> sexAssignedBirthList = new ArrayList<>() {
 		/**
 		 * 
 		 */
-		private static final long serialVersionUID = 6994264506059224095L;
+		private static final long serialVersionUID = 1L;
 
 		{
-			add("Male");
-			add("Female");
+			add(new UserSexAssignedBirthUnit("sexAssignedMale", "Male"));
+			add(new UserSexAssignedBirthUnit("sexAssignedFemale", "Female"));
+			add(new UserSexAssignedBirthUnit("sexAssignedNoAnswer", "Choose not to disclose"));
 		}
 	};
 	
-	final public static List<SexualOrientationUnit> sexualOrientationList = new ArrayList<>() {
+	final public static List<UserSexualOrientationUnit> sexualOrientationList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1637247765396865477L;
 
 		{
-			add(new SexualOrientationUnit("straHetero", "Straight or heterosexual"));
-			add(new SexualOrientationUnit("lesGaHomo", "Lesbian, gay, or homosexual"));
-			add(new SexualOrientationUnit("bisex", "Bisexual"));
-			add(new SexualOrientationUnit("someElse", "Something else"));
-			add(new SexualOrientationUnit("donKno", "Don't know"));
+			add(new UserSexualOrientationUnit("straHetero", "Straight or heterosexual"));
+			add(new UserSexualOrientationUnit("lesGaHomo", "Lesbian, gay, or homosexual"));
+			add(new UserSexualOrientationUnit("bisex", "Bisexual"));
+			add(new UserSexualOrientationUnit("someElse", "Something else"));
+			add(new UserSexualOrientationUnit("donKno", "Don't know"));
 		}
 	};
 }

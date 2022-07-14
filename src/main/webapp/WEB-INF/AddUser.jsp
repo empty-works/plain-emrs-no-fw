@@ -104,14 +104,13 @@
 					</fieldset>
 					<fieldset>
 					<legend>Sex assigned at birth: </legend>
-						<div>
-							<!-- Gender at birth drop-down -->
-							<select id="userBirthSexDropdown" name="userBirthSexDropdown">
-								<option>Male</option>	
-								<option>Female</option>	
-								<option>Choose not to disclose</option>	
-							</select>	
-						</div>
+						<!-- Gender at birth selection -->
+						<c:forEach items="${sexAssignedBirthList}" var="sexAssignedBirth">
+							<div>
+								<input type="radio" id="${sexAssignedBirth.getSexAssignedBirthId()}" name="sexAssignedBirthRadio" value="${sexAssignedBirth.getSexAssignedBirthId()}">	
+								<label for="${sexAssignedBirth.getSexAssignedBirthId()}">${sexAssignedBirth.getSexAssignedBirth()}</label>
+							</div>	
+						</c:forEach>
 					</fieldset>
 					<fieldset>
 					<legend>Sexual orientation: </legend>	

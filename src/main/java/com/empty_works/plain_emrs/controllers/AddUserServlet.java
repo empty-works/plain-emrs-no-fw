@@ -29,7 +29,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("relationshipStatusList", UserRelationGender.relationshipStatusHash);
 		request.setAttribute("livingArrangementList", UserRelationGender.livingList);
 		request.setAttribute("currentGenderList", UserRelationGender.currentGenderList);
-		request.setAttribute("genderAtBirthList", UserRelationGender.genderAtBirthHash);
+		request.setAttribute("sexAssignedBirthList", UserRelationGender.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGender.sexualOrientationList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
