@@ -72,19 +72,18 @@ public class UserRelationGender {
 		}
 	};
 	
-	final public static HashSet<String> sexualOrientationHash = new HashSet<>()
-	{
+	final public static List<SexualOrientationUnit> sexualOrientationList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1637247765396865477L;
 
 		{
-			add("Straight or heterosexual");
-			add("Lesbian, gay, or homosexual");
-			add("Bisexual");
-			add("Something else");
-			add("Don't know");
+			add(new SexualOrientationUnit("straHetero", "Straight or heterosexual"));
+			add(new SexualOrientationUnit("lesGaHomo", "Lesbian, gay, or homosexual"));
+			add(new SexualOrientationUnit("bisex", "Bisexual"));
+			add(new SexualOrientationUnit("someElse", "Something else"));
+			add(new SexualOrientationUnit("donKno", "Don't know"));
 		}
 	};
 }

@@ -97,45 +97,32 @@
 						<!-- Current gender selection -->
 						<c:forEach items="${currentGenderList}" var="currentGender">
 							<div>
-								<input type="radio" id="">
+								<input type="radio" id="${currentGender.getCurrentGenderId()}" name="currentGenderRadio" value="${currentGender.getCurrentGenderId()}">
+								<label for="${currentGender.getCurrentGenderId()}">${currentGender.getCurrentGender()}</label>
 							</div>
 						</c:forEach>
-
+					</fieldset>
+					<fieldset>
+					<legend>Sex assigned at birth: </legend>
 						<div>
-							<select id="userCurrentGenderDropdown" name="userCurrentGenderDropdown">
-								<c:forEach items="${currentGenderList}" var="currentGender">
-									<option><c:out value="${currentGender}" /></option>
-								</c:forEach>
-							</select>
+							<!-- Gender at birth drop-down -->
+							<select id="userBirthSexDropdown" name="userBirthSexDropdown">
+								<option>Male</option>	
+								<option>Female</option>	
+								<option>Choose not to disclose</option>	
+							</select>	
 						</div>
 					</fieldset>
-					<label>Current gender: </label>
-					<div>
-						<!-- Current gender drop-down -->
-						<select id="userCurrentGenderDropdown" name="userCurrentGenderDropdown">
-							<c:forEach items="${currentGenderList}" var="currentGender">
-								<option><c:out value="${currentGender}" /></option>
-							</c:forEach>
-						</select>
-					</div>
-					<label>Sex assigned at birth: </label>
-					<div>
-						<!-- Gender at birth drop-down -->
-						<select id="userBirthSex" name="userBirthSex">
-							<option>Male</option>	
-							<option>Female</option>	
-							<option>Choose not to disclose</option>	
-						</select>	
-					</div>
-					<label>Sexual orientation: </label>
-					<div>
-						<!-- Sexual orientation drop-down -->
-						<select id="sexualOrientationDropdown" name="sexualOrientationDropdown">
-							<c:forEach items="${sexualOrientationList}" var="sexualOrientation">
-								<option><c:out value="${sexualOrientation}" /></option>
-							</c:forEach>
-						</select>
-					</div>
+					<fieldset>
+					<legend>Sexual orientation: </legend>	
+						<!-- Sexual orientation selection -->
+						<c:forEach items="${sexualOrientationList}" var="sexualOrientation">
+							<div>
+								<input type="radio" id="${sexualOrientation.getSexualOrientationId()}" name="sexualOrientationRadio" value="${sexualOrientation.getSexualOrientationId()}">
+								<label for="${sexualOrientation.getSexualOrientationId()}">${sexualOrientation.getSexualOrientation()}</label>
+							</div>	
+						</c:forEach>
+					</fieldset>
 				</div>
 				
 				<!-- Non-patient section -->
