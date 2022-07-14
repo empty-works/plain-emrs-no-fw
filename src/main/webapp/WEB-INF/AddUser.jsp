@@ -92,6 +92,23 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
+					<fieldset>
+					<legend>Current gender: </legend>
+						<!-- Current gender selection -->
+						<c:forEach items="${currentGenderList}" var="currentGender">
+							<div>
+								<input type="radio" id="">
+							</div>
+						</c:forEach>
+
+						<div>
+							<select id="userCurrentGenderDropdown" name="userCurrentGenderDropdown">
+								<c:forEach items="${currentGenderList}" var="currentGender">
+									<option><c:out value="${currentGender}" /></option>
+								</c:forEach>
+							</select>
+						</div>
+					</fieldset>
 					<label>Current gender: </label>
 					<div>
 						<!-- Current gender drop-down -->

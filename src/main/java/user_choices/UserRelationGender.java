@@ -42,21 +42,20 @@ public class UserRelationGender {
 		}
 	};
 	
-	final public static HashSet<String> currentGenderHash = new HashSet<>()
-	{
+	final public static List<UserCurrentGenderUnit> currentGenderList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = -1816798785282417562L;
 
 		{
-			add("Male");
-			add("Female");
-			add("Transgender Male/Transgender Man/Female-to-Male (FtM)");
-			add("Transgender Female/Transgender Woman/Male-to-Female (MtF)");
-			add("Genderqueer - neither exclusively male nor female");
-			add("Other");
-			add("Choose not to disclose");
+			add(new UserCurrentGenderUnit("male", "Male"));
+			add(new UserCurrentGenderUnit("female", "Female"));
+			add(new UserCurrentGenderUnit("transFtm", "Transgender Male/Transgender Man/Female-to-Male (FtM)"));
+			add(new UserCurrentGenderUnit("transMtf", "Transgender Female/Transgender Woman/Male-to-Female (MtF)"));
+			add(new UserCurrentGenderUnit("genQueer", "Genderqueer - neither exclusively male nor female"));
+			add(new UserCurrentGenderUnit("curGenOther", "Other"));
+			add(new UserCurrentGenderUnit("curGenNoAnswer", "Choose not to disclose"));
 		}
 	};
 
