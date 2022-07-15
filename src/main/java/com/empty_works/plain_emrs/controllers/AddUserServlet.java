@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
-
-import user_choices.UserRaces;
-import user_choices.UserRelationGender;
+import com.empty_works.plain_emrs.user_choices.UserRaces;
+import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
 
 /**
  * Servlet implementation class AddUserServlet
@@ -26,11 +25,11 @@ public class AddUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setAttribute("raceList", UserRaces.raceList);
-		request.setAttribute("relationshipStatusList", UserRelationGender.relationshipStatusHash);
-		request.setAttribute("livingArrangementList", UserRelationGender.livingList);
-		request.setAttribute("currentGenderList", UserRelationGender.currentGenderList);
-		request.setAttribute("sexAssignedBirthList", UserRelationGender.sexAssignedBirthList);
-		request.setAttribute("sexualOrientationList", UserRelationGender.sexualOrientationList);
+		request.setAttribute("relationshipStatusList", UserRelationGenderLists.relationshipStatusList);
+		request.setAttribute("livingArrangementList", UserRelationGenderLists.livingList);
+		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);
+		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
+		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}

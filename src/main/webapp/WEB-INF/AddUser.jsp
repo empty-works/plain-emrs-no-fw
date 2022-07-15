@@ -76,11 +76,12 @@
 					<fieldset>
 					<legend>Relationship status: </legend>
 						<!-- Relationship status drop-down -->
-						<select id="relationshipStatusDropdown" name="relationshipStatusDropdown">
-							<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
-								<option><c:out value="${relationshipStatus}" /></option>	
-							</c:forEach>	
-						</select>
+						<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
+							<div>
+								<input type="checkbox" id="${relationshipStatus.getRelationshipStatusId()}" name="relationshipOption" value="${relationshipStatus.getRelationshipStatusId()}">
+								<label for="${relationshipStatus.getRelationshipStatusId()}">${relationshipStatus.getRelationshipStatus()}</label>
+							</div>	
+						</c:forEach>
 					</fieldset>
 					<fieldset>
 					<legend>Living arrangement: </legend>	

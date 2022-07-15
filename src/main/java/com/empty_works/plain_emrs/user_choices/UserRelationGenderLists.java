@@ -1,25 +1,24 @@
-package user_choices;
+package com.empty_works.plain_emrs.user_choices;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class UserRelationGender {
+public class UserRelationGenderLists {
 	
-	final public static HashSet<String> relationshipStatusHash = new HashSet<>()
-	{ 
+	final public static List<UserRelationshipStatusUnit> relationshipStatusList = new ArrayList<>() {
 		/**
 		 * 
 		 */
-		private static final long serialVersionUID = 4759298612889878166L;
+		private static final long serialVersionUID = -8020002724918366344L;
 
 		{
-			add("Single");
-			add("Married");
-			add("Partnered");
-			add("Separated");
-			add("Divorced");
-			add("Widowed");
+			add(new UserRelationshipStatusUnit("relStatusSingle","Single"));
+			add(new UserRelationshipStatusUnit("relStatusMarried","Married"));
+			add(new UserRelationshipStatusUnit("relStatusPartner","Partnered"));
+			add(new UserRelationshipStatusUnit("relStatusSeparate","Separated"));
+			add(new UserRelationshipStatusUnit("relStatusDivor","Divorced"));
+			add(new UserRelationshipStatusUnit("relStatusWido","Widowed"));
 		}
 	};
 	

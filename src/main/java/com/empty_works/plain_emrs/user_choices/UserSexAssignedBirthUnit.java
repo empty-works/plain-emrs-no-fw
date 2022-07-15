@@ -1,4 +1,4 @@
-package user_choices;
+package com.empty_works.plain_emrs.user_choices;
 
 public class UserSexAssignedBirthUnit {
 

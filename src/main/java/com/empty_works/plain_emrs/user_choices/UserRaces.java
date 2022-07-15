@@ -1,4 +1,4 @@
-package user_choices;
+package com.empty_works.plain_emrs.user_choices;
 
 import java.util.ArrayList;
 import java.util.List;
