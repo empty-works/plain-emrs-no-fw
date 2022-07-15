@@ -64,7 +64,26 @@
 					<input type="hidden" id="userType" name="userType" value="patient">
 
 					<fieldset>
-					<legend>Race: </legend>
+						<legend>Patient Personal Information: </legend>	
+						<label>Street Address: </label>
+						<div><input type="text" id="patientStreetAddress" name="patientStreetAddress" /></div>
+						<label>City: </label>
+						<div><input type="text" id="patientCity" name="patientCity" /></div>
+						<label>State: </label>
+						<div><input type="text" id="patientState" name="patientState" /></div>
+						<label>Country: </label>
+						<div><input type="text" id="patientCountry" name="patientCountry" /></div>
+						<label>Phone Number: </label>
+						<div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div>
+						<label>Patient Provider: </label>
+						<div><input type="text" id="patientProvider" name="patientProvider" /></div>
+						<label>Patient Provider ID: </label>
+						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
+						<label>Facility ID: </label>
+						<div><input type="text" id="patientFacilityId" name="patientFacilityId" /></div>
+					</fieldset>
+					<fieldset>
+						<legend>Race: </legend>
 						<!-- Race selection -->
 						<c:forEach items="${raceList}" var="race">
 							<div>
@@ -74,7 +93,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset>
-					<legend>Relationship status: </legend>
+						<legend>Relationship status: </legend>
 						<!-- Relationship status drop-down -->
 						<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
 							<div>
@@ -84,7 +103,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset>
-					<legend>Living arrangement: </legend>	
+						<legend>Living arrangement: </legend>	
 						<!-- Living arrangement selection -->
 						<c:forEach items="${livingArrangementList}" var="living">
 							<div>
@@ -94,7 +113,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset>
-					<legend>Current gender: </legend>
+						<legend>Current gender: </legend>
 						<!-- Current gender selection -->
 						<c:forEach items="${currentGenderList}" var="currentGender">
 							<div>
@@ -104,7 +123,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset>
-					<legend>Sex assigned at birth: </legend>
+						<legend>Sex assigned at birth: </legend>
 						<!-- Gender at birth selection -->
 						<c:forEach items="${sexAssignedBirthList}" var="sexAssignedBirth">
 							<div>
@@ -114,7 +133,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset>
-					<legend>Sexual orientation: </legend>	
+						<legend>Sexual orientation: </legend>	
 						<!-- Sexual orientation selection -->
 						<c:forEach items="${sexualOrientationList}" var="sexualOrientation">
 							<div>
@@ -123,6 +142,9 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
+					<h3>Medical History</h3>
+					
+					<div><input type="submit" /><input type="reset" name="Reset" /></div>
 				</div>
 				
 				<!-- Non-patient section -->
@@ -139,7 +161,6 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div><input type="submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>
