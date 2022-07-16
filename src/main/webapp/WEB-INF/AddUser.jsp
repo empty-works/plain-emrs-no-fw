@@ -79,8 +79,6 @@
 						<div><input type="text" id="patientProvider" name="patientProvider" /></div>
 						<label>Patient Provider ID: </label>
 						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
-						<label>Facility ID: </label>
-						<div><input type="text" id="patientFacilityId" name="patientFacilityId" /></div>
 					</fieldset>
 					<fieldset>
 						<legend>Race: </legend>
@@ -143,6 +141,7 @@
 						</c:forEach>
 					</fieldset>
 					<h3>Medical History</h3>
+					
 					
 					<div><input type="submit" /><input type="reset" name="Reset" /></div>
 				</div>
