@@ -6,11 +6,28 @@ public class UserRaceUnit {
 	private String raceName;
 	private String raceDescription;
 	
+	/**
+	 * 
+	 * @param raceId
+	 * @param raceName
+	 * @param raceDescription
+	 */
 	public UserRaceUnit(String raceId, String raceName, String raceDescription) {
 		
 		this.raceId = raceId;
 		this.raceName = raceName;
 		this.raceDescription = raceDescription;
+	}
+	
+	/**
+	 * 
+	 * @param raceId
+	 * @param raceName
+	 */
+	public UserRaceUnit(String raceId, String raceName) {
+		
+		this.raceId = raceId;
+		this.raceName = raceName;
 	}
 
 	public String getRaceId() {
