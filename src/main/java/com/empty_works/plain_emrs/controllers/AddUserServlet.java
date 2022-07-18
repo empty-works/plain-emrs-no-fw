@@ -25,6 +25,8 @@ public class AddUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setAttribute("raceList", UserRaceLists.raceList);
+		request.setAttribute("latinOptionsList", UserRaceLists.latinOptionsList);
+		request.setAttribute("latinOthersList", UserRaceLists.latinOtherList);
 		request.setAttribute("relationshipStatusList", UserRelationGenderLists.relationshipStatusList);
 		request.setAttribute("livingArrangementList", UserRelationGenderLists.livingList);
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);

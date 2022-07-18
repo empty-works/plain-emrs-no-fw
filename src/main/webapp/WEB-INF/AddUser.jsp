@@ -82,13 +82,20 @@
 					</fieldset>
 					<fieldset>
 						<legend>Ethnicity: </legend>
-						<!-- Race selection -->
-						<c:forEach items="${raceList}" var="race">
+						<!-- Hispanic Origin -->
+						<h3>Hispanic, Latino(a), Spanish Origin: </h3>
+						<c:forEach items="${latinOptionsList}" var="latinOption">
 							<div>
-								<input type="checkbox" id="${race.getRaceId()}" name="raceOption" value="${race.getRaceId()}">
-								<label for="${race.getRaceId()}">${race.getRaceName()} - ${race.getRaceDescription()}</label>	
+								<input type="checkbox" id="${latinOption.getRaceId()}" name="raceOption" value="${latinOption.getRaceId()}">
+								<label for="${latinOption.getRaceId()}">${latinOption.getRaceName()}</label>	
 							</div>
 						</c:forEach>
+						<h3>Another Hispanic, Latino/a, or Spanish Origin</h3>
+							<select id="latinOthersDropdown" name="latinOthersDropdown">
+								<c:forEach items="${latinOthersList}" var="latinOther">
+									<option><c:out value="${latinOther.getRaceName()}" /></option>	
+								</c:forEach>
+							</select>	
 					</fieldset>
 					<fieldset>
 						<legend>Relationship status: </legend>
