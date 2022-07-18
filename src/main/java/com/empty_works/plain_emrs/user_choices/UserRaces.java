@@ -33,6 +33,11 @@ public class UserRaces {
 	
 	final public static List<UserRaceUnit> latinEthnicityList = new ArrayList<>() {
 	
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -2574884976368879591L;
+
 		{
 			add(new UserRaceUnit("latinSpani", "Spaniard"));
 			add(new UserRaceUnit("latinAndul", "Andalusian"));
@@ -69,6 +74,34 @@ public class UserRaces {
 			add(new UserRaceUnit("latinCrill", "Criollo"));
 			add(new UserRaceUnit("latinLatAme", "Latin American"));
 			add(new UserRaceUnit("latinDomini", "Dominican"));
+		}
+	};
+	
+	final public static List<UserRaceUnit> asianEthnicityList = new ArrayList<>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -300245558993893663L;
+
+		{
+			add(new UserRaceUnit("asianBangla", "Bangladeshi"));
+			add(new UserRaceUnit("asianBhuta", "Bhutanese"));
+			add(new UserRaceUnit("asianBurm", "Burmese"));
+			add(new UserRaceUnit("asianCambo", "Cambodian"));
+			add(new UserRaceUnit("asianTaiw", "Taiwanese"));
+			add(new UserRaceUnit("asianHmong", "Hmong"));
+			add(new UserRaceUnit("asianIndon", "Indonesian"));
+			add(new UserRaceUnit("asianLoat", "Loation"));
+			add(new UserRaceUnit("asianMalay", "Malaysian"));
+			add(new UserRaceUnit("asianOkina", "Okinawan"));
+			add(new UserRaceUnit("asianPakist", "Pakistani"));
+			add(new UserRaceUnit("asianSriLan", "Sri Lankan"));
+			add(new UserRaceUnit("asianThai", "Thai"));
+			add(new UserRaceUnit("asianIwoJim", "Iwo Jiman"));
+			add(new UserRaceUnit("asianMaldiv", "Maldivian"));
+			add(new UserRaceUnit("asianNepal", "Nepalese"));
+			add(new UserRaceUnit("asianSingap", "Singaporean"));
+			add(new UserRaceUnit("asianMadag", "Madagascar"));
 		}
 	};
 }
