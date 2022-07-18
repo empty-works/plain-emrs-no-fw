@@ -81,7 +81,7 @@
 						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
 					</fieldset>
 					<fieldset>
-						<legend>Race: </legend>
+						<legend>Ethnicity: </legend>
 						<!-- Race selection -->
 						<c:forEach items="${raceList}" var="race">
 							<div>

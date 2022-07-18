@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
-import com.empty_works.plain_emrs.user_choices.UserRaces;
+import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
 
 /**
@@ -24,7 +24,7 @@ public class AddUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setAttribute("raceList", UserRaces.raceList);
+		request.setAttribute("raceList", UserRaceLists.raceList);
 		request.setAttribute("relationshipStatusList", UserRelationGenderLists.relationshipStatusList);
 		request.setAttribute("livingArrangementList", UserRelationGenderLists.livingList);
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);

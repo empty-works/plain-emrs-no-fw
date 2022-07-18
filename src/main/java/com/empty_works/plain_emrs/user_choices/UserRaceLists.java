@@ -8,7 +8,7 @@ import java.util.List;
  * U.S. Department of the Interior
  * */
 
-public class UserRaces {
+public class UserRaceLists {
 	
 	final public static List<UserRaceUnit> raceList = new ArrayList<>() {
 		/**
@@ -31,7 +31,24 @@ public class UserRaces {
 		}
 	};
 	
-	final public static List<UserRaceUnit> latinEthnicityList = new ArrayList<>() {
+	final public static List<UserRaceUnit> latinOptionsList = new ArrayList<>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -2226743304012359142L;
+
+		{
+			add(new UserRaceUnit("latinMex", "Mexican"));
+			add(new UserRaceUnit("latinMexAmeri", "Mexican American"));
+			add(new UserRaceUnit("latinChican", "Chicano/a"));
+			add(new UserRaceUnit("latinPuerRic", "Puerto Rican"));
+			add(new UserRaceUnit("latinCuba", "Cuban"));
+			add(new UserRaceUnit("latinUnk", "Unknown"));
+			add(new UserRaceUnit("latinNone", "Not of Hispanic, Latino/a, or Spanish origin"));
+		}
+	};
+	
+	final public static List<UserRaceUnit> latinOtherList = new ArrayList<>() {
 	
 		/**
 		 * 
