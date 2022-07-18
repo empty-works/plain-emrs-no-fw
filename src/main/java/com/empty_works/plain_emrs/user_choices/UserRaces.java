@@ -104,4 +104,37 @@ public class UserRaces {
 			add(new UserRaceUnit("asianMadag", "Madagascar"));
 		}
 	};
+	
+	final public static List<UserRaceUnit> pacificIslanderEthnicityList = new ArrayList<>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -1908913311631911647L;
+
+		{
+			add(new UserRaceUnit("pacIslPolyn", "Polynesian"));
+			add(new UserRaceUnit("pacIslTahit", "Tahitian"));
+			add(new UserRaceUnit("pacIslTongan", "Tongan"));
+			add(new UserRaceUnit("pacIslTokel", "Tokelauan"));
+			add(new UserRaceUnit("pacIslGuama", "Guamanian"));
+			add(new UserRaceUnit("pacIslMicron", "Micronesian"));
+			add(new UserRaceUnit("pacIslMarIsl", "Mariana Islander"));
+			add(new UserRaceUnit("pacIslSaipan", "Saipanese"));
+			add(new UserRaceUnit("pacIslPalau", "Palauan"));
+			add(new UserRaceUnit("pacIslKosra", "Kosraean"));
+			add(new UserRaceUnit("pacIslKirib", "Kiribati"));
+			add(new UserRaceUnit("pacIslPohnpe", "Pohnpeian"));
+			add(new UserRaceUnit("pacIslChuuk", "Chuukese"));
+			add(new UserRaceUnit("pacIslYape", "Yapese"));
+			add(new UserRaceUnit("pacIslMarchal", "Marchallese"));
+			add(new UserRaceUnit("pacIslKriba", "KribatI"));
+			add(new UserRaceUnit("pacIslOtherMicro", "Other Micronesian"));
+			add(new UserRaceUnit("pacIslMelan", "Melanesian"));
+			add(new UserRaceUnit("pacIslFiji", "Fijian"));
+			add(new UserRaceUnit("pacIslPapNewGui", "Papua New Guinean"));
+			add(new UserRaceUnit("pacIslSoloIsl", "Solomon Islander"));
+			add(new UserRaceUnit("pacIslNewHebri", "New Hebrides"));
+			add(new UserRaceUnit("pacIslOtherPacIsl", "Other Pacific Islander"));
+		}
+	};
 }
