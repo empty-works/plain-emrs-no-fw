@@ -147,10 +147,21 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
+
 					<h3>Medical History</h3>
-					
-					
-					<div><input type="submit" /><input type="reset" name="Reset" /></div>
+					<fieldset>
+						<!-- Received blood transfusion -->
+						<legend>Blood transfusion: </legend>	
+						<div>
+							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionYes" value="Yes">	
+							<label for="bloodTransfusionYes">Yes</label>
+							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionNo" value="No">	
+							<label for="bloodTransfusionNo">No</label>
+							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionUnknown" value="Unknown">	
+							<label for="bloodTransfusionUnknown">Unknown</label>
+						</div>
+					</fieldset>
+						
 				</div>
 				
 				<!-- Non-patient section -->
@@ -167,6 +178,8 @@
 						</c:forEach>
 					</select>
 				</div>
+
+				<div><input type="submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>
