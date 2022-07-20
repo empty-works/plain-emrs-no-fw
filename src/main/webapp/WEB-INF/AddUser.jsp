@@ -158,7 +158,7 @@
 							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionNo" value="No">	
 							<label for="bloodTransfusionNo">No</label>
 							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionUnknown" value="Unknown">	
-							<label for="bloodTransfusionUnknown">Unknown</label>
+							<label for="bloodTransfusionUnknown">Do not know</label>
 						</div>
 					</fieldset>
 					<fieldset>
@@ -166,7 +166,13 @@
 						<legend>Immunizations/diseases</legend>
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
-								
+								<span>${disease.getDiseaseName()}</span>
+								<input type="checkbox" id="hadDisease" name="hadDisease" value="diseaseYes">
+								<label for="hadDisease">Had Disease</label>
+								<input type="checkbox" id="diseaseImmunized" name="diseaseImmunized" value="immunizationYes">
+								<label for="diseaseImmunized">Immunized</label>
+								<input type="checkbox" id="diseaseUnknown" name="diseaseUnknown" value="diseaseUnknown">
+								<label for="diseaseUnknown">Do not know</label>
 							</div>	
 						</c:forEach>
 					</fieldset>
