@@ -161,7 +161,15 @@
 							<label for="bloodTransfusionUnknown">Unknown</label>
 						</div>
 					</fieldset>
-						
+					<fieldset>
+						<!-- Immunizations/diseases -->	
+						<legend>Immunizations/diseases</legend>
+						<c:forEach items="${diseaseList}" var="disease">
+							<div>
+								
+							</div>	
+						</c:forEach>
+					</fieldset>
 				</div>
 				
 				<!-- Non-patient section -->
