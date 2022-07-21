@@ -153,11 +153,11 @@
 						<!-- Received blood transfusion -->
 						<legend>Blood transfusion: </legend>	
 						<div>
-							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionYes" value="Yes">	
+							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionYes" value="bloodTransfusionYes">	
 							<label for="bloodTransfusionYes">Yes</label>
-							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionNo" value="No">	
+							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionNo" value="bloodTransfusionNo">	
 							<label for="bloodTransfusionNo">No</label>
-							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionUnknown" value="Unknown">	
+							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionUnknown" value="bloodTransfusionUnknown">	
 							<label for="bloodTransfusionUnknown">Do not know</label>
 						</div>
 					</fieldset>
@@ -167,11 +167,11 @@
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
 								<span>${disease.getDiseaseName()}</span>
-								<input type="checkbox" id="${disease.getDiseaseId()} + Had" name="${disease.getDiseaseId()} + Had" value="${disease.getDiseaseId()} + Had + Yes">
-								<label for="${disease.getDiseaseId()} + Had">Had Disease</label>
-								<input type="checkbox" id="${disease.getDiseaseId()} + Immunized" name="diseaseImmunized" value="immunizationYes">
-								<label for="diseaseImmunized">Immunized</label>
-								<input type="checkbox" id="diseaseUnknown" name="diseaseUnknown" value="diseaseUnknown">
+								<input type="checkbox" id="${disease.getDiseaseId()}" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()} + Yes">
+								<label for="${disease.getDiseaseId()}">Had Disease</label>
+								<input type="checkbox" id="${disease.getDiseaseImmunizedId()}" name="${disease.getDiseaseImmunizedId()}" value="${disease.getDiseaseImmunizedId()} + Yes">
+								<label for="${disease.getDiseaseImmunizedId()}">Immunized</label>
+								<input type="checkbox" id="diseaseUnknown" name="diseaseUnknown" value="${disease.getDiseaseImmunizedId()} + Unknown">
 								<label for="diseaseUnknown">Do not know</label>
 							</div>	
 						</c:forEach>
