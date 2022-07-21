@@ -167,9 +167,9 @@
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
 								<span>${disease.getDiseaseName()}</span>
-								<input type="checkbox" id="hadDisease" name="hadDisease" value="diseaseYes">
-								<label for="hadDisease">Had Disease</label>
-								<input type="checkbox" id="diseaseImmunized" name="diseaseImmunized" value="immunizationYes">
+								<input type="checkbox" id="${disease.getDiseaseId()} + Had" name="${disease.getDiseaseId()} + Had" value="${disease.getDiseaseId()} + Had + Yes">
+								<label for="${disease.getDiseaseId()} + Had">Had Disease</label>
+								<input type="checkbox" id="${disease.getDiseaseId()} + Immunized" name="diseaseImmunized" value="immunizationYes">
 								<label for="diseaseImmunized">Immunized</label>
 								<input type="checkbox" id="diseaseUnknown" name="diseaseUnknown" value="diseaseUnknown">
 								<label for="diseaseUnknown">Do not know</label>
