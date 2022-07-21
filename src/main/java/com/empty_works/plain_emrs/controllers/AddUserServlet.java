@@ -34,6 +34,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
+		request.setAttribute("medicalProblemList", );
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
