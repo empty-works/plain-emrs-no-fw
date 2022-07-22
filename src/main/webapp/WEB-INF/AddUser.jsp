@@ -176,6 +176,12 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
+					<fieldset>
+						<legend>Medical problems and surgical procedures</legend>	
+						<div>
+							
+						</div>
+					</fieldset>
 				</div>
 				
 				<!-- Non-patient section -->

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
+import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemLists;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
@@ -34,7 +35,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
-		request.setAttribute("medicalProblemList", );
+		request.setAttribute("medicalProblemList", PatientMedicalProblemLists.medicalProblemGeneralList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}

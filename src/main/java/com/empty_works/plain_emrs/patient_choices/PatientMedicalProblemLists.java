@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PatientMedicalProblemLists {
 
-	public static List<PatientMedicalProblemUnit> medicalProblemList = new ArrayList<>() {
+	public static List<PatientMedicalProblemUnit> medicalProblemGeneralList = new ArrayList<>() {
 		/**
 		 * 
 		 */
@@ -32,13 +32,6 @@ public class PatientMedicalProblemLists {
 			add(new PatientMedicalProblemUnit("medProbKidneys", "Kidneys"));
 			add(new PatientMedicalProblemUnit("medProbBladder", "Bladder"));
 			add(new PatientMedicalProblemUnit("medProbBones", "Bones"));
-			add(new PatientMedicalProblemUnit("medProbHeAtt", "Heart attack"));
-			add(new PatientMedicalProblemUnit("medProbHeVal", "Heart valves"));
-			add(new PatientMedicalProblemUnit("medProbAbnHeRhy", "Abnormal heart rhythm"));
-			add(new PatientMedicalProblemUnit("medProbNarrCoroArt", "Narrowed coronary arteries"));
-			add(new PatientMedicalProblemUnit("medProbArteries", "Arteries (head, arms, legs, aorta, etc.)"));
-			add(new PatientMedicalProblemUnit("medProbBlooClots", "Veins or blood clots in the veins"));
-			add(new PatientMedicalProblemUnit("medProbHeartOther", "Heart other"));
 			add(new PatientMedicalProblemUnit("medProbJoints", "Joints"));
 			add(new PatientMedicalProblemUnit("medProbMuscles", "Muscles"));
 			add(new PatientMedicalProblemUnit("medProbBack", "Back"));
@@ -46,6 +39,33 @@ public class PatientMedicalProblemLists {
 			add(new PatientMedicalProblemUnit("medProbSpine", "Spine"));
 			add(new PatientMedicalProblemUnit("medProbBrain", "Brain"));
 			add(new PatientMedicalProblemUnit("medProbSkin", "Skin"));
+		}
+	};
+	
+	public static List<PatientMedicalProblemUnit> medicalProblemHeartList = new ArrayList<>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1508226257245976911L;
+
+		{
+			add(new PatientMedicalProblemUnit("medProbHeAtt", "Heart attack"));
+			add(new PatientMedicalProblemUnit("medProbHeVal", "Heart valves"));
+			add(new PatientMedicalProblemUnit("medProbAbnHeRhy", "Abnormal heart rhythm"));
+			add(new PatientMedicalProblemUnit("medProbNarrCoroArt", "Narrowed coronary arteries"));
+			add(new PatientMedicalProblemUnit("medProbArteries", "Arteries (head, arms, legs, aorta, etc.)"));
+			add(new PatientMedicalProblemUnit("medProbBlooClots", "Veins or blood clots in the veins"));
+			add(new PatientMedicalProblemUnit("medProbHeartOther", "Heart other"));
+		}
+	};
+	
+	public static List<PatientMedicalProblemUnit> medicalProblemReproductList = new ArrayList<>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6131874158098753909L;
+
+		{
 			add(new PatientMedicalProblemUnit("medProbBreasts", "Breasts"));
 			add(new PatientMedicalProblemUnit("medProbUterus", "Uterus"));
 			add(new PatientMedicalProblemUnit("medProbOvaries", "Ovaries"));
