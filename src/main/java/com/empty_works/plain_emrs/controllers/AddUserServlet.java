@@ -37,7 +37,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
 		request.setAttribute("generalMedicalProblemList", PatientMedicalProblemLists.medicalProblemGeneralList);
 		request.setAttribute("medicalProblemHeartList", PatientMedicalProblemLists.medicalProblemHeartList);
-		
+		request.setAttribute("medicalProblemReproductList", PatientMedicalProblemLists.medicalProblemReproductList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
