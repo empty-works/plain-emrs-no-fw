@@ -176,11 +176,20 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
-					<fieldset>
+					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
-						<div>
-							
+						<h4>General</h4>
+						<div id="genMedProbContainer">
+							<div id="genMedProbNode">
+								<select id="genMedProbDropdown" name="genMedProbDropdown">
+									<c:forEach items="${}">
+									
+									</c:forEach>
+								</select>
+								<input type="text" id="">
+							</div>			
 						</div>
+						<button onclick="addMedProblem()">Add</button>
 					</fieldset>
 				</div>
 				

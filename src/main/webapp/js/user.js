@@ -31,3 +31,8 @@ function showNonpatientForm() {
 	nonpatientTitle.style.display = "block";
 	nonpatientSection.style.display = "block";
 }
+
+function addMedProblem() {
+	const medProbDivNode = document.getElementById("genMedProbContainer");
+		
+}
