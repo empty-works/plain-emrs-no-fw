@@ -166,7 +166,7 @@
 						<legend>Immunizations/diseases</legend>
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
-								<span>${disease.getDiseaseName()}</span>
+								<span>${disease.getDiseaseName()}: </span>
 								<input type="checkbox" id="${disease.getDiseaseId()}" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()} + Yes">
 								<label for="${disease.getDiseaseId()}">Had Disease</label>
 								<input type="checkbox" id="${disease.getDiseaseImmunizedId()}" name="${disease.getDiseaseImmunizedId()}" value="${disease.getDiseaseImmunizedId()} + Yes">
@@ -181,12 +181,18 @@
 						<h4>General</h4>
 						<div id="genMedProbContainer">
 							<div id="genMedProbNode">
+								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
-									<c:forEach items="${}">
-									
+									<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
+										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
-								<input type="text" id="">
+								<label for="genMedProbText">Medical problem: </label>
+								<input type="text" id="genMedProbText" name="genMedProbText">
+								<label for="genMedProbSurgeryText">Surgical procedure: </label>
+								<input type="text" id="genMedProbSurgeryText" name="genMedProbSurgeryText">
+								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
+								<input type="date" id="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
 						<button onclick="addMedProblem()">Add</button>
