@@ -33,6 +33,9 @@ function showNonpatientForm() {
 }
 
 function addMedProblem() {
-	const medProbDivNode = document.getElementById("genMedProbContainer");
-		
+	// Get the container first.
+	const medProbContainer = document.getElementById("genMedProbContainer");
+	// Get the div node. 
+	const medProbDivNode = document.get.getElementByClassName("genMedProbNode");
+	medProbContainer.appendChild(medProbDivNode);
 }

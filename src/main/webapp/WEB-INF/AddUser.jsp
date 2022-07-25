@@ -180,7 +180,7 @@
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
 						<div id="genMedProbContainer">
-							<div id="genMedProbNode">
+							<div class="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
 									<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
