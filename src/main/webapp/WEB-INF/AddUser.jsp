@@ -180,7 +180,7 @@
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
 						<div id="genMedProbContainer">
-							<div class="genMedProbNode">
+							<div id="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
 									<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
@@ -195,7 +195,7 @@
 								<input type="date" id="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button onclick="addMedProblem()">Add</button>
+						<button type="button" onclick="addMedProblem()">Add</button>
 					</fieldset>
 				</div>
 				

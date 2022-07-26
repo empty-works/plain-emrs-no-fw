@@ -36,6 +36,8 @@ function addMedProblem() {
 	// Get the container first.
 	const medProbContainer = document.getElementById("genMedProbContainer");
 	// Get the div node. 
-	const medProbDivNode = document.get.getElementByClassName("genMedProbNode");
+	const medProbDivNode = document.createElement("div");
+	const medProbBlockNode = document.getElementById("genMedProbNode");
+	medProbDivNode.appendChild(medProbBlockNode);
 	medProbContainer.appendChild(medProbDivNode);
 }
