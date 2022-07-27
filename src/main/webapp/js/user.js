@@ -33,6 +33,7 @@ function showNonpatientForm() {
 }
 
 function addMedProblem() {
+	
 	// Get the container first.
 	const medProbContainer = document.getElementById("genMedProbContainer");
 	// Get the div node. 

@@ -179,22 +179,34 @@
 					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
+						<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
+							<div class="grid-container">
+								<div class="grid-item">${genMedProb.getProblemArea()}</div>	
+								<div class="grid-item">
+									<input type="text" placeholder="Medical problem" id="${genMedProb.getProblemArea()}">
+									<input type="text" placeholder="Surgical procedure">
+									<input type="date" placeholder="Surgery date">
+								</div>
+							</div>	
+						</c:forEach>
+						<!--  
 						<div id="genMedProbContainer">
-							<div id="genMedProbNode">
+							<div class="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
-								<select id="genMedProbDropdown" name="genMedProbDropdown">
+								<select class="genMedProbDropdown" name="genMedProbDropdown">
 									<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
 										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
 								<label for="genMedProbText">Medical problem: </label>
-								<input type="text" id="genMedProbText" name="genMedProbText">
+								<input type="text" class="genMedProbText" name="genMedProbText">
 								<label for="genMedProbSurgeryText">Surgical procedure: </label>
-								<input type="text" id="genMedProbSurgeryText" name="genMedProbSurgeryText">
+								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText">
 								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" id="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
+								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
+						-->
 						<button type="button" onclick="addMedProblem()">Add</button>
 					</fieldset>
 				</div>
