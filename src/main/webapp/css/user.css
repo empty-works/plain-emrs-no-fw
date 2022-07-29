@@ -14,11 +14,11 @@
 
 .grid-container {
 	display: grid;
-	grid-template-columns: auto auto;
-	padding: 10px;
+	grid-template-rows: auto auto;
+	padding: 5px;
 }
 
 .grid-item {
-	padding: 20px;
+	padding: 5px;
 	text-align: left;
 }

@@ -36,9 +36,21 @@ function addMedProblem() {
 	
 	// Get the container first.
 	const medProbContainer = document.getElementById("genMedProbContainer");
-	// Get the div node. 
+	let medProbHtml = "<div class='genMedProbNode'>" + 
+							"<label for='genMedProbDropdown'>Problem area: </label>" + 
+							"<select id='genMedProbDropdown' name='genMedProbDropdown'>" + 
+							"<c:forEach items='${generalMedicalProblemList}' var='genMedProb'><option>${genMedProb.getProblemArea()}</option>" + 
+							"	</c:forEach></select><label for='genMedProbText'>Medical problem: </label>" + 
+							"<input type='text' class='genMedProbText' name='genMedProbText'>" + 
+							"<label for='genMedProbSurgeryText'>Surgical procedure: </label>" + 
+							"<input type='text' class='genMedProbSurgeryText' name='genMedProbSurgeryText'>" + 
+							"<label for='genMedProbSurgeryDate'>Surgical procedure date: </label>" + 
+							"<input type='date' class='genMedProbSurgeryDate' name='genMedProbSurgeryDate'></div>";
+	medProbContainer.insertAdjacentHTML("beforeend", medProbHtml);
+	/*
 	const medProbDivNode = document.createElement("div");
 	const medProbBlockNode = document.getElementById("genMedProbNode");
 	medProbDivNode.appendChild(medProbBlockNode);
 	medProbContainer.appendChild(medProbDivNode);
+	*/
 }
