@@ -1,15 +1,20 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemLists;
+import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
@@ -35,7 +40,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
-		request.setAttribute("generalMedicalProblemList", PatientMedicalProblemLists.medicalProblemGeneralList);
+		request.setAttribute("generalMedicalProblemList", makeJson(PatientMedicalProblemLists.medicalProblemGeneralList)/*PatientMedicalProblemLists.medicalProblemGeneralList*/);
 		request.setAttribute("medicalProblemHeartList", PatientMedicalProblemLists.medicalProblemHeartList);
 		request.setAttribute("medicalProblemReproductList", PatientMedicalProblemLists.medicalProblemReproductList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
@@ -58,5 +63,14 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("userBean", user);
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
+	}
+	
+	private JSONObject makeJson(List<PatientMedicalProblemUnit> list) {
+		
+		JSONObject jobj = new JSONObject();
+		for(PatientMedicalProblemUnit unit : list) {
+			jobj.put(unit.getProblemAreaId(), unit.getProblemArea());
+		}
+		return jobj;
 	}
 }

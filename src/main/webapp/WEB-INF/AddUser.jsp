@@ -229,7 +229,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick="addMedProblem()">Add</button>
+						<button type="button" onclick="addMedProblem('${generalMedicalProblemList}')">Add</button>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
