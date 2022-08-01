@@ -32,16 +32,32 @@ function showNonpatientForm() {
 	nonpatientSection.style.display = "block";
 }
 
-let medProbListJs;
-function addMedProblem(medProbList) {
+	let select = document.getElementById("genMedProbDropdown");
+	let fakeList = ['A', 'B', 'C'];
+	for(var i = 0; i < fakeList.length; i++) {
+		var element = document.createElement("option");
+		element.textContent = "YO";
+		element.value = "HEY";
+		select.appendChild(element);
+	}
+function addMedProblem(jsonList) {
 	
-	medProbListJs = medProbList;
+	let medProbList = JSON.parse(jsonList);
+	let select = document.getElementById("genMedProbDropdown");
+	let fakeList = ['A', 'B', 'C'];
+	for(var i = 0; i < fakeList.length; i++) {
+		var element = document.createElement("option");
+		element.textContent = "YO";
+		element.value = "HEY";
+		select.appendChild(element);
+	}
 	// Get the container first.
+	/*
 	const medProbContainer = document.getElementById("genMedProbContainer");
 	let medProbHtml = "<div class=\"genMedProbNode\">" + 
 							"<label for=\"genMedProbDropdown\">Problem area: </label>" + 
 							"<select id=\"genMedProbDropdown\" name=\"genMedProbDropdown\">" + 
-							"<c:forEach items=\"getMedProbList()\" var=\"genMedProb\">" + 
+							"<c:forEach items=\"${generalMedicalProblemList}\" var=\"genMedProb\">" + 
 							"<option>${genMedProb.getProblemArea()}</option>" + 
 							"</c:forEach></select>" + 
 							"<label for=\"genMedProbText\">Medical problem: </label>" + 
@@ -51,14 +67,11 @@ function addMedProblem(medProbList) {
 							"<label for=\"genMedProbSurgeryDate\">Surgical procedure date: </label>" + 
 							"<input type=\"date\" class=\"genMedProbSurgeryDate\" name=\"genMedProbSurgeryDate\"></div>";
 	medProbContainer.insertAdjacentHTML("beforeend", medProbHtml);
+	*/
 	/*
 	const medProbDivNode = document.createElement("div");
 	const medProbBlockNode = document.getElementById("genMedProbNode");
 	medProbDivNode.appendChild(medProbBlockNode);
 	medProbContainer.appendChild(medProbDivNode);
 	*/
-}
-
-function getMedProbList() {
-	return medProbListJs;
 }

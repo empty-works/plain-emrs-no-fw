@@ -69,7 +69,7 @@ public class AddUserServlet extends HttpServlet {
 		
 		JSONObject jobj = new JSONObject();
 		for(PatientMedicalProblemUnit unit : list) {
-			jobj.put(unit.getProblemAreaId(), unit.getProblemArea());
+			jobj.put("problem_area", unit.getProblemArea());
 		}
 		return jobj;
 	}

@@ -178,48 +178,11 @@
 					</fieldset>
 					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
-						<!--  
-						<h4>General</h4>
-						<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
-							<div class="grid-container">
-								<div class="grid-item">${genMedProb.getProblemArea()}</div>	
-								<div class="grid-item">
-									<input type="text" placeholder="Medical problem" id="${genMedProb.getProblemArea()} + MedProb">
-									<input type="text" placeholder="Surgical procedure">
-									<input type="date" placeholder="Surgery date">
-								</div>
-							</div>	
-						</c:forEach>
-						<h4>Heart-related</h4>
-						<c:forEach items="${medicalProblemHeartList}" var="genMedProbHeart">
-							<div class="grid-container">
-								<div class="grid-item">${genMedProbHeart.getProblemArea()}</div>	
-								<div class="grid-item">
-									<input type="text" placeholder="Medical problem" id="${genMedProbHeart.getProblemArea()} + MedProb">	
-									<input type="text" placeholder="Surgical procedure">
-									<input type="date" placeholder="Surgery date">
-								</div>
-							</div>	
-						</c:forEach>
-						<h4>Reproduction-related</h4>
-						<c:forEach items="${medicalProblemReproductList}" var="genMedProbReprod">
-							<div class="grid-container">
-								<div class="grid-item">${genMedProbReprod.getProblemArea()}</div>	
-								<div class="grid-item">
-									<input type="text" placeholder="Medical problem" id="${genMedProbReprod.getProblemArea()} + MedProb">	
-									<input type="text" placeholder="Surgical procedure">
-									<input type="date" placeholder="Surgery date">
-								</div>
-							</div>	
-						</c:forEach>
-						-->
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
-									<c:forEach items="${generalMedicalProblemList}" var="genMedProb">
-										<option>${genMedProb.getProblemArea()}</option>	
-									</c:forEach>
+									<option>Select a problem area</option>	
 								</select>
 								<label for="genMedProbText">Medical problem: </label>
 								<input type="text" class="genMedProbText" name="genMedProbText">
@@ -229,7 +192,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick="addMedProblem('${generalMedicalProblemList}')">Add</button>
+						<button type="button" onclick="addMedProblem(${generalMedicalProblemList})">Add</button>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
