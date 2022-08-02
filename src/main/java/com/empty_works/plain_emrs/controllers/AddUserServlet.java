@@ -68,9 +68,12 @@ public class AddUserServlet extends HttpServlet {
 	private JSONObject makeJson(List<PatientMedicalProblemUnit> list) {
 		
 		JSONObject jobj = new JSONObject();
+		int count = 0;
 		for(PatientMedicalProblemUnit unit : list) {
-			jobj.put("problem_area", unit.getProblemArea());
+			jobj.put("problem_area" + count, unit.getProblemArea());
+			count++;
 		}
+		System.out.println(jobj);
 		return jobj;
 	}
 }

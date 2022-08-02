@@ -176,7 +176,7 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
-					<fieldset id="medProblemFieldSet">
+					<fieldset id="medProblemFieldSet" onload="addMedProblem(document.getElementById('genMedProbList').value)">
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">
@@ -184,6 +184,7 @@
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
 									<option>Select a problem area</option>	
 								</select>
+								<input type="hidden" id="genMedProbList" name="genMedProbList" value="${generalMedicalProblemList}">
 								<label for="genMedProbText">Medical problem: </label>
 								<input type="text" class="genMedProbText" name="genMedProbText">
 								<label for="genMedProbSurgeryText">Surgical procedure: </label>
@@ -192,7 +193,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick="addMedProblem(${generalMedicalProblemList})">Add</button>
+						<button type="button" onclick="addMedProblem(document.getElementById('genMedProbList').value)">Add</button>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							

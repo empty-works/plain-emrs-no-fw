@@ -32,23 +32,15 @@ function showNonpatientForm() {
 	nonpatientSection.style.display = "block";
 }
 
-	let select = document.getElementById("genMedProbDropdown");
-	let fakeList = ['A', 'B', 'C'];
-	for(var i = 0; i < fakeList.length; i++) {
-		var element = document.createElement("option");
-		element.textContent = "YO";
-		element.value = "HEY";
-		select.appendChild(element);
-	}
 function addMedProblem(jsonList) {
 	
 	let medProbList = JSON.parse(jsonList);
 	let select = document.getElementById("genMedProbDropdown");
-	let fakeList = ['A', 'B', 'C'];
-	for(var i = 0; i < fakeList.length; i++) {
+	for(var i = 0; i < medProbList.length; i++) {
+		var option = medProbList[i];
 		var element = document.createElement("option");
-		element.textContent = "YO";
-		element.value = "HEY";
+		element.textContent = option.problem_area;
+		element.value = option.problem_area;
 		select.appendChild(element);
 	}
 	// Get the container first.
