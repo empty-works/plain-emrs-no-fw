@@ -34,15 +34,21 @@ function showNonpatientForm() {
 
 function addMedProblem(jsonList) {
 	
-	let medProbList = JSON.parse(jsonList);
+	console.log(jsonList);
+	
+	//let medProbList = JSON.parse(jsonList);
+	//console.log(medProbList);
+/*
 	let select = document.getElementById("genMedProbDropdown");
 	for(var i = 0; i < medProbList.length; i++) {
 		var option = medProbList[i];
 		var element = document.createElement("option");
-		element.textContent = option.problem_area;
-		element.value = option.problem_area;
+		//element.textContent = option.problem_area1;
+		//element.value = option.problem_area1;
+		//console.log(element.value);
 		select.appendChild(element);
 	}
+	*/
 	// Get the container first.
 	/*
 	const medProbContainer = document.getElementById("genMedProbContainer");
