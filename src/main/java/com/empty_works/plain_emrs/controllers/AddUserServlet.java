@@ -70,7 +70,8 @@ public class AddUserServlet extends HttpServlet {
 		JSONObject jobj = new JSONObject();
 		int count = 0;
 		for(PatientMedicalProblemUnit unit : list) {
-			jobj.put("problem_area" + count, unit.getProblemArea());
+			if(count < 10) jobj.put("problem_area" + "0" + count, unit.getProblemArea());
+			else jobj.put("problem_area" + count, unit.getProblemArea());
 			count++;
 		}
 		System.out.println(jobj);

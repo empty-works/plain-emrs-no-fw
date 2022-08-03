@@ -36,8 +36,8 @@ function addMedProblem(jsonList) {
 	
 	console.log(jsonList);
 	
-	//let medProbList = JSON.parse(jsonList);
-	//console.log(medProbList);
+	let medProbList = JSON.parse(jsonList);
+	console.log(medProbList);
 /*
 	let select = document.getElementById("genMedProbDropdown");
 	for(var i = 0; i < medProbList.length; i++) {
