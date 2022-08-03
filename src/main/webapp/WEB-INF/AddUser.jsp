@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -177,7 +178,6 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset id="medProblemFieldSet" >
-
 						<input type="hidden" id="genMedProbList" name="genMedProbList" value="${generalMedicalProblemList}">
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
@@ -194,7 +194,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick="addMedProblem(document.getElementById('genMedProbList'))">Add</button>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemList)})'>Add</button>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
