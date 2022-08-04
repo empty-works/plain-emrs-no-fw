@@ -177,8 +177,7 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
-					<fieldset id="medProblemFieldSet" >
-						<input type="hidden" id="genMedProbList" name="genMedProbList" value="${generalMedicalProblemList}">
+					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">

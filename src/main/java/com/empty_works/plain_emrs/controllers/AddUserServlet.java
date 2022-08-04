@@ -65,7 +65,7 @@ public class AddUserServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	
-	private JSONObject makeJson(List<PatientMedicalProblemUnit> list) {
+	private String makeJson(List<PatientMedicalProblemUnit> list) {
 		
 		JSONObject jobj = new JSONObject();
 		int count = 0;
@@ -75,6 +75,6 @@ public class AddUserServlet extends HttpServlet {
 			count++;
 		}
 		System.out.println(jobj);
-		return jobj;
+		return jobj.toString();
 	}
 }

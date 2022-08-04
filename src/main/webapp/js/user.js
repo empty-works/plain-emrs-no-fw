@@ -35,20 +35,20 @@ function showNonpatientForm() {
 function addMedProblem(jsonList) {
 	
 	console.log(jsonList);
-	
-	let medProbList = JSON.parse(jsonList);
-	console.log(medProbList);
-/*
 	let select = document.getElementById("genMedProbDropdown");
-	for(var i = 0; i < medProbList.length; i++) {
-		var option = medProbList[i];
-		var element = document.createElement("option");
-		//element.textContent = option.problem_area1;
-		//element.value = option.problem_area1;
-		//console.log(element.value);
+	for(let x in jsonList) {
+		//let option = jsonList[i];
+		//console.log(option);
+		console.log(x);
+		console.log("YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+		/*
+		let element = document.createElement("option");
+		element.textContent = option;
+		element.value = option;
+		console.log(element.value);
 		select.appendChild(element);
+		*/
 	}
-	*/
 	// Get the container first.
 	/*
 	const medProbContainer = document.getElementById("genMedProbContainer");
@@ -56,7 +56,7 @@ function addMedProblem(jsonList) {
 							"<label for=\"genMedProbDropdown\">Problem area: </label>" + 
 							"<select id=\"genMedProbDropdown\" name=\"genMedProbDropdown\">" + 
 							"<c:forEach items=\"${generalMedicalProblemList}\" var=\"genMedProb\">" + 
-							"<option>${genMedProb.getProblemArea()}</option>" + 
+							"<option>${fn:escapeXml(generalMedicalProblemList)}</option>" + 
 							"</c:forEach></select>" + 
 							"<label for=\"genMedProbText\">Medical problem: </label>" + 
 							"<input type=\"text\" class=\"genMedProbText\" name=\"genMedProbText\">" + 
