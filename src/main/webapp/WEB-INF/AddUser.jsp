@@ -183,7 +183,10 @@
 							<div class="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
-									<option>Select a problem area</option>	
+									<option value="" disabled selected>Select a problem area</option>	
+									<c:forEach items="${generalMedicalProblemListNonJson}" var="genMedProb">
+										<option>${genMedProb.getProblemArea()}</option>	
+									</c:forEach>
 								</select>
 								<label for="genMedProbText">Medical problem: </label>
 								<input type="text" class="genMedProbText" name="genMedProbText">
@@ -193,7 +196,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemList)})'>Add</button>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)})'>Add</button>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							

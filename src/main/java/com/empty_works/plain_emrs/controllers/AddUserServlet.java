@@ -40,7 +40,8 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
-		request.setAttribute("generalMedicalProblemList", makeJson(PatientMedicalProblemLists.medicalProblemGeneralList)/*PatientMedicalProblemLists.medicalProblemGeneralList*/);
+		request.setAttribute("generalMedicalProblemListNonJson", PatientMedicalProblemLists.medicalProblemGeneralList);
+		request.setAttribute("generalMedicalProblemListJson", makeJson(PatientMedicalProblemLists.medicalProblemGeneralList));
 		request.setAttribute("medicalProblemHeartList", PatientMedicalProblemLists.medicalProblemHeartList);
 		request.setAttribute("medicalProblemReproductList", PatientMedicalProblemLists.medicalProblemReproductList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);

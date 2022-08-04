@@ -36,6 +36,8 @@ function addMedProblem(jsonList) {
 	
 	console.log(jsonList);
 	let select = document.getElementById("genMedProbDropdown");
+
+	let dropDown = document.createElement("select");
 	for(let x in jsonList) {
 		//let option = jsonList[i];
 		//console.log(option);
