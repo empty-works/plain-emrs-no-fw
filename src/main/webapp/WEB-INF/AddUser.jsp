@@ -183,7 +183,6 @@
 							<div class="genMedProbNode">
 								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
-									<option value="" disabled selected>Select a problem area</option>	
 									<c:forEach items="${generalMedicalProblemListNonJson}" var="genMedProb">
 										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>

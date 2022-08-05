@@ -69,11 +69,8 @@ public class AddUserServlet extends HttpServlet {
 	private String makeJson(List<PatientMedicalProblemUnit> list) {
 		
 		JSONObject jobj = new JSONObject();
-		int count = 0;
 		for(PatientMedicalProblemUnit unit : list) {
-			if(count < 10) jobj.put("problem_area" + "0" + count, unit.getProblemArea());
-			else jobj.put("problem_area" + count, unit.getProblemArea());
-			count++;
+			jobj.put(unit.getProblemArea() + "genMedProb", unit.getProblemArea());
 		}
 		System.out.println(jobj);
 		return jobj.toString();

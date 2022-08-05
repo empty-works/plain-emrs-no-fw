@@ -48,6 +48,8 @@ function addMedProblem(jsonList) {
 		option.value = element; 
 		dropDown.appendChild(option);
 	}
+	let text = document.createTextNode("Problem area: ");
+	medProbNode.appendChild(text);
 	medProbNode.appendChild(dropDown);
 	medProbContainer.appendChild(medProbNode);
 	// Get the container first.
