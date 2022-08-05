@@ -35,22 +35,21 @@ function showNonpatientForm() {
 function addMedProblem(jsonList) {
 	
 	console.log(jsonList);
-	let select = document.getElementById("genMedProbDropdown");
-
+	let medProbContainer = document.getElementById("genMedProbContainer");
+	let medProbNode = document.createElement("div");
 	let dropDown = document.createElement("select");
 	for(let x in jsonList) {
 		//let option = jsonList[i];
 		//console.log(option);
-		console.log(x);
-		console.log("YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-		/*
-		let element = document.createElement("option");
-		element.textContent = option;
-		element.value = option;
-		console.log(element.value);
-		select.appendChild(element);
-		*/
+		console.log(jsonList[x]);
+		let element = jsonList[x];
+		let option = document.createElement("option");
+		option.textContent = element;
+		option.value = element; 
+		dropDown.appendChild(option);
 	}
+	medProbNode.appendChild(dropDown);
+	medProbContainer.appendChild(medProbNode);
 	// Get the container first.
 	/*
 	const medProbContainer = document.getElementById("genMedProbContainer");
