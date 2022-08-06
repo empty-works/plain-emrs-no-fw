@@ -1,7 +1,9 @@
 package com.empty_works.plain_emrs.patient_choices;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 public class PatientMedicalProblemLists {
 
@@ -41,6 +43,46 @@ public class PatientMedicalProblemLists {
 			add(new PatientMedicalProblemUnit("medProbThyParaThyGland", "Thyroid or parathyroid gland"));
 		}
 	};
+	
+	public static LinkedHashMap<String, String> medicalProblemsGeneralMap = new LinkedHashMap<>() {
+		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1508226257245976911L;
+
+		{
+			put("medProbAppend", "Appendix");
+			put("medProbBack", "Back");
+			put("medProbBladder", "Bladder");
+			put("medProbBones", "Bones");
+			put("medProbBowel", "Bowel");
+			put("medProbBrain", "Brain");
+			put("medProbEars", "Ears");
+			put("medProbEsoph", "Esophagus");
+			put("medProbEyes", "Eyes");
+			put("medProbGallBl", "Gallbladder");
+			put("medProbHernia", "Hernia");
+			put("medProbJoints", "Joints");
+			put("medProbKidneys", "Kidneys");
+			put("medProbLiver", "Liver");
+			put("medProbLungs", "Lungs");
+			put("medProbLymph", "Lymph nodes");
+			put("medProbMuscles", "Muscles");
+			put("medProbNeck", "Neck");
+			put("medProbNose", "Nose");
+			put("medProbPancre", "Pancreas");
+			put("medProbSinuses", "Sinuses");
+			put("medProbSkin", "Skin");
+			put("medProbSpine", "Spine");
+			put("medProbSpleen", "Spleen");
+			put("medProbStoma", "Stomach");
+			put("medProbTonsils", "Tonsils");
+			put("medProbThyParaThyGland", "Thyroid or parathyroid gland");
+		}
+	};
+	
+	public static Set<String> genMedProbMapKeyset = medicalProblemsGeneralMap.keySet();
 	
 	public static List<PatientMedicalProblemUnit> medicalProblemHeartList = new ArrayList<>() {
 		/**
