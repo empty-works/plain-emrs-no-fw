@@ -178,6 +178,7 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset id="medProblemFieldSet">
+						<div id="addLimitReached"></div>
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">

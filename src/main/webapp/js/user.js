@@ -32,52 +32,39 @@ function showNonpatientForm() {
 	nonpatientSection.style.display = "block";
 }
 
+let medProbLimit = 0;
 function addMedProblem(jsonList) {
 	
-	console.log(jsonList);
-	let medProbContainer = document.getElementById("genMedProbContainer");
-	let medProbNode = document.createElement("div");
-	let dropDown = document.createElement("select");
-	let medProbList = [];
-	for(let x in jsonList) {
-		medProbList.push(x, jsonList[x]);
+	medProbLimit++;
+	MED_PROB_MAX = 15;
+	if(medProbLimit < MED_PROB_MAX) {
+		console.log(jsonList);
+		let medProbContainer = document.getElementById("genMedProbContainer");
+		let medProbNode = document.createElement("div");
+		let dropDown = document.createElement("select");
+		let medProbList = [];
+		for(let x in jsonList) {
+			medProbList.push(x, jsonList[x]);
+		}
+		medProbList.sort();
+		for(let x in medProbList) {
+			//let option = jsonList[i];
+			//console.log(option);
+			console.log(medProbList[x]);
+			let element = medProbList[x];
+			let option = document.createElement("option");
+			option.textContent = element;
+			option.value = element; 
+			dropDown.appendChild(option);
+		}
+		let text = document.createTextNode("Problem area: ");
+		medProbNode.appendChild(text);
+		medProbNode.appendChild(dropDown);
+		medProbContainer.appendChild(medProbNode);
 	}
-	medProbList.sort();
-	for(let x in medProbList) {
-		//let option = jsonList[i];
-		//console.log(option);
-		console.log(medProbList[x]);
-		let element = medProbList[x];
-		let option = document.createElement("option");
-		option.textContent = element;
-		option.value = element; 
-		dropDown.appendChild(option);
+	else {
+		const limitMsg = document.getElementById("addLimitReached");
+		let text = "Cannot add more!";
+		limitMsg.insertAdjacentText("beforebegin", text);
 	}
-	let text = document.createTextNode("Problem area: ");
-	medProbNode.appendChild(text);
-	medProbNode.appendChild(dropDown);
-	medProbContainer.appendChild(medProbNode);
-	// Get the container first.
-	/*
-	const medProbContainer = document.getElementById("genMedProbContainer");
-	let medProbHtml = "<div class=\"genMedProbNode\">" + 
-							"<label for=\"genMedProbDropdown\">Problem area: </label>" + 
-							"<select id=\"genMedProbDropdown\" name=\"genMedProbDropdown\">" + 
-							"<c:forEach items=\"${generalMedicalProblemList}\" var=\"genMedProb\">" + 
-							"<option>${fn:escapeXml(generalMedicalProblemList)}</option>" + 
-							"</c:forEach></select>" + 
-							"<label for=\"genMedProbText\">Medical problem: </label>" + 
-							"<input type=\"text\" class=\"genMedProbText\" name=\"genMedProbText\">" + 
-							"<label for=\"genMedProbSurgeryText\">Surgical procedure: </label>" + 
-							"<input type=\"text\" class=\"genMedProbSurgeryText\" name=\"genMedProbSurgeryText\">" + 
-							"<label for=\"genMedProbSurgeryDate\">Surgical procedure date: </label>" + 
-							"<input type=\"date\" class=\"genMedProbSurgeryDate\" name=\"genMedProbSurgeryDate\"></div>";
-	medProbContainer.insertAdjacentHTML("beforeend", medProbHtml);
-	*/
-	/*
-	const medProbDivNode = document.createElement("div");
-	const medProbBlockNode = document.getElementById("genMedProbNode");
-	medProbDivNode.appendChild(medProbBlockNode);
-	medProbContainer.appendChild(medProbDivNode);
-	*/
 }

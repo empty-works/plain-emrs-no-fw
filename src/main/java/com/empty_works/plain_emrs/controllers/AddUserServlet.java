@@ -71,12 +71,6 @@ public class AddUserServlet extends HttpServlet {
 	private String makeJson(List<PatientMedicalProblemUnit> list) {
 
 		JSONObject jobj = new JSONObject();
-		/*
-		Map<String, String> genMedProbsMap = new LinkedHashMap<>();
-		for(PatientMedicalProblemUnit unit : list) {
-			genMedProbsMap.put(unit.getProblemAreaId(), unit.getProblemArea());
-		}
-		*/
 		for(PatientMedicalProblemUnit unit : list) {
 			jobj.put(unit.getProblemAreaId(), unit.getProblemArea());
 		}
