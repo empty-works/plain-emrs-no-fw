@@ -33,10 +33,9 @@ function showNonpatientForm() {
 }
 
 let medProbLimit = 0;
+MED_PROB_MAX = 15;
 function addMedProblem(jsonList) {
-	
 	medProbLimit++;
-	MED_PROB_MAX = 15;
 	if(medProbLimit < MED_PROB_MAX) {
 		console.log(jsonList);
 		let medProbContainer = document.getElementById("genMedProbContainer");
@@ -57,9 +56,22 @@ function addMedProblem(jsonList) {
 			option.value = element; 
 			dropDown.appendChild(option);
 		}
-		let text = document.createTextNode("Problem area: ");
-		medProbNode.appendChild(text);
+		let areaText = document.createTextNode("Problem area: ");
+		let medProbText = document.createTextNode(" Medical problem: ");
+		let medProbInput = document.createElement("input");
+		let surgProced = document.createTextNode(" Surgical procedure: ");
+		let surgProcedInput = document.createElement("input");
+		let surgDateText = document.createTextNode(" Surgical procedure date: ")
+		let surgDate = document.createElement("input");
+		surgDate.setAttribute("type", "date");
+		medProbNode.appendChild(areaText);
 		medProbNode.appendChild(dropDown);
+		medProbNode.appendChild(medProbText);
+		medProbNode.appendChild(medProbInput);
+		medProbNode.appendChild(surgProced);
+		medProbNode.appendChild(surgProcedInput);
+		medProbNode.appendChild(surgDateText);
+		medProbNode.appendChild(surgDate);
 		medProbContainer.appendChild(medProbNode);
 	}
 	else {
