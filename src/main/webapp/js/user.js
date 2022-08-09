@@ -38,11 +38,16 @@ function addMedProblem(jsonList) {
 	let medProbContainer = document.getElementById("genMedProbContainer");
 	let medProbNode = document.createElement("div");
 	let dropDown = document.createElement("select");
+	let medProbList = [];
 	for(let x in jsonList) {
+		medProbList.push(x, jsonList[x]);
+	}
+	medProbList.sort();
+	for(let x in medProbList) {
 		//let option = jsonList[i];
 		//console.log(option);
-		console.log(jsonList[x]);
-		let element = jsonList[x];
+		console.log(medProbList[x]);
+		let element = medProbList[x];
 		let option = document.createElement("option");
 		option.textContent = element;
 		option.value = element; 

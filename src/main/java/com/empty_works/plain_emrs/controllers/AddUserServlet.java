@@ -1,7 +1,9 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -67,10 +69,16 @@ public class AddUserServlet extends HttpServlet {
 	}
 	
 	private String makeJson(List<PatientMedicalProblemUnit> list) {
-		
+
 		JSONObject jobj = new JSONObject();
+		/*
+		Map<String, String> genMedProbsMap = new LinkedHashMap<>();
 		for(PatientMedicalProblemUnit unit : list) {
-			jobj.put(unit.getProblemArea() + "genMedProb", unit.getProblemArea());
+			genMedProbsMap.put(unit.getProblemAreaId(), unit.getProblemArea());
+		}
+		*/
+		for(PatientMedicalProblemUnit unit : list) {
+			jobj.put(unit.getProblemAreaId(), unit.getProblemArea());
 		}
 		System.out.println(jobj);
 		return jobj.toString();
