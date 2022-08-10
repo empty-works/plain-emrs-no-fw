@@ -42,13 +42,14 @@ function addMedProblem(jsonList) {
 		let medProbNode = document.createElement("div");
 		let dropDown = document.createElement("select");
 		let medProbList = [];
+		// Push JSON elements to a JS list
 		for(let x in jsonList) {
 			medProbList.push(x, jsonList[x]);
 		}
+		// Sort the JS list
 		medProbList.sort();
+		// Then add the sorted list elements to a dropdown menu
 		for(let x in medProbList) {
-			//let option = jsonList[i];
-			//console.log(option);
 			console.log(medProbList[x]);
 			let element = medProbList[x];
 			let option = document.createElement("option");
@@ -56,6 +57,7 @@ function addMedProblem(jsonList) {
 			option.value = element; 
 			dropDown.appendChild(option);
 		}
+		// Add the rest of the medical problem inputs to the node
 		let areaText = document.createTextNode("Problem area: ");
 		let medProbText = document.createTextNode(" Medical problem: ");
 		let medProbInput = document.createElement("input");
@@ -77,6 +79,13 @@ function addMedProblem(jsonList) {
 	else {
 		const limitMsg = document.getElementById("addLimitReached");
 		let text = "Cannot add more!";
-		limitMsg.insertAdjacentText("beforebegin", text);
+		// TODO: WORK IN PROGRESS
+		if(!limitMsg.innerText.includes(text)) {
+			limitMsg.insertAdjacentText("beforebegin", text);
+		}
 	}
+}
+
+function createMedProbNode() {
+	
 }
