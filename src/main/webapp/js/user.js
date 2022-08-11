@@ -57,6 +57,10 @@ function addMedProblem(jsonList) {
 			option.value = element; 
 			dropDown.appendChild(option);
 		}
+		// Add a remove button
+		let removeButton = document.createElement("button");
+		let removeButtonText = document.createTextNode("-");
+		removeButton.appendChild(removeButtonText);
 		// Add the rest of the medical problem inputs to the node
 		let areaText = document.createTextNode("Problem area: ");
 		let medProbText = document.createTextNode(" Medical problem: ");
@@ -66,6 +70,7 @@ function addMedProblem(jsonList) {
 		let surgDateText = document.createTextNode(" Surgical procedure date: ")
 		let surgDate = document.createElement("input");
 		surgDate.setAttribute("type", "date");
+		medProbNode.appendChild(removeButton);
 		medProbNode.appendChild(areaText);
 		medProbNode.appendChild(dropDown);
 		medProbNode.appendChild(medProbText);
@@ -86,6 +91,6 @@ function addMedProblem(jsonList) {
 	}
 }
 
-function createMedProbNode() {
-	
+function removeMedProbNode() {
+		
 }

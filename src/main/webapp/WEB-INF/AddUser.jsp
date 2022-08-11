@@ -188,10 +188,10 @@
 										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
-								<label for="genMedProbText">Medical problem: </label>
-								<input type="text" class="genMedProbText" name="genMedProbText">
-								<label for="genMedProbSurgeryText">Surgical procedure: </label>
-								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText">
+								<!--  <label for="genMedProbText">Medical problem: </label>-->
+								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem">
+								<!--  <label for="genMedProbSurgeryText">Surgical procedure: </label>-->
+								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure">
 								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
