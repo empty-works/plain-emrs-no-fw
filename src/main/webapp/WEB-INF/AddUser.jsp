@@ -182,16 +182,13 @@
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">
-								<label for="genMedProbDropdown">Problem area: </label>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
 									<c:forEach items="${generalMedicalProblemListNonJson}" var="genMedProb">
 										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
-								<!--  <label for="genMedProbText">Medical problem: </label>-->
-								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem">
-								<!--  <label for="genMedProbSurgeryText">Surgical procedure: </label>-->
-								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure">
+								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem:">
+								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure:">
 								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			

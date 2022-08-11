@@ -40,7 +40,7 @@ function addMedProblem(jsonList) {
 		console.log(jsonList);
 		let medProbContainer = document.getElementById("genMedProbContainer");
 		let medProbNode = document.createElement("div");
-		let dropDown = document.createElement("select");
+		let genMedProbDropDown = document.createElement("select");
 		let medProbList = [];
 		// Push JSON elements to a JS list
 		for(let x in jsonList) {
@@ -55,7 +55,7 @@ function addMedProblem(jsonList) {
 			let option = document.createElement("option");
 			option.textContent = element;
 			option.value = element; 
-			dropDown.appendChild(option);
+			genMedProbDropDown.appendChild(option);
 		}
 		// Add a remove button
 		let removeButton = document.createElement("button");
@@ -70,15 +70,14 @@ function addMedProblem(jsonList) {
 		let surgDateText = document.createTextNode(" Surgical procedure date: ")
 		let surgDate = document.createElement("input");
 		surgDate.setAttribute("type", "date");
-		medProbNode.appendChild(removeButton);
-		medProbNode.appendChild(areaText);
-		medProbNode.appendChild(dropDown);
+		medProbNode.appendChild(genMedProbDropDown);
 		medProbNode.appendChild(medProbText);
 		medProbNode.appendChild(medProbInput);
 		medProbNode.appendChild(surgProced);
 		medProbNode.appendChild(surgProcedInput);
 		medProbNode.appendChild(surgDateText);
 		medProbNode.appendChild(surgDate);
+		medProbNode.appendChild(removeButton);
 		medProbContainer.appendChild(medProbNode);
 	}
 	else {
