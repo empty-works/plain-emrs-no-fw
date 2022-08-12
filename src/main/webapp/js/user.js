@@ -63,25 +63,10 @@ function addMedProblem(jsonList) {
 		removeButton.appendChild(removeButtonText);
 		// Add the rest of the medical problem inputs to the node
 		let medProbHtml = 
-		"<input type=\"text\" class=\"genMedProbText\" name=\"genMedProbText\" placeholder=\"Medical problem:\">" + 
-		"<input type=\"text\" class=\"genMedProbSurgeryText\" name=\"genMedProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
-		"<label for=\"genMedProbSurgeryDate\">Surgical procedure date: </label>" + 
+		"<input type=\"text\" class=\"gen-med-prob-text\" name=\"addGenMedProbText\" placeholder=\"Medical problem:\">" + 
+		"<input type=\"text\" class=\"gen-med-prob-text\" name=\"addGenMedProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
+		"<label class=\"gen-med-prob-text\" for=\"genMedProbSurgeryDate\">Surgical procedure date: </label>" + 
 		"<input type=\"date\" class=\"genMedProbSurgeryDate\" name=\"genMedProbSurgeryDate\">";
-		/*
-		let medProbText = document.createTextNode(" Medical problem: ");
-		let medProbInput = document.createElement("input");
-		let surgProced = document.createTextNode(" Surgical procedure: ");
-		let surgProcedInput = document.createElement("input");
-		let surgDateText = document.createTextNode(" Surgical procedure date: ")
-		let surgDate = document.createElement("input");
-		surgDate.setAttribute("type", "date");
-		medProbNode.appendChild(medProbText);
-		medProbNode.appendChild(medProbInput);
-		medProbNode.appendChild(surgProced);
-		medProbNode.appendChild(surgProcedInput);
-		medProbNode.appendChild(surgDateText);
-		medProbNode.appendChild(surgDate);
-		*/
 		medProbNode.appendChild(genMedProbDropDown);
 		medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 		medProbNode.appendChild(removeButton);
