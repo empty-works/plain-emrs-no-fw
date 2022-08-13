@@ -40,8 +40,6 @@ function addMedProblem(jsonList) {
 		console.log(jsonList);
 		let medProbContainer = document.getElementById("genMedProbContainer");
 		let medProbNode = document.createElement("div");
-		// Set ID of node 
-		medProbNode.setAttribute("id", "NodeNum" + randomId());
 		let genMedProbDropDown = document.createElement("select");
 		let medProbList = [];
 		// Push JSON elements to a JS list
@@ -59,10 +57,6 @@ function addMedProblem(jsonList) {
 			option.value = element; 
 			genMedProbDropDown.appendChild(option);
 		}
-		// Add a remove button
-		let removeButton = document.createElement("button");
-		let removeButtonText = document.createTextNode("-");
-		removeButton.appendChild(removeButtonText);
 		// Add the rest of the medical problem inputs to the node
 		let medProbHtml = 
 		"<input type=\"text\" class=\"gen-med-prob-text\" name=\"addGenMedProbText\" placeholder=\"Medical problem:\">" + 
@@ -72,7 +66,6 @@ function addMedProblem(jsonList) {
 		"<button type=\"button\" onclick=\"removeMedProbNode(this)\">-</button>";
 		medProbNode.appendChild(genMedProbDropDown);
 		medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
-		medProbNode.appendChild(removeButton);
 		medProbContainer.appendChild(medProbNode);
 	}
 	else {
@@ -83,10 +76,6 @@ function addMedProblem(jsonList) {
 			limitMsg.insertAdjacentText("beforebegin", text);
 		}
 	}
-}
-
-function randomId() {
-	return Math.floor(Math.random() * (9999-1000 + 1) + 1000);
 }
 
 function removeMedProbNode(medProbNode) {
