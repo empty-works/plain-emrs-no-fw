@@ -35,8 +35,8 @@ function showNonpatientForm() {
 let medProbLimit = 0;
 MED_PROB_MAX = 15;
 function addMedProblem(jsonList) {
-	medProbLimit++;
 	if(medProbLimit < MED_PROB_MAX) {
+		medProbLimit++;
 		console.log(jsonList);
 		let medProbContainer = document.getElementById("genMedProbContainer");
 		let medProbNode = document.createElement("div");
@@ -80,4 +80,5 @@ function addMedProblem(jsonList) {
 
 function removeMedProbNode(medProbNode) {
 	medProbNode.parentElement.remove();		
+	medProbLimit--;
 }
