@@ -44,8 +44,8 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
 		request.setAttribute("generalMedicalProblemListNonJson", PatientMedicalProblemLists.medicalProblemGeneralList);
 		request.setAttribute("generalMedicalProblemListJson", makeJson(PatientMedicalProblemLists.medicalProblemGeneralList));
-		request.setAttribute("medicalProblemHeartList", PatientMedicalProblemLists.medicalProblemHeartList);
-		request.setAttribute("medicalProblemReproductList", PatientMedicalProblemLists.medicalProblemReproductList);
+		request.setAttribute("heartMedicalProblemList", makeJson(PatientMedicalProblemLists.medicalProblemHeartList));
+		request.setAttribute("reproductMedicalProblemList", PatientMedicalProblemLists.medicalProblemReproductList);
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}

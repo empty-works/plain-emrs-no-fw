@@ -34,11 +34,11 @@ function showNonpatientForm() {
 
 let medProbLimit = 0;
 MED_PROB_MAX = 15;
-function addMedProblem(jsonList) {
+function addMedProblem(jsonList, medProbCon) {
 	if(medProbLimit < MED_PROB_MAX) {
 		medProbLimit++;
 		console.log(jsonList);
-		let medProbContainer = document.getElementById("genMedProbContainer");
+		let medProbContainer = medProbCon;
 		let medProbNode = document.createElement("div");
 		let genMedProbDropDown = document.createElement("select");
 		let medProbList = [];

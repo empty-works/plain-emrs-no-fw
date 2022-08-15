@@ -179,6 +179,7 @@
 					</fieldset>
 					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
+						<h4>General</h4>
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
@@ -192,7 +193,24 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<!--  
+						<h4>Heart-related</h4>
+						<div id="heartMedProbContainer">
+							<div class="genMedProbNode">
+								<select id="heartMedProbDropdown" name="heartMedProbDropdown">
+									<c:forEach items="${heartMedicalProblemListNonJson}" var="genMedProb">
+										<option>${genMedProb.getProblemArea()}</option>	
+									</c:forEach>
+								</select>
+								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem:">
+								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure:">
+								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
+								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
+							</div>			
+						</div>
 						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)})'>Add</button><div id="addLimitReached"></div>
+						-->
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
