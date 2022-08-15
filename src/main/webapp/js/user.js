@@ -74,14 +74,12 @@ function addMedProblem(jsonList) {
 		// Clear any text
 		limitMsg.innerHTML = "";
 		limitMsg.innerHTML = text;
-		// TODO: WORK IN PROGRESS
-		if(!limitMsg.innerText.includes(text)) {
-			limitMsg.insertAdjacentText("beforebegin", text);
-		}
 	}
 }
 
 function removeMedProbNode(medProbNode) {
+	const limitMsg = document.getElementById("addLimitReached");
+	limitMsg.innerHTML = "";
 	medProbNode.parentElement.remove();		
 	medProbLimit--;
 }

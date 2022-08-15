@@ -178,7 +178,6 @@
 						</c:forEach>
 					</fieldset>
 					<fieldset id="medProblemFieldSet">
-						<div id="addLimitReached"></div>
 						<legend>Medical problems and surgical procedures</legend>	
 						<div id="genMedProbContainer">
 							<div class="genMedProbNode">
@@ -193,7 +192,7 @@
 								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)})'>Add</button>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)})'>Add</button><div id="addLimitReached"></div>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
