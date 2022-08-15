@@ -71,6 +71,9 @@ function addMedProblem(jsonList) {
 	else {
 		const limitMsg = document.getElementById("addLimitReached");
 		let text = "Cannot add more!";
+		// Clear any text
+		limitMsg.innerHTML = "";
+		limitMsg.innerHTML = text;
 		// TODO: WORK IN PROGRESS
 		if(!limitMsg.innerText.includes(text)) {
 			limitMsg.insertAdjacentText("beforebegin", text);
