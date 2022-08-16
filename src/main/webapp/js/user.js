@@ -32,9 +32,9 @@ function showNonpatientForm() {
 	nonpatientSection.style.display = "block";
 }
 
-let medProbLimit = 0;
-MED_PROB_MAX = 15;
 function addMedProblem(jsonList, medProbCon) {
+	
+	/*
 	if(medProbLimit < MED_PROB_MAX) {
 		medProbLimit++;
 		console.log(jsonList);
@@ -74,6 +74,59 @@ function addMedProblem(jsonList, medProbCon) {
 		// Clear any text
 		limitMsg.innerHTML = "";
 		limitMsg.innerHTML = text;
+	}
+	*/
+}
+
+class MedProbAdder {
+	constructor(jsonList, medProbCon) {
+		this.jsonList = jsonList;
+		this.medProbCon = medProbCon;
+		this.medProbLimit = 0;
+		this.MED_PROB_MAX = 15;
+	}
+	
+	addNode() {
+		if(medProbLimit < MED_PROB_MAX) {
+			medProbLimit++;
+			console.log(jsonList);
+			let medProbContainer = medProbCon;
+			let medProbNode = document.createElement("div");
+			let medProbDropDown = document.createElement("select");
+			let medProbList = [];
+			// Push JSON elements to a JS list
+			for(let x in jsonList) {
+				medProbList.push(x, jsonList[x]);
+			}
+			// Sort the JS list
+			medProbList.sort();
+			// Then add the sorted list elements to a dropdown menu
+			for(let x in medProbList) {
+				console.log(medProbList[x]);
+				let element = medProbList[x];
+				let option = document.createElement("option");
+				option.textContent = element;
+				option.value = element; 
+				medProbDropDown.appendChild(option);
+			}
+			// Add the rest of the medical problem inputs to the node
+			let medProbHtml = 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">" + 
+			"<button type=\"button\" onclick=\"removeMedProbNode(this)\">-</button>";
+			medProbNode.appendChild(medProbDropDown);
+			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
+			medProbContainer.appendChild(medProbNode);
+		}
+		else {
+			const limitMsg = document.getElementById("addLimitReached");
+			let text = "Cannot add more!";
+			// Clear any text
+			limitMsg.innerHTML = "";
+			limitMsg.innerHTML = text;
+		}
 	}
 }
 
