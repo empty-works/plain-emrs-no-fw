@@ -81,24 +81,21 @@ function addMedProblem(jsonList, medProbCon) {
 }
 
 class MedProbAdder {
-	constructor(jsonList, medProbCon) {
-		this.jsonList = jsonList;
-		this.medProbCon = medProbCon;
+	constructor() {
 		this.medProbLimit = 0;
 		this.MED_PROB_MAX = 15;
 	}
 	
-	addNode() {
+	addNode(jsonList, medProbCon) {
 		if(this.medProbLimit < this.MED_PROB_MAX) {
 			this.medProbLimit++;
-			console.log(this.jsonList);
-			let medProbContainer = this.medProbCon;
+			console.log(jsonList);
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			let medProbList = [];
 			// Push JSON elements to a JS list
-			for(let x in this.jsonList) {
-				medProbList.push(x, this.jsonList[x]);
+			for(let x in jsonList) {
+				medProbList.push(x, jsonList[x]);
 			}
 			// Sort the JS list
 			medProbList.sort();
@@ -120,7 +117,7 @@ class MedProbAdder {
 			"<button type=\"button\" onclick=\"removeMedProbNode(this)\">-</button>";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
-			medProbContainer.appendChild(medProbNode);
+			medProbCon.appendChild(medProbNode);
 		}
 		else {
 			const limitMsg = document.getElementById("addLimitReached");
@@ -130,11 +127,16 @@ class MedProbAdder {
 			limitMsg.innerHTML = text;
 		}
 	}
+
+	removeMedProbNode(medProbNode) {
+		const limitMsg = document.getElementById("addLimitReached");
+		limitMsg.innerHTML = "";
+		medProbNode.parentElement.remove();		
+		this.medProbLimit--;
+	}
 }
 
-function removeMedProbNode(medProbNode) {
-	const limitMsg = document.getElementById("addLimitReached");
-	limitMsg.innerHTML = "";
-	medProbNode.parentElement.remove();		
-	medProbLimit--;
-}
+genMed = new MedProbAdder();
+heartMed = new MedProbAdder();
+reproductMed = new MedProbAdder();
+

@@ -193,7 +193,7 @@
 								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 						<h4>Heart-related</h4>
 						<div id="heartMedProbContainer">
 							<div>
