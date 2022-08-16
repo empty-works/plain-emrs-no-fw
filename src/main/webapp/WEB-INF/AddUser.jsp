@@ -180,17 +180,17 @@
 					<fieldset id="medProblemFieldSet">
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
-						<div id="genMedProbContainer">
-							<div class="genMedProbNode">
+						<div id="genMedProbContainer" onload='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>
+							<div>
 								<select id="genMedProbDropdown" name="genMedProbDropdown">
 									<c:forEach items="${generalMedicalProblemListNonJson}" var="genMedProb">
 										<option>${genMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
-								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem:">
-								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure:">
-								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
+								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
+								<input type="text" class="medProbSurgeryText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+								<label for="medProbSurgeryDate">Surgical procedure date: </label>
+								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
 							</div>			
 						</div>
 						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
@@ -199,17 +199,17 @@
 						<div id="heartMedProbContainer">
 							<div class="genMedProbNode">
 								<select id="heartMedProbDropdown" name="heartMedProbDropdown">
-									<c:forEach items="${heartMedicalProblemListNonJson}" var="genMedProb">
-										<option>${genMedProb.getProblemArea()}</option>	
+									<c:forEach items="${heartMedicalProblemListNonJson}" var="heartMedProb">
+										<option>${heartMedProb.getProblemArea()}</option>	
 									</c:forEach>
 								</select>
-								<input type="text" class="genMedProbText" name="genMedProbText" placeholder="Medical problem:">
-								<input type="text" class="genMedProbSurgeryText" name="genMedProbSurgeryText" placeholder="Surgical procedure:">
-								<label for="genMedProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="genMedProbSurgeryDate" name="genMedProbSurgeryDate">
+								<input type="text" class="heartMedProbText" name="heartMedProbText" placeholder="Medical problem:">
+								<input type="text" class="heartMedProbSurgeryText" name="heartMedProbSurgeryText" placeholder="Surgical procedure:">
+								<label for="heartMedProbSurgeryDate">Surgical procedure date: </label>
+								<input type="date" class="heartMedProbSurgeryDate" name="heartMedProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(generalMedicalProblemListJson)})'>Add</button><div id="addLimitReached"></div>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 						-->
 					</fieldset>
 					<fieldset id="Other medical problem">

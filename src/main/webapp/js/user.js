@@ -40,7 +40,7 @@ function addMedProblem(jsonList, medProbCon) {
 		console.log(jsonList);
 		let medProbContainer = medProbCon;
 		let medProbNode = document.createElement("div");
-		let genMedProbDropDown = document.createElement("select");
+		let medProbDropDown = document.createElement("select");
 		let medProbList = [];
 		// Push JSON elements to a JS list
 		for(let x in jsonList) {
@@ -55,16 +55,16 @@ function addMedProblem(jsonList, medProbCon) {
 			let option = document.createElement("option");
 			option.textContent = element;
 			option.value = element; 
-			genMedProbDropDown.appendChild(option);
+			medProbDropDown.appendChild(option);
 		}
 		// Add the rest of the medical problem inputs to the node
 		let medProbHtml = 
-		"<input type=\"text\" class=\"gen-med-prob-text\" name=\"addGenMedProbText\" placeholder=\"Medical problem:\">" + 
-		"<input type=\"text\" class=\"gen-med-prob-text\" name=\"addGenMedProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
-		"<label class=\"gen-med-prob-text\" for=\"genMedProbSurgeryDate\">Surgical procedure date: </label>" + 
-		"<input type=\"date\" class=\"genMedProbSurgeryDate\" name=\"genMedProbSurgeryDate\">" + 
+		"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText\" placeholder=\"Medical problem:\">" + 
+		"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
+		"<label class=\"med-prob-text\" for=\"medProbSurgeryDate\">Surgical procedure date: </label>" + 
+		"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">" + 
 		"<button type=\"button\" onclick=\"removeMedProbNode(this)\">-</button>";
-		medProbNode.appendChild(genMedProbDropDown);
+		medProbNode.appendChild(medProbDropDown);
 		medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 		medProbContainer.appendChild(medProbNode);
 	}
