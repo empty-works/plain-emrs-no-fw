@@ -209,6 +209,21 @@
 							</div>			
 						</div>
 						<button type="button" onclick='addMedProblem(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<h4>Reproductive-related</h4>
+						<div id="reproductMedProbContainer">
+							<div>
+								<select>
+									<c:forEach items="${reproductMedicalProblemListNonJson}" var="reproductMedProb">
+										<option>${reproductMedProb.getProblemArea()}</option>	
+									</c:forEach>
+								</select>
+								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
+								<input type="text" class="medProbSurgeryText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+								<label for="medProbSurgeryDate">Surgical procedure date: </label>
+								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
+							</div>			
+						</div>
+						<button type="button" onclick='addMedProblem(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
