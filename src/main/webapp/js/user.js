@@ -34,6 +34,8 @@ function showNonpatientForm() {
 
 function addMedProblem(jsonList, medProbCon) {
 	
+	let node = new MedProbAdder(jsonList, medProbCon);
+	node.addNode();
 	/*
 	if(medProbLimit < MED_PROB_MAX) {
 		medProbLimit++;
@@ -87,16 +89,16 @@ class MedProbAdder {
 	}
 	
 	addNode() {
-		if(medProbLimit < MED_PROB_MAX) {
-			medProbLimit++;
-			console.log(jsonList);
-			let medProbContainer = medProbCon;
+		if(this.medProbLimit < this.MED_PROB_MAX) {
+			this.medProbLimit++;
+			console.log(this.jsonList);
+			let medProbContainer = this.medProbCon;
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			let medProbList = [];
 			// Push JSON elements to a JS list
-			for(let x in jsonList) {
-				medProbList.push(x, jsonList[x]);
+			for(let x in this.jsonList) {
+				medProbList.push(x, this.jsonList[x]);
 			}
 			// Sort the JS list
 			medProbList.sort();
