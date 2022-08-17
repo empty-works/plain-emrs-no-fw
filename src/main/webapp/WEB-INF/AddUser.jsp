@@ -208,7 +208,7 @@
 								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 						<h4>Reproductive-related</h4>
 						<div id="reproductMedProbContainer">
 							<div>
@@ -223,7 +223,7 @@
 								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
 							</div>			
 						</div>
-						<button type="button" onclick='addMedProblem(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 					</fieldset>
 					<fieldset id="Other medical problem">
 							
