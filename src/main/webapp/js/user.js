@@ -69,9 +69,12 @@ class MedProbAdder {
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			let removeButton = document.createElement("button");
+			removeButton.setAttribute("type", "button");
 			removeButton.innerHTML = "-";
 			removeButton.onclick = function() {
-				removeMedProbNode(medProbNode);	
+				medProbCon.removeChild(medProbCon.lastChild);
+				medProbNode.remove();		
+				this.medProbLimit--;
 			};
 			medProbNode.appendChild(removeButton);
 			medProbCon.appendChild(medProbNode);
@@ -86,8 +89,8 @@ class MedProbAdder {
 		}
 	}
 
-	removeMedProbNode(medProbNode) {
-		this.medProbCon.removeChild(this.medProbCon.lastChild);
+	removeMedProbNode(medProbCon, medProbNode) {
+		medProbCon.removeChild(medProbCon.lastChild);
 		medProbNode.parentElement.remove();		
 		this.medProbLimit--;
 	}
@@ -96,7 +99,3 @@ class MedProbAdder {
 genMed = new MedProbAdder();
 heartMed = new MedProbAdder();
 reproductMed = new MedProbAdder();
-
-function removeMedProbNodeWrap(med, medProbNode) {
-	med.removeMedProbNode(medProbNode);
-}
