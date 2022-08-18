@@ -33,6 +33,7 @@ function showNonpatientForm() {
 }
 
 class MedProbAdder {
+	limitMsg;
 	constructor(medProbType) {
 		this.medProbType = medProbType;
 		this.medProbLimit = 0;
@@ -70,27 +71,14 @@ class MedProbAdder {
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			medProbNode.insertAdjacentHTML("beforeend", this.setMedProbType());
-			/*
-			let removeButton = document.createElement("button");
-			removeButton.setAttribute("type", "button");
-			removeButton.innerHTML = "-";
-			removeButton.onclick = function() {
-				this.reduceLimit();
-				console.log(this.medProbLimit);
-				medProbCon.removeChild(medProbCon.lastChild);
-				medProbNode.remove();		
-			};
-			medProbNode.appendChild(removeButton);
-			*/
 			medProbCon.appendChild(medProbNode);
 		}
 		else {
-			let limitMsg = document.createElement("div");	
-			let text = "Cannot add more!";
-			// Clear any text
-			limitMsg.innerHTML = "";
-			limitMsg.innerHTML = text;
-			medProbCon.appendChild(limitMsg);
+			// Disable add button first.
+			document.getElementById(this.medProbType + "AddButton").disabled = true;	
+			// Set limit message.
+			this.limitMsg = document.getElementById(this.medProbType + "LimitMsg");	
+			this.limitMsg.innerHTML = "Cannot add more!";
 		}
 	}
 	
@@ -108,7 +96,13 @@ class MedProbAdder {
 
 	removeNode(removeButton) {
 		removeButton.parentNode.remove();		
-		this.medProbLimit--; }
+		this.medProbLimit--; 
+		// Reenable add button.
+		document.getElementById(this.medProbType + "AddButton").disabled = false;	
+		// Remove limit message.
+		this.limitMsg = document.getElementById(this.medProbType + "LimitMsg");	
+		this.limitMsg.innerHTML = "";
+	}
 }
 
 genMed = new MedProbAdder("genMed");
