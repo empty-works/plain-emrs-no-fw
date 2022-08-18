@@ -33,7 +33,8 @@ function showNonpatientForm() {
 }
 
 class MedProbAdder {
-	constructor() {
+	constructor(medProbType) {
+		this.medProbType = medProbType;
 		this.medProbLimit = 0;
 		this.MED_PROB_MAX = 15;
 	}
@@ -68,15 +69,19 @@ class MedProbAdder {
 			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">" 
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
+			medProbNode.insertAdjacentHTML("beforeend", this.setMedProbType());
+			/*
 			let removeButton = document.createElement("button");
 			removeButton.setAttribute("type", "button");
 			removeButton.innerHTML = "-";
 			removeButton.onclick = function() {
+				this.reduceLimit();
+				console.log(this.medProbLimit);
 				medProbCon.removeChild(medProbCon.lastChild);
 				medProbNode.remove();		
-				this.medProbLimit--;
 			};
 			medProbNode.appendChild(removeButton);
+			*/
 			medProbCon.appendChild(medProbNode);
 		}
 		else {
@@ -88,14 +93,24 @@ class MedProbAdder {
 			medProbCon.appendChild(limitMsg);
 		}
 	}
-
-	removeMedProbNode(medProbCon, medProbNode) {
-		medProbCon.removeChild(medProbCon.lastChild);
-		medProbNode.parentElement.remove();		
-		this.medProbLimit--;
+	
+	setMedProbType() {
+		if(this.medProbType === "genMed") {
+			return "<button type=\"button\" onclick=\"genMed.removeNode(this)\">-</button>";
+		}
+		else if(this.medProbType === "heartMed") {
+			return "<button type=\"button\" onclick=\"heartMed.removeNode(this)\">-</button>";
+		}
+		else if(this.medProbType === "reproductMed") {
+			return "<button type=\"button\" onclick=\"reproductMed.removeNode(this)\">-</button>";
+		}
 	}
+
+	removeNode(removeButton) {
+		removeButton.parentNode.remove();		
+		this.medProbLimit--; }
 }
 
-genMed = new MedProbAdder();
-heartMed = new MedProbAdder();
-reproductMed = new MedProbAdder();
+genMed = new MedProbAdder("genMed");
+heartMed = new MedProbAdder("heartMed");
+reproductMed = new MedProbAdder("reproductMed");
