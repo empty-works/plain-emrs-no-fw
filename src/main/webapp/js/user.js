@@ -49,7 +49,7 @@ class MedProbAdder {
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {
-				medProbList.push(x, jsonList[x]);
+				medProbList.push(jsonList[x]);
 			}
 			// Sort the JS list
 			medProbList.sort();
