@@ -177,7 +177,7 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
-					<fieldset id="medProblemFieldSet">
+					<fieldset>
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
 						<div id="genMedProbContainer">
@@ -188,9 +188,9 @@
 									</c:forEach>
 								</select>
 								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbSurgeryText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
 								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
+								<input type="date" class="medProbText" name="medProbSurgeryDate">
 							</div>			
 						</div>
 						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
@@ -204,9 +204,9 @@
 									</c:forEach>
 								</select>
 								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbSurgeryText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
 								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
+								<input type="date" class="medProbText" name="medProbSurgeryDate">
 							</div>			
 						</div>
 						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
@@ -220,16 +220,21 @@
 									</c:forEach>
 								</select>
 								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbSurgeryText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
 								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbSurgeryDate" name="medProbSurgeryDate">
+								<input type="date" class="medProbText" name="medProbSurgeryDate">
 							</div>			
 						</div>
 						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer)'>Add</button><div id="addLimitReached"></div>
 						<div id="reproductMedLimitMsg"></div>
 					</fieldset>
-					<fieldset id="Other medical problem">
-							
+					<fieldset>
+						<legend>Other surgical procedures not listed above</legend>
+						<input type="text" class="medProbText" name="medProbAreaText" placeholder="Medical problem area:">
+						<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
+						<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
+						<label for="medProbSurgeryDate">Surgical procedure date: </label>
+						<input type="date" class="medProbText" name="medProbSurgeryDate">
 					</fieldset>
 				</div>
 				
