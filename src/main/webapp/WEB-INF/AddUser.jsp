@@ -236,6 +236,52 @@
 						<label for="medProbSurgeryDate">Surgical procedure date: </label>
 						<input type="date" class="medProbText" name="medProbSurgeryDate">
 					</fieldset>
+					<fieldset>
+						<legend>Personal and family history</legend>	
+						<div>Is patient adopted?</div>
+						<input type="checkbox" id="isAdoptedNo" name="isAdoptedNo" value="No">
+						<label for="isAdoptedNo">No</label><br>
+						<input type="checkbox" id="isAdoptedYes" name="isAdoptedYes" value="Yes">
+						<label for="isAdoptedYes">Yes</label><br>
+						<div>Father:</div>
+						<input type="checkbox" id="fatherNotKnow" name="fatherNotKnow" value="Do not know">
+						<label for="fatherNotKnow">Do not know</label><br>
+						<input type="checkbox" id="fatherAlive" name="fatherAlive" value="Father alive">
+						<label for="fatherAlive">Alive</label><br>
+						<input type=checkbox id="fatherDec" name="fatherDec" value="Father deceased">
+						<label for="fatherDec">Deceased: </label>
+						<input type=checkbox id="fatherUnder30" name="fatherUnder30" value="Under 30">
+						<label for="fatherUnder30">Under 30</label>
+						<input type="checkbox" id="father3040" name="father3040" value="30-40">
+						<label for="father3040">30-40</label>
+						<input type="checkbox" id="father4150" name="father4150" value="41-50">
+						<label for="father4150">41-50</label>
+						<input type="checkbox" id="father5160" name="father5160" value="51-60">
+						<label for="father5160">51-60</label>
+						<input type="checkbox" id="father6170" name="father6170" value="61-70">
+						<label for="father6170">61-70</label>
+						<input type="checkbox" id="fatherOver70" name="fatherOver70" value="Over 70">
+						<label for="fatherOver70">Over 70</label>
+						<div>Mother:</div>
+						<input type="checkbox" id="motherNotKnow" name="motherNotKnow" value="Do not know">
+						<label for="motherNotKnow">Do not know</label><br>
+						<input type="checkbox" id="motherAlive" name="motherAlive" value="Mother alive">
+						<label for="motherAlive">Alive</label><br>
+						<input type=checkbox id="motherDec" name="fatherDec" value="Father deceased">
+						<label for="fatherDec">Deceased: </label>
+						<input type=checkbox id="fatherUnder30" name="fatherUnder30" value="Under 30">
+						<label for="fatherUnder30">Under 30</label>
+						<input type="checkbox" id="father3040" name="father3040" value="30-40">
+						<label for="father3040">30-40</label>
+						<input type="checkbox" id="father4150" name="father4150" value="41-50">
+						<label for="father4150">41-50</label>
+						<input type="checkbox" id="father5160" name="father5160" value="51-60">
+						<label for="father5160">51-60</label>
+						<input type="checkbox" id="father6170" name="father6170" value="61-70">
+						<label for="father6170">61-70</label>
+						<input type="checkbox" id="fatherOver70" name="fatherOver70" value="Over 70">
+						<label for="fatherOver70">Over 70</label>
+					</fieldset>
 				</div>
 				
 				<!-- Non-patient section -->
