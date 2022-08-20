@@ -267,20 +267,20 @@
 						<label for="motherNotKnow">Do not know</label><br>
 						<input type="checkbox" id="motherAlive" name="motherAlive" value="Mother alive">
 						<label for="motherAlive">Alive</label><br>
-						<input type=checkbox id="motherDec" name="fatherDec" value="Father deceased">
-						<label for="fatherDec">Deceased: </label>
-						<input type=checkbox id="fatherUnder30" name="fatherUnder30" value="Under 30">
-						<label for="fatherUnder30">Under 30</label>
-						<input type="checkbox" id="father3040" name="father3040" value="30-40">
-						<label for="father3040">30-40</label>
-						<input type="checkbox" id="father4150" name="father4150" value="41-50">
-						<label for="father4150">41-50</label>
-						<input type="checkbox" id="father5160" name="father5160" value="51-60">
-						<label for="father5160">51-60</label>
-						<input type="checkbox" id="father6170" name="father6170" value="61-70">
-						<label for="father6170">61-70</label>
-						<input type="checkbox" id="fatherOver70" name="fatherOver70" value="Over 70">
-						<label for="fatherOver70">Over 70</label>
+						<input type=checkbox id="motherDec" name="motherDec" value="Mother deceased">
+						<label for="motherDec">Deceased: </label>
+						<input type=checkbox id="motherUnder30" name="motherUnder30" value="Under 30">
+						<label for="motherUnder30">Under 30</label>
+						<input type="checkbox" id="mother3040" name="mother3040" value="30-40">
+						<label for="mother3040">30-40</label>
+						<input type="checkbox" id="mother4150" name="mother4150" value="41-50">
+						<label for="mother4150">41-50</label>
+						<input type="checkbox" id="mother5160" name="mother5160" value="51-60">
+						<label for="mother5160">51-60</label>
+						<input type="checkbox" id="mother6170" name="mother6170" value="61-70">
+						<label for="mother6170">61-70</label>
+						<input type="checkbox" id="motherOver70" name="motherOver70" value="Over 70">
+						<label for="motherOver70">Over 70</label>
 					</fieldset>
 				</div>
 				
