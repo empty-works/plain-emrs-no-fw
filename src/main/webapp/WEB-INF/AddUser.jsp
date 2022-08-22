@@ -262,6 +262,7 @@
 						<label for="father6170">61-70</label>
 						<input type="checkbox" id="fatherOver70" name="fatherOver70" value="Over 70">
 						<label for="fatherOver70">Over 70</label>
+						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
 						<div>Mother:</div>
 						<input type="checkbox" id="motherNotKnow" name="motherNotKnow" value="Do not know">
 						<label for="motherNotKnow">Do not know</label><br>
@@ -281,6 +282,7 @@
 						<label for="mother6170">61-70</label>
 						<input type="checkbox" id="motherOver70" name="motherOver70" value="Over 70">
 						<label for="motherOver70">Over 70</label>
+						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death">
 					</fieldset>
 				</div>
 				
