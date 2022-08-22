@@ -32,6 +32,10 @@ function showNonpatientForm() {
 	nonpatientSection.style.display = "block";
 }
 
+function addPatientOtherRelations(relation) {
+	
+}
+
 class MedProbAdder {
 	limitMsg;
 	constructor(medProbType) {
