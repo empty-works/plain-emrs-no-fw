@@ -239,49 +239,41 @@
 					<fieldset>
 						<legend>Personal and family history</legend>	
 						<div>Is patient adopted?</div>
-						<input type="checkbox" id="isAdoptedNo" name="isAdoptedNo" value="No">
+						<input type="radio" id="isAdoptedNo" name="patientAdopted" value="No">
 						<label for="isAdoptedNo">No</label><br>
-						<input type="checkbox" id="isAdoptedYes" name="isAdoptedYes" value="Yes">
+						<input type="radio" id="isAdoptedYes" name="patientAdopted" value="Yes">
 						<label for="isAdoptedYes">Yes</label><br>
 						<div>Father:</div>
-						<input type="checkbox" id="fatherNotKnow" name="fatherNotKnow" value="Do not know">
+						<input type="radio" id="fatherNotKnow" name="patientFather" value="Do not know">
 						<label for="fatherNotKnow">Do not know</label><br>
-						<input type="checkbox" id="fatherAlive" name="fatherAlive" value="Father alive">
+						<input type="radio" id="fatherAlive" name="patientFather" value="Father alive">
 						<label for="fatherAlive">Alive</label><br>
-						<input type=checkbox id="fatherDec" name="fatherDec" value="Father deceased">
+						<input type="radio" id="fatherDec" name="patientFather" value="Father deceased">
 						<label for="fatherDec">Deceased: </label>
-						<input type=checkbox id="fatherUnder30" name="fatherUnder30" value="Under 30">
-						<label for="fatherUnder30">Under 30</label>
-						<input type="checkbox" id="father3040" name="father3040" value="30-40">
-						<label for="father3040">30-40</label>
-						<input type="checkbox" id="father4150" name="father4150" value="41-50">
-						<label for="father4150">41-50</label>
-						<input type="checkbox" id="father5160" name="father5160" value="51-60">
-						<label for="father5160">51-60</label>
-						<input type="checkbox" id="father6170" name="father6170" value="61-70">
-						<label for="father6170">61-70</label>
-						<input type="checkbox" id="fatherOver70" name="fatherOver70" value="Over 70">
-						<label for="fatherOver70">Over 70</label>
+						<select id="fatherDecAge" name="fatherDecAge">
+							<option>Under 30</option>
+							<option>30-40</option>
+							<option>41-50</option>
+							<option>51-60</option>
+							<option>61-70</option>
+							<option>Over 70</option>
+						</select>
 						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
 						<div>Mother:</div>
-						<input type="checkbox" id="motherNotKnow" name="motherNotKnow" value="Do not know">
+						<input type="radio" id="motherNotKnow" name="patientMother" value="Do not know">
 						<label for="motherNotKnow">Do not know</label><br>
-						<input type="checkbox" id="motherAlive" name="motherAlive" value="Mother alive">
+						<input type="radio" id="motherAlive" name="patientMother" value="Mother alive">
 						<label for="motherAlive">Alive</label><br>
-						<input type=checkbox id="motherDec" name="motherDec" value="Mother deceased">
+						<input type="radio" id="motherDec" name="patientMother" value="Mother deceased">
 						<label for="motherDec">Deceased: </label>
-						<input type=checkbox id="motherUnder30" name="motherUnder30" value="Under 30">
-						<label for="motherUnder30">Under 30</label>
-						<input type="checkbox" id="mother3040" name="mother3040" value="30-40">
-						<label for="mother3040">30-40</label>
-						<input type="checkbox" id="mother4150" name="mother4150" value="41-50">
-						<label for="mother4150">41-50</label>
-						<input type="checkbox" id="mother5160" name="mother5160" value="51-60">
-						<label for="mother5160">51-60</label>
-						<input type="checkbox" id="mother6170" name="mother6170" value="61-70">
-						<label for="mother6170">61-70</label>
-						<input type="checkbox" id="motherOver70" name="motherOver70" value="Over 70">
-						<label for="motherOver70">Over 70</label>
+						<select id="motherDecAge" name="motherDecAge">
+							<option>Under 30</option>
+							<option>30-40</option>
+							<option>41-50</option>
+							<option>51-60</option>
+							<option>61-70</option>
+							<option>Over 70</option>
+						</select>
 						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death">
 					</fieldset>
 				</div>
