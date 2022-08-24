@@ -33,12 +33,13 @@ function showNonpatientForm() {
 }
 
 function addPatientOtherRelations(relation) {
-	otherRelationsCon = document.getElementById("otherRelationsCon");
+	const otherRelationsCon = document.getElementById("otherRelationsCon");
 	//TODO: create label for alive dropdown
 	//TODO: create dropdown with an ID with relation + alive
 	//TODO: create label for deceased dropdown
 	//TODO: create dropdown with an ID with relation + dec 
-	let otherRelationsHtml = 
+	
+	const otherRelationsHtml = 
 	"<label for=\"" + relation + "Alive\">" + relation + "alive: </label>" + 
 	"<select id=\"" + relation + "Alive\" name=\"" + relation + "Alive\">" + 
 		"<option>0</option>" + 
@@ -52,9 +53,6 @@ function addPatientOtherRelations(relation) {
 	"</select><br>";
 	otherRelationsCon.insertAdjacentHTML("beforeend", otherRelationsHtml);
 }
-
-window.onload = addPatientOtherRelations("Brothers");
-window.onload = addPatientOtherRelations("Sisters");
 
 class MedProbAdder {
 	limitMsg;

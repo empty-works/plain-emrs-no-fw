@@ -279,50 +279,10 @@
 					<fieldset>
 						<legend>Patient other relations</legend>	
 						<div id="otherRelationsCon">
-							<label for="brothersAlive">Brothers alive: </label>
-							<select id="brothersAlive" name="brothersAlive">
-								<option>0</option>	
-								<option>1</option>	
-								<option>2</option>	
-								<option>3</option>	
-								<option>4</option>	
-								<option>5</option>	
-								<option>6</option>	
-								<option>7+</option>	
-							</select><br>
-							<label for="brothersDec">Brothers deceased: </label>
-							<select id="brothersDec" name="brothersDec">
-								<option>0</option>	
-								<option>1</option>	
-								<option>2</option>	
-								<option>3</option>	
-								<option>4</option>	
-								<option>5</option>	
-								<option>6</option>	
-								<option>7+</option>	
-							</select><br>
-							<label for="sistersAlive">Sisters alive: </label>
-							<select id="sistersAlive" name="sistersAlive">
-								<option>0</option>	
-								<option>1</option>	
-								<option>2</option>	
-								<option>3</option>	
-								<option>4</option>	
-								<option>5</option>	
-								<option>6</option>	
-								<option>7+</option>	
-							</select><br>
-							<label for="sistersDec">Sisters deceased: </label>
-							<select id="sistersDec" name="sistersDec">
-								<option>0</option>	
-								<option>1</option>	
-								<option>2</option>	
-								<option>3</option>	
-								<option>4</option>	
-								<option>5</option>	
-								<option>6</option>	
-								<option>7+</option>	
-							</select><br>
+							<script type="text/javascript">
+								window.onload = addPatientOtherRelations("Brothers")
+								window.onload = addPatientOtherRelations("Sisters")
+							</script>
 						</div>
 					</fieldset>
 				</div>
