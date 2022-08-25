@@ -40,7 +40,7 @@ function addPatientOtherRelations(relation) {
 	//TODO: create dropdown with an ID with relation + dec 
 	
 	const otherRelationsHtml = 
-	"<label for=\"" + relation + "Alive\">" + relation + "alive: </label>" + 
+	"<label for=\"" + relation + "Alive\">" + relation + " alive: </label>" + 
 	"<select id=\"" + relation + "Alive\" name=\"" + relation + "Alive\">" + 
 		"<option>0</option>" + 
 		"<option>1</option>" +
@@ -130,3 +130,7 @@ class MedProbAdder {
 genMed = new MedProbAdder("genMed");
 heartMed = new MedProbAdder("heartMed");
 reproductMed = new MedProbAdder("reproductMed");
+
+class FamHistoryAdder {
+		
+}

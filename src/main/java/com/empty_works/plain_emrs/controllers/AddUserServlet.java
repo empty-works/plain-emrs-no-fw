@@ -15,7 +15,7 @@ import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
-import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemLists;
+import com.empty_works.plain_emrs.patient_choices.PatientFormLists;
 import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
@@ -42,12 +42,12 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
-		request.setAttribute("generalMedicalProblemListNonJson", PatientMedicalProblemLists.medicalProblemGeneralList);
-		request.setAttribute("generalMedicalProblemListJson", makeJson(PatientMedicalProblemLists.medicalProblemGeneralList));
-		request.setAttribute("heartMedicalProblemListNonJson", PatientMedicalProblemLists.medicalProblemHeartList);
-		request.setAttribute("heartMedicalProblemListJson", makeJson(PatientMedicalProblemLists.medicalProblemHeartList));
-		request.setAttribute("reproductMedicalProblemListNonJson", PatientMedicalProblemLists.medicalProblemReproductList);
-		request.setAttribute("reproductMedicalProblemListJson", makeJson(PatientMedicalProblemLists.medicalProblemReproductList));
+		request.setAttribute("generalMedicalProblemListNonJson", PatientFormLists.medicalProblemGeneralList);
+		request.setAttribute("generalMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemGeneralList));
+		request.setAttribute("heartMedicalProblemListNonJson", PatientFormLists.medicalProblemHeartList);
+		request.setAttribute("heartMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemHeartList));
+		request.setAttribute("reproductMedicalProblemListNonJson", PatientFormLists.medicalProblemReproductList);
+		request.setAttribute("reproductMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemReproductList));
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}

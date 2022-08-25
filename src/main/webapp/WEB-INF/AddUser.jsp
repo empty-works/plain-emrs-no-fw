@@ -282,6 +282,8 @@
 							<script type="text/javascript">
 								window.onload = addPatientOtherRelations("Brothers")
 								window.onload = addPatientOtherRelations("Sisters")
+								window.onload = addPatientOtherRelations("Sons")
+								window.onload = addPatientOtherRelations("Daughters")
 							</script>
 						</div>
 					</fieldset>

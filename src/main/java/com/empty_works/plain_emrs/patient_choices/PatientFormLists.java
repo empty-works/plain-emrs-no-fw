@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
-public class PatientMedicalProblemLists {
+public class PatientFormLists {
 
 	public static List<PatientMedicalProblemUnit> medicalProblemGeneralList = new ArrayList<>() {
 		/**
@@ -118,6 +118,53 @@ public class PatientMedicalProblemLists {
 			add(new PatientMedicalProblemUnit("medProbTesticles", "Testicles"));
 			add(new PatientMedicalProblemUnit("medProbUterus", "Uterus"));
 			add(new PatientMedicalProblemUnit("medProbVasect", "Vasectomy"));
+		}
+	};
+	
+	public static List<PatientFamilyConditionUnit> familyConditionList = new ArrayList<>() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 8723585501887545137L;
+		
+		{
+			add(new PatientFamilyConditionUnit("famCondLungCancer", "Lung cancer"));
+			add(new PatientFamilyConditionUnit("famCondColonCancer", "Colon cancer/rectal cancer"));
+			add(new PatientFamilyConditionUnit("famCondColonPolyp", "Colon polyp"));
+			add(new PatientFamilyConditionUnit("famCondBreastCancer", "Breast cancer"));
+			add(new PatientFamilyConditionUnit("famCondProstateCancer", "Prostate cancer"));
+			add(new PatientFamilyConditionUnit("famCondOvarianCancer", "Ovarian cancer"));
+			add(new PatientFamilyConditionUnit("famCondPancreaticCancer", "Pancreatic cancer"));
+			add(new PatientFamilyConditionUnit("famCondOtherCancer", "Other cancer"));
+			add(new PatientFamilyConditionUnit("famCondHeartDisease", "Heart disease"));
+			add(new PatientFamilyConditionUnit("famCondDiabetes", "Diabetes"));
+			add(new PatientFamilyConditionUnit("famCondAsthma", "Asthma"));
+			add(new PatientFamilyConditionUnit("famCondEczema", "Eczema/psoriasis"));
+			add(new PatientFamilyConditionUnit("famCondMigraine", "Migraine headache"));
+			add(new PatientFamilyConditionUnit("famCondSeizure", "Seizure disorder"));
+			add(new PatientFamilyConditionUnit("famCondStroke", "Stroke/TIA"));
+			add(new PatientFamilyConditionUnit("famCondHighChol", "High cholesterol"));
+			add(new PatientFamilyConditionUnit("famCondAbBleeding", "Abnormal bleeding (bleeding disorder)"));
+			add(new PatientFamilyConditionUnit("famCondWhiteCount", "High or low white count"));
+			add(new PatientFamilyConditionUnit("famCondHighBlood", "High blood pressure"));
+			add(new PatientFamilyConditionUnit("famCondAnemia", "Anemia"));
+			add(new PatientFamilyConditionUnit("famCondLiverDisease", "Liver disease"));
+			add(new PatientFamilyConditionUnit("famCondHepatitis", "Hepatitis"));
+			add(new PatientFamilyConditionUnit("famCondArthritis", "Arthritis"));
+			add(new PatientFamilyConditionUnit("famCondOsteopor", "Osteoporosis"));
+			add(new PatientFamilyConditionUnit("famCondAlcAbuse", "Alcohol abuse"));
+			add(new PatientFamilyConditionUnit("famCondRecDrugs", "Recreational/street drug use"));
+			add(new PatientFamilyConditionUnit("famCondSexTranDiseases", "Sexually transmitted disease(s)"));
+			add(new PatientFamilyConditionUnit("famCondDepression", "Depression"));
+			add(new PatientFamilyConditionUnit("famCondOtherMental", "Other psychiatric/mental illness"));
+			add(new PatientFamilyConditionUnit("famCondSuicide", "Suicide or attempted suicide"));
+			add(new PatientFamilyConditionUnit("famCondTb", "Tuberculosis (TB)"));
+			add(new PatientFamilyConditionUnit("famCondAnesthesiaComp", "Anesthesia complications"));
+			add(new PatientFamilyConditionUnit("famCondGenDisorder", "Genetic disorder"));
+			add(new PatientFamilyConditionUnit("famCondEmphysema", "COPD/Emphysema"));
+			add(new PatientFamilyConditionUnit("famCondAllergies", "Allergies/allergic reactions"));
+			add(new PatientFamilyConditionUnit("famCondOther", "Other (discussed with provider)"));
 		}
 	};
 }
