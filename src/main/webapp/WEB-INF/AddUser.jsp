@@ -181,51 +181,21 @@
 						<legend>Medical problems and surgical procedures</legend>	
 						<h4>General</h4>
 						<div id="genMedProbContainer">
-							<div>
-								<select>
-									<c:forEach items="${generalMedicalProblemListNonJson}" var="genMedProb">
-										<option>${genMedProb.getProblemArea()}</option>	
-									</c:forEach>
-								</select>
-								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
-								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbText" name="medProbSurgeryDate">
-							</div>			
+							<script type="text/javascript">window.onload=genMed.addNode(${generalMedicalProblemListJson}, genMedProbContainer, false)</script>
 						</div>
-						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="genMedLimitMsg"></div>
 						<h4>Heart-related</h4>
 						<div id="heartMedProbContainer">
-							<div>
-								<select>
-									<c:forEach items="${heartMedicalProblemListNonJson}" var="heartMedProb">
-										<option>${heartMedProb.getProblemArea()}</option>	
-									</c:forEach>
-								</select>
-								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
-								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbText" name="medProbSurgeryDate">
-							</div>			
+							<script type="text/javascript">window.onload=heartMed.addNode(${heartMedicalProblemListJson}, heartMedProbContainer, false)</script>
 						</div>
-						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="heartMedLimitMsg"></div>
 						<h4>Reproductive-related</h4>
 						<div id="reproductMedProbContainer">
-							<div>
-								<select>
-									<c:forEach items="${reproductMedicalProblemListNonJson}" var="reproductMedProb">
-										<option>${reproductMedProb.getProblemArea()}</option>	
-									</c:forEach>
-								</select>
-								<input type="text" class="medProbText" name="medProbText" placeholder="Medical problem:">
-								<input type="text" class="medProbText" name="medProbSurgeryText" placeholder="Surgical procedure:">
-								<label for="medProbSurgeryDate">Surgical procedure date: </label>
-								<input type="date" class="medProbText" name="medProbSurgeryDate">
-							</div>			
+							<script type="text/javascript">window.onload=reproductMed.addNode(${reproductMedicalProblemListJson}, reproductMedProbContainer, false)</script>
 						</div>
-						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer)'>Add</button><div id="addLimitReached"></div>
+						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="reproductMedLimitMsg"></div>
 					</fieldset>
 					<fieldset>

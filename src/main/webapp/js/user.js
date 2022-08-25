@@ -62,7 +62,7 @@ class MedProbAdder {
 		this.MED_PROB_MAX = 15;
 	}
 	
-	addNode(jsonList, medProbCon) {
+	addNode(jsonList, medProbCon, needsRemoveButton) {
 		if(this.medProbLimit < this.MED_PROB_MAX) {
 			this.medProbLimit++;
 			console.log(jsonList);
@@ -92,7 +92,9 @@ class MedProbAdder {
 			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">" 
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
-			medProbNode.insertAdjacentHTML("beforeend", this.setMedProbType());
+			if(needsRemoveButton == true) {
+				medProbNode.insertAdjacentHTML("beforeend", this.setMedProbType());
+			}
 			medProbCon.appendChild(medProbNode);
 		}
 		else {
