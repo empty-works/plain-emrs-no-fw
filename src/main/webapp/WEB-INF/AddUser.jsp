@@ -257,6 +257,14 @@
 							</script>
 						</div>
 					</fieldset>
+					<fieldset>
+						<legend>Personal and family history</legend>	
+						<div id="familyConditionsCon">
+							<script type="text/javascript">
+								window.onload = addFamilyCondition()
+							</script>
+						</div>
+					</fieldset>
 				</div>
 				
 				<!-- Non-patient section -->

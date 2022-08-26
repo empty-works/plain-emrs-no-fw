@@ -133,6 +133,18 @@ genMed = new MedProbAdder("genMed");
 heartMed = new MedProbAdder("heartMed");
 reproductMed = new MedProbAdder("reproductMed");
 
-class FamHistoryAdder {
-		
+function addFamilyCondition(jsonList, familyCondCon) {
+	let familyCondList = [];
+	// Push JSON elements to a JS list
+	for(let x in jsonList) {
+		familyCondList.push(jsonList[x]);
+	}
+	// Sort the JS list
+	familyCondList.sort();
+	// 
+	for(let x in familyCondList) {
+		let familyCondNode = document.createElement("div");
+		familyCondNode.appendChild(x.getFamilyCondition());
+		familyCondCon.appendChild(familyCondNode);
+	}
 }
