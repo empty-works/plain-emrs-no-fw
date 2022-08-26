@@ -261,7 +261,7 @@
 						<legend>Personal and family history</legend>	
 						<div id="familyConditionsCon">
 							<script type="text/javascript">
-								window.onload = addFamilyCondition()
+								window.onload=addFamilyCondition(${familyConditionsList}, familyConditionsCon)
 							</script>
 						</div>
 					</fieldset>

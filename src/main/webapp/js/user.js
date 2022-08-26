@@ -34,11 +34,6 @@ function showNonpatientForm() {
 
 function addPatientOtherRelations(relation) {
 	const otherRelationsCon = document.getElementById("otherRelationsCon");
-	//TODO: create label for alive dropdown
-	//TODO: create dropdown with an ID with relation + alive
-	//TODO: create label for deceased dropdown
-	//TODO: create dropdown with an ID with relation + dec 
-	
 	const otherRelationsHtml = 
 	"<label for=\"" + relation + "Alive\">" + relation + " alive: </label>" + 
 	"<select id=\"" + relation + "Alive\" name=\"" + relation + "Alive\">" + 
@@ -144,7 +139,7 @@ function addFamilyCondition(jsonList, familyCondCon) {
 	// 
 	for(let x in familyCondList) {
 		let familyCondNode = document.createElement("div");
-		familyCondNode.appendChild(x.getFamilyCondition());
+		familyCondNode.appendChild(x.getValue());
 		familyCondCon.appendChild(familyCondNode);
 	}
 }

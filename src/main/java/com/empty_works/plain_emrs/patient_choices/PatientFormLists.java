@@ -7,40 +7,40 @@ import java.util.Set;
 
 public class PatientFormLists {
 
-	public static List<PatientMedicalProblemUnit> medicalProblemGeneralList = new ArrayList<>() {
+	public static List<PatientFormUnit> medicalProblemGeneralList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 4002195277166548304L;
 
 		{
-			add(new PatientMedicalProblemUnit("medProbAppend", "Appendix"));
-			add(new PatientMedicalProblemUnit("medProbBack", "Back"));
-			add(new PatientMedicalProblemUnit("medProbBladder", "Bladder"));
-			add(new PatientMedicalProblemUnit("medProbBones", "Bones"));
-			add(new PatientMedicalProblemUnit("medProbBowel", "Bowel"));
-			add(new PatientMedicalProblemUnit("medProbBrain", "Brain"));
-			add(new PatientMedicalProblemUnit("medProbEars", "Ears"));
-			add(new PatientMedicalProblemUnit("medProbEsoph", "Esophagus"));
-			add(new PatientMedicalProblemUnit("medProbEyes", "Eyes"));
-			add(new PatientMedicalProblemUnit("medProbGallBl", "Gallbladder"));
-			add(new PatientMedicalProblemUnit("medProbHernia", "Hernia"));
-			add(new PatientMedicalProblemUnit("medProbJoints", "Joints"));
-			add(new PatientMedicalProblemUnit("medProbKidneys", "Kidneys"));
-			add(new PatientMedicalProblemUnit("medProbLiver", "Liver"));
-			add(new PatientMedicalProblemUnit("medProbLungs", "Lungs"));
-			add(new PatientMedicalProblemUnit("medProbLymph", "Lymph nodes"));
-			add(new PatientMedicalProblemUnit("medProbMuscles", "Muscles"));
-			add(new PatientMedicalProblemUnit("medProbNeck", "Neck"));
-			add(new PatientMedicalProblemUnit("medProbNose", "Nose"));
-			add(new PatientMedicalProblemUnit("medProbPancre", "Pancreas"));
-			add(new PatientMedicalProblemUnit("medProbSinuses", "Sinuses"));
-			add(new PatientMedicalProblemUnit("medProbSkin", "Skin"));
-			add(new PatientMedicalProblemUnit("medProbSpine", "Spine"));
-			add(new PatientMedicalProblemUnit("medProbSpleen", "Spleen"));
-			add(new PatientMedicalProblemUnit("medProbStoma", "Stomach"));
-			add(new PatientMedicalProblemUnit("medProbTonsils", "Tonsils"));
-			add(new PatientMedicalProblemUnit("medProbThyParaThyGland", "Thyroid or parathyroid gland"));
+			add(new PatientFormUnit("medProbAppend", "Appendix"));
+			add(new PatientFormUnit("medProbBack", "Back"));
+			add(new PatientFormUnit("medProbBladder", "Bladder"));
+			add(new PatientFormUnit("medProbBones", "Bones"));
+			add(new PatientFormUnit("medProbBowel", "Bowel"));
+			add(new PatientFormUnit("medProbBrain", "Brain"));
+			add(new PatientFormUnit("medProbEars", "Ears"));
+			add(new PatientFormUnit("medProbEsoph", "Esophagus"));
+			add(new PatientFormUnit("medProbEyes", "Eyes"));
+			add(new PatientFormUnit("medProbGallBl", "Gallbladder"));
+			add(new PatientFormUnit("medProbHernia", "Hernia"));
+			add(new PatientFormUnit("medProbJoints", "Joints"));
+			add(new PatientFormUnit("medProbKidneys", "Kidneys"));
+			add(new PatientFormUnit("medProbLiver", "Liver"));
+			add(new PatientFormUnit("medProbLungs", "Lungs"));
+			add(new PatientFormUnit("medProbLymph", "Lymph nodes"));
+			add(new PatientFormUnit("medProbMuscles", "Muscles"));
+			add(new PatientFormUnit("medProbNeck", "Neck"));
+			add(new PatientFormUnit("medProbNose", "Nose"));
+			add(new PatientFormUnit("medProbPancre", "Pancreas"));
+			add(new PatientFormUnit("medProbSinuses", "Sinuses"));
+			add(new PatientFormUnit("medProbSkin", "Skin"));
+			add(new PatientFormUnit("medProbSpine", "Spine"));
+			add(new PatientFormUnit("medProbSpleen", "Spleen"));
+			add(new PatientFormUnit("medProbStoma", "Stomach"));
+			add(new PatientFormUnit("medProbTonsils", "Tonsils"));
+			add(new PatientFormUnit("medProbThyParaThyGland", "Thyroid or parathyroid gland"));
 		}
 	};
 	
@@ -84,44 +84,44 @@ public class PatientFormLists {
 	
 	public static Set<String> genMedProbMapKeyset = medicalProblemsGeneralMap.keySet();
 	
-	public static List<PatientMedicalProblemUnit> medicalProblemHeartList = new ArrayList<>() {
+	public static List<PatientFormUnit> medicalProblemHeartList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1508226257245976911L;
 
 		{
-			add(new PatientMedicalProblemUnit("medProbAbnHeRhy", "Abnormal heart rhythm"));
-			add(new PatientMedicalProblemUnit("medProbArteries", "Arteries (head, arms, legs, aorta, etc.)"));
-			add(new PatientMedicalProblemUnit("medProbHeAtt", "Heart attack"));
-			add(new PatientMedicalProblemUnit("medProbHeartOther", "Heart other"));
-			add(new PatientMedicalProblemUnit("medProbHeVal", "Heart valves"));
-			add(new PatientMedicalProblemUnit("medProbNarrCoroArt", "Narrowed coronary arteries"));
-			add(new PatientMedicalProblemUnit("medProbBlooClots", "Veins or blood clots in the veins"));
+			add(new PatientFormUnit("medProbAbnHeRhy", "Abnormal heart rhythm"));
+			add(new PatientFormUnit("medProbArteries", "Arteries (head, arms, legs, aorta, etc.)"));
+			add(new PatientFormUnit("medProbHeAtt", "Heart attack"));
+			add(new PatientFormUnit("medProbHeartOther", "Heart other"));
+			add(new PatientFormUnit("medProbHeVal", "Heart valves"));
+			add(new PatientFormUnit("medProbNarrCoroArt", "Narrowed coronary arteries"));
+			add(new PatientFormUnit("medProbBlooClots", "Veins or blood clots in the veins"));
 		}
 	};
 	
-	public static List<PatientMedicalProblemUnit> medicalProblemReproductList = new ArrayList<>() {
+	public static List<PatientFormUnit> medicalProblemReproductList = new ArrayList<>() {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = -6131874158098753909L;
 
 		{
-			add(new PatientMedicalProblemUnit("medProbBreasts", "Breasts"));
-			add(new PatientMedicalProblemUnit("medProbFallTubes", "Fallopian tubes"));
-			add(new PatientMedicalProblemUnit("medProbHysterec", "Hysterectomy"));
-			add(new PatientMedicalProblemUnit("medProbOvaries", "Ovaries"));
-			add(new PatientMedicalProblemUnit("medProbPenis", "Penis"));
-			add(new PatientMedicalProblemUnit("medProbProstate", "Prostate"));
-			add(new PatientMedicalProblemUnit("medProbReproductOther", "Reproductive other"));
-			add(new PatientMedicalProblemUnit("medProbTesticles", "Testicles"));
-			add(new PatientMedicalProblemUnit("medProbUterus", "Uterus"));
-			add(new PatientMedicalProblemUnit("medProbVasect", "Vasectomy"));
+			add(new PatientFormUnit("medProbBreasts", "Breasts"));
+			add(new PatientFormUnit("medProbFallTubes", "Fallopian tubes"));
+			add(new PatientFormUnit("medProbHysterec", "Hysterectomy"));
+			add(new PatientFormUnit("medProbOvaries", "Ovaries"));
+			add(new PatientFormUnit("medProbPenis", "Penis"));
+			add(new PatientFormUnit("medProbProstate", "Prostate"));
+			add(new PatientFormUnit("medProbReproductOther", "Reproductive other"));
+			add(new PatientFormUnit("medProbTesticles", "Testicles"));
+			add(new PatientFormUnit("medProbUterus", "Uterus"));
+			add(new PatientFormUnit("medProbVasect", "Vasectomy"));
 		}
 	};
 	
-	public static List<PatientFamilyConditionUnit> familyConditionList = new ArrayList<>() {
+	public static List<PatientFormUnit> familyConditionList = new ArrayList<>() {
 
 		/**
 		 * 
@@ -129,42 +129,42 @@ public class PatientFormLists {
 		private static final long serialVersionUID = 8723585501887545137L;
 		
 		{
-			add(new PatientFamilyConditionUnit("famCondLungCancer", "Lung cancer"));
-			add(new PatientFamilyConditionUnit("famCondColonCancer", "Colon cancer/rectal cancer"));
-			add(new PatientFamilyConditionUnit("famCondColonPolyp", "Colon polyp"));
-			add(new PatientFamilyConditionUnit("famCondBreastCancer", "Breast cancer"));
-			add(new PatientFamilyConditionUnit("famCondProstateCancer", "Prostate cancer"));
-			add(new PatientFamilyConditionUnit("famCondOvarianCancer", "Ovarian cancer"));
-			add(new PatientFamilyConditionUnit("famCondPancreaticCancer", "Pancreatic cancer"));
-			add(new PatientFamilyConditionUnit("famCondOtherCancer", "Other cancer"));
-			add(new PatientFamilyConditionUnit("famCondHeartDisease", "Heart disease"));
-			add(new PatientFamilyConditionUnit("famCondDiabetes", "Diabetes"));
-			add(new PatientFamilyConditionUnit("famCondAsthma", "Asthma"));
-			add(new PatientFamilyConditionUnit("famCondEczema", "Eczema/psoriasis"));
-			add(new PatientFamilyConditionUnit("famCondMigraine", "Migraine headache"));
-			add(new PatientFamilyConditionUnit("famCondSeizure", "Seizure disorder"));
-			add(new PatientFamilyConditionUnit("famCondStroke", "Stroke/TIA"));
-			add(new PatientFamilyConditionUnit("famCondHighChol", "High cholesterol"));
-			add(new PatientFamilyConditionUnit("famCondAbBleeding", "Abnormal bleeding (bleeding disorder)"));
-			add(new PatientFamilyConditionUnit("famCondWhiteCount", "High or low white count"));
-			add(new PatientFamilyConditionUnit("famCondHighBlood", "High blood pressure"));
-			add(new PatientFamilyConditionUnit("famCondAnemia", "Anemia"));
-			add(new PatientFamilyConditionUnit("famCondLiverDisease", "Liver disease"));
-			add(new PatientFamilyConditionUnit("famCondHepatitis", "Hepatitis"));
-			add(new PatientFamilyConditionUnit("famCondArthritis", "Arthritis"));
-			add(new PatientFamilyConditionUnit("famCondOsteopor", "Osteoporosis"));
-			add(new PatientFamilyConditionUnit("famCondAlcAbuse", "Alcohol abuse"));
-			add(new PatientFamilyConditionUnit("famCondRecDrugs", "Recreational/street drug use"));
-			add(new PatientFamilyConditionUnit("famCondSexTranDiseases", "Sexually transmitted disease(s)"));
-			add(new PatientFamilyConditionUnit("famCondDepression", "Depression"));
-			add(new PatientFamilyConditionUnit("famCondOtherMental", "Other psychiatric/mental illness"));
-			add(new PatientFamilyConditionUnit("famCondSuicide", "Suicide or attempted suicide"));
-			add(new PatientFamilyConditionUnit("famCondTb", "Tuberculosis (TB)"));
-			add(new PatientFamilyConditionUnit("famCondAnesthesiaComp", "Anesthesia complications"));
-			add(new PatientFamilyConditionUnit("famCondGenDisorder", "Genetic disorder"));
-			add(new PatientFamilyConditionUnit("famCondEmphysema", "COPD/Emphysema"));
-			add(new PatientFamilyConditionUnit("famCondAllergies", "Allergies/allergic reactions"));
-			add(new PatientFamilyConditionUnit("famCondOther", "Other (discussed with provider)"));
+			add(new PatientFormUnit("famCondLungCancer", "Lung cancer"));
+			add(new PatientFormUnit("famCondColonCancer", "Colon cancer/rectal cancer"));
+			add(new PatientFormUnit("famCondColonPolyp", "Colon polyp"));
+			add(new PatientFormUnit("famCondBreastCancer", "Breast cancer"));
+			add(new PatientFormUnit("famCondProstateCancer", "Prostate cancer"));
+			add(new PatientFormUnit("famCondOvarianCancer", "Ovarian cancer"));
+			add(new PatientFormUnit("famCondPancreaticCancer", "Pancreatic cancer"));
+			add(new PatientFormUnit("famCondOtherCancer", "Other cancer"));
+			add(new PatientFormUnit("famCondHeartDisease", "Heart disease"));
+			add(new PatientFormUnit("famCondDiabetes", "Diabetes"));
+			add(new PatientFormUnit("famCondAsthma", "Asthma"));
+			add(new PatientFormUnit("famCondEczema", "Eczema/psoriasis"));
+			add(new PatientFormUnit("famCondMigraine", "Migraine headache"));
+			add(new PatientFormUnit("famCondSeizure", "Seizure disorder"));
+			add(new PatientFormUnit("famCondStroke", "Stroke/TIA"));
+			add(new PatientFormUnit("famCondHighChol", "High cholesterol"));
+			add(new PatientFormUnit("famCondAbBleeding", "Abnormal bleeding (bleeding disorder)"));
+			add(new PatientFormUnit("famCondWhiteCount", "High or low white count"));
+			add(new PatientFormUnit("famCondHighBlood", "High blood pressure"));
+			add(new PatientFormUnit("famCondAnemia", "Anemia"));
+			add(new PatientFormUnit("famCondLiverDisease", "Liver disease"));
+			add(new PatientFormUnit("famCondHepatitis", "Hepatitis"));
+			add(new PatientFormUnit("famCondArthritis", "Arthritis"));
+			add(new PatientFormUnit("famCondOsteopor", "Osteoporosis"));
+			add(new PatientFormUnit("famCondAlcAbuse", "Alcohol abuse"));
+			add(new PatientFormUnit("famCondRecDrugs", "Recreational/street drug use"));
+			add(new PatientFormUnit("famCondSexTranDiseases", "Sexually transmitted disease(s)"));
+			add(new PatientFormUnit("famCondDepression", "Depression"));
+			add(new PatientFormUnit("famCondOtherMental", "Other psychiatric/mental illness"));
+			add(new PatientFormUnit("famCondSuicide", "Suicide or attempted suicide"));
+			add(new PatientFormUnit("famCondTb", "Tuberculosis (TB)"));
+			add(new PatientFormUnit("famCondAnesthesiaComp", "Anesthesia complications"));
+			add(new PatientFormUnit("famCondGenDisorder", "Genetic disorder"));
+			add(new PatientFormUnit("famCondEmphysema", "COPD/Emphysema"));
+			add(new PatientFormUnit("famCondAllergies", "Allergies/allergic reactions"));
+			add(new PatientFormUnit("famCondOther", "Other (discussed with provider)"));
 		}
 	};
 }
