@@ -148,14 +148,14 @@ function addFamilyCondition(jsonList, familyCondCon) {
 		//familyCondNode.appendChild(element);
 		familyCondNode.insertAdjacentHTML("beforeend", familyCondList[x]);
 		let famCondInputsHtml = 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionFather\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionMother\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionBrothers\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionSisters\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionSons\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionDaughters\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"familyConditionGrandparents\">";
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionFather\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionMother\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionBrothers\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSons\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionDaughters\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionGrandparents\">";
 		familyCondNode.insertAdjacentHTML("beforeend", famCondInputsHtml);
 		familyCondCon.appendChild(familyCondNode);
 	}
