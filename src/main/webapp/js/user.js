@@ -84,7 +84,7 @@ class MedProbAdder {
 			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText\" placeholder=\"Medical problem:\">" + 
 			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
 			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">" 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			if(needsRemoveButton == true) {
@@ -139,7 +139,14 @@ function addFamilyCondition(jsonList, familyCondCon) {
 	// 
 	for(let x in familyCondList) {
 		let familyCondNode = document.createElement("div");
-		familyCondNode.appendChild(x.getValue());
+		console.log(familyCondList[x]);
+		/*
+		let famCondHtml = "
+		<label class=\"patientForm\" for=\"" + x + "FamCond\">" + x + "</label>";
+		*/
+		// insert Label for checkbox node
+		//familyCondNode.appendChild(element);
+		familyCondNode.insertAdjacentHTML("beforeend", familyCondList[x]);
 		familyCondCon.appendChild(familyCondNode);
 	}
 }
