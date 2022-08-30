@@ -140,19 +140,22 @@ function addFamilyCondition(jsonList, familyCondCon) {
 	for(let x in familyCondList) {
 		let familyCondNode = document.createElement("div");
 		console.log(familyCondList[x]);
-		// TODO: CREATE GRID
-		let famCondLabelHtml = 
+		// TODO: TEMPORARY TABLE - just need this work first then make it pretty later using CSS.
+		let famCondTableHtml = 
+		"<table>" + 
+		" <tr>" + 
+		"  <th colspan=\"3\">Name</th>" + 
 		"";
 		familyCondNode.insertAdjacentHTML("beforeend", familyCondList[x]);
 		let famCondInputsHtml = 
 		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">" + 
-		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\">";
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionFather\" name=" + familyCondList[x] + "\"familyConditionFather\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionMother\" name=" + familyCondList[x] + "\"familyConditionMother\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionBrothers\" name=" + familyCondList[x] + "\"familyConditionSisters\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSisters\" name=" + familyCondList[x] + "\"familyConditionSisters\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSons\" name=" + familyCondList[x] + "\"familyConditionSons\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionDaughters\" name=" + familyCondList[x] + "\"familyConditionDaughters\">" + 
+		"<input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionGrandparents\" name=" + familyCondList[x] + "\"familyConditionGrandparents\">";
 		familyCondNode.insertAdjacentHTML("beforeend", famCondInputsHtml);
 		familyCondCon.appendChild(familyCondNode);
 	}
