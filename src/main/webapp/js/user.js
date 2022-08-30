@@ -158,7 +158,7 @@ function addFamilyCondition(jsonList, familyCondCon) {
 		//familyCondNode.insertAdjacentHTML("beforeend", familyCondList[x]);
 		famCondInputsHtml += 
 		"<tr>" + 
-		" <td colspan=\"5\">" + familyCondList[x] + "<\td>" + 
+		" <td colspan=\"5\">" + familyCondList[x] + "</td>" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionSelf\" name=" + familyCondList[x] + "\"familyConditionSelf\"></td>" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionFather\" name=" + familyCondList[x] + "\"familyConditionFather\"></td>" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=" + familyCondList[x] + "\"familyConditionMother\" name=" + familyCondList[x] + "\"familyConditionMother\"></td>" + 
