@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class UserBean extends GeneralBean {
 
+	// No password attribute because it's generated during user creation
 	private String userId;
 	private String emailAddress;
 	private boolean userEnabled;

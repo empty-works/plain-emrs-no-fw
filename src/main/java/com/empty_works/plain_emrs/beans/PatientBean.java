@@ -6,7 +6,7 @@ public class PatientBean extends UserBean {
 	private String provider;
 	private String providerId;
 	private String roomNumber;
-	private String gender;
+	private String currentGender;
 	private String type;
 	private String race;
 	private String ethnicity;
@@ -17,6 +17,10 @@ public class PatientBean extends UserBean {
 	private String country;
 	private String phoneNumber;
 	private String facilityId;
+	private String genderAtBirth;
+	private String sexualOrientation;
+	private String maritalStatus;
+	private String livingArrangement;
 
 	public String getProvider() {
 		return provider;
@@ -36,11 +40,11 @@ public class PatientBean extends UserBean {
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
-	public String getGender() {
-		return gender;
+	public String getCurrentGender() {
+		return currentGender;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setCurrentGender(String currentGender) {
+		this.currentGender = currentGender;
 	}
 	public String getType() {
 		return type;
@@ -101,5 +105,29 @@ public class PatientBean extends UserBean {
 	}
 	public void setFacilityId(String facilityId) {
 		this.facilityId = facilityId;
+	}
+	public String getGenderAtBirth() {
+		return genderAtBirth;
+	}
+	public void setGenderAtBirth(String genderAtBirth) {
+		this.genderAtBirth = genderAtBirth;
+	}
+	public String getSexualOrientation() {
+		return sexualOrientation;
+	}
+	public void setSexualOrientation(String sexualOrientation) {
+		this.sexualOrientation = sexualOrientation;
+	}
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+	public String getLivingArrangement() {
+		return livingArrangement;
+	}
+	public void setLivingArrangement(String livingArrangement) {
+		this.livingArrangement = livingArrangement;
 	}
 }
