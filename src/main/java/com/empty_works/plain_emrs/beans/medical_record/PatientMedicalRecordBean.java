@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.beans;
+package com.empty_works.plain_emrs.beans.medical_record;
 
 import java.time.LocalDateTime;
 
