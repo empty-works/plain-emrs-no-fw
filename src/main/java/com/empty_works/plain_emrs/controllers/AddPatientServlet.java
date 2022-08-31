@@ -42,7 +42,7 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setMiddleInitial(middleInitial);
 		pb.setLastName(lastName);
 		//pb.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
-		pb.setGender(request.getParameter("patientGender"));
+		pb.setCurrentGender(request.getParameter("patientGender"));
 		pb.setType(request.getParameter("patientType"));
 		pb.setRace(request.getParameter("patientRace"));
 		pb.setEthnicity(request.getParameter("patientEthnicity"));

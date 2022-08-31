@@ -47,7 +47,7 @@ public class PatientDao {
 			patient.setProvider(resultSet.getString("patient_provider"));
 			patient.setProviderId(resultSet.getString("patient_provider_id"));
 			patient.setRoomNumber(resultSet.getString("patient_room"));
-			patient.setGender(resultSet.getString("patient_gender"));
+			patient.setCurrentGender(resultSet.getString("patient_gender"));
 			patient.setType(resultSet.getString("patient_type"));
 			patient.setRace(resultSet.getString("patient_race"));
 			patient.setEthnicity(resultSet.getString("patient_ethnicity"));
@@ -96,7 +96,7 @@ public class PatientDao {
 				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 				patient.setLastName(resultSet.getString("patient_last_name"));
 				//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
-				patient.setGender(resultSet.getString("patient_gender"));
+				patient.setCurrentGender(resultSet.getString("patient_gender"));
 				patient.setType(resultSet.getString("patient_type"));
 				patient.setRace(resultSet.getString("patient_race"));
 				patient.setEthnicity(resultSet.getString("patient_ethnicity"));
@@ -129,7 +129,7 @@ public class PatientDao {
 		String middleInitial = pb.getMiddleInitial();
 		String lastName = pb.getLastName();
 		//LocalDate dateOfBirth = pb.getDateOfBirth(); 
-		String gender = pb.getGender();
+		String gender = pb.getCurrentGender();
 		String type = pb.getType();
 		String race = pb.getRace();
 		String ethnicity = pb.getEthnicity();
