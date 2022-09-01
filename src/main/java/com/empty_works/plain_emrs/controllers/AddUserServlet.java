@@ -14,8 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.UserBean;
+import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
+import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
-import com.empty_works.plain_emrs.patient_choices.PatientFormLists;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
@@ -43,10 +44,10 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
 		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
-		request.setAttribute("generalMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemGeneralList));
-		request.setAttribute("heartMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemHeartList));
-		request.setAttribute("reproductMedicalProblemListJson", makeJson(PatientFormLists.medicalProblemReproductList));
-		request.setAttribute("familyConditionsList", makeJson(PatientFormLists.familyConditionList));
+		request.setAttribute("generalMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemGeneralList));
+		request.setAttribute("heartMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemHeartList));
+		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
+		request.setAttribute("familyConditionsList", makeJson(FamilyConditionLists.familyConditionList));
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
