@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class PatientMedicalRecordBean {
 
-	private int medicalRecordId;
-	private String userId;
+	protected int medicalRecordId;
+	protected String userId;
 	private String patientCondition;
 	private LocalDateTime dateCreated;
 	private boolean isActive;

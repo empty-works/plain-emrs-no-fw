@@ -2,11 +2,10 @@ package com.empty_works.plain_emrs.beans.medical_record;
 
 import java.time.LocalDateTime;
 
-public class PatientDiagnosis {
+public class PatientDiagnosisBean extends PatientMedicalRecordBean {
 
+	// User ID and medical record ID in parent class
 	private String diagnosisId;
-	private int medicalRecordId;
-	private String userId;
 	private String diagnosisTitle;
 	private LocalDateTime diagnosisDate;
 	private String diagnosisDescription;
@@ -16,18 +15,6 @@ public class PatientDiagnosis {
 	}
 	public void setDiagnosisId(String diagnosisId) {
 		this.diagnosisId = diagnosisId;
-	}
-	public int getMedicalRecordId() {
-		return medicalRecordId;
-	}
-	public void setMedicalRecordId(int medicalRecordId) {
-		this.medicalRecordId = medicalRecordId;
-	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 	public String getDiagnosisTitle() {
 		return diagnosisTitle;
