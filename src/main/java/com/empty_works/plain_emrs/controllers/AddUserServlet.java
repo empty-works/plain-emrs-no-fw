@@ -1,9 +1,8 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +17,6 @@ import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
-import com.empty_works.plain_emrs.patient_choices.PatientMedicalProblemUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
@@ -63,9 +61,19 @@ public class AddUserServlet extends HttpServlet {
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
 		//user.setPatientId(request.getParameter("userPatientId"));
 		//user.setNonPatientId(request.getParameter("userNonPatientId"));
+		user.setUserEnabled(true);
+		user.setDateCreated(LocalDateTime.now());
+		user.setFirstName(request.getParameter("userFirstName"));
+		user.setMiddleInitial(request.getParameter("userMiddleInitial"));
+		user.setLastName(request.getParameter("userLastName"));
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
 		user.setRole(request.getParameter("roleDropdown"));
 		request.setAttribute("userBean", user);
+		
+		if(request.getAttribute("patientFormSubmitButton") == "isPatient") {
+			
+			
+		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}

@@ -282,7 +282,8 @@
 					</select>
 				</div>
 
-				<div><input type="submit" /><input type="reset" name="Reset" /></div>
+				<!-- user.js sets the value of submit to "isPatient" or "isNonPatient" -->
+				<div><input id="patientFormSubmitButton" type="submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>

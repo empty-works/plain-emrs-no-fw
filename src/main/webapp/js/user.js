@@ -16,6 +16,8 @@ function showPatientForm() {
 	patientSection.style.display = "block";
 	nonpatientTitle.style.display = "none";
 	nonpatientSection.style.display = "none";
+	
+	document.getElementById("patientFormSubmitButton").value = "isPatient";
 }
 
 function showNonpatientForm() {
@@ -30,6 +32,8 @@ function showNonpatientForm() {
 	patientSection.style.display = "none";
 	nonpatientTitle.style.display = "block";
 	nonpatientSection.style.display = "block";
+
+	document.getElementById("patientFormSubmitButton").value = "isNonPatient";
 }
 
 function addPatientOtherRelations(relation) {
