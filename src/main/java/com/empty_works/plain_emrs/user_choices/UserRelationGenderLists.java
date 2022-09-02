@@ -6,41 +6,6 @@ import java.util.List;
 
 public class UserRelationGenderLists {
 	
-	final public static List<UserRelationshipStatusUnit> relationshipStatusList = new ArrayList<>() {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = -8020002724918366344L;
-
-		{
-			add(new UserRelationshipStatusUnit("relStatusSingle","Single"));
-			add(new UserRelationshipStatusUnit("relStatusMarried","Married"));
-			add(new UserRelationshipStatusUnit("relStatusPartner","Partnered"));
-			add(new UserRelationshipStatusUnit("relStatusSeparate","Separated"));
-			add(new UserRelationshipStatusUnit("relStatusDivor","Divorced"));
-			add(new UserRelationshipStatusUnit("relStatusWido","Widowed"));
-		}
-	};
-	
-	final public static List<UserLivingArranUnit> livingList = new ArrayList<>() {
-		
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1593118704632849613L;
-
-		{
-			add(new UserLivingArranUnit("alone", "Alone"));
-			add(new UserLivingArranUnit("spousePartner", "Spouse/Partner(s)"));
-			add(new UserLivingArranUnit("children", "Child(ren)"));
-			add(new UserLivingArranUnit("sibling", "Sibling"));
-			add(new UserLivingArranUnit("parentGuard", "Parent(s)/Guardian(s)"));
-			add(new UserLivingArranUnit("group", "Group setting"));
-			add(new UserLivingArranUnit("personalCare", "Personal care attendant"));
-			add(new UserLivingArranUnit("other", "Other"));
-		}
-	};
-	
 	final public static List<UserCurrentGenderUnit> currentGenderList = new ArrayList<>() {
 		/**
 		 * 

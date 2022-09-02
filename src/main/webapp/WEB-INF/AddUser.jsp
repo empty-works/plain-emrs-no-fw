@@ -103,7 +103,7 @@
 						<!-- Relationship status drop-down -->
 						<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
 							<div>
-								<input type="checkbox" id="${relationshipStatus.getRelationshipStatusId()}" name="relationshipOption" value="${relationshipStatus.getRelationshipStatusId()}">
+								<input type="radio" id="${relationshipStatus.getRelationshipStatusId()}" name="relationshipOption" value="${relationshipStatus.getRelationshipStatusId()}">
 								<label for="${relationshipStatus.getRelationshipStatusId()}">${relationshipStatus.getRelationshipStatus()}</label>
 							</div>	
 						</c:forEach>

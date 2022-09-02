@@ -12,14 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.empty_works.plain_emrs.beans.NonPatientBean;
+import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
+import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
+import com.empty_works.plain_emrs.user_choices.UserRelationshipStatusLists;
 
 /**
  * Servlet implementation class AddUserServlet
@@ -36,8 +40,8 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("raceList", UserRaceLists.raceList);
 		request.setAttribute("latinOptionsList", UserRaceLists.latinOptionsList);
 		request.setAttribute("latinOthersList", UserRaceLists.latinOtherList);
-		request.setAttribute("relationshipStatusList", UserRelationGenderLists.relationshipStatusList);
-		request.setAttribute("livingArrangementList", UserRelationGenderLists.livingList);
+		request.setAttribute("relationshipStatusList", UserRelationshipStatusLists.relationshipStatusList);
+		request.setAttribute("livingArrangementList", UserLivingArranLists.livingList);
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
@@ -56,6 +60,8 @@ public class AddUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UserBean user = new UserBean();
+		PatientBean patient; // Instantiated if user is a new patient.
+		NonPatientBean nonPatient;
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
@@ -72,7 +78,14 @@ public class AddUserServlet extends HttpServlet {
 		
 		if(request.getAttribute("patientFormSubmitButton") == "isPatient") {
 			
-			
+			patient = new PatientBean();
+			patient.setStreetAddress(request.getParameter("patientStreetAddress"));
+			patient.setCity(request.getParameter("patientCity"));
+			patient.setState(request.getParameter("patientState"));
+			patient.setCountry(request.getParameter("patientCountry"));
+			patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
+			patient.setProvider(request.getParameter("patientProvider"));
+			patient.setProviderId(request.getParameter("patientProviderId"));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
