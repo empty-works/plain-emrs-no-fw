@@ -9,6 +9,7 @@ public class PatientBean extends UserBean {
 	private String currentGender;
 	private String type;
 	private String race;
+	private String latinEthnicity;
 	private String ethnicity;
 	private String languagePreference;
 	private String streetAddress;
@@ -53,10 +54,17 @@ public class PatientBean extends UserBean {
 		this.type = type;
 	}
 	public String getRace() {
+		
 		return race;
 	}
 	public void setRace(String race) {
 		this.race = race;
+	}
+	public String getLatinEthnicity() {
+		return latinEthnicity;
+	}
+	public void setLatinEthnicity(String latinEthnicity) {
+		this.latinEthnicity = latinEthnicity;
 	}
 	public String getEthnicity() {
 		return ethnicity;

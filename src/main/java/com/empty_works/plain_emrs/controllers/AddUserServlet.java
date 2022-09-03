@@ -86,7 +86,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
 			patient.setProvider(request.getParameter("patientProvider"));
 			patient.setProviderId(request.getParameter("patientProviderId"));
-			
+			patient.setLatinEthnicity(request.getParameter("latinOthersDropdown"));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

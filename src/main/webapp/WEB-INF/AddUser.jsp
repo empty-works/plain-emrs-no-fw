@@ -82,6 +82,15 @@
 						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
 					</fieldset>
 					<fieldset>
+						<legend>Race</legend>
+						<c:forEach items="${raceList}" var="raceOption">
+							<div>
+								<input type="checkbox" name="raceCheck" value="${raceOption.getRaceId()}">
+								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
+							</div>
+						</c:forEach>	
+					</fieldset>
+					<fieldset>
 						<legend>Ethnicity: </legend>
 						<!-- Hispanic Origin -->
 						<h3>Hispanic, Latino(a), Spanish Origin: </h3>
