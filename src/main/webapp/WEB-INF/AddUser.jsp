@@ -87,6 +87,21 @@
 							<div>
 								<input type="checkbox" name="raceCheck" value="${raceOption.getRaceId()}">
 								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
+								<c:choose>
+									<c:when test="${raceOption.getRaceId() == asian}">
+										ASIAN DROPDOWN
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${raceOption.getRaceId() == hiLa}">
+										HISPANIC LATIN DROPDOWN
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${raceOption.getRaceId() == naHaPaIs}">
+										NATIVE HAWAIIAN PACIFIC ISLANDER DROPDOWN
+									</c:when>
+								</c:choose>
 							</div>
 						</c:forEach>	
 					</fieldset>
