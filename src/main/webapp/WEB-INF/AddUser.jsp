@@ -73,10 +73,7 @@
 						<label>State: </label>
 						<div><input type="text" id="patientState" name="patientState" /></div>
 						<label>Country: </label>
-						<div><input type="text" id="patientCountry" name="patientCountry" /></div>
-						<label>Phone Number: </label>
-						<div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div>
-						<label>Patient Provider: </label>
+						<div><input type="text" id="patientCountry" name="patientCountry" /></div> <label>Phone Number: </label> <div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div> <label>Patient Provider: </label>
 						<div><input type="text" id="patientProvider" name="patientProvider" /></div>
 						<label>Patient Provider ID: </label>
 						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
@@ -89,7 +86,11 @@
 								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == asian}">
-										ASIAN DROPDOWN
+										<select>
+											<c:forEach items="${asianEthnList}" var="asianEthn">
+												<option><c:out value="${asianEthn.getRaceName()}"></c:out></option>	
+											</c:forEach>
+										</select>	
 									</c:when>
 								</c:choose>
 								<c:choose>
