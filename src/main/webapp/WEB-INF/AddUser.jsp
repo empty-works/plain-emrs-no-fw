@@ -79,7 +79,7 @@
 						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
 					</fieldset>
 					<fieldset>
-						<legend>Race</legend>
+						<legend>Race and Ethnicity</legend>
 						<c:forEach items="${raceList}" var="raceOption">
 							<div>
 								<input type="checkbox" name="raceCheck" value="${raceOption.getRaceId()}">
@@ -87,6 +87,7 @@
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == asian}">
 										<select>
+											<option selected="selected">Unknown</option>
 											<c:forEach items="${asianEthnList}" var="asianEthn">
 												<option><c:out value="${asianEthn.getRaceName()}"></c:out></option>	
 											</c:forEach>
@@ -100,7 +101,12 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == naHaPaIs}">
-										NATIVE HAWAIIAN PACIFIC ISLANDER DROPDOWN
+										<select>
+											<option selected="selected">Unknown</option>
+											<c:forEach items="${pacifIslEthnList}" var="pacIslEthn">
+												<option><c:out value="${pacIslEthn.getRaceName()}"></c:out></option>	
+											</c:forEach>
+										</select>	
 									</c:when>
 								</c:choose>
 							</div>

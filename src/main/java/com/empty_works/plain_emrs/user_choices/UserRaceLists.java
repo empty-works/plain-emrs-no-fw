@@ -126,7 +126,6 @@ public class UserRaceLists {
 			add(new UserRaceUnit("asianNepal", "Nepalese"));
 			add(new UserRaceUnit("asianSingap", "Singaporean"));
 			add(new UserRaceUnit("asianMadag", "Madagascar"));
-			add(new UserRaceUnit("asianUnk", "Unknown"));
 		}
 	};
 	
@@ -160,7 +159,6 @@ public class UserRaceLists {
 			add(new UserRaceUnit("pacIslSoloIsl", "Solomon Islander"));
 			add(new UserRaceUnit("pacIslNewHebri", "New Hebrides"));
 			add(new UserRaceUnit("pacIslOtherPacIsl", "Other Pacific Islander"));
-			add(new UserRaceUnit("pacIslUnknown", "Unknown"));
 		}
 	};
 }
