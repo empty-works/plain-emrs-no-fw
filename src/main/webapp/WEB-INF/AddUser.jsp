@@ -96,7 +96,12 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == hiLa}">
-										HISPANIC LATIN DROPDOWN
+										<select>
+											<option selected="selected">Unknown</option>
+											<c:forEach items="${hisLatEthnList}" var="hisLatEthn">
+												<option><c:out value="${hisLatEthn.getRaceName()}"></c:out></option>	
+											</c:forEach>
+										</select>	
 									</c:when>
 								</c:choose>
 								<c:choose>
@@ -111,24 +116,6 @@
 								</c:choose>
 							</div>
 						</c:forEach>	
-					</fieldset>
-					<fieldset>
-						<legend>Ethnicity: </legend>
-						<!-- Hispanic Origin -->
-						<h3>Hispanic, Latino(a), Spanish Origin: </h3>
-						<c:forEach items="${latinOptionsList}" var="latinOption">
-							<div>
-								<input type="checkbox" name="latinEthncityCheck" value="${latinOption.getRaceId()}">
-								<label for="${latinOption.getRaceId()}">${latinOption.getRaceName()}</label>	
-							</div>
-						</c:forEach>
-						<input type="checkbox" id="otherLatinEthnicity" name="latinEthncityCheck" value="otherLatin">
-						<label for="otherLatinEthnicity">Other</label>	
-						<select id="latinOthersDropdown" name="latinOthersDropdown">
-							<c:forEach items="${latinOthersList}" var="latinOther">
-								<option><c:out value="${latinOther.getRaceName()}" /></option>	
-							</c:forEach>
-						</select>	
 					</fieldset>
 					<fieldset>
 						<legend>Relationship status: </legend>

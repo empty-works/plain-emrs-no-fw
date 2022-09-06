@@ -38,7 +38,8 @@ public class UserRaceLists {
 		}
 	};
 	
-	final public static List<UserRaceUnit> latinOptionsList = new ArrayList<>() {
+	final public static List<UserRaceUnit> hispanicLatinList = new ArrayList<>() {
+		
 		/**
 		 * 
 		 */
@@ -50,19 +51,6 @@ public class UserRaceLists {
 			add(new UserRaceUnit("latinChican", "Chicano/a"));
 			add(new UserRaceUnit("latinPuerRic", "Puerto Rican"));
 			add(new UserRaceUnit("latinCuba", "Cuban"));
-			add(new UserRaceUnit("latinUnk", "Unknown"));
-			add(new UserRaceUnit("latinNone", "Not of Hispanic, Latino/a, or Spanish origin"));
-		}
-	};
-	
-	final public static List<UserRaceUnit> latinOtherList = new ArrayList<>() {
-	
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = -2574884976368879591L;
-
-		{
 			add(new UserRaceUnit("latinSpani", "Spaniard"));
 			add(new UserRaceUnit("latinAndul", "Andalusian"));
 			add(new UserRaceUnit("latinAstur", "Asturian"));

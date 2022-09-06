@@ -46,8 +46,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("raceList", UserRaceLists.raceList);
 		request.setAttribute("asianEthnList", UserRaceLists.asianEthnicityList);
 		request.setAttribute("pacifIslEthnList", UserRaceLists.pacificIslanderEthnicityList);
-		request.setAttribute("latinOptionsList", UserRaceLists.latinOptionsList);
-		request.setAttribute("latinOthersList", UserRaceLists.latinOtherList);
+		request.setAttribute("hisLatEthnList", UserRaceLists.hispanicLatinList);
 		request.setAttribute("relationshipStatusList", UserRelationshipStatusLists.relationshipStatusList);
 		request.setAttribute("livingArrangementList", UserLivingArranLists.livingList);
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);
