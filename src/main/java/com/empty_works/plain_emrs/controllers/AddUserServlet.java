@@ -126,23 +126,20 @@ public class AddUserServlet extends HttpServlet {
 		String[] reqRaces = request.getParameterValues("raceCheck");
 		for(String raceName : reqRaces) {
 			
-			StringBuilder parsedRace = new StringBuilder(raceName);
+			String parsedRace = raceName;
 			if(raceName.equals(UserRaceLists.asian)) {
 				
-				parsedRace.append("-");
-				parsedRace.append(request.getParameter("asianEthnDropdown"));
+				parsedRace += "-" + request.getParameter("asianEthnDropdown");
 			}
 			else if(raceName.equals(UserRaceLists.hiLa)) {
 				
-				parsedRace.append("-");
-				parsedRace.append(request.getParameter("hisLatinEthnDropdown"));
+				parsedRace += "-" + request.getParameter("hisLatinEthnDropdown");
 			}
 			else if(raceName.equals(UserRaceLists.naHaPaIs)) {
 				
-				parsedRace.append("-");
-				parsedRace.append(request.getParameter("pacIslEthnDropdown"));
+				parsedRace += "-" + request.getParameter("pacIslEthnDropdown");
 			}
-			races.add(parsedRace.toString());
+			races.add(parsedRace);
 		}
 		return races;
 	}
