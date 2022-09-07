@@ -2,6 +2,7 @@ package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -93,12 +94,17 @@ public class AddUserServlet extends HttpServlet {
 			patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
 			patient.setProvider(request.getParameter("patientProvider"));
 			patient.setProviderId(request.getParameter("patientProviderId"));
-			patient.setRaces()
+			patient.setRaces(parseRaces(request));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
 	private String makeJson(List<PatientFormUnit> list) {
 
 		JSONObject jobj = new JSONObject();
@@ -109,8 +115,35 @@ public class AddUserServlet extends HttpServlet {
 		return jobj.toString();
 	}
 	
-	private List<String> parseRace(HttpServletRequest request) {
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
+	private List<String> parseRaces(HttpServletRequest request) {
 		
-		
+		List<String> races = new ArrayList<>(); 
+		String[] reqRaces = request.getParameterValues("raceCheck");
+		for(String raceName : reqRaces) {
+			
+			StringBuilder parsedRace = new StringBuilder(raceName);
+			if(raceName.equals(UserRaceLists.asian)) {
+				
+				parsedRace.append("-");
+				parsedRace.append(request.getParameter("asianEthnDropdown"));
+			}
+			else if(raceName.equals(UserRaceLists.hiLa)) {
+				
+				parsedRace.append("-");
+				parsedRace.append(request.getParameter("hisLatinEthnDropdown"));
+			}
+			else if(raceName.equals(UserRaceLists.naHaPaIs)) {
+				
+				parsedRace.append("-");
+				parsedRace.append(request.getParameter("pacIslEthnDropdown"));
+			}
+			races.add(parsedRace.toString());
+		}
+		return races;
 	}
 }

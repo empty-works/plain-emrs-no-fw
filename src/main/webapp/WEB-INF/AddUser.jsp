@@ -82,7 +82,7 @@
 						<legend>Race and Ethnicity</legend>
 						<c:forEach items="${raceList}" var="raceOption">
 							<div>
-								<input type="checkbox" name="raceCheck" value="${raceOption.getRaceId()}">
+								<input type="checkbox" id="${raceOption.getRaceId()}" name="raceCheck" value="${raceOption.getRaceName()}">
 								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == asian}">
