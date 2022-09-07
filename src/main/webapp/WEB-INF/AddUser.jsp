@@ -86,7 +86,7 @@
 								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == asian}">
-										<select>
+										<select id="asianEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${asianEthnList}" var="asianEthn">
 												<option><c:out value="${asianEthn.getRaceName()}"></c:out></option>	
@@ -96,7 +96,7 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == hiLa}">
-										<select>
+										<select id="hisLatinEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${hisLatEthnList}" var="hisLatEthn">
 												<option><c:out value="${hisLatEthn.getRaceName()}"></c:out></option>	
@@ -106,7 +106,7 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == naHaPaIs}">
-										<select>
+										<select id="pacIslEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${pacifIslEthnList}" var="pacIslEthn">
 												<option><c:out value="${pacIslEthn.getRaceName()}"></c:out></option>	

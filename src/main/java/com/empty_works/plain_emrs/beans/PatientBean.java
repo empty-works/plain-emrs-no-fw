@@ -1,5 +1,8 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PatientBean extends UserBean {
 
 	// User ID in UserBean
@@ -8,8 +11,7 @@ public class PatientBean extends UserBean {
 	private String roomNumber;
 	private String currentGender;
 	private String type;
-	private String race;
-	private String latinEthnicity;
+	private List<String> races = new ArrayList<>();
 	private String ethnicity;
 	private String languagePreference;
 	private String streetAddress;
@@ -53,18 +55,11 @@ public class PatientBean extends UserBean {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getRace() {
-		
-		return race;
+	public List<String> getRaces() {
+		return races;
 	}
-	public void setRace(String race) {
-		this.race = race;
-	}
-	public String getLatinEthnicity() {
-		return latinEthnicity;
-	}
-	public void setLatinEthnicity(String latinEthnicity) {
-		this.latinEthnicity = latinEthnicity;
+	public void setRaces(List<String> races) {
+		this.races = races;
 	}
 	public String getEthnicity() {
 		return ethnicity;

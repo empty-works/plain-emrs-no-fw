@@ -93,7 +93,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
 			patient.setProvider(request.getParameter("patientProvider"));
 			patient.setProviderId(request.getParameter("patientProviderId"));
-			patient.setLatinEthnicity(request.getParameter("latinOthersDropdown"));
+			patient.setRaces()
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
@@ -107,5 +107,10 @@ public class AddUserServlet extends HttpServlet {
 		}
 		System.out.println(jobj);
 		return jobj.toString();
+	}
+	
+	private List<String> parseRace(HttpServletRequest request) {
+		
+		
 	}
 }
