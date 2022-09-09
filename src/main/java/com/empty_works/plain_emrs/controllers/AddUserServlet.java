@@ -24,7 +24,7 @@ import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
-import com.empty_works.plain_emrs.user_choices.UserRelationshipStatusLists;
+import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
 
 /**
  * Servlet implementation class AddUserServlet
@@ -48,7 +48,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("asianEthnList", UserRaceLists.asianEthnicityList);
 		request.setAttribute("pacifIslEthnList", UserRaceLists.pacificIslanderEthnicityList);
 		request.setAttribute("hisLatEthnList", UserRaceLists.hispanicLatinList);
-		request.setAttribute("relationshipStatusList", UserRelationshipStatusLists.relationshipStatusList);
+		request.setAttribute("maritalStatusList", UserMaritalStatusLists.maritalStatusList);
 		request.setAttribute("livingArrangementList", UserLivingArranLists.livingList);
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
@@ -95,6 +95,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setProvider(request.getParameter("patientProvider"));
 			patient.setProviderId(request.getParameter("patientProviderId"));
 			patient.setRaces(parseRaces(request));
+			patient.setMaritalStatus(request.getParameter("maritalOption"));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

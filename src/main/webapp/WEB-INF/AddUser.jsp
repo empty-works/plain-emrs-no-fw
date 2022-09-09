@@ -118,12 +118,12 @@
 						</c:forEach>	
 					</fieldset>
 					<fieldset>
-						<legend>Relationship status: </legend>
-						<!-- Relationship status drop-down -->
-						<c:forEach items="${relationshipStatusList}" var="relationshipStatus">
+						<legend>Marital status: </legend>
+						<!-- Marital status drop-down -->
+						<c:forEach items="${maritalStatusList}" var="maritalStatus">
 							<div>
-								<input type="radio" id="${relationshipStatus.getRelationshipStatusId()}" name="relationshipOption" value="${relationshipStatus.getRelationshipStatusId()}">
-								<label for="${relationshipStatus.getRelationshipStatusId()}">${relationshipStatus.getRelationshipStatus()}</label>
+								<input type="radio" id="${maritalStatus.getMaritalStatusId()}" name="maritalOption" value="${maritalStatus.getMaritalStatusId()}">
+								<label for="${maritalStatus.getMaritalStatusId()}">${maritalStatus.getMaritalStatus()}</label>
 							</div>	
 						</c:forEach>
 					</fieldset>

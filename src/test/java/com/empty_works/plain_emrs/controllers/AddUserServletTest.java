@@ -9,14 +9,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito.*;
 
 public class AddUserServletTest {
 
 	@Test
-	void testParseRaces() {
+	void testParseRaces_asianlatino() {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
 		
