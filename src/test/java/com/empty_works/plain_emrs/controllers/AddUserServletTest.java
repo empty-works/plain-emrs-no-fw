@@ -34,6 +34,7 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = AddUserServlet.parseRaces(request);
+		System.out.println(result);
 		assertIterableEquals(expected, result);
 	}
 }

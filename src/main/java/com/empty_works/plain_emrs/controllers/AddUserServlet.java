@@ -127,15 +127,15 @@ public class AddUserServlet extends HttpServlet {
 		for(String raceName : reqRaces) {
 			
 			String parsedRace = raceName;
-			if(raceName.equals(UserRaceLists.asian)) {
+			if(raceName.equals(UserRaceLists.asianName)) {
 				
 				parsedRace += "-" + request.getParameter("asianEthnDropdown");
 			}
-			else if(raceName.equals(UserRaceLists.hiLa)) {
+			else if(raceName.equals(UserRaceLists.hiLaName)) {
 				
 				parsedRace += "-" + request.getParameter("hisLatinEthnDropdown");
 			}
-			else if(raceName.equals(UserRaceLists.naHaPaIs)) {
+			else if(raceName.equals(UserRaceLists.naHaPaIsName)) {
 				
 				parsedRace += "-" + request.getParameter("pacIslEthnDropdown");
 			}

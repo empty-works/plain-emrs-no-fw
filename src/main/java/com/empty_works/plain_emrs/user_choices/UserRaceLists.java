@@ -16,6 +16,12 @@ public class UserRaceLists {
 	public static String hiLa = "hispanLat";
 	public static String naHaPaIs = "natiHawPacIsl";
 	public static String white = "white";
+	public static String amInAlNaName = "American Indian or Alaska Native";
+	public static String asianName = "Asian";
+	public static String blAfAmName = "Black or African American";
+	public static String hiLaName = "Hispanic or Latino";
+	public static String naHaPaIsName = "Native Hawaiian or Other Pacific Islander";
+	public static String whiteName = "White";
 
 	final public static List<UserRaceUnit> raceList = new ArrayList<>() {
 		/**
@@ -24,17 +30,17 @@ public class UserRaceLists {
 		private static final long serialVersionUID = -6214395715920744505L;
 
 		{
-			add(new UserRaceUnit(amInAlNa, "American Indian or Alaska Native", "A person having origins in any of the original "
+			add(new UserRaceUnit(amInAlNa, amInAlNaName, "A person having origins in any of the original "
 					+ "peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment."));
-			add(new UserRaceUnit(asian, "Asian", "A person having origins in any of the original peoples of the Far East, Southeast "
+			add(new UserRaceUnit(asian, asianName, "A person having origins in any of the original peoples of the Far East, Southeast "
 					+ "Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, "
 					+ "Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam."));
-			add(new UserRaceUnit(blAfAm, "Black or African American", "A person having origins in any of the black racial groups of Africa."));
-			add(new UserRaceUnit(hiLa, "Hispanic or Latino", "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish "
+			add(new UserRaceUnit(blAfAm, blAfAmName, "A person having origins in any of the black racial groups of Africa."));
+			add(new UserRaceUnit(hiLa, hiLaName, "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish "
 					+ "culture or origin, regardless of race."));
-			add(new UserRaceUnit(naHaPaIs, "Native Hawaiian or Other Pacific Islander", "A person having origins in any of the original peoples "
+			add(new UserRaceUnit(naHaPaIs, naHaPaIsName, "A person having origins in any of the original peoples "
 					+ "of Hawaii, Guam, Samoa, or other Pacific Islands."));
-			add(new UserRaceUnit(white, "White", "A person having origins in any of the original peoples of Europe, the Middle East, or North Africa."));
+			add(new UserRaceUnit(white, whiteName, "A person having origins in any of the original peoples of Europe, the Middle East, or North Africa."));
 		}
 	};
 	
