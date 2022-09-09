@@ -120,7 +120,7 @@ public class AddUserServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	private List<String> parseRaces(HttpServletRequest request) {
+	public static List<String> parseRaces(HttpServletRequest request) {
 		
 		List<String> races = new ArrayList<>(); 
 		String[] reqRaces = request.getParameterValues("raceCheck");

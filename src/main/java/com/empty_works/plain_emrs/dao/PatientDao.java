@@ -49,7 +49,7 @@ public class PatientDao {
 			patient.setRoomNumber(resultSet.getString("patient_room"));
 			patient.setCurrentGender(resultSet.getString("patient_gender"));
 			patient.setType(resultSet.getString("patient_type"));
-			patient.setRace(resultSet.getString("patient_race"));
+			//patient.setRace(resultSet.getString("patient_race"));
 			patient.setEthnicity(resultSet.getString("patient_ethnicity"));
 			patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
 			patient.setStreetAddress(resultSet.getString("patient_street_address"));
@@ -98,7 +98,7 @@ public class PatientDao {
 				//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
 				patient.setCurrentGender(resultSet.getString("patient_gender"));
 				patient.setType(resultSet.getString("patient_type"));
-				patient.setRace(resultSet.getString("patient_race"));
+				//patient.setRace(resultSet.getString("patient_race"));
 				patient.setEthnicity(resultSet.getString("patient_ethnicity"));
 				patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
 				patient.setFacilityId(resultSet.getString("patient_facility_id"));
@@ -131,7 +131,7 @@ public class PatientDao {
 		//LocalDate dateOfBirth = pb.getDateOfBirth(); 
 		String gender = pb.getCurrentGender();
 		String type = pb.getType();
-		String race = pb.getRace();
+		//String race = pb.getRace();
 		String ethnicity = pb.getEthnicity();
 		String streetAddress = pb.getStreetAddress();
 		String city = pb.getCity();
@@ -165,7 +165,7 @@ public class PatientDao {
 			preparedStatement.setString(8, roomNumber);
 			preparedStatement.setString(9, gender);
 			preparedStatement.setString(10, type);
-			preparedStatement.setString(11, race);
+			//preparedStatement.setString(11, race);
 			preparedStatement.setString(12, ethnicity);
 			preparedStatement.setString(13, languagePreference);
 			preparedStatement.setString(14, streetAddress);
