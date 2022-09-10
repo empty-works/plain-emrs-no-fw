@@ -95,7 +95,12 @@ public class AddUserServlet extends HttpServlet {
 			patient.setProvider(request.getParameter("patientProvider"));
 			patient.setProviderId(request.getParameter("patientProviderId"));
 			patient.setRaces(parseRaces(request));
-			patient.setMaritalStatus(request.getParameter("maritalOption"));
+			patient.setMaritalStatus(request.getParameter("maritalOptionRadio"));
+			patient.setLivingArrangement(request.getParameter("livingOptionRadio"));
+			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
+			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
+			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
+			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

@@ -122,7 +122,7 @@
 						<!-- Marital status drop-down -->
 						<c:forEach items="${maritalStatusList}" var="maritalStatus">
 							<div>
-								<input type="radio" id="${maritalStatus.getMaritalStatusId()}" name="maritalOption" value="${maritalStatus.getMaritalStatusId()}">
+								<input type="radio" id="${maritalStatus.getMaritalStatusId()}" name="maritalOptionRadio" value="${maritalStatus.getMaritalStatusId()}">
 								<label for="${maritalStatus.getMaritalStatusId()}">${maritalStatus.getMaritalStatus()}</label>
 							</div>	
 						</c:forEach>
@@ -132,7 +132,7 @@
 						<!-- Living arrangement selection -->
 						<c:forEach items="${livingArrangementList}" var="living">
 							<div>
-								<input type="checkbox" id="${living.getArrangementId()}" name="raceOption" value="${living.getArrangementId()}">
+								<input type="radio" id="${living.getArrangementId()}" name="livingOptionRadio" value="${living.getArrangementId()}">
 								<label for="${living.getArrangementId()}">${living.getArrangement()}</label>	
 							</div>	
 						</c:forEach>
@@ -173,11 +173,11 @@
 						<!-- Received blood transfusion -->
 						<legend>Blood transfusion: </legend>	
 						<div>
-							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionYes" value="bloodTransfusionYes">	
+							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionRadio" value="bloodTransfusionYes">	
 							<label for="bloodTransfusionYes">Yes</label>
-							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionNo" value="bloodTransfusionNo">	
+							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionRadio" value="bloodTransfusionNo">	
 							<label for="bloodTransfusionNo">No</label>
-							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionUnknown" value="bloodTransfusionUnknown">	
+							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionRadio" value="bloodTransfusionUnknown">	
 							<label for="bloodTransfusionUnknown">Do not know</label>
 						</div>
 					</fieldset>
