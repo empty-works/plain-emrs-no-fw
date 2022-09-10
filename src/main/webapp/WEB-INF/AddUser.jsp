@@ -187,11 +187,11 @@
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
 								<span>${disease.getDiseaseName()}: </span>
-								<input type="checkbox" id="${disease.getDiseaseId()}" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()} + Yes">
+								<input type="radio" id="${disease.getDiseaseId()}" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseId()} + Yes">
 								<label for="${disease.getDiseaseId()}">Had Disease</label>
-								<input type="checkbox" id="${disease.getDiseaseImmunizedId()}" name="${disease.getDiseaseImmunizedId()}" value="${disease.getDiseaseImmunizedId()} + Yes">
+								<input type="radio" id="${disease.getDiseaseImmunizedId()}" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseImmunizedId()} + Yes">
 								<label for="${disease.getDiseaseImmunizedId()}">Immunized</label>
-								<input type="checkbox" id="diseaseUnknown" name="diseaseUnknown" value="${disease.getDiseaseImmunizedId()} + Unknown">
+								<input type="radio" id="diseaseUnknown" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseImmunizedId()} + Unknown">
 								<label for="diseaseUnknown">Do not know</label>
 							</div>	
 						</c:forEach>

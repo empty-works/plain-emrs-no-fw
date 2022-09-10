@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.UserBean;
@@ -69,6 +70,7 @@ public class AddUserServlet extends HttpServlet {
 
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
+		MedicalRecordBean medRecord;
 		NonPatientBean nonPatient;
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
@@ -100,6 +102,8 @@ public class AddUserServlet extends HttpServlet {
 			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
 			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
+			// Medical history
+			medRecord = new MedicalRecordBean();
 			
 		}
 		
