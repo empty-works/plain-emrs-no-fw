@@ -4,15 +4,13 @@ public class PatientDiseaseUnit {
 
 	private String diseaseId;
 	private String diseaseName;
-	private String diseaseImmunizedId;
-	private String diseaseImmunizedName;
+	private boolean contractedDisease;
+	private boolean isImmunized;
 	
 	public PatientDiseaseUnit(String diseaseId, String diseaseName) {
 		
 		this.diseaseId = diseaseId;
 		this.diseaseName = diseaseName;
-		this.diseaseImmunizedId = diseaseId + "Immunized";
-		this.diseaseImmunizedName = diseaseName + "Immunized";
 	}
 
 	public String getDiseaseId() {
@@ -22,11 +20,19 @@ public class PatientDiseaseUnit {
 		return diseaseName;
 	}
 
-	public String getDiseaseImmunizedId() {
-		return diseaseImmunizedId;
+	public boolean isContractedDisease() {
+		return contractedDisease;
 	}
 
-	public String getDiseaseImmunizedName() {
-		return diseaseImmunizedName;
+	public void setContractedDisease(boolean contractedDisease) {
+		this.contractedDisease = contractedDisease;
+	}
+
+	public boolean isImmunized() {
+		return isImmunized;
+	}
+
+	public void setImmunized(boolean isImmunized) {
+		this.isImmunized = isImmunized;
 	}
 }
