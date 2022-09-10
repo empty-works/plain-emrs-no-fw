@@ -11,6 +11,5 @@ public class MedicalRecordBean extends UserBean {
 	private LocalDateTime medicalRecordCreatedOn;
 	private boolean isActive;
 	private String bloodTransfusionStatus;
-	private PatientIllnessUnit[] illnesses;
 	
 }
