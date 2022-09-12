@@ -10,6 +10,8 @@ public class MedicalRecordDiseasesBean extends UserBean {
 
 	// User ID in parent class
 	private PatientDiseaseUnit[] immunDiseases;
+	private boolean contractedDisease;
+	private boolean receivedImmunization;
 
 	public PatientDiseaseUnit[] getImmunDiseases() {
 		return immunDiseases;
@@ -17,5 +19,21 @@ public class MedicalRecordDiseasesBean extends UserBean {
 
 	public void setImmunDiseases(PatientDiseaseUnit[] immunDiseases) {
 		this.immunDiseases = immunDiseases;
+	}
+
+	public boolean isContractedDisease() {
+		return contractedDisease;
+	}
+
+	public void setContractedDisease(boolean contractedDisease) {
+		this.contractedDisease = contractedDisease;
+	}
+
+	public boolean isReceivedImmunization() {
+		return receivedImmunization;
+	}
+
+	public void setReceivedImmunization(boolean receivedImmunization) {
+		this.receivedImmunization = receivedImmunization;
 	}
 }
