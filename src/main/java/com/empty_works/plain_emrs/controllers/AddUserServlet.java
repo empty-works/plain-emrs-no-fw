@@ -104,6 +104,11 @@ public class AddUserServlet extends HttpServlet {
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
 			// Medical history
 			medRecord = new MedicalRecordBean();
+			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
+			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
+			medRecord.setDateCreated(LocalDateTime.now());
+			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

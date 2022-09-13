@@ -172,7 +172,7 @@
 					<fieldset>
 						<legend>Patient condition</legend>	
 						<!-- Patient conditions based on HIPAA guidelines -->
-						<select>
+						<select id="patientConditionDropdown" name="patientConditionDropdown">
 							<option>Undetermined</option>	
 							<option>Good</option>	
 							<option>Fair</option>	
