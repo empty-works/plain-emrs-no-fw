@@ -104,7 +104,6 @@ public class AddUserServlet extends HttpServlet {
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
 			// Medical history
 			medRecord = new MedicalRecordBean();
-			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

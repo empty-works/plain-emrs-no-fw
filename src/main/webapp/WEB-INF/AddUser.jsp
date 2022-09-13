@@ -170,6 +170,19 @@
 
 					<h3>Medical History</h3>
 					<fieldset>
+						<legend>Patient condition</legend>	
+						<!-- Patient conditions based on HIPAA guidelines -->
+						<select>
+							<option>Undetermined</option>	
+							<option>Good</option>	
+							<option>Fair</option>	
+							<option>Serious</option>	
+							<option>Critical</option>	
+							<option>Treated and released</option>	
+							<option>Confirming patient death</option>	
+						</select>
+					</fieldset>
+					<fieldset>
 						<!-- Received blood transfusion -->
 						<legend>Blood transfusion: </legend>	
 						<div>
