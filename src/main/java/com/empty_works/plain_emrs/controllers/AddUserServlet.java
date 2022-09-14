@@ -20,6 +20,7 @@ import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
+import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -158,4 +159,27 @@ public class AddUserServlet extends HttpServlet {
 		return races;
 	}
 	
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public static List<PatientDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
+		
+		List<PatientDiseaseUnit> diseases = new ArrayList<>();
+		for(PatientDiseaseUnit disease : PatientDiseaseLists.diseaseList) {
+			
+			String result = request.getParameter(disease + "immuDiseaseRadio");
+			if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
+				
+				PatientDiseaseUnit patientDisease = new PatientDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
+				patientDisease.setContractedDisease(true);
+				if(result.contains("HadImmun")) {
+					patientDisease.setImmunized(true);
+				}
+				diseases.add(patientDisease);
+			}
+		}
+		return diseases;
+	}
 }

@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.util.List;
+
 import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
 
 /*
@@ -9,15 +11,15 @@ import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
 public class MedicalRecordDiseasesBean extends UserBean {
 
 	// User ID in parent class
-	private PatientDiseaseUnit[] immunDiseases;
+	private List<PatientDiseaseUnit> immunDiseases;
 	private boolean contractedDisease;
 	private boolean receivedImmunization;
 
-	public PatientDiseaseUnit[] getImmunDiseases() {
+	public List<PatientDiseaseUnit> getImmunDiseases() {
 		return immunDiseases;
 	}
 
-	public void setImmunDiseases(PatientDiseaseUnit[] immunDiseases) {
+	public void setImmunDiseases(List<PatientDiseaseUnit> immunDiseases) {
 		this.immunDiseases = immunDiseases;
 	}
 
