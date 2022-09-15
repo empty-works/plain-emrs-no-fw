@@ -39,13 +39,17 @@ public class AddUserServletTest {
 	}
 	
 	@Test
-	void testParseDiseasesImmun() {
+	void testParseDiseasesImmun_hepAImmun_rubelNoImmun() {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
+		when(request.getParameter("diseasePneumoimmuDiseaseRadio")).thenReturn("diseasePneumoNeverHad");
+		when(request.getParameter("diseaseHepBimmuDiseaseRadio")).thenReturn("diseaseHepBNeverHad");
 		when(request.getParameter("diseaseHepAimmuDiseaseRadio")).thenReturn("diseaseHepAHadImmun");
-		when(request.getParameter("diseaseHepBimmuDiseaseRadio")).thenReturn("diseaseHepBHadNoImmun");
-		when(request.getParameter("diseaseRubelimmuDiseaseRadio")).thenReturn("diseaseRubelHadImmun");
-		when(request.getParameter("diseasePolioimmuDiseaseRadio")).thenReturn("diseasePolioHadNoImmun");
+		when(request.getParameter("diseaseMeasimmuDiseaseRadio")).thenReturn("diseaseMeasHadNeverHad");
+		when(request.getParameter("diseaseMumpsimmuDiseaseRadio")).thenReturn("diseaseMumpsNeverHad");
+		when(request.getParameter("diseaseRubelimmuDiseaseRadio")).thenReturn("diseaseRubelHadNoImmun");
+		when(request.getParameter("diseasePolioimmuDiseaseRadio")).thenReturn("diseasePolioNeverHad");
+		when(request.getParameter("diseaseVaricimmuDiseaseRadio")).thenReturn("diseaseVaricNeverHad");
 		
 		List<String> expected = new ArrayList<>() {
 			
@@ -58,7 +62,7 @@ public class AddUserServletTest {
 		List<String> result = new ArrayList<>();
 		List<PatientDiseaseUnit> diseases = AddUserServlet.parseDiseasesImmun(request);
 		for(PatientDiseaseUnit disease : diseases) {
-			
+		
 			result.add(disease.getDiseaseName());
 		}
 		System.out.println(result);
