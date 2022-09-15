@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.junit.jupiter.api.Test;
 
+import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
+
 public class AddUserServletTest {
 
 	@Test
@@ -32,6 +34,33 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = AddUserServlet.parseRaces(request);
+		System.out.println(result);
+		assertIterableEquals(expected, result);
+	}
+	
+	@Test
+	void testParseDiseasesImmun() {
+		
+		HttpServletRequest request = mock(HttpServletRequest.class);
+		when(request.getParameter("diseaseHepAimmuDiseaseRadio")).thenReturn("diseaseHepAHadImmun");
+		when(request.getParameter("diseaseHepBimmuDiseaseRadio")).thenReturn("diseaseHepBHadNoImmun");
+		when(request.getParameter("diseaseRubelimmuDiseaseRadio")).thenReturn("diseaseRubelHadImmun");
+		when(request.getParameter("diseasePolioimmuDiseaseRadio")).thenReturn("diseasePolioHadNoImmun");
+		
+		List<String> expected = new ArrayList<>() {
+			
+			{
+				add("Hepatitis A");
+				add("Rubella");
+			}
+		};
+		
+		List<String> result = new ArrayList<>();
+		List<PatientDiseaseUnit> diseases = AddUserServlet.parseDiseasesImmun(request);
+		for(PatientDiseaseUnit disease : diseases) {
+			
+			result.add(disease.getDiseaseName());
+		}
 		System.out.println(result);
 		assertIterableEquals(expected, result);
 	}

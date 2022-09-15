@@ -169,7 +169,8 @@ public class AddUserServlet extends HttpServlet {
 		List<PatientDiseaseUnit> diseases = new ArrayList<>();
 		for(PatientDiseaseUnit disease : PatientDiseaseLists.diseaseList) {
 			
-			String result = request.getParameter(disease + "immuDiseaseRadio");
+			String result = request.getParameter(disease.getDiseaseId() + "immuDiseaseRadio");
+			System.out.println(result);
 			if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
 				
 				PatientDiseaseUnit patientDisease = new PatientDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
