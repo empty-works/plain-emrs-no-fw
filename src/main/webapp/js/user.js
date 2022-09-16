@@ -67,6 +67,8 @@ class MedProbAdder {
 			console.log(jsonList);
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
+			// Needed for specific naming
+			medProbDropDown.setAttribute("name", "medProb" + this.medProbLimit);
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {
@@ -74,6 +76,7 @@ class MedProbAdder {
 			}
 			// Sort the JS list
 			medProbList.sort();
+
 			// Then add the sorted list elements to a dropdown menu
 			for(let x in medProbList) {
 				console.log(medProbList[x]);
@@ -85,10 +88,10 @@ class MedProbAdder {
 			}
 			// Add the rest of the medical problem inputs to the node
 			let medProbHtml = 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText\" placeholder=\"Medical problem:\">" + 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText\" placeholder=\"Surgical procedure:\">" + 
-			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate\">";
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + this.medProbLimit + "\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + this.medProbLimit + "\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + this.medProbLimit + "\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + this.medProbLimit + "\">";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			if(needsRemoveButton == true) {
