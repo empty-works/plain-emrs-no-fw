@@ -109,6 +109,7 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setDateCreated(LocalDateTime.now());
+			medRecord.setImmunDiseases(parseDiseasesImmun(request));
 			
 		}
 		

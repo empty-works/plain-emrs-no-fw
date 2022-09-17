@@ -1,7 +1,9 @@
 package com.empty_works.plain_emrs.beans;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 public class MedicalRecordBean extends UserBean {
@@ -11,6 +13,7 @@ public class MedicalRecordBean extends UserBean {
 	private LocalDateTime medicalRecordCreatedOn;
 	private boolean isActive;
 	private String bloodTransfusionStatus;
+	private List<PatientDiseaseUnit> immunDiseases;
 
 	public String getPatientCondition() {
 		return patientCondition;
@@ -35,5 +38,11 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setBloodTransfusionStatus(String bloodTransfusionStatus) {
 		this.bloodTransfusionStatus = bloodTransfusionStatus;
+	}
+	public List<PatientDiseaseUnit> getImmunDiseases() {
+		return immunDiseases;
+	}
+	public void setImmunDiseases(List<PatientDiseaseUnit> immunDiseases) {
+		this.immunDiseases = immunDiseases;
 	}
 }
