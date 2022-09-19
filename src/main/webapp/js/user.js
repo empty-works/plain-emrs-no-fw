@@ -55,20 +55,24 @@ function addPatientOtherRelations(relation) {
 
 class MedProbAdder {
 	limitMsg;
+	MAX_NAME_INT;
 	constructor(medProbType) {
 		this.medProbType = medProbType;
 		this.medProbLimit = 0;
 		this.MED_PROB_MAX = 15;
+		this.MAX_NAME_INT = 99999;
 	}
 	
 	addNode(jsonList, medProbCon, needsRemoveButton) {
 		if(this.medProbLimit < this.MED_PROB_MAX) {
 			this.medProbLimit++;
+			// Generate random number as a qualifier for the attribute names
+			let randNum = getRandomInt(this.MAX_NAME_INT);
 			console.log(jsonList);
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			// Needed for specific naming
-			medProbDropDown.setAttribute("name", "medProb" + this.medProbLimit);
+			medProbDropDown.setAttribute("name", "medProb" + randNum);
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {
@@ -88,10 +92,10 @@ class MedProbAdder {
 			}
 			// Add the rest of the medical problem inputs to the node
 			let medProbHtml = 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + this.medProbLimit + "\" placeholder=\"Medical problem:\">" + 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + this.medProbLimit + "\" placeholder=\"Surgical procedure:\">" + 
-			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + this.medProbLimit + "\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + this.medProbLimit + "\">";
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + randNum + "\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + randNum + "\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + randNum + "\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + randNum + "\">";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			if(needsRemoveButton == true) {
@@ -181,4 +185,8 @@ function addFamilyCondition(jsonList, familyCondCon) {
 	famCondInputsHtml += "</table>";
 	console.log(famCondInputsHtml);
 	familyCondCon.insertAdjacentHTML("beforeend", famCondInputsHtml);
+}
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max);
 }
