@@ -1,13 +1,13 @@
 package com.empty_works.plain_emrs.patient_choices;
 
-public class PatientDiseaseUnit {
+public class MedicalRecordDiseaseUnit {
 
 	private String diseaseId;
 	private String diseaseName;
 	private boolean contractedDisease;
 	private boolean isImmunized;
 	
-	public PatientDiseaseUnit(String diseaseId, String diseaseName) {
+	public MedicalRecordDiseaseUnit(String diseaseId, String diseaseName) {
 		
 		this.diseaseId = diseaseId;
 		this.diseaseName = diseaseName;

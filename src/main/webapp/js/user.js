@@ -72,7 +72,7 @@ class MedProbAdder {
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			// Needed for specific naming
-			medProbDropDown.setAttribute("name", "medProb" + randNum);
+			medProbDropDown.setAttribute("name", "medProb"/* + randNum*/);
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {
@@ -92,10 +92,10 @@ class MedProbAdder {
 			}
 			// Add the rest of the medical problem inputs to the node
 			let medProbHtml = 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + randNum + "\" placeholder=\"Medical problem:\">" + 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + randNum + "\" placeholder=\"Surgical procedure:\">" + 
-			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + randNum + "\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + randNum + "\">";
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText"/* + randNum + */ + "\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText"/* + randNum + */ + "\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate"/* + randNum + */ + "\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate"/* + randNum + */ + "\">";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			if(needsRemoveButton == true) {

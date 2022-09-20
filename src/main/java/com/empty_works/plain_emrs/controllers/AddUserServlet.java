@@ -19,8 +19,8 @@ import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
-import com.empty_works.plain_emrs.patient_choices.PatientDiseaseLists;
-import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -55,7 +55,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("currentGenderList", UserRelationGenderLists.currentGenderList);
 		request.setAttribute("sexAssignedBirthList", UserRelationGenderLists.sexAssignedBirthList);
 		request.setAttribute("sexualOrientationList", UserRelationGenderLists.sexualOrientationList);
-		request.setAttribute("diseaseList", PatientDiseaseLists.diseaseList);
+		request.setAttribute("diseaseList", MedicalRecordDiseaseLists.diseaseList);
 		request.setAttribute("generalMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemGeneralList));
 		request.setAttribute("heartMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemHeartList));
 		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
@@ -136,7 +136,7 @@ public class AddUserServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	public static List<String> parseRaces(HttpServletRequest request) {
+	protected static List<String> parseRaces(HttpServletRequest request) {
 		
 		List<String> races = new ArrayList<>(); 
 		String[] reqRaces = request.getParameterValues("raceCheck");
@@ -165,15 +165,15 @@ public class AddUserServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	public static List<PatientDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
+	protected static List<MedicalRecordDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
 		
-		List<PatientDiseaseUnit> diseases = new ArrayList<>();
-		for(PatientDiseaseUnit disease : PatientDiseaseLists.diseaseList) {
+		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
+		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
 			
 			String result = request.getParameter(disease.getDiseaseId() + "immuDiseaseRadio");
 			if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
 				
-				PatientDiseaseUnit patientDisease = new PatientDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
+				MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
 				patientDisease.setContractedDisease(true);
 				if(result.contains("HadImmun")) {
 					patientDisease.setImmunized(true);
@@ -184,4 +184,6 @@ public class AddUserServlet extends HttpServlet {
 		}
 		return diseases;
 	}
+	
+	
 }

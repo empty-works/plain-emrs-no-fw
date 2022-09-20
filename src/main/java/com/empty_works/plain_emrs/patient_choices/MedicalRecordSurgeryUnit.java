@@ -1,6 +1,6 @@
-package com.empty_works.plain_emrs.beans;
+package com.empty_works.plain_emrs.patient_choices;
 
-public class MedicalRecordSurgeryBean extends UserBean {
+public class MedicalRecordSurgeryUnit {
 
 	private String surgicalRelatedProblem;
 	private String problemArea;

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.junit.jupiter.api.Test;
 
-import com.empty_works.plain_emrs.patient_choices.PatientDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 
 public class AddUserServletTest {
 
@@ -60,8 +60,8 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = new ArrayList<>();
-		List<PatientDiseaseUnit> diseases = AddUserServlet.parseDiseasesImmun(request);
-		for(PatientDiseaseUnit disease : diseases) {
+		List<MedicalRecordDiseaseUnit> diseases = AddUserServlet.parseDiseasesImmun(request);
+		for(MedicalRecordDiseaseUnit disease : diseases) {
 		
 			result.add(disease.getDiseaseName());
 		}
