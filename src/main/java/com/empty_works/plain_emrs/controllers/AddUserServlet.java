@@ -21,6 +21,7 @@ import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -184,6 +185,28 @@ public class AddUserServlet extends HttpServlet {
 		}
 		return diseases;
 	}
-	
-	
+
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
+	protected static List<MedicalRecordSurgeryUnit> parseSurgeries(HttpServletRequest request) {
+		
+		List<MedicalRecordSurgeryUnit> surgeries = new ArrayList<>();
+		String[] problemAreas = request.getParameterValues("medProbArea");
+		String[] medProbTexts = request.getParameterValues("medProbText");
+		String[] medProbSurgeryTexts = request.getParameterValues("medProbSurgeryText");
+		String[] medProbSurgeryDates = request.getParameterValues("medProbSurgeryDate");
+		for(int i = 0; i < problemAreas.length; i++) {
+			
+			MedicalRecordSurgeryUnit surgeryUnit = new MedicalRecordSurgeryUnit();
+			surgeryUnit.setProblemArea(problemAreas[i]);
+			surgeryUnit.setSurgicalRelatedProblem(medProbTexts[i]);
+			surgeryUnit.setSurgicalProcedure(medProbSurgeryTexts[i]);
+			surgeryUnit.setSurgicalProcedureYear(medProbSurgeryDates[i]);
+			surgeries.add(surgeryUnit);
+		}
+		return surgeries;
+	}
 }

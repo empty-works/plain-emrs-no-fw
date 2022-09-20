@@ -72,7 +72,7 @@ class MedProbAdder {
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			// Needed for specific naming
-			medProbDropDown.setAttribute("name", "medProb"/* + randNum*/);
+			medProbDropDown.setAttribute("name", "medProbArea"/* + randNum*/);
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 public class MedicalRecordBean extends UserBean {
@@ -14,7 +15,7 @@ public class MedicalRecordBean extends UserBean {
 	private boolean isActive;
 	private String bloodTransfusionStatus;
 	private List<MedicalRecordDiseaseUnit> immunDiseases;
-	
+	private List<MedicalRecordSurgeryUnit> surgeryMedProblems;
 
 	public String getPatientCondition() {
 		return patientCondition;
@@ -45,5 +46,11 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setImmunDiseases(List<MedicalRecordDiseaseUnit> immunDiseases) {
 		this.immunDiseases = immunDiseases;
+	}
+	public List<MedicalRecordSurgeryUnit> getSurgeryMedProblems() {
+		return surgeryMedProblems;
+	}
+	public void setSurgeryMedProblems(List<MedicalRecordSurgeryUnit> surgeryMedProblems) {
+		this.surgeryMedProblems = surgeryMedProblems;
 	}
 }
