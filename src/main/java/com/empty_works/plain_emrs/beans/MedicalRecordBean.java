@@ -16,6 +16,8 @@ public class MedicalRecordBean extends UserBean {
 	private String bloodTransfusionStatus;
 	private List<MedicalRecordDiseaseUnit> immunDiseases;
 	private List<MedicalRecordSurgeryUnit> surgeryMedProblems;
+	private boolean isAdopted;
+	private String fatherStatus, motherStatus;
 
 	public String getPatientCondition() {
 		return patientCondition;
@@ -52,5 +54,23 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setSurgeryMedProblems(List<MedicalRecordSurgeryUnit> surgeryMedProblems) {
 		this.surgeryMedProblems = surgeryMedProblems;
+	}
+	public boolean isAdopted() {
+		return isAdopted;
+	}
+	public void setAdopted(boolean isAdopted) {
+		this.isAdopted = isAdopted;
+	}
+	public String getFatherStatus() {
+		return fatherStatus;
+	}
+	public void setFatherStatus(String fatherStatus) {
+		this.fatherStatus = fatherStatus;
+	}
+	public String getMotherStatus() {
+		return motherStatus;
+	}
+	public void setMotherStatus(String motherStatus) {
+		this.motherStatus = motherStatus;
 	}
 }

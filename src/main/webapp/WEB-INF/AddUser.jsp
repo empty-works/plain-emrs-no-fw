@@ -241,9 +241,9 @@
 					<fieldset>
 						<legend>Personal and family history</legend>	
 						<div>Is patient adopted?</div>
-						<input type="radio" id="isAdoptedNo" name="patientAdopted" value="No">
+						<input type="radio" id="isAdoptedNo" name="patientAdopted" value="false">
 						<label for="isAdoptedNo">No</label><br>
-						<input type="radio" id="isAdoptedYes" name="patientAdopted" value="Yes">
+						<input type="radio" id="isAdoptedYes" name="patientAdopted" value="true">
 						<label for="isAdoptedYes">Yes</label><br>
 						<div>Father:</div>
 						<input type="radio" id="fatherNotKnow" name="patientFather" value="Do not know">
