@@ -112,9 +112,12 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setDateCreated(LocalDateTime.now());
 			medRecord.setImmunDiseases(parseDiseasesImmun(request));
+			/*TODO: update data model to accommodate following data*/
 			medRecord.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
 			medRecord.setFatherStatus(request.getParameter("patientFather"));
 			medRecord.setMotherStatus(request.getParameter("patientMother"));
+			/*******************************************************/
+			medRecord.setRelations(parseRelations(request));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

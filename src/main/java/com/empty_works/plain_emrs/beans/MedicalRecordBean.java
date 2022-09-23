@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
@@ -18,6 +19,7 @@ public class MedicalRecordBean extends UserBean {
 	private List<MedicalRecordSurgeryUnit> surgeryMedProblems;
 	private boolean isAdopted;
 	private String fatherStatus, motherStatus;
+	private List<MedicalRecordRelationsUnit> relations;
 
 	public String getPatientCondition() {
 		return patientCondition;
@@ -72,5 +74,11 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setMotherStatus(String motherStatus) {
 		this.motherStatus = motherStatus;
+	}
+	public List<MedicalRecordRelationsUnit> getRelations() {
+		return relations;
+	}
+	public void setRelations(List<MedicalRecordRelationsUnit> relations) {
+		this.relations = relations;
 	}
 }
