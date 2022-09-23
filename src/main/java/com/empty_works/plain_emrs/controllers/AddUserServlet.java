@@ -21,6 +21,7 @@ import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
@@ -210,5 +211,21 @@ public class AddUserServlet extends HttpServlet {
 			surgeries.add(surgeryUnit);
 		}
 		return surgeries;
+	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
+	protected static List<MedicalRecordRelationsUnit> parseRelations(HttpServletRequest request) {
+		
+		List<MedicalRecordRelationsUnit> relations = new ArrayList<>();
+		relations.add(new MedicalRecordRelationsUnit("Brothers", Integer.parseInt(request.getParameter("Brothers"))));
+		relations.add(new MedicalRecordRelationsUnit("Sisters", Integer.parseInt(request.getParameter("Sisters"))));
+		relations.add(new MedicalRecordRelationsUnit("Sons", Integer.parseInt(request.getParameter("Sons"))));
+		relations.add(new MedicalRecordRelationsUnit("Daughters", Integer.parseInt(request.getParameter("Daughters"))));
+
+		return relations;
 	}
 }
