@@ -118,6 +118,7 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setMotherStatus(request.getParameter("patientMother"));
 			/*******************************************************/
 			medRecord.setRelations(parseRelations(request));
+			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

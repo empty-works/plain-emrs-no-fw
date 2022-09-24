@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 
 public class AddUserServletTest {
@@ -119,5 +120,15 @@ public class AddUserServletTest {
 		assertIterableEquals(surgRelatedProbsExpected, surgRelatedResult);
 		assertIterableEquals(surgProceduresExpected, surgProceduresResult);
 		assertIterableEquals(surgProceduresYearsExpected, surgProceduresYearsResult);
+	}
+	
+	@Test
+	void testParseRelations() {
+		
+		HttpServletRequest request = mock(HttpServletRequest.class);
+		List<MedicalRecordRelationsUnit> relations = new ArrayList<>();
+		String[] relationList = {"Brothers", "Sisters", "Sons", "Daughters"};
+		String[] relationNumList = {"2", "3", "1", "3"};
+		
 	}
 }
