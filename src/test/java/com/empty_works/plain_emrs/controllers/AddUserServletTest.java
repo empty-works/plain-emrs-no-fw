@@ -142,24 +142,15 @@ public class AddUserServletTest {
 		expectedRelationList.add("Daughters");
 
 		int[] expectedRelationNumArray = {2, 3, 1, 3};
-		
-		System.out.println("ExpectedRelationList: " + expectedRelationList);
-		for(int num : expectedRelationNumArray) {
-			System.out.print(num);
-		}
-		
+
 		List<String> resultRelationList = new ArrayList<>();
 		int[] resultRelationNumArray = new int[NUM_ARGS];
-		for(int i = 0; i < resultRelationList.size(); i++) {
+		for(int i = 0; i < NUM_ARGS; i++) {
 			
 			resultRelationList.add(relations.get(i).getRelation());
 			resultRelationNumArray[i] = relations.get(i).getNumRelations();
 		}
 		System.out.println(resultRelationList);
-
-		for(int num : resultRelationNumArray) {
-			System.out.print("Num: " + num);
-		}
 		assertIterableEquals(expectedRelationList, resultRelationList);
 		assertArrayEquals(expectedRelationNumArray, resultRelationNumArray);
 	}
