@@ -229,7 +229,6 @@ public class AddUserServlet extends HttpServlet {
 		relations.add(new MedicalRecordRelationsUnit("Sisters", Integer.parseInt(request.getParameter("Sisters"))));
 		relations.add(new MedicalRecordRelationsUnit("Sons", Integer.parseInt(request.getParameter("Sons"))));
 		relations.add(new MedicalRecordRelationsUnit("Daughters", Integer.parseInt(request.getParameter("Daughters"))));
-
 		return relations;
 	}
 }

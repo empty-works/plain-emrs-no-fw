@@ -1,5 +1,6 @@
 package com.empty_works.plain_emrs.controllers;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -123,12 +124,43 @@ public class AddUserServletTest {
 	}
 	
 	@Test
-	void testParseRelations() {
+	void testParseRelations_allRelations_multipleRelationsEach() {
 		
+		int NUM_ARGS = 4;
 		HttpServletRequest request = mock(HttpServletRequest.class);
-		List<MedicalRecordRelationsUnit> relations = new ArrayList<>();
-		String[] relationList = {"Brothers", "Sisters", "Sons", "Daughters"};
-		String[] relationNumList = {"2", "3", "1", "3"};
+		List<MedicalRecordRelationsUnit> relations;
+		when(request.getParameter("Brothers")).thenReturn("2");
+		when(request.getParameter("Sisters")).thenReturn("3");
+		when(request.getParameter("Sons")).thenReturn("1");
+		when(request.getParameter("Daughters")).thenReturn("3");
+		relations = AddUserServlet.parseRelations(request);
+
+		List<String> expectedRelationList = new ArrayList<>();
+		expectedRelationList.add("Brothers");
+		expectedRelationList.add("Sisters");
+		expectedRelationList.add("Sons");
+		expectedRelationList.add("Daughters");
+
+		int[] expectedRelationNumArray = {2, 3, 1, 3};
 		
+		System.out.println("ExpectedRelationList: " + expectedRelationList);
+		for(int num : expectedRelationNumArray) {
+			System.out.print(num);
+		}
+		
+		List<String> resultRelationList = new ArrayList<>();
+		int[] resultRelationNumArray = new int[NUM_ARGS];
+		for(int i = 0; i < resultRelationList.size(); i++) {
+			
+			resultRelationList.add(relations.get(i).getRelation());
+			resultRelationNumArray[i] = relations.get(i).getNumRelations();
+		}
+		System.out.println(resultRelationList);
+
+		for(int num : resultRelationNumArray) {
+			System.out.print("Num: " + num);
+		}
+		assertIterableEquals(expectedRelationList, resultRelationList);
+		assertArrayEquals(expectedRelationNumArray, resultRelationNumArray);
 	}
 }
