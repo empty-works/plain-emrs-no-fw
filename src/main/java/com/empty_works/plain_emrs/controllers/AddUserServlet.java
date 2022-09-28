@@ -23,6 +23,7 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
+import com.empty_works.plain_emrs.patient_choices.PatientFamilyConditionUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -230,5 +231,15 @@ public class AddUserServlet extends HttpServlet {
 		relations.add(new MedicalRecordRelationsUnit("Sons", Integer.parseInt(request.getParameter("Sons"))));
 		relations.add(new MedicalRecordRelationsUnit("Daughters", Integer.parseInt(request.getParameter("Daughters"))));
 		return relations;
+	}
+	
+	protected static List<PatientFamilyConditionUnit> parseConditions(HttpServletRequest request) {
+		
+		List<PatientFamilyConditionUnit> conditions = new ArrayList<>();
+		for(PatientFormUnit condition : FamilyConditionLists.familyConditionList) {
+			
+			PatientFamilyConditionUnit unit = new PatientFamilyConditionUnit();
+			
+		}
 	}
 }
