@@ -6,7 +6,7 @@ import java.util.List;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
-import com.empty_works.plain_emrs.patient_choices.PatientFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 public class MedicalRecordBean extends UserBean {
@@ -21,7 +21,7 @@ public class MedicalRecordBean extends UserBean {
 	private boolean isAdopted;
 	private String fatherStatus, motherStatus;
 	private List<MedicalRecordRelationsUnit> relations;
-	private List<PatientFamilyConditionUnit> conditions;
+	private List<MedicalRecordFamilyConditionUnit> conditions;
 
 	public String getPatientCondition() {
 		return patientCondition;
@@ -83,10 +83,10 @@ public class MedicalRecordBean extends UserBean {
 	public void setRelations(List<MedicalRecordRelationsUnit> relations) {
 		this.relations = relations;
 	}
-	public List<PatientFamilyConditionUnit> getConditions() {
+	public List<MedicalRecordFamilyConditionUnit> getConditions() {
 		return conditions;
 	}
-	public void setConditions(List<PatientFamilyConditionUnit> conditions) {
+	public void setConditions(List<MedicalRecordFamilyConditionUnit> conditions) {
 		this.conditions = conditions;
 	}
 }

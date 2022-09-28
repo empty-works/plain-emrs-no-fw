@@ -17,13 +17,13 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.UserBean;
-import com.empty_works.plain_emrs.patient_choices.FamilyConditionLists;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
-import com.empty_works.plain_emrs.patient_choices.PatientFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -62,7 +62,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("generalMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemGeneralList));
 		request.setAttribute("heartMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemHeartList));
 		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
-		request.setAttribute("familyConditionsList", makeJson(FamilyConditionLists.familyConditionList));
+		request.setAttribute("familyConditionsList", makeJson(MedicalRecordFamilyConditionLists.familyConditionList));
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
@@ -233,12 +233,12 @@ public class AddUserServlet extends HttpServlet {
 		return relations;
 	}
 	
-	protected static List<PatientFamilyConditionUnit> parseConditions(HttpServletRequest request) {
+	protected static List<MedicalRecordFamilyConditionUnit> parseConditions(HttpServletRequest request) {
 		
-		List<PatientFamilyConditionUnit> conditions = new ArrayList<>();
-		for(PatientFormUnit condition : FamilyConditionLists.familyConditionList) {
+		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
+		for(PatientFormUnit condition : MedicalRecordFamilyConditionLists.familyConditionList) {
 			
-			PatientFamilyConditionUnit unit = new PatientFamilyConditionUnit();
+			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit();
 			
 		}
 	}

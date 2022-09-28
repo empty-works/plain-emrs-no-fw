@@ -3,7 +3,7 @@ package com.empty_works.plain_emrs.patient_choices;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyConditionLists {
+public class MedicalRecordFamilyConditionLists {
 
 	public static List<PatientFormUnit> familyConditionList = new ArrayList<>() {
 
