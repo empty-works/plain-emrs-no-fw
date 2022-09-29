@@ -233,12 +233,21 @@ public class AddUserServlet extends HttpServlet {
 		return relations;
 	}
 	
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
 	protected static List<MedicalRecordFamilyConditionUnit> parseConditions(HttpServletRequest request) {
 		
 		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
 		for(PatientFormUnit condition : MedicalRecordFamilyConditionLists.familyConditionList) {
 			
-			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit();
+			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit(condition.getId(), condition.getValue());
+			if(request.getParameter(condition.getValue() + "familyConditionSelf").equals("true")) {
+				
+				
+			}
 			
 		}
 	}

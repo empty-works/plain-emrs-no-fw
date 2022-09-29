@@ -175,8 +175,8 @@ function addFamilyCondition(jsonList, familyCondCon) {
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionFather\" value=\"true\"></td>" + 
 		" <td colspan=\"4\"><input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionMother\" value=\"false\"></td>" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionMother\" value=\"true\"></td>" + 
-		" <td colspan=\"4\"><input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\" value=\"false\"></td>" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\" value=\"true\"></td>" + 
+		" <td colspan=\"4\"><input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionBrothers\" value=\"false\"></td>" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionBrothers\" value=\"true\"></td>" + 
 		" <td colspan=\"4\"><input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\" value=\"false\"></td>" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\" value=\"true\"></td>" + 
 		" <td colspan=\"4\"><input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSons\" value=\"false\"></td>" + 

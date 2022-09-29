@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MedicalRecordFamilyConditionUnit {
 
+	public static String SELF = "self";
 	private String familyConditionId;
 	private String familyCondition;
 	private List<String> familyRelations = new ArrayList<>();
