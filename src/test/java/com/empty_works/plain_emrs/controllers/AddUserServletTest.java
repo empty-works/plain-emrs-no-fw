@@ -156,13 +156,25 @@ public class AddUserServletTest {
 		assertArrayEquals(expectedRelationNumArray, resultRelationNumArray);
 	}
 	
-	/*
 	@Test
-	void testParseConditions() {
+	void testParseConditions_asthmaBrothersGrandparentsOnly_otherConditionsNotAdded() {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
 		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
-		//when(request.getParameter(""))
+		when(request.getParameter("AsthmafamilyConditionSelf")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionFather")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionMother")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionBrothers")).thenReturn("true");
+		when(request.getParameter("AsthmafamilyConditionSisters")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionSons")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionDaughters")).thenReturn("false");
+		when(request.getParameter("AsthmafamilyConditionGrandparents")).thenReturn("true");
+		conditions = AddUserServlet.parseConditions(request);
+		
+		List<String> expectedRelativesNumList = new ArrayList<>();
+		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.BROTHERS);
+		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.SISTERS);
+		
+		
 	}
-	*/
 }
