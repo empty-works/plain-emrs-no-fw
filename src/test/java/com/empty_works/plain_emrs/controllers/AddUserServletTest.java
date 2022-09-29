@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 
@@ -154,4 +155,14 @@ public class AddUserServletTest {
 		assertIterableEquals(expectedRelationList, resultRelationList);
 		assertArrayEquals(expectedRelationNumArray, resultRelationNumArray);
 	}
+	
+	/*
+	@Test
+	void testParseConditions() {
+		
+		HttpServletRequest request = mock(HttpServletRequest.class);
+		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
+		//when(request.getParameter(""))
+	}
+	*/
 }
