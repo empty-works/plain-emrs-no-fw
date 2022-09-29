@@ -6,6 +6,13 @@ import java.util.List;
 public class MedicalRecordFamilyConditionUnit {
 
 	public static String SELF = "self";
+	public static String FATHER = "father";
+	public static String MOTHER = "mother";
+	public static String BROTHERS = "brothers";
+	public static String SISTERS = "sisters";
+	public static String SONS = "sons";
+	public static String DAUGHTERS = "daughters";
+	public static String GRANDPARENTS = "grandparents";
 	private String familyConditionId;
 	private String familyCondition;
 	private List<String> familyRelations = new ArrayList<>();

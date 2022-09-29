@@ -245,10 +245,34 @@ public class AddUserServlet extends HttpServlet {
 			
 			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit(condition.getId(), condition.getValue());
 			if(request.getParameter(condition.getValue() + "familyConditionSelf").equals("true")) {
-				
-				
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SELF);
 			}
-			
+			if(request.getParameter(condition.getValue() + "familyConditionFather").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.FATHER);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionMother").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.MOTHER);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionBrothers").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.BROTHERS);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionSisters").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SISTERS);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionSons").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SONS);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionDaughters").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.DAUGHTERS);
+			}
+			if(request.getParameter(condition.getValue() + "familyConditionGrandparents").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.GRANDPARENTS);
+			}
+			// Only add unit if there are relatives/self added.
+			if(unit.getFamilyRelations().isEmpty() == false) {
+				conditions.add(unit);
+			}
 		}
+		return conditions;
 	}
 }
