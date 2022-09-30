@@ -180,7 +180,10 @@ public class AddUserServletTest {
 		
 		for(MedicalRecordFamilyConditionUnit condition: conditions) {
 			
-			resultRelativesList.add(condition.getFamilyCondition());
+			for(String relative : condition.getFamilyRelations()) {
+				
+				resultRelativesList.add(relative);
+			}
 		}
 		
 		assertEquals(expectedRelativesNumList.size(), resultRelativesList.size());
