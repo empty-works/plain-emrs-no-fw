@@ -244,28 +244,36 @@ public class AddUserServlet extends HttpServlet {
 		for(PatientFormUnit condition : MedicalRecordFamilyConditionLists.familyConditionList) {
 			
 			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit(condition.getId(), condition.getValue());
-			if(request.getParameter(condition.getValue() + "familyConditionSelf").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionSelf") != null && 
+					request.getParameter(condition.getValue() + "familyConditionSelf").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SELF);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionFather").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionFather") != null && 
+					request.getParameter(condition.getValue() + "familyConditionFather").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.FATHER);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionMother").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionMother") != null && 
+					request.getParameter(condition.getValue() + "familyConditionMother").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.MOTHER);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionBrothers").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionBrothers") != null && 
+					request.getParameter(condition.getValue() + "familyConditionBrothers").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.BROTHERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionSisters").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionSisters") != null && 
+					request.getParameter(condition.getValue() + "familyConditionSisters").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SISTERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionSons").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionSons") != null && 
+					request.getParameter(condition.getValue() + "familyConditionSons").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SONS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionDaughters").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionDaughters") != null && 
+					request.getParameter(condition.getValue() + "familyConditionDaughters").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.DAUGHTERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionGrandparents").equals("true")) {
+			if(request.getParameter(condition.getValue() + "familyConditionGrandparents") != null &&
+					request.getParameter(condition.getValue() + "familyConditionGrandparents").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.GRANDPARENTS);
 			}
 			// Only add unit if there are relatives/self added.
