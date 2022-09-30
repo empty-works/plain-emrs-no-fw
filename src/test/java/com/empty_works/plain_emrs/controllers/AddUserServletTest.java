@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -173,8 +174,16 @@ public class AddUserServletTest {
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
 		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.BROTHERS);
-		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.SISTERS);
+		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.GRANDPARENTS);
 		
+		List<String> resultRelativesList = new ArrayList<>();
 		
+		for(MedicalRecordFamilyConditionUnit condition: conditions) {
+			
+			resultRelativesList.add(condition.getFamilyCondition());
+		}
+		
+		assertEquals(expectedRelativesNumList.size(), resultRelativesList.size());
+		assertIterableEquals(expectedRelativesNumList, resultRelativesList);
 	}
 }
