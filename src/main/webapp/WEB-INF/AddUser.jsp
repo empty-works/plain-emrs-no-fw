@@ -246,12 +246,13 @@
 						<input type="radio" id="isAdoptedYes" name="patientAdopted" value="true">
 						<label for="isAdoptedYes">Yes</label><br>
 						<div>Father:</div>
-						<input type="radio" id="fatherNotKnow" name="patientFather" value="Do not know">
+						<input type="radio" id="fatherNotKnow" name="patientFather" value="unknown">
 						<label for="fatherNotKnow">Do not know</label><br>
-						<input type="radio" id="fatherAlive" name="patientFather" value="Father alive">
+						<input type="radio" id="fatherAlive" name="patientFather" value="true">
 						<label for="fatherAlive">Alive</label><br>
-						<input type="radio" id="fatherDec" name="patientFather" value="Father deceased">
+						<input type="radio" id="fatherDec" name="patientFather" value="false">
 						<label for="fatherDec">Deceased: </label>
+						<input type="hidden" name="fatherDecAge" value="not applicable">
 						<select id="fatherDecAge" name="fatherDecAge">
 							<option>Under 30</option>
 							<option>30-40</option>
@@ -262,12 +263,13 @@
 						</select>
 						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
 						<div>Mother:</div>
-						<input type="radio" id="motherNotKnow" name="patientMother" value="Do not know">
+						<input type="radio" id="motherNotKnow" name="patientMother" value="unknown">
 						<label for="motherNotKnow">Do not know</label><br>
-						<input type="radio" id="motherAlive" name="patientMother" value="Mother alive">
+						<input type="radio" id="motherAlive" name="patientMother" value="true">
 						<label for="motherAlive">Alive</label><br>
-						<input type="radio" id="motherDec" name="patientMother" value="Mother deceased">
+						<input type="radio" id="motherDec" name="patientMother" value="false">
 						<label for="motherDec">Deceased: </label>
+						<input type="hidden" name="motherDecAge" value="not applicable">
 						<select id="motherDecAge" name="motherDecAge">
 							<option>Under 30</option>
 							<option>30-40</option>
