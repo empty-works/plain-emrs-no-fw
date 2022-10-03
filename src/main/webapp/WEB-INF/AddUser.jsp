@@ -261,6 +261,7 @@
 							<option>61-70</option>
 							<option>Over 70</option>
 						</select>
+						<input type="hidden" name="fatherCauseDeath" value="not applicable">
 						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
 						<div>Mother:</div>
 						<input type="radio" id="motherNotKnow" name="patientMother" value="unknown">
@@ -278,6 +279,7 @@
 							<option>61-70</option>
 							<option>Over 70</option>
 						</select>
+						<input type="hidden" name="motherCauseDeath" value="not applicable">
 						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death">
 					</fieldset>
 					<fieldset>

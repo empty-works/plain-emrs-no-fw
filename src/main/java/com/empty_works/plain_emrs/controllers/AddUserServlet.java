@@ -116,6 +116,7 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
 			medRecord.setFatherStatus(request.getParameter("patientFather"));
 			medRecord.setMotherStatus(request.getParameter("patientMother"));
+			medRecord.set
 			/*******************************************************/
 			medRecord.setRelations(parseRelations(request));
 			medRecord.setConditions(parseConditions(request));
