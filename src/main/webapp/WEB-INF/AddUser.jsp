@@ -252,7 +252,7 @@
 						<label for="fatherAlive">Alive</label><br>
 						<input type="radio" id="fatherDec" name="patientFather" value="false">
 						<label for="fatherDec">Deceased: </label>
-						<input type="hidden" name="fatherDecAge" value="not applicable">
+						<input type="hidden" name="fatherDecAge" value="0">
 						<select id="fatherDecAge" name="fatherDecAge">
 							<option>Under 30</option>
 							<option>30-40</option>
@@ -270,7 +270,7 @@
 						<label for="motherAlive">Alive</label><br>
 						<input type="radio" id="motherDec" name="patientMother" value="false">
 						<label for="motherDec">Deceased: </label>
-						<input type="hidden" name="motherDecAge" value="not applicable">
+						<input type="hidden" name="motherDecAge" value="0">
 						<select id="motherDecAge" name="motherDecAge">
 							<option>Under 30</option>
 							<option>30-40</option>
