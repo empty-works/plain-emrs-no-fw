@@ -1,5 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UserBean extends GeneralBean {
@@ -9,6 +10,7 @@ public class UserBean extends GeneralBean {
 	private String emailAddress;
 	private boolean userEnabled;
 	private LocalDateTime dateCreated;
+	private LocalDate dateOfBirth;
 	private String firstName;
 	private String middleInitial;
 	private String lastName;
@@ -38,6 +40,12 @@ public class UserBean extends GeneralBean {
 	}
 	public void setDateCreated(LocalDateTime dateCreated) {
 		this.dateCreated = dateCreated;
+	}
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 	public String getFirstName() {
 		return firstName;

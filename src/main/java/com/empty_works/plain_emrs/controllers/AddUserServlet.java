@@ -83,6 +83,7 @@ public class AddUserServlet extends HttpServlet {
 		//user.setNonPatientId(request.getParameter("userNonPatientId"));
 		user.setUserEnabled(true);
 		user.setDateCreated(LocalDateTime.now());
+		
 		user.setFirstName(request.getParameter("userFirstName"));
 		user.setMiddleInitial(request.getParameter("userMiddleInitial"));
 		user.setLastName(request.getParameter("userLastName"));
