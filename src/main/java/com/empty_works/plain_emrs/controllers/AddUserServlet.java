@@ -109,7 +109,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
 			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
-			// Patient username generated based on info
+			// Patient user ID generated based on info
 			patient.setUserId(PatientUsernameUtil.get(patient));
 			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
 			// Medical history
