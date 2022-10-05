@@ -29,6 +29,8 @@ import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
+import com.empty_works.plain_emrs.util.PasswordUtil;
+import com.empty_works.plain_emrs.util.PatientUsernameUtil;
 import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
 
 /**
@@ -37,6 +39,7 @@ import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
 @WebServlet("/AddUserServlet")
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	final private short PASSWORD_LENGTH = 14;
        
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -83,7 +86,6 @@ public class AddUserServlet extends HttpServlet {
 		//user.setNonPatientId(request.getParameter("userNonPatientId"));
 		user.setUserEnabled(true);
 		user.setDateCreated(LocalDateTime.now());
-		
 		user.setFirstName(request.getParameter("userFirstName"));
 		user.setMiddleInitial(request.getParameter("userMiddleInitial"));
 		user.setLastName(request.getParameter("userLastName"));
@@ -107,6 +109,9 @@ public class AddUserServlet extends HttpServlet {
 			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
 			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
+			// Patient username generated based on info
+			patient.setUserId(PatientUsernameUtil.get(patient));
+			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
 			// Medical history
 			medRecord = new MedicalRecordBean();
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
@@ -121,7 +126,6 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setFathCauseDea(request.getParameter("fatherCauseDeath"));
 			medRecord.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
 			medRecord.setMothCauseDea(request.getParameter("motherCauseDeath"));
-			/*******************************************************/
 			medRecord.setRelations(parseRelations(request));
 			medRecord.setConditions(parseConditions(request));
 		}

@@ -7,6 +7,7 @@ public class UserBean extends GeneralBean {
 
 	// No password attribute because it's generated during user creation
 	private String userId;
+	private String userPassword;
 	private String emailAddress;
 	private boolean userEnabled;
 	private LocalDateTime dateCreated;
@@ -22,6 +23,12 @@ public class UserBean extends GeneralBean {
 	}
 	public void setUserId(String username) {
 		this.userId = username;
+	}
+	public String getUserPassword() {
+		return userPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 	public String getEmailAddress() {
 		return emailAddress;
