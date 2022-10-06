@@ -82,8 +82,6 @@ public class AddUserServlet extends HttpServlet {
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
-		//user.setPatientId(request.getParameter("userPatientId"));
-		//user.setNonPatientId(request.getParameter("userNonPatientId"));
 		user.setUserEnabled(true);
 		user.setDateCreated(LocalDateTime.now());
 		user.setFirstName(request.getParameter("userFirstName"));
@@ -112,6 +110,7 @@ public class AddUserServlet extends HttpServlet {
 			// Patient user ID generated based on info
 			patient.setUserId(PatientUsernameUtil.get(patient));
 			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
+			
 			// Medical history
 			medRecord = new MedicalRecordBean();
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
