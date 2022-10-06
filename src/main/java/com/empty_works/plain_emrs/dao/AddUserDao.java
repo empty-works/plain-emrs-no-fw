@@ -13,7 +13,7 @@ public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
-	public static String getUser(UserBean user, String facilityId) { 
+	public static String add(UserBean user, String facilityId) { 
 		
 		String userId = user.getUserId();
 		String userPassword = user.getUserPassword();

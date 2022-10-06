@@ -17,6 +17,8 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.UserBean;
+import com.empty_works.plain_emrs.dao.AddUserDao;
+import com.empty_works.plain_emrs.dao.AuthoritiesDao;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
@@ -108,8 +110,20 @@ public class AddUserServlet extends HttpServlet {
 			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
 			// Patient user ID generated based on info
-			patient.setUserId(PatientUsernameUtil.get(patient));
+			String userId = PatientUsernameUtil.get(patient);
+			patient.setUserId(userId);
 			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
+			String addUserResult = AddUserDao.add(user, request.getParameter("userCurrentFacilityId"));
+			if(addUserResult.equals(AddUserDao.USERDAO_SUCCESS)) {
+				
+				// TODO:Decide what to forward to the user added successfully jsp.
+			}
+			// Set user role
+			String userRoleResult = AuthoritiesDao.add(userId, request.getParameter("roleDropdown"));
+			if(userRoleResult.equals(AuthoritiesDao.AUTHORITIESDAO_SUCCESS)) {
+				
+				// TODO:Add message for successfully adding a role for the user.
+			}
 			
 			// Medical history
 			medRecord = new MedicalRecordBean();
