@@ -127,6 +127,7 @@ public class AddUserServlet extends HttpServlet {
 			
 			// Medical history
 			medRecord = new MedicalRecordBean();
+			medRecord.setUserId(userId);
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
