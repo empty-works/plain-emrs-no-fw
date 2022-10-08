@@ -31,6 +31,7 @@ import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
 import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
+import com.empty_works.plain_emrs.util.MedicalRecordIdUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
 import com.empty_works.plain_emrs.util.PatientUsernameUtil;
 import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
@@ -109,6 +110,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
 			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
+			patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
 			// Patient user ID generated based on info
 			String userId = PatientUsernameUtil.get(patient);
 			patient.setUserId(userId);
@@ -125,15 +127,19 @@ public class AddUserServlet extends HttpServlet {
 				// TODO:Add message for successfully adding a role for the user.
 			}
 			
-			// Medical history
+			// medical_records
 			medRecord = new MedicalRecordBean();
 			medRecord.setUserId(userId);
+			medRecord.setMedicalRecordId(MedicalRecordIdUtil.get(userId));
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
-			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
-			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setDateCreated(LocalDateTime.now());
+			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
+			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+			
+			// diseases
 			medRecord.setImmunDiseases(parseDiseasesImmun(request));
-			medRecord.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
+			
+			
 			medRecord.setFatherStatus(request.getParameter("patientFather"));
 			medRecord.setMotherStatus(request.getParameter("patientMother"));
 			medRecord.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));

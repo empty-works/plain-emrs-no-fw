@@ -24,6 +24,7 @@ public class PatientBean extends UserBean {
 	private String sexualOrientation;
 	private String maritalStatus;
 	private String livingArrangement;
+	private boolean isAdopted;
 
 	public String getProvider() {
 		return provider;
@@ -132,5 +133,11 @@ public class PatientBean extends UserBean {
 	}
 	public void setLivingArrangement(String livingArrangement) {
 		this.livingArrangement = livingArrangement;
+	}
+	public boolean isAdopted() {
+		return isAdopted;
+	}
+	public void setAdopted(boolean isAdopted) {
+		this.isAdopted = isAdopted;
 	}
 }

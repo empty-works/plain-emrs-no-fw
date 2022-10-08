@@ -12,19 +12,25 @@ import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 public class MedicalRecordBean extends UserBean {
 
 	// User ID in parent class
+	private String medicalRecordId;
 	private String patientCondition;
 	private LocalDateTime medicalRecordCreatedOn;
 	private boolean isActive;
 	private String bloodTransfusionStatus;
 	private List<MedicalRecordDiseaseUnit> immunDiseases;
 	private List<MedicalRecordSurgeryUnit> surgeryMedProblems;
-	private boolean isAdopted;
 	private String fatherStatus, motherStatus;
 	private int fathDecAge, mothDecAge;
 	private String fathCauseDea, mothCauseDea;
 	private List<MedicalRecordRelationsUnit> relations;
 	private List<MedicalRecordFamilyConditionUnit> conditions;
 
+	public String getMedicalRecordId() {
+		return medicalRecordId;
+	}
+	public void setMedicalRecordId(String medicalRecordId) {
+		this.medicalRecordId = medicalRecordId;
+	}
 	public String getPatientCondition() {
 		return patientCondition;
 	}
@@ -60,12 +66,6 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setSurgeryMedProblems(List<MedicalRecordSurgeryUnit> surgeryMedProblems) {
 		this.surgeryMedProblems = surgeryMedProblems;
-	}
-	public boolean isAdopted() {
-		return isAdopted;
-	}
-	public void setAdopted(boolean isAdopted) {
-		this.isAdopted = isAdopted;
 	}
 	public String getFatherStatus() {
 		return fatherStatus;
