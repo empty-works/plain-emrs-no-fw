@@ -13,9 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.empty_works.plain_emrs.beans.BloodRelationsBean;
+import com.empty_works.plain_emrs.beans.DiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
@@ -81,6 +84,9 @@ public class AddUserServlet extends HttpServlet {
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
 		MedicalRecordBean medRecord;
+		DiseasesBean diseases;
+		BloodRelationsBean relations;
+		SurgicalProblemsBean surgicalProblems;
 		NonPatientBean nonPatient;
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
@@ -137,17 +143,22 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 			
 			// diseases
-			medRecord.setImmunDiseases(parseDiseasesImmun(request));
+			diseases = new DiseasesBean();
+			diseases.setDiseases(parseDiseasesImmun(request));
 			
-			
-			medRecord.setFatherStatus(request.getParameter("patientFather"));
-			medRecord.setMotherStatus(request.getParameter("patientMother"));
-			medRecord.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));
-			medRecord.setFathCauseDea(request.getParameter("fatherCauseDeath"));
-			medRecord.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
-			medRecord.setMothCauseDea(request.getParameter("motherCauseDeath"));
-			medRecord.setRelations(parseRelations(request));
-			medRecord.setConditions(parseConditions(request));
+			// blood_relatives
+			relations = new BloodRelationsBean();
+			relations.setFatherStatus(request.getParameter("patientFather"));
+			relations.setMotherStatus(request.getParameter("patientMother"));
+			relations.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));
+			relations.setFathCauseDea(request.getParameter("fatherCauseDeath"));
+			relations.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
+			relations.setMothCauseDea(request.getParameter("motherCauseDeath"));
+			relations.setRelations(parseRelations(request));
+
+			// surgical_related_problems
+			surgicalProblems = new SurgicalProblemsBean();
+			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);

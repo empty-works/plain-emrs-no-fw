@@ -17,13 +17,6 @@ public class MedicalRecordBean extends UserBean {
 	private LocalDateTime medicalRecordCreatedOn;
 	private boolean isActive;
 	private String bloodTransfusionStatus;
-	private List<MedicalRecordDiseaseUnit> immunDiseases;
-	private List<MedicalRecordSurgeryUnit> surgeryMedProblems;
-	private String fatherStatus, motherStatus;
-	private int fathDecAge, mothDecAge;
-	private String fathCauseDea, mothCauseDea;
-	private List<MedicalRecordRelationsUnit> relations;
-	private List<MedicalRecordFamilyConditionUnit> conditions;
 
 	public String getMedicalRecordId() {
 		return medicalRecordId;
@@ -54,65 +47,5 @@ public class MedicalRecordBean extends UserBean {
 	}
 	public void setBloodTransfusionStatus(String bloodTransfusionStatus) {
 		this.bloodTransfusionStatus = bloodTransfusionStatus;
-	}
-	public List<MedicalRecordDiseaseUnit> getImmunDiseases() {
-		return immunDiseases;
-	}
-	public void setImmunDiseases(List<MedicalRecordDiseaseUnit> immunDiseases) {
-		this.immunDiseases = immunDiseases;
-	}
-	public List<MedicalRecordSurgeryUnit> getSurgeryMedProblems() {
-		return surgeryMedProblems;
-	}
-	public void setSurgeryMedProblems(List<MedicalRecordSurgeryUnit> surgeryMedProblems) {
-		this.surgeryMedProblems = surgeryMedProblems;
-	}
-	public String getFatherStatus() {
-		return fatherStatus;
-	}
-	public void setFatherStatus(String fatherStatus) {
-		this.fatherStatus = fatherStatus;
-	}
-	public String getMotherStatus() {
-		return motherStatus;
-	}
-	public void setMotherStatus(String motherStatus) {
-		this.motherStatus = motherStatus;
-	}
-	public List<MedicalRecordRelationsUnit> getRelations() {
-		return relations;
-	}
-	public void setRelations(List<MedicalRecordRelationsUnit> relations) {
-		this.relations = relations;
-	}
-	public List<MedicalRecordFamilyConditionUnit> getConditions() {
-		return conditions;
-	}
-	public void setConditions(List<MedicalRecordFamilyConditionUnit> conditions) {
-		this.conditions = conditions;
-	}
-	public int getFathDecAge() {
-		return fathDecAge;
-	}
-	public void setFathDecAge(int fathDecAge) {
-		this.fathDecAge = fathDecAge;
-	}
-	public int getMothDecAge() {
-		return mothDecAge;
-	}
-	public void setMothDecAge(int mothDecAge) {
-		this.mothDecAge = mothDecAge;
-	}
-	public String getFathCauseDea() {
-		return fathCauseDea;
-	}
-	public void setFathCauseDea(String fathCauseDea) {
-		this.fathCauseDea = fathCauseDea;
-	}
-	public String getMothCauseDea() {
-		return mothCauseDea;
-	}
-	public void setMothCauseDea(String mothCauseDea) {
-		this.mothCauseDea = mothCauseDea;
 	}
 }

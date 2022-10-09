@@ -23,14 +23,6 @@ public class MedicalRecordDao {
 		String bloodTransfusionStatus = medRecord.getBloodTransfusionStatus();
 		boolean isActive = medRecord.isActive();
 		LocalDateTime recordCreated = medRecord.getDateCreated();
-		List<MedicalRecordDiseaseUnit> immunDiseases = medRecord.getImmunDiseases();
-		String fatherStatus = medRecord.getFatherStatus();
-		String motherStatus = medRecord.getMotherStatus();
-		int fatherAge = medRecord.getFathDecAge();
-		int motherAge = medRecord.getMothDecAge();
-		String fathCauseDea = medRecord.getFathCauseDea();
-		String mothCauseDea = medRecord.getMothCauseDea();
-		List<MedicalRecordRelationsUnit> relations = medRecord.getRelations();
 		List<MedicalRecordFamilyConditionUnit> conditions = medRecord.getConditions();
 		
 		Connection con = ConnectionUtil.getConnection();
