@@ -6,7 +6,7 @@ import java.util.List;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 public class MedicalRecordBean extends UserBean {

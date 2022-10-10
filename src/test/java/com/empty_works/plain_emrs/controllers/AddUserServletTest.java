@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 
@@ -161,7 +161,7 @@ public class AddUserServletTest {
 	void testParseConditions_asthmaBrothersGrandparentsOnly_otherConditionsNotAdded() {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
-		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
+		List<MedicalRecordFamilyIllnessUnit> conditions = new ArrayList<>();
 		when(request.getParameter("AsthmafamilyConditionSelf")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionFather")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionMother")).thenReturn("false");
@@ -170,15 +170,15 @@ public class AddUserServletTest {
 		when(request.getParameter("AsthmafamilyConditionSons")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionDaughters")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionGrandparents")).thenReturn("true");
-		conditions = AddUserServlet.parseConditions(request);
+		conditions = AddUserServlet.parseIllnesses(request);
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
-		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.BROTHERS);
-		expectedRelativesNumList.add(MedicalRecordFamilyConditionUnit.GRANDPARENTS);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.BROTHERS);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.GRANDPARENTS);
 		
 		List<String> resultRelativesList = new ArrayList<>();
 		
-		for(MedicalRecordFamilyConditionUnit condition: conditions) {
+		for(MedicalRecordFamilyIllnessUnit condition: conditions) {
 			
 			for(String relative : condition.getFamilyRelations()) {
 				

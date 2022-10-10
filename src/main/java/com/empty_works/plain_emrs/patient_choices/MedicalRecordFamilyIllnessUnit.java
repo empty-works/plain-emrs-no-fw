@@ -3,7 +3,7 @@ package com.empty_works.plain_emrs.patient_choices;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicalRecordFamilyConditionUnit {
+public class MedicalRecordFamilyIllnessUnit {
 
 	public static String SELF = "self";
 	public static String FATHER = "father";
@@ -17,17 +17,17 @@ public class MedicalRecordFamilyConditionUnit {
 	private String familyCondition;
 	private List<String> familyRelations = new ArrayList<>();
 	
-	public MedicalRecordFamilyConditionUnit(String familyConditionId, String familyCondition) {
+	public MedicalRecordFamilyIllnessUnit(String familyIllnessId, String familyIllness) {
 		
-		this.familyConditionId = familyConditionId;
-		this.familyCondition = familyCondition;
+		this.familyConditionId = familyIllnessId;
+		this.familyCondition = familyIllness;
 	}
 
-	public String getFamilyConditionId() {
+	public String getFamilyIllnessId() {
 		return familyConditionId;
 	}
 
-	public String getFamilyCondition() {
+	public String getFamilyIllness() {
 		return familyCondition;
 	}
 

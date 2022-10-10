@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
@@ -23,7 +23,6 @@ public class MedicalRecordDao {
 		String bloodTransfusionStatus = medRecord.getBloodTransfusionStatus();
 		boolean isActive = medRecord.isActive();
 		LocalDateTime recordCreated = medRecord.getDateCreated();
-		List<MedicalRecordFamilyConditionUnit> conditions = medRecord.getConditions();
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;

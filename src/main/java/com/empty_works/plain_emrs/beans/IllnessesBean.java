@@ -1,13 +1,17 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.util.List;
+
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 /*
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class MedicalRecordIllnessesBean extends UserBean {
+public class IllnessesBean extends UserBean {
 
+	private List<MedicalRecordFamilyIllnessUnit> illness;
 	private PatientIllnessUnit[] illnesses;
 	private boolean illnessSelf;
 	private boolean illnessFather;
@@ -17,6 +21,14 @@ public class MedicalRecordIllnessesBean extends UserBean {
 	private boolean illnessSons;
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
+
+	public List<MedicalRecordFamilyIllnessUnit> getIllness() {
+		return illness;
+	}
+
+	public void setIllness(List<MedicalRecordFamilyIllnessUnit> illness) {
+		this.illness = illness;
+	}
 
 	public PatientIllnessUnit[] getIllnesses() {
 		return illnesses;

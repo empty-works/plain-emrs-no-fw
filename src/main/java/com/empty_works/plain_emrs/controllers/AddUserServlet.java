@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.BloodRelationsBean;
 import com.empty_works.plain_emrs.beans.DiseasesBean;
+import com.empty_works.plain_emrs.beans.IllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
@@ -22,13 +23,13 @@ import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionLists;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyConditionUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.user_choices.UserLivingArranLists;
@@ -71,7 +72,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("generalMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemGeneralList));
 		request.setAttribute("heartMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemHeartList));
 		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
-		request.setAttribute("familyConditionsList", makeJson(MedicalRecordFamilyConditionLists.familyConditionList));
+		request.setAttribute("familyConditionsList", makeJson(MedicalRecordFamilyIllnessLists.familyConditionList));
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
 		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
 	}
@@ -87,6 +88,7 @@ public class AddUserServlet extends HttpServlet {
 		DiseasesBean diseases;
 		BloodRelationsBean relations;
 		SurgicalProblemsBean surgicalProblems;
+		IllnessesBean illnesses;
 		NonPatientBean nonPatient;
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
@@ -159,6 +161,10 @@ public class AddUserServlet extends HttpServlet {
 			// surgical_related_problems
 			surgicalProblems = new SurgicalProblemsBean();
 			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+			
+			// illnesses
+			illnesses = new IllnessesBean();
+			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
@@ -277,49 +283,49 @@ public class AddUserServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordFamilyConditionUnit> parseConditions(HttpServletRequest request) {
+	protected static List<MedicalRecordFamilyIllnessUnit> parseIllnesses(HttpServletRequest request) {
 		
-		List<MedicalRecordFamilyConditionUnit> conditions = new ArrayList<>();
-		for(PatientFormUnit condition : MedicalRecordFamilyConditionLists.familyConditionList) {
+		List<MedicalRecordFamilyIllnessUnit> illnesses = new ArrayList<>();
+		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 			
-			MedicalRecordFamilyConditionUnit unit = new MedicalRecordFamilyConditionUnit(condition.getId(), condition.getValue());
-			if(request.getParameter(condition.getValue() + "familyConditionSelf") != null && 
-					request.getParameter(condition.getValue() + "familyConditionSelf").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SELF);
+			MedicalRecordFamilyIllnessUnit unit = new MedicalRecordFamilyIllnessUnit(illness.getId(), illness.getValue());
+			if(request.getParameter(illness.getValue() + "familyIllnessSelf") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessSelf").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SELF);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionFather") != null && 
-					request.getParameter(condition.getValue() + "familyConditionFather").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.FATHER);
+			if(request.getParameter(illness.getValue() + "familyIllnessFather") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessFather").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.FATHER);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionMother") != null && 
-					request.getParameter(condition.getValue() + "familyConditionMother").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.MOTHER);
+			if(request.getParameter(illness.getValue() + "familyIllnessMother") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessMother").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.MOTHER);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionBrothers") != null && 
-					request.getParameter(condition.getValue() + "familyConditionBrothers").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.BROTHERS);
+			if(request.getParameter(illness.getValue() + "familyIllnessBrothers") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessBrothers").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.BROTHERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionSisters") != null && 
-					request.getParameter(condition.getValue() + "familyConditionSisters").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SISTERS);
+			if(request.getParameter(illness.getValue() + "familyIllnessSisters") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessSisters").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SISTERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionSons") != null && 
-					request.getParameter(condition.getValue() + "familyConditionSons").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.SONS);
+			if(request.getParameter(illness.getValue() + "familyIllnessSons") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessSons").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SONS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionDaughters") != null && 
-					request.getParameter(condition.getValue() + "familyConditionDaughters").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.DAUGHTERS);
+			if(request.getParameter(illness.getValue() + "familyIllnessDaughters") != null && 
+					request.getParameter(illness.getValue() + "familyIllnessDaughters").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.DAUGHTERS);
 			}
-			if(request.getParameter(condition.getValue() + "familyConditionGrandparents") != null &&
-					request.getParameter(condition.getValue() + "familyConditionGrandparents").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyConditionUnit.GRANDPARENTS);
+			if(request.getParameter(illness.getValue() + "familyIllnessGrandparents") != null &&
+					request.getParameter(illness.getValue() + "familyIllnessGrandparents").equals("true")) {
+				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.GRANDPARENTS);
 			}
 			// Only add unit if there are relatives/self added.
 			if(unit.getFamilyRelations().isEmpty() == false) {
-				conditions.add(unit);
+				illnesses.add(unit);
 			}
 		}
-		return conditions;
+		return illnesses;
 	}
 }
