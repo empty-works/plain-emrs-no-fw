@@ -164,9 +164,8 @@ public class AddUserServlet extends HttpServlet {
 			
 			// illnesses
 			illnesses = new IllnessesBean();
-			
+			illnesses.setIllness(parseIllnesses(request));
 		}
-		
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	
