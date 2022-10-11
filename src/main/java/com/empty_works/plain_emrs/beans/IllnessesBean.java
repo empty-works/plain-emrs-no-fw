@@ -9,8 +9,10 @@ import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class IllnessesBean extends UserBean {
+public class IllnessesBean implements PatientIdInterface {
 
+	private String userId;
+	private String medicalRecordId;
 	private List<MedicalRecordFamilyIllnessUnit> illness;
 	private PatientIllnessUnit[] illnesses;
 	private boolean illnessSelf;
@@ -21,6 +23,22 @@ public class IllnessesBean extends UserBean {
 	private boolean illnessSons;
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getMedicalRecordId() {
+		return medicalRecordId;
+	}
+
+	public void setMedicalRecordId(String medicalRecordId) {
+		this.medicalRecordId = medicalRecordId;
+	}
 
 	public List<MedicalRecordFamilyIllnessUnit> getIllness() {
 		return illness;

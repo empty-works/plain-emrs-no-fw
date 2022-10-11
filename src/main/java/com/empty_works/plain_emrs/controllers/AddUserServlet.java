@@ -140,16 +140,18 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setUserId(userId);
 			medRecord.setMedicalRecordId(MedicalRecordIdUtil.get(userId));
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
-			medRecord.setDateCreated(LocalDateTime.now());
+			medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 			
 			// diseases
 			diseases = new DiseasesBean();
+			diseases.setUserId(userId);
 			diseases.setDiseases(parseDiseasesImmun(request));
 			
 			// blood_relatives
 			relations = new BloodRelationsBean();
+			relations.setUserId(userId);
 			relations.setFatherStatus(request.getParameter("patientFather"));
 			relations.setMotherStatus(request.getParameter("patientMother"));
 			relations.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));

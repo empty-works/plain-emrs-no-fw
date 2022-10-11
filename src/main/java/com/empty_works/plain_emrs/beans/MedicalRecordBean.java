@@ -9,15 +9,23 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
-public class MedicalRecordBean extends UserBean {
+public class MedicalRecordBean implements PatientIdInterface {
 
-	// User ID in parent class
+	private String userId;
 	private String medicalRecordId;
 	private String patientCondition;
 	private LocalDateTime medicalRecordCreatedOn;
 	private boolean isActive;
 	private String bloodTransfusionStatus;
 
+	@Override
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	@Override
+	public String getUserId() {
+		return userId;
+	}
 	public String getMedicalRecordId() {
 		return medicalRecordId;
 	}
