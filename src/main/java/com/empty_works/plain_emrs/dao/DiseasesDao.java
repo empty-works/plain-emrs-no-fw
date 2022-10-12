@@ -11,9 +11,8 @@ public class DiseasesDao {
 
 	final public static String DISEASESDAO_SUCCESS = "Diseases data successfully added.";
 	
-	public static String add(DiseasesBean diseases, String facilityId) {
+	public static String add(DiseasesBean diseases) {
 		
-		String userId = diseases.getUserId(); 
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
@@ -21,12 +20,24 @@ public class DiseasesDao {
 				+ "values (?,?,?,?,?)";
 		
 		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, diseases.getUserId());
-			preparedStatement.setString(2, diseases.getMedicalRecordId());
-			preparedStatement.setString(3, diseases.set);
+			for(int i = 0; i < diseases.getDiseases().size(); i++) {
+				
+				preparedStatement = con.prepareStatement(query);
+				preparedStatement.setString(1, diseases.getUserId());
+				preparedStatement.setString(2, diseases.getMedicalRecordId());
+				preparedStatement.setString(3, diseases.getDiseases().get(i).getDiseaseName());
+				preparedStatement.setBoolean(4, diseases.getDiseases().get(i).isContractedDisease());
+				preparedStatement.setBoolean(5, diseases.getDiseases().get(i).isImmunized());
+				preparedStatement.addBatch();
+			}
+			int[] checks = preparedStatement.executeBatch();
+			for(int check : checks) {
+				// If even one returns zero, insertion failed.
+				if(check == 0) {return "Something went wrong. Could not add diseases data.";}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return DISEASESDAO_SUCCESS;
 	}
 }

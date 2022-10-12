@@ -147,7 +147,7 @@ public class AddUserServlet extends HttpServlet {
 			// diseases
 			diseases = new DiseasesBean();
 			diseases.setUserId(userId);
-			diseases.setMedicalRecordId(medicalRecordId);)
+			diseases.setMedicalRecordId(medicalRecordId);
 			diseases.setDiseases(parseDiseasesImmun(request));
 			
 			// blood_relatives
@@ -170,6 +170,8 @@ public class AddUserServlet extends HttpServlet {
 			
 			// illnesses
 			illnesses = new IllnessesBean();
+			illnesses.setUserId(userId);
+			illnesses.setMedicalRecordId(medicalRecordId);
 			illnesses.setIllness(parseIllnesses(request));
 		}
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
