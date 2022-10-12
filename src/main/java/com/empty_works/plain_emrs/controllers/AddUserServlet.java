@@ -134,11 +134,11 @@ public class AddUserServlet extends HttpServlet {
 				
 				// TODO:Add message for successfully adding a role for the user.
 			}
-			
+			String medicalRecordId = MedicalRecordIdUtil.get(userId);
 			// medical_records
 			medRecord = new MedicalRecordBean();
 			medRecord.setUserId(userId);
-			medRecord.setMedicalRecordId(MedicalRecordIdUtil.get(userId));
+			medRecord.setMedicalRecordId(medicalRecordId);
 			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
 			medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
@@ -147,11 +147,13 @@ public class AddUserServlet extends HttpServlet {
 			// diseases
 			diseases = new DiseasesBean();
 			diseases.setUserId(userId);
+			diseases.setMedicalRecordId(medicalRecordId);)
 			diseases.setDiseases(parseDiseasesImmun(request));
 			
 			// blood_relatives
 			relations = new BloodRelationsBean();
 			relations.setUserId(userId);
+			relations.setMedicalRecordId(medicalRecordId);
 			relations.setFatherStatus(request.getParameter("patientFather"));
 			relations.setMotherStatus(request.getParameter("patientMother"));
 			relations.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));
@@ -162,6 +164,8 @@ public class AddUserServlet extends HttpServlet {
 
 			// surgical_related_problems
 			surgicalProblems = new SurgicalProblemsBean();
+			surgicalProblems.setUserId(userId);
+			surgicalProblems.setMedicalRecordId(medicalRecordId);
 			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 			
 			// illnesses
