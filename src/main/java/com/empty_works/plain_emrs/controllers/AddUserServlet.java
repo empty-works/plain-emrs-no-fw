@@ -160,7 +160,10 @@ public class AddUserServlet extends HttpServlet {
 			relations.setFathCauseDea(request.getParameter("fatherCauseDeath"));
 			relations.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
 			relations.setMothCauseDea(request.getParameter("motherCauseDeath"));
-			relations.setRelations(parseRelations(request));
+			relations.setNumSisters(Integer.parseInt(request.getParameter("SistersAlive")));
+			relations.setNumBrothers(Integer.parseInt(request.getParameter("BrothersAlive")));
+			relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
+			relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
 			// surgical_related_problems
 			surgicalProblems = new SurgicalProblemsBean();
@@ -268,21 +271,6 @@ public class AddUserServlet extends HttpServlet {
 			surgeries.add(surgeryUnit);
 		}
 		return surgeries;
-	}
-	
-	/**
-	 * 
-	 * @param request
-	 * @return
-	 */
-	protected static List<MedicalRecordRelationsUnit> parseRelations(HttpServletRequest request) {
-		
-		List<MedicalRecordRelationsUnit> relations = new ArrayList<>();
-		relations.add(new MedicalRecordRelationsUnit("Brothers", Integer.parseInt(request.getParameter("Brothers"))));
-		relations.add(new MedicalRecordRelationsUnit("Sisters", Integer.parseInt(request.getParameter("Sisters"))));
-		relations.add(new MedicalRecordRelationsUnit("Sons", Integer.parseInt(request.getParameter("Sons"))));
-		relations.add(new MedicalRecordRelationsUnit("Daughters", Integer.parseInt(request.getParameter("Daughters"))));
-		return relations;
 	}
 	
 	/**

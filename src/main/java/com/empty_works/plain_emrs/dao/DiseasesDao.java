@@ -20,9 +20,9 @@ public class DiseasesDao {
 				+ "values (?,?,?,?,?)";
 		
 		try {
+			preparedStatement = con.prepareStatement(query);
 			for(int i = 0; i < diseases.getDiseases().size(); i++) {
 				
-				preparedStatement = con.prepareStatement(query);
 				preparedStatement.setString(1, diseases.getUserId());
 				preparedStatement.setString(2, diseases.getMedicalRecordId());
 				preparedStatement.setString(3, diseases.getDiseases().get(i).getDiseaseName());

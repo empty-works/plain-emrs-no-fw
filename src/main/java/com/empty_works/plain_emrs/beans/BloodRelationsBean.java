@@ -2,16 +2,14 @@ package com.empty_works.plain_emrs.beans;
 
 import java.util.List;
 
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
-
 public class BloodRelationsBean implements PatientIdInterface {
 
 	private String userId;
 	private String medicalRecordId;
-	private List<MedicalRecordRelationsUnit> relations;
 	private String fatherStatus, motherStatus;
 	private int fathDecAge, mothDecAge;
 	private String fathCauseDea, mothCauseDea;
+	private int numSisters, numBrothers, numDaughters, numSons;
 
 	public String getUserId() {
 		return userId;
@@ -27,14 +25,6 @@ public class BloodRelationsBean implements PatientIdInterface {
 
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;
-	}
-
-	public List<MedicalRecordRelationsUnit> getRelations() {
-		return relations;
-	}
-
-	public void setRelations(List<MedicalRecordRelationsUnit> relations) {
-		this.relations = relations;
 	}
 
 	public String getFatherStatus() {
@@ -83,5 +73,37 @@ public class BloodRelationsBean implements PatientIdInterface {
 
 	public void setMothCauseDea(String mothCauseDea) {
 		this.mothCauseDea = mothCauseDea;
+	}
+
+	public int getNumSisters() {
+		return numSisters;
+	}
+
+	public void setNumSisters(int numSisters) {
+		this.numSisters = numSisters;
+	}
+
+	public int getNumBrothers() {
+		return numBrothers;
+	}
+
+	public void setNumBrothers(int numBrothers) {
+		this.numBrothers = numBrothers;
+	}
+
+	public int getNumDaughters() {
+		return numDaughters;
+	}
+
+	public void setNumDaughters(int numDaughters) {
+		this.numDaughters = numDaughters;
+	}
+
+	public int getNumSons() {
+		return numSons;
+	}
+
+	public void setNumSons(int numSons) {
+		this.numSons = numSons;
 	}
 }

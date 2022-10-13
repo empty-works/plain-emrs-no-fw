@@ -15,38 +15,27 @@ public class AddUserDao {
 	
 	public static String add(UserBean user, String facilityId) { 
 		
-		String userId = user.getUserId();
-		String userPassword = user.getUserPassword();
-		String userEmail = user.getEmailAddress();
-		boolean userEnabled = user.isUserEnabled();
-		LocalDateTime userCreated = user.getDateCreated();
-		String userFacilityId = user.getCurrentFacilityId();
-		LocalDate userDob = user.getDateOfBirth();
-		String userFirstName = user.getFirstName();
-		String userMiddleInitial = user.getMiddleInitial();
-		String userLastName = user.getLastName();
-		
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatementUser = null;
+		PreparedStatement preparedStatement = null;
 		
 		String queryUser = "insert into users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
 				+ "user_date_of_birth, "
 				+ "user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
-			preparedStatementUser = con.prepareStatement(queryUser);
-			preparedStatementUser.setString(1, userId);
-			preparedStatementUser.setString(2, userPassword);
-			preparedStatementUser.setString(3, userEmail);
-			preparedStatementUser.setBoolean(4, userEnabled);
-			preparedStatementUser.setTimestamp(5, java.sql.Timestamp.valueOf(userCreated));
-			preparedStatementUser.setString(6, userFacilityId);
-			preparedStatementUser.setDate(7, java.sql.Date.valueOf(userDob));
-			preparedStatementUser.setString(8, userFirstName);
-			preparedStatementUser.setString(9, userMiddleInitial);
-			preparedStatementUser.setString(10, userLastName);
+			preparedStatement = con.prepareStatement(queryUser);
+			preparedStatement.setString(1, user.getUserId());
+			preparedStatement.setString(2, user.getUserPassword());
+			preparedStatement.setString(3, user.getEmailAddress());
+			preparedStatement.setBoolean(4, user.isUserEnabled());
+			preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(user.getDateCreated()));
+			preparedStatement.setString(6, user.getCurrentFacilityId());
+			preparedStatement.setDate(7, java.sql.Date.valueOf(user.getDateOfBirth()));
+			preparedStatement.setString(8, user.getFirstName());
+			preparedStatement.setString(9, user.getMiddleInitial());
+			preparedStatement.setString(10, user.getLastName());
 
-			int i = preparedStatementUser.executeUpdate();
+			int i = preparedStatement.executeUpdate();
 			if(i != 0) return USERDAO_SUCCESS;
 			
 		} catch(SQLException e) {
@@ -55,7 +44,7 @@ public class AddUserDao {
 		}
 		finally {
 			
-			ConnectionUtil.closeConnection(con, preparedStatementUser, null);
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
 		
 		return "Something went wrong. Could not add user.";
