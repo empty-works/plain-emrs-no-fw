@@ -1,7 +1,5 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.util.List;
-
 public class BloodRelationsBean implements PatientIdInterface {
 
 	private String userId;

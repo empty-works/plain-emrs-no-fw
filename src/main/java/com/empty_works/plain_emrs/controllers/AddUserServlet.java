@@ -27,7 +27,6 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessList
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
