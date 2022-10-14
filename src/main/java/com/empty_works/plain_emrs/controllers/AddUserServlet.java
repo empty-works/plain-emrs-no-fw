@@ -27,7 +27,7 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessList
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
+import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.PatientFormUnit;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
@@ -253,16 +253,16 @@ public class AddUserServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordSurgeryUnit> parseSurgeries(HttpServletRequest request) {
+	protected static List<SurgicalProblemUnit> parseSurgeries(HttpServletRequest request) {
 		
-		List<MedicalRecordSurgeryUnit> surgeries = new ArrayList<>();
+		List<SurgicalProblemUnit> surgeries = new ArrayList<>();
 		String[] problemAreas = request.getParameterValues("medProbArea");
 		String[] medProbTexts = request.getParameterValues("medProbText");
 		String[] medProbSurgeryTexts = request.getParameterValues("medProbSurgeryText");
 		String[] medProbSurgeryDates = request.getParameterValues("medProbSurgeryDate");
 		for(int i = 0; i < problemAreas.length; i++) {
 			
-			MedicalRecordSurgeryUnit surgeryUnit = new MedicalRecordSurgeryUnit();
+			SurgicalProblemUnit surgeryUnit = new SurgicalProblemUnit();
 			surgeryUnit.setProblemArea(problemAreas[i]);
 			surgeryUnit.setSurgicalRelatedProblem(medProbTexts[i]);
 			surgeryUnit.setSurgicalProcedure(medProbSurgeryTexts[i]);
