@@ -3,13 +3,8 @@ package com.empty_works.plain_emrs.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordDao {

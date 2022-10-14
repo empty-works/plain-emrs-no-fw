@@ -1,13 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordRelationsUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgeryUnit;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
-import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
 
 public class MedicalRecordBean implements PatientIdInterface {
 
