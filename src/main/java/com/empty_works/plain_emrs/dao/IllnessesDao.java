@@ -19,7 +19,7 @@ public class IllnessesDao {
 		
 		String query = "insert into illnesses(user_id, medical_record_id, illness, self, father, mother, brothers, sisters, "
 				+ "sons, daughters, grandparents) values (?,?,?,?,?,?,?,?,?,?,?)";
-		
+	 	
 		try {
 			preparedStatement = con.prepareStatement(query);
 			for(int i = 0; i < illness.getIllness().size(); i++) {

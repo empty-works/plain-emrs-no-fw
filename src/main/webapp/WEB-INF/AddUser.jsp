@@ -40,7 +40,7 @@
 			<h2 id="patientTitle">Patient Form</h2>
 			<h2 id="nonpatientTitle">Non-patient Form</h2>
 
-			<form id="addUserForm" class="content-padding" action="/AddUserServlet" method="post">
+			<form id="addUserForm" class="content-padding" action="AddUserServlet" method="post">
 				<fieldSet>
 					<legend>General: </legend>
 					<!--  User ID will be generated based on the following inputs! -->	
