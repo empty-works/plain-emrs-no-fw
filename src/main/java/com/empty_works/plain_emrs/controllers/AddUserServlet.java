@@ -23,6 +23,11 @@ import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
+import com.empty_works.plain_emrs.dao.BloodRelationsDao;
+import com.empty_works.plain_emrs.dao.DiseasesDao;
+import com.empty_works.plain_emrs.dao.IllnessesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+import com.empty_works.plain_emrs.dao.SurgicalProblemsDao;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
@@ -122,17 +127,12 @@ public class AddUserServlet extends HttpServlet {
 			String userId = PatientUsernameUtil.get(patient);
 			patient.setUserId(userId);
 			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
-			String addUserResult = AddUserDao.add(user, request.getParameter("userCurrentFacilityId"));
-			if(addUserResult.equals(AddUserDao.USERDAO_SUCCESS)) {
-				
-				// TODO:Decide what to forward to the user added successfully jsp.
-			}
-			// Set user role
-			String userRoleResult = AuthoritiesDao.add(userId, request.getParameter("roleDropdown"));
-			if(userRoleResult.equals(AuthoritiesDao.AUTHORITIESDAO_SUCCESS)) {
-				
-				// TODO:Add message for successfully adding a role for the user.
-			}
+			// Add user(patient) to database and display result.
+			System.out.println(AddUserDao.add(user, request.getParameter("userCurrentFacilityId")));
+
+			// Add user role to the database and display result. 
+			System.out.println(AuthoritiesDao.add(userId, request.getParameter("roleDropdown")));
+
 			String medicalRecordId = MedicalRecordIdUtil.get(userId);
 			// medical_records
 			medRecord = new MedicalRecordBean();
@@ -142,13 +142,17 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+			// Add medical record to database and display result.
+			System.out.println(MedicalRecordDao.add(medRecord));
 			
 			// diseases
 			diseases = new DiseasesBean();
 			diseases.setUserId(userId);
 			diseases.setMedicalRecordId(medicalRecordId);
 			diseases.setDiseases(parseDiseasesImmun(request));
-			
+			// Add diseases to database and display result.
+			System.out.println(DiseasesDao.add(diseases));
+
 			// blood_relatives
 			relations = new BloodRelationsBean();
 			relations.setUserId(userId);
@@ -163,18 +167,24 @@ public class AddUserServlet extends HttpServlet {
 			relations.setNumBrothers(Integer.parseInt(request.getParameter("BrothersAlive")));
 			relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
 			relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
+			// Add blood relations to the database and display result.
+			System.out.println(BloodRelationsDao.add(relations));
 
 			// surgical_related_problems
 			surgicalProblems = new SurgicalProblemsBean();
 			surgicalProblems.setUserId(userId);
 			surgicalProblems.setMedicalRecordId(medicalRecordId);
 			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+			// Add surgical problems to the database and display result.
+			System.out.println(SurgicalProblemsDao.add(surgicalProblems));
 			
 			// illnesses
 			illnesses = new IllnessesBean();
 			illnesses.setUserId(userId);
 			illnesses.setMedicalRecordId(medicalRecordId);
 			illnesses.setIllness(parseIllnesses(request));
+			// Add illnesses to the database and display result.
+			System.out.println(IllnessesDao.add(illnesses));
 		}
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
