@@ -15,13 +15,14 @@ import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class PatientDao {
 
-	final public static String PATIENTDAO_SUCCESS = "Success!";
+	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
 
 	public static PatientBean getPatient(PatientBean patient) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
+		// TODO: rework this!
 		String query = "SELECT patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
 				+ "patient_race, patient_ethnicity, patient_language_preference, patient_street_address, "
 				+ "patient_city, patient_state, patient_country, patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, "
@@ -185,7 +186,7 @@ public class PatientDao {
 			return thrownResult;
 		}
 		else {
-			return "Patient successfully added to database!";
+			return PATIENTDAO_SUCCESS;
 		}
 	}
 }
