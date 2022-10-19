@@ -126,9 +126,15 @@ public class AddUserServlet extends HttpServlet {
 			// Patient user ID generated based on info
 			String userId = PatientUsernameUtil.get(patient);
 			patient.setUserId(userId);
-			patient.setUserPassword(PasswordUtil.generate(PASSWORD_LENGTH));
+			String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
+			patient.setUserPassword(userPassword);
 			// Add user(patient) to database and display result.
-			System.out.println(AddUserDao.add(user, request.getParameter("userCurrentFacilityId")));
+			user.setUserId(userId);
+			user.setUserPassword(userPassword);
+			System.out.println(AddUserDao.add(user));
+			
+			// Add patient here.
+			
 
 			// Add user role to the database and display result. 
 			System.out.println(AuthoritiesDao.add(userId, request.getParameter("roleDropdown")));

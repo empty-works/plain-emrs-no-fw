@@ -13,7 +13,7 @@ public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
-	public static String add(UserBean user, String facilityId) { 
+	public static String add(UserBean user) { 
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;

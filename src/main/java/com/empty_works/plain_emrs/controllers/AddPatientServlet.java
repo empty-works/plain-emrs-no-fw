@@ -58,7 +58,7 @@ public class AddPatientServlet extends HttpServlet {
 		//pb.setPatientId(PatientIdUtil.get(givenName, lastName));
 		
 		System.out.println("Adding patient to the database...");
-		String patientAddResult = PatientDao.insert(pb);
+		String patientAddResult = PatientDao.add(pb);
 		if(patientAddResult.equals(PatientDao.PATIENTDAO_SUCCESS)) {
 			
 			System.out.println("Patient successfully added to the database!");

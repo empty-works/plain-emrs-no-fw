@@ -30,6 +30,7 @@ public class PatientSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		/*
 		String patientId = "";
 		String testId = request.getParameter("patientId");
 		System.out.println("Test Patient ID: " + testId);
@@ -42,5 +43,6 @@ public class PatientSearchServlet extends HttpServlet {
 		}
 		request.setAttribute("patientIdCheck", patientId);
 		doGet(request, response);
+		*/
 	}
 }

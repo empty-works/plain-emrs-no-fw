@@ -17,24 +17,23 @@ public class PatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Success!";
 
-	public static PatientBean getPatient(String patientId) {
+	public static PatientBean getPatient(PatientBean patient) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "SELECT patient_given_name, patient_middle_initial, patient_last_name, patient_date_of_birth, "
-				+ "patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
+		String query = "SELECT patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
 				+ "patient_race, patient_ethnicity, patient_language_preference, patient_street_address, "
-				+ "patient_city, patient_state, patient_country, patient_phone_number, patient_facility_id"
+				+ "patient_city, patient_state, patient_country, patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, "
+				+ "patient_marital_status, patient_living_arrangement, patient_is_adopted"
 				+ " FROM patients WHERE patient_id=?";
 		
 		System.out.println("Patient get query: " + query);
 		
-		PatientBean patient = new PatientBean();
 		try {
 
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, patientId);
+			preparedStatement.setString(1, patient.getUserId());
 			ResultSet resultSet = preparedStatement.executeQuery();
 			// Check if the result set is empty.
 			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
@@ -119,73 +118,69 @@ public class PatientDao {
 	
 	/**
 	 * 
-	 * @param pb
+	 * @param patient
 	 * @return
+	 * @throws SQLException 
 	 */
-	public static String insert(PatientBean pb) {
+	public static String add(PatientBean patient) throws SQLException {
 		
-		//String id = pb.getPatientId();
-		//String givenName = pb.getGivenName();
-		String middleInitial = pb.getMiddleInitial();
-		String lastName = pb.getLastName();
-		//LocalDate dateOfBirth = pb.getDateOfBirth(); 
-		String gender = pb.getCurrentGender();
-		String type = pb.getType();
-		//String race = pb.getRace();
-		String ethnicity = pb.getEthnicity();
-		String streetAddress = pb.getStreetAddress();
-		String city = pb.getCity();
-		String state = pb.getState();
-		String country = pb.getCountry();
-		String phoneNumber = pb.getPhoneNumber();
-		String provider = pb.getProvider();
-		String providerId = pb.getProviderId();
-		String roomNumber = pb.getRoomNumber();
-		String languagePreference = pb.getLanguagePreference();
-		String facilityId = pb.getFacilityId();
+		String patientQuery = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
+				+ "patient_type, patient_language_reference, patient_street_address, patient_city, patient_state, patient_country, "
+				+ "patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, "
+				+ "patient_is_adopted) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		String patientRaceQuery = "INSERT INTO patient_races(patients_user_id, patient_race) values(?,?)";
 		
-		String query = "INSERT INTO patients(patient_id, patient_given_name, patient_middle_initial, patient_last_name, patient_date_of_birth, "
-				+ "patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, patient_race, patient_ethnicity, "
-				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
-				+ "patient_facility_id) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		boolean exceptionThrown = false;
+		String thrownResult = "";
 		
-		try {
+		// Using try-with-resources to insert into multiple tables.
+		try (Connection con = ConnectionUtil.getConnection()) {
+			
+			try (PreparedStatement preparedStatement = con.prepareStatement(patientQuery)) {
+				
+				preparedStatement.setString(1, patient.getUserId());
+				preparedStatement.setString(2, patient.getProvider());
+				preparedStatement.setString(3, patient.getProviderId());
+				preparedStatement.setString(4, patient.getRoomNumber());
+				preparedStatement.setString(5, patient.getCurrentGender());
+				preparedStatement.setString(6, patient.getType());
+				preparedStatement.setString(7, patient.getLanguagePreference());
+				preparedStatement.setString(8, patient.getStreetAddress());
+				preparedStatement.setString(9, patient.getCity());
+				preparedStatement.setString(10, patient.getCountry());
+				preparedStatement.setString(11, patient.getPhoneNumber());
+				preparedStatement.setString(12, patient.getGenderAtBirth());
+				preparedStatement.setString(13, patient.getSexualOrientation());
+				preparedStatement.setString(14, patient.getMaritalStatus());
+				preparedStatement.setString(15, patient.getLivingArrangement());
+				preparedStatement.setBoolean(16, patient.isAdopted());
+			}
+			catch(SQLException e) {
+				
+				exceptionThrown = true;
+				thrownResult = "Could not add patient to patients table! ";
+			}
 
-			preparedStatement = con.prepareStatement(query);
-			//preparedStatement.setString(1, id);
-			//preparedStatement.setString(2, givenName);
-			preparedStatement.setString(3, middleInitial);
-			preparedStatement.setString(4, lastName);
-			//preparedStatement.setObject(5, dateOfBirth);
-			preparedStatement.setString(6, provider);
-			preparedStatement.setString(7, providerId);
-			preparedStatement.setString(8, roomNumber);
-			preparedStatement.setString(9, gender);
-			preparedStatement.setString(10, type);
-			//preparedStatement.setString(11, race);
-			preparedStatement.setString(12, ethnicity);
-			preparedStatement.setString(13, languagePreference);
-			preparedStatement.setString(14, streetAddress);
-			preparedStatement.setString(15, city);
-			preparedStatement.setString(16, state);
-			preparedStatement.setString(17, country);
-			preparedStatement.setString(18, phoneNumber);
-			preparedStatement.setString(19, facilityId);
-			
-			int i = preparedStatement.executeUpdate();
-			if(i != 0) return PATIENTDAO_SUCCESS;
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
+			try (PreparedStatement preparedStatement = con.prepareStatement(patientRaceQuery)) {
+				
+				for(int i = 0; i < patient.getRaces().size(); i++) {
+					
+					preparedStatement.setString(1, patient.getUserId());
+					preparedStatement.setString(2, patient.getRaces().get(i));
+				}
+			}
+			catch(SQLException e) {
+				
+				exceptionThrown = true;
+				thrownResult += "Could not add patient to patients table!";
+			}
+		}	
+		if(exceptionThrown) {
+			return thrownResult;
 		}
-		finally {
-			
-			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		else {
+			return "Patient successfully added to database!";
 		}
-		
-		return "Something went wrong registering the patient into the database...";
 	}
 }
