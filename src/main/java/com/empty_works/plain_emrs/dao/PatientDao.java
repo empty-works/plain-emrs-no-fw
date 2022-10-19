@@ -122,7 +122,7 @@ public class PatientDao {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public static String add(PatientBean patient) throws SQLException {
+	public static String add(PatientBean patient) {
 		
 		String patientQuery = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
 				+ "patient_type, patient_language_reference, patient_street_address, patient_city, patient_state, patient_country, "
@@ -173,9 +173,14 @@ public class PatientDao {
 			catch(SQLException e) {
 				
 				exceptionThrown = true;
-				thrownResult += "Could not add patient to patients table!";
+				thrownResult += "Could not add patient to patients table! ";
 			}
 		}	
+		catch(SQLException e) {
+			
+			exceptionThrown = true;
+			thrownResult += "Something went wrong with connection for adding a patient.";
+		}
 		if(exceptionThrown) {
 			return thrownResult;
 		}
