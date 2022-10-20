@@ -106,12 +106,16 @@ public class UserDao {
 	
 	public static String add(UserBean user) {
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		
-		String query = QueryUtil.insert("users", "user_name", "user_password", "user_email_address", "user_enabled", "user_created_on", 
+		String userQuery = QueryUtil.insert("users", "user_name", "user_password", "user_email_address", "user_enabled", "user_created_on", 
 				"patient_id", "nonpatient_id", "current_facility_id");
 		
+		try (Connection con = ConnectionUtil.getConnection()) {
+			
+			try (PreparedStatement preparedStatement = con.prepareStatement(userQuery)) {
+		
+				
+			}
+		}
 		try {
 
 			preparedStatement = con.prepareStatement(query);

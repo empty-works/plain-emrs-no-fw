@@ -15,36 +15,50 @@ public class AddUserDao {
 	
 	public static String add(UserBean user) { 
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		String queryUser = "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
+				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 		
-		String queryUser = "insert into users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
-				+ "user_date_of_birth, "
-				+ "user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
+		String queryRole = "INSERT INTO authorities(user_id, authority) values (?,?)";
 		
-		try {
-			preparedStatement = con.prepareStatement(queryUser);
-			preparedStatement.setString(1, user.getUserId());
-			preparedStatement.setString(2, user.getUserPassword());
-			preparedStatement.setString(3, user.getEmailAddress());
-			preparedStatement.setBoolean(4, user.isUserEnabled());
-			preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(user.getDateCreated()));
-			preparedStatement.setString(6, user.getCurrentFacilityId());
-			preparedStatement.setDate(7, java.sql.Date.valueOf(user.getDateOfBirth()));
-			preparedStatement.setString(8, user.getFirstName());
-			preparedStatement.setString(9, user.getMiddleInitial());
-			preparedStatement.setString(10, user.getLastName());
+		String queryUserLog = "";
 
-			int i = preparedStatement.executeUpdate();
-			if(i != 0) return USERDAO_SUCCESS;
+		boolean exceptionThrown = false;
+		String thrownResult = "";
+		
+		try (Connection con = ConnectionUtil.getConnection()) {
 			
-		} catch(SQLException e) {
-			
-			e.printStackTrace();
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryUser)) {
+				
+				preparedStatement.setString(1, user.getUserId());
+				preparedStatement.setString(2, user.getUserPassword());
+				preparedStatement.setString(3, user.getEmailAddress());
+				preparedStatement.setBoolean(4, user.isUserEnabled());
+				preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(user.getDateCreated()));
+				preparedStatement.setString(6, user.getCurrentFacilityId());
+				preparedStatement.setDate(7, java.sql.Date.valueOf(user.getDateOfBirth()));
+				preparedStatement.setString(8, user.getFirstName());
+				preparedStatement.setString(9, user.getMiddleInitial());
+				preparedStatement.setString(10, user.getLastName());
+			}
+			catch (SQLException e) {
+				
+				exceptionThrown = true;
+				thrownResult = "Could not add user to users table!";
+			}
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryRole)) {
+				
+				preparedStatement.setString(1, user.getUserId());
+				preparedStatement.setString(2, user.getRole());
+			}
+			catch (SQLException e) {
+				
+				exceptionThrown = true;
+				thrownResult = "Could not add role to authorities table!";
+			}
 		}
-		finally {
+		catch (SQLException e) {
 			
-			ConnectionUtil.closeConnection(con, preparedStatement, null);
+			
 		}
 		
 		return "Something went wrong. Could not add user.";
