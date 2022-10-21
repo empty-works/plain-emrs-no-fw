@@ -22,6 +22,7 @@ import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
+import com.empty_works.plain_emrs.beans.UserLoginLogBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
 import com.empty_works.plain_emrs.dao.BloodRelationsDao;
@@ -90,6 +91,7 @@ public class AddUserServlet extends HttpServlet {
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
 		UserAccessLogBean userAccess;
+		UserLoginLogBean userLogin;
 		MedicalRecordBean medRecord;
 		DiseasesBean diseases;
 		BloodRelationsBean relations;
@@ -127,14 +129,28 @@ public class AddUserServlet extends HttpServlet {
 			patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
 			// Patient user ID generated based on info
 			String userId = PatientUsernameUtil.get(patient);
+			// Generate medical record ID based on the newly generated user ID.
+			String medicalRecordId = MedicalRecordIdUtil.get(userId);
+
 			patient.setUserId(userId);
 			String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
 			patient.setUserPassword(userPassword);
 			// Add user(patient) to database and display result.
 			user.setUserId(userId);
 			user.setUserPassword(userPassword);
-			System.out.println(AddUserDao.add(user));
+
+			// User access log
+			userAccess = new UserAccessLogBean();
+			userAccess.setUserId(userId);
+			userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
+			userAccess.setMedicalRecordId(medicalRecordId);
 			
+			// User login log
+			userLogin = new UserLoginLogBean();
+			userLogin.setUserId(userId);
+			userLogin.setUserDateTimeOfVisit(LocalDateTime.now());
+			
+			System.out.println(AddUserDao.add(user, userAccess, userLogin));
 			
 			// Add patient here.
 			
@@ -142,7 +158,6 @@ public class AddUserServlet extends HttpServlet {
 			// Add user role to the database and display result. 
 			System.out.println(AuthoritiesDao.add(userId, request.getParameter("roleDropdown")));
 
-			String medicalRecordId = MedicalRecordIdUtil.get(userId);
 			// medical_records
 			medRecord = new MedicalRecordBean();
 			medRecord.setUserId(userId);
@@ -195,11 +210,6 @@ public class AddUserServlet extends HttpServlet {
 			// Add illnesses to the database and display result.
 			System.out.println(IllnessesDao.add(illnesses));
 			
-			// User access log
-			userAccess = new UserAccessLogBean();
-			userAccess.setUserId(userId);
-			userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
-			userAccess.setMedicalRecordId(medicalRecordId);
 		}
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}

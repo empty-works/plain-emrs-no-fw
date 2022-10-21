@@ -8,22 +8,23 @@ import java.time.LocalDateTime;
 
 import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
+import com.empty_works.plain_emrs.beans.UserLoginLogBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
-	public static String add(UserBean user, UserAccessLogBean userAccess) { 
+	public static String add(UserBean user, UserAccessLogBean userAccess, UserLoginLogBean userLogin) { 
 		
 		String queryUser = "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
 				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		String queryRole = "INSERT INTO authorities(user_id, authority) values (?,?)";
 		
-		String queryUserLog = "INSERT INTO user_access_logs(user_id, user_date_time_of_access, medical_record_id) values (?,?,?)";
+		String queryUserAccessLog = "INSERT INTO user_access_logs(user_id, user_date_time_of_access, medical_record_id) values (?,?,?)";
 		
-		String 
+		String queryUserLoginLog = "INSERT INTO user_login_logs(user_id, user_date_time_of_visit) values (?,?)"; 
 
 		boolean exceptionThrown = false;
 		String thrownResult = "";
@@ -58,7 +59,7 @@ public class AddUserDao {
 				exceptionThrown = true;
 				thrownResult = "Could not add role to authorities table!";
 			}
-			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLog)) {
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserAccessLog)) {
 				
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userAccess.getUserDateTimeOfAccess()));
@@ -68,6 +69,10 @@ public class AddUserDao {
 				
 				exceptionThrown = true;
 				thrownResult = "Could not add user access log to user_access_logs table!";
+			}
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLoginLog)) {
+				
+				
 			}
 		}
 		catch (SQLException e) {
