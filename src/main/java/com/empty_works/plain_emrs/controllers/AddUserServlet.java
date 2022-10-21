@@ -21,6 +21,7 @@ import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserAccessLogBean;
+import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.beans.UserLoginLogBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
@@ -92,6 +93,7 @@ public class AddUserServlet extends HttpServlet {
 		PatientBean patient; // Instantiated if user is a new patient.
 		UserAccessLogBean userAccess;
 		UserLoginLogBean userLogin;
+		UserActivityLogBean userActivity;
 		MedicalRecordBean medRecord;
 		DiseasesBean diseases;
 		BloodRelationsBean relations;
@@ -135,6 +137,7 @@ public class AddUserServlet extends HttpServlet {
 			patient.setUserId(userId);
 			String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
 			patient.setUserPassword(userPassword);
+
 			// Add user(patient) to database and display result.
 			user.setUserId(userId);
 			user.setUserPassword(userPassword);
@@ -150,10 +153,16 @@ public class AddUserServlet extends HttpServlet {
 			userLogin.setUserId(userId);
 			userLogin.setUserDateTimeOfVisit(LocalDateTime.now());
 			
+			// User activity log
+			userActivity = new UserActivityLogBean();
+			userActivity.setUserId(userId);
+			userActivity.setMedicalRecordId(medicalRecordId);
+			userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
+			userActivity.setActivityDescription("Medical record created.");
+			
 			System.out.println(AddUserDao.add(user, userAccess, userLogin));
 			
 			// Add patient here.
-			
 
 			// Add user role to the database and display result. 
 			System.out.println(AuthoritiesDao.add(userId, request.getParameter("roleDropdown")));
@@ -166,6 +175,7 @@ public class AddUserServlet extends HttpServlet {
 			medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+
 			// Add medical record to database and display result.
 			System.out.println(MedicalRecordDao.add(medRecord));
 			
@@ -174,6 +184,7 @@ public class AddUserServlet extends HttpServlet {
 			diseases.setUserId(userId);
 			diseases.setMedicalRecordId(medicalRecordId);
 			diseases.setDiseases(parseDiseasesImmun(request));
+
 			// Add diseases to database and display result.
 			System.out.println(DiseasesDao.add(diseases));
 
@@ -191,6 +202,7 @@ public class AddUserServlet extends HttpServlet {
 			relations.setNumBrothers(Integer.parseInt(request.getParameter("BrothersAlive")));
 			relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
 			relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
+
 			// Add blood relations to the database and display result.
 			System.out.println(BloodRelationsDao.add(relations));
 
@@ -199,6 +211,7 @@ public class AddUserServlet extends HttpServlet {
 			surgicalProblems.setUserId(userId);
 			surgicalProblems.setMedicalRecordId(medicalRecordId);
 			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+
 			// Add surgical problems to the database and display result.
 			System.out.println(SurgicalProblemsDao.add(surgicalProblems));
 			
@@ -207,6 +220,7 @@ public class AddUserServlet extends HttpServlet {
 			illnesses.setUserId(userId);
 			illnesses.setMedicalRecordId(medicalRecordId);
 			illnesses.setIllness(parseIllnesses(request));
+
 			// Add illnesses to the database and display result.
 			System.out.println(IllnessesDao.add(illnesses));
 			
