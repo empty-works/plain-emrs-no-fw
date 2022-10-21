@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
@@ -13,7 +14,7 @@ public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
-	public static String add(UserBean user) { 
+	public static String add(UserBean user, UserAccessLogBean userAccess) { 
 		
 		String queryUser = "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
 				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
@@ -21,6 +22,8 @@ public class AddUserDao {
 		String queryRole = "INSERT INTO authorities(user_id, authority) values (?,?)";
 		
 		String queryUserLog = "INSERT INTO user_access_logs(user_id, user_date_time_of_access, medical_record_id) values (?,?,?)";
+		
+		String 
 
 		boolean exceptionThrown = false;
 		String thrownResult = "";
@@ -58,7 +61,8 @@ public class AddUserDao {
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLog)) {
 				
 				preparedStatement.setString(1, user.getUserId());
-				
+				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userAccess.getUserDateTimeOfAccess()));
+				preparedStatement.setString(3, userAccess.getMedicalRecordId());
 			}
 			catch (SQLException e) {
 				

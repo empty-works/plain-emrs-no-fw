@@ -20,6 +20,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
+import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
@@ -88,6 +89,7 @@ public class AddUserServlet extends HttpServlet {
 
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
+		UserAccessLogBean userAccess;
 		MedicalRecordBean medRecord;
 		DiseasesBean diseases;
 		BloodRelationsBean relations;
@@ -132,6 +134,7 @@ public class AddUserServlet extends HttpServlet {
 			user.setUserId(userId);
 			user.setUserPassword(userPassword);
 			System.out.println(AddUserDao.add(user));
+			
 			
 			// Add patient here.
 			
@@ -191,6 +194,12 @@ public class AddUserServlet extends HttpServlet {
 			illnesses.setIllness(parseIllnesses(request));
 			// Add illnesses to the database and display result.
 			System.out.println(IllnessesDao.add(illnesses));
+			
+			// User access log
+			userAccess = new UserAccessLogBean();
+			userAccess.setUserId(userId);
+			userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
+			userAccess.setMedicalRecordId(medicalRecordId);
 		}
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
