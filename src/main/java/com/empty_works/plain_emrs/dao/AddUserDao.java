@@ -20,7 +20,7 @@ public class AddUserDao {
 		
 		String queryRole = "INSERT INTO authorities(user_id, authority) values (?,?)";
 		
-		String queryUserLog = "";
+		String queryUserLog = "INSERT INTO user_access_logs(user_id, user_date_time_of_access, medical_record_id) values (?,?,?)";
 
 		boolean exceptionThrown = false;
 		String thrownResult = "";
@@ -55,12 +55,26 @@ public class AddUserDao {
 				exceptionThrown = true;
 				thrownResult = "Could not add role to authorities table!";
 			}
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLog)) {
+				
+				preparedStatement.setString(1, user.getUserId());
+				
+			}
+			catch (SQLException e) {
+				
+				exceptionThrown = true;
+				thrownResult = "Could not add user access log to user_access_logs table!";
+			}
 		}
 		catch (SQLException e) {
 			
-			
+			exceptionThrown = true;
+			thrownResult = "Connection failed in user DAO.";
 		}
-		
-		return "Something went wrong. Could not add user.";
+		if(exceptionThrown) {
+			
+			return thrownResult;
+		}
+		return USERDAO_SUCCESS;
 	}
 }
