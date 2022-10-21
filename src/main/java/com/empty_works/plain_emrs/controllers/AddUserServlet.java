@@ -160,7 +160,7 @@ public class AddUserServlet extends HttpServlet {
 			userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
 			userActivity.setActivityDescription("Medical record created.");
 			
-			System.out.println(AddUserDao.add(user, userAccess, userLogin));
+			System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity));
 			
 			// Add patient here.
 

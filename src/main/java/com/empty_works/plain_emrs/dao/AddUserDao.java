@@ -74,7 +74,11 @@ public class AddUserDao {
 				exceptionThrown = true;
 				thrownResult = "Could not add user access log to user_access_logs table!";
 			}
-			
+			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLoginLog)) {
+				
+				preparedStatement.setString(1, userLogin.getUserId());
+				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userLogin.getUserDateTimeOfVisit()));
+			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserActivity)) {
 				
 				preparedStatement.setString(1, userActivity.getUserId());
