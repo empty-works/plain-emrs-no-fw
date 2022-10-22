@@ -86,30 +86,30 @@
 								<label for="${raceOption.getRaceId()}">${raceOption.getRaceName()}</label>	
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == asian}">
-										<select id="asianEthnDropdown">
+										<select id="asianEthnDropdown" name="asianEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${asianEthnList}" var="asianEthn">
-												<option><c:out value="${asianEthn.getRaceName()}"></c:out></option>	
+												<option value="${asianEthn.getRaceName()}"><c:out value="${asianEthn.getRaceName()}"></c:out></option>	
 											</c:forEach>
 										</select>	
 									</c:when>
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == hiLa}">
-										<select id="hisLatinEthnDropdown">
+										<select id="hisLatinEthnDropdown" name="hisLatinEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${hisLatEthnList}" var="hisLatEthn">
-												<option><c:out value="${hisLatEthn.getRaceName()}"></c:out></option>	
+												<option value="${hisLatEthn.getRaceName()}"><c:out value="${hisLatEthn.getRaceName()}"></c:out></option>	
 											</c:forEach>
 										</select>	
 									</c:when>
 								</c:choose>
 								<c:choose>
 									<c:when test="${raceOption.getRaceId() == naHaPaIs}">
-										<select id="pacIslEthnDropdown">
+										<select id="pacIslEthnDropdown" name="pacIslEthnDropdown">
 											<option selected="selected">Unknown</option>
 											<c:forEach items="${pacifIslEthnList}" var="pacIslEthn">
-												<option><c:out value="${pacIslEthn.getRaceName()}"></c:out></option>	
+												<option value="${pacIslEthn.getRaceName()}"><c:out value="${pacIslEthn.getRaceName()}"></c:out></option>	
 											</c:forEach>
 										</select>	
 									</c:when>
@@ -313,7 +313,7 @@
 				<div>
 					<select id="roleDropdown" name="roleDropdown">
 						<c:forEach items="${roleList}" var="userRole">
-							<option><c:out value="${userRole.getRole()}" /></option>
+							<option value="${userRole.getRole()}"><c:out value="${userRole.getRole()}" /></option>
 						</c:forEach>
 					</select>
 				</div>

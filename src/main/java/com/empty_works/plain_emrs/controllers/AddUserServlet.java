@@ -112,7 +112,10 @@ public class AddUserServlet extends HttpServlet {
 		user.setRole(request.getParameter("roleDropdown"));
 		request.setAttribute("userBean", user);
 		
-		if(request.getAttribute("patientFormSubmitButton") == "isPatient") {
+		System.out.println("patientConditionDropdown - " + request.getParameter("patientConditionDropdown"));
+		System.out.println("asianEthnDropdown - " + request.getParameter("asianEthnDropdown"));
+		System.out.println("roleDropdown - " + request.getParameter("roleDropdown"));
+		if(request.getAttribute("patientFormSubmitButton") == "Patient") {
 			
 			patient = new PatientBean();
 			patient.setStreetAddress(request.getParameter("patientStreetAddress"));

@@ -109,15 +109,8 @@ public class UserDao {
 		String userQuery = QueryUtil.insert("users", "user_name", "user_password", "user_email_address", "user_enabled", "user_created_on", 
 				"patient_id", "nonpatient_id", "current_facility_id");
 		
-		try (Connection con = ConnectionUtil.getConnection()) {
-			
-			try (PreparedStatement preparedStatement = con.prepareStatement(userQuery)) {
-		
-				
-			}
-		}
+		/*
 		try {
-
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, user.getUserId());
 			short passwordLength = 7;
@@ -137,9 +130,9 @@ public class UserDao {
 		}
 		finally {
 			
-			ConnectionUtil.closeConnection(con, preparedStatement, null);
+			//ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
-		
+			*/
 		return "Something went wrong. User could not be added to the database!";
 	}
 }
