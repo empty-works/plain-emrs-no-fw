@@ -37,6 +37,7 @@ public class AddUserDao {
 			
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUser)) {
 				
+				System.out.println("Adding user...");
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setString(2, user.getUserPassword());
 				preparedStatement.setString(3, user.getEmailAddress());
@@ -55,6 +56,7 @@ public class AddUserDao {
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryRole)) {
 				
+				System.out.println("Adding role to authorities table...");
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setString(2, user.getRole());
 			}
@@ -65,6 +67,7 @@ public class AddUserDao {
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserAccessLog)) {
 				
+				System.out.println("Adding user access log...");
 				preparedStatement.setString(1, userAccess.getUserId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userAccess.getUserDateTimeOfAccess()));
 				preparedStatement.setString(3, userAccess.getMedicalRecordId());
@@ -76,11 +79,13 @@ public class AddUserDao {
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLoginLog)) {
 				
+				System.out.println("Adding user login log...");
 				preparedStatement.setString(1, userLogin.getUserId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userLogin.getUserDateTimeOfVisit()));
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserActivity)) {
 				
+				System.out.println("Adding user activity log...");
 				preparedStatement.setString(1, userActivity.getUserId());
 				preparedStatement.setString(2, userActivity.getMedicalRecordId());
 				preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(userActivity.getUserDateTimeOfActivity()));

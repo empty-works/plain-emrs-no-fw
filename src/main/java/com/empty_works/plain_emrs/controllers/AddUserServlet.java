@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.beans.UserLoginLogBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
@@ -91,6 +93,7 @@ public class AddUserServlet extends HttpServlet {
 
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
+		UserAuthorityBean userAuthority;
 		UserAccessLogBean userAccess;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
@@ -110,12 +113,13 @@ public class AddUserServlet extends HttpServlet {
 		user.setLastName(request.getParameter("userLastName"));
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
 		user.setRole(request.getParameter("roleDropdown"));
+		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
 		
 		System.out.println("patientConditionDropdown - " + request.getParameter("patientConditionDropdown"));
 		System.out.println("asianEthnDropdown - " + request.getParameter("asianEthnDropdown"));
 		System.out.println("roleDropdown - " + request.getParameter("roleDropdown"));
-		if(request.getAttribute("patientFormSubmitButton") == "Patient") {
+		if(request.getParameter("roleDropdown").equals("Patient")) {
 			
 			patient = new PatientBean();
 			patient.setStreetAddress(request.getParameter("patientStreetAddress"));
@@ -136,14 +140,20 @@ public class AddUserServlet extends HttpServlet {
 			String userId = PatientUsernameUtil.get(patient);
 			// Generate medical record ID based on the newly generated user ID.
 			String medicalRecordId = MedicalRecordIdUtil.get(userId);
-
-			patient.setUserId(userId);
 			String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
-			patient.setUserPassword(userPassword);
 
 			// Add user(patient) to database and display result.
 			user.setUserId(userId);
 			user.setUserPassword(userPassword);
+
+			// Add patient here.
+			patient.setUserId(userId);
+			patient.setUserPassword(userPassword);
+			
+			// User authority
+			userAuthority = new UserAuthorityBean();
+			userAuthority.setId(userId);
+			userAuthority.setName(request.getParameter("roleDropdown"));
 
 			// User access log
 			userAccess = new UserAccessLogBean();
@@ -164,13 +174,9 @@ public class AddUserServlet extends HttpServlet {
 			userActivity.setActivityDescription("Medical record created.");
 			
 			System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity));
-			
-			// Add patient here.
-
-			// Add user role to the database and display result. 
-			System.out.println(AuthoritiesDao.add(userId, request.getParameter("roleDropdown")));
 
 			// medical_records
+			System.out.println("Adding medical record...");
 			medRecord = new MedicalRecordBean();
 			medRecord.setUserId(userId);
 			medRecord.setMedicalRecordId(medicalRecordId);
@@ -285,6 +291,7 @@ public class AddUserServlet extends HttpServlet {
 		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
 		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
 			
+			System.out.println("Disease - " + disease);
 			String result = request.getParameter(disease.getDiseaseId() + "immuDiseaseRadio");
 			if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
 				

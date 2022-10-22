@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.dao.RoleDao;
 
 /**
@@ -32,7 +32,7 @@ public class RolesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<RoleBean> roles = new ArrayList<>();
+		List<UserAuthorityBean> roles = new ArrayList<>();
 		roles = RoleDao.getList();
 		request.setAttribute("rolesList", roles);
 		request.getRequestDispatcher("/WEB-INF/Role.jsp").forward(request, response);

@@ -1,12 +1,12 @@
 package com.empty_works.plain_emrs.util;
 
-import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.util.helpers.IdUtil;
 
 public class RoleIdUtil {
 
-	final public static String get(RoleBean rb) {
-		
+	final public static String get(UserAuthorityBean rb) {
+/*		
 		String id;
 		if(rb.getGroup().equals("")) {
 			
@@ -18,6 +18,8 @@ public class RoleIdUtil {
 		}
 		
 		return "ROLE-" + id;
+		*/
+		return "";
 	}
 	
 	final public static String get(String facId, String roleName) {

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.dao.RoleDao;
 
 /**
@@ -38,11 +38,11 @@ public class RoleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RoleBean rb = new RoleBean();
+		UserAuthorityBean rb = new UserAuthorityBean();
 		rb.setId(request.getParameter("roleId"));
 		rb.setName(request.getParameter("roleName"));
-		rb.setGroup(request.getParameter("roleGroup"));
-		rb.setDescription(request.getParameter("roleDescription"));
+		//rb.setGroup(request.getParameter("roleGroup"));
+		//rb.setDescription(request.getParameter("roleDescription"));
 		
 		String result = RoleDao.add(rb, request.getParameter("facId"));
 		System.out.println("RoleServlet result = " + result);

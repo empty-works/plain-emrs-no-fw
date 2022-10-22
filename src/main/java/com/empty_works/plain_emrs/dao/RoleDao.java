@@ -8,7 +8,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 import com.empty_works.plain_emrs.util.FacilityRoleIdUtil;
 import com.empty_works.plain_emrs.util.RoleIdUtil;
@@ -17,12 +17,12 @@ public class RoleDao {
 
 	public static String ROLEDAO_SUCCESS = "Success";
 	
-	public static String add(RoleBean rb, String facilityId) {
+	public static String add(UserAuthorityBean rb, String facilityId) {
 		
 		String message = "There was a problem writing the role to the database.";
 		String roleName = rb.getName();
-		String roleGroup = rb.getGroup();
-		String roleDescription = rb.getDescription();
+		//String roleGroup = rb.getGroup();
+		//String roleDescription = rb.getDescription();
 		String roleId = RoleIdUtil.get(facilityId, roleName);
 		String facilityRoleId = FacilityRoleIdUtil.get(facilityId, roleName);
 		
@@ -38,8 +38,8 @@ public class RoleDao {
 			roleStatement = con.prepareStatement(roleQuery);
 			roleStatement.setString(1, roleId);
 			roleStatement.setString(2, roleName);
-			roleStatement.setString(3, roleGroup);
-			roleStatement.setString(4, roleDescription);
+			//roleStatement.setString(3, roleGroup);
+			//roleStatement.setString(4, roleDescription);
 
 			int roleSuccess = roleStatement.executeUpdate();
 			
@@ -67,9 +67,9 @@ public class RoleDao {
 		return message;
 	}
 	
-	public static List<RoleBean> getList() {
+	public static List<UserAuthorityBean> getList() {
 		
-		List<RoleBean> roles = new ArrayList<>();
+		List<UserAuthorityBean> roles = new ArrayList<>();
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		try {
@@ -78,11 +78,11 @@ public class RoleDao {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				
-				RoleBean rb = new RoleBean();
+				UserAuthorityBean rb = new UserAuthorityBean();
 				rb.setId(resultSet.getString("role_id"));
 				rb.setName(resultSet.getString("role_name"));
-				rb.setGroup(resultSet.getString("role_group"));
-				rb.setDescription(resultSet.getString("role_description"));
+				//rb.setGroup(resultSet.getString("role_group"));
+				//rb.setDescription(resultSet.getString("role_description"));
 				roles.add(rb);
 			}
 		} catch (SQLException e) {

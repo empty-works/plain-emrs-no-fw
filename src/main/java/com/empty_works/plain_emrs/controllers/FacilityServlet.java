@@ -14,7 +14,7 @@ import com.empty_works.plain_emrs.beans.FacilityBean;
 import com.empty_works.plain_emrs.beans.FacilityStaffPositionBean;
 import com.empty_works.plain_emrs.beans.FacilityStaffSpecialtyBean;
 import com.empty_works.plain_emrs.beans.FacilityWardBean;
-import com.empty_works.plain_emrs.beans.RoleBean;
+import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.dao.FacilityDao;
 import com.empty_works.plain_emrs.dao.FacilityPositionDao;
 import com.empty_works.plain_emrs.dao.FacilitySpecialtyDao;
@@ -56,7 +56,7 @@ public class FacilityServlet extends HttpServlet {
 		request.setAttribute("facilitySpecialtyList", fssbList);
 		
 		// Facility-specific roles
-		List<RoleBean> roles = new ArrayList<>();
+		List<UserAuthorityBean> roles = new ArrayList<>();
 		roles = RoleDao.getList();
 		request.setAttribute("rolesList", roles);
 		
