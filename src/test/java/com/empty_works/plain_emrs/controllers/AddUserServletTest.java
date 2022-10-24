@@ -37,7 +37,7 @@ public class AddUserServletTest {
 			}
 		};
 		
-		List<String> result = AddUserServlet.parseRaces(request);
+		List<String> result = AddUserPatientServlet.parseRaces(request);
 		System.out.println(result);
 		assertIterableEquals(expected, result);
 	}
@@ -64,7 +64,7 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = new ArrayList<>();
-		List<MedicalRecordDiseaseUnit> diseases = AddUserServlet.parseDiseasesImmun(request);
+		List<MedicalRecordDiseaseUnit> diseases = AddUserPatientServlet.parseDiseasesImmun(request);
 		for(MedicalRecordDiseaseUnit disease : diseases) {
 		
 			result.add(disease.getDiseaseName());
@@ -106,7 +106,7 @@ public class AddUserServletTest {
 		List<String> surgRelatedResult = new ArrayList<>();
 		List<String> surgProceduresResult = new ArrayList<>();
 		List<String> surgProceduresYearsResult = new ArrayList<>();
-		List<SurgicalProblemUnit> parsedMedProblems = AddUserServlet.parseSurgeries(request);
+		List<SurgicalProblemUnit> parsedMedProblems = AddUserPatientServlet.parseSurgeries(request);
 		for(SurgicalProblemUnit parsedMedProblem : parsedMedProblems) {
 			
 			probAreaResult.add(parsedMedProblem.getProblemArea());
@@ -170,7 +170,7 @@ public class AddUserServletTest {
 		when(request.getParameter("AsthmafamilyConditionSons")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionDaughters")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionGrandparents")).thenReturn("true");
-		conditions = AddUserServlet.parseIllnesses(request);
+		conditions = AddUserPatientServlet.parseIllnesses(request);
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
 		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.BROTHERS);

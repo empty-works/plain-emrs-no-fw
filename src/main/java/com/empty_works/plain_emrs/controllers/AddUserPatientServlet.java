@@ -52,8 +52,8 @@ import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
 /**
  * Servlet implementation class AddUserServlet
  */
-@WebServlet("/AddUserServlet")
-public class AddUserServlet extends HttpServlet {
+@WebServlet("/AddUserPatientServlet")
+public class AddUserPatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	final private short PASSWORD_LENGTH = 14;
        
@@ -149,6 +149,7 @@ public class AddUserServlet extends HttpServlet {
 			// Add patient here.
 			patient.setUserId(userId);
 			patient.setUserPassword(userPassword);
+
 			
 			// User authority
 			userAuthority = new UserAuthorityBean();
