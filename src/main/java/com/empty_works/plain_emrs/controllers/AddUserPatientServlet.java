@@ -102,7 +102,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		BloodRelationsBean relations;
 		SurgicalProblemsBean surgicalProblems;
 		IllnessesBean illnesses;
-		NonPatientBean nonPatient;
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));

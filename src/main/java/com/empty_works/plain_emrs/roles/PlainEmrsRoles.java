@@ -5,6 +5,15 @@ import java.util.List;
 
 public class PlainEmrsRoles {
 
+	public static RolePair ROLE_ADMIN = new RolePair("ROLE_ADMIN", "Admin");
+	public static RolePair ROLE_PATIENT = new RolePair("ROLE_PATIENT", "Patient");
+	public static RolePair ROLE_DOCTOR = new RolePair("ROLE_DOCTOR", "Doctor");
+	public static RolePair ROLE_NURSE = new RolePair("ROLE_NURSE", "Nurse");
+	public static RolePair ROLE_ALLIED_MED_STAFF = new RolePair("ROLE_ALLIED_MED_STAFF", "Allied Medical Staff");
+	public static RolePair ROLE_PROVIDER = new RolePair("ROLE_PROVIDER", "Provider");
+	public static RolePair ROLE_GOVERNMENT = new RolePair("ROLE_GOVERNMENT", "Government");
+	public static RolePair ROLE_UNKNOWN = new RolePair("ROLE_UNKNOWN", "Unknown");
+
 	final public static List<RolePair> roleList = new ArrayList<>() {
 		/**
 		 * 
@@ -12,14 +21,14 @@ public class PlainEmrsRoles {
 		private static final long serialVersionUID = 1L;
 
 		{
-			add(new RolePair("ROLE_ADMIN", "Admin"));
-			add(new RolePair("ROLE_PATIENT", "Patient"));
-			add(new RolePair("ROLE_DOCTOR", "Doctor"));
-			add(new RolePair("ROLE_NURSE", "Nurse"));
-			add(new RolePair("ROLE_ALLIED_MED_STAFF", "Allied Medical Staff"));
-			add(new RolePair("ROLE_PROVIDER", "Provider"));
-			add(new RolePair("ROLE_GOVERNMENT", "Government"));
-			add(new RolePair("ROLE_UNKNOWN", "Unknown"));
+			add(ROLE_ADMIN);
+			add(ROLE_PATIENT);
+			add(ROLE_DOCTOR);
+			add(ROLE_NURSE);
+			add(ROLE_ALLIED_MED_STAFF);
+			add(ROLE_PROVIDER);
+			add(ROLE_GOVERNMENT);
+			add(ROLE_UNKNOWN);
 		}
 	};
 	
