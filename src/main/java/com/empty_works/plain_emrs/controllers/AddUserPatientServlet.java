@@ -83,7 +83,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
 		request.setAttribute("familyConditionsList", makeJson(MedicalRecordFamilyIllnessLists.familyConditionList));
 		request.setAttribute("roleList", PlainEmrsRoles.roleList);
-		request.getRequestDispatcher("/WEB-INF/AddUser.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/AddUserPatient.jsp").forward(request, response);
 	}
 
 	/**

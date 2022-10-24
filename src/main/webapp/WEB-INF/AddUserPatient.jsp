@@ -27,7 +27,7 @@
 			
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/adminsidenav.js"></script>
+			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
 		
 		<!-- Main content -->

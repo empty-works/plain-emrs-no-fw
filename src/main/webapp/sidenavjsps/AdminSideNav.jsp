@@ -12,7 +12,7 @@
 	<!-- Side navigation -->
 	<div><a href="<c:url value="/AdminServlet" />">Overview</a></div>
 	<div><a href="<c:url value="/UserSearchServlet" />">User Search</a></div>
-	<div><a href="<c:url value="/AddUserServlet" />">Add User</a></div>
+	<!--  <div><a href="<c:url value="/AddUserPatientServlet" />">Add User</a></div>-->
 	<div><a href="<c:url value="/FacilitiesServlet" />">Facilities</a></div>
 </body>
 </html>
