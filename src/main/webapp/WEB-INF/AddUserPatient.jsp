@@ -32,13 +32,7 @@
 		
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
-			<h2>Adding a patient or non-patient?</h2>
-			<button id="patientButton" onclick="showPatientForm()">Add Patient</button>
-			<button id="nonpatientButton" onclick="showNonpatientForm()">Add Non-patient</button>
-			
-			<!-- Title of form depends on which button the user selects above -->
-			<h2 id="patientTitle">Patient Form</h2>
-			<h2 id="nonpatientTitle">Non-patient Form</h2>
+			<h2 id="patientTitle">Add Patient Form (Admin Only)</h2>
 
 			<form id="addUserForm" class="content-padding" action="AddUserPatientServlet" method="post">
 				<fieldSet>
@@ -301,12 +295,6 @@
 							</script>
 						</div>
 					</fieldset>
-				</div>
-				
-				<!-- Non-patient section -->
-				<div id="nonpatientSection">
-					<input type="hidden" id="userType" name="userType" value="nonpatient">
-					<h3>NONPATIENT SECTION</h3>	
 				</div>
 				
 				<label>Role: </label>

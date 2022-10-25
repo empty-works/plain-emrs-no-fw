@@ -1,17 +1,5 @@
 @charset "ISO-8859-1";
 
-#patientTitle {
-	display: none;
-}
-
-#nonpatientTitle {
-	display: none;
-}
-
-#addUserForm {
-	display: none;
-}
-
 .grid-container {
 	display: grid;
 	grid-template-rows: auto auto;
