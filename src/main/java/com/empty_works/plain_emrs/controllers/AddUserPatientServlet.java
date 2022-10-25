@@ -118,122 +118,120 @@ public class AddUserPatientServlet extends HttpServlet {
 		System.out.println("patientConditionDropdown - " + request.getParameter("patientConditionDropdown"));
 		System.out.println("asianEthnDropdown - " + request.getParameter("asianEthnDropdown"));
 		System.out.println("roleDropdown - " + request.getParameter("roleDropdown"));
-		if(request.getParameter("roleDropdown").equals("Patient")) {
 			
-			patient = new PatientBean();
-			patient.setStreetAddress(request.getParameter("patientStreetAddress"));
-			patient.setCity(request.getParameter("patientCity"));
-			patient.setState(request.getParameter("patientState"));
-			patient.setCountry(request.getParameter("patientCountry"));
-			patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
-			patient.setProvider(request.getParameter("patientProvider"));
-			patient.setProviderId(request.getParameter("patientProviderId"));
-			patient.setRaces(parseRaces(request));
-			patient.setMaritalStatus(request.getParameter("maritalOptionRadio"));
-			patient.setLivingArrangement(request.getParameter("livingOptionRadio"));
-			patient.setCurrentGender(request.getParameter("currentGenderRadio"));
-			patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
-			patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
-			patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
-			// Patient user ID generated based on info
-			String userId = PatientUsernameUtil.get(patient);
-			// Generate medical record ID based on the newly generated user ID.
-			String medicalRecordId = MedicalRecordIdUtil.get(userId);
-			String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
+		patient = new PatientBean();
+		patient.setStreetAddress(request.getParameter("patientStreetAddress"));
+		patient.setCity(request.getParameter("patientCity"));
+		patient.setState(request.getParameter("patientState"));
+		patient.setCountry(request.getParameter("patientCountry"));
+		patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
+		patient.setProvider(request.getParameter("patientProvider"));
+		patient.setProviderId(request.getParameter("patientProviderId"));
+		patient.setRaces(parseRaces(request));
+		patient.setMaritalStatus(request.getParameter("maritalOptionRadio"));
+		patient.setLivingArrangement(request.getParameter("livingOptionRadio"));
+		patient.setCurrentGender(request.getParameter("currentGenderRadio"));
+		patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
+		patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
+		patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
+		// Patient user ID generated based on info
+		String userId = PatientUsernameUtil.get(patient);
+		// Generate medical record ID based on the newly generated user ID.
+		String medicalRecordId = MedicalRecordIdUtil.get(userId);
+		String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
 
-			// Add user(patient) to database and display result.
-			user.setUserId(userId);
-			user.setUserPassword(userPassword);
+		// Add user(patient) to database and display result.
+		user.setUserId(userId);
+		user.setUserPassword(userPassword);
 
-			// Add patient here.
-			patient.setUserId(userId);
-			patient.setUserPassword(userPassword);
+		// Add patient here.
+		patient.setUserId(userId);
+		patient.setUserPassword(userPassword);
 
+		
+		// User authority
+		userAuthority = new UserAuthorityBean();
+		userAuthority.setId(userId);
+		userAuthority.setName(request.getParameter("rolePatient"));
+
+		// User access log
+		userAccess = new UserAccessLogBean();
+		userAccess.setUserId(userId);
+		userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
+		userAccess.setMedicalRecordId(medicalRecordId);
+		
+		// User login log
+		userLogin = new UserLoginLogBean();
+		userLogin.setUserId(userId);
+		userLogin.setUserDateTimeOfVisit(LocalDateTime.now());
+		
+		// User activity log
+		userActivity = new UserActivityLogBean();
+		userActivity.setUserId(userId);
+		userActivity.setMedicalRecordId(medicalRecordId);
+		userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
+		userActivity.setActivityDescription("Medical record created.");
+		
+		System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity));
+
+		// medical_records
+		System.out.println("Adding medical record...");
+		medRecord = new MedicalRecordBean();
+		medRecord.setUserId(userId);
+		medRecord.setMedicalRecordId(medicalRecordId);
+		medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
+		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
+		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
+		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+
+		// Add medical record to database and display result.
+		System.out.println(MedicalRecordDao.add(medRecord));
+		
+		// diseases
+		diseases = new DiseasesBean();
+		diseases.setUserId(userId);
+		diseases.setMedicalRecordId(medicalRecordId);
+		diseases.setDiseases(parseDiseasesImmun(request));
+
+		// Add diseases to database and display result.
+		System.out.println(DiseasesDao.add(diseases));
+
+		// blood_relatives
+		relations = new BloodRelationsBean();
+		relations.setUserId(userId);
+		relations.setMedicalRecordId(medicalRecordId);
+		relations.setFatherStatus(request.getParameter("patientFather"));
+		relations.setMotherStatus(request.getParameter("patientMother"));
+		relations.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));
+		relations.setFathCauseDea(request.getParameter("fatherCauseDeath"));
+		relations.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
+		relations.setMothCauseDea(request.getParameter("motherCauseDeath"));
+		relations.setNumSisters(Integer.parseInt(request.getParameter("SistersAlive")));
+		relations.setNumBrothers(Integer.parseInt(request.getParameter("BrothersAlive")));
+		relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
+		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
+
+		// Add blood relations to the database and display result.
+		System.out.println(BloodRelationsDao.add(relations));
+
+		// surgical_related_problems
+		surgicalProblems = new SurgicalProblemsBean();
+		surgicalProblems.setUserId(userId);
+		surgicalProblems.setMedicalRecordId(medicalRecordId);
+		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+
+		// Add surgical problems to the database and display result.
+		System.out.println(SurgicalProblemsDao.add(surgicalProblems));
+		
+		// illnesses
+		illnesses = new IllnessesBean();
+		illnesses.setUserId(userId);
+		illnesses.setMedicalRecordId(medicalRecordId);
+		illnesses.setIllness(parseIllnesses(request));
+
+		// Add illnesses to the database and display result.
+		System.out.println(IllnessesDao.add(illnesses));
 			
-			// User authority
-			userAuthority = new UserAuthorityBean();
-			userAuthority.setId(userId);
-			userAuthority.setName(request.getParameter("roleDropdown"));
-
-			// User access log
-			userAccess = new UserAccessLogBean();
-			userAccess.setUserId(userId);
-			userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
-			userAccess.setMedicalRecordId(medicalRecordId);
-			
-			// User login log
-			userLogin = new UserLoginLogBean();
-			userLogin.setUserId(userId);
-			userLogin.setUserDateTimeOfVisit(LocalDateTime.now());
-			
-			// User activity log
-			userActivity = new UserActivityLogBean();
-			userActivity.setUserId(userId);
-			userActivity.setMedicalRecordId(medicalRecordId);
-			userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
-			userActivity.setActivityDescription("Medical record created.");
-			
-			System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity));
-
-			// medical_records
-			System.out.println("Adding medical record...");
-			medRecord = new MedicalRecordBean();
-			medRecord.setUserId(userId);
-			medRecord.setMedicalRecordId(medicalRecordId);
-			medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
-			medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
-			medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
-			medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
-
-			// Add medical record to database and display result.
-			System.out.println(MedicalRecordDao.add(medRecord));
-			
-			// diseases
-			diseases = new DiseasesBean();
-			diseases.setUserId(userId);
-			diseases.setMedicalRecordId(medicalRecordId);
-			diseases.setDiseases(parseDiseasesImmun(request));
-
-			// Add diseases to database and display result.
-			System.out.println(DiseasesDao.add(diseases));
-
-			// blood_relatives
-			relations = new BloodRelationsBean();
-			relations.setUserId(userId);
-			relations.setMedicalRecordId(medicalRecordId);
-			relations.setFatherStatus(request.getParameter("patientFather"));
-			relations.setMotherStatus(request.getParameter("patientMother"));
-			relations.setFathDecAge(Integer.parseInt(request.getParameter("fatherDecAge")));
-			relations.setFathCauseDea(request.getParameter("fatherCauseDeath"));
-			relations.setMothDecAge(Integer.parseInt(request.getParameter("motherDecAge")));
-			relations.setMothCauseDea(request.getParameter("motherCauseDeath"));
-			relations.setNumSisters(Integer.parseInt(request.getParameter("SistersAlive")));
-			relations.setNumBrothers(Integer.parseInt(request.getParameter("BrothersAlive")));
-			relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
-			relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
-
-			// Add blood relations to the database and display result.
-			System.out.println(BloodRelationsDao.add(relations));
-
-			// surgical_related_problems
-			surgicalProblems = new SurgicalProblemsBean();
-			surgicalProblems.setUserId(userId);
-			surgicalProblems.setMedicalRecordId(medicalRecordId);
-			surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
-
-			// Add surgical problems to the database and display result.
-			System.out.println(SurgicalProblemsDao.add(surgicalProblems));
-			
-			// illnesses
-			illnesses = new IllnessesBean();
-			illnesses.setUserId(userId);
-			illnesses.setMedicalRecordId(medicalRecordId);
-			illnesses.setIllness(parseIllnesses(request));
-
-			// Add illnesses to the database and display result.
-			System.out.println(IllnessesDao.add(illnesses));
-			
-		}
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	

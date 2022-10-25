@@ -297,14 +297,12 @@
 					</fieldset>
 				</div>
 				
-				<label>Role: </label>
-				<div>
-					<select id="roleDropdown" name="roleDropdown">
-						<c:forEach items="${roleList}" var="userRole">
-							<option value="${userRole.getRole()}"><c:out value="${userRole.getRole()}" /></option>
-						</c:forEach>
-					</select>
-				</div>
+				<!-- The role is always patient on this form -->
+				<fieldset>
+					<legend>Role</legend>
+					<label>Patient</label>
+					<input type="hidden" id="rolePatient" name="rolePatient" value="Patient">
+				</fieldset>
 
 				<!-- user.js sets the value of submit to "isPatient" or "isNonPatient" -->
 				<div><input id="patientFormSubmitButton" type="submit" /><input type="reset" name="Reset" /></div>
