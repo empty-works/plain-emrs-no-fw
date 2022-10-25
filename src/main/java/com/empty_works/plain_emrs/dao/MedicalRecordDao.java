@@ -17,7 +17,7 @@ public class MedicalRecordDao {
 		PreparedStatement preparedStatement = null;
 		
 		String query = "insert into medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
-				+ "blood_transfusion_status, medical_recordscol) values (?,?,?,?,?,?,?)";
+				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
