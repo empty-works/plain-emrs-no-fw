@@ -291,15 +291,17 @@ public class AddUserPatientServlet extends HttpServlet {
 			
 			System.out.println("Disease - " + disease);
 			String result = request.getParameter(disease.getDiseaseId() + "immuDiseaseRadio");
-			if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
-				
-				MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
-				patientDisease.setContractedDisease(true);
-				if(result.contains("HadImmun")) {
-					patientDisease.setImmunized(true);
+			if(result != null) {
+				if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
+					
+					MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
+					patientDisease.setContractedDisease(true);
+					if(result.contains("HadImmun")) {
+						patientDisease.setImmunized(true);
+					}
+					// Only added if the patient had the disease regardless of immunization.
+					diseases.add(patientDisease);
 				}
-				// Only added if the patient had the disease regardless of immunization.
-				diseases.add(patientDisease);
 			}
 		}
 		return diseases;
