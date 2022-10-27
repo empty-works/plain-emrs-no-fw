@@ -34,20 +34,20 @@
 		<div class="main-grid-container-side-nav main-font">
 			<h2 id="patientTitle">Add Patient Form (Admin Only)</h2>
 
-			<form id="addUserForm" class="content-padding" action="AddUserPatientServlet" method="post">
+			<form id="addUserPatientForm" name="addUserPatientForm" class="content-padding" action="AddUserPatientServlet" onsubmit="return validateForm()" method="post">
 				<fieldSet>
 					<legend>General: </legend>
 					<!--  User ID will be generated based on the following inputs! -->	
 					<label>First Name: </label>
-					<div><input type="text" id="userFirstName" name="userFirstName" /></div>
+					<div><input required type="text" id="userFirstName" name="userFirstName" /></div>
 					<label>Middle Initial: </label>
 					<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
 					<label>Last Name: </label>
-					<div><input type="text" id="userLastName" name="userLastName" /></div>
+					<div><input required type="text" id="userLastName" name="userLastName" /></div>
 					<label>Date of Birth: </label>
-					<div><input type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
+					<div><input required type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
 					<label>Current Facility ID (optional): </label>
-					<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
+					<div><input required type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
 					<label>User Email Address: </label>
 					<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
 				</fieldSet>
@@ -68,9 +68,9 @@
 						<div><input type="text" id="patientState" name="patientState" /></div>
 						<label>Country: </label>
 						<div><input type="text" id="patientCountry" name="patientCountry" /></div> <label>Phone Number: </label> <div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div> <label>Patient Provider: </label>
-						<div><input type="text" id="patientProvider" name="patientProvider" /></div>
+						<div><input required type="text" id="patientProvider" name="patientProvider" /></div>
 						<label>Patient Provider ID: </label>
-						<div><input type="text" id="patientProviderId" name="patientProviderId" /></div>
+						<div><input required type="text" id="patientProviderId" name="patientProviderId" /></div>
 					</fieldset>
 					<fieldset>
 						<legend>Race and Ethnicity</legend>
@@ -180,11 +180,12 @@
 						<!-- Received blood transfusion -->
 						<legend>Blood transfusion: </legend>	
 						<div>
+							<p id="bloodTransError"></p>
 							<input type="radio" id="bloodTransfusionYes" name="bloodTransfusionRadio" value="bloodTransfusionYes">	
 							<label for="bloodTransfusionYes">Yes</label>
 							<input type="radio" id="bloodTransfusionNo" name="bloodTransfusionRadio" value="bloodTransfusionNo">	
 							<label for="bloodTransfusionNo">No</label>
-							<input type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionRadio" value="bloodTransfusionUnknown">	
+							<input checked type="radio" id="bloodTransfusionUnknown" name="bloodTransfusionRadio" value="bloodTransfusionUnknown">	
 							<label for="bloodTransfusionUnknown">Do not know</label>
 						</div>
 					</fieldset>

@@ -4,6 +4,42 @@
 
 let roleDropdown = document.getElementById('role-dropdown');
 
+// Add user form validation for required attributes
+const addPatientForm = document.querySelectorAll('name="addUserPatientForm"');
+addPatientForm.addEventListener("submit", function(event) {
+	let raceChecks = new FormData(document.querySelector("addUserPatientForm"));
+	if(!raceChecks.has("raceCheck")) {
+		alert("At least one race must be selected.");
+		event.preventDefault();
+	}
+	console.log(event);
+	event.preventDefault();
+});
+
+function validateForm() {
+	let isErrorFree = true;
+	// Blood transfusion status set error message
+	if(validateBloodTransForm() == false) {
+		document.getElementById("bloodTransError").innerHTML = "Blood transfusion status cannot be null";
+		isErrorFree = false;
+	}	
+	return isErrorFree;
+}
+
+function validateBloodTransForm() {
+	
+	// Check blood transfusion status
+	let buttonChecked = false;
+	const bloodTransRadioButtons = document.querySelectorAll('name=["bloodTransfusionRadio"]');
+	for(const btRadioButton of bloodTransRadioButtons) {
+		if(btRadioButton.checked) {
+			buttonChecked = true;
+			break;
+		}
+	}
+	return buttonChecked;
+}
+
 function addPatientOtherRelations(relation) {
 	const otherRelationsCon = document.getElementById("otherRelationsCon");
 	const otherRelationsHtml = 
