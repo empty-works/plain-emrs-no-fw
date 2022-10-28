@@ -111,7 +111,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setMiddleInitial(request.getParameter("userMiddleInitial"));
 		user.setLastName(request.getParameter("userLastName"));
 		user.setCurrentFacilityId(request.getParameter("userCurrentFacilityId"));
-		user.setRole(request.getParameter("roleDropdown"));
+		user.setRole(request.getParameter("rolePatient"));
 		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
 		

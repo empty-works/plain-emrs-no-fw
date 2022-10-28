@@ -73,7 +73,7 @@
 						<div><input required type="text" id="patientProviderId" name="patientProviderId" /></div>
 					</fieldset>
 					<fieldset>
-						<legend>Race and Ethnicity</legend>
+						<legend id="raceFieldLegend">Race and Ethnicity</legend>
 						<c:forEach items="${raceList}" var="raceOption">
 							<div>
 								<input type="checkbox" id="${raceOption.getRaceId()}" name="raceCheck" value="${raceOption.getRaceName()}">

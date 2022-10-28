@@ -4,49 +4,22 @@
 
 let roleDropdown = document.getElementById('role-dropdown');
 
-
 function validateForm() {
-	// Add user form validation for required attributes
-	const addUserPatientForm = document.getElementById("addUserPatientForm");
 	const raceCheckboxes = document.querySelectorAll('[name="raceCheck"]');
-	addUserPatientForm.addEventListener("submit", function(event) {
-		let raceChecked = false;
-		for(const raceCheckbox of raceCheckboxes) {
-			if(raceCheckbox.checked) {
-				raceChecked = true;	
-				break;
-			}	
-		}
-		if(!raceChecked) {
-			alert("At least one race must be selected.");
-			event.preventDefault();
-		}
-		console.log(event);
-		event.preventDefault();
-	});
-	/*
-	let isErrorFree = true;
-	// Blood transfusion status set error message
-	if(validateBloodTransForm() == false) {
-		document.getElementById("bloodTransError").innerHTML = "Blood transfusion status cannot be null";
-		isErrorFree = false;
-	}	
-	return isErrorFree;
-	*/
-}
-
-function validateBloodTransForm() {
-	
-	// Check blood transfusion status
-	let buttonChecked = false;
-	const bloodTransRadioButtons = document.querySelectorAll('name=["bloodTransfusionRadio"]');
-	for(const btRadioButton of bloodTransRadioButtons) {
-		if(btRadioButton.checked) {
-			buttonChecked = true;
+	let raceChecked = false;
+	for(const raceCheckbox of raceCheckboxes) {
+		if(raceCheckbox.checked) {
+			raceChecked = true;	
 			break;
-		}
+		}	
 	}
-	return buttonChecked;
+	if(!raceChecked) {
+		const raceFieldLegend = document.getElementById("raceFieldLegend");
+		raceFieldLegend.focus();
+		alert("At least one race must be selected.");
+		return false;
+	}
+	return true;
 }
 
 function addPatientOtherRelations(relation) {
