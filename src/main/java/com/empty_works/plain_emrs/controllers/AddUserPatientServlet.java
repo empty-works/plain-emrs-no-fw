@@ -32,6 +32,7 @@ import com.empty_works.plain_emrs.dao.BloodRelationsDao;
 import com.empty_works.plain_emrs.dao.DiseasesDao;
 import com.empty_works.plain_emrs.dao.IllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+import com.empty_works.plain_emrs.dao.PatientDao;
 import com.empty_works.plain_emrs.dao.SurgicalProblemsDao;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
@@ -145,9 +146,10 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setUserPassword(userPassword);
 
 		// Add patient here.
+		System.out.println("Adding patient...");
 		patient.setUserId(userId);
 		patient.setUserPassword(userPassword);
-
+		System.out.println(PatientDao.add(patient));
 		
 		// User authority
 		userAuthority = new UserAuthorityBean();

@@ -128,7 +128,7 @@ public class PatientDao {
 		String patientQuery = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
 				+ "patient_type, patient_language_reference, patient_street_address, patient_city, patient_state, patient_country, "
 				+ "patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, "
-				+ "patient_is_adopted) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "patient_is_adopted) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		String patientRaceQuery = "INSERT INTO patient_races(patients_user_id, patient_race) values(?,?)";
 		
@@ -149,13 +149,14 @@ public class PatientDao {
 				preparedStatement.setString(7, patient.getLanguagePreference());
 				preparedStatement.setString(8, patient.getStreetAddress());
 				preparedStatement.setString(9, patient.getCity());
-				preparedStatement.setString(10, patient.getCountry());
-				preparedStatement.setString(11, patient.getPhoneNumber());
-				preparedStatement.setString(12, patient.getGenderAtBirth());
-				preparedStatement.setString(13, patient.getSexualOrientation());
-				preparedStatement.setString(14, patient.getMaritalStatus());
-				preparedStatement.setString(15, patient.getLivingArrangement());
-				preparedStatement.setBoolean(16, patient.isAdopted());
+				preparedStatement.setString(10, patient.getState());
+				preparedStatement.setString(11, patient.getCountry());
+				preparedStatement.setString(12, patient.getPhoneNumber());
+				preparedStatement.setString(13, patient.getGenderAtBirth());
+				preparedStatement.setString(14, patient.getSexualOrientation());
+				preparedStatement.setString(15, patient.getMaritalStatus());
+				preparedStatement.setString(16, patient.getLivingArrangement());
+				preparedStatement.setBoolean(17, patient.isAdopted());
 			}
 			catch(SQLException e) {
 				
@@ -174,7 +175,7 @@ public class PatientDao {
 			catch(SQLException e) {
 				
 				exceptionThrown = true;
-				thrownResult += "Could not add patient to patients table! ";
+				thrownResult += "Could not add races to patient race table! ";
 			}
 		}	
 		catch(SQLException e) {
