@@ -4,19 +4,27 @@
 
 let roleDropdown = document.getElementById('role-dropdown');
 
-// Add user form validation for required attributes
-const addPatientForm = document.querySelectorAll('name="addUserPatientForm"');
-addPatientForm.addEventListener("submit", function(event) {
-	let raceChecks = new FormData(document.querySelector("addUserPatientForm"));
-	if(!raceChecks.has("raceCheck")) {
-		alert("At least one race must be selected.");
-		event.preventDefault();
-	}
-	console.log(event);
-	event.preventDefault();
-});
 
 function validateForm() {
+	// Add user form validation for required attributes
+	const addUserPatientForm = document.getElementById("addUserPatientForm");
+	const raceCheckboxes = document.querySelectorAll('[name="raceCheck"]');
+	addUserPatientForm.addEventListener("submit", function(event) {
+		let raceChecked = false;
+		for(const raceCheckbox of raceCheckboxes) {
+			if(raceCheckbox.checked) {
+				raceChecked = true;	
+				break;
+			}	
+		}
+		if(!raceChecked) {
+			alert("At least one race must be selected.");
+			event.preventDefault();
+		}
+		console.log(event);
+		event.preventDefault();
+	});
+	/*
 	let isErrorFree = true;
 	// Blood transfusion status set error message
 	if(validateBloodTransForm() == false) {
@@ -24,6 +32,7 @@ function validateForm() {
 		isErrorFree = false;
 	}	
 	return isErrorFree;
+	*/
 }
 
 function validateBloodTransForm() {
