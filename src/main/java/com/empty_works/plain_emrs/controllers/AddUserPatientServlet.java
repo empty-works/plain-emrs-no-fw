@@ -145,12 +145,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setUserId(userId);
 		user.setUserPassword(userPassword);
 
-		// Add patient here.
-		System.out.println("Adding patient...");
-		patient.setUserId(userId);
-		patient.setUserPassword(userPassword);
-		System.out.println(PatientDao.add(patient));
-		
 		// User authority
 		userAuthority = new UserAuthorityBean();
 		userAuthority.setId(userId);
@@ -173,10 +167,29 @@ public class AddUserPatientServlet extends HttpServlet {
 		userActivity.setMedicalRecordId(medicalRecordId);
 		userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
 		userActivity.setActivityDescription("Medical record created.");
-		
-		System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity));
 
+		patient.setUserId(userId);
+		
+		medRecord = new MedicalRecordBean();
+		medRecord.setUserId(userId);
+		medRecord.setMedicalRecordId(medicalRecordId);
+		medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
+		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
+		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
+		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+		surgicalProblems = new SurgicalProblemsBean();
+		surgicalProblems.setUserId(userId);
+		surgicalProblems.setMedicalRecordId(medicalRecordId);
+		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+		System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity, patient, medRecord, surgicalProblems));
+
+		// Add patient here.
+		//System.out.println("Adding patient...");
+		//patient.setUserId(userId);
+		//System.out.println(PatientDao.add(patient));
+		
 		// medical_records
+		/*
 		System.out.println("Adding medical record...");
 		medRecord = new MedicalRecordBean();
 		medRecord.setUserId(userId);
@@ -185,9 +198,10 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+		*/
 
 		// Add medical record to database and display result.
-		System.out.println(MedicalRecordDao.add(medRecord));
+		//System.out.println(MedicalRecordDao.add(medRecord));
 		
 		// diseases
 		diseases = new DiseasesBean();
@@ -217,6 +231,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		System.out.println(BloodRelationsDao.add(relations));
 
 		// surgical_related_problems
+		/*
 		surgicalProblems = new SurgicalProblemsBean();
 		surgicalProblems.setUserId(userId);
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
@@ -224,6 +239,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		// Add surgical problems to the database and display result.
 		System.out.println(SurgicalProblemsDao.add(surgicalProblems));
+		*/
 		
 		// illnesses
 		illnesses = new IllnessesBean();

@@ -16,7 +16,7 @@ public class MedicalRecordDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "insert into medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
+		String query = "INSERT INTO medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
 				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
 		
 		try {

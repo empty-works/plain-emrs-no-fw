@@ -16,19 +16,18 @@ public class SurgicalProblemsDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "insert into surgical_related_problems(user_id, medical_record_id, surgical_related_problem, problem_area, "
-				+ "surgical_procedure, surgical_procedure_year) values (?,?,?,?,?,?)";
+		String query = "INSERT INTO surgical_related_problems(medical_record_id, surgical_related_problem, problem_area, "
+				+ "surgical_procedure, surgical_procedure_year) values (?,?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
 			for(int i = 0; i < surgery.getSurgeryMedProblems().size(); i++) {
 				
-				preparedStatement.setString(1, surgery.getUserId());
-				preparedStatement.setString(2, surgery.getMedicalRecordId());
-				preparedStatement.setString(3, surgery.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-				preparedStatement.setString(4, surgery.getSurgeryMedProblems().get(i).getProblemArea());
-				preparedStatement.setString(5, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedure());
-				preparedStatement.setString(6, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
+				preparedStatement.setString(1, surgery.getMedicalRecordId());
+				preparedStatement.setString(2, surgery.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
+				preparedStatement.setString(3, surgery.getSurgeryMedProblems().get(i).getProblemArea());
+				preparedStatement.setString(4, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedure());
+				preparedStatement.setString(5, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
 				preparedStatement.addBatch();
 			}
 			int[] checks = preparedStatement.executeBatch();

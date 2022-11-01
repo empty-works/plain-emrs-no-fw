@@ -16,18 +16,17 @@ public class DiseasesDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "insert into diseases(user_id, medical_record_id, disease, contracted_disease, received_immunization) "
-				+ "values (?,?,?,?,?)";
+		String query = "insert into diseases(medical_record_id, disease, contracted_disease, received_immunization) "
+				+ "values (?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
 			for(int i = 0; i < diseases.getDiseases().size(); i++) {
 				
-				preparedStatement.setString(1, diseases.getUserId());
-				preparedStatement.setString(2, diseases.getMedicalRecordId());
-				preparedStatement.setString(3, diseases.getDiseases().get(i).getDiseaseName());
-				preparedStatement.setBoolean(4, diseases.getDiseases().get(i).isContractedDisease());
-				preparedStatement.setBoolean(5, diseases.getDiseases().get(i).isImmunized());
+				preparedStatement.setString(1, diseases.getMedicalRecordId());
+				preparedStatement.setString(2, diseases.getDiseases().get(i).getDiseaseName());
+				preparedStatement.setBoolean(3, diseases.getDiseases().get(i).isContractedDisease());
+				preparedStatement.setBoolean(4, diseases.getDiseases().get(i).isImmunized());
 				preparedStatement.addBatch();
 			}
 			int[] checks = preparedStatement.executeBatch();

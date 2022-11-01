@@ -16,24 +16,23 @@ public class BloodRelationsDao {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String query = "insert into blood_relatives(user_id, medical_record_id, mother_status, father_status, mother_deceased_age, father_deceased_age,"
+		String query = "insert into blood_relatives(medical_record_id, mother_status, father_status, mother_deceased_age, father_deceased_age,"
 				+ "num_sisters_alive, num_brothers_alive, num_daughters_alive, num_sons_alive, mother_cause_of_death, father_cause_of_death) "
-				+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, relations.getUserId());
-			preparedStatement.setString(2, relations.getMedicalRecordId());
-			preparedStatement.setString(3, relations.getMotherStatus());
-			preparedStatement.setString(4, relations.getFatherStatus());
-			preparedStatement.setInt(5, relations.getMothDecAge());
-			preparedStatement.setInt(6, relations.getFathDecAge());
-			preparedStatement.setInt(7, relations.getNumSisters());
-			preparedStatement.setInt(8, relations.getNumBrothers());
-			preparedStatement.setInt(9, relations.getNumDaughters());
-			preparedStatement.setInt(10, relations.getNumSons());
-			preparedStatement.setString(11, relations.getMothCauseDea());
-			preparedStatement.setString(12, relations.getFathCauseDea());
+			preparedStatement.setString(1, relations.getMedicalRecordId());
+			preparedStatement.setString(2, relations.getMotherStatus());
+			preparedStatement.setString(3, relations.getFatherStatus());
+			preparedStatement.setInt(4, relations.getMothDecAge());
+			preparedStatement.setInt(5, relations.getFathDecAge());
+			preparedStatement.setInt(6, relations.getNumSisters());
+			preparedStatement.setInt(7, relations.getNumBrothers());
+			preparedStatement.setInt(8, relations.getNumDaughters());
+			preparedStatement.setInt(9, relations.getNumSons());
+			preparedStatement.setString(10, relations.getMothCauseDea());
+			preparedStatement.setString(11, relations.getFathCauseDea());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
