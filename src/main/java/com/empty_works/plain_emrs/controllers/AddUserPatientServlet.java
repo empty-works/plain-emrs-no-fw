@@ -47,7 +47,7 @@ import com.empty_works.plain_emrs.user_choices.UserRaceLists;
 import com.empty_works.plain_emrs.user_choices.UserRelationGenderLists;
 import com.empty_works.plain_emrs.util.MedicalRecordIdUtil;
 import com.empty_works.plain_emrs.util.PasswordUtil;
-import com.empty_works.plain_emrs.util.PatientUsernameUtil;
+import com.empty_works.plain_emrs.util.UserIdUtil;
 import com.empty_works.plain_emrs.user_choices.UserMaritalStatusLists;
 
 /**
@@ -136,7 +136,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
 		patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
 		// Patient user ID generated based on info
-		String userId = PatientUsernameUtil.get(patient);
+		String userId = UserIdUtil.get(UserIdUtil.PATIENT, user.getFirstName(), user.getLastName());
 		// Generate medical record ID based on the newly generated user ID.
 		String medicalRecordId = MedicalRecordIdUtil.get(userId);
 		String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);

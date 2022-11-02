@@ -148,7 +148,7 @@ public class AddUserDao {
 			catch (SQLException e) {
 				
 				exceptionThrown = true;
-				thrownResult = "Could not add patient to patients table! ";
+				thrownResult = "Could not add patient to patients table! " + e;
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(patientRaceQuery)) {
 				

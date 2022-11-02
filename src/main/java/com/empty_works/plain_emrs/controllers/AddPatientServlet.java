@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.dao.PatientDao;
-import com.empty_works.plain_emrs.util.PatientIdUtil;
+import com.empty_works.plain_emrs.util.UserIdUtil;
 
 /**
  * Servlet implementation class AddPatientServlet
