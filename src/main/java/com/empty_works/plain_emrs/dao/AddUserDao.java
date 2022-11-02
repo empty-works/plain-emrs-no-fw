@@ -65,6 +65,7 @@ public class AddUserDao {
 				preparedStatement.setString(8, user.getFirstName());
 				preparedStatement.setString(9, user.getMiddleInitial());
 				preparedStatement.setString(10, user.getLastName());
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -76,6 +77,7 @@ public class AddUserDao {
 				System.out.println("Adding role to authorities table...");
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setString(2, user.getRole());
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -88,6 +90,7 @@ public class AddUserDao {
 				preparedStatement.setString(1, userAccess.getUserId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userAccess.getUserDateTimeOfAccess()));
 				preparedStatement.setString(3, userAccess.getMedicalRecordId());
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -99,6 +102,7 @@ public class AddUserDao {
 				System.out.println("Adding user login log...");
 				preparedStatement.setString(1, userLogin.getUserId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userLogin.getUserDateTimeOfVisit()));
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -112,6 +116,7 @@ public class AddUserDao {
 				preparedStatement.setString(2, userActivity.getMedicalRecordId());
 				preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(userActivity.getUserDateTimeOfActivity()));
 				preparedStatement.setString(4, userActivity.getActivityDescription());
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -138,6 +143,7 @@ public class AddUserDao {
 				preparedStatement.setString(15, patient.getMaritalStatus());
 				preparedStatement.setString(16, patient.getLivingArrangement());
 				preparedStatement.setBoolean(17, patient.isAdopted());
+				preparedStatement.executeUpdate();
 			}
 			catch (SQLException e) {
 				
@@ -150,7 +156,9 @@ public class AddUserDao {
 					
 					preparedStatement.setString(1, patient.getUserId());
 					preparedStatement.setString(2, patient.getRaces().get(i));
+					preparedStatement.addBatch();
 				}
+				preparedStatement.executeBatch();
 			}
 			catch(SQLException e) {
 				
@@ -164,6 +172,7 @@ public class AddUserDao {
 				preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecord.getMedicalRecordCreatedOn()));
 				preparedStatement.setBoolean(5, medRecord.isActive());
 				preparedStatement.setString(6, medRecord.getBloodTransfusionStatus());
+				preparedStatement.executeUpdate();
 				
 			} catch (SQLException e) {
 
@@ -172,15 +181,15 @@ public class AddUserDao {
 			}
 
 			try (PreparedStatement preparedStatement = con.prepareStatement(querySurgicalProcedure)) {
-
-			for(int i = 0; i < surgicalProblems.getSurgeryMedProblems().size(); i++) {
-				preparedStatement.setString(1, surgicalProblems.getMedicalRecordId());
-				preparedStatement.setString(2, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-				preparedStatement.setString(3, surgicalProblems.getSurgeryMedProblems().get(i).getProblemArea());
-				preparedStatement.setString(4, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedure());
-				preparedStatement.setString(5, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
-				preparedStatement.addBatch();
-			}
+				for(int i = 0; i < surgicalProblems.getSurgeryMedProblems().size(); i++) {
+					preparedStatement.setString(1, surgicalProblems.getMedicalRecordId());
+					preparedStatement.setString(2, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
+					preparedStatement.setString(3, surgicalProblems.getSurgeryMedProblems().get(i).getProblemArea());
+					preparedStatement.setString(4, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedure());
+					preparedStatement.setString(5, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
+					preparedStatement.addBatch();
+				}
+				preparedStatement.executeBatch();
 			} catch (SQLException e) {
 
 				exceptionThrown = true;
