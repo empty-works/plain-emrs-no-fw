@@ -193,7 +193,7 @@ public class AddUserDao {
 			} catch (SQLException e) {
 
 				exceptionThrown = true;
-				thrownResult += "Could not add surgical procedures data! ";
+				thrownResult += "Could not add surgical procedures data! " + e;
 			}
 		}
 		catch (SQLException e) {

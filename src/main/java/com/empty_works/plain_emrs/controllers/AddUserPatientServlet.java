@@ -116,10 +116,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
 		
-		System.out.println("patientConditionDropdown - " + request.getParameter("patientConditionDropdown"));
-		System.out.println("asianEthnDropdown - " + request.getParameter("asianEthnDropdown"));
-		System.out.println("roleDropdown - " + request.getParameter("roleDropdown"));
-			
 		patient = new PatientBean();
 		patient.setStreetAddress(request.getParameter("patientStreetAddress"));
 		patient.setCity(request.getParameter("patientCity"));
