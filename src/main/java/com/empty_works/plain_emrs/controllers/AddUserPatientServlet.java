@@ -129,6 +129,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setProvider(request.getParameter("patientProvider"));
 		patient.setProviderId(request.getParameter("patientProviderId"));
 		patient.setRaces(parseRaces(request));
+		patient.setType(request.getParameter("patientTypeDropdown"));
 		patient.setMaritalStatus(request.getParameter("maritalOptionRadio"));
 		patient.setLivingArrangement(request.getParameter("livingOptionRadio"));
 		patient.setCurrentGender(request.getParameter("currentGenderRadio"));

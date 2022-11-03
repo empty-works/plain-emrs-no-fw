@@ -167,13 +167,13 @@
 						<legend>Patient condition</legend>	
 						<!-- Patient conditions based on HIPAA guidelines -->
 						<select id="patientConditionDropdown" name="patientConditionDropdown">
-							<option>Undetermined</option>	
-							<option>Good</option>	
-							<option>Fair</option>	
-							<option>Serious</option>	
-							<option>Critical</option>	
-							<option>Treated and released</option>	
-							<option>Confirming patient death</option>	
+							<option value="undetermined">Undetermined</option>	
+							<option value="good">Good</option>	
+							<option value="fair">Fair</option>	
+							<option value="serious">Serious</option>	
+							<option value="critical">Critical</option>	
+							<option value="treatedReleased">Treated and released</option>	
+							<option value="confirmedDeath">Confirming patient death</option>	
 						</select>
 					</fieldset>
 					<fieldset>
@@ -249,12 +249,12 @@
 						<label for="fatherDec">Deceased: </label>
 						<input type="hidden" name="fatherDecAge" value="0">
 						<select id="fatherDecAge" name="fatherDecAge">
-							<option>Under 30</option>
-							<option>30-40</option>
-							<option>41-50</option>
-							<option>51-60</option>
-							<option>61-70</option>
-							<option>Over 70</option>
+							<option value="under30">Under 30</option>
+							<option value="30-40">30-40</option>
+							<option value="41-50">41-50</option>
+							<option value="51-60">51-60</option>
+							<option value="61-70">61-70</option>
+							<option value="over70">Over 70</option>
 						</select>
 						<input type="hidden" name="fatherCauseDeath" value="not applicable">
 						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
@@ -267,12 +267,12 @@
 						<label for="motherDec">Deceased: </label>
 						<input type="hidden" name="motherDecAge" value="0">
 						<select id="motherDecAge" name="motherDecAge">
-							<option>Under 30</option>
-							<option>30-40</option>
-							<option>41-50</option>
-							<option>51-60</option>
-							<option>61-70</option>
-							<option>Over 70</option>
+							<option value="under30">Under 30</option>
+							<option value="30-40">30-40</option>
+							<option value="41-50">41-50</option>
+							<option value="51-60">51-60</option>
+							<option value="61-70">61-70</option>
+							<option value="over70">Over 70</option>
 						</select>
 						<input type="hidden" name="motherCauseDeath" value="not applicable">
 						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death">
