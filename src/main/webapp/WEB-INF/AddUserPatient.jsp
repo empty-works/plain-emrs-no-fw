@@ -296,6 +296,13 @@
 							</script>
 						</div>
 					</fieldset>
+					<fieldset>
+						<legend>Patient Type</legend>	
+						<select id="patientTypeDropdown" name="patientTypeDropdown">
+							<option value="outpatient">Outpatient</option>
+							<option value="inpatient">Inpatient</option>
+						</select>
+					</fieldset>	
 				</div>
 				
 				<!-- The role is always patient on this form -->
