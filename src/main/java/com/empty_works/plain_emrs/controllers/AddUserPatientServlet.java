@@ -82,7 +82,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		request.setAttribute("heartMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemHeartList));
 		request.setAttribute("reproductMedicalProblemListJson", makeJson(MedicalProblemGeneralLists.medicalProblemReproductList));
 		request.setAttribute("familyConditionsList", makeJson(MedicalRecordFamilyIllnessLists.familyConditionList));
-		request.setAttribute("roleList", PlainEmrsRoles.roleList);
+		request.setAttribute("patientRole", PlainEmrsRoles.ROLE_PATIENT.getRoleDb());
 		request.getRequestDispatcher("/WEB-INF/AddUserPatient.jsp").forward(request, response);
 	}
 
@@ -139,6 +139,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Add user(patient) to database and display result.
 		user.setUserId(userId);
 		user.setUserPassword(userPassword);
+		patient.setUserId(userId);
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
@@ -157,8 +158,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
 		userActivity.setActivityDescription("Medical record created.");
 
-		patient.setUserId(userId);
-		
 		medRecord = new MedicalRecordBean();
 		medRecord.setUserId(userId);
 		medRecord.setMedicalRecordId(medicalRecordId);

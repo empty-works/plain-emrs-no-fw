@@ -206,18 +206,18 @@
 					</fieldset>
 					<fieldset>
 						<legend>Medical problems and surgical procedures</legend>	
-						<label for="genMedProbContainer">General</label>
 						<!-- genMedProbContainer is the container for dynamically added general nodes. -->
+						<label for="genMedProbContainer">General</label>
 						<div id="genMedProbContainer"></div>
 						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="genMedLimitMsg"></div>
-						<label for="heartMedProbContainer"></label>
 						<!-- heartMedProbContainer is the container for dynamically added heart-related nodes. -->
+						<label for="heartMedProbContainer">Heart-related</label>
 						<div id="heartMedProbContainer"></div>
 						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="heartMedLimitMsg"></div>
-						<label for="reproductMedProbContainer"></label>
 						<!-- reproductMedProbContainer is the container for dynamically added reproductive nodes. -->
+						<label for="reproductMedProbContainer">Reproductive</label>
 						<div id="reproductMedProbContainer"></div>
 						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="reproductMedLimitMsg"></div>
@@ -306,7 +306,7 @@
 				<fieldset>
 					<legend>Role</legend>
 					<label>Patient</label>
-					<input type="hidden" id="rolePatient" name="rolePatient" value="Patient">
+					<input type="hidden" id="rolePatient" name="rolePatient" value="${patientRole}">
 				</fieldset>
 
 				<!-- user.js sets the value of submit to "isPatient" or "isNonPatient" -->
