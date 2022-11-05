@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
-import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.beans.UserLoginLogBean;
@@ -19,15 +18,13 @@ public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	
-	public static String add(UserBean user, UserAccessLogBean userAccess, UserLoginLogBean userLogin, UserActivityLogBean userActivity, 
+	public static String add(UserBean user, UserLoginLogBean userLogin, UserActivityLogBean userActivity, 
 			PatientBean patient, MedicalRecordBean medRecord, SurgicalProblemsBean surgicalProblems) { 
 		
 		String queryUser = "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
 				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		String queryRole = "INSERT INTO authorities(user_id, authority) values (?,?)";
-		
-		String queryUserAccessLog = "INSERT INTO user_access_logs(user_id, user_date_time_of_access, medical_record_id) values (?,?,?)";
 		
 		String queryUserLoginLog = "INSERT INTO user_login_logs(user_id, user_date_time_of_visit) values (?,?)"; 
 	
@@ -83,19 +80,6 @@ public class AddUserDao {
 				
 				exceptionThrown = true;
 				thrownResult = "Could not add role to authorities table!";
-			}
-			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserAccessLog)) {
-				
-				System.out.println("Adding user access log...");
-				preparedStatement.setString(1, userAccess.getUserId());
-				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userAccess.getUserDateTimeOfAccess()));
-				preparedStatement.setString(3, userAccess.getMedicalRecordId());
-				preparedStatement.executeUpdate();
-			}
-			catch (SQLException e) {
-				
-				exceptionThrown = true;
-				thrownResult = "Could not add user access log to user_access_logs table!";
 			}
 			try (PreparedStatement preparedStatement = con.prepareStatement(queryUserLoginLog)) {
 				
@@ -180,20 +164,23 @@ public class AddUserDao {
 				thrownResult += "Could not add medical record! ";
 			}
 
-			try (PreparedStatement preparedStatement = con.prepareStatement(querySurgicalProcedure)) {
-				for(int i = 0; i < surgicalProblems.getSurgeryMedProblems().size(); i++) {
-					preparedStatement.setString(1, surgicalProblems.getMedicalRecordId());
-					preparedStatement.setString(2, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-					preparedStatement.setString(3, surgicalProblems.getSurgeryMedProblems().get(i).getProblemArea());
-					preparedStatement.setString(4, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedure());
-					preparedStatement.setString(5, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
-					preparedStatement.addBatch();
-				}
-				preparedStatement.executeBatch();
-			} catch (SQLException e) {
+			// Only execute if there are any surgical problems.
+			if(surgicalProblems.getSurgeryMedProblems().size() > 0) {
+				try (PreparedStatement preparedStatement = con.prepareStatement(querySurgicalProcedure)) {
+					for(int i = 0; i < surgicalProblems.getSurgeryMedProblems().size(); i++) {
+						preparedStatement.setString(1, surgicalProblems.getMedicalRecordId());
+						preparedStatement.setString(2, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
+						preparedStatement.setString(3, surgicalProblems.getSurgeryMedProblems().get(i).getProblemArea());
+						preparedStatement.setString(4, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedure());
+						preparedStatement.setString(5, surgicalProblems.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
+						preparedStatement.addBatch();
+					}
+					preparedStatement.executeBatch();
+				} catch (SQLException e) {
 
-				exceptionThrown = true;
-				thrownResult += "Could not add surgical procedures data! " + e;
+					exceptionThrown = true;
+					thrownResult += "Could not add surgical procedures data! " + e;
+				}
 			}
 		}
 		catch (SQLException e) {

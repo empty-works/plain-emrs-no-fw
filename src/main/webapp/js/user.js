@@ -52,13 +52,11 @@ class MedProbAdder {
 	addNode(jsonList, medProbCon, needsRemoveButton) {
 		if(this.medProbLimit < this.MED_PROB_MAX) {
 			this.medProbLimit++;
-			// Generate random number as a qualifier for the attribute names
-			let randNum = getRandomInt(this.MAX_NAME_INT);
 			console.log(jsonList);
 			let medProbNode = document.createElement("div");
 			let medProbDropDown = document.createElement("select");
 			// Needed for specific naming
-			medProbDropDown.setAttribute("name", "medProbArea"/* + randNum*/);
+			medProbDropDown.setAttribute("name", "medProbArea");
 			let medProbList = [];
 			// Push JSON elements to a JS list
 			for(let x in jsonList) {
@@ -78,10 +76,10 @@ class MedProbAdder {
 			}
 			// Add the rest of the medical problem inputs to the node
 			let medProbHtml = 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText"/* + randNum + */ + "\" placeholder=\"Medical problem:\">" + 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText"/* + randNum + */ + "\" placeholder=\"Surgical procedure:\">" + 
-			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate"/* + randNum + */ + "\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate"/* + randNum + */ + "\">";
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + "\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + "\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + "\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + "\">";
 			medProbNode.appendChild(medProbDropDown);
 			medProbNode.insertAdjacentHTML("beforeend", medProbHtml);
 			if(needsRemoveButton == true) {

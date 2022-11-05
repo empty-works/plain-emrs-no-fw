@@ -206,22 +206,19 @@
 					</fieldset>
 					<fieldset>
 						<legend>Medical problems and surgical procedures</legend>	
-						<h4>General</h4>
-						<div id="genMedProbContainer">
-							<script type="text/javascript">window.onload=genMed.addNode(${generalMedicalProblemListJson}, genMedProbContainer, false)</script>
-						</div>
+						<label for="genMedProbContainer">General</label>
+						<!-- genMedProbContainer is the container for dynamically added general nodes. -->
+						<div id="genMedProbContainer"></div>
 						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="genMedLimitMsg"></div>
-						<h4>Heart-related</h4>
-						<div id="heartMedProbContainer">
-							<script type="text/javascript">window.onload=heartMed.addNode(${heartMedicalProblemListJson}, heartMedProbContainer, false)</script>
-						</div>
+						<label for="heartMedProbContainer"></label>
+						<!-- heartMedProbContainer is the container for dynamically added heart-related nodes. -->
+						<div id="heartMedProbContainer"></div>
 						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="heartMedLimitMsg"></div>
-						<h4>Reproductive-related</h4>
-						<div id="reproductMedProbContainer">
-							<script type="text/javascript">window.onload=reproductMed.addNode(${reproductMedicalProblemListJson}, reproductMedProbContainer, false)</script>
-						</div>
+						<label for="reproductMedProbContainer"></label>
+						<!-- reproductMedProbContainer is the container for dynamically added reproductive nodes. -->
+						<div id="reproductMedProbContainer"></div>
 						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="reproductMedLimitMsg"></div>
 					</fieldset>

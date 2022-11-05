@@ -21,7 +21,6 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
-import com.empty_works.plain_emrs.beans.UserAccessLogBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.beans.UserBean;
@@ -95,7 +94,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
 		UserAuthorityBean userAuthority;
-		UserAccessLogBean userAccess;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
 		MedicalRecordBean medRecord;
@@ -147,12 +145,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		userAuthority.setId(userId);
 		userAuthority.setName(request.getParameter("rolePatient"));
 
-		// User access log
-		userAccess = new UserAccessLogBean();
-		userAccess.setUserId(userId);
-		userAccess.setUserDateTimeOfAccess(LocalDateTime.now());
-		userAccess.setMedicalRecordId(medicalRecordId);
-		
 		// User login log
 		userLogin = new UserLoginLogBean();
 		userLogin.setUserId(userId);
@@ -174,11 +166,12 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+
 		surgicalProblems = new SurgicalProblemsBean();
 		surgicalProblems.setUserId(userId);
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
-		System.out.println(AddUserDao.add(user, userAccess, userLogin, userActivity, patient, medRecord, surgicalProblems));
+		System.out.println(AddUserDao.add(user, userLogin, userActivity, patient, medRecord, surgicalProblems));
 
 		// Add patient here.
 		//System.out.println("Adding patient...");
@@ -334,14 +327,16 @@ public class AddUserPatientServlet extends HttpServlet {
 		String[] medProbTexts = request.getParameterValues("medProbText");
 		String[] medProbSurgeryTexts = request.getParameterValues("medProbSurgeryText");
 		String[] medProbSurgeryDates = request.getParameterValues("medProbSurgeryDate");
-		for(int i = 0; i < problemAreas.length; i++) {
-			
-			SurgicalProblemUnit surgeryUnit = new SurgicalProblemUnit();
-			surgeryUnit.setProblemArea(problemAreas[i]);
-			surgeryUnit.setSurgicalRelatedProblem(medProbTexts[i]);
-			surgeryUnit.setSurgicalProcedure(medProbSurgeryTexts[i]);
-			surgeryUnit.setSurgicalProcedureYear(medProbSurgeryDates[i]);
-			surgeries.add(surgeryUnit);
+		if(problemAreas != null) {
+			for(int i = 0; i < problemAreas.length; i++) {
+				
+				SurgicalProblemUnit surgeryUnit = new SurgicalProblemUnit();
+				surgeryUnit.setProblemArea(problemAreas[i]);
+				surgeryUnit.setSurgicalRelatedProblem(medProbTexts[i]);
+				surgeryUnit.setSurgicalProcedure(medProbSurgeryTexts[i]);
+				surgeryUnit.setSurgicalProcedureYear(medProbSurgeryDates[i]);
+				surgeries.add(surgeryUnit);
+			}
 		}
 		return surgeries;
 	}
