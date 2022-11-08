@@ -1,6 +1,8 @@
 package com.empty_works.plain_emrs.beans;
 
-public class BloodRelationsBean implements PatientIdInterface {
+import java.sql.PreparedStatement;
+
+public class BloodRelationsBean implements PatientIdInterface, BeanDaoInterface {
 
 	private String userId;
 	private String medicalRecordId;
@@ -103,5 +105,20 @@ public class BloodRelationsBean implements PatientIdInterface {
 
 	public void setNumSons(int numSons) {
 		this.numSons = numSons;
+	}
+
+	@Override
+	public String getQuery() {
+		return "";
+	}
+
+	@Override
+	public String getErrorMessage() {
+		return "";
+	}
+
+	@Override
+	public int prepareStatments(PreparedStatement ps) {
+		;
 	}
 }

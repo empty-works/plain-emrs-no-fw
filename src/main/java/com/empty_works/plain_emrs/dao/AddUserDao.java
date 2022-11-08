@@ -49,8 +49,10 @@ public class AddUserDao {
 		
 		try (Connection con = ConnectionUtil.getConnection()) {
 			
-			try (PreparedStatement preparedStatement = con.prepareStatement(queryUser)) {
+			try (PreparedStatement preparedStatement = con.prepareStatement(user.getQuery())) {
 				
+				user.prepareStatments(preparedStatement);
+				/*
 				System.out.println("Adding user...");
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setString(2, user.getUserPassword());
@@ -63,6 +65,7 @@ public class AddUserDao {
 				preparedStatement.setString(9, user.getMiddleInitial());
 				preparedStatement.setString(10, user.getLastName());
 				preparedStatement.executeUpdate();
+				*/
 			}
 			catch (SQLException e) {
 				
