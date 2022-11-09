@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.empty_works.plain_emrs.beans.BeanDaoInterface;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
@@ -17,7 +20,52 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 public class AddUserDao {
 
 	final public static String USERDAO_SUCCESS = "User successfully added!";
+	private List<BeanDaoInterface> beans = new ArrayList<>();
 	
+	/**
+	 * 
+	 * @param bean
+	 */
+	public void add(BeanDaoInterface bean) {
+		beans.add(bean);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String executeQueries() {
+		
+		boolean exceptionThrown = false;
+		String thrownResult = "";
+
+		try (Connection con = ConnectionUtil.getConnection()) {
+
+			for(BeanDaoInterface bean : beans) {
+				
+				try(PreparedStatement preparedStatement = con.prepareStatement(bean.getQuery())) {
+					
+					bean.prepareStatments(preparedStatement);
+				}
+				catch (SQLException e) {
+					
+					exceptionThrown = true;
+					thrownResult = bean.getErrorMessage();
+				}
+			}
+		}
+		catch (SQLException e) {
+			
+			exceptionThrown = true;
+			thrownResult = "Connection failed in user DAO.";
+		}
+		if(exceptionThrown) {
+			
+			return thrownResult;
+		}
+		return USERDAO_SUCCESS;
+	}
+/*
 	public static String add(UserBean user, UserLoginLogBean userLogin, UserActivityLogBean userActivity, 
 			PatientBean patient, MedicalRecordBean medRecord, SurgicalProblemsBean surgicalProblems) { 
 		
@@ -52,7 +100,6 @@ public class AddUserDao {
 			try (PreparedStatement preparedStatement = con.prepareStatement(user.getQuery())) {
 				
 				user.prepareStatments(preparedStatement);
-				/*
 				System.out.println("Adding user...");
 				preparedStatement.setString(1, user.getUserId());
 				preparedStatement.setString(2, user.getUserPassword());
@@ -65,7 +112,6 @@ public class AddUserDao {
 				preparedStatement.setString(9, user.getMiddleInitial());
 				preparedStatement.setString(10, user.getLastName());
 				preparedStatement.executeUpdate();
-				*/
 			}
 			catch (SQLException e) {
 				
@@ -197,4 +243,5 @@ public class AddUserDao {
 		}
 		return USERDAO_SUCCESS;
 	}
+	*/
 }
