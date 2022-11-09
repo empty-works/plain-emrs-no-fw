@@ -1,9 +1,11 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientBean extends UserBean {
+public class PatientBean extends UserBean implements BeanDaoInterface {
 
 	// User ID in UserBean
 	private String provider;
@@ -11,8 +13,6 @@ public class PatientBean extends UserBean {
 	private String roomNumber;
 	private String currentGender;
 	private String type;
-	private List<String> races = new ArrayList<>();
-	private String ethnicity;
 	private String languagePreference;
 	private String streetAddress;
 	private String city;
@@ -55,18 +55,6 @@ public class PatientBean extends UserBean {
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public List<String> getRaces() {
-		return races;
-	}
-	public void setRaces(List<String> races) {
-		this.races = races;
-	}
-	public String getEthnicity() {
-		return ethnicity;
-	}
-	public void setEthnicity(String ethnicity) {
-		this.ethnicity = ethnicity;
 	}
 	public String getLanguagePreference() {
 		return languagePreference;
@@ -139,5 +127,39 @@ public class PatientBean extends UserBean {
 	}
 	public void setAdopted(boolean isAdopted) {
 		this.isAdopted = isAdopted;
+	}
+	@Override
+	public String getQuery() {
+		return "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
+				+ "patient_type, patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, "
+				+ "patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, "
+				+ "patient_is_adopted) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	}
+	@Override
+	public String getErrorMessage() {
+		return "Could not add patient to patients table!";
+	}
+	@Override
+	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+		
+		System.out.println("Adding patient...");
+		preparedStatement.setString(1, getUserId());
+		preparedStatement.setString(2, getProvider());
+		preparedStatement.setString(3, getProviderId());
+		preparedStatement.setString(4, getRoomNumber());
+		preparedStatement.setString(5, getCurrentGender());
+		preparedStatement.setString(6, getType());
+		preparedStatement.setString(7, getLanguagePreference());
+		preparedStatement.setString(8, getStreetAddress());
+		preparedStatement.setString(9, getCity());
+		preparedStatement.setString(10, getState());
+		preparedStatement.setString(11, getCountry());
+		preparedStatement.setString(12, getPhoneNumber());
+		preparedStatement.setString(13, getGenderAtBirth());
+		preparedStatement.setString(14, getSexualOrientation());
+		preparedStatement.setString(15, getMaritalStatus());
+		preparedStatement.setString(16, getLivingArrangement());
+		preparedStatement.setBoolean(17, isAdopted());
+		return preparedStatement.executeUpdate();
 	}
 }

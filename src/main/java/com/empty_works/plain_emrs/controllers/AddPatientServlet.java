@@ -45,7 +45,7 @@ public class AddPatientServlet extends HttpServlet {
 		pb.setCurrentGender(request.getParameter("patientGender"));
 		pb.setType(request.getParameter("patientType"));
 		//pb.setRace(request.getParameter("patientRace"));
-		pb.setEthnicity(request.getParameter("patientEthnicity"));
+		//pb.setEthnicity(request.getParameter("patientEthnicity"));
 		pb.setStreetAddress(request.getParameter("patientStreetAddress"));
 		pb.setCity(request.getParameter("patientCity"));
 		pb.setState(request.getParameter("patientState"));

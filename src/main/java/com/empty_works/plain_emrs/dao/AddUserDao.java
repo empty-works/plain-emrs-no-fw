@@ -50,14 +50,14 @@ public class AddUserDao {
 				catch (SQLException e) {
 					
 					exceptionThrown = true;
-					thrownResult = bean.getErrorMessage();
+					thrownResult = bean.getErrorMessage() + " " + e;
 				}
 			}
 		}
 		catch (SQLException e) {
 			
 			exceptionThrown = true;
-			thrownResult = "Connection failed in user DAO.";
+			thrownResult = "Connection failed in user DAO. " + e;
 		}
 		if(exceptionThrown) {
 			

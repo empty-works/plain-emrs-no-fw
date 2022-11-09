@@ -20,6 +20,7 @@ import com.empty_works.plain_emrs.beans.IllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserAuthorityBean;
@@ -93,6 +94,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		UserBean user = new UserBean();
 		PatientBean patient; // Instantiated if user is a new patient.
+		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
@@ -101,6 +103,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		BloodRelationsBean relations;
 		SurgicalProblemsBean surgicalProblems;
 		IllnessesBean illnesses;
+		
+		AddUserDao addUserDao = new AddUserDao();
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
@@ -122,7 +126,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
 		patient.setProvider(request.getParameter("patientProvider"));
 		patient.setProviderId(request.getParameter("patientProviderId"));
-		patient.setRaces(parseRaces(request));
 		patient.setType(request.getParameter("patientTypeDropdown"));
 		patient.setMaritalStatus(request.getParameter("maritalOptionRadio"));
 		patient.setLivingArrangement(request.getParameter("livingOptionRadio"));
@@ -140,6 +143,10 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setUserId(userId);
 		user.setUserPassword(userPassword);
 		patient.setUserId(userId);
+		
+		// Patient race
+		patientRace.setUserId(userId);
+		patientRace.setRaces(parseRaces(request));
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
@@ -170,6 +177,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		surgicalProblems.setUserId(userId);
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+		
 		System.out.println(AddUserDao.add(user, userLogin, userActivity, patient, medRecord, surgicalProblems));
 
 		// Add patient here.
@@ -199,7 +207,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		diseases.setDiseases(parseDiseasesImmun(request));
 
 		// Add diseases to database and display result.
-		System.out.println(DiseasesDao.add(diseases));
+		//System.out.println(DiseasesDao.add(diseases));
 
 		// blood_relatives
 		relations = new BloodRelationsBean();
@@ -217,7 +225,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
 		// Add blood relations to the database and display result.
-		System.out.println(BloodRelationsDao.add(relations));
+		//System.out.println(BloodRelationsDao.add(relations));
 
 		// surgical_related_problems
 		/*
@@ -237,7 +245,16 @@ public class AddUserPatientServlet extends HttpServlet {
 		illnesses.setIllness(parseIllnesses(request));
 
 		// Add illnesses to the database and display result.
-		System.out.println(IllnessesDao.add(illnesses));
+		//System.out.println(IllnessesDao.add(illnesses));
+		
+		addUserDao.add(user);
+		addUserDao.add(userLogin);
+		addUserDao.add(userActivity);
+		addUserDao.add(patient);
+		addUserDao.add(patientRace);
+		addUserDao.add(medRecord);
+		addUserDao.add(surgicalProblems);
+		addUserDao.add(diseases);
 			
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}

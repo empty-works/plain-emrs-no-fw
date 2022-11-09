@@ -109,7 +109,6 @@ public class UserBean extends GeneralBean implements BeanDaoInterface {
 		preparedStatement.setString(8, getFirstName());
 		preparedStatement.setString(9, getMiddleInitial());
 		preparedStatement.setString(10, getLastName());
-		preparedStatement.executeUpdate();
-		return 0;
+		return preparedStatement.executeUpdate();
 	}
 }

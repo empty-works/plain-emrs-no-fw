@@ -7,5 +7,5 @@ public interface BeanDaoInterface {
 
 	String getQuery();
 	String getErrorMessage();
-	int prepareStatments(PreparedStatement ps) throws SQLException;
+	int prepareStatments(PreparedStatement preparedStatement) throws SQLException;
 }
