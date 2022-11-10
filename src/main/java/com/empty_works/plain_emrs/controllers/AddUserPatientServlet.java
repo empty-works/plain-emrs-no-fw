@@ -145,6 +145,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setUserId(userId);
 		
 		// Patient race
+		patientRace = new PatientRaceBean();
 		patientRace.setUserId(userId);
 		patientRace.setRaces(parseRaces(request));
 
@@ -178,7 +179,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 		
-		System.out.println(AddUserDao.add(user, userLogin, userActivity, patient, medRecord, surgicalProblems));
+		//System.out.println(AddUserDao.add(user, userLogin, userActivity, patient, medRecord, surgicalProblems));
 
 		// Add patient here.
 		//System.out.println("Adding patient...");
@@ -202,7 +203,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 		// diseases
 		diseases = new DiseasesBean();
-		diseases.setUserId(userId);
+		//diseases.setUserId(userId);
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
 
@@ -211,7 +212,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		// blood_relatives
 		relations = new BloodRelationsBean();
-		relations.setUserId(userId);
+		//relations.setUserId(userId);
 		relations.setMedicalRecordId(medicalRecordId);
 		relations.setFatherStatus(request.getParameter("patientFather"));
 		relations.setMotherStatus(request.getParameter("patientMother"));
@@ -240,7 +241,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 		// illnesses
 		illnesses = new IllnessesBean();
-		illnesses.setUserId(userId);
+		//illnesses.setUserId(userId);
 		illnesses.setMedicalRecordId(medicalRecordId);
 		illnesses.setIllness(parseIllnesses(request));
 
@@ -255,6 +256,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(medRecord);
 		addUserDao.add(surgicalProblems);
 		addUserDao.add(diseases);
+		addUserDao.add(relations);
+		addUserDao.add(illnesses);
 			
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}

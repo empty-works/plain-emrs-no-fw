@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
@@ -9,9 +11,8 @@ import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class IllnessesBean implements PatientIdInterface {
+public class IllnessesBean implements BeanDaoInterface {
 
-	private String userId;
 	private String medicalRecordId;
 	private List<MedicalRecordFamilyIllnessUnit> illness;
 	private PatientIllnessUnit[] illnesses;
@@ -23,14 +24,6 @@ public class IllnessesBean implements PatientIdInterface {
 	private boolean illnessSons;
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getMedicalRecordId() {
 		return medicalRecordId;
@@ -118,5 +111,47 @@ public class IllnessesBean implements PatientIdInterface {
 
 	public void setIllnessGrandparents(boolean illnessGrandparents) {
 		this.illnessGrandparents = illnessGrandparents;
+	}
+
+	@Override
+	public String getQuery() {
+		return "INSERT INTO illnesses(medical_record_id, illness, self, father, mother, brothers, sisters, "
+				+ "sons, daughters, grandparents) values (?,?,?,?,?,?,?,?,?,?)";
+	}
+
+	@Override
+	public String getErrorMessage() {
+		return "Could not add illnesses data to the database!";
+	}
+
+	@Override
+	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+		
+		for(int i = 0; i < illness.size(); i++) {
+			
+			preparedStatement.setString(1, medicalRecordId);
+			preparedStatement.setString(2, illness.get(i).getFamilyIllness());
+			addRelations(illness.get(i), preparedStatement);
+			preparedStatement.addBatch();
+		}
+		return preparedStatement.executeBatch()[0];
+	}
+
+	/**
+	 * 
+	 * @param illness
+	 * @param preparedStatement
+	 */
+	private static void addRelations(MedicalRecordFamilyIllnessUnit illness, PreparedStatement preparedStatement) {
+		
+		int prepStatementNum = 3; // Prepared statement starts at 4.
+		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
+			
+			try {
+				preparedStatement.setBoolean(prepStatementNum, Boolean.parseBoolean(illness.getFamilyRelations().get(i)));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

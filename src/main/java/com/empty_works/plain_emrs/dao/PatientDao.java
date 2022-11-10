@@ -50,7 +50,7 @@ public class PatientDao {
 			patient.setCurrentGender(resultSet.getString("patient_gender"));
 			patient.setType(resultSet.getString("patient_type"));
 			//patient.setRace(resultSet.getString("patient_race"));
-			patient.setEthnicity(resultSet.getString("patient_ethnicity"));
+			//patient.setEthnicity(resultSet.getString("patient_ethnicity"));
 			patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
 			patient.setStreetAddress(resultSet.getString("patient_street_address"));
 			patient.setCity(resultSet.getString("patient_city"));
@@ -99,7 +99,7 @@ public class PatientDao {
 				patient.setCurrentGender(resultSet.getString("patient_gender"));
 				patient.setType(resultSet.getString("patient_type"));
 				//patient.setRace(resultSet.getString("patient_race"));
-				patient.setEthnicity(resultSet.getString("patient_ethnicity"));
+				//patient.setEthnicity(resultSet.getString("patient_ethnicity"));
 				patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
 				patient.setFacilityId(resultSet.getString("patient_facility_id"));
 				patientsList.add(patient);
@@ -165,12 +165,13 @@ public class PatientDao {
 			}
 
 			try (PreparedStatement preparedStatement = con.prepareStatement(patientRaceQuery)) {
-				
+			/*	
 				for(int i = 0; i < patient.getRaces().size(); i++) {
 					
 					preparedStatement.setString(1, patient.getUserId());
 					preparedStatement.setString(2, patient.getRaces().get(i));
 				}
+				*/
 			}
 			catch(SQLException e) {
 				

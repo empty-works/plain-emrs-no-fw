@@ -1,23 +1,15 @@
 package com.empty_works.plain_emrs.beans;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public class BloodRelationsBean implements PatientIdInterface, BeanDaoInterface {
+public class BloodRelationsBean implements BeanDaoInterface {
 
-	private String userId;
 	private String medicalRecordId;
 	private String fatherStatus, motherStatus;
 	private int fathDecAge, mothDecAge;
 	private String fathCauseDea, mothCauseDea;
 	private int numSisters, numBrothers, numDaughters, numSons;
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getMedicalRecordId() {
 		return medicalRecordId;
@@ -109,16 +101,30 @@ public class BloodRelationsBean implements PatientIdInterface, BeanDaoInterface 
 
 	@Override
 	public String getQuery() {
-		return "";
+		return "INSERT INTO blood_relatives(medical_record_id, mother_status, father_status, mother_deceased_age, father_deceased_age,"
+				+ "num_sisters_alive, num_brothers_alive, num_daughters_alive, num_sons_alive, mother_cause_of_death, father_cause_of_death) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
 	}
 
 	@Override
 	public String getErrorMessage() {
-		return "";
+		return "Could not add blood relatives data to the database!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement ps) {
-		;
+	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+		
+		preparedStatement.setString(1, getMedicalRecordId());
+		preparedStatement.setString(2, getMotherStatus());
+		preparedStatement.setString(3, getFatherStatus());
+		preparedStatement.setInt(4, getMothDecAge());
+		preparedStatement.setInt(5, getFathDecAge());
+		preparedStatement.setInt(6, getNumSisters());
+		preparedStatement.setInt(7, getNumBrothers());
+		preparedStatement.setInt(8, getNumDaughters());
+		preparedStatement.setInt(9, getNumSons());
+		preparedStatement.setString(10, getMothCauseDea());
+		preparedStatement.setString(11, getFathCauseDea());
+		return preparedStatement.executeUpdate();
 	}
 }
