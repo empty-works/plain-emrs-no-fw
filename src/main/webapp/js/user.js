@@ -153,21 +153,21 @@ function addFamilyCondition(jsonList, familyCondCon) {
 		"<tr>" + 
 		" <td colspan=\"5\">" + familyCondList[x] + "</td>" + 
 		// Hidden inputs return a false value while its corresponding checkbox input returns true if checked.
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSelf\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSelf\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSelf\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionFather\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessFather\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessFather\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionMother\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessMother\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessMother\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionBrothers\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessBrothers\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessBrothers\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSisters\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSisters\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSisters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionSons\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSons\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessSons\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionDaughters\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessDaughters\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessDaughters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyConditionGrandparents\" value=\"false\">" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessGrandparents\" value=\"false\">" + 
 		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=" + familyCondList[x] + "\"familyIllnessGrandparents\" value=\"true\"></td>" + 
 		"</tr>";
 	}

@@ -371,8 +371,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 		List<MedicalRecordFamilyIllnessUnit> illnesses = new ArrayList<>();
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
-			
+		
 			MedicalRecordFamilyIllnessUnit unit = new MedicalRecordFamilyIllnessUnit(illness.getId(), illness.getValue());
+			System.out.println("Self illness: " + request.getParameter(illness.getValue() + "familyIllnessSelf"));
 			if(request.getParameter(illness.getValue() + "familyIllnessSelf") != null && 
 					request.getParameter(illness.getValue() + "familyIllnessSelf").equals("true")) {
 				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SELF);

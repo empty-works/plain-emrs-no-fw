@@ -50,14 +50,17 @@ public class SurgicalProblemsBean implements PatientIdInterface, BeanDaoInterfac
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 
-		for(int i = 0; i < getSurgeryMedProblems().size(); i++) {
-			preparedStatement.setString(1, getMedicalRecordId());
-			preparedStatement.setString(2, getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-			preparedStatement.setString(3, getSurgeryMedProblems().get(i).getProblemArea());
-			preparedStatement.setString(4, getSurgeryMedProblems().get(i).getSurgicalProcedure());
-			preparedStatement.setString(5, getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
-			preparedStatement.addBatch();
+		if(surgeryMedProblems != null && surgeryMedProblems.size() > 0) {
+			for(int i = 0; i < surgeryMedProblems.size(); i++) {
+				preparedStatement.setString(1, getMedicalRecordId());
+				preparedStatement.setString(2, getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
+				preparedStatement.setString(3, getSurgeryMedProblems().get(i).getProblemArea());
+				preparedStatement.setString(4, getSurgeryMedProblems().get(i).getSurgicalProcedure());
+				preparedStatement.setString(5, getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
+				preparedStatement.addBatch();
+			}
+			return preparedStatement.executeBatch()[0];
 		}
-		return preparedStatement.executeBatch()[0];
+		return 0;
 	}
 }
