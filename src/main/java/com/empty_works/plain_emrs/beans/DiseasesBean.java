@@ -35,14 +35,17 @@ public class DiseasesBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 
-		for(int i = 0; i < diseases.size(); i++) {
-			
-			preparedStatement.setString(1, medicalRecordId);
-			preparedStatement.setString(2, diseases.get(i).getDiseaseName());
-			preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
-			preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
-			preparedStatement.addBatch();
+		if(diseases != null) {
+			for(int i = 0; i < diseases.size(); i++) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				preparedStatement.setString(2, diseases.get(i).getDiseaseName());
+				preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
+				preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
+				preparedStatement.addBatch();
+			}
+			return preparedStatement.executeBatch()[0];
 		}
-		return preparedStatement.executeBatch()[0];
+		return 0;
 	}
 }

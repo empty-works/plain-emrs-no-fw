@@ -258,6 +258,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(diseases);
 		addUserDao.add(relations);
 		addUserDao.add(illnesses);
+		addUserDao.executeQueries();
 			
 		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
@@ -316,8 +317,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
 		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
 			
-			System.out.println("Disease - " + disease);
-			String result = request.getParameter(disease.getDiseaseId() + "immuDiseaseRadio");
+			String result = request.getParameter(disease.getDiseaseId());
+			System.out.println("Retrieved disease: " + result + " Disease ID: " + disease.getDiseaseId());
 			if(result != null) {
 				if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
 					
@@ -327,6 +328,7 @@ public class AddUserPatientServlet extends HttpServlet {
 						patientDisease.setImmunized(true);
 					}
 					// Only added if the patient had the disease regardless of immunization.
+					System.out.println("Added patient disease: " + patientDisease);
 					diseases.add(patientDisease);
 				}
 			}

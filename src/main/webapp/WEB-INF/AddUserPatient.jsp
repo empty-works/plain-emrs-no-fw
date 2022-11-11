@@ -195,12 +195,12 @@
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
 								<span>${disease.getDiseaseName()}: </span>
-								<input type="radio" id="${disease.getDiseaseId()} + NeverHad" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseId()} + NeverHad">
-								<label for="${disease.getDiseaseId()} + NeverHad">Never had disease or do not know</label>
-								<input type="radio" id="${disease.getDiseaseId()} + HadNoImmun" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseId()} + HadNoImmun">
-								<label for="${disease.getDiseaseId()} + Name">Had disease but no immunization</label>
-								<input type="radio" id="${disease.getDiseaseId()} + HadImmun" name="${disease.getDiseaseId()} + immuDiseaseRadio" value="${disease.getDiseaseId()} + HadImmun">
-								<label for="${disease.getDiseaseId()} + Immunized">Had disease and immunized</label>
+								<input type="radio" id="${disease.getDiseaseId()}NeverHad" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}NeverHad">
+								<label for="${disease.getDiseaseId()}NeverHad">Never had disease or do not know</label>
+								<input type="radio" id="${disease.getDiseaseId()}HadNoImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadNoImmun">
+								<label for="${disease.getDiseaseId()}HadNoImmun">Had disease but no immunization</label>
+								<input type="radio" id="${disease.getDiseaseId()}HadImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadImmun">
+								<label for="${disease.getDiseaseId()}HadImmun">Had disease and immunized</label>
 							</div>	
 						</c:forEach>
 					</fieldset>
