@@ -127,7 +127,7 @@ public class IllnessesBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 		
-		if(illness != null || illness.size() > 0) {
+		if(illness != null && illness.size() > 0) {
 			for(int i = 0; i < illness.size(); i++) {
 				
 				preparedStatement.setString(1, medicalRecordId);

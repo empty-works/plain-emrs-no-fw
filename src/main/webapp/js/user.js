@@ -153,22 +153,22 @@ function addFamilyCondition(jsonList, familyCondCon) {
 		"<tr>" + 
 		" <td colspan=\"5\">" + illnessValue + "</td>" + 
 		// Hidden inputs return a false value while its corresponding checkbox input returns true if checked.
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSelf\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSelf\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessFather\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessFather\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessMother\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessMother\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessBrothers\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessBrothers\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSisters\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSisters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSons\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSons\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessDaughters\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessDaughters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessGrandparents\" value=\"false\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessGrandparents\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSelf\" value=\"TEEEEESSSSTTT\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSelf\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessFather\" value=\"false1\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessFather\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessMother\" value=\"false2\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessMother\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessBrothers\" value=\"false3\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessBrothers\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSisters\" value=\"false4\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSisters\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSons\" value=\"false5\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessSons\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessDaughters\" value=\"false6\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessDaughters\" value=\"true\"></td>" + 
+		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessGrandparents\" value=\"false7\">" + 
+		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" id=\"" + illnessId + "familyIllnessGrandparents\" value=\"true\"></td>" + 
 		"</tr>";
 	}
 	famCondInputsHtml += "</table>";
