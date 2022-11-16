@@ -195,21 +195,21 @@ function getIllnessRow(illnessId, illnessName) {
 	illName.textContent = illnessName;
 	illWrapper.appendChild(illName);
 	// Add relations
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSelf"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSelf"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSelf"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessFather"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessFather"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessFather"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessMother"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessMother"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessMother"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessBrothers"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessBrothers"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessBrothers"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSisters"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSisters"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSisters"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSons"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSons"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSons"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessDaughters"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessDaughters"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessDaughters"));
-	illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessGrandparents"));
+	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessGrandparents"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessGrandparents"));
 	return illWrapper;
 }
