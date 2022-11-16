@@ -21,9 +21,15 @@
 }
 
 .illness-row {
-	grid-gap: 10px;
+	grid-gap: 5px;
 }
 
 .illness-checkbox {
-	padding: 10px 0px;
+	padding: 5px 0px;
+}
+
+.illness-name {
+	width: 200px;
+	max-width: 200px;
+	display: inline-block;
 }

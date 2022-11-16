@@ -289,7 +289,7 @@
 						<legend>Personal and family history</legend>	
 						<div id="familyConditionsCon">
 							<script type="text/javascript">
-								window.onload=addFamilyCondition(${familyConditionsList}, familyConditionsCon)
+								window.onload=addFamilyCondition(${familyConditionsList})
 							</script>
 						</div>
 					</fieldset>

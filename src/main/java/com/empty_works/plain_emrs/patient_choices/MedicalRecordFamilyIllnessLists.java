@@ -13,7 +13,7 @@ public class MedicalRecordFamilyIllnessLists {
 		private static final long serialVersionUID = 8723585501887545137L;
 		
 		{
-			add(new PatientFormUnit("famCondAbBleeding", "Abnormal bleeding (bleeding disorder)"));
+			add(new PatientFormUnit("famCondAbBleeding", "Abnormal bleeding"));
 			add(new PatientFormUnit("famCondAlcAbuse", "Alcohol abuse"));
 			add(new PatientFormUnit("famCondAllergies", "Allergies/allergic reactions"));
 			add(new PatientFormUnit("famCondAnemia", "Anemia"));

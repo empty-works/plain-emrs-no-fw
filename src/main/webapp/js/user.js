@@ -123,16 +123,7 @@ genMed = new MedProbAdder("genMed");
 heartMed = new MedProbAdder("heartMed");
 reproductMed = new MedProbAdder("reproductMed");
 
-function addFamilyCondition(jsonList, familyCondCon) {
-	let illnessMap = new Map();
-	// Push JSON elements to a JS list
-	for(let x in jsonList) {
-		illnessMap.set(x, jsonList[x]);
-	}
-	// Sort the JS list
-	illnessMap = new Map([...illnessMap.entries()].sort());
-	console.log(illnessMap);
-	// TODO: TEMPORARY TABLE - just need this work first then make it pretty later using CSS.
+function addFamilyCondition(jsonList) {
 	let famCondInputsHtml = 
 	"<table>" + 
 	" <tr>" + 
@@ -147,69 +138,30 @@ function addFamilyCondition(jsonList, familyCondCon) {
 	"  <th colspan=\"4\">Grandparents</th>" + 
 	" </tr>";
 
+	//TODO: add top row for family relations labels.
 	const illnessDiv = document.getElementById("familyConditionsCon");
 	
-	//for(const [illnessId, illnessValue] of illnessMap.entries()) {
 	for(let illnessId in jsonList) {
 		console.log(illnessId);
-		/*
-		let illCheckbox = document.createElement("input");
-		illCheckbox.type = "checkbox";
-		illCheckbox.name = illnessId + "familyIllnessSelf";
-		illCheckbox.value = "true";
-		illCheckbox.id = illnessId + "familyIllnessSelf";
-		*/
 		illnessDiv.appendChild(getIllnessRow(illnessId, jsonList[illnessId]));
-		/*
-		famCondInputsHtml += 
-		"<tr>" + 
-		" <td colspan=\"5\">" + illnessValue + "</td>" + 
-		// Hidden inputs return a false value while its corresponding checkbox input returns true if checked.
-		//" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSelf\" value=\"TEEEEESSSSTTT\">" + 
-		" <input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSelf\" value=\"true\">" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessFather\" value=\"false1\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessFather\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessMother\" value=\"false2\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessMother\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessBrothers\" value=\"false3\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessBrothers\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSisters\" value=\"false4\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSisters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSons\" value=\"false5\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessSons\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessDaughters\" value=\"false6\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessDaughters\" value=\"true\"></td>" + 
-		" <input type=\"hidden\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessGrandparents\" value=\"false7\">" + 
-		" <td colspan=\"4\"><input type=\"checkbox\" class=\"patient-form-fam-cond-checkbox\" name=\"" + illnessId + "familyIllnessGrandparents\" value=\"true\"></td>" + 
-		"</tr>";
-		*/
 	}
-	//famCondInputsHtml += "</table>";
-	//familyCondCon.insertAdjacentHTML("beforeend", famCondInputsHtml);
 }
 
 function getIllnessRow(illnessId, illnessName) {
 	let illWrapper = document.createElement("div");
 	illWrapper.classList.add("illness-row");
 	let illName = document.createElement("div");
+	illName.classList.add("illness-checkbox", "illness-name");
 	illName.textContent = illnessName;
 	illWrapper.appendChild(illName);
 	// Add relations
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSelf"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSelf"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessFather"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessFather"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessMother"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessMother"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessBrothers"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessBrothers"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSisters"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSisters"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessSons"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSons"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessDaughters"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessDaughters"));
-	//illWrapper.appendChild(getIllnessBoxFalse(illnessId, "familyIllnessGrandparents"));
 	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessGrandparents"));
 	return illWrapper;
 }
