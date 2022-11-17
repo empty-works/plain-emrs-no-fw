@@ -373,44 +373,37 @@ public class AddUserPatientServlet extends HttpServlet {
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 		
 			MedicalRecordFamilyIllnessUnit unit = new MedicalRecordFamilyIllnessUnit(illness.getId(), illness.getValue());
-			if(request.getParameter(illness.getId() + "familyIllnessSelf") != null && 
-					request.getParameter(illness.getId() + "familyIllnessSelf").equals("true")) {
-				System.out.println("Illness CHECK: " + request.getParameter(illness.getId() + "familyIllnessSelf"));
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SELF);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessFather") != null && 
-					request.getParameter(illness.getId() + "familyIllnessFather").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.FATHER);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessMother") != null && 
-					request.getParameter(illness.getId() + "familyIllnessMother").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.MOTHER);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessBrothers") != null && 
-					request.getParameter(illness.getId() + "familyIllnessBrothers").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.BROTHERS);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessSisters") != null && 
-					request.getParameter(illness.getId() + "familyIllnessSisters").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SISTERS);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessSons") != null && 
-					request.getParameter(illness.getId() + "familyIllnessSons").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.SONS);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessDaughters") != null && 
-					request.getParameter(illness.getId() + "familyIllnessDaughters").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.DAUGHTERS);
-			}
-			if(request.getParameter(illness.getId() + "familyIllnessGrandparents") != null && 
-					request.getParameter(illness.getId() + "familyIllnessGrandparents").equals("true")) {
-				unit.setFamilyRelation(MedicalRecordFamilyIllnessUnit.GRANDPARENTS);
-			}
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SELF, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SISTERS, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SONS, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS, unit));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS, unit));
+
 			// Only add unit if there are relatives/self added.
 			if(unit.getFamilyRelations().isEmpty() == false) {
 				illnesses.add(unit);
 			}
 		}
+		System.out.println("Illnesses: " + illnesses);
 		return illnesses;
+	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @param illness
+	 * @param relation
+	 * @param unit
+	 */
+	private static Boolean getFamilyRelation(HttpServletRequest request, PatientFormUnit illness, String relation, MedicalRecordFamilyIllnessUnit unit) {
+		
+		Boolean hasIllness = request.getParameter(illness.getId() + "familyIllness" + relation) != null && 
+				request.getParameter(illness.getId() + "familyIllness" + relation).equals("true") ? true : false;
+
+		System.out.println("Illness CHECK: " + hasIllness);
+		return hasIllness;
 	}
 }

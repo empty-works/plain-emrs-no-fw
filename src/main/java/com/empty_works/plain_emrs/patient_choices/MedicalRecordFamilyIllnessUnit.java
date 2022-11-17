@@ -5,17 +5,17 @@ import java.util.List;
 
 public class MedicalRecordFamilyIllnessUnit {
 
-	public static String SELF = "self";
-	public static String FATHER = "father";
-	public static String MOTHER = "mother";
-	public static String BROTHERS = "brothers";
-	public static String SISTERS = "sisters";
-	public static String SONS = "sons";
-	public static String DAUGHTERS = "daughters";
-	public static String GRANDPARENTS = "grandparents";
+	public static String SELF = "Self";
+	public static String FATHER = "Father";
+	public static String MOTHER = "Mother";
+	public static String BROTHERS = "Brothers";
+	public static String SISTERS = "Sisters";
+	public static String SONS = "Sons";
+	public static String DAUGHTERS = "Daughters";
+	public static String GRANDPARENTS = "Grandparents";
 	private String familyConditionId;
 	private String familyCondition;
-	private List<String> familyRelations = new ArrayList<>();
+	private List<Boolean> familyRelations = new ArrayList<>();
 	
 	public MedicalRecordFamilyIllnessUnit(String familyIllnessId, String familyIllness) {
 		
@@ -31,11 +31,11 @@ public class MedicalRecordFamilyIllnessUnit {
 		return familyCondition;
 	}
 
-	public List<String> getFamilyRelations() {
+	public List<Boolean> getFamilyRelations() {
 		return familyRelations;
 	}
 
-	public void setFamilyRelation(String relation) {
+	public void setFamilyRelation(Boolean relation) {
 		this.familyRelations.add(relation);
 	}
 }

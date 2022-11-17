@@ -176,11 +176,11 @@ public class AddUserServletTest {
 		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.BROTHERS);
 		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.GRANDPARENTS);
 		
-		List<String> resultRelativesList = new ArrayList<>();
+		List<Boolean> resultRelativesList = new ArrayList<>();
 		
 		for(MedicalRecordFamilyIllnessUnit condition: conditions) {
 			
-			for(String relative : condition.getFamilyRelations()) {
+			for(Boolean relative : condition.getFamilyRelations()) {
 				
 				resultRelativesList.add(relative);
 			}

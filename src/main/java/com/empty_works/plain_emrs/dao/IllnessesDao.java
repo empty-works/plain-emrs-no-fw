@@ -51,7 +51,7 @@ public class IllnessesDao {
 		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
 			
 			try {
-				preparedStatement.setBoolean(prepStatementNum, Boolean.parseBoolean(illness.getFamilyRelations().get(i)));
+				preparedStatement.setBoolean(prepStatementNum, illness.getFamilyRelations().get(i));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

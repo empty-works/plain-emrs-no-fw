@@ -129,7 +129,6 @@ public class IllnessesBean implements BeanDaoInterface {
 		
 		if(illness != null && illness.size() > 0) {
 			for(int i = 0; i < illness.size(); i++) {
-				
 				preparedStatement.setString(1, medicalRecordId);
 				preparedStatement.setString(2, illness.get(i).getFamilyIllness());
 				addRelations(illness.get(i), preparedStatement);
@@ -149,9 +148,8 @@ public class IllnessesBean implements BeanDaoInterface {
 		
 		int prepStatementNum = 3; // Prepared statement starts at 4.
 		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
-			
 			try {
-				preparedStatement.setBoolean(prepStatementNum, Boolean.parseBoolean(illness.getFamilyRelations().get(i)));
+				preparedStatement.setBoolean(prepStatementNum, illness.getFamilyRelations().get(i));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
