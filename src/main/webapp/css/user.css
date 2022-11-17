@@ -26,6 +26,9 @@
 
 .illness-checkbox {
 	padding: 5px 0px;
+	text-align: center;
+	width: 100px;
+	max-width: 100px;
 }
 
 .illness-name {

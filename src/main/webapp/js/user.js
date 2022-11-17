@@ -138,50 +138,66 @@ function addFamilyCondition(jsonList) {
 	"  <th colspan=\"4\">Grandparents</th>" + 
 	" </tr>";
 
-	//TODO: add top row for family relations labels.
 	const illnessDiv = document.getElementById("familyConditionsCon");
-	
+	// Add illness relations labels
+	illnessDiv.appendChild(setUpIllRelationsRow());
 	for(let illnessId in jsonList) {
 		console.log(illnessId);
 		illnessDiv.appendChild(getIllnessRow(illnessId, jsonList[illnessId]));
 	}
 }
 
+function setUpIllRelationsRow() {
+	let illWrapper = document.createElement("div");
+	illWrapper.classList.add("illness-row");
+	let illName = document.createElement("div");
+	illName.classList.add("illness-name");
+	illWrapper.appendChild(illName);
+	// Add relations labels
+	illWrapper.appendChild(getIllRelationsLabel("Self"));
+	illWrapper.appendChild(getIllRelationsLabel("Father"));
+	illWrapper.appendChild(getIllRelationsLabel("Mother"));
+	illWrapper.appendChild(getIllRelationsLabel("Brothers"));
+	illWrapper.appendChild(getIllRelationsLabel("Sisters"));
+	illWrapper.appendChild(getIllRelationsLabel("Sons"));
+	illWrapper.appendChild(getIllRelationsLabel("Daughters"));
+	illWrapper.appendChild(getIllRelationsLabel("Grandparents"));
+	return illWrapper;
+}
+
+function getIllRelationsLabel(relation) {
+	let illLabel = document.createElement("div");
+	illLabel.classList.add("illness-checkbox"); // Just using the illness checkbox styling
+	illLabel.textContent = relation;
+	return illLabel;
+}
+
 function getIllnessRow(illnessId, illnessName) {
 	let illWrapper = document.createElement("div");
 	illWrapper.classList.add("illness-row");
 	let illName = document.createElement("div");
-	illName.classList.add("illness-checkbox", "illness-name");
+	illName.classList.add("illness-name");
 	illName.textContent = illnessName;
 	illWrapper.appendChild(illName);
 	// Add relations
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSelf"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessFather"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessMother"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessBrothers"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSisters"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessSons"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessDaughters"));
-	illWrapper.appendChild(getIllnessBoxTrue(illnessId, "familyIllnessGrandparents"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessSelf"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessFather"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessMother"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessBrothers"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessSisters"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessSons"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessDaughters"));
+	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessGrandparents"));
 	return illWrapper;
 }
 
-function getIllnessBoxTrue(illnessId, relation) {
+function getIllCheckbox(illnessId, relation) {
 	let illBox = document.createElement("input");
 	illBox.type = "checkbox";
 	illBox.id = illnessId + relation;
 	illBox.name = illnessId + relation;
 	illBox.classList.add("illness-checkbox");
 	illBox.value = "true";
-	return illBox;
-}
-
-function getIllnessBoxFalse(illnessId, relation) {
-	let illBox = document.createElement("input");
-	illBox.type = "hidden";
-	illBox.id = illnessId + relation;
-	illBox.name = illnessId + relation;
-	illBox.value = "false";
 	return illBox;
 }
 
