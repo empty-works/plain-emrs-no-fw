@@ -381,8 +381,8 @@ public class AddUserPatientServlet extends HttpServlet {
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS, unit));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS, unit));
 
-			// Only add unit if there are relatives/self added.
-			if(unit.getFamilyRelations().isEmpty() == false) {
+			// Only add unit if there are relatives/self have/had illnesses.
+			if(unit.getFamilyRelations().contains(true)) {
 				illnesses.add(unit);
 			}
 		}
