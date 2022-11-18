@@ -146,10 +146,11 @@ public class IllnessesBean implements BeanDaoInterface {
 	 */
 	private static void addRelations(MedicalRecordFamilyIllnessUnit illness, PreparedStatement preparedStatement) {
 		
-		int prepStatementNum = 3; // Prepared statement starts at 4.
+		int prepStatementNum = 3; // Prepared statement starts at 3.
 		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
 			try {
 				preparedStatement.setBoolean(prepStatementNum, illness.getFamilyRelations().get(i));
+				prepStatementNum++;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
