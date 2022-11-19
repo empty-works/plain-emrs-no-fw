@@ -114,6 +114,14 @@ public class BloodRelationsBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 		
+		System.out.println("Mother status: " + getMotherStatus());
+		System.out.println("Father status: " + getFatherStatus());
+		System.out.println("Mother age: " + getMothDecAge());
+		System.out.println("Father age: " + getFathDecAge());
+		System.out.println("Num sisters: " + getNumSisters());
+		System.out.println("Num brothers: " + getNumBrothers());
+		System.out.println("Num daughters: " + getNumDaughters());
+		System.out.println("Num sons: " + getNumSons());
 		preparedStatement.setString(1, getMedicalRecordId());
 		preparedStatement.setString(2, getMotherStatus());
 		preparedStatement.setString(3, getFatherStatus());

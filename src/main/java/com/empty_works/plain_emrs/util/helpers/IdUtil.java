@@ -47,7 +47,7 @@ public class IdUtil {
 	}
 	
 	// Creates sequence based on current time in milliseconds
-	public final static int SEQUENCE_LENGTH = 6;
+	public final static int SEQUENCE_LENGTH = 4;
 	protected static String getRandomSequence() {
 		
 		final int SEQUENCE_BOUND = 1000;
@@ -58,7 +58,7 @@ public class IdUtil {
 		// Calculate seconds first
 		long millis = System.currentTimeMillis();
 		long seconds = millis/1000;
-		long sum = 0;
+		int sum = 0;
 		
 		// Generate random sequence
 		Random rand = new Random();
@@ -69,7 +69,7 @@ public class IdUtil {
 		
 		// Add the number of seconds with the random sequence
 		// Then extract only a portion of that sequence to ensure a limit on the sequence
-		String rawSequence = "" + (seconds + sum);
+		String rawSequence = "" + ((int)seconds + sum);
 		for(int i = rawSequence.length() - 1; i >= 0; i--) {
 			seqSb.append(rawSequence.charAt(i));
 		}

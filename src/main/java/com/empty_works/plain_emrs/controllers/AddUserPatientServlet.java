@@ -179,40 +179,13 @@ public class AddUserPatientServlet extends HttpServlet {
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 		
-		//System.out.println(AddUserDao.add(user, userLogin, userActivity, patient, medRecord, surgicalProblems));
-
-		// Add patient here.
-		//System.out.println("Adding patient...");
-		//patient.setUserId(userId);
-		//System.out.println(PatientDao.add(patient));
-		
-		// medical_records
-		/*
-		System.out.println("Adding medical record...");
-		medRecord = new MedicalRecordBean();
-		medRecord.setUserId(userId);
-		medRecord.setMedicalRecordId(medicalRecordId);
-		medRecord.setPatientCondition(request.getParameter("patientConditionDropdown"));
-		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
-		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
-		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
-		*/
-
-		// Add medical record to database and display result.
-		//System.out.println(MedicalRecordDao.add(medRecord));
-		
 		// diseases
 		diseases = new DiseasesBean();
-		//diseases.setUserId(userId);
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
 
-		// Add diseases to database and display result.
-		//System.out.println(DiseasesDao.add(diseases));
-
 		// blood_relatives
 		relations = new BloodRelationsBean();
-		//relations.setUserId(userId);
 		relations.setMedicalRecordId(medicalRecordId);
 		relations.setFatherStatus(request.getParameter("patientFather"));
 		relations.setMotherStatus(request.getParameter("patientMother"));
@@ -225,28 +198,12 @@ public class AddUserPatientServlet extends HttpServlet {
 		relations.setNumDaughters(Integer.parseInt(request.getParameter("DaughtersAlive")));
 		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
-		// Add blood relations to the database and display result.
-		//System.out.println(BloodRelationsDao.add(relations));
-
-		// surgical_related_problems
-		/*
-		surgicalProblems = new SurgicalProblemsBean();
-		surgicalProblems.setUserId(userId);
-		surgicalProblems.setMedicalRecordId(medicalRecordId);
-		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
-
-		// Add surgical problems to the database and display result.
-		System.out.println(SurgicalProblemsDao.add(surgicalProblems));
-		*/
-		
 		// illnesses
 		illnesses = new IllnessesBean();
 		illnesses.setMedicalRecordId(medicalRecordId);
 		illnesses.setIllness(parseIllnesses(request));
 
-		// Add illnesses to the database and display result.
-		//System.out.println(IllnessesDao.add(illnesses));
-		
+		// Now execute all collected queries.
 		addUserDao.add(user);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);
@@ -383,6 +340,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 			// Only add unit if there are relatives/self have/had illnesses.
 			if(unit.getFamilyRelations().contains(true)) {
+				System.out.println("Adding illnesses: " + unit);
 				illnesses.add(unit);
 			}
 		}
@@ -401,8 +359,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 		Boolean hasIllness = request.getParameter(illness.getId() + "familyIllness" + relation) != null && 
 				request.getParameter(illness.getId() + "familyIllness" + relation).equals("true") ? true : false;
-
-		System.out.println("Illness CHECK: " + hasIllness);
 		return hasIllness;
 	}
 }
