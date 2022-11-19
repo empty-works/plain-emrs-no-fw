@@ -19,7 +19,7 @@ public class UserRelationGenderLists {
 			add(new UserCurrentGenderUnit("transMtf", "Transgender Female/Transgender Woman/Male-to-Female (MtF)"));
 			add(new UserCurrentGenderUnit("genQueer", "Genderqueer - neither exclusively male nor female"));
 			add(new UserCurrentGenderUnit("curGenOther", "Other"));
-			add(new UserCurrentGenderUnit("curGenNoAnswer", "Choose not to disclose"));
+			add(new UserCurrentGenderUnit("curGenNotDisclosed", "Not disclosed"));
 		}
 	};
 
@@ -32,7 +32,7 @@ public class UserRelationGenderLists {
 		{
 			add(new UserSexAssignedBirthUnit("sexAssignedMale", "Male"));
 			add(new UserSexAssignedBirthUnit("sexAssignedFemale", "Female"));
-			add(new UserSexAssignedBirthUnit("sexAssignedNoAnswer", "Choose not to disclose"));
+			add(new UserSexAssignedBirthUnit("sexAssignedNotDisclosed", "Not disclosed"));
 		}
 	};
 	
@@ -43,11 +43,12 @@ public class UserRelationGenderLists {
 		private static final long serialVersionUID = 1637247765396865477L;
 
 		{
-			add(new UserSexualOrientationUnit("straHetero", "Straight or heterosexual"));
-			add(new UserSexualOrientationUnit("lesGaHomo", "Lesbian, gay, or homosexual"));
-			add(new UserSexualOrientationUnit("bisex", "Bisexual"));
-			add(new UserSexualOrientationUnit("someElse", "Something else"));
-			add(new UserSexualOrientationUnit("donKno", "Don't know"));
+			add(new UserSexualOrientationUnit("userOrientationStraHetero", "Straight or heterosexual"));
+			add(new UserSexualOrientationUnit("userOrientationLesGaHomo", "Lesbian, gay, or homosexual"));
+			add(new UserSexualOrientationUnit("userOrientationBisex", "Bisexual"));
+			add(new UserSexualOrientationUnit("userOrientationSomeElse", "Something else"));
+			add(new UserSexualOrientationUnit("userOrientationDonKno", "Don't know"));
+			add(new UserSexualOrientationUnit("userOrientationNotDisclosed", "Not disclosed"));
 		}
 	};
 }

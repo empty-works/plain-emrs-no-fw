@@ -117,7 +117,8 @@
 						<!-- Marital status drop-down -->
 						<c:forEach items="${maritalStatusList}" var="maritalStatus">
 							<div>
-								<input type="radio" id="${maritalStatus.getMaritalStatusId()}" name="maritalOptionRadio" value="${maritalStatus.getMaritalStatusId()}">
+								<!-- Last option will be checked by default -->
+								<input checked type="radio" id="${maritalStatus.getMaritalStatusId()}" name="maritalOptionRadio" value="${maritalStatus.getMaritalStatusId()}">
 								<label for="${maritalStatus.getMaritalStatusId()}">${maritalStatus.getMaritalStatus()}</label>
 							</div>	
 						</c:forEach>
@@ -127,7 +128,7 @@
 						<!-- Living arrangement selection -->
 						<c:forEach items="${livingArrangementList}" var="living">
 							<div>
-								<input type="radio" id="${living.getArrangementId()}" name="livingOptionRadio" value="${living.getArrangementId()}">
+								<input checked type="radio" id="${living.getArrangementId()}" name="livingOptionRadio" value="${living.getArrangementId()}">
 								<label for="${living.getArrangementId()}">${living.getArrangement()}</label>	
 							</div>	
 						</c:forEach>
@@ -137,7 +138,7 @@
 						<!-- Current gender selection -->
 						<c:forEach items="${currentGenderList}" var="currentGender">
 							<div>
-								<input type="radio" id="${currentGender.getCurrentGenderId()}" name="currentGenderRadio" value="${currentGender.getCurrentGenderId()}">
+								<input checked type="radio" id="${currentGender.getCurrentGenderId()}" name="currentGenderRadio" value="${currentGender.getCurrentGenderId()}">
 								<label for="${currentGender.getCurrentGenderId()}">${currentGender.getCurrentGender()}</label>
 							</div>
 						</c:forEach>
@@ -147,7 +148,7 @@
 						<!-- Gender at birth selection -->
 						<c:forEach items="${sexAssignedBirthList}" var="sexAssignedBirth">
 							<div>
-								<input type="radio" id="${sexAssignedBirth.getSexAssignedBirthId()}" name="sexAssignedBirthRadio" value="${sexAssignedBirth.getSexAssignedBirthId()}">	
+								<input checked type="radio" id="${sexAssignedBirth.getSexAssignedBirthId()}" name="sexAssignedBirthRadio" value="${sexAssignedBirth.getSexAssignedBirthId()}">	
 								<label for="${sexAssignedBirth.getSexAssignedBirthId()}">${sexAssignedBirth.getSexAssignedBirth()}</label>
 							</div>	
 						</c:forEach>
@@ -157,7 +158,7 @@
 						<!-- Sexual orientation selection -->
 						<c:forEach items="${sexualOrientationList}" var="sexualOrientation">
 							<div>
-								<input type="radio" id="${sexualOrientation.getSexualOrientationId()}" name="sexualOrientationRadio" value="${sexualOrientation.getSexualOrientationId()}">
+								<input checked type="radio" id="${sexualOrientation.getSexualOrientationId()}" name="sexualOrientationRadio" value="${sexualOrientation.getSexualOrientationId()}">
 								<label for="${sexualOrientation.getSexualOrientationId()}">${sexualOrientation.getSexualOrientation()}</label>
 							</div>	
 						</c:forEach>
@@ -234,14 +235,12 @@
 					<fieldset>
 						<legend>Personal and family history</legend>	
 						<div>Is patient adopted?</div>
-						<input type="radio" id="isAdoptedNo" name="patientAdopted" value="false">
-						<label for="isAdoptedNo">No</label><br>
 						<input type="radio" id="isAdoptedYes" name="patientAdopted" value="true">
 						<label for="isAdoptedYes">Yes</label><br>
+						<input checked type="radio" id="isAdoptedNo" name="patientAdopted" value="false">
+						<label for="isAdoptedNo">No</label><br>
 
 						<div>Father:</div>
-						<input type="radio" id="fatherNotKnow" name="patientFather" value="unknown">
-						<label for="fatherNotKnow">Do not know</label><br>
 						<input type="radio" id="fatherAlive" name="patientFather" value="alive">
 						<label for="fatherAlive">Alive</label><br>
 						<input type="radio" id="fatherDec" name="patientFather" value="deceased">
@@ -256,11 +255,11 @@
 							<option value="over70">Over 70</option>
 						</select>
 						<input type="hidden" name="fatherCauseDeath" value="not applicable">
-						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death">
+						<input type="text" id="fatherCauseDeath" name="fatherCauseDeath" placeholder="Cause of death"><br>
+						<input checked type="radio" id="fatherNotKnow" name="patientFather" value="unknown">
+						<label for="fatherNotKnow">Do not know</label><br>
 
 						<div>Mother:</div>
-						<input type="radio" id="motherNotKnow" name="patientMother" value="unknown">
-						<label for="motherNotKnow">Do not know</label><br>
 						<input type="radio" id="motherAlive" name="patientMother" value="alive">
 						<label for="motherAlive">Alive</label><br>
 						<input type="radio" id="motherDec" name="patientMother" value="deceased">
@@ -275,7 +274,10 @@
 							<option value="over70">Over 70</option>
 						</select>
 						<input type="hidden" name="motherCauseDeath" value="not applicable">
-						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death">
+						<input type="text" id="motherCauseDeath" name="motherCauseDeath" placeholder="Cause of death"><br>
+						<input checked type="radio" id="motherNotKnow" name="patientMother" value="unknown">
+						<label for="motherNotKnow">Do not know</label><br>
+
 					</fieldset>
 					<fieldset>
 						<legend>Patient other relations</legend>	

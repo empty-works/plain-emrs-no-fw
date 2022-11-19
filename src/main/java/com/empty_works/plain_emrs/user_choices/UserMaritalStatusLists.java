@@ -18,6 +18,7 @@ public class UserMaritalStatusLists {
 			add(new UserMaritalStatusUnit("relStatusSeparate","Separated"));
 			add(new UserMaritalStatusUnit("relStatusDivor","Divorced"));
 			add(new UserMaritalStatusUnit("relStatusWido","Widowed"));
+			add(new UserMaritalStatusUnit("relStatusNotDisclosed","Not disclosed"));
 		}
 	};
 }

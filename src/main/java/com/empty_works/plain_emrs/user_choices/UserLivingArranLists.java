@@ -13,14 +13,15 @@ public class UserLivingArranLists {
 		private static final long serialVersionUID = 1593118704632849613L;
 
 		{
-			add(new UserLivingArranUnit("alone", "Alone"));
-			add(new UserLivingArranUnit("spousePartner", "Spouse/Partner(s)"));
-			add(new UserLivingArranUnit("children", "Child(ren)"));
-			add(new UserLivingArranUnit("sibling", "Sibling"));
-			add(new UserLivingArranUnit("parentGuard", "Parent(s)/Guardian(s)"));
-			add(new UserLivingArranUnit("group", "Group setting"));
-			add(new UserLivingArranUnit("personalCare", "Personal care attendant"));
-			add(new UserLivingArranUnit("other", "Other"));
+			add(new UserLivingArranUnit("userLivingAlone", "Alone"));
+			add(new UserLivingArranUnit("userLivingSpousePartner", "Spouse/Partner(s)"));
+			add(new UserLivingArranUnit("userLivingChildren", "Child(ren)"));
+			add(new UserLivingArranUnit("userLivingSibling", "Sibling"));
+			add(new UserLivingArranUnit("userLivingParentGuard", "Parent(s)/Guardian(s)"));
+			add(new UserLivingArranUnit("userLivingGroup", "Group setting"));
+			add(new UserLivingArranUnit("userLivingPersonalCare", "Personal care attendant"));
+			add(new UserLivingArranUnit("userLivingOther", "Other"));
+			add(new UserLivingArranUnit("userLivingNotDisclosed", "Not disclosed"));
 		}
 	};
 }
