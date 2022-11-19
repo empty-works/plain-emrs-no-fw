@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+/* General */
+input[type=text], input[type=date] {
+	padding: 5px 8px;
+	margin: 4px 0px;
+}
+
+label {
+	margin: 4px 0px;
+	padding: 4px 0px;
+}
+
+legend {
+	margin: 9px 0px;
+	font-weight: bold;
+}

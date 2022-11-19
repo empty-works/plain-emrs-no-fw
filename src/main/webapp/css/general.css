@@ -18,6 +18,11 @@
 	--text-padding: 2.6em;
 }
 
+/* Global font */
+html, * {
+	font-family: Helvtica, Arial, sans-serif;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;

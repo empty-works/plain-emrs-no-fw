@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css" />
 <script src="${pageContext.request.contextPath}/js/user.js"></script>
 
 <title>Add User</title>
