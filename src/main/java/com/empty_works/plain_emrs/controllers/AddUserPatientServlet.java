@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.empty_works.plain_emrs.beans.AuthorityBean;
 import com.empty_works.plain_emrs.beans.BloodRelationsBean;
 import com.empty_works.plain_emrs.beans.DiseasesBean;
 import com.empty_works.plain_emrs.beans.IllnessesBean;
@@ -93,6 +94,7 @@ public class AddUserPatientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UserBean user = new UserBean();
+		AuthorityBean authority;
 		PatientBean patient; // Instantiated if user is a new patient.
 		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
@@ -138,6 +140,11 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Generate medical record ID based on the newly generated user ID.
 		String medicalRecordId = MedicalRecordIdUtil.get(userId);
 		String userPassword = PasswordUtil.generate(PASSWORD_LENGTH);
+		
+		// Add patient role/authority
+		authority = new AuthorityBean();
+		authority.setUserId(userId);
+		authority.setAuthority(request.getParameter("rolePatient"));
 
 		// Add user(patient) to database and display result.
 		user.setUserId(userId);
@@ -205,6 +212,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		// Now execute all collected queries.
 		addUserDao.add(user);
+		addUserDao.add(authority);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);
 		addUserDao.add(patient);

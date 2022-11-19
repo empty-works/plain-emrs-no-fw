@@ -25,7 +25,7 @@ public class DiseasesBean implements BeanDaoInterface {
 	}
 	@Override
 	public String getQuery() {
-		return "insert into diseases(medical_record_id, disease, contracted_disease, received_immunization) "
+		return "INSERT INTO diseases(medical_record_id, disease, contracted_disease, received_immunization) "
 				+ "values (?,?,?,?)";
 	}
 	@Override
