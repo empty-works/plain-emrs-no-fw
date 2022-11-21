@@ -196,7 +196,7 @@
 						<legend>Immunizations/diseases</legend>
 						<c:forEach items="${diseaseList}" var="disease">
 							<div>
-								<span>${disease.getDiseaseName()}: </span>
+								<span >${disease.getDiseaseName()}: </span>
 								<input type="radio" id="${disease.getDiseaseId()}NeverHad" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}NeverHad">
 								<label for="${disease.getDiseaseId()}NeverHad">Never had disease or do not know</label>
 								<input type="radio" id="${disease.getDiseaseId()}HadNoImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadNoImmun">

@@ -124,20 +124,6 @@ heartMed = new MedProbAdder("heartMed");
 reproductMed = new MedProbAdder("reproductMed");
 
 function addFamilyCondition(jsonList) {
-	let famCondInputsHtml = 
-	"<table>" + 
-	" <tr>" + 
-	"  <th colspan=\"5\">Condition Name</th>" + 
-	"  <th colspan=\"4\">Self</th>" + 
-	"  <th colspan=\"4\">Father</th>" + 
-	"  <th colspan=\"4\">Mother</th>" + 
-	"  <th colspan=\"4\">Brothers</th>" + 
-	"  <th colspan=\"4\">Sisters</th>" + 
-	"  <th colspan=\"4\">Sons</th>" + 
-	"  <th colspan=\"4\">Daughters</th>" + 
-	"  <th colspan=\"4\">Grandparents</th>" + 
-	" </tr>";
-
 	const illnessDiv = document.getElementById("familyConditionsCon");
 	// Add illness relations labels
 	illnessDiv.appendChild(setUpIllRelationsRow());
@@ -149,9 +135,9 @@ function addFamilyCondition(jsonList) {
 
 function setUpIllRelationsRow() {
 	let illWrapper = document.createElement("div");
-	illWrapper.classList.add("illness-row");
+	illWrapper.classList.add("horiz-label-then-buttons-row");
 	let illName = document.createElement("div");
-	illName.classList.add("illness-name");
+	illName.classList.add("horiz-label-then-buttons-name");
 	illWrapper.appendChild(illName);
 	// Add relations labels
 	illWrapper.appendChild(getIllRelationsLabel("Self"));
@@ -167,16 +153,16 @@ function setUpIllRelationsRow() {
 
 function getIllRelationsLabel(relation) {
 	let illLabel = document.createElement("div");
-	illLabel.classList.add("illness-checkbox"); // Just using the illness checkbox styling
+	illLabel.classList.add("horiz-label-then-buttons-checkbox"); // Just using the illness checkbox styling
 	illLabel.textContent = relation;
 	return illLabel;
 }
 
 function getIllnessRow(illnessId, illnessName) {
 	let illWrapper = document.createElement("div");
-	illWrapper.classList.add("illness-row");
+	illWrapper.classList.add("horiz-label-then-buttons-row");
 	let illName = document.createElement("div");
-	illName.classList.add("illness-name");
+	illName.classList.add("horiz-label-then-buttons-name");
 	illName.textContent = illnessName;
 	illWrapper.appendChild(illName);
 	// Add relations
@@ -196,7 +182,7 @@ function getIllCheckbox(illnessId, relation) {
 	illBox.type = "checkbox";
 	illBox.id = illnessId + relation;
 	illBox.name = illnessId + relation;
-	illBox.classList.add("illness-checkbox");
+	illBox.classList.add("horiz-label-then-buttons-checkbox");
 	illBox.value = "true";
 	return illBox;
 }

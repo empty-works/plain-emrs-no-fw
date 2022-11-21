@@ -14,3 +14,25 @@ legend {
 	margin: 9px 0px;
 	font-weight: bold;
 }
+
+.horiz-label-then-buttons-row {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.horiz-label-then-buttons-row {
+	grid-gap: 5px;
+}
+
+.horiz-label-then-buttons-checkbox {
+	padding: 5px 0px;
+	text-align: center;
+	width: 100px;
+	max-width: 100px;
+}
+
+.horiz-label-then-buttons-name {
+	width: 200px;
+	max-width: 200px;
+	display: inline-block;
+}

@@ -14,25 +14,3 @@
 .med-prob-text {
 	margin-left: 4px;	
 }
-
-.illness-row {
-	display: grid;
-	grid-auto-flow: column;
-}
-
-.illness-row {
-	grid-gap: 5px;
-}
-
-.illness-checkbox {
-	padding: 5px 0px;
-	text-align: center;
-	width: 100px;
-	max-width: 100px;
-}
-
-.illness-name {
-	width: 200px;
-	max-width: 200px;
-	display: inline-block;
-}
