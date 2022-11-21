@@ -194,15 +194,18 @@
 					<fieldset>
 						<!-- Immunizations/diseases -->	
 						<legend>Immunizations/diseases</legend>
+						<div class="horiz-label-then-buttons-row">
+							<div class="horiz-label-then-buttons-name"></div>
+							<div class="horiz-label-then-buttons-checkbox">Had disease but no immunization</div>
+							<div class="horiz-label-then-buttons-checkbox">Had disease and immunized</div>
+							<div class="horiz-label-then-buttons-checkbox">Never had disease or do not know</div>
+						</div>
 						<c:forEach items="${diseaseList}" var="disease">
-							<div>
-								<span >${disease.getDiseaseName()}: </span>
-								<input type="radio" id="${disease.getDiseaseId()}NeverHad" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}NeverHad">
-								<label for="${disease.getDiseaseId()}NeverHad">Never had disease or do not know</label>
-								<input type="radio" id="${disease.getDiseaseId()}HadNoImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadNoImmun">
-								<label for="${disease.getDiseaseId()}HadNoImmun">Had disease but no immunization</label>
-								<input type="radio" id="${disease.getDiseaseId()}HadImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadImmun">
-								<label for="${disease.getDiseaseId()}HadImmun">Had disease and immunized</label>
+							<div class="horiz-label-then-buttons-row">
+								<div class="horiz-label-then-buttons-name">${disease.getDiseaseName()}: </div>
+								<input class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}NeverHad" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}NeverHad">
+								<input class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}HadNoImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadNoImmun">
+								<input checked class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}HadImmun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}HadImmun">
 							</div>	
 						</c:forEach>
 					</fieldset>
