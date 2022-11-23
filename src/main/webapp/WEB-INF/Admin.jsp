@@ -28,9 +28,10 @@
 
 	<div class="main-container">
 		<!-- Side main menu -->
-		<div class="">
-		
+		<div class="side-main-menu">
+			<script id="replace_with_sidemainmenu" src="${pageContext.request.contextPath}/js/adminsidemainmenu.js"></script>	
 		</div>
+
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
 		<!--  

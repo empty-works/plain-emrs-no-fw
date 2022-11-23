@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 </head>
 <body>
-	
+	<!-- Side main menu -->
+	<div><a href="<c:url value="/ScheduleServlet" />">+</a></div>
+	<div><a href="<c:url value="/PatientServlet" />">+</a></div>
 </body>
 </html>

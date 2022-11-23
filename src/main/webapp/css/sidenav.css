@@ -23,7 +23,6 @@ html, body {
 	background-color: var(--light-blue);
 	overflow-x: hidden;
 	padding: 15% 0;
-	margin-left: var(--sidenav-left-margin);
 }
 
 .sidenav a {
