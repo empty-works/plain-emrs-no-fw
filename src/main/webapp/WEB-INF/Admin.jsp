@@ -27,6 +27,10 @@
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
 
 	<div class="main-container">
+		<!-- Side main menu -->
+		<div class="">
+		
+		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
 		<!--  

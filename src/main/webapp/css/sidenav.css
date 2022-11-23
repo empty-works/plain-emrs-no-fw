@@ -8,12 +8,22 @@ html, body {
 	padding: 0;
 }
 
+/* Side main menu*/
+.side-main-menu {
+	height: 100%;
+	width: var(--sidenav-left-margin);
+	background-color: var(--darker-blue);
+	overflow-x: hidden;
+}
+
+/* Content side nav */
 .sidenav {
 	height: 100%;
 	width: var(--sidenav-width); 
 	background-color: var(--light-blue);
 	overflow-x: hidden;
 	padding: 15% 0;
+	margin-left: var(--sidenav-left-margin);
 }
 
 .sidenav a {
