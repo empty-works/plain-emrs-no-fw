@@ -10,7 +10,8 @@
 </head>
 <body>
 	<!-- Side main menu -->
-	<div><a href="<c:url value="/ScheduleServlet" />">+</a></div>
+	<!-- Plus signs are temporary. Will be replaced by proper icons. -->
+	<div><a href="<c:url value="/AdminServlet" />">+</a></div>
 	<div><a href="<c:url value="/PatientServlet" />">+</a></div>
 </body>
 </html>
