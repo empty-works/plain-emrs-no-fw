@@ -10,17 +10,20 @@ import java.util.List;
 import java.io.InputStream;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class PatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
+	final public static int PATIENT_FETCH_SIZE = 100;
 
 	public static PatientBean getPatient(PatientBean patient) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
+
 		
 		// TODO: rework this!
 		String query = "SELECT patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
@@ -71,18 +74,24 @@ public class PatientDao {
 		return patient;
 	}
 	
-	public static List<PatientBean> getList() {
+	public static List<PatientBean> getList(int firstRow, int rowCount) {
 		
 		List<PatientBean> patientsList = new ArrayList<>();
-		
+
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
+		String SUBLIST_QUERY = "SELECT users.user_id, users.user_first_name, users.user_last_name, users.user_date_of_birth, patients.patient_type, "
+				+ "patients.patient_current_gender, patients.patient_current_gender, authorities.authority FROM users, patients, authorities "
+				+ "WHERE authorities.authority = " + PlainEmrsRoles.ROLE_PATIENT + " ORDER BY users.user_last_name LIMIT %d OFFSET %d";
+		
+		String query = String.format(SUBLIST_QUERY, firstRow, rowCount);
+		/*
 		String query = "SELECT patient_id, patient_given_name, patient_middle_initial, patient_last_name, "
 				+ "patient_date_of_birth, patient_gender, patient_type, patient_race, patient_ethnicity, "
 				+ "patient_language_preference, patient_facility_id FROM patients";
-
+		*/
 		try {
 
 			preparedStatement = con.prepareStatement(query);
@@ -91,15 +100,10 @@ public class PatientDao {
 			while(resultSet.next()) {
 				
 				PatientBean patient = new PatientBean();
-				//patient.setPatientId(resultSet.getString("patient_id"));
-				//patient.setGivenName(resultSet.getString("patient_given_name"));
 				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
 				patient.setLastName(resultSet.getString("patient_last_name"));
-				//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
 				patient.setCurrentGender(resultSet.getString("patient_gender"));
 				patient.setType(resultSet.getString("patient_type"));
-				//patient.setRace(resultSet.getString("patient_race"));
-				//patient.setEthnicity(resultSet.getString("patient_ethnicity"));
 				patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
 				patient.setFacilityId(resultSet.getString("patient_facility_id"));
 				patientsList.add(patient);

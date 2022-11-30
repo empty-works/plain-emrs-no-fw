@@ -17,7 +17,7 @@
 		
 		<!-- Patient search bar -->
 		<form class="search-container" action="">
-			<input type="text" placeholder="Patient search.." name="search">
+			<input type="text" placeholder="Patient search..." name="search">
 			<button type="submit"><i class="fa fa-search"></i></button>	
 		</form>	
 	<!-- 
