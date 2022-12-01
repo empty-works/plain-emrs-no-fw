@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
-import com.empty_works.plain_emrs.dao.PatientDao;
+import com.empty_works.plain_emrs.dao.UserPatientDao;
 
 /**
  * Servlet implementation class PatientSearchServlet

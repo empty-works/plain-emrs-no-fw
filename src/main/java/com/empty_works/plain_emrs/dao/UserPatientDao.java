@@ -14,7 +14,7 @@ import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 import com.empty_works.plain_emrs.util.QueryUtil;
 
-public class PatientDao {
+public class UserPatientDao {
 
 	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
 	final public static int PATIENT_FETCH_SIZE = 100;
@@ -74,6 +74,12 @@ public class PatientDao {
 		return patient;
 	}
 	
+	/**
+	 * 
+	 * @param firstRow
+	 * @param rowCount
+	 * @return
+	 */
 	public static List<PatientBean> getList(int firstRow, int rowCount) {
 		
 		List<PatientBean> patientsList = new ArrayList<>();
@@ -82,16 +88,12 @@ public class PatientDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String SUBLIST_QUERY = "SELECT users.user_id, users.user_first_name, users.user_last_name, users.user_date_of_birth, patients.patient_type, "
-				+ "patients.patient_current_gender, patients.patient_current_gender, authorities.authority FROM users, patients, authorities "
+		String SUBLIST_QUERY = "SELECT users.user_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, patients.patient_type, "
+				+ "patients.patient_current_gender, patients.patient_gender_at_birth, authorities.authority FROM users, patients, authorities "
 				+ "WHERE authorities.authority = " + PlainEmrsRoles.ROLE_PATIENT + " ORDER BY users.user_last_name LIMIT %d OFFSET %d";
 		
 		String query = String.format(SUBLIST_QUERY, firstRow, rowCount);
-		/*
-		String query = "SELECT patient_id, patient_given_name, patient_middle_initial, patient_last_name, "
-				+ "patient_date_of_birth, patient_gender, patient_type, patient_race, patient_ethnicity, "
-				+ "patient_language_preference, patient_facility_id FROM patients";
-		*/
+
 		try {
 
 			preparedStatement = con.prepareStatement(query);
@@ -100,12 +102,15 @@ public class PatientDao {
 			while(resultSet.next()) {
 				
 				PatientBean patient = new PatientBean();
-				patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
-				patient.setLastName(resultSet.getString("patient_last_name"));
-				patient.setCurrentGender(resultSet.getString("patient_gender"));
-				patient.setType(resultSet.getString("patient_type"));
-				patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
-				patient.setFacilityId(resultSet.getString("patient_facility_id"));
+				patient.setUserId(resultSet.getString("users.user_id"));
+				patient.setFirstName(resultSet.getString("users.user_first_name"));
+				patient.setMiddleInitial(resultSet.getString("users.user_middle_initial"));
+				patient.setLastName(resultSet.getString("users.user_last_name"));
+				patient.setDateOfBirth(resultSet.getDate("users.user_date_of_birth").toLocalDate());
+				patient.setType(resultSet.getString(resultSet.getString("patients.patient_type")));
+				patient.setCurrentGender(resultSet.getString("patients.patient_current_gender"));
+				patient.setGenderAtBirth(resultSet.getString("patients.patient_gender_at_birth"));
+				patient.setRole(resultSet.getString("authorities.authority"));
 				patientsList.add(patient);
 			}
 		} catch (SQLException e) {

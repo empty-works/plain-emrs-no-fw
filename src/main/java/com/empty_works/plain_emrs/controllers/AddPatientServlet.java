@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
-import com.empty_works.plain_emrs.dao.PatientDao;
+import com.empty_works.plain_emrs.dao.UserPatientDao;
 import com.empty_works.plain_emrs.util.UserIdUtil;
 
 /**
@@ -58,11 +58,11 @@ public class AddPatientServlet extends HttpServlet {
 		//pb.setPatientId(PatientIdUtil.get(givenName, lastName));
 		
 		System.out.println("Adding patient to the database...");
-		String patientAddResult = PatientDao.add(pb);
-		if(patientAddResult.equals(PatientDao.PATIENTDAO_SUCCESS)) {
+		String patientAddResult = UserPatientDao.add(pb);
+		if(patientAddResult.equals(UserPatientDao.PATIENTDAO_SUCCESS)) {
 			
 			System.out.println("Patient successfully added to the database!");
-			request.setAttribute(PatientServlet.patientDbAttribute, pb);
+			request.setAttribute(UserPatientServlet.patientDbAttribute, pb);
 			request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 		}
 		else {
