@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class PatientsServlet
@@ -14,13 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 public class UserPatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static String patientDbAttribute = "patientDb";
+	private int startRow = 1, rowCount = 25;
        
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		request.setAttribute("startRow", startRow);
+		request.setAttribute("rowCount", rowCount);
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 
@@ -29,6 +32,10 @@ public class UserPatientServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		doGet(request, response);
+		// Get start row and row count from the JSP.
+		// Update start row and row count variables after incrementing depending on if the previous or next button was clicked.
+		// Update session start row and row count.
+		HttpSession session = request.getSession();
+
 	}
 }
