@@ -98,22 +98,25 @@ public class UserPatientDao {
 				+ "WHERE authorities.authority = %s "
 				+ "ORDER BY users.user_last_name LIMIT %d OFFSET %d";
 		
-		String query = String.format(SUBLIST_QUERY, "'" + PlainEmrsRoles.ROLE_PATIENT.getRoleDb() + "'", firstRow, rowCount);
+		String query = String.format(SUBLIST_QUERY, "'" + PlainEmrsRoles.ROLE_PATIENT.getRoleDb() + "'", rowCount, firstRow);
 
 		try {
 
 			preparedStatement = con.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
+			System.out.println("Patient sublist result set: " + resultSet);
+			
 			while(resultSet.next()) {
 				
+				System.out.println("Inside patient sublist while loop.");
 				PatientBean patient = new PatientBean();
 				patient.setUserId(resultSet.getString("users.user_id"));
 				patient.setFirstName(resultSet.getString("users.user_first_name"));
 				patient.setMiddleInitial(resultSet.getString("users.user_middle_initial"));
 				patient.setLastName(resultSet.getString("users.user_last_name"));
 				patient.setDateOfBirth(resultSet.getDate("users.user_date_of_birth").toLocalDate());
-				patient.setType(resultSet.getString(resultSet.getString("patients.patient_type")));
+				patient.setType(resultSet.getString("patients.patient_type"));
 				patient.setCurrentGender(resultSet.getString("patients.patient_current_gender"));
 				patient.setGenderAtBirth(resultSet.getString("patients.patient_gender_at_birth"));
 				patient.setRole(resultSet.getString("authorities.authority"));
@@ -128,7 +131,7 @@ public class UserPatientDao {
 			
 			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
-		
+		System.out.println("Patient list after query: " + patientsList);
 		return patientsList;
 	}
 	

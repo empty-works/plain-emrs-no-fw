@@ -34,15 +34,17 @@
 		</div>
 		
 		<div class="main-grid-container-side-nav main-font">
-			<table>
-				<c:forEach items="${patientSublist}" var="patient" >
-					<tr>
-						<td>${patient.getFirstName()}</td>
-						<td>${patient.getLastName()}</td>
-					</tr>
-				</c:forEach>
-			</table>	
 		</div>
+
+		<h2>PATIENT LIST</h2>
+		<table>
+			<c:forEach items="${patientSublist}" var="patient" >
+				<tr>
+					<td>${patient.getFirstName()}</td>
+					<td>${patient.getLastName()}</td>
+				</tr>
+			</c:forEach>
+		</table>	
 	</div>
 </body>
 </html>
