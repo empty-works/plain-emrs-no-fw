@@ -89,10 +89,16 @@ public class UserPatientDao {
 		ResultSet resultSet = null;
 		
 		String SUBLIST_QUERY = "SELECT users.user_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, patients.patient_type, "
-				+ "patients.patient_current_gender, patients.patient_gender_at_birth, authorities.authority FROM users, patients, authorities "
-				+ "WHERE authorities.authority = " + PlainEmrsRoles.ROLE_PATIENT + " ORDER BY users.user_last_name LIMIT %d OFFSET %d";
+				+ "patients.patient_current_gender, patients.patient_gender_at_birth, authorities.authority "
+				+ "FROM users "
+				+ "INNER JOIN patients "
+				+ "ON users.user_id = patients.user_id "
+				+ "INNER JOIN authorities "
+				+ "ON patients.user_id = authorities.user_id "
+				+ "WHERE authorities.authority = %s "
+				+ "ORDER BY users.user_last_name LIMIT %d OFFSET %d";
 		
-		String query = String.format(SUBLIST_QUERY, firstRow, rowCount);
+		String query = String.format(SUBLIST_QUERY, "'" + PlainEmrsRoles.ROLE_PATIENT.getRoleDb() + "'", firstRow, rowCount);
 
 		try {
 

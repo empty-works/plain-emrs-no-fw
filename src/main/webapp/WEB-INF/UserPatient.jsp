@@ -34,8 +34,14 @@
 		</div>
 		
 		<div class="main-grid-container-side-nav main-font">
-			
-			<h2>Patient: <c:out value="${patientDb.getGivenName()}" /> <c:out value="${patientDb.getMiddleInitial()}" /> <c:out value="${patientDb.getLastName()}" /></h2>	
+			<table>
+				<c:forEach items="${patientSublist}" var="patient" >
+					<tr>
+						<td>${patient.getFirstName()}</td>
+						<td>${patient.getLastName()}</td>
+					</tr>
+				</c:forEach>
+			</table>	
 		</div>
 	</div>
 </body>

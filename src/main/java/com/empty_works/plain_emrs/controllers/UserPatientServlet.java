@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.empty_works.plain_emrs.dao.UserPatientDao;
+
 /**
  * Servlet implementation class PatientsServlet
  */
@@ -24,6 +26,7 @@ public class UserPatientServlet extends HttpServlet {
 		
 		request.setAttribute("startRow", startRow);
 		request.setAttribute("rowCount", rowCount);
+		request.setAttribute("patientSublist", UserPatientDao.getList(startRow, rowCount));
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 
@@ -33,6 +36,7 @@ public class UserPatientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Get start row and row count from the JSP.
+		
 		// Update start row and row count variables after incrementing depending on if the previous or next button was clicked.
 		// Update session start row and row count.
 		HttpSession session = request.getSession();

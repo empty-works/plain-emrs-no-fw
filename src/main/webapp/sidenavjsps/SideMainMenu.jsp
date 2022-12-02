@@ -12,6 +12,6 @@
 	<!-- Side main menu -->
 	<!-- Plus signs are temporary. Will be replaced by proper icons. -->
 	<div><a href="<c:url value="/AdminServlet" />">+</a></div>
-	<div><a href="<c:url value="/PatientServlet" />">+</a></div>
+	<div><a href="<c:url value="/UserPatientServlet" />">+</a></div>
 </body>
 </html>
