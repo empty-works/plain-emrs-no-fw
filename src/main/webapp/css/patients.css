@@ -32,3 +32,10 @@
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
+.patient-list-container {
+	height: 100%;
+	width: var(--sidenav-left-margin);
+	background-color: var(--darker-blue);
+	overflow-x: hidden;
+	text-align: center;
+}

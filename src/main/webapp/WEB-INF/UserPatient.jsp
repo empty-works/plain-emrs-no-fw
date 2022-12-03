@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/facility.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/patient.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 
 <script src="${pageContext.request.contextPath}/js/facility.js"></script>
@@ -33,18 +33,17 @@
 			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
 		
-		<div class="main-grid-container-side-nav main-font">
+		<div class="main-grid-container main-font">
+			<h2>PATIENT LIST</h2>
+			<table>
+				<c:forEach items="${patientSublist}" var="patient" >
+					<tr>
+						<td>${patient.getFirstName()}</td>
+						<td>${patient.getLastName()}</td>
+					</tr>
+				</c:forEach>
+			</table>	
 		</div>
-
-		<h2>PATIENT LIST</h2>
-		<table>
-			<c:forEach items="${patientSublist}" var="patient" >
-				<tr>
-					<td>${patient.getFirstName()}</td>
-					<td>${patient.getLastName()}</td>
-				</tr>
-			</c:forEach>
-		</table>	
 	</div>
 </body>
 </html>
