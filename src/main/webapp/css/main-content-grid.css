@@ -5,8 +5,8 @@
 .main-grid-container {
 	overflow: hidden;
 	background-color: var(--off-white);
-	font-size: 12px;
-	height: 100%;
+	min-height: 100%;
+	min-width: 100%;
 	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
 	flex-direction: column;
 }

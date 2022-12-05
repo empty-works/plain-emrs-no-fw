@@ -33,16 +33,14 @@
 			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
 		
-		<div class="main-grid-container main-font">
+		<div id="main-grid-container main-font">
 			<h2>PATIENT LIST</h2>
-			<table>
+			<div class="patient-list-grid-con">
 				<c:forEach items="${patientSublist}" var="patient" >
-					<tr>
-						<td>${patient.getFirstName()}</td>
-						<td>${patient.getLastName()}</td>
-					</tr>
+					<div>${patient.getFirstName()}</div>
+					<div>${patient.getLastName()}</div>
 				</c:forEach>
-			</table>	
+			</div>
 		</div>
 	</div>
 </body>

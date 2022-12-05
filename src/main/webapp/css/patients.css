@@ -32,10 +32,18 @@
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/
 }
 
-.patient-list-container {
-	height: 100%;
-	width: var(--sidenav-left-margin);
-	background-color: var(--darker-blue);
-	overflow-x: hidden;
+#patient-list-grid-con {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 100%;
+	height: auto;
+}
+
+#patient-list-grid-con div {
 	text-align: center;
+}
+
+.patient-list-grid-item {
+	grid-column-start: 1;
+	grid-column-end: 2;
 }
