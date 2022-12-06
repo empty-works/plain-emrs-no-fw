@@ -36,6 +36,7 @@ html, body {
 .main-container {
 	height: 100%;
 	width: 100%;
+	display: block;
 }
 
 div.main-container > div {

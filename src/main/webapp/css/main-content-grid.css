@@ -7,8 +7,9 @@
 	background-color: var(--off-white);
 	min-height: 100%;
 	min-width: 100%;
-	display: flex; /*Needed to use flex in the parent to enable the child to grow vertically.*/
-	flex-direction: column;
+	display: /*flex*/ block; /*Needed to use flex in the parent to enable the child to grow vertically.*/
+	/*flex-direction: column;*/
+	border-style: dashed;
 }
 
 .main-grid-container-side-nav {

@@ -12,10 +12,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/patient.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 
-<script src="${pageContext.request.contextPath}/js/facility.js"></script>
 <title>Patient Profile</title>
 </head>
 <body>
@@ -33,9 +32,9 @@
 			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
 		
-		<div id="main-grid-container main-font">
+		<div class="main-grid-container">
 			<h2>PATIENT LIST</h2>
-			<div class="patient-list-grid-con">
+			<div id="patient-list-grid-con">
 				<c:forEach items="${patientSublist}" var="patient" >
 					<div>${patient.getFirstName()}</div>
 					<div>${patient.getLastName()}</div>
