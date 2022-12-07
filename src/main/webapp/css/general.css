@@ -47,6 +47,10 @@ div.main-container > div {
 	font-family: Verdana, Arial, sans-serif;
 }
 
+.table-general {
+	width: 100%;
+}
+
 .btn {
 	background-color: #334257;
 	color: white;

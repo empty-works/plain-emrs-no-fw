@@ -43,6 +43,10 @@
 	text-align: center;
 }
 
+table, th {
+	border: 1px solid black;
+}
+
 .patient-list-grid-item {
 	grid-column-start: 1;
 	grid-column-end: 2;

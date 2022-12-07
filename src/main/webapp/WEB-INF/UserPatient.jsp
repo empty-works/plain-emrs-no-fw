@@ -34,11 +34,29 @@
 		
 		<div class="main-grid-container">
 			<h2>PATIENT LIST</h2>
-			<div id="patient-list-grid-con">
+			<table class="table-general">
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>M.I.</th>
+					<th>Last Name</th>
+					<th>Date of Birth</th>
+					<th>Type</th>
+					<th>Birth Gender</th>
+				</tr>
 				<c:forEach items="${patientSublist}" var="patient" >
-					<div>${patient.getFirstName()}</div>
-					<div>${patient.getLastName()}</div>
+					<tr>
+						<td>${patient.getUserId()}</td>
+						<td>${patient.getFirstName()}</td>
+						<td>${patient.getMiddleInitial()}</td>
+						<td>${patient.getLastName()}</td>
+						<td>${patient.getDateOfBirth()}</td>
+						<td>${patient.getType()}</td>
+						<td>${patient.getGenderAtBirth()}</td>	
+					</tr>
 				</c:forEach>
+			</table>
+			<div id="patient-list-grid-con">
 			</div>
 		</div>
 	</div>
