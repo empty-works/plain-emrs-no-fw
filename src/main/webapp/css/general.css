@@ -47,8 +47,28 @@ div.main-container > div {
 	font-family: Verdana, Arial, sans-serif;
 }
 
-.table-general {
+/* TABLE */
+table {
 	width: 100%;
+	border-spacing: 0; /* No spaces between table cells */
+	border-collapse: collapse; /* No double lines where cell lines overlap */
+	padding: 16px;
+}
+
+th {
+	color: Gray;
+}
+
+th, tr {
+	border-top: 1px solid DarkGray;
+	border-bottom: 1px solid DarkGray;
+	height: 48px;
+	text-align: left;
+}
+/**********/
+
+td {
+	font-size: 14px;
 }
 
 .btn {

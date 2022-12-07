@@ -33,8 +33,8 @@
 		</div>
 		
 		<div class="main-grid-container">
-			<h2>PATIENT LIST</h2>
-			<table class="table-general">
+			<h4>PATIENT LIST</h4>
+			<table> <!-- Global table styling handled in general -->
 				<tr>
 					<th>ID</th>
 					<th>First Name</th>
