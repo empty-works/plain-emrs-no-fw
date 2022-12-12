@@ -100,11 +100,11 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
-		MedicalRecordBean medRecord;
 		DiseasesBean diseases;
 		BloodRelationsBean relations;
 		SurgicalProblemsBean surgicalProblems;
 		IllnessesBean illnesses;
+		MedicalRecordBean medRecord;
 		
 		AddUserDao addUserDao = new AddUserDao();
 		

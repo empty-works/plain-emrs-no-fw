@@ -17,14 +17,17 @@
 
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-	
+
 	<div class="main-container">
-		
+
+		<div class="side-main-menu">
+			<script id="replace_with_sidemainmenu" src="${pageContext.request.contextPath}/js/adminsidemainmenu.js"></script>	
+		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/adminsidenav.js"></script>
+			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
 		</div>
-		
+	
 		<!-- Main content -->
 		<div class="main-grid-container-side-nav main-font">
 			<h2>Add User Summary</h2>	
