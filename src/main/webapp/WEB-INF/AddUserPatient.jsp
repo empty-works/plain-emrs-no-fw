@@ -35,7 +35,7 @@
 		</div>
 
 		<!-- Main content -->
-		<div class="main-grid-container-side-nav main-font">
+		<div class="main-grid-container">
 			<h2 id="patientTitle">Add Patient Form (Admin Only)</h2>
 
 			<form id="addUserPatientForm" name="addUserPatientForm" class="content-padding" action="AddUserPatientServlet" onsubmit="return validateForm()" method="post">
