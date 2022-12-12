@@ -11,7 +11,8 @@
 <body>
 	<!-- Side main menu -->
 	<!-- Plus signs are temporary. Will be replaced by proper icons. -->
-	<div><a href="<c:url value="/AdminServlet" />">+</a></div>
+	<!-- TEMPORARILY disabling so the main page is the patient list for now -->
+	<!--  <div><a href="<c:url value="/AdminServlet" />">+</a></div>-->
 	<div><a href="<c:url value="/UserPatientServlet" />">+</a></div>
 </body>
 </html>

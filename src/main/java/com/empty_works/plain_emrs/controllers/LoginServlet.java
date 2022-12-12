@@ -3,6 +3,8 @@ package com.empty_works.plain_emrs.controllers;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -76,8 +78,10 @@ public class LoginServlet extends HttpServlet {
 				
 				System.out.println("User ID: " + userId);
 				System.out.println("Password: " + password);
-
-				setSessionUserAndRole(userRole, request, response);
+				
+				// TEMPORARILY redirecting directly to the patient list.
+				response.sendRedirect(request.getContextPath() + "/UserPatientServlet");
+				//setSessionUserAndRole(userRole, request, response);
 			}
 		}
 	}
@@ -92,7 +96,10 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(userRole.getRole() + "'s " + "Home");
 		try {
 
-			request.getRequestDispatcher("/WEB-INF/" + userRole.getRole() + ".jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/" + userRole.getRole() + ".jsp").forward(request, response);
+			ServletContext context = getServletContext();
+			RequestDispatcher dispatcher = context.getRequestDispatcher("/UserPatientServlet");
+			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
 
 			e.printStackTrace();
