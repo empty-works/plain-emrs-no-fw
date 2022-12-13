@@ -29,7 +29,7 @@
 		</div>
 	
 		<!-- Main content -->
-		<div class="main-grid-container-side-nav main-font">
+		<div class="main-grid-container">
 			<h2>Add User Summary</h2>	
 			
 		</div>
