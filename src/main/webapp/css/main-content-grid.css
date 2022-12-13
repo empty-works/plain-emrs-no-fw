@@ -3,11 +3,11 @@
 /*CSS variables are in general.css*/
 
 .main-grid-container {
-	overflow: hidden;
+	overflow: scroll;
 	background-color: var(--off-white);
 	position: absolute; /* Not happy using this but needed to keep this element on the right. */
 	right: 0px;
-	height: auto;
+	height: 100%;
 	width: calc((100% - var(--sidenav-width)) - var(--sidenav-left-margin) - 3%);
 	display: /*flex*/ block; /*Needed to use flex in the parent to enable the child to grow vertically.*/
 	/*flex-direction: column;*/

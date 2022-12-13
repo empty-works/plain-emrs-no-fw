@@ -15,6 +15,16 @@ legend {
 	font-weight: bold;
 }
 
+.form-font {
+	font-size: 12px;
+}
+
+.form-dimensions {
+	height: 90%;
+	overflow-x: hidden;
+	background-color: var(--off-white);
+}
+
 .horiz-label-then-buttons-row {
 	display: grid;
 	grid-auto-flow: column;
@@ -27,8 +37,8 @@ legend {
 .horiz-label-then-buttons-checkbox {
 	padding: 5px 0px;
 	text-align: center;
-	width: 100px;
-	max-width: 100px;
+	width: 55px;
+	max-width: 55px;
 }
 
 .horiz-label-then-buttons-name {
