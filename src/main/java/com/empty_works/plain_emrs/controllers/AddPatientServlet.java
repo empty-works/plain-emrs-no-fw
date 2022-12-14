@@ -62,7 +62,7 @@ public class AddPatientServlet extends HttpServlet {
 		if(patientAddResult.equals(UserPatientDao.PATIENTDAO_SUCCESS)) {
 			
 			System.out.println("Patient successfully added to the database!");
-			request.setAttribute(UserPatientServlet.patientDbAttribute, pb);
+			//request.setAttribute(UserPatientServlet.patientDbAttribute, pb);
 			request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);
 		}
 		else {

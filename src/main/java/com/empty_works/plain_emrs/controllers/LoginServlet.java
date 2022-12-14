@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("Password: " + password);
 				
 				// TEMPORARILY redirecting directly to the patient list.
-				response.sendRedirect(request.getContextPath() + "/UserPatientServlet");
+				response.sendRedirect(request.getContextPath() + "/UserPatientListServlet");
 				//setSessionUserAndRole(userRole, request, response);
 			}
 		}

@@ -109,8 +109,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		AddUserDao addUserDao = new AddUserDao();
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
-		user.setUserEnabled(Boolean.parseBoolean(request.getParameter("userEnabled")));
-		user.setUserEnabled(true);
+		user.setUserEnabled(true); // User enabled right away when created.
 		user.setDateCreated(LocalDateTime.now());
 		user.setFirstName(request.getParameter("userFirstName"));
 		user.setMiddleInitial(request.getParameter("userMiddleInitial"));
@@ -223,8 +222,23 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(relations);
 		addUserDao.add(illnesses);
 		addUserDao.executeQueries();
+		
+		request.setAttribute("userId", user.getUserId());
+		request.setAttribute("firstName", user.getFirstName());
+		request.setAttribute("middleInitial", user.getMiddleInitial());
+		request.setAttribute("lastName", user.getLastName());
+		request.setAttribute("email", user.getEmailAddress());
+		request.setAttribute("userRole", user.getRole());
+		request.setAttribute("currentFacility", user.getCurrentFacilityId());
+		request.setAttribute("streetAddress", patient.getStreetAddress());
+		request.setAttribute("city", patient.getCity());
+		request.setAttribute("state", patient.getState());
+		request.setAttribute("country", patient.getCountry());
+		request.setAttribute("provider", patient.getProvider());
+		request.setAttribute("providerId", patient.getProviderId());
 			
-		request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/UserPatientServlet");
+		//request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	
 	/**
