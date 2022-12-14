@@ -33,31 +33,7 @@
 		</div>
 		
 		<div class="main-grid-container">
-			<h4>PATIENT LIST</h4>
-			<table> <!-- Global table styling handled in general -->
-				<tr>
-					<th>ID</th>
-					<th>First Name</th>
-					<th>M.I.</th>
-					<th>Last Name</th>
-					<th>Date of Birth</th>
-					<th>Type</th>
-					<th>Birth Gender</th>
-				</tr>
-				<c:forEach items="${patientSublist}" var="patient" >
-					<tr>
-						<td>${patient.getUserId()}</td>
-						<td>${patient.getFirstName()}</td>
-						<td>${patient.getMiddleInitial()}</td>
-						<td>${patient.getLastName()}</td>
-						<td>${patient.getDateOfBirth()}</td>
-						<td>${patient.getType()}</td>
-						<td>${patient.getGenderAtBirth()}</td>	
-					</tr>
-				</c:forEach>
-			</table>
-			<div id="patient-list-grid-con">
-			</div>
+			PATIENT ID: ${userPatientId}
 		</div>
 	</div>
 </body>

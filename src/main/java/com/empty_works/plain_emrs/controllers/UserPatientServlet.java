@@ -19,24 +19,14 @@ import com.empty_works.plain_emrs.dao.UserPatientDao;
 @WebServlet("/UserPatientServlet")
 public class UserPatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	/*
-	public static String patientDbAttribute = "patientDb";
-	private int startRow = 0, rowCount = 25;
-	*/
-       
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		/*
-		request.setAttribute("startRow", startRow);
-		request.setAttribute("rowCount", rowCount);
-		List<PatientBean> theList = UserPatientDao.getList(startRow, rowCount);
-		System.out.println("Patient sublist: " + theList);
-		request.setAttribute("patientSublist", theList);
-		*/
 
+		String userPatientId = (String)request.getSession().getAttribute("userPatientId");
+		request.setAttribute("userPatientId", userPatientId);
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 

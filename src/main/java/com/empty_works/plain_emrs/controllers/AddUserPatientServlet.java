@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -223,20 +224,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(illnesses);
 		addUserDao.executeQueries();
 		
-		request.setAttribute("userId", user.getUserId());
-		request.setAttribute("firstName", user.getFirstName());
-		request.setAttribute("middleInitial", user.getMiddleInitial());
-		request.setAttribute("lastName", user.getLastName());
-		request.setAttribute("email", user.getEmailAddress());
-		request.setAttribute("userRole", user.getRole());
-		request.setAttribute("currentFacility", user.getCurrentFacilityId());
-		request.setAttribute("streetAddress", patient.getStreetAddress());
-		request.setAttribute("city", patient.getCity());
-		request.setAttribute("state", patient.getState());
-		request.setAttribute("country", patient.getCountry());
-		request.setAttribute("provider", patient.getProvider());
-		request.setAttribute("providerId", patient.getProviderId());
-			
+		request.getSession().setAttribute("userPatientId", user.getUserId());
 		response.sendRedirect(request.getContextPath() + "/UserPatientServlet");
 		//request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
