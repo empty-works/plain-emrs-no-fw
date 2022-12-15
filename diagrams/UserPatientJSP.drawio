@@ -1,1 +1,25 @@
-<mxfile host="app.diagrams.net" modified="2022-12-15T20:24:51.428Z" agent="5.0 (Windows)" version="20.6.0" etag="87_F88fJPxSkaQ0PG_7F" type="github"><diagram id="Jn7uw5b_3gPBMzBsryxZ">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-12-15T22:47:46.537Z" agent="5.0 (Windows)" version="20.6.0" etag="U6J7XB5Fd8oA4CP3evdq" type="github">
+  <diagram id="S5hdKLUzMC5VAoOSm8l3" name="Page-1">
+    <mxGraphModel dx="1824" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="50" width="1040" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-2" value="&lt;div&gt;side&lt;/div&gt;&lt;div&gt;bar&lt;/div&gt;&lt;div&gt;main&lt;/div&gt;&lt;div&gt;menu&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="100" width="40" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="100" width="180" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-4" value="Top bar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="50" width="1040" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-5" value="&lt;ul&gt;&lt;li&gt;Overview&lt;/li&gt;&lt;li&gt;Personal&lt;/li&gt;&lt;li&gt;- blood relatives&lt;/li&gt;&lt;li&gt;- social history&lt;/li&gt;&lt;li&gt;- vitals&lt;/li&gt;&lt;li&gt;Chief complaint&lt;br&gt;&lt;/li&gt;&lt;li&gt;Medical History&lt;/li&gt;&lt;li&gt;- illnesses&lt;/li&gt;&lt;li&gt;- diseases&lt;/li&gt;&lt;li&gt;- surgeries&lt;/li&gt;&lt;li&gt;- allergies&lt;br&gt;&lt;/li&gt;&lt;li&gt;Examinations&lt;br&gt;&lt;/li&gt;&lt;li&gt;Lab Results&lt;br&gt;&lt;/li&gt;&lt;li&gt;Scheduling&lt;/li&gt;&lt;li&gt;Medication&lt;/li&gt;&lt;li&gt;Nurse Notes&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="30" y="100" width="180" height="630" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
