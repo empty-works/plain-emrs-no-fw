@@ -1,24 +1,112 @@
-<mxfile host="app.diagrams.net" modified="2022-12-15T22:47:46.537Z" agent="5.0 (Windows)" version="20.6.0" etag="U6J7XB5Fd8oA4CP3evdq" type="github">
-  <diagram id="S5hdKLUzMC5VAoOSm8l3" name="Page-1">
+<mxfile host="app.diagrams.net" modified="2022-12-16T21:51:13.176Z" agent="5.0 (Windows)" etag="G9Eb6Ja6OxZyeEW6A8M9" version="20.6.0" type="github" pages="2">
+  <diagram id="S5hdKLUzMC5VAoOSm8l3" name="Overview">
     <mxGraphModel dx="1824" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="glW2xViIGTtvUFwTJ8Ml-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-10" y="50" width="1040" height="680" as="geometry" />
-        </mxCell>
-        <mxCell id="glW2xViIGTtvUFwTJ8Ml-2" value="&lt;div&gt;side&lt;/div&gt;&lt;div&gt;bar&lt;/div&gt;&lt;div&gt;main&lt;/div&gt;&lt;div&gt;menu&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <UserObject label="" id="glW2xViIGTtvUFwTJ8Ml-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+            <mxGeometry x="-10" y="50" width="1040" height="1100" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-2" value="&lt;div&gt;side&lt;/div&gt;&lt;div&gt;bar&lt;/div&gt;&lt;div&gt;main&lt;/div&gt;&lt;div&gt;menu&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-10" y="100" width="40" height="630" as="geometry" />
         </mxCell>
-        <mxCell id="glW2xViIGTtvUFwTJ8Ml-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="100" width="180" height="630" as="geometry" />
         </mxCell>
-        <mxCell id="glW2xViIGTtvUFwTJ8Ml-4" value="Top bar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-4" value="Top bar" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-10" y="50" width="1040" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="glW2xViIGTtvUFwTJ8Ml-5" value="&lt;ul&gt;&lt;li&gt;Overview&lt;/li&gt;&lt;li&gt;Personal&lt;/li&gt;&lt;li&gt;- blood relatives&lt;/li&gt;&lt;li&gt;- social history&lt;/li&gt;&lt;li&gt;- vitals&lt;/li&gt;&lt;li&gt;Chief complaint&lt;br&gt;&lt;/li&gt;&lt;li&gt;Medical History&lt;/li&gt;&lt;li&gt;- illnesses&lt;/li&gt;&lt;li&gt;- diseases&lt;/li&gt;&lt;li&gt;- surgeries&lt;/li&gt;&lt;li&gt;- allergies&lt;br&gt;&lt;/li&gt;&lt;li&gt;Examinations&lt;br&gt;&lt;/li&gt;&lt;li&gt;Lab Results&lt;br&gt;&lt;/li&gt;&lt;li&gt;Scheduling&lt;/li&gt;&lt;li&gt;Medication&lt;/li&gt;&lt;li&gt;Nurse Notes&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+        <mxCell id="glW2xViIGTtvUFwTJ8Ml-5" value="&lt;ul&gt;&lt;li&gt;Overview&lt;/li&gt;&lt;li&gt;Personal&lt;/li&gt;&lt;li&gt;- blood relatives&lt;/li&gt;&lt;li&gt;- social history&lt;/li&gt;&lt;li&gt;- vitals&lt;/li&gt;&lt;li&gt;Chief complaints &lt;br&gt;&lt;/li&gt;&lt;li&gt;Medical History&lt;/li&gt;&lt;li&gt;- illnesses&lt;/li&gt;&lt;li&gt;- diseases&lt;/li&gt;&lt;li&gt;- surgeries&lt;/li&gt;&lt;li&gt;- allergies&lt;br&gt;&lt;/li&gt;&lt;li&gt;Examinations&lt;br&gt;&lt;/li&gt;&lt;li&gt;Lab Results&lt;br&gt;&lt;/li&gt;&lt;li&gt;Scheduling&lt;/li&gt;&lt;li&gt;Medication&lt;/li&gt;&lt;li&gt;Nurse Notes&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
           <mxGeometry x="30" y="100" width="180" height="630" as="geometry" />
         </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--1" value="&lt;div&gt;Patient&lt;/div&gt;&lt;div&gt;Picture&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="100" width="190" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--2" value="Patient Overview" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--4" value="First name Middle initial Last name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="140" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--5" value="Birth Date" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--6" value="Month Day Year" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="140" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--7" value="Phone number" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="172" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--8" value="Email" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="204" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--9" value="Residential address" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="238" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--10" value="Weight" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="172" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--11" value="Weight" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="212" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--12" value="Height" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="238" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--13" value="Height" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="278" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--14" value="Emergency Contacts" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="210" y="330" width="820" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--15" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="370" width="740" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--16" value="First name Middle initial Last name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--17" value="Home phone number" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="410" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--18" value="Work phone number" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="440" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--19" value="Residential address" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="620" y="380" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--20" value="General Medical History" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="210" y="498" width="820" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--21" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="538" width="740" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--22" value="Chicken Pox (Varicella)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="548" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--23" value="Immunized or not" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="588" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--24" value="Measles" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="620" y="550" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--25" value="Immunized or not" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="620" y="588" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--26" value="Hep B Vaccination" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="618" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YeM5nyJLOYJzliZkdzw--27" value="Immunized or not" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="250" y="660" width="300" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ZdTHL74LOhoJ1E4BlADF" name="Personal">
+    <mxGraphModel dx="974" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
