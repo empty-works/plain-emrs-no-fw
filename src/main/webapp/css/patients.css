@@ -1,10 +1,19 @@
 @charset "ISO-8859-1";
 
+/* Patient List */
+#list-link-hover {
+	background: var(--lightest-blue);
+}
+
+#list-link-hover td a {
+	display: block;
+	border: 1px solid black;
+}
+
 /*Patients Search Page*/
 #patients-search-main-grid {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
-	grid-template-columns: auto;
 	margin: 1px;
 	height: 100%;
 	flex-grow: 1; /*Flex as a child to grow vertically from flex parent.*/

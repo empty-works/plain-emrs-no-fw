@@ -9,9 +9,11 @@
 	right: 0px;
 	height: 100%;
 	width: calc((100% - var(--sidenav-width)) - var(--sidenav-left-margin) - 3%);
-	display: /*flex*/ block; /*Needed to use flex in the parent to enable the child to grow vertically.*/
-	/*flex-direction: column;*/
 	padding: 10px;
+}
+
+.main-grid-container > div {
+	display: grid;
 }
 
 .main-grid-container-side-nav {

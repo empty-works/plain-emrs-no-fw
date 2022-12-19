@@ -33,7 +33,12 @@
 		</div>
 		
 		<div class="main-grid-container">
-			PATIENT ID: ${userPatientId}
+			<div>PATIENT ID: ${userPatientId}</div>
+			<div>Patient Overview Birth Date Height Weight</div>
+			<div>Patient Type</div>
+			<div>Emergency Contacts</div>
+			<div>General Medical History</div>
+			<div>Basic Medical Insurance Information</div>
 		</div>
 	</div>
 </body>

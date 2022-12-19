@@ -42,14 +42,14 @@
 					<th>Birth Gender</th>
 				</tr>
 				<c:forEach items="${patientSublist}" var="patient" >
-					<tr>
-						<td>${patient.getUserId()}</td>
-						<td>${patient.getFirstName()}</td>
-						<td>${patient.getMiddleInitial()}</td>
-						<td>${patient.getLastName()}</td>
-						<td>${patient.getDateOfBirth()}</td>
-						<td>${patient.getType()}</td>
-						<td>${patient.getGenderAtBirth()}</td>	
+					<tr id="list-link-hover">
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getUserId()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getFirstName()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getMiddleInitial()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getLastName()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getDateOfBirth()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getType()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getGenderAtBirth()}</a></td>	
 					</tr>
 				</c:forEach>
 			</table>
