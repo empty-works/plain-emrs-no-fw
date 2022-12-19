@@ -42,7 +42,7 @@
 					<th>Birth Gender</th>
 				</tr>
 				<c:forEach items="${patientSublist}" var="patient" >
-					<tr id="list-link-hover">
+					<tr id="list-link">
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getUserId()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getFirstName()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getMiddleInitial()}</a></td>

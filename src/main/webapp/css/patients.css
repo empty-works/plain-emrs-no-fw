@@ -1,13 +1,16 @@
 @charset "ISO-8859-1";
 
 /* Patient List */
-#list-link-hover {
+#list-link:hover {
 	background: var(--lightest-blue);
+	border: 1px solid var(--light-blue);
 }
 
-#list-link-hover td a {
+#list-link td {
+}
+
+#list-link td a {
 	display: block;
-	border: 1px solid black;
 }
 
 /*Patients Search Page*/
