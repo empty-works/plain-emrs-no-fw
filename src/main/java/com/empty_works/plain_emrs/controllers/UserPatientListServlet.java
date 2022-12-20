@@ -30,7 +30,6 @@ public class UserPatientListServlet extends HttpServlet {
 		List<PatientBean> theList = UserPatientDao.getList(startRow, rowCount);
 		System.out.println("Patient sublist: " + theList);
 		request.setAttribute("patientSublist", theList);
-
 		request.getRequestDispatcher("/WEB-INF/UserPatientList.jsp").forward(request, response);
 	}
 

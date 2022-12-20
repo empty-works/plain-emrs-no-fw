@@ -31,6 +31,8 @@
 		
 		<div class="main-grid-container">
 			<h4>PATIENT LIST</h4>
+
+			<form class="content-padding" action="UserPatientServlet" method="post" enctype="multipart/form-data">
 			<table> <!-- Global table styling handled in general -->
 				<tr>
 					<th>ID</th>
@@ -43,7 +45,7 @@
 				</tr>
 				<c:forEach items="${patientSublist}" var="patient" >
 					<tr id="list-link">
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getUserId()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getUserId()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getFirstName()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getMiddleInitial()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getLastName()}</a></td>
@@ -53,6 +55,7 @@
 					</tr>
 				</c:forEach>
 			</table>
+			</form>
 			<div id="patient-list-grid-con">
 			</div>
 		</div>

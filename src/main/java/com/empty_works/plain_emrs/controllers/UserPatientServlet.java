@@ -24,8 +24,8 @@ public class UserPatientServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String userPatientId = (String)request.getSession().getAttribute("userPatientId");
+		String userPatientId = (String)request.getParameter("userPatientId");
+		System.out.println("userPatientId: " + userPatientId);
 		request.setAttribute("userPatientId", userPatientId);
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
@@ -40,6 +40,5 @@ public class UserPatientServlet extends HttpServlet {
 		// Update start row and row count variables after incrementing depending on if the previous or next button was clicked.
 		// Update session start row and row count.
 		HttpSession session = request.getSession();
-
 	}
 }

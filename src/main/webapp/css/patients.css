@@ -11,6 +11,7 @@
 
 #list-link td a {
 	display: block;
+	text-decoration: none;
 }
 
 /*Patients Search Page*/
