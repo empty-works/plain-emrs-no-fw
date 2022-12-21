@@ -27,6 +27,8 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		System.out.println("userPatientId: " + userPatientId);
 		request.setAttribute("userPatientId", userPatientId);
+		PatientBean patient = UserPatientDao.getPatient(userPatientId);
+		
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 

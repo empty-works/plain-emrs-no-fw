@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStream;
@@ -19,6 +20,52 @@ public class UserPatientDao {
 	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
 	final public static int PATIENT_FETCH_SIZE = 100;
 
+	public static PatientBean getPatient(String userPatientId) {
+		
+		PatientBean patient = new PatientBean();
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		String patientQuery = "SELECT patient_provider, patient_provider_id, patient_room, patient_current_gender, patient_type, "
+				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
+				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, "
+				+ "patient_is_adopted, user_email_address, user_enabled, user_created_on, current_facility_id, user_first_name, "
+				+ "user_middle_initial, user_last_name, user_date_of_birth, patient_race, emergency_contact_given_name, emergency_contact_middle_name "
+				+ "emergency_contact_last_name, emergency_contact_phone_number, emergency_contact_email_address "
+				+ "FROM users, patients, patient_races, emergency_contacts "
+				+ "WHERE users.user_id = ?, patients.user_id = ?, patient_races.user_id = ?, emergency_contacts.user_id = ?";
+		try {
+			preparedStatement = con.prepareStatement(patientQuery);
+			preparedStatement.setString(1, userPatientId);
+			preparedStatement.setString(2, userPatientId);
+			preparedStatement.setString(3, userPatientId);
+			preparedStatement.setString(4, userPatientId);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				patient.setProvider(rs.getString("patient_provider"));
+				patient.setProviderId(rs.getString("patient_provider_id"));
+				patient.setRoomNumber(rs.getString("patient_room"));
+				patient.setCurrentGender(rs.getString("patient_current_gender"));
+				patient.setType(rs.getString("patient_type"));
+				patient.setLanguagePreference(rs.getString("patient_language_preference"));
+				patient.setStreetAddress(rs.getString("patient_street_address"));
+				patient.setCity(rs.getString("patient_city"));
+				patient.setCountry(rs.getString("patient_country"));
+				patient.setPhoneNumber(rs.getString("patient_phone_number"));
+				patient.setGenderAtBirth(rs.getString("patient_gender_at_birth"));
+				patient.setSexualOrientation(rs.getString("patient_sexual_orientation"));
+				patient.setMaritalStatus(rs.getString("patient_marital_status"));
+				patient.setLivingArrangement(rs.getString("patient_living_arrangement"));
+				patient.setAdopted(rs.getBoolean("patient_is_adopted"));
+				patient.setEmailAddress(rs.getString("user_email_address"));
+				patient.setUserEnabled(rs.getBoolean("user_enabled"));
+				patient.setDateCreated(rs.getObject("user_created_on", LocalDateTime.class));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return patient;
+	}
 	public static PatientBean getPatient(PatientBean patient) {
 		
 		Connection con = ConnectionUtil.getConnection();
