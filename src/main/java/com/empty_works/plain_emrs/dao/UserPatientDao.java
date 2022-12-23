@@ -31,9 +31,10 @@ public class UserPatientDao {
 				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
 				+ "emergency_contacts.emergency_contact_given_name, emergency_contacts.emergency_contact_last_name, emergency_contacts.emergency_contact_phone_number, "
 				+ "emergency_contacts.emergency_contact_email_address "
-				+ "FROM ((patients "
+				+ "FROM (((patients "
 				+ "INNER JOIN users ON patients.user_id = users.user_id) "
-				+ "INNER JOIN emergency_contacts ON patients.user_id = emergency_contacts.user_id) "
+				+ "INNER JOIN patient_emergency_contacts ON patients.user_id = patient_emergency_contacts.user_id) "
+				+ "INNER JOIN emergency_contacts ON patient_emergency_contacts.patient_emergency_contact_id = emergency_contacts.emergency_contact_id) "
 				+ "WHERE patients.user_id = ?";
 		try {
 			preparedStatement = con.prepareStatement(patientQuery);

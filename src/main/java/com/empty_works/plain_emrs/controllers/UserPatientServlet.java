@@ -25,7 +25,6 @@ public class UserPatientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPatientId = (String)request.getParameter("userPatientId");
-		System.out.println("userPatientId: " + userPatientId);
 		request.setAttribute("userPatientId", userPatientId);
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
 		request.setAttribute("patientProvider", patient.getProvider());
