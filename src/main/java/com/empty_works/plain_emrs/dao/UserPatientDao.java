@@ -25,19 +25,19 @@ public class UserPatientDao {
 		PatientBean patient = new PatientBean();
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
-		String patientQuery = "SELECT patient_provider, patient_provider_id, patient_room, patient_type, "
-				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
-				+ "patient_gender_at_birth, user_email_address, user_enabled, user_created_on, current_facility_id, user_first_name, "
-				+ "user_middle_initial, user_last_name, user_date_of_birth, emergency_contact_given_name, "
-				+ "emergency_contact_last_name, emergency_contact_phone_number, emergency_contact_email_address "
-				+ "FROM users, patients, emergency_contacts "
-				+ "WHERE users.user_id = ?, patients.user_id = ?, emergency_contacts.user_id = ?";
+		String patientQuery = "SELECT patients.patient_provider, patients.patient_provider_id, patients.patient_room, patients.patient_type, "
+				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
+				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
+				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
+				+ "emergency_contacts.emergency_contact_given_name, emergency_contacts.emergency_contact_last_name, emergency_contacts.emergency_contact_phone_number, "
+				+ "emergency_contacts.emergency_contact_email_address "
+				+ "FROM ((patients "
+				+ "INNER JOIN users ON patients.user_id = users.user_id) "
+				+ "INNER JOIN emergency_contacts ON patients.user_id = emergency_contacts.user_id) "
+				+ "WHERE patients.user_id = ?";
 		try {
 			preparedStatement = con.prepareStatement(patientQuery);
 			preparedStatement.setString(1, userPatientId);
-			preparedStatement.setString(2, userPatientId);
-			preparedStatement.setString(3, userPatientId);
-			preparedStatement.setString(4, userPatientId);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {

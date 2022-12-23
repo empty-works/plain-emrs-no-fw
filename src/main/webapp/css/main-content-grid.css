@@ -12,7 +12,7 @@
 	padding: 10px;
 }
 
-.main-grid-container > div {
+.main-grid-container div {
 	display: grid;
 }
 
