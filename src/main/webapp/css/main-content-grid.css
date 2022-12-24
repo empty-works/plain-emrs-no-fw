@@ -12,8 +12,15 @@
 	padding: 10px;
 }
 
-.main-grid-container div {
+.main-grid-container > .main-grid {
 	display: grid;
+    grid-template-columns: 1fr;
+	height: 100%;
+}
+
+.main-grid-container > .main-grid > div {
+	display: block;
+	width: 100%;
 }
 
 .main-grid-container-side-nav {
