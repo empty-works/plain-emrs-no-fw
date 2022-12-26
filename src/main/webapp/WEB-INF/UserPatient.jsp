@@ -34,8 +34,20 @@
 		
 		<div class="main-grid-container">
 			<div class="main-grid">
-				<div>PATIENT ID: ${userPatientId}</div>
-				<div>Patient Overview Birth Date Height Weight</div>
+				<div id="patient-overview-grid-1">
+					<div>
+						Patient Picture	
+					</div>
+					<div>PATIENT ID: ${userPatientId}
+						First Name Middle Name Last Name
+						Phone Number
+						Email
+						Residential Address
+					</div>
+					<div>
+						Birth Date Height Weight
+					</div>
+				</div>
 				<div>Patient Type</div>
 				<div>Emergency Contacts</div>
 				<div>General Medical History</div>
