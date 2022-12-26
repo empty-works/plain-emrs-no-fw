@@ -44,5 +44,9 @@
 
 #patient-overview-grid-1 {
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#patient-overview-grid-1 > div > div {
+	padding: 5px;
 }

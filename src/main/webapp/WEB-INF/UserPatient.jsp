@@ -36,16 +36,19 @@
 			<div class="main-grid">
 				<div id="patient-overview-grid-1">
 					<div>
-						Patient Picture	
-					</div>
-					<div>PATIENT ID: ${userPatientId}
-						First Name Middle Name Last Name
-						Phone Number
-						Email
-						Residential Address
+						<div>Patient Picture</div>
 					</div>
 					<div>
-						Birth Date Height Weight
+						<div>PATIENT ID: ${userPatientId}</div>
+						<div>First Name Middle Name Last Name</div>
+						<div>Phone Number</div>
+						<div>Email</div>
+						<div>Residential Address</div>
+					</div>
+					<div>
+						<div>Birth Date</div>
+						<div>Height</div>
+						<div>Weight</div>
 					</div>
 				</div>
 				<div>Patient Type</div>
