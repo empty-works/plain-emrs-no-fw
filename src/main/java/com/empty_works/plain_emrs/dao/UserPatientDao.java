@@ -66,6 +66,7 @@ public class UserPatientDao {
 				patient.setEmergencyContactPhoneNumber(rs.getString("emergency_contact_phone_number"));
 				patient.setEmergencyContactEmail(rs.getString("emergency_contact_email_address"));
 			}
+			System.out.println("patient bean after selection: " + patient.getFirstName());
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

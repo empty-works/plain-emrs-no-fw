@@ -40,7 +40,7 @@
 					</div>
 					<div>
 						<div>PATIENT ID: ${userPatientId}</div>
-						<div>First Name Middle Name Last Name</div>
+						<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
 						<div>Phone Number</div>
 						<div>Email</div>
 						<div>Residential Address</div>

@@ -39,6 +39,10 @@ function addPatientOtherRelations(relation) {
 	otherRelationsCon.insertAdjacentHTML("beforeend", otherRelationsHtml);
 }
 
+class EmergContactAdder {
+	
+}
+
 class MedProbAdder {
 	limitMsg;
 	MAX_NAME_INT;

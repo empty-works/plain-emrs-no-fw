@@ -51,11 +51,28 @@
 					<label>Date of Birth: </label>
 					<div><input required type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
 					<label>Current Facility ID (optional): </label>
-					<div><input required type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
-					<label>User Email Address: </label>
-					<div><input type="text" id="userEmailAddress" name="userEmailAddress" /></div>
+					<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
+					<label>Phone Number: </label>
+					<div><input type="tel" id="userPhoneNumber" name="userPhoneNumber" pattern="([2-9]{3}) [0-9]{3}-[0-9]{4}" /></div>
+					<label>Email Address: </label>
+					<div><input type="email" id="userEmailAddress" name="userEmailAddress" /></div>
 				</fieldSet>
 				<input type="hidden" id="userEnabled" name="userEnabled" value="true">	
+				
+				<!-- Emergency contacts -->
+				<fieldSet>
+					<legend>Emergency Contact</legend>	
+					<label>First Name: </label>
+					<div><input type="text" id="contactFirstName" name="contactFirstName" /></div>
+					<label>Middle Initial: </label>
+					<div><input type="text" id="contactMiddleInitial" name="contactMiddleInitial" /></div>
+					<label>Last Name: </label>
+					<div><input required type="text" id="contactLastName" name="contactLastName" /></div>
+					<label>Phone Number: </label>
+					<div><input type="tel" id="contactPhoneNumber" name="contactPhoneNumber" pattern="([2-9]{3}) [0-9]{3}-[0-9]{4}" /></div>
+					<label>Email Address: </label>
+					<div><input type="email" id="contactEmailAddress" name="contactEmailAddress" /></div>
+				</fieldSet>
 
 				<!-- Patient section -->	
 				<div id="patientSection">
@@ -72,6 +89,7 @@
 						<div><input type="text" id="patientState" name="patientState" /></div>
 						<label>Country: </label>
 						<div><input type="text" id="patientCountry" name="patientCountry" /></div> <label>Phone Number: </label> <div><input type="text" id="patientPhoneNumber" name="patientPhoneNumber" /></div> <label>Patient Provider: </label>
+						<label>Patient Provider</label>
 						<div><input required type="text" id="patientProvider" name="patientProvider" /></div>
 						<label>Patient Provider ID: </label>
 						<div><input required type="text" id="patientProviderId" name="patientProviderId" /></div>
