@@ -1,6 +1,9 @@
 package com.empty_works.plain_emrs.beans;
 
-public class EmergencyContactsBean {
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class EmergencyContactsBean implements BeanDaoInterface {
 
 	private String firstName, middleInitial, lastName;
 	private String phoneNumber, email;
@@ -33,5 +36,20 @@ public class EmergencyContactsBean {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	@Override
+	public String getQuery() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getErrorMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

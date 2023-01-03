@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import com.empty_works.plain_emrs.beans.AuthorityBean;
 import com.empty_works.plain_emrs.beans.BloodRelationsBean;
 import com.empty_works.plain_emrs.beans.DiseasesBean;
+import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.IllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
@@ -97,6 +98,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserBean user = new UserBean();
 		AuthorityBean authority;
 		PatientBean patient; // Instantiated if user is a new patient.
+		EmergencyContactsBean contacts;
 		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
@@ -105,8 +107,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		BloodRelationsBean relations;
 		SurgicalProblemsBean surgicalProblems;
 		IllnessesBean illnesses;
-		MedicalRecordBean medRecord;
-		
+		MedicalRecordBean medRecord;	
 		AddUserDao addUserDao = new AddUserDao();
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
@@ -119,6 +120,13 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setRole(request.getParameter("rolePatient"));
 		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
+		
+		contacts = new EmergencyContactsBean();
+		contacts.setFirstName(request.getParameter("contactFirstName"));
+		contacts.setMiddleInitial(request.getParameter("contactMiddleInitial"));
+		contacts.setLastName(request.getParameter("contactLastName"));
+		contacts.setPhoneNumber(request.getParameter("contactPhoneNumber"));
+		contacts.setEmail(request.getParameter("contactEmailAddress"));
 		
 		patient = new PatientBean();
 		patient.setStreetAddress(request.getParameter("patientStreetAddress"));
@@ -212,6 +220,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		// Now execute all collected queries.
 		addUserDao.add(user);
+		addUserDao.add(contacts);
 		addUserDao.add(authority);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);
