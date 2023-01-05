@@ -39,17 +39,21 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	}
 	@Override
 	public String getQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO emergency_contacts(emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
+				+ "emergency_contact_phone_number, emergency_contact_email_address) values (?,?,?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add emergency contact to emergency_contacts!";
 	}
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding emergency contact...");
+		preparedStatement.setString(1, getFirstName());
+		preparedStatement.setString(2, getMiddleInitial());
+		preparedStatement.setString(3, getLastName());
+		preparedStatement.setString(4, getPhoneNumber());
+		preparedStatement.setString(5, getEmail());
+		return preparedStatement.executeUpdate();
 	}
 }

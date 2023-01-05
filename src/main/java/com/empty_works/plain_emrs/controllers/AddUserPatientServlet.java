@@ -121,13 +121,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
 		
-		contacts = new EmergencyContactsBean();
-		contacts.setFirstName(request.getParameter("contactFirstName"));
-		contacts.setMiddleInitial(request.getParameter("contactMiddleInitial"));
-		contacts.setLastName(request.getParameter("contactLastName"));
-		contacts.setPhoneNumber(request.getParameter("contactPhoneNumber"));
-		contacts.setEmail(request.getParameter("contactEmailAddress"));
-		
 		patient = new PatientBean();
 		patient.setStreetAddress(request.getParameter("patientStreetAddress"));
 		patient.setCity(request.getParameter("patientCity"));
@@ -158,6 +151,14 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setUserId(userId);
 		user.setUserPassword(userPassword);
 		patient.setUserId(userId);
+
+		// Patient emergency contact
+		contacts = new EmergencyContactsBean();
+		contacts.setFirstName(request.getParameter("contactFirstName"));
+		contacts.setMiddleInitial(request.getParameter("contactMiddleInitial"));
+		contacts.setLastName(request.getParameter("contactLastName"));
+		contacts.setPhoneNumber(request.getParameter("contactPhoneNumber"));
+		contacts.setEmail(request.getParameter("contactEmailAddress"));
 		
 		// Patient race
 		patientRace = new PatientRaceBean();
