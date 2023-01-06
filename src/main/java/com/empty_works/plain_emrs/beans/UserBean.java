@@ -45,15 +45,19 @@ public class UserBean extends GeneralBean implements BeanDaoInterface {
 		this.userEnabled = userEnabled;
 	}
 	public LocalDateTime getDateCreated() {
+		System.out.println("Get date created: " + dateCreated);
 		return dateCreated;
 	}
 	public void setDateCreated(LocalDateTime dateCreated) {
+		System.out.println("Set date created: " + dateCreated);
 		this.dateCreated = dateCreated;
 	}
 	public LocalDate getDateOfBirth() {
+		System.out.println("Get date of birth: " + dateOfBirth);
 		return dateOfBirth;
 	}
 	public void setDateOfBirth(LocalDate dateOfBirth) {
+		System.out.println("Set date of birth: " + dateOfBirth);
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getFirstName() {

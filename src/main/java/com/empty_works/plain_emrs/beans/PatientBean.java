@@ -132,28 +132,39 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	public void setAdopted(boolean isAdopted) {
 		this.isAdopted = isAdopted;
 	}
-	public String getEmergencyContactGivenName() {
-		return emergencyContactGivenName;
+	
+	@Override
+	public String getQuery() {
+		return "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, patient_type, "
+				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
+				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, patient_is_adopted) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
-	public void setEmergencyContactGivenName(String emergencyContactGivenName) {
-		this.emergencyContactGivenName = emergencyContactGivenName;
+	@Override
+	public String getErrorMessage() {
+		return "Could not add patient to patients table!";
 	}
-	public String getEmergencyContactLastName() {
-		return emergencyContactLastName;
-	}
-	public void setEmergencyContactLastName(String emergencyContactLastName) {
-		this.emergencyContactLastName = emergencyContactLastName;
-	}
-	public String getEmergencyContactPhoneNumber() {
-		return emergencyContactPhoneNumber;
-	}
-	public void setEmergencyContactPhoneNumber(String emergencyContactPhoneNumber) {
-		this.emergencyContactPhoneNumber = emergencyContactPhoneNumber;
-	}
-	public String getEmergencyContactEmail() {
-		return emergencyContactEmail;
-	}
-	public void setEmergencyContactEmail(String emergencyContactEmail) {
-		this.emergencyContactEmail = emergencyContactEmail;
+	@Override
+	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+		
+		System.out.println("Adding patient...");
+		preparedStatement.setString(1, getUserId());
+		preparedStatement.setString(2, getProvider());
+		preparedStatement.setString(3, getProviderId());
+		preparedStatement.setString(4, getRoomNumber());
+		preparedStatement.setString(5, getCurrentGender());
+		preparedStatement.setString(6, getType());
+		preparedStatement.setString(7, getLanguagePreference());
+		preparedStatement.setString(8, getStreetAddress());
+		preparedStatement.setString(9, getCity());
+		preparedStatement.setString(10, getState());
+		preparedStatement.setString(11, getCountry());
+		preparedStatement.setString(12, getPhoneNumber());
+		preparedStatement.setString(13, getGenderAtBirth());
+		preparedStatement.setString(14, getSexualOrientation());
+		preparedStatement.setString(15, getMaritalStatus());
+		preparedStatement.setString(16, getLivingArrangement());
+		preparedStatement.setBoolean(17, isAdopted());
+		return preparedStatement.executeUpdate();
 	}
 }
