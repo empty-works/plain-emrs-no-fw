@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 
 /**
@@ -27,7 +29,7 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
-		EmergencyContactsBean emergencyContacts = 
+		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
 		request.setAttribute("patientProvider", patient.getProvider());
 		request.setAttribute("patientProviderId", patient.getProviderId());
 		request.setAttribute("patientRoom", patient.getRoomNumber());
@@ -47,6 +49,10 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("userPatientMiddleInitial", patient.getMiddleInitial());
 		request.setAttribute("userPatientLastName", patient.getLastName());
 		request.setAttribute("userDateOfBirth", patient.getDateOfBirth());
+		request.setAttribute("emergencyContactFirstName", emergencyContacts.getFirstName());
+		request.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
+		request.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
+		request.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 
