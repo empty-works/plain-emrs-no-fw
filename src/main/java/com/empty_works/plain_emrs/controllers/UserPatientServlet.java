@@ -27,6 +27,7 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
+		EmergencyContactsBean emergencyContacts = 
 		request.setAttribute("patientProvider", patient.getProvider());
 		request.setAttribute("patientProviderId", patient.getProviderId());
 		request.setAttribute("patientRoom", patient.getRoomNumber());
@@ -46,10 +47,6 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("userPatientMiddleInitial", patient.getMiddleInitial());
 		request.setAttribute("userPatientLastName", patient.getLastName());
 		request.setAttribute("userDateOfBirth", patient.getDateOfBirth());
-		request.setAttribute("emergencyContactGivenName", patient.getEmergencyContactGivenName());
-		request.setAttribute("emergencyContactLastName", patient.getEmergencyContactLastName());
-		request.setAttribute("emergencyContactPhoneNumber", patient.getEmergencyContactPhoneNumber());
-		request.setAttribute("emergencyContactEmail", patient.getEmergencyContactEmail());
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 

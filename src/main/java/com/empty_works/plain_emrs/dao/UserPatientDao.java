@@ -28,13 +28,9 @@ public class UserPatientDao {
 		String patientQuery = "SELECT patients.patient_provider, patients.patient_provider_id, patients.patient_room, patients.patient_type, "
 				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
 				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
-				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
-				+ "emergency_contacts.emergency_contact_given_name, emergency_contacts.emergency_contact_last_name, emergency_contacts.emergency_contact_phone_number, "
-				+ "emergency_contacts.emergency_contact_email_address "
-				+ "FROM (((patients "
+				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth "
+				+ "FROM (patients "
 				+ "INNER JOIN users ON patients.user_id = users.user_id) "
-				+ "INNER JOIN patient_emergency_contacts ON patients.user_id = patient_emergency_contacts.user_id) "
-				+ "INNER JOIN emergency_contacts ON patient_emergency_contacts.patient_emergency_contact_id = emergency_contacts.emergency_contact_id) "
 				+ "WHERE patients.user_id = ?";
 		try {
 			preparedStatement = con.prepareStatement(patientQuery);
@@ -61,10 +57,6 @@ public class UserPatientDao {
 				patient.setMiddleInitial(rs.getString("user_middle_initial"));
 				patient.setLastName(rs.getString("user_last_name"));
 				patient.setDateOfBirth(rs.getObject("user_date_of_birth", LocalDate.class));
-				patient.setEmergencyContactGivenName(rs.getString("emergency_contact_given_name"));
-				patient.setEmergencyContactLastName(rs.getString("emergency_contact_last_name"));
-				patient.setEmergencyContactPhoneNumber(rs.getString("emergency_contact_phone_number"));
-				patient.setEmergencyContactEmail(rs.getString("emergency_contact_email_address"));
 			}
 			System.out.println("patient bean after selection: " + patient.getFirstName());
 			rs.close();
