@@ -15,7 +15,7 @@ public class EmergencyContactsDao {
 	
 	public static EmergencyContactsBean getEmergencyContacts(String userPatientId) {
 		
-		EmergencyContactsBean emergencyContacts = new EmergencyContactsBean();
+		EmergencyContactsBean emergencyContacts = new EmergencyContactsBean(userPatientId);
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		String query = "SELECT emergency_contacts.emergency_contact_given_name, emergency_contacts.emergency_contact_last_name, "

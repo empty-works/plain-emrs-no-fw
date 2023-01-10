@@ -7,6 +7,11 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 
 	private String firstName, middleInitial, lastName;
 	private String phoneNumber, email;
+	private String userPatientId;
+	
+	public EmergencyContactsBean(String userPatientId) {
+		this.userPatientId = userPatientId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -40,7 +45,9 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	@Override
 	public String getQuery() {
 		return "INSERT INTO emergency_contacts(emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
-				+ "emergency_contact_phone_number, emergency_contact_email_address) values (?,?,?,?,?)";
+				+ "emergency_contact_phone_number, emergency_contact_email_address) "
+				+ "OUTPUT INSERTED.emergency_contact_id," + userPatientId + " INTO patient_emergency_contacts(patient_emergency_contact_id, user_id) "
+				+ "VALUES (?,?,?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {

@@ -25,10 +25,6 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	private String maritalStatus;
 	private String livingArrangement;
 	private boolean isAdopted;
-	private String emergencyContactGivenName;
-	private String emergencyContactLastName;
-	private String emergencyContactPhoneNumber;
-	private String emergencyContactEmail;
 
 	public String getProvider() {
 		return provider;

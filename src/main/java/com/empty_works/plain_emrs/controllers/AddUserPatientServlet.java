@@ -100,7 +100,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		AuthorityBean authority;
 		PatientBean patient; // Instantiated if user is a new patient.
 		EmergencyContactsBean contacts;
-		PatientEmergencyContactsBean patientEmergencyCon;
+		//PatientEmergencyContactsBean patientEmergencyCon;
 		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
@@ -155,7 +155,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setUserId(userId);
 
 		// Patient emergency contact
-		contacts = new EmergencyContactsBean();
+		contacts = new EmergencyContactsBean(userId);
 		contacts.setFirstName(request.getParameter("contactFirstName"));
 		contacts.setMiddleInitial(request.getParameter("contactMiddleInitial"));
 		contacts.setLastName(request.getParameter("contactLastName"));
@@ -163,7 +163,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		contacts.setEmail(request.getParameter("contactEmailAddress"));
 		
 		// Patient emergency contact junction table
-		patientEmergencyCon = new PatientEmergencyContactsBean(userId);
+		//patientEmergencyCon = new PatientEmergencyContactsBean(userId);
 		
 		// Patient race
 		patientRace = new PatientRaceBean();
@@ -227,7 +227,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Now execute all collected queries.
 		addUserDao.add(user);
 		addUserDao.add(contacts);
-		addUserDao.add(patientEmergencyCon);
+		//addUserDao.add(patientEmergencyCon);
 		addUserDao.add(authority);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);
