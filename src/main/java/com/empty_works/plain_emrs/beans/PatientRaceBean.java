@@ -24,7 +24,7 @@ public class PatientRaceBean implements BeanDaoInterface {
 	}
 	@Override
 	public String getQuery() {
-		return "INSERT INTO patient_races(patients_user_id, patient_race) values(?,?)";
+		return "INSERT INTO patient_races(user_id, patient_race) values(?,?)";
 	}
 	@Override
 	public String getErrorMessage() {

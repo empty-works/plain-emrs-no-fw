@@ -58,6 +58,7 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding emergency contact...");
+		System.out.println("Emergency contact user id: " + getUserPatientId());
 		preparedStatement.setString(1, getUserPatientId());
 		preparedStatement.setString(2, getFirstName());
 		preparedStatement.setString(3, getMiddleInitial());
