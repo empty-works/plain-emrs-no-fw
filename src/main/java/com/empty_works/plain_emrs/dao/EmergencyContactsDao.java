@@ -20,10 +20,8 @@ public class EmergencyContactsDao {
 		PreparedStatement preparedStatement = null;
 		String query = "SELECT emergency_contacts.emergency_contact_given_name, emergency_contacts.emergency_contact_last_name, "
 				+ "emergency_contacts.emergency_contact_phone_number, emergency_contacts.emergency_contact_email_address "
-				+ "FROM ((patient_emergency_contacts "
-				+ "INNER JOIN patient_emergency_contacts ON patients.user_id = patient_emergency_contacts.user_id) "
-				+ "INNER JOIN emergency_contacts ON patient_emergency_contacts.patient_emergency_contact_id = emergency_contacts.emergency_contact_id) "
-				+ "WHERE patients.user_id = ?";
+				+ "FROM emergency_contacts "
+				+ "WHERE emergency_contacts.user_id = ?";
 
 		try {
 			preparedStatement = con.prepareStatement(query);

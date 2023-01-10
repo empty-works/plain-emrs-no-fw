@@ -12,6 +12,9 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	public EmergencyContactsBean(String userPatientId) {
 		this.userPatientId = userPatientId;
 	}
+	public String getUserPatientId() {
+		return userPatientId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -44,10 +47,9 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	}
 	@Override
 	public String getQuery() {
-		return "INSERT INTO emergency_contacts(emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
+		return "INSERT INTO emergency_contacts(user_id, emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
 				+ "emergency_contact_phone_number, emergency_contact_email_address) "
-				+ "OUTPUT INSERTED.emergency_contact_id," + userPatientId + " INTO patient_emergency_contacts(patient_emergency_contact_id, user_id) "
-				+ "VALUES (?,?,?,?,?)";
+				+ "VALUES (?,?,?,?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {
@@ -56,11 +58,12 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding emergency contact...");
-		preparedStatement.setString(1, getFirstName());
-		preparedStatement.setString(2, getMiddleInitial());
-		preparedStatement.setString(3, getLastName());
-		preparedStatement.setString(4, getPhoneNumber());
-		preparedStatement.setString(5, getEmail());
+		preparedStatement.setString(1, getUserPatientId());
+		preparedStatement.setString(2, getFirstName());
+		preparedStatement.setString(3, getMiddleInitial());
+		preparedStatement.setString(4, getLastName());
+		preparedStatement.setString(5, getPhoneNumber());
+		preparedStatement.setString(6, getEmail());
 		return preparedStatement.executeUpdate();
 	}
 }
