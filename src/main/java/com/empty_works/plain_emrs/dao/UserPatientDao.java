@@ -154,8 +154,6 @@ public class UserPatientDao {
 			preparedStatement = con.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
-			System.out.println("Patient sublist result set: " + resultSet);
-			
 			while(resultSet.next()) {
 				
 				System.out.println("Inside patient sublist while loop.");
@@ -180,7 +178,6 @@ public class UserPatientDao {
 			
 			ConnectionUtil.closeConnection(con, preparedStatement, resultSet);
 		}
-		System.out.println("Patient list after query: " + patientsList);
 		return patientsList;
 	}
 	

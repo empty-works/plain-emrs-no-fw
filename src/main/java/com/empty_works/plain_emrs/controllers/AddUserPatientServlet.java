@@ -23,7 +23,6 @@ import com.empty_works.plain_emrs.beans.IllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.NonPatientBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
-import com.empty_works.plain_emrs.beans.PatientEmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
@@ -100,7 +99,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		AuthorityBean authority;
 		PatientBean patient; // Instantiated if user is a new patient.
 		EmergencyContactsBean contacts;
-		//PatientEmergencyContactsBean patientEmergencyCon;
 		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
@@ -161,9 +159,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		contacts.setLastName(request.getParameter("contactLastName"));
 		contacts.setPhoneNumber(request.getParameter("contactPhoneNumber"));
 		contacts.setEmail(request.getParameter("contactEmailAddress"));
-		
-		// Patient emergency contact junction table
-		//patientEmergencyCon = new PatientEmergencyContactsBean(userId);
 		
 		// Patient race
 		patientRace = new PatientRaceBean();
@@ -227,7 +222,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Now execute all collected queries.
 		addUserDao.add(user);
 		addUserDao.add(contacts);
-		//addUserDao.add(patientEmergencyCon);
 		addUserDao.add(authority);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);

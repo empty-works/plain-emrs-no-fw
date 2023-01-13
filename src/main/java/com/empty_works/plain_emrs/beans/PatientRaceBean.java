@@ -33,6 +33,7 @@ public class PatientRaceBean implements BeanDaoInterface {
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
 
+		System.out.println("Adding patient race..." + getRaces());
 		for(int i = 0; i < getRaces().size(); i++) {
 			
 			preparedStatement.setString(1, getUserId());
