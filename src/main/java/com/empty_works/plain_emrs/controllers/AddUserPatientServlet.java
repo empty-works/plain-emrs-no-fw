@@ -221,7 +221,6 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		// Now execute all collected queries.
 		addUserDao.add(user);
-		addUserDao.add(contacts);
 		addUserDao.add(authority);
 		addUserDao.add(userLogin);
 		addUserDao.add(userActivity);
@@ -232,6 +231,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(diseases);
 		addUserDao.add(relations);
 		addUserDao.add(illnesses);
+		addUserDao.add(contacts);
 		addUserDao.executeQueries();
 		
 		request.getSession().setAttribute("userPatientId", user.getUserId());
