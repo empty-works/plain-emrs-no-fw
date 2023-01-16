@@ -41,18 +41,31 @@
 					<div>
 						<div>PATIENT ID: ${userPatientId}</div>
 						<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
-						<div>Phone Number</div>
-						<div>Email</div>
-						<div>Residential Address</div>
+						<div>${patientPhoneNumber}</div>
+						<div>${userEmailAddress}</div>
+						<div>${patientStreetAddress}</div>
 					</div>
 					<div>
-						<div>Birth Date</div>
+						<div>userDateOfBirth</div>
 						<div>Height</div>
 						<div>Weight</div>
 					</div>
 				</div>
-				<div>Patient Type</div>
-				<div>Emergency Contacts</div>
+				<fieldset>
+					<legend>Patient Type</legend>
+					<div>${patientType}</div>
+				</fieldset>
+				<fieldset>
+					<legend>Emergency Contact</legend>	
+					<label for="ecFirstName">First Name</label>
+					<div id="ecFirstName">${emergencyContactFirstName}</div>
+					<label for="ecLastName">Last Name</label>
+					<div id="ecLastName">${emergencyContactLastName}</div>
+					<label for="ecPhone">Phone Number</label>
+					<div id="ecPhone">${emergencyContactPhoneNumber}</div>
+					<label for="ecEmail">Email</label>
+					<div id="ecEmail">${emergencyContactEmail}</div>
+				</fieldset>
 				<div>General Medical History</div>
 				<div>Basic Medical Insurance Information</div>
 			</div>
