@@ -3,7 +3,7 @@
 /*CSS variables are in general.css*/
 
 .main-grid-container {
-	overflow: scroll;
+	overflow-y: scroll;
 	background-color: var(--off-white);
 	position: absolute; /* Not happy using this but needed to keep this element on the right. */
 	right: 0px;

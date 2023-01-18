@@ -34,26 +34,26 @@
 		
 		<div class="main-grid-container">
 			<div class="main-grid">
-				<div id="patient-overview-grid-1">
-					<div>
-						<div>Patient Picture</div>
-					</div>
-					<div>
-						<div>PATIENT ID: ${userPatientId}</div>
-						<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
-						<div>${patientPhoneNumber}</div>
-						<div>${userEmailAddress}</div>
-						<div>${patientStreetAddress}</div>
-					</div>
-					<div>
-						<div>userDateOfBirth</div>
-						<div>Height</div>
-						<div>Weight</div>
-					</div>
-				</div>
 				<fieldset>
-					<legend>Patient Type</legend>
-					<div>${patientType}</div>
+					<legend>Patient Overview</legend>
+					<div id="patient-overview-grid-1">
+						<div>
+							<div>Patient Picture</div>
+						</div>
+						<div>
+							<div>PATIENT ID: ${userPatientId}</div>
+							<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
+							<div>${patientPhoneNumber}</div>
+							<div>${userEmailAddress}</div>
+							<div>${patientStreetAddress}</div>
+						</div>
+						<div>
+							<div>userDateOfBirth</div>
+							<div>Height</div>
+							<div>Weight</div>
+							<div>${patientType}</div>
+						</div>
+					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Emergency Contact</legend>	
@@ -66,8 +66,12 @@
 					<label for="ecEmail">Email</label>
 					<div id="ecEmail">${emergencyContactEmail}</div>
 				</fieldset>
-				<div>General Medical History</div>
-				<div>Basic Medical Insurance Information</div>
+				<fieldset>
+					<legend>General Medical History</legend>
+				</fieldset>
+				<fieldset>
+					<legend>Basic Medical Insurance Information</legend>
+				</fieldset>
 			</div>
 		</div>
 	</div>

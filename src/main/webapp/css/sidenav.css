@@ -13,7 +13,6 @@ html, body {
 	height: 100%;
 	width: var(--sidenav-left-margin);
 	background-color: var(--darker-blue);
-	overflow-x: hidden;
 	text-align: center;
 }
 
@@ -22,7 +21,7 @@ html, body {
 	height: 100%;
 	width: var(--sidenav-width); 
 	background-color: var(--light-blue);
-	overflow-x: hidden;
+	overflow: hidden;
 	padding: 15% 0;
 }
 
