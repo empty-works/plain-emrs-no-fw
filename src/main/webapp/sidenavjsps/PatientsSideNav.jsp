@@ -10,7 +10,6 @@
 </head>
 <body>
 	<!-- Side navigation -->
-	<div><a href="<c:url value="/PatientSearchServlet" />">Search</a></div>
 	<div><a href="<c:url value="/TrackedPatientsServlet" />">Tracked Patients</a></div>
 
 	<!-- Can only add patient if an admin -->

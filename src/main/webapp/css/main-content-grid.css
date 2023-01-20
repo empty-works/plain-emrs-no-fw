@@ -1,6 +1,9 @@
 @charset "ISO-8859-1";
 
 /*CSS variables are in general.css*/
+:root {
+	--patient-grid-height: 100%;
+}
 
 .main-grid-container {
 	overflow-y: scroll;
@@ -15,7 +18,8 @@
 .main-grid-container > .main-grid {
 	display: grid;
     grid-template-columns: 1fr;
-    height: 100vh;
+    min-height: 100px;
+    height: auto;
 }
 
 .main-grid-container > .main-grid > div {
