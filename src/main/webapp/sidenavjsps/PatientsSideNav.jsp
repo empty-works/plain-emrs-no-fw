@@ -14,12 +14,5 @@
 	<div><a href="<c:url value="/" />">Medical History</a></div>
 	<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
 
-	<!-- Can only add patient if an admin -->
-	<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
-		<fieldset>
-			<legend>Admin only</legend>
-			<div><a href="<c:url value="/AddUserPatientServlet" />">Add Patient</a></div>
-		</fieldset>
-	</c:if>
 </body>
 </html>

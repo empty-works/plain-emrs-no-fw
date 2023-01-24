@@ -28,6 +28,14 @@
 		<div class="main-grid-container">
 			<h4>PATIENT LIST</h4>
 
+			<!-- Can only add patient if an admin -->
+			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+				<fieldset>
+					<legend>Admin only</legend>
+					<div><a href="<c:url value="/AddUserPatientServlet" />">Add Patient</a></div>
+				</fieldset>
+			</c:if>
+
 			<form class="content-padding" action="UserPatientServlet" method="post" enctype="multipart/form-data">
 			<table> <!-- Global table styling handled in general -->
 				<tr>
