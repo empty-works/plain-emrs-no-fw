@@ -34,6 +34,7 @@
 		
 		<div class="main-grid-container">
 			<div class="main-grid">
+			<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
 			<div>
 				<fieldset>
 					<legend>Patient Overview</legend>
@@ -70,44 +71,9 @@
 				<fieldset>
 					<legend>General Medical History</legend>
 					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
 				</fieldset>
 				<fieldset>
 					<legend>Basic Medical Insurance Information</legend>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
 					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
 				</fieldset>
 			</div>
