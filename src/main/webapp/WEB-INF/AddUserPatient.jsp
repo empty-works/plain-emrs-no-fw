@@ -29,10 +29,6 @@
 		<div class="side-main-menu">
 			<script id="replace_with_sidemainmenu" src="${pageContext.request.contextPath}/js/adminsidemainmenu.js"></script>	
 		</div>
-		<!-- Side navigation -->
-		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
-		</div>
 
 		<!-- Main content -->
 		<div class="main-grid-container form-font form-dimensions">
@@ -42,33 +38,62 @@
 				<fieldSet>
 					<legend>General: </legend>
 					<!--  User ID will be generated based on the following inputs! -->	
-					<label>First Name: </label>
+					<label for="userFirstName">First Name: </label>
 					<div><input required type="text" id="userFirstName" name="userFirstName" /></div>
-					<label>Middle Initial: </label>
+					<label for="userMiddleInitial">Middle Initial: </label>
 					<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
-					<label>Last Name: </label>
+					<label for="userLastName">Last Name: </label>
 					<div><input required type="text" id="userLastName" name="userLastName" /></div>
-					<label>Date of Birth: </label>
+					<label for="patientDateOfBirth">Date of Birth: </label>
 					<div><input required type="date" id="patientDateOfBirth" name="patientDateOfBirth" /></div>
-					<label>Current Facility ID (optional): </label>
+					<label for="userCurrentFacilityId">Current Facility ID (optional): </label>
 					<div><input type="text" id="userCurrentFacilityId" name="userCurrentFacilityId" /></div>
-					<label>Email Address: </label>
+					<label for="userEmailAddress">Email Address: </label>
 					<div><input type="email" id="userEmailAddress" name="userEmailAddress" /></div>
+					<label for="langPrefSelect">Language Preference</label>
+					<div>
+						<select id="langPrefSelect" name="langPrefSelect">
+							<option>Arabic</option>	
+							<option>Bengali</option>
+							<option>Chinese (Simplified)</option>
+							<option>Chinese (Traditional)</option>
+							<option>English</option>
+							<option>French</option>
+							<option>German</option>
+							<option>Hindi</option>
+							<option>Italian</option>
+							<option>Japanese</option>
+							<option>Korean</option>
+							<option>Lahnda</option>
+							<option>Malay</option>
+							<option>Marathi</option>
+							<option>Persian</option>
+							<option>Portuguese</option>
+							<option>Spanish</option>
+							<option>Russian</option>
+							<option>Tamil</option>
+							<option>Telugu</option>
+							<option>Turkish</option>
+							<option>Urdu</option>
+							<option>Vietnamese</option>
+							<option>Other</option>
+						</select>	
+					</div>
 				</fieldSet>
 				<input type="hidden" id="userEnabled" name="userEnabled" value="true">	
 				
 				<!-- Emergency contacts -->
 				<fieldSet>
 					<legend>Emergency Contact</legend>	
-					<label>First Name: </label>
+					<label for="contactFirstName">First Name: </label>
 					<div><input type="text" id="contactFirstName" name="contactFirstName" /></div>
-					<label>Middle Initial: </label>
+					<label for="contactMiddleInitial">Middle Initial: </label>
 					<div><input type="text" id="contactMiddleInitial" name="contactMiddleInitial" /></div>
-					<label>Last Name: </label>
+					<label for="contactLastName">Last Name: </label>
 					<div><input required type="text" id="contactLastName" name="contactLastName" /></div>
-					<label>Phone Number: </label>
-					<div><input type="tel" name="contactPhoneNumber" pattern="[1-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
-					<label>Email Address: </label>
+					<label for="contactPhoneNumber">Phone Number: </label>
+					<div><input type="tel" id="contactPhoneNumber" name="contactPhoneNumber" pattern="[1-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
+					<label for="contactEmailAddress">Email Address: </label>
 					<div><input type="email" id="contactEmailAddress" name="contactEmailAddress" /></div>
 				</fieldSet>
 

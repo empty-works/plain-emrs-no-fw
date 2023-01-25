@@ -46,6 +46,7 @@
 					<th>Date of Birth</th>
 					<th>Type</th>
 					<th>Birth Gender</th>
+					<th>Language Preference</th>
 				</tr>
 				<c:forEach items="${patientSublist}" var="patient" >
 					<tr id="list-link">
@@ -56,6 +57,7 @@
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getDateOfBirth()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getType()}</a></td>
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getGenderAtBirth()}</a></td>	
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getLanguagePreference()}</a></td>	
 					</tr>
 				</c:forEach>
 			</table>
