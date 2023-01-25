@@ -136,6 +136,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setGenderAtBirth(request.getParameter("sexAssignedBirthRadio"));
 		patient.setSexualOrientation(request.getParameter("sexualOrientationRadio"));
 		patient.setAdopted(Boolean.parseBoolean(request.getParameter("patientAdopted")));
+		patient.setLanguagePreference(request.getParameter("langPrefSelect"));
 		// Patient user ID generated based on info
 		String userId = UserIdUtil.get(UserIdUtil.PATIENT, user.getFirstName(), user.getLastName());
 		// Generate medical record ID based on the newly generated user ID.
