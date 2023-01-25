@@ -51,13 +51,13 @@
 				<c:forEach items="${patientSublist}" var="patient" >
 					<tr id="list-link">
 						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getUserId()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getFirstName()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getMiddleInitial()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getLastName()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getDateOfBirth()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getType()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getGenderAtBirth()}</a></td>	
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet">${patient.getLanguagePreference()}</a></td>	
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getFirstName()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getMiddleInitial()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getLastName()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getDateOfBirth()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getType()}</a></td>
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getGenderAtBirth()}</a></td>	
+						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getLanguagePreference()}</a></td>	
 					</tr>
 				</c:forEach>
 			</table>

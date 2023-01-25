@@ -23,6 +23,10 @@
     margin-bottom: 65px;
 }
 
+.main-grid-container > .main-grid > a:visited {
+	color: var(--darker-blue);
+}
+
 .main-grid-container > .main-grid > div {
 	display: block;
 	width: 100%;
