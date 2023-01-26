@@ -15,6 +15,26 @@
 	padding: 10px;
 }
 
+.main-grid-container a:link {
+	color: blue;
+}
+
+.main-grid-container a:visited {
+	color: blue;
+}
+
+.main-grid-container a:hover {
+	color: blue;
+}
+
+.main-grid-container a:focus {
+	color: blue;
+}
+
+.main-grid-container a:active {
+	color: blue;
+}
+
 .main-grid-container > .main-grid {
 	display: grid;
     grid-template-columns: 1fr;
@@ -23,7 +43,7 @@
     margin-bottom: 65px;
 }
 
-.main-grid-container > .main-grid > a:visited {
+.main-grid-container > a:visited {
 	color: var(--darker-blue);
 }
 
