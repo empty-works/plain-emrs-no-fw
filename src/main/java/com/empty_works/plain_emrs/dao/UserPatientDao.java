@@ -138,7 +138,7 @@ public class UserPatientDao {
 		ResultSet resultSet = null;
 		
 		String SUBLIST_QUERY = "SELECT users.user_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, patients.patient_type, "
-				+ "patients.patient_current_gender, patients.patient_gender_at_birth, authorities.authority "
+				+ "patients.patient_current_gender, patients.patient_gender_at_birth, patients.patient_language_preference, authorities.authority "
 				+ "FROM users "
 				+ "INNER JOIN patients "
 				+ "ON users.user_id = patients.user_id "
@@ -155,7 +155,6 @@ public class UserPatientDao {
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				
 				System.out.println("Inside patient sublist while loop.");
 				PatientBean patient = new PatientBean();
 				patient.setUserId(resultSet.getString("users.user_id"));
@@ -166,6 +165,7 @@ public class UserPatientDao {
 				patient.setType(resultSet.getString("patients.patient_type"));
 				patient.setCurrentGender(resultSet.getString("patients.patient_current_gender"));
 				patient.setGenderAtBirth(resultSet.getString("patients.patient_gender_at_birth"));
+				patient.setLanguagePreference(resultSet.getString("patients.patient_language_preference"));
 				patient.setRole(resultSet.getString("authorities.authority"));
 				patientsList.add(patient);
 			}
