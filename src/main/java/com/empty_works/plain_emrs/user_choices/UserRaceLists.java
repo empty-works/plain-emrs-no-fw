@@ -102,24 +102,44 @@ public class UserRaceLists {
 		private static final long serialVersionUID = -300245558993893663L;
 
 		{
+			add(new UserRaceUnit("asianAfghan", "Afghan"));
+			add(new UserRaceUnit("asianArmen", "Armenian"));
+			add(new UserRaceUnit("asianAzerb", "Azerbaijani"));
 			add(new UserRaceUnit("asianBangla", "Bangladeshi"));
 			add(new UserRaceUnit("asianBhuta", "Bhutanese"));
+			add(new UserRaceUnit("asianBrunei", "Bruneian"));
 			add(new UserRaceUnit("asianBurm", "Burmese"));
 			add(new UserRaceUnit("asianCambo", "Cambodian"));
-			add(new UserRaceUnit("asianTaiw", "Taiwanese"));
+			add(new UserRaceUnit("asianChina", "Chinese"));
+			add(new UserRaceUnit("asianFil", "Filipino"));
+			add(new UserRaceUnit("asianGeorgia", "Georgian"));
 			add(new UserRaceUnit("asianHmong", "Hmong"));
+			add(new UserRaceUnit("asianIndia", "Indian"));
 			add(new UserRaceUnit("asianIndon", "Indonesian"));
+			add(new UserRaceUnit("asianIwoJim", "Iwo Jiman"));
+			add(new UserRaceUnit("asianJapan", "Japanese"));
+			add(new UserRaceUnit("asianKazakh", "Kazakh"));
+			add(new UserRaceUnit("asianKorea", "Korean"));
+			add(new UserRaceUnit("asianKyrgyz", "Kyrgyz"));
 			add(new UserRaceUnit("asianLoat", "Loation"));
+			add(new UserRaceUnit("asianMadag", "Madagascar"));
 			add(new UserRaceUnit("asianMalay", "Malaysian"));
+			add(new UserRaceUnit("asianMaldiv", "Maldivian"));
+			add(new UserRaceUnit("asianMien", "Mien"));
+			add(new UserRaceUnit("asianMongolian", "Mongolian"));
+			add(new UserRaceUnit("asianNepal", "Nepalese"));
 			add(new UserRaceUnit("asianOkina", "Okinawan"));
 			add(new UserRaceUnit("asianPakist", "Pakistani"));
-			add(new UserRaceUnit("asianSriLan", "Sri Lankan"));
-			add(new UserRaceUnit("asianThai", "Thai"));
-			add(new UserRaceUnit("asianIwoJim", "Iwo Jiman"));
-			add(new UserRaceUnit("asianMaldiv", "Maldivian"));
-			add(new UserRaceUnit("asianNepal", "Nepalese"));
 			add(new UserRaceUnit("asianSingap", "Singaporean"));
-			add(new UserRaceUnit("asianMadag", "Madagascar"));
+			add(new UserRaceUnit("asianSriLan", "Sri Lankan"));
+			add(new UserRaceUnit("asianTaiw", "Taiwanese"));
+			add(new UserRaceUnit("asianTajik", "Tajik"));
+			add(new UserRaceUnit("asianThai", "Thai"));
+			add(new UserRaceUnit("asianTibet", "Tibetan"));
+			add(new UserRaceUnit("asianTimor", "Timorese"));
+			add(new UserRaceUnit("asianTurkmen", "Turkmen"));
+			add(new UserRaceUnit("asianUzbek", "Uzbek"));
+			add(new UserRaceUnit("asianViet", "Vietnamese"));
 		}
 	};
 	
