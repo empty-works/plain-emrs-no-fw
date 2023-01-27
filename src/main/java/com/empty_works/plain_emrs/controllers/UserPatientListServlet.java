@@ -40,5 +40,4 @@ public class UserPatientListServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
 }
