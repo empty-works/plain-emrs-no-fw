@@ -26,14 +26,11 @@
 		</div>
 
 		<div class="main-grid-container">
-			<h4>PATIENT LIST</h4>
+			<h3>PATIENT LIST</h3>
 
 			<!-- Can only add patient if an admin -->
 			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
-				<fieldset>
-					<legend>Admin only</legend>
-					<div><a href="<c:url value="/AddUserPatientServlet" />">Add Patient</a></div>
-				</fieldset>
+				<div><a href="<c:url value="/AddUserPatientServlet" />">Add Patient</a></div>
 			</c:if>
 
 			<form class="content-padding" action="UserPatientServlet" method="post" enctype="multipart/form-data">

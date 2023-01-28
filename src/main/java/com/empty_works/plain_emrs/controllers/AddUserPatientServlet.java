@@ -235,9 +235,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		addUserDao.add(contacts);
 		addUserDao.executeQueries();
 		
-		//request.getSession().setAttribute("userPatientId", user.getUserId());
 		response.sendRedirect(request.getContextPath() + "/UserPatientServlet?userPatientId=" + user.getUserId());
-		//request.getRequestDispatcher("/WEB-INF/AddUserSummary.jsp").forward(request, response);
 	}
 	
 	/**
