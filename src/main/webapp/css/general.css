@@ -16,7 +16,14 @@
 	--sidenav-width: 17%;
 	--sidenav-left-margin: 5%;
 
-	--text-padding: 1.4em;
+	--text-padding: 5.4em; /* Important for padding for the patient list */
+}
+
+
+/* Used for patient list padding. */
+.content-padding {
+	padding-bottom: var(--text-padding);
+	padding-top: 1.2em;
 }
 
 /* Global font */
@@ -97,8 +104,4 @@ td {
 	font-size: 0.7em;
 	color: red;
 	padding: 0px;
-}
-
-.content-padding {
-	padding: var(--text-padding);
 }
