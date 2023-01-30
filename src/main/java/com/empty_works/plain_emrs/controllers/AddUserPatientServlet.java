@@ -126,7 +126,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		patient.setCity(request.getParameter("patientCity"));
 		patient.setState(request.getParameter("patientState"));
 		patient.setCountry(request.getParameter("patientCountry"));
-		patient.setPhoneNumber(request.getParameter("patientPhoneNumber"));
+		String phoneArea = request.getParameter("patientPhoneArea");
+		String patientNumber = request.getParameter("patientPhoneNumber");
+		patient.setPhoneNumber(phoneArea + " " + patientNumber);
 		patient.setProvider(request.getParameter("patientProvider"));
 		patient.setProviderId(request.getParameter("patientProviderId"));
 		patient.setType(request.getParameter("patientTypeDropdown"));
@@ -158,7 +160,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		contacts.setFirstName(request.getParameter("contactFirstName"));
 		contacts.setMiddleInitial(request.getParameter("contactMiddleInitial"));
 		contacts.setLastName(request.getParameter("contactLastName"));
-		contacts.setPhoneNumber(request.getParameter("contactPhoneNumber"));
+		String contactPhoneArea = request.getParameter("contactPhoneArea");
+		String contactPhoneNumber = request.getParameter("contactPhoneNumber");
+		contacts.setPhoneNumber(contactPhoneArea + " " + contactPhoneNumber);
 		contacts.setEmail(request.getParameter("contactEmailAddress"));
 		
 		// Patient race
