@@ -60,13 +60,8 @@
 				</fieldset>
 				<fieldset>
 					<legend>Emergency Contact</legend>	
-					<label for="ecFirstName">First Name</label>
-					<div id="ecFirstName">${emergencyContactFirstName}</div>
-					<label for="ecLastName">Last Name</label>
-					<div id="ecLastName">${emergencyContactLastName}</div>
-					<label for="ecPhone">Phone Number</label>
+					<div id="ecFirstName">${emergencyContactFirstName} ${emergencyContactLastName}</div>
 					<div id="ecPhone">${emergencyContactPhoneNumber}</div>
-					<label for="ecEmail">Email</label>
 					<div id="ecEmail">${emergencyContactEmail}</div>
 				</fieldset>
 				<fieldset>
