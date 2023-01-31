@@ -38,19 +38,20 @@
 			<div>
 				<fieldset>
 					<legend>Patient Overview</legend>
-					<div id="patient-overview-grid-1">
+					<div id="patient-overview-grid-1" class="patient-data">
 						<div>
-							<div>Patient Picture</div>
+							<div class="patient-header">Patient Picture</div>
 						</div>
 						<div>
-							<div>PATIENT ID: ${userPatientId}</div>
+							<div class="patient-header">${userPatientId}</div>
 							<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
 							<div>${patientPhoneNumber}</div>
 							<div>${userEmailAddress}</div>
 							<div>${patientStreetAddress}</div>
 						</div>
 						<div>
-							<div>userDateOfBirth</div>
+							<div class="patient-header"> ..... </div>
+							<div>${userDateOfBirth}</div>
 							<div>Height</div>
 							<div>Weight</div>
 							<div>${patientType}</div>

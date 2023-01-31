@@ -11,6 +11,14 @@
 	text-decoration: none;
 }
 
+.patient-header {
+	font-weight: bold;
+}
+
+.patient-data {
+	font-size: 14px;
+}
+
 /*Patients Search Page*/
 #patients-search-main-grid {
 	display: grid;
