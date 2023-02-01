@@ -37,20 +37,20 @@
 			<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
 			<div>
 				<fieldset>
-					<legend>Patient Overview</legend>
+					<legend class="patient-header">Patient Overview</legend>
 					<div id="patient-overview-grid-1" class="patient-data">
 						<div>
-							<div class="patient-header">Patient Picture</div>
+							<div>Patient Picture</div>
 						</div>
 						<div>
-							<div class="patient-header">${userPatientId}</div>
+							<div>${userPatientId}</div>
 							<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
 							<div>${patientPhoneNumber}</div>
 							<div>${userEmailAddress}</div>
 							<div>${patientStreetAddress}</div>
 						</div>
 						<div>
-							<div class="patient-header"> ..... </div>
+							<div>  </div>
 							<div>${userDateOfBirth}</div>
 							<div>Height</div>
 							<div>Weight</div>
@@ -59,18 +59,12 @@
 					</div>
 				</fieldset>
 				<fieldset>
-					<legend>Emergency Contact</legend>	
-					<div id="ecFirstName">${emergencyContactFirstName} ${emergencyContactLastName}</div>
-					<div id="ecPhone">${emergencyContactPhoneNumber}</div>
-					<div id="ecEmail">${emergencyContactEmail}</div>
-				</fieldset>
-				<fieldset>
-					<legend>General Medical History</legend>
-					<div>WWWWWWWWWWWWWWWWWWWWWWWWWWW</div>
-				</fieldset>
-				<fieldset>
-					<legend>Basic Medical Insurance Information</legend>
-					<div>ZZZZZZZZZZZZZZZZZZZZZZZZZZZ</div>
+					<legend class="patient-header">Emergency Contact</legend>	
+					<div class="patient-data">
+						<div id="ecFirstName">${emergencyContactFirstName} ${emergencyContactLastName}</div>
+						<div id="ecPhone">${emergencyContactPhoneNumber}</div>
+						<div id="ecEmail">${emergencyContactEmail}</div>
+					</div>
 				</fieldset>
 			</div>
 			</div>
