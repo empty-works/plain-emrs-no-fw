@@ -50,20 +50,28 @@
 							<div>${patientStreetAddress}</div>
 						</div>
 						<div>
-							<div>  </div>
 							<div>${userDateOfBirth}</div>
 							<div>Height</div>
 							<div>Weight</div>
 							<div>${patientType}</div>
+							<div>${patientLanguagePreference}</div>
 						</div>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend class="patient-header">Emergency Contact</legend>	
 					<div class="patient-data">
-						<div id="ecFirstName">${emergencyContactFirstName} ${emergencyContactLastName}</div>
-						<div id="ecPhone">${emergencyContactPhoneNumber}</div>
-						<div id="ecEmail">${emergencyContactEmail}</div>
+						<div>${emergencyContactFirstName} ${emergencyContactLastName}</div>
+						<div>${emergencyContactPhoneNumber}</div>
+						<div>${emergencyContactEmail}</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend class="patient-header">Detailed</legend>		
+					<div class="patient-data">
+						<div>${patientProvider} ${patientProviderId}</div>
+						<div></div>
+
 					</div>
 				</fieldset>
 			</div>
