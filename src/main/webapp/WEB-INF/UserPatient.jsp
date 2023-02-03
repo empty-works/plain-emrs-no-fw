@@ -69,9 +69,17 @@
 				<fieldset>
 					<legend class="patient-header">Detailed</legend>		
 					<div class="patient-data">
-						<div>${patientProvider} ${patientProviderId}</div>
+						<label for="patientProvider">Patient provider:</label>
+						<div id="patientProvider">${patientProvider} | ${patientProviderId}</div>
 						<div></div>
-
+						<label for="genderAtBirth">Gender at birth:</label>
+						<div id="genderAtBirth">${patientBirthGender}</div>
+						<div></div>
+						<label for="patientCurrentGender">Current gender:</label>
+						<div id="patientCurrentGender">${patientCurrentGender}</div>	
+						<div></div>
+						<label for="patientRace">Race:</label>
+						<div id="patientRace">${}</div>
 					</div>
 				</fieldset>
 			</div>

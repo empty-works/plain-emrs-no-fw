@@ -29,6 +29,7 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
+		PatientRaceBean patientRace = 
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
 		request.setAttribute("patientProvider", patient.getProvider());
 		request.setAttribute("patientProviderId", patient.getProviderId());
@@ -41,6 +42,8 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("patientCountry", patient.getCountry());
 		request.setAttribute("patientPhoneNumber", patient.getPhoneNumber());
 		request.setAttribute("patientBirthGender", patient.getGenderAtBirth());
+		request.setAttribute("patientCurrentGender", patient.getCurrentGender());
+		request.setAttribute("patientRace", patient.get);
 		request.setAttribute("userEmailAddress", patient.getEmailAddress());
 		request.setAttribute("userEnabled", patient.isUserEnabled());
 		request.setAttribute("userCreatedOn", patient.getDateCreated());
