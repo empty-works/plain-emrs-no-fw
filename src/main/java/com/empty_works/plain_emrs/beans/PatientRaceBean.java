@@ -19,8 +19,8 @@ public class PatientRaceBean implements BeanDaoInterface {
 	public List<String> getRaces() {
 		return races;
 	}
-	public void setRaces(List<String> races) {
-		this.races = races;
+	public void addRace(String race) {
+		races.add(race);
 	}
 	@Override
 	public String getQuery() {

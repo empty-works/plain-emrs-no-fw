@@ -31,11 +31,15 @@ public class UserPatientRaceDao {
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
-				
+				raceBean.addRace(rs.getString("patient_race"));
 			}
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		finally {
+			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		}
+		return raceBean;
 	}
 }
