@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
+import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
 
 /**
  * Servlet implementation class PatientsServlet
@@ -29,6 +31,7 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
+		PatientRaceBean patientRace = UserPatientRaceDao.getRace(userPatientId);
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
 		request.setAttribute("patientProvider", patient.getProvider());
 		request.setAttribute("patientProviderId", patient.getProviderId());
@@ -42,7 +45,10 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("patientPhoneNumber", patient.getPhoneNumber());
 		request.setAttribute("patientBirthGender", patient.getGenderAtBirth());
 		request.setAttribute("patientCurrentGender", patient.getCurrentGender());
-		//request.setAttribute("patientRace", patient.get);
+		
+		/* Retrieve patient races as a list in the JSP. */
+		request.setAttribute("patientRace", patientRace.getRaces());
+
 		request.setAttribute("userEmailAddress", patient.getEmailAddress());
 		request.setAttribute("userEnabled", patient.isUserEnabled());
 		request.setAttribute("userCreatedOn", patient.getDateCreated());
