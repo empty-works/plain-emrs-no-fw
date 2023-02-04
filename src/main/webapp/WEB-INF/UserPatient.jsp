@@ -79,7 +79,7 @@
 						<div id="patientCurrentGender">${patientCurrentGender}</div>	
 						<div></div>
 						<label for="patientRace">Race:</label>
-						<div id="patientRace">${}</div>
+						<div id="patientRace"></div>
 					</div>
 				</fieldset>
 			</div>

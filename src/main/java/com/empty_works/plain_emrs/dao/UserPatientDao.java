@@ -11,6 +11,7 @@ import java.util.List;
 import java.io.InputStream;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 import com.empty_works.plain_emrs.util.QueryUtil;
@@ -29,8 +30,8 @@ public class UserPatientDao {
 				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
 				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
 				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth "
-				+ "FROM (patients "
-				+ "INNER JOIN users ON patients.user_id = users.user_id) "
+				+ "FROM patients "
+				+ "INNER JOIN users ON patients.user_id = users.user_id "
 				+ "WHERE patients.user_id = ?";
 		try {
 			preparedStatement = con.prepareStatement(patientQuery);
