@@ -170,10 +170,18 @@ public class AddUserPatientServlet extends HttpServlet {
 		patientRace.setUserId(userId);
 		String[] races = request.getParameterValues("raceCheck");
 		for(String race : races) {
+			if(race.equals(UserRaceLists.asianName)) {
+				race += " - " + request.getParameter("asianEthnDropdown");
+			}
+			else if(race.equals(UserRaceLists.hiLaName)) {
+				race += " - " + request.getParameter("hisLatinEthnDropdown");
+			}
+			else if(race.equals(UserRaceLists.naHaPaIsName)) {
+				race += " - " + request.getParameter("pacIslEthnDropdown");
+			}
 			System.out.println("Checked race: " + race);
 			patientRace.addRace(race);
 		}
-		//patientRace.setRaces(parseRaces(request));
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
