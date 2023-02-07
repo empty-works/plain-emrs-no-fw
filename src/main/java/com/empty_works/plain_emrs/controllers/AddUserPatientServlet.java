@@ -168,7 +168,12 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Patient race
 		patientRace = new PatientRaceBean();
 		patientRace.setUserId(userId);
-		patientRace.setRaces(parseRaces(request));
+		String[] races = request.getParameterValues("raceCheck");
+		for(String race : races) {
+			System.out.println("Checked race: " + race);
+			patientRace.addRace(race);
+		}
+		//patientRace.setRaces(parseRaces(request));
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
