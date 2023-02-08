@@ -45,6 +45,10 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("patientPhoneNumber", patient.getPhoneNumber());
 		request.setAttribute("patientBirthGender", patient.getGenderAtBirth());
 		request.setAttribute("patientCurrentGender", patient.getCurrentGender());
+		request.setAttribute("patientSexualOrientation", patient.getSexualOrientation());
+		request.setAttribute("patientMaritalStatus", patient.getMaritalStatus());
+		request.setAttribute("patientLivingArrangement", patient.getLivingArrangement());
+		request.setAttribute("patientAdopted", patient.isAdopted());
 		
 		/* Retrieve patient races as a list in the JSP. */
 		request.setAttribute("patientRaceList", patientRace.getRaces());

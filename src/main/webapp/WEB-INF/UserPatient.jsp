@@ -71,17 +71,22 @@
 					<div class="patient-data">
 						<label for="patientProvider">Patient provider:</label>
 						<div id="patientProvider">${patientProvider} | ${patientProviderId}</div>
-						<div></div>
 						<label for="genderAtBirth">Gender at birth:</label>
 						<div id="genderAtBirth">${patientBirthGender}</div>
-						<div></div>
 						<label for="patientCurrentGender">Current gender:</label>
 						<div id="patientCurrentGender">${patientCurrentGender}</div>	
-						<div></div>
 						<label for="patientRace">Race(s) and ethnicities:</label>
 						<c:forEach items="${patientRaceList}" var="patientRace">
 							<div>${patientRace}</div>			
 						</c:forEach>
+						<label for="patientSexOrientation">Sexual orientation:</label>
+						<div id="patientSexOrientation">${patientSexualOrientation}</div>
+						<label for="patientMaritalStatus">Marital status:</label>
+						<div id="patientMaritalStatus">${patientMaritalStatus}</div>
+						<label for="patientLiving">Living arrangement:</label>
+						<div id="patientLiving">${patientLivingArrangement}</div>
+						<label for="patientAdopted">Adopted:</label>
+						<div id="patientAdopted">${patientAdopted}</div>
 					</div>
 				</fieldset>
 			</div>
