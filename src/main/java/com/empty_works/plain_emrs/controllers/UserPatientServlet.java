@@ -47,7 +47,7 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("patientCurrentGender", patient.getCurrentGender());
 		
 		/* Retrieve patient races as a list in the JSP. */
-		request.setAttribute("patientRace", patientRace.getRaces());
+		request.setAttribute("patientRaceList", patientRace.getRaces());
 
 		request.setAttribute("userEmailAddress", patient.getEmailAddress());
 		request.setAttribute("userEnabled", patient.isUserEnabled());

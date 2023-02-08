@@ -9,17 +9,7 @@ public class PatientRaceBean implements BeanDaoInterface {
 
 	private String userId;
 	private List<String> races = new ArrayList<>();
-	private String asianEthn, latinEthn, pacIsEthn;
 
-	public void setAsianEthn(String asianEthn) {
-		this.asianEthn = asianEthn;
-	}
-	public void setLatinEthn(String latinEthn) {
-		this.latinEthn = latinEthn;
-	}
-	public void setPacIsEthn(String pacIsEthn) {
-		this.pacIsEthn = pacIsEthn;
-	}
 	public String getUserId() {
 		return userId;
 	}

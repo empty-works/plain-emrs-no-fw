@@ -78,8 +78,10 @@
 						<label for="patientCurrentGender">Current gender:</label>
 						<div id="patientCurrentGender">${patientCurrentGender}</div>	
 						<div></div>
-						<label for="patientRace">Race:</label>
-						<div id="patientRace"></div>
+						<label for="patientRace">Race(s) and ethnicities:</label>
+						<c:forEach items="${patientRaceList}" var="patientRace">
+							<div>${patientRace}</div>			
+						</c:forEach>
 					</div>
 				</fieldset>
 			</div>
