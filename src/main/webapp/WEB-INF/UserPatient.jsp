@@ -90,7 +90,6 @@
 					</div>
 				</fieldset>
 			</div>
-			</div>
 		</div>
 	</div>
 </body>

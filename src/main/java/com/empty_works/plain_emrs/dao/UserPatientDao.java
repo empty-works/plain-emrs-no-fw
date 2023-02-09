@@ -29,7 +29,8 @@ public class UserPatientDao {
 		String patientQuery = "SELECT patients.patient_provider, patients.patient_provider_id, patients.patient_room, patients.patient_type, "
 				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
 				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
-				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth "
+				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
+				+ "patients.patient_sexual_orientation, patients.patient_marital_status, patients.patient_living_arrangement "
 				+ "FROM patients "
 				+ "INNER JOIN users ON patients.user_id = users.user_id "
 				+ "WHERE patients.user_id = ?";
@@ -58,6 +59,9 @@ public class UserPatientDao {
 				patient.setMiddleInitial(rs.getString("user_middle_initial"));
 				patient.setLastName(rs.getString("user_last_name"));
 				patient.setDateOfBirth(rs.getObject("user_date_of_birth", LocalDate.class));
+				patient.setSexualOrientation(rs.getString("patient_sexual_orientation"));
+				patient.setMaritalStatus(rs.getString("patient_marital_status"));
+				patient.setLivingArrangement(rs.getString("patient_living_arrangement"));
 			}
 			System.out.println("patient bean after selection: " + patient.getFirstName());
 			rs.close();
@@ -67,60 +71,6 @@ public class UserPatientDao {
 		finally {
 			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
-		return patient;
-	}
-	public static PatientBean getPatient(PatientBean patient) {
-		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-
-		
-		// TODO: rework this!
-		String query = "SELECT patient_provider, patient_provider_id, patient_room, patient_gender, patient_type, "
-				+ "patient_race, patient_ethnicity, patient_language_preference, patient_street_address, "
-				+ "patient_city, patient_state, patient_country, patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, "
-				+ "patient_marital_status, patient_living_arrangement, patient_is_adopted"
-				+ " FROM patients WHERE patient_id=?";
-		
-		System.out.println("Patient get query: " + query);
-		
-		try {
-
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, patient.getUserId());
-			ResultSet resultSet = preparedStatement.executeQuery();
-			// Check if the result set is empty.
-			if(resultSet.next()) {InputStream stream = resultSet.getBinaryStream(1);}
-			
-			//patient.setPatientId(patientId);
-			//patient.setGivenName(resultSet.getString("patient_given_name"));
-			patient.setMiddleInitial(resultSet.getString("patient_middle_initial"));
-			patient.setLastName(resultSet.getString("patient_last_name"));
-			//patient.setDateOfBirth(resultSet.getObject("patient_date_of_birth", LocalDate.class));
-			patient.setProvider(resultSet.getString("patient_provider"));
-			patient.setProviderId(resultSet.getString("patient_provider_id"));
-			patient.setRoomNumber(resultSet.getString("patient_room"));
-			patient.setCurrentGender(resultSet.getString("patient_gender"));
-			patient.setType(resultSet.getString("patient_type"));
-			//patient.setRace(resultSet.getString("patient_race"));
-			//patient.setEthnicity(resultSet.getString("patient_ethnicity"));
-			patient.setLanguagePreference(resultSet.getString("patient_language_preference"));
-			patient.setStreetAddress(resultSet.getString("patient_street_address"));
-			patient.setCity(resultSet.getString("patient_city"));
-			patient.setState(resultSet.getString("patient_state"));
-			patient.setCountry(resultSet.getString("patient_country"));
-			patient.setPhoneNumber(resultSet.getString("patient_phone_number"));
-			patient.setFacilityId(resultSet.getString("patient_facility_id"));
-			
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-		finally {
-			
-			ConnectionUtil.closeConnection(con, preparedStatement, null);
-		}
-		
 		return patient;
 	}
 	
