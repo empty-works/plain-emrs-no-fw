@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.empty_works.plain_emrs.beans.MedicalRecordBean;
+import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+
 /**
  * Servlet implementation class UserPatientMedicalHistoryServlet
  */
@@ -18,7 +21,14 @@ public class UserPatientMedicalHistoryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("medicalRecordId", );
+		String userPatientId = (String)request.getParameter("userPatientId");
+		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
+		request.setAttribute("medicalRecordId", medBean.getMedicalRecordId());
+		request.setAttribute("medRecordPatientCondition", medBean.getPatientCondition());
+		request.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());
+		request.setAttribute("medRecordIsActive", medBean.isActive());
+		request.setAttribute("medRecordBloodTransfusionStatus", medBean.getBloodTransfusionStatus());
+		request.getRequestDispatcher("/WEB-INF/UserPatientMedicalHistory.jsp").forward(request, response);
 	}
 
 	/**
