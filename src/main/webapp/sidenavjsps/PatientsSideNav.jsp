@@ -11,7 +11,7 @@
 <body>
 	<!-- Side navigation -->
 	<div><a href="<c:url value="/UserPatientServlet" />">General</a></div>
-	<div><a href="<c:url value="/" />">Medical History</a></div>
+	<div><a href="<c:url value="/UserPatientMedicalHistoryServlet" />">Medical History</a></div>
 	<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
 
 </body>
