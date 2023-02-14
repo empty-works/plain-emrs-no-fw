@@ -10,3 +10,12 @@ fetch('./sidenavjsps/PatientsSideNav.jsp')
     newelem.innerHTML = text;
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
+
+let patientUserId = "";
+function setPatientId(id) {
+	patientUserId = id;
+}
+
+function getPatientId() {
+	return patientUserId;
+}

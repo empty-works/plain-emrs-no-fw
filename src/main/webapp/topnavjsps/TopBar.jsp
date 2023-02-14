@@ -20,20 +20,6 @@
 			<input type="text" placeholder="Patient search..." name="search">
 			<button type="submit"><i class="fa fa-search"></i></button>	
 		</form>	
-	<!-- 
-		<button formaction="<c:url value="/AdminServlet" />" class="topnav-menu-btn topnav-menu-btn-first"> 
-			<span class="menu-text">Admin</span>
-		</button>
-		<button formaction="<c:url value="/PatientServlet" />" class="topnav-menu-btn">
-			<span class="menu-text">Patients</span>
-		</button>
-		<button class="topnav-menu-btn">
-			<span class="menu-text">Non-patients</span>
-		</button>
-		<button class="topnav-menu-btn topnav-menu-btn-last">
-			<span class="menu-text">Settings</span>
-		</button>
-	-->
 		<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
 	</div>
 </div>
