@@ -17,7 +17,7 @@
 
 <title>Patient Profile</title>
 </head>
-<body>
+<body onload="setPatientId(${userPatientId})">
 	
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
@@ -29,7 +29,9 @@
 		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
+			<div><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${userPatientId}">General</a></div>
+			<div><a href="<c:url value="/UserPatientMedicalHistoryServlet" />">Medical History</a></div>
+			<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
 		</div>
 		
 		<div class="main-grid-container">
