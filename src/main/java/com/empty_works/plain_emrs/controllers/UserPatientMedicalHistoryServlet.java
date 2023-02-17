@@ -23,6 +23,7 @@ public class UserPatientMedicalHistoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
+		request.setAttribute("userPatientId", userPatientId);
 		request.setAttribute("medicalRecordId", medBean.getMedicalRecordId());
 		request.setAttribute("medRecordPatientCondition", medBean.getPatientCondition());
 		request.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());

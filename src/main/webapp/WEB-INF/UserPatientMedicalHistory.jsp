@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
+
 <title>Patient Medical Record</title>
 </head>
 <body>
@@ -18,7 +21,9 @@
 		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<script id="replace_with_sidenav" src="${pageContext.request.contextPath}/js/patientssidenav.js"></script>
+			<div><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${userPatientId}">General</a></div>
+			<div class="sidenav-active">Medical History</div>
+			<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
 		</div>
 		
 		<div class="main-grid-container">
