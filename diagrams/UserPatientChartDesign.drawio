@@ -1,17 +1,17 @@
-<mxfile host="app.diagrams.net" modified="2023-02-22T16:44:10.223Z" agent="5.0 (Windows)" etag="jWk62fkSUujV3rDeeT5Y" version="20.8.22" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-22T16:53:31.327Z" agent="5.0 (Windows)" etag="xkFMrK6Urs7hbP8k4j5F" version="20.8.22" type="github">
   <diagram name="Page-1" id="HwcqYkM1wlj6etJs0bhk">
     <mxGraphModel dx="1836" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="ap6zdRFmKXlqy5EZkJmo-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-60" width="1130" height="550" as="geometry" />
+          <mxGeometry x="-60" width="1130" height="980" as="geometry" />
         </mxCell>
         <mxCell id="ap6zdRFmKXlqy5EZkJmo-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-60" width="60" height="550" as="geometry" />
+          <mxGeometry x="-60" width="60" height="980" as="geometry" />
         </mxCell>
         <mxCell id="ap6zdRFmKXlqy5EZkJmo-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry width="200" height="550" as="geometry" />
+          <mxGeometry width="200" height="980" as="geometry" />
         </mxCell>
         <mxCell id="ap6zdRFmKXlqy5EZkJmo-4" value="Chart Overview" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="50" y="220" width="110" height="30" as="geometry" />
@@ -27,6 +27,27 @@
         </mxCell>
         <mxCell id="ap6zdRFmKXlqy5EZkJmo-8" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="57.5" width="60" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-9" value="General Patient Information" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="10" width="850" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-10" value="Problems" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="100" width="420" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-11" value="Recent Vitals" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="420" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-12" value="Allergies" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="350" width="420" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-13" value="Medications" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="350" width="420" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-14" value="Immunizations" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="600" width="420" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ap6zdRFmKXlqy5EZkJmo-15" value="Encounters" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="600" width="420" height="240" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
