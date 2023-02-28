@@ -17,7 +17,7 @@
 	
 	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
 	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-	
+	 	
 	<div class="main-container">
 		<!-- Side main menu -->
 		<div class="side-main-menu">
@@ -25,9 +25,9 @@
 		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${userPatientId}">General</a></div>
-			<div class="sidenav-active">Medical History</div>
-			<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
+			<div><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${userPatientId}">Chart Overview</a></div>
+			<div class="sidenav-active">Personal Details</div>
+			<div><a href="<c:url value="/" />">Timeline</a></div>
 		</div>
 		
 		<div class="main-grid-container">
@@ -46,10 +46,13 @@
 							<div id="medRecordCreated">${medRecordCreated}</div>
 							<label for="medRecordActive">Medical Record Active:</label>
 							<div id="medRecordActive">${medRecordIsActive}</div>
-							<label for="medRecordBloodTransfusion"></label>
+							<label for="medRecordBloodTransfusion">Blood Transfusion Status:</label>
 							<div id="medRecordBloodTransfusion">${medRecordBloodTransfusionStatus}</div>
 						</div>
 					</div>
+				</fieldset>
+				<fieldset>
+					<legend></legend>	
 				</fieldset>
 			</div>
 		</div>

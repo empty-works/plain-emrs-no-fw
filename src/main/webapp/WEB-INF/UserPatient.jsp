@@ -29,9 +29,9 @@
 		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div class="sidenav-active">General</div>
-			<div><a href="${pageContext.request.contextPath}/UserPatientMedicalHistoryServlet?userPatientId=${userPatientId}">Medical History</a></div>
-			<div><a href="<c:url value="/" />">Tests and Laboratory Results</a></div>
+			<div class="sidenav-active">Chart Overview</div>
+			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
+			<div><a href="<c:url value="/" />">Timeline</a></div>
 		</div>
 		
 		<div class="main-grid-container">

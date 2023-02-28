@@ -11,10 +11,10 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
 
 /**
- * Servlet implementation class UserPatientMedicalHistoryServlet
+ * Servlet implementation class UserPatientPersonalServlet
  */
-@WebServlet("/UserPatientMedicalHistoryServlet")
-public class UserPatientMedicalHistoryServlet extends HttpServlet {
+@WebServlet("/UserPatientPersonalServlet")
+public class UserPatientPersonalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -29,7 +29,7 @@ public class UserPatientMedicalHistoryServlet extends HttpServlet {
 		request.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());
 		request.setAttribute("medRecordIsActive", medBean.isActive());
 		request.setAttribute("medRecordBloodTransfusionStatus", medBean.getBloodTransfusionStatus());
-		request.getRequestDispatcher("/WEB-INF/UserPatientMedicalHistory.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/UserPatientPersonal.jsp").forward(request, response);
 	}
 
 	/**
