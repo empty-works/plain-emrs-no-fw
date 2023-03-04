@@ -2,8 +2,6 @@ package com.empty_works.plain_emrs.beans;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PatientBean extends UserBean implements BeanDaoInterface {
 
@@ -25,7 +23,18 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	private String maritalStatus;
 	private String livingArrangement;
 	private boolean isAdopted;
+	
+	// HIPAA identifiers
+	private String licenseNumber;
+	private String vehicleSerialNumber;
+	private String vehiclePlateNumber;
+	private String url;
+	private String deviceSerialNumber;
+	private String ipAddress;
 
+	// Storage string of binary file for patient image
+	private String base64PatientImage;
+	
 	public String getProvider() {
 		return provider;
 	}
@@ -127,6 +136,50 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	}
 	public void setAdopted(boolean isAdopted) {
 		this.isAdopted = isAdopted;
+	}
+	
+	public String getLicenseNumber() {
+		return licenseNumber;
+	}
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+	public String getVehicleSerialNumber() {
+		return vehicleSerialNumber;
+	}
+	public void setVehicleSerialNumber(String vehicleSerialNumber) {
+		this.vehicleSerialNumber = vehicleSerialNumber;
+	}
+	public String getVehiclePlateNumber() {
+		return vehiclePlateNumber;
+	}
+	public void setVehiclePlateNumber(String vehiclePlateNumber) {
+		this.vehiclePlateNumber = vehiclePlateNumber;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getDeviceSerialNumber() {
+		return deviceSerialNumber;
+	}
+	public void setDeviceSerialNumber(String deviceSerialNumber) {
+		this.deviceSerialNumber = deviceSerialNumber;
+	}
+	public String getIpAddress() {
+		return ipAddress;
+	}
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+	
+	public String getBase64PatientImage() {
+		return base64PatientImage;
+	}
+	public void setBase64PatientImage(String base64PatientImage) {
+		this.base64PatientImage = base64PatientImage;
 	}
 	
 	@Override
