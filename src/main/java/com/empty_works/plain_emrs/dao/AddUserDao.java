@@ -43,7 +43,7 @@ public class AddUserDao {
 
 			for(BeanDaoInterface bean : beans) {
 				
-				try(PreparedStatement preparedStatement = con.prepareStatement(bean.getQuery())) {
+				try(PreparedStatement preparedStatement = con.prepareStatement(bean.getWriteQuery())) {
 					
 					bean.prepareStatments(preparedStatement);
 				}

@@ -25,7 +25,7 @@ public class AuthorityBean implements BeanDaoInterface {
 	}
 
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO authorities(user_id, authority) values (?, ?)";
 	}
 

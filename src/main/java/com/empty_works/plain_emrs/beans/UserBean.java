@@ -91,7 +91,7 @@ public class UserBean extends GeneralBean implements BeanDaoInterface {
 		this.role = role;
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
 				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 	}

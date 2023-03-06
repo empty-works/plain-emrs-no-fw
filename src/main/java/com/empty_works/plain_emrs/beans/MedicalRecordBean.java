@@ -52,7 +52,7 @@ public class MedicalRecordBean implements PatientIdInterface, BeanDaoInterface {
 		this.bloodTransfusionStatus = bloodTransfusionStatus;
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
 				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
 	}

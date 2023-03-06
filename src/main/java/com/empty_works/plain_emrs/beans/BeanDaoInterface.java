@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public interface BeanDaoInterface {
 
-	String getQuery();
+	String getWriteQuery();
 	String getErrorMessage();
 	int prepareStatments(PreparedStatement preparedStatement) throws SQLException;
 }

@@ -100,7 +100,7 @@ public class BloodRelationsBean implements BeanDaoInterface {
 	}
 
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO blood_relatives(medical_record_id, mother_status, father_status, mother_deceased_age, father_deceased_age,"
 				+ "num_sisters_alive, num_brothers_alive, num_daughters_alive, num_sons_alive, mother_cause_of_death, father_cause_of_death) "
 				+ "values (?,?,?,?,?,?,?,?,?,?,?)";

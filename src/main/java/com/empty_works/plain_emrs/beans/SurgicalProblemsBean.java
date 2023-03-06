@@ -37,7 +37,7 @@ public class SurgicalProblemsBean implements PatientIdInterface, BeanDaoInterfac
 	}
 
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO surgical_related_problems(medical_record_id, surgical_related_problem, problem_area, "
 				+ "surgical_procedure, surgical_procedure_year) values (?,?,?,?,?)";
 	}

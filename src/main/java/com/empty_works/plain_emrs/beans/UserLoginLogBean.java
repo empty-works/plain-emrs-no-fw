@@ -22,7 +22,7 @@ public class UserLoginLogBean implements BeanDaoInterface {
 		this.userDateTimeOfVisit = userDateTimeOfVisit;
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO user_login_logs(user_id, user_date_time_of_visit) values (?,?)";
 	}
 	@Override

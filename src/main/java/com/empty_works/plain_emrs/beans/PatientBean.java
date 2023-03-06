@@ -183,7 +183,7 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	}
 	
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, patient_type, "
 				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
 				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, patient_is_adopted) "

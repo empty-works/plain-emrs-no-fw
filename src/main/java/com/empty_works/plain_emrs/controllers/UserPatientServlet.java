@@ -61,10 +61,17 @@ public class UserPatientServlet extends HttpServlet {
 		request.setAttribute("userPatientMiddleInitial", patient.getMiddleInitial());
 		request.setAttribute("userPatientLastName", patient.getLastName());
 		request.setAttribute("userDateOfBirth", patient.getDateOfBirth());
+		request.setAttribute("licenseNumber", patient.getLicenseNumber());
+		request.setAttribute("vehicleSerialNumber", patient.getVehicleSerialNumber());
+		request.setAttribute("vehiclePlateNumber", patient.getVehiclePlateNumber());
+		request.setAttribute("url", patient.getUrl());
+		request.setAttribute("deviceSerialNumber", patient.getDeviceSerialNumber());
+		request.setAttribute("ipAddress", patient.getIpAddress());
 		request.setAttribute("emergencyContactFirstName", emergencyContacts.getFirstName());
 		request.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
 		request.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
 		request.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
+		
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 

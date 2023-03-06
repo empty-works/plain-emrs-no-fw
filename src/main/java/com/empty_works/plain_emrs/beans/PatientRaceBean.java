@@ -23,7 +23,7 @@ public class PatientRaceBean implements BeanDaoInterface {
 		races.add(race);
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO patient_races(user_id, patient_race) values(?,?)";
 	}
 	@Override

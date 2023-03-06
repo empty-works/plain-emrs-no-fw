@@ -36,7 +36,7 @@ public class UserActivityLogBean implements BeanDaoInterface {
 		this.activityDescription = activityDescription;
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO user_activity_logs(user_id, medical_record_id, user_date_time_of_activity, activity_description) "
 				+ "values (?,?,?,?)";
 	}

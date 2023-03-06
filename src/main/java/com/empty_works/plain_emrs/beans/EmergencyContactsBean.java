@@ -46,7 +46,7 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 		this.email = email;
 	}
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO emergency_contacts(user_id, emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
 				+ "emergency_contact_phone_number, emergency_contact_email_address) "
 				+ "VALUES (?,?,?,?,?,?)";

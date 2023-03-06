@@ -114,7 +114,7 @@ public class IllnessesBean implements BeanDaoInterface {
 	}
 
 	@Override
-	public String getQuery() {
+	public String getWriteQuery() {
 		return "INSERT INTO illnesses(medical_record_id, illness, self, father, mother, brothers, sisters, "
 				+ "sons, daughters, grandparents) values (?,?,?,?,?,?,?,?,?,?)";
 	}
