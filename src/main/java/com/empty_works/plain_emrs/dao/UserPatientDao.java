@@ -62,8 +62,8 @@ public class UserPatientDao {
 				patient.setMaritalStatus(rs.getString("patient_marital_status"));
 				patient.setLivingArrangement(rs.getString("patient_living_arrangement"));
 				patient.setLicenseNumber(rs.getString("patient_license_number"));
-				patient.setVehicleSerialNumber(rs.getString("vehicle_serial_number"));
-				patient.setVehiclePlateNumber(rs.getString("vehicle_plate_number"));
+				patient.setVehicleSerialNumber(rs.getString("patient_vehicle_serial_number"));
+				patient.setVehiclePlateNumber(rs.getString("patient_vehicle_plate_number"));
 				patient.setUrl(rs.getString("patient_url"));
 				patient.setDeviceSerialNumber(rs.getString("patient_device_serial_number"));
 				patient.setIpAddress(rs.getString("patient_ip_address"));

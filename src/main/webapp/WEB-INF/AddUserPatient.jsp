@@ -41,7 +41,7 @@
 					<label for="userFirstName">First Name: </label>
 					<div><input required type="text" id="userFirstName" name="userFirstName" /></div>
 					<label for="userMiddleInitial">Middle Initial: </label>
-					<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" /></div>
+					<div><input type="text" id="userMiddleInitial" name="userMiddleInitial" pattern="[A-Za-z]" maxlength="1" style="text-transform:uppercase" /></div>
 					<label for="userLastName">Last Name: </label>
 					<div><input required type="text" id="userLastName" name="userLastName" /></div>
 					<label for="patientDateOfBirth">Date of Birth: </label>
@@ -57,7 +57,7 @@
 							<option>Bengali</option>
 							<option>Chinese (Simplified)</option>
 							<option>Chinese (Traditional)</option>
-							<option>English</option>
+							<option selected="selected">English</option>
 							<option>French</option>
 							<option>German</option>
 							<option>Hindi</option>
@@ -88,11 +88,11 @@
 					<label for="contactFirstName">First Name: </label>
 					<div><input type="text" id="contactFirstName" name="contactFirstName" /></div>
 					<label for="contactMiddleInitial">Middle Initial: </label>
-					<div><input type="text" id="contactMiddleInitial" name="contactMiddleInitial" /></div>
+					<div><input type="text" id="contactMiddleInitial" name="contactMiddleInitial" pattern="[A-Za-z]" maxlength="1" style="text-transform:uppercase" /></div>
 					<label for="contactLastName">Last Name: </label>
 					<div><input required type="text" id="contactLastName" name="contactLastName" /></div>
 					<label for="contactPhoneArea">Phone Number: </label>
-					<div><input type="tel" id="contactPhoneArea" name="contactPhoneArea" pattern="[0-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
+					<div><input type="tel" placeholder="123" id="contactPhoneArea" name="contactPhoneArea" pattern="[0-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
 					<label for="contactEmailAddress">Email Address: </label>
 					<div><input type="email" id="contactEmailAddress" name="contactEmailAddress" /></div>
 				</fieldSet>
@@ -113,7 +113,7 @@
 						<label>Country: </label>
 						<div><input type="text" id="patientCountry" name="patientCountry" /></div> 
 						<label>Phone Number: </label> 
-						<div><input type="tel" name="patientPhoneArea" pattern="[1-9]{3}" /><input type="tel" placeholder="123-4567" name="patientPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div> 
+						<div><input type="tel" placeholder="123" name="patientPhoneArea" pattern="[1-9]{3}" /><input type="tel" placeholder="123-4567" name="patientPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div> 
 						<label>Patient Provider</label>
 						<div><input required type="text" id="patientProvider" name="patientProvider" /></div>
 						<label>Patient Provider ID: </label>
