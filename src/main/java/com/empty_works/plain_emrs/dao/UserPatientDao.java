@@ -8,13 +8,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.InputStream;
 
 import com.empty_works.plain_emrs.beans.PatientBean;
-import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
-import com.empty_works.plain_emrs.util.QueryUtil;
 
 public class UserPatientDao {
 
@@ -30,7 +27,9 @@ public class UserPatientDao {
 				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
 				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
 				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
-				+ "patients.patient_sexual_orientation, patients.patient_marital_status, patients.patient_living_arrangement "
+				+ "patients.patient_sexual_orientation, patients.patient_marital_status, patients.patient_living_arrangement, "
+				+ "patients.patient_license_number, patients.patient_vehicle_serial_number, patients.patient_vehicle_plate_number, patients.patient_url, "
+				+ "patients.patient_device_serial_number, patients.patient_ip_address "
 				+ "FROM patients "
 				+ "INNER JOIN users ON patients.user_id = users.user_id "
 				+ "WHERE patients.user_id = ?";
@@ -62,6 +61,12 @@ public class UserPatientDao {
 				patient.setSexualOrientation(rs.getString("patient_sexual_orientation"));
 				patient.setMaritalStatus(rs.getString("patient_marital_status"));
 				patient.setLivingArrangement(rs.getString("patient_living_arrangement"));
+				patient.setLicenseNumber(rs.getString("patient_license_number"));
+				patient.setVehicleSerialNumber(rs.getString("vehicle_serial_number"));
+				patient.setVehiclePlateNumber(rs.getString("vehicle_plate_number"));
+				patient.setUrl(rs.getString("patient_url"));
+				patient.setDeviceSerialNumber(rs.getString("patient_device_serial_number"));
+				patient.setIpAddress(rs.getString("patient_ip_address"));
 			}
 			System.out.println("patient bean after selection: " + patient.getFirstName());
 			rs.close();

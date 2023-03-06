@@ -92,7 +92,7 @@
 					<label for="contactLastName">Last Name: </label>
 					<div><input required type="text" id="contactLastName" name="contactLastName" /></div>
 					<label for="contactPhoneArea">Phone Number: </label>
-					<div><input type="tel" id="contactPhoneArea" name="contactPhoneArea" pattern="[1-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
+					<div><input type="tel" id="contactPhoneArea" name="contactPhoneArea" pattern="[0-9]{3}" /><input type="tel" placeholder="123-4567" name="contactPhoneNumber" pattern="[0-9]{3}-[0-9]{4}" /></div>
 					<label for="contactEmailAddress">Email Address: </label>
 					<div><input type="email" id="contactEmailAddress" name="contactEmailAddress" /></div>
 				</fieldSet>
