@@ -186,8 +186,10 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	public String getWriteQuery() {
 		return "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, patient_type, "
 				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
-				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, patient_is_adopted) "
-				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, patient_is_adopted, "
+				+ "patient_license_number, patient_vehicle_serial_number, patient_vehicle_plate_number, patient_url, patient_device_serial_number, "
+				+ "patient_ip_address) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {
@@ -214,6 +216,12 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 		preparedStatement.setString(15, getMaritalStatus());
 		preparedStatement.setString(16, getLivingArrangement());
 		preparedStatement.setBoolean(17, isAdopted());
+		preparedStatement.setString(18, getLicenseNumber());
+		preparedStatement.setString(19, getVehicleSerialNumber());
+		preparedStatement.setString(20, getVehiclePlateNumber());
+		preparedStatement.setString(21, getUrl());
+		preparedStatement.setString(22, getDeviceSerialNumber());
+		preparedStatement.setString(23, getIpAddress());
 		return preparedStatement.executeUpdate();
 	}
 }
