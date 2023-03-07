@@ -356,6 +356,16 @@
 					</fieldset>	
 				</div>
 				
+				<fieldset>
+					<legend>HIPAA Identifiers</legend>
+					<input type="text" id="licenseNumber" name="licenseNumber" placeholder="License number">
+					<input type="text" id="vehicleSerialNumber" name="vehicleSerialNumber" placeholder="Vehicle serial number">
+					<input type="text" id="vehiclePlateNumber" name="vehiclePlateNumber" placeholder="Vehicle plate number">
+					<input type="text" id="patientUrl" name="patientUrl" placeholder="Patient URL">
+					<input type="text" id="deviceSerialNumber" name="deviceSerialNumber" placeholder="Device serial number">
+					<input type="text" id="ipAddress" name="ipAddress" placeholder="IP address">
+				</fieldset>
+				
 				<!-- The role is always patient on this form -->
 				<fieldset>
 					<legend>Role</legend>
