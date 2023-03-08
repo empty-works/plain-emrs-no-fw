@@ -33,44 +33,47 @@ public class UserPatientServlet extends HttpServlet {
 		PatientBean patient = UserPatientDao.getPatient(userPatientId);
 		PatientRaceBean patientRace = UserPatientRaceDao.getRace(userPatientId);
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
-		request.setAttribute("patientProvider", patient.getProvider());
-		request.setAttribute("patientProviderId", patient.getProviderId());
-		request.setAttribute("patientRoom", patient.getRoomNumber());
-		request.setAttribute("patientType", patient.getType());
-		request.setAttribute("patientLanguagePreference", patient.getLanguagePreference());
-		request.setAttribute("patientStreetAddress", patient.getStreetAddress());
-		request.setAttribute("patientCity", patient.getCity());
-		request.setAttribute("patientState", patient.getState());
-		request.setAttribute("patientCountry", patient.getCountry());
-		request.setAttribute("patientPhoneNumber", patient.getPhoneNumber());
-		request.setAttribute("patientBirthGender", patient.getGenderAtBirth());
-		request.setAttribute("patientCurrentGender", patient.getCurrentGender());
-		request.setAttribute("patientSexualOrientation", patient.getSexualOrientation());
-		request.setAttribute("patientMaritalStatus", patient.getMaritalStatus());
-		request.setAttribute("patientLivingArrangement", patient.getLivingArrangement());
-		request.setAttribute("patientAdopted", patient.isAdopted());
+
+		// Store retrieved variables from the database into session variables. 
+		HttpSession session = request.getSession();
+		session.setAttribute("patientProvider", patient.getProvider());
+		session.setAttribute("patientProviderId", patient.getProviderId());
+		session.setAttribute("patientRoom", patient.getRoomNumber());
+		session.setAttribute("patientType", patient.getType());
+		session.setAttribute("patientLanguagePreference", patient.getLanguagePreference());
+		session.setAttribute("patientStreetAddress", patient.getStreetAddress());
+		session.setAttribute("patientCity", patient.getCity());
+		session.setAttribute("patientState", patient.getState());
+		session.setAttribute("patientCountry", patient.getCountry());
+		session.setAttribute("patientPhoneNumber", patient.getPhoneNumber());
+		session.setAttribute("patientBirthGender", patient.getGenderAtBirth());
+		session.setAttribute("patientCurrentGender", patient.getCurrentGender());
+		session.setAttribute("patientSexualOrientation", patient.getSexualOrientation());
+		session.setAttribute("patientMaritalStatus", patient.getMaritalStatus());
+		session.setAttribute("patientLivingArrangement", patient.getLivingArrangement());
+		session.setAttribute("patientAdopted", patient.isAdopted());
 		
 		/* Retrieve patient races as a list in the JSP. */
-		request.setAttribute("patientRaceList", patientRace.getRaces());
+		session.setAttribute("patientRaceList", patientRace.getRaces());
 
-		request.setAttribute("userEmailAddress", patient.getEmailAddress());
-		request.setAttribute("userEnabled", patient.isUserEnabled());
-		request.setAttribute("userCreatedOn", patient.getDateCreated());
-		request.setAttribute("userCurrentFacilityId", patient.getCurrentFacilityId());
-		request.setAttribute("userPatientFirstName", patient.getFirstName());
-		request.setAttribute("userPatientMiddleInitial", patient.getMiddleInitial());
-		request.setAttribute("userPatientLastName", patient.getLastName());
-		request.setAttribute("userDateOfBirth", patient.getDateOfBirth());
-		request.setAttribute("licenseNumber", patient.getLicenseNumber());
-		request.setAttribute("vehicleSerialNumber", patient.getVehicleSerialNumber());
-		request.setAttribute("vehiclePlateNumber", patient.getVehiclePlateNumber());
-		request.setAttribute("url", patient.getUrl());
-		request.setAttribute("deviceSerialNumber", patient.getDeviceSerialNumber());
-		request.setAttribute("ipAddress", patient.getIpAddress());
-		request.setAttribute("emergencyContactFirstName", emergencyContacts.getFirstName());
-		request.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
-		request.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
-		request.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
+		session.setAttribute("userEmailAddress", patient.getEmailAddress());
+		session.setAttribute("userEnabled", patient.isUserEnabled());
+		session.setAttribute("userCreatedOn", patient.getDateCreated());
+		session.setAttribute("userCurrentFacilityId", patient.getCurrentFacilityId());
+		session.setAttribute("userPatientFirstName", patient.getFirstName());
+		session.setAttribute("userPatientMiddleInitial", patient.getMiddleInitial());
+		session.setAttribute("userPatientLastName", patient.getLastName());
+		session.setAttribute("userDateOfBirth", patient.getDateOfBirth());
+		session.setAttribute("licenseNumber", patient.getLicenseNumber());
+		session.setAttribute("vehicleSerialNumber", patient.getVehicleSerialNumber());
+		session.setAttribute("vehiclePlateNumber", patient.getVehiclePlateNumber());
+		session.setAttribute("url", patient.getUrl());
+		session.setAttribute("deviceSerialNumber", patient.getDeviceSerialNumber());
+		session.setAttribute("ipAddress", patient.getIpAddress());
+		session.setAttribute("emergencyContactFirstName", emergencyContacts.getFirstName());
+		session.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
+		session.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
+		session.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
 		
 		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
