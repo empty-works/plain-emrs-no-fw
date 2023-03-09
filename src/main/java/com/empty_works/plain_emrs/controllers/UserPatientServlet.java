@@ -19,6 +19,10 @@ import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
 
 /**
  * Servlet implementation class PatientsServlet
+ * 
+ * NOTE: when selecting a patient this will only run once. So if the user clicks on the chart overview link again, 
+ * storing everything in session doesn't need to happen again. This is the reason for this intermediary servlet before 
+ * UserPatientChartOverviewServlet.
  */
 @WebServlet("/UserPatientServlet")
 public class UserPatientServlet extends HttpServlet {
@@ -75,7 +79,8 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
 		session.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
 		
-		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
+		//request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}
 
 	/**

@@ -2,6 +2,8 @@ package com.empty_works.plain_emrs.beans;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientBean extends UserBean implements BeanDaoInterface {
 
@@ -32,9 +34,6 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	private String deviceSerialNumber;
 	private String ipAddress;
 
-	// Storage string of binary file for patient image
-	private String base64PatientImage;
-	
 	public String getProvider() {
 		return provider;
 	}
@@ -173,13 +172,6 @@ public class PatientBean extends UserBean implements BeanDaoInterface {
 	}
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
-	}
-	
-	public String getBase64PatientImage() {
-		return base64PatientImage;
-	}
-	public void setBase64PatientImage(String base64PatientImage) {
-		this.base64PatientImage = base64PatientImage;
 	}
 	
 	@Override
