@@ -25,7 +25,7 @@
 		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${userPatientId}">Chart Overview</a></div>
+			<div><a href="${pageContext.request.contextPath}/UserPatientChartOverviewServlet?userPatientId=${userPatientId}">Chart Overview</a></div>
 			<div class="sidenav-active">Personal Details</div>
 			<div><a href="<c:url value="/" />">Timeline</a></div>
 		</div>
