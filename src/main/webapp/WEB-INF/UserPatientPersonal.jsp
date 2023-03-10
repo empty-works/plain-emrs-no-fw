@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -49,6 +50,38 @@
 							<label for="medRecordBloodTransfusion">Blood Transfusion Status:</label>
 							<div id="medRecordBloodTransfusion">${medRecordBloodTransfusionStatus}</div>
 						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend class="patient-header">Emergency contact</legend>	
+					<div class="patient-data">
+						<div>${emergencyContactFirstName} ${emergencyContactLastName}</div>
+						<div>${emergencyContactPhoneNumber}</div>
+						<div>${emergencyContactEmail}</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend class="patient-header">Personal details</legend>		
+					<div class="patient-data">
+						<label for="patientProvider">Patient provider:</label>
+						<div id="patientProvider">${patientProvider} | ${patientProviderId}</div>
+						<label for="genderAtBirth">Gender at birth:</label>
+						<div id="genderAtBirth">${patientBirthGender}</div>
+						<label for="patientCurrentGender">Current gender:</label>
+						<div id="patientCurrentGender">${patientCurrentGender}</div>	
+						<label for="patientRace">Race(s) and ethnicities:</label>
+						<c:forEach items="${patientRaceList}" var="patientRace">
+							<div>${patientRace}</div>			
+						</c:forEach>
+						<label for="patientSexOrientation">Sexual orientation:</label>
+						<div id="patientSexOrientation">${patientSexualOrientation}</div>
+						<label for="patientMaritalStatus">Marital status:</label>
+						<div id="patientMaritalStatus">${patientMaritalStatus}</div>
+						<label for="patientLiving">Living arrangement:</label>
+						<div id="patientLiving">${patientLivingArrangement}</div>
+						<label for="patientAdopted">Adopted:</label>
+						<div id="patientAdopted">${patientAdopted}</div>
 					</div>
 				</fieldset>
 				<fieldset>

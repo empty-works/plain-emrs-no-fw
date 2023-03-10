@@ -67,7 +67,7 @@ public class UserPatientChartOverviewServlet extends HttpServlet {
 		request.setAttribute("emergencyContactPhoneNumber", session.getAttribute("emergencyContactPhoneNumber"));
 		request.setAttribute("emergencyContactEmail", session.getAttribute("emergencyContactEmail"));
 
-		request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
 	}
 
 	/**

@@ -61,34 +61,15 @@
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend class="patient-header">Emergency Contact</legend>	
+						<legend class="patient-header">Allergies</legend>	
 						<div class="patient-data">
-							<div>${emergencyContactFirstName} ${emergencyContactLastName}</div>
-							<div>${emergencyContactPhoneNumber}</div>
-							<div>${emergencyContactEmail}</div>
+
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend class="patient-header">Detailed</legend>		
+						<legend class="patient-header">Chief complaints</legend>		
 						<div class="patient-data">
-							<label for="patientProvider">Patient provider:</label>
-							<div id="patientProvider">${patientProvider} | ${patientProviderId}</div>
-							<label for="genderAtBirth">Gender at birth:</label>
-							<div id="genderAtBirth">${patientBirthGender}</div>
-							<label for="patientCurrentGender">Current gender:</label>
-							<div id="patientCurrentGender">${patientCurrentGender}</div>	
-							<label for="patientRace">Race(s) and ethnicities:</label>
-							<c:forEach items="${patientRaceList}" var="patientRace">
-								<div>${patientRace}</div>			
-							</c:forEach>
-							<label for="patientSexOrientation">Sexual orientation:</label>
-							<div id="patientSexOrientation">${patientSexualOrientation}</div>
-							<label for="patientMaritalStatus">Marital status:</label>
-							<div id="patientMaritalStatus">${patientMaritalStatus}</div>
-							<label for="patientLiving">Living arrangement:</label>
-							<div id="patientLiving">${patientLivingArrangement}</div>
-							<label for="patientAdopted">Adopted:</label>
-							<div id="patientAdopted">${patientAdopted}</div>
+
 						</div>
 					</fieldset>
 				</div>

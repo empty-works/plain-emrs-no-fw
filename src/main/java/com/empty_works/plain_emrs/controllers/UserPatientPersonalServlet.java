@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
@@ -23,12 +24,14 @@ public class UserPatientPersonalServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
-		request.setAttribute("userPatientId", userPatientId);
-		request.setAttribute("medicalRecordId", medBean.getMedicalRecordId());
-		request.setAttribute("medRecordPatientCondition", medBean.getPatientCondition());
-		request.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());
-		request.setAttribute("medRecordIsActive", medBean.isActive());
-		request.setAttribute("medRecordBloodTransfusionStatus", medBean.getBloodTransfusionStatus());
+
+		HttpSession session = request.getSession();
+		session.setAttribute("userPatientId", userPatientId);
+		session.setAttribute("medicalRecordId", medBean.getMedicalRecordId());
+		session.setAttribute("medRecordPatientCondition", medBean.getPatientCondition());
+		session.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());
+		session.setAttribute("medRecordIsActive", medBean.isActive());
+		session.setAttribute("medRecordBloodTransfusionStatus", medBean.getBloodTransfusionStatus());
 		request.getRequestDispatcher("/WEB-INF/UserPatientPersonal.jsp").forward(request, response);
 	}
 
