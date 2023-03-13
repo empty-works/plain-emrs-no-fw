@@ -25,13 +25,6 @@ public class UserPatientPersonalServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
 
-		HttpSession session = request.getSession();
-		session.setAttribute("userPatientId", userPatientId);
-		session.setAttribute("medicalRecordId", medBean.getMedicalRecordId());
-		session.setAttribute("medRecordPatientCondition", medBean.getPatientCondition());
-		session.setAttribute("medRecordCreated", medBean.getMedicalRecordCreatedOn());
-		session.setAttribute("medRecordIsActive", medBean.isActive());
-		session.setAttribute("medRecordBloodTransfusionStatus", medBean.getBloodTransfusionStatus());
 		request.getRequestDispatcher("/WEB-INF/UserPatientPersonal.jsp").forward(request, response);
 	}
 

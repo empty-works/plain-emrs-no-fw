@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 
 /**
@@ -27,7 +27,7 @@ public class UserPatientListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("startRow", startRow);
 		request.setAttribute("rowCount", rowCount);
-		List<PatientBean> theList = UserPatientDao.getList(startRow, rowCount);
+		List<UserPatientBean> theList = UserPatientDao.getList(startRow, rowCount);
 		System.out.println("Patient sublist: " + theList);
 		request.setAttribute("patientSublist", theList);
 		request.getRequestDispatcher("/WEB-INF/UserPatientList.jsp").forward(request, response);

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.roles.PlainEmrsRoles;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
@@ -18,9 +18,9 @@ public class UserPatientDao {
 	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
 	final public static int PATIENT_FETCH_SIZE = 100;
 
-	public static PatientBean getPatient(String userPatientId) {
+	public static UserPatientBean getPatient(String userPatientId) {
 		
-		PatientBean patient = new PatientBean();
+		UserPatientBean patient = new UserPatientBean();
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		String patientQuery = "SELECT patients.patient_provider, patients.patient_provider_id, patients.patient_room, patients.patient_type, "
@@ -85,9 +85,9 @@ public class UserPatientDao {
 	 * @param rowCount
 	 * @return
 	 */
-	public static List<PatientBean> getList(int firstRow, int rowCount) {
+	public static List<UserPatientBean> getList(int firstRow, int rowCount) {
 		
-		List<PatientBean> patientsList = new ArrayList<>();
+		List<UserPatientBean> patientsList = new ArrayList<>();
 
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -112,7 +112,7 @@ public class UserPatientDao {
 			
 			while(resultSet.next()) {
 				System.out.println("Inside patient sublist while loop.");
-				PatientBean patient = new PatientBean();
+				UserPatientBean patient = new UserPatientBean();
 				patient.setUserId(resultSet.getString("users.user_id"));
 				patient.setFirstName(resultSet.getString("users.user_first_name"));
 				patient.setMiddleInitial(resultSet.getString("users.user_middle_initial"));
@@ -143,7 +143,7 @@ public class UserPatientDao {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public static String add(PatientBean patient) {
+	public static String add(UserPatientBean patient) {
 		
 		String patientQuery = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
 				+ "patient_type, patient_language_reference, patient_street_address, patient_city, patient_state, patient_country, "

@@ -34,6 +34,28 @@
 		<div class="main-grid-container">
 			<div class="main-grid">
 				<fieldset>
+					<legend class="patient-header">Patient Overview</legend>
+					<div id="patient-overview-grid-1" class="patient-data">
+						<div>
+							<div>Patient Picture</div>
+						</div>
+						<div>
+							<div>${userPatientId}</div>
+							<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
+							<div>${patientPhoneNumber}</div>
+							<div>${userEmailAddress}</div>
+							<div>${patientStreetAddress}</div>
+						</div>
+						<div>
+							<div>${userDateOfBirth}</div>
+							<div>Height</div>
+							<div>Weight</div>
+							<div>${patientType}</div>
+							<div>${patientLanguagePreference}</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
 					<legend class="patient-header">Overview</legend>	
 					<div id="patient-overview-grid-1" class="patient-data">
 						<div>

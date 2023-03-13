@@ -20,7 +20,7 @@ import com.empty_works.plain_emrs.beans.DiseasesBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.IllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
@@ -88,7 +88,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		UserBean user = new UserBean();
 		AuthorityBean authority;
-		PatientBean patient; // Instantiated if user is a new patient.
+		UserPatientBean patient; // Instantiated if user is a new patient.
 		EmergencyContactsBean contacts;
 		PatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
@@ -112,7 +112,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		user.setDateOfBirth(LocalDate.parse(request.getParameter("patientDateOfBirth")));
 		request.setAttribute("userBean", user);
 		
-		patient = new PatientBean();
+		patient = new UserPatientBean();
 		patient.setStreetAddress(request.getParameter("patientStreetAddress"));
 		patient.setCity(request.getParameter("patientCity"));
 		patient.setState(request.getParameter("patientState"));

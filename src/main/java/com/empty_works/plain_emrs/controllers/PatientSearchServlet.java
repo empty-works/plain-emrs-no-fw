@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 
 /**
@@ -38,7 +38,7 @@ public class PatientSearchServlet extends HttpServlet {
 			
 			patientId = request.getParameter("patientId");
 			System.out.println("Retrieving request patient data...");
-			PatientBean patient = PatientDao.getPatient(patientId);
+			UserPatientBean patient = PatientDao.getPatient(patientId);
 			request.setAttribute("patientDb", patient);
 		}
 		request.setAttribute("patientIdCheck", patientId);

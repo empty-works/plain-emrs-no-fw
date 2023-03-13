@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.beans.BeanDaoInterface;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserBean;

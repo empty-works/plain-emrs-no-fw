@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientBean extends UserBean implements BeanDaoInterface {
+public class UserPatientBean extends UserBean implements BeanDaoInterface {
 
 	// User ID in UserBean
 	private String provider;

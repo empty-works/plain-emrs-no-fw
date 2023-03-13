@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 import com.empty_works.plain_emrs.util.UserIdUtil;
 
@@ -34,7 +34,7 @@ public class AddPatientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Settings parameters to patient bean...");
-		PatientBean pb = new PatientBean();
+		UserPatientBean pb = new UserPatientBean();
 		String givenName = request.getParameter("patientGivenName");
 		String middleInitial = request.getParameter("patientMiddleInitial");
 		String lastName = request.getParameter("patientLastName");

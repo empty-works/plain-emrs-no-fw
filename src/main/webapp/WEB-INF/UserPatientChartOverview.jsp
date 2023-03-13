@@ -36,7 +36,7 @@
 		
 		<div class="main-grid-container">
 			<div class="main-grid">
-			<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
+				<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
 				<div>
 					<fieldset>
 						<legend class="patient-header">Patient Overview</legend>
@@ -60,18 +60,26 @@
 							</div>
 						</div>
 					</fieldset>
-					<fieldset>
-						<legend class="patient-header">Allergies</legend>	
-						<div class="patient-data">
-
-						</div>
-					</fieldset>
-					<fieldset>
-						<legend class="patient-header">Chief complaints</legend>		
-						<div class="patient-data">
-
-						</div>
-					</fieldset>
+					<div class="dynamic-grid">
+						<div id="chartAllergies">Allergies</div>
+						<div id="chartChiefComplaints">Chief complaints</div>
+					</div>
+					<div class="dynamic-grid">
+						<div id="chartROS">Review of systems</div>
+						<div id="chartROS">Chief complaints</div>
+					</div>
+					<div class="dynamic-grid">
+						<div id="chartROS">Vitals</div>
+						<div id="chartROS">Medication</div>
+					</div>
+					<div class="dynamic-grid">
+						<div id="chartROS">Illnesses</div>
+						<div id="chartROS">Diseases</div>
+					</div>
+					<div class="dynamic-grid">
+						<div id="chartROS">Surgery-related problems</div>
+						<div id="chartROS">Physical exams</div>
+					</div>
 				</div>
 			</div>
 		</div>

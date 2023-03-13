@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
-import com.empty_works.plain_emrs.beans.PatientBean;
+import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
@@ -34,7 +34,7 @@ public class UserPatientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
-		PatientBean patient = UserPatientDao.getPatient(userPatientId);
+		UserPatientBean patient = UserPatientDao.getPatient(userPatientId);
 		PatientRaceBean patientRace = UserPatientRaceDao.getRace(userPatientId);
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
 
