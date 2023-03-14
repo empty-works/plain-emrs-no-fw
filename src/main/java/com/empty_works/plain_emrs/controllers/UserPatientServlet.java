@@ -37,6 +37,7 @@ public class UserPatientServlet extends HttpServlet {
 		UserPatientBean patient = UserPatientDao.getPatient(userPatientId);
 		PatientRaceBean patientRace = UserPatientRaceDao.getRace(userPatientId);
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
+		
 
 		// Store retrieved variables from the database into session variables. 
 		HttpSession session = request.getSession();

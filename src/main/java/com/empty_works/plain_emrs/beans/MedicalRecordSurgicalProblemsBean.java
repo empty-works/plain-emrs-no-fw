@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
 
-public class SurgicalProblemsBean implements PatientIdInterface, BeanDaoInterface {
+public class MedicalRecordSurgicalProblemsBean implements PatientIdInterface, BeanDaoInterface {
 
 	private String userId;
 	private String medicalRecordId;

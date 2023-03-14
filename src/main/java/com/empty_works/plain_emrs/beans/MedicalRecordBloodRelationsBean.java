@@ -3,7 +3,7 @@ package com.empty_works.plain_emrs.beans;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class BloodRelationsBean implements BeanDaoInterface {
+public class MedicalRecordBloodRelationsBean implements BeanDaoInterface {
 
 	private String medicalRecordId;
 	private String fatherStatus, motherStatus;

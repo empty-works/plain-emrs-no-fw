@@ -62,7 +62,7 @@
 					</fieldset>
 					<div class="dynamic-grid">
 						<div id="chartAllergies">Allergies</div>
-						<div id="chartChiefComplaints">Chief complaints</div>
+						<div id="chartChiefComplaints">Vitals</div>
 					</div>
 					<div class="dynamic-grid">
 						<div id="chartROS">Review of systems</div>

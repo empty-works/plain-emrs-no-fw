@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.empty_works.plain_emrs.beans.IllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
@@ -12,7 +12,7 @@ public class IllnessesDao {
 
 	public static String ILLNESSESDAO_SUCCESS = "Illnesses data successfully added.";
 	
-	public static String add(IllnessesBean illness) {
+	public static String add(MedicalRecordIllnessesBean illness) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;

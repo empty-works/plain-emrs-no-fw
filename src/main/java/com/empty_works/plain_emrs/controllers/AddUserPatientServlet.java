@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.AuthorityBean;
-import com.empty_works.plain_emrs.beans.BloodRelationsBean;
-import com.empty_works.plain_emrs.beans.DiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelationsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
-import com.empty_works.plain_emrs.beans.IllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.PatientRaceBean;
-import com.empty_works.plain_emrs.beans.SurgicalProblemsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.beans.UserBean;
@@ -94,10 +94,10 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
-		DiseasesBean diseases;
-		BloodRelationsBean relations;
-		SurgicalProblemsBean surgicalProblems;
-		IllnessesBean illnesses;
+		MedicalRecordDiseasesBean diseases;
+		MedicalRecordBloodRelationsBean relations;
+		MedicalRecordSurgicalProblemsBean surgicalProblems;
+		MedicalRecordIllnessesBean illnesses;
 		MedicalRecordBean medRecord;	
 		AddUserDao addUserDao = new AddUserDao();
 		
@@ -205,18 +205,18 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 
-		surgicalProblems = new SurgicalProblemsBean();
+		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
 		surgicalProblems.setUserId(userId);
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 		
 		// diseases
-		diseases = new DiseasesBean();
+		diseases = new MedicalRecordDiseasesBean();
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
 
 		// blood_relatives
-		relations = new BloodRelationsBean();
+		relations = new MedicalRecordBloodRelationsBean();
 		relations.setMedicalRecordId(medicalRecordId);
 		relations.setFatherStatus(request.getParameter("patientFather"));
 		relations.setMotherStatus(request.getParameter("patientMother"));
@@ -230,7 +230,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
 		// illnesses
-		illnesses = new IllnessesBean();
+		illnesses = new MedicalRecordIllnessesBean();
 		illnesses.setMedicalRecordId(medicalRecordId);
 		illnesses.setIllness(parseIllnesses(request));
 

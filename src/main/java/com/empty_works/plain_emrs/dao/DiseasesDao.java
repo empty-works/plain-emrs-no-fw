@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.empty_works.plain_emrs.beans.DiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class DiseasesDao {
 
 	final public static String DISEASESDAO_SUCCESS = "Diseases data successfully added.";
 	
-	public static String add(DiseasesBean diseases) {
+	public static String add(MedicalRecordDiseasesBean diseases) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
