@@ -4,8 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-public class MedicalRecordVitalsBean implements PatientIdInterface, BeanDaoInterface{
+public class MedicalRecordVitalsBean implements MedicalRecordInterface, BeanDaoInterface{
 
+	private String medicalRecordId;
 	private int vitalsId;
 	private LocalDateTime dateTaken;
 	private int height;
@@ -125,26 +126,12 @@ public class MedicalRecordVitalsBean implements PatientIdInterface, BeanDaoInter
 	}
 
 	@Override
-	public void setUserId(String userId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getUserId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void setMedicalRecordId(String medicalRecordId) {
-		// TODO Auto-generated method stub
-		
+		this.medicalRecordId = medicalRecordId;
 	}
 
 	@Override
 	public String getMedicalRecordId() {
-		// TODO Auto-generated method stub
-		return null;
+		return medicalRecordId;
 	}
 }

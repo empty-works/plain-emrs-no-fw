@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 
-public class MedicalRecordDiseasesBean implements BeanDaoInterface {
+public class MedicalRecordDiseasesBean implements MedicalRecordInterface, BeanDaoInterface {
 
 	private String medicalRecordId;
 	private List<MedicalRecordDiseaseUnit> diseases;

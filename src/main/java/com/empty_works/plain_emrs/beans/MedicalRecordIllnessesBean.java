@@ -11,7 +11,7 @@ import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class MedicalRecordIllnessesBean implements BeanDaoInterface {
+public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanDaoInterface {
 
 	private String medicalRecordId;
 	private List<MedicalRecordFamilyIllnessUnit> illness;
@@ -25,10 +25,12 @@ public class MedicalRecordIllnessesBean implements BeanDaoInterface {
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
 
+	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
 	}
 
+	@Override
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;
 	}
