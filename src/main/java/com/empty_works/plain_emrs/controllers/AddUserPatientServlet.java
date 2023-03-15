@@ -206,7 +206,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 
 		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
-		surgicalProblems.setUserId(userId);
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
 		

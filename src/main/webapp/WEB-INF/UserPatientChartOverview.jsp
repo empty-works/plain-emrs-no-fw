@@ -65,12 +65,8 @@
 						<div id="chartChiefComplaints">Vitals</div>
 					</div>
 					<div class="dynamic-grid">
-						<div id="chartROS">Review of systems</div>
-						<div id="chartROS">Chief complaints</div>
-					</div>
-					<div class="dynamic-grid">
-						<div id="chartROS">Vitals</div>
 						<div id="chartROS">Medication</div>
+						<div id="chartROS">Chief complaints</div>
 					</div>
 					<div class="dynamic-grid">
 						<div id="chartROS">Illnesses</div>
@@ -78,7 +74,7 @@
 					</div>
 					<div class="dynamic-grid">
 						<div id="chartROS">Surgery-related problems</div>
-						<div id="chartROS">Physical exams</div>
+						<div id="chartROS">Nurse notes</div>
 					</div>
 				</div>
 			</div>
