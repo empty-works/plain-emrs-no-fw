@@ -11,7 +11,7 @@ public class MedicalRecordROSBean implements MedicalRecordInterface, BeanDaoInte
 	private	String constitutionalSymptoms; 
 	private String eyes;
 	private String earsNoseThroat;
-	private String cardioVascular;
+	private String cardiovascular;
 	private String respiratory;
 	private String gastrointestinal;
 	private String genitournary;
@@ -53,11 +53,11 @@ public class MedicalRecordROSBean implements MedicalRecordInterface, BeanDaoInte
 	public void setEarsNoseThroat(String earsNoseThroat) {
 		this.earsNoseThroat = earsNoseThroat;
 	}
-	public String getCardioVascular() {
-		return cardioVascular;
+	public String getCardiovascular() {
+		return cardiovascular;
 	}
-	public void setCardioVascular(String cardioVascular) {
-		this.cardioVascular = cardioVascular;
+	public void setCardiovascular(String cardiovascular) {
+		this.cardiovascular = cardiovascular;
 	}
 	public String getRespiratory() {
 		return respiratory;
@@ -121,18 +121,36 @@ public class MedicalRecordROSBean implements MedicalRecordInterface, BeanDaoInte
 	}
 	@Override
 	public String getWriteQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO reviews_of_systems(review_of_systems_id, chief_complaint_id, medical_record_id, constitutional_symptoms, "
+				+ "eyes, ears_nose_throat, cardiovascular, respiratory, gastrointestinal, genitournary, musculoskeletal, integumentary, "
+				+ "neurological, psychiatric, endocrine, hematologic_lymphatic, allergic_immunologic) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add to the reviews_of_systems table!";
 	}
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding to the reviews_of_systems table...");
+		preparedStatement.setInt(1, getReviewOfSystemsId());
+		preparedStatement.setInt(2, getChiefComplaintId());
+		preparedStatement.setString(3, getMedicalRecordId());
+		preparedStatement.setString(4, getConstitutionalSymptoms());
+		preparedStatement.setString(5, getEyes());
+		preparedStatement.setString(6, getEarsNoseThroat());
+		preparedStatement.setString(7, getCardiovascular());
+		preparedStatement.setString(8, getRespiratory());
+		preparedStatement.setString(9, getGastrointestinal());
+		preparedStatement.setString(10, getGenitournary());
+		preparedStatement.setString(11, getMusculoskeletal());
+		preparedStatement.setString(12, getIntegumentary());
+		preparedStatement.setString(13, getNeurological());
+		preparedStatement.setString(14, getPsychiatric());
+		preparedStatement.setString(15, getEndocrine());
+		preparedStatement.setString(16, getHematologicLymphatic());
+		preparedStatement.setString(17, getAllergicImmunologic());
+		return preparedStatement.executeUpdate();
 	}
 	@Override
 	public void setMedicalRecordId(String medicalRecordId) {

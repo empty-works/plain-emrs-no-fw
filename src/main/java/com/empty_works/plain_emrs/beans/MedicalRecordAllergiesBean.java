@@ -5,15 +5,15 @@ import java.sql.SQLException;
 
 public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanDaoInterface {
 
-	private int allergies;
+	private int allergiesId;
 	private String medicalRecordId;
 	private String allergyName;
 	
-	public int getAllergies() {
-		return allergies;
+	public int getAllergiesId() {
+		return allergiesId;
 	}
-	public void setAllergies(int allergies) {
-		this.allergies = allergies;
+	public void setAllergiesId(int allergiesId) {
+		this.allergiesId = allergiesId;
 	}
 	public String getAllergyName() {
 		return allergyName;
@@ -23,18 +23,20 @@ public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanD
 	}
 	@Override
 	public String getWriteQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO allergies(allergies_id, medical_record_id, allergy_name) "
+				+ "values (?,?,?)";
 	}
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add to allergies table!";
 	}
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding to allergies table...");
+		preparedStatement.setInt(1, getAllergiesId());
+		preparedStatement.setString(2, getMedicalRecordId());
+		preparedStatement.setString(3, getAllergyName());
+		return preparedStatement.executeUpdate();
 	}
 	@Override
 	public void setMedicalRecordId(String medicalRecordId) {

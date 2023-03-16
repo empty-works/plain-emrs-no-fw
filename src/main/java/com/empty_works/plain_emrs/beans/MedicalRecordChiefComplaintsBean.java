@@ -7,7 +7,7 @@ public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface,
 
 	private String medicalRecordId;
 	private int chiefComplaintId;
-	private int addmissionsId;
+	private int admissionsId;
 	private String statement;
 	
 	public int getChiefComplaintId() {
@@ -18,12 +18,12 @@ public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface,
 		this.chiefComplaintId = chiefComplaintId;
 	}
 
-	public int getAddmissionsId() {
-		return addmissionsId;
+	public int getAdmissionsId() {
+		return admissionsId;
 	}
 
-	public void setAddmissionsId(int addmissionsId) {
-		this.addmissionsId = addmissionsId;
+	public void setAdmissionsId(int admissionsId) {
+		this.admissionsId = admissionsId;
 	}
 
 	public String getStatement() {
@@ -36,20 +36,22 @@ public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface,
 
 	@Override
 	public String getWriteQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement) "
+				+ "values (?,?,?,?)";
 	}
 
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add to the chief_complaints table!";
 	}
 
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding to the chief_complaints table...");
+		preparedStatement.setInt(1, getChiefComplaintId());
+		preparedStatement.setString(2, getMedicalRecordId());
+		preparedStatement.setInt(3, getAdmissionsId());
+		return preparedStatement.executeUpdate();
 	}
 
 	@Override

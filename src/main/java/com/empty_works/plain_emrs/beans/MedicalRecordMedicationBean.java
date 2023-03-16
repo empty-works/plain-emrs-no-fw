@@ -5,23 +5,64 @@ import java.sql.SQLException;
 
 public class MedicalRecordMedicationBean implements MedicalRecordInterface, BeanDaoInterface {
 
+	private int medicationId;
 	private String medicalRecordId;
+	private String medicationName;
+	private boolean medicationIsCurrent;
+	private String medicationDescription;
+
+	public int getMedicationId() {
+		return medicationId;
+	}
+
+	public void setMedicationId(int medicationId) {
+		this.medicationId = medicationId;
+	}
+
+	public String getMedicationName() {
+		return medicationName;
+	}
+
+	public void setMedicationName(String medicationName) {
+		this.medicationName = medicationName;
+	}
+
+	public boolean isMedicationCurrent() {
+		return medicationIsCurrent;
+	}
+
+	public void setMedicationIsCurrent(boolean medicationIsCurrent) {
+		this.medicationIsCurrent = medicationIsCurrent;
+	}
+
+	public String getMedicationDescription() {
+		return medicationDescription;
+	}
+
+	public void setMedicationDescription(String medicationDescription) {
+		this.medicationDescription = medicationDescription;
+	}
+
 	@Override
 	public String getWriteQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO medication(medication_id, medical_record_id, medication_name, medication_is_current, medication_description) "
+				+ "values (?,?,?,?,?)";
 	}
 
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add to the medication table!";
 	}
 
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding to the medication table...");
+		preparedStatement.setInt(1, getMedicationId());
+		preparedStatement.setString(2, getMedicalRecordId());
+		preparedStatement.setString(3, getMedicationName());
+		preparedStatement.setBoolean(4, isMedicationCurrent());
+		preparedStatement.setString(5, getMedicationDescription());
+		return preparedStatement.executeUpdate();
 	}
 
 	@Override

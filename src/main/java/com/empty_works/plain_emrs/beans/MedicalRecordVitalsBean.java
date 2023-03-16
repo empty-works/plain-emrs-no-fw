@@ -109,20 +109,33 @@ public class MedicalRecordVitalsBean implements MedicalRecordInterface, BeanDaoI
 
 	@Override
 	public String getWriteQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return "INSERT INTO vitals(vitals_id, medical_record_id, vitals_date_taken, vitals_height, vitals_weight, vitals_calculated_bmi, "
+				+ "vitals_temperature, vitals_pulse, vitals_respiratory_rate, vitals_blood_pressure_systolic, vitals_blood_pressure_diastolic, "
+				+ "vitals_arterial_blood_oxygen_saturation) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
 
 	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Could not add to the vitals table!";
 	}
 
 	@Override
 	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Adding to the vitals table...");
+		preparedStatement.setInt(1, getVitalsId());
+		preparedStatement.setString(2, getMedicalRecordId());
+		preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(getDateTaken()));
+		preparedStatement.setInt(4, getHeight());
+		preparedStatement.setInt(5, getWeight());
+		preparedStatement.setInt(6, getCalculatedBmi());
+		preparedStatement.setDouble(7, getTemperature());
+		preparedStatement.setInt(8, getPulse());
+		preparedStatement.setInt(9, getRespiratoryRate());
+		preparedStatement.setInt(10, getBloodPressureSystolic());
+		preparedStatement.setInt(11, getBloodPressureDiastolic());
+		preparedStatement.setInt(12, getArterialBloodOxygenSaturation());
+		return preparedStatement.executeUpdate();
 	}
 
 	@Override
