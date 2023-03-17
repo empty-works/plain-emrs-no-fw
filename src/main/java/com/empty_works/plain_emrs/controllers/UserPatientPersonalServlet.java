@@ -25,6 +25,7 @@ public class UserPatientPersonalServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
 		
+		HttpSession session = request.getSession();
 		request.setAttribute("patientStreetAddress", session.getAttribute("patientStreetAddress"));
 		request.setAttribute("patientCity", session.getAttribute("patientCity"));
 		request.setAttribute("patientState", session.getAttribute("patientState"));

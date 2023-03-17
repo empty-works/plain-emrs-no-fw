@@ -18,7 +18,7 @@ public class UserPatientDao {
 	final public static String PATIENTDAO_SUCCESS = "Successfully added patient to database!";
 	final public static int PATIENT_FETCH_SIZE = 100;
 
-	public static UserPatientBean getPatient(String userPatientId) {
+	public static UserPatientBean get(String userPatientId) {
 		
 		UserPatientBean patient = new UserPatientBean();
 		Connection con = ConnectionUtil.getConnection();

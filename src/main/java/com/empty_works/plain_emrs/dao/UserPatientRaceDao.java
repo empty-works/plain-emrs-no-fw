@@ -16,7 +16,7 @@ public class UserPatientRaceDao {
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	private List<BeanDaoInterface> beans = new ArrayList<>();
 	
-	public static PatientRaceBean getRace(String userPatientId) {
+	public static PatientRaceBean get(String userPatientId) {
 		
 		PatientRaceBean raceBean = new PatientRaceBean();
 		Connection con = ConnectionUtil.getConnection();

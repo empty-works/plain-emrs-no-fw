@@ -11,9 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelationsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.PatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
 
@@ -34,10 +46,20 @@ public class UserPatientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
-		UserPatientBean patient = UserPatientDao.getPatient(userPatientId);
-		PatientRaceBean patientRace = UserPatientRaceDao.getRace(userPatientId);
-		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.getEmergencyContacts(userPatientId);
-		
+		UserPatientBean patient = UserPatientDao.get(userPatientId);
+		PatientRaceBean patientRace = UserPatientRaceDao.get(userPatientId);
+		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.get(userPatientId);
+		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
+		String medRecordId = medRecord.getMedicalRecordId();
+		List<MedicalRecordAllergiesBean> medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
+		MedicalRecordBloodRelationsBean medRecordBloodRelations;
+		MedicalRecordChiefComplaintsBean medRecordChiefComplaints;
+		MedicalRecordDiseasesBean medRecordDiseases;
+		MedicalRecordIllnessesBean medRecordIllnesses;
+		MedicalRecordMedicationBean medRecordMedication;
+		MedicalRecordROSBean medRecordRos;
+		MedicalRecordSurgicalProblemsBean medRecordSurgicalProblems;
+		MedicalRecordVitalsBean medRecordVitals;
 
 		// Store retrieved variables from the database into session variables. 
 		HttpSession session = request.getSession();

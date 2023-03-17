@@ -13,7 +13,7 @@ public class EmergencyContactsDao {
 	final public static String EMERGENCYCONTACTSDAO_SUCCESS = "Successfully added emergency contacts to database!";
 	final public static int EMERGENCYCONTACTS_FETCH_SIZE = 100;
 	
-	public static EmergencyContactsBean getEmergencyContacts(String userPatientId) {
+	public static EmergencyContactsBean get(String userPatientId) {
 		
 		EmergencyContactsBean emergencyContacts = new EmergencyContactsBean(userPatientId);
 		Connection con = ConnectionUtil.getConnection();
