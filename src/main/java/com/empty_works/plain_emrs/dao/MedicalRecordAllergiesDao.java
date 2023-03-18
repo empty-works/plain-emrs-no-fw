@@ -43,30 +43,6 @@ public class MedicalRecordAllergiesDao {
 	
 	public static String add(MedicalRecordAllergiesBean medRecordAllergiesBean) {
 		
-		String query = "INSERT INTO allergies(allergies_id, medical_record_id, allergy_name) values (?,?,?)";
-
-		boolean exceptionThrown = false;
-		String thrownResult = "";
-		
-		try (Connection con = ConnectionUtil.getConnection()) {
-			
-			try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
-				
-				System.out.println("Adding to allergies table...");
-				preparedStatement.setInt(1, medRecordAllergiesBean.getAllergiesId());
-				preparedStatement.setString(2, medRecordAllergiesBean.getMedicalRecordId());
-				preparedStatement.setString(3, medRecordAllergiesBean.getAllergyName());
-			}
-		}
-		catch(SQLException e) {
-			exceptionThrown = true;
-			thrownResult = "Could not add to allergies table!";
-		}
-		if(exceptionThrown) {
-			return thrownResult;
-		}
-		else {
-			return MEDICALRECORDALLERGIESDAO_SUCCESS;
-		}
+		return MedicalRecordDao.add(medRecordAllergiesBean);
 	}
 }

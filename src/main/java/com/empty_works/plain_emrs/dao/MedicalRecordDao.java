@@ -12,7 +12,7 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordDao {
 
-	final public static String MEDICALRECORDDAO_SUCCESS = "Medical record successfully added!";
+	final public static String MEDICALRECORDDAO_SUCCESS = "Successfully added to medical record!";
 	
 	public static MedicalRecordBean get(String userPatientId) {
 		

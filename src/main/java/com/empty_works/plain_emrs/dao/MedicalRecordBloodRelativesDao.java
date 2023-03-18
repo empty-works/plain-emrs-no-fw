@@ -11,8 +11,6 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordBloodRelativesDao {
 
-	final public static String MEDICALRECORDBLOODRELATIONSDAO_SUCCESS = "Blood relations medical record successfully added!";
-	
 	public static MedicalRecordBloodRelativesBean get(String medicalRecordId) {
 		
 		MedicalRecordBloodRelativesBean medRecordBloodRelativesBean = new MedicalRecordBloodRelativesBean();
