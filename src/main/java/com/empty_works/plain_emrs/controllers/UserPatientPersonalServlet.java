@@ -22,9 +22,6 @@ public class UserPatientPersonalServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userPatientId = (String)request.getParameter("userPatientId");
-		MedicalRecordBean medBean = MedicalRecordDao.get(userPatientId);
-		
 		HttpSession session = request.getSession();
 		request.setAttribute("patientStreetAddress", session.getAttribute("patientStreetAddress"));
 		request.setAttribute("patientCity", session.getAttribute("patientCity"));

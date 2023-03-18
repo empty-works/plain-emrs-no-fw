@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelationsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
@@ -52,7 +52,7 @@ public class UserPatientServlet extends HttpServlet {
 		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
 		String medRecordId = medRecord.getMedicalRecordId();
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
-		MedicalRecordBloodRelationsBean medRecordBloodRelations;
+		MedicalRecordBloodRelativesBean medRecordBloodRelations;
 		MedicalRecordChiefComplaintsBean medRecordChiefComplaints;
 		MedicalRecordDiseasesBean medRecordDiseases;
 		MedicalRecordIllnessesBean medRecordIllnesses;

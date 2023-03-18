@@ -3,18 +3,29 @@ package com.empty_works.plain_emrs.beans;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class MedicalRecordBloodRelationsBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordBloodRelativesBean implements MedicalRecordInterface, BeanDaoInterface {
 
+	private int bloodRelativesId;
 	private String medicalRecordId;
 	private String fatherStatus, motherStatus;
 	private int fathDecAge, mothDecAge;
 	private String fathCauseDea, mothCauseDea;
 	private int numSisters, numBrothers, numDaughters, numSons;
 
+	public int getBloodRelativesId() {
+		return bloodRelativesId;
+	}
+
+	public void setBloodRelativesId(int bloodRelativesId) {
+		this.bloodRelativesId = bloodRelativesId;
+	}
+
+	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
 	}
 
+	@Override
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;
 	}

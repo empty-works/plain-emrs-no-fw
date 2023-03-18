@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.AuthorityBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelationsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
@@ -95,7 +95,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
 		MedicalRecordDiseasesBean diseases;
-		MedicalRecordBloodRelationsBean relations;
+		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
 		MedicalRecordIllnessesBean illnesses;
 		MedicalRecordBean medRecord;	
@@ -215,7 +215,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		diseases.setDiseases(parseDiseasesImmun(request));
 
 		// blood_relatives
-		relations = new MedicalRecordBloodRelationsBean();
+		relations = new MedicalRecordBloodRelativesBean();
 		relations.setMedicalRecordId(medicalRecordId);
 		relations.setFatherStatus(request.getParameter("patientFather"));
 		relations.setMotherStatus(request.getParameter("patientMother"));
