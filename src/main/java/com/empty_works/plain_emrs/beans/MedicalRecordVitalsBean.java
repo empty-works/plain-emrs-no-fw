@@ -116,12 +116,12 @@ public class MedicalRecordVitalsBean implements MedicalRecordInterface, BeanDaoI
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add to the vitals table!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding to the vitals table...");
 		preparedStatement.setInt(1, getVitalsId());
 		preparedStatement.setString(2, getMedicalRecordId());

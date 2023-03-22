@@ -52,11 +52,11 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 				+ "VALUES (?,?,?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add emergency contact to emergency_contacts!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding emergency contact...");
 		preparedStatement.setString(1, getUserPatientId());
 		preparedStatement.setString(2, getFirstName());

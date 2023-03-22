@@ -30,12 +30,12 @@ public class AuthorityBean implements BeanDaoInterface {
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add authority to authorities table!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		preparedStatement.setString(1, getUserId());
 		preparedStatement.setString(2, getAuthority());
 		return preparedStatement.executeUpdate();

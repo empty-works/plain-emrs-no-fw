@@ -50,12 +50,12 @@ public class MedicalRecordMedicationBean implements MedicalRecordInterface, Bean
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add to the medication table!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding to the medication table...");
 		preparedStatement.setInt(1, getMedicationId());
 		preparedStatement.setString(2, getMedicalRecordId());

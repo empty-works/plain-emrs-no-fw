@@ -127,11 +127,11 @@ public class MedicalRecordROSBean implements MedicalRecordInterface, BeanDaoInte
 				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add to the reviews_of_systems table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding to the reviews_of_systems table...");
 		preparedStatement.setInt(1, getReviewOfSystemsId());
 		preparedStatement.setInt(2, getChiefComplaintId());

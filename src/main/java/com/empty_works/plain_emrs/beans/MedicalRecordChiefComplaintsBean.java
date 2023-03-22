@@ -41,12 +41,12 @@ public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface,
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add to the chief_complaints table!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		System.out.println("Adding to the chief_complaints table...");
 		preparedStatement.setInt(1, getChiefComplaintId());
 		preparedStatement.setString(2, getMedicalRecordId());

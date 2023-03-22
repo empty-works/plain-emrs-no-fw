@@ -8,8 +8,52 @@ import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
 
 public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface, BeanDaoInterface {
 
+	private int surgicalRelatedId;
 	private String medicalRecordId;
-	private List<SurgicalProblemUnit> surgeryMedProblems;
+	private String surgicalRelatedProblem;
+	private String problemArea;
+	private String surgicalProcedure;
+	private String surgicalProcedureYear;
+
+	public int getSurgicalRelatedId() {
+		return surgicalRelatedId;
+	}
+
+	public void setSurgicalRelatedId(int surgicalRelatedId) {
+		this.surgicalRelatedId = surgicalRelatedId;
+	}
+
+	public String getSurgicalRelatedProblem() {
+		return surgicalRelatedProblem;
+	}
+
+	public void setSurgicalRelatedProblem(String surgicalRelatedProblem) {
+		this.surgicalRelatedProblem = surgicalRelatedProblem;
+	}
+
+	public String getProblemArea() {
+		return problemArea;
+	}
+
+	public void setProblemArea(String problemArea) {
+		this.problemArea = problemArea;
+	}
+
+	public String getSurgicalProcedure() {
+		return surgicalProcedure;
+	}
+
+	public void setSurgicalProcedure(String surgicalProcedure) {
+		this.surgicalProcedure = surgicalProcedure;
+	}
+
+	public String getSurgicalProcedureYear() {
+		return surgicalProcedureYear;
+	}
+
+	public void setSurgicalProcedureYear(String surgicalProcedureYear) {
+		this.surgicalProcedureYear = surgicalProcedureYear;
+	}
 
 	public String getMedicalRecordId() {
 		return medicalRecordId;
@@ -19,14 +63,6 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 		this.medicalRecordId = medicalRecordId;
 	}
 
-	public List<SurgicalProblemUnit> getSurgeryMedProblems() {
-		return surgeryMedProblems;
-	}
-
-	public void setSurgeryMedProblems(List<SurgicalProblemUnit> surgeryMedProblems) {
-		this.surgeryMedProblems = surgeryMedProblems;
-	}
-
 	@Override
 	public String getWriteQuery() {
 		return "INSERT INTO surgical_related_problems(medical_record_id, surgical_related_problem, problem_area, "
@@ -34,24 +70,19 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add surgical procedures data!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 
-		if(surgeryMedProblems != null && surgeryMedProblems.size() > 0) {
-			for(int i = 0; i < surgeryMedProblems.size(); i++) {
-				preparedStatement.setString(1, getMedicalRecordId());
-				preparedStatement.setString(2, getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-				preparedStatement.setString(3, getSurgeryMedProblems().get(i).getProblemArea());
-				preparedStatement.setString(4, getSurgeryMedProblems().get(i).getSurgicalProcedure());
-				preparedStatement.setString(5, getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
-				preparedStatement.addBatch();
-			}
-			return preparedStatement.executeBatch()[0];
-		}
+		System.out.println("Adding to surgical_related_problems...");
+		preparedStatement.setString(1, getMedicalRecordId());
+		preparedStatement.setString(2, getSurgicalRelatedProblem());
+		preparedStatement.setString(3, getProblemArea());
+		preparedStatement.setString(4, getSurgicalProcedure());
+		preparedStatement.setString(5, getSurgicalProcedureYear());
 		return 0;
 	}
 }

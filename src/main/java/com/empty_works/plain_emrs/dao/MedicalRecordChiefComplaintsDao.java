@@ -40,8 +40,8 @@ public class MedicalRecordChiefComplaintsDao {
 		return medRecordChiefComplaintsBeanList;
 	}
 	
-	public static String add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) {
+	public static String add(List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsBeanList) {
 		
-		return MedicalRecordDao.add(medRecordChiefComplaintsBean);
+		return MedicalRecordDao.add(medRecordChiefComplaintsBeanList);
 	}
 }

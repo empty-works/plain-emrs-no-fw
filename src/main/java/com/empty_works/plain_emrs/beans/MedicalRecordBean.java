@@ -57,11 +57,11 @@ public class MedicalRecordBean implements PatientIdInterface, BeanDaoInterface {
 				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add medical record!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 
 		System.out.println("Adding medical record...");
 		preparedStatement.setString(1, getMedicalRecordId());

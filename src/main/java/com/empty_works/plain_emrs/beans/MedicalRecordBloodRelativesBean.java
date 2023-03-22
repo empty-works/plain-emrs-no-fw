@@ -118,12 +118,12 @@ public class MedicalRecordBloodRelativesBean implements MedicalRecordInterface, 
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add blood relatives data to the database!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		
 		System.out.println("Mother status: " + getMotherStatus());
 		System.out.println("Father status: " + getFatherStatus());

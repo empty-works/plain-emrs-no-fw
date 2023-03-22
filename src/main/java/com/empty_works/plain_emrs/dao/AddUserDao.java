@@ -45,12 +45,12 @@ public class AddUserDao {
 				
 				try(PreparedStatement preparedStatement = con.prepareStatement(bean.getWriteQuery())) {
 					
-					bean.prepareStatments(preparedStatement);
+					bean.prepareWriteStatement(preparedStatement);
 				}
 				catch (SQLException e) {
 					
 					exceptionThrown = true;
-					thrownResult = bean.getErrorMessage() + " " + e;
+					thrownResult = bean.getWriteErrorMessage() + " " + e;
 				}
 			}
 		}

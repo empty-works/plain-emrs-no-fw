@@ -96,11 +96,11 @@ public class UserBean extends GeneralBean implements BeanDaoInterface {
 				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add user to users table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		
 		System.out.println("Adding user...");
 		preparedStatement.setString(1, getUserId());

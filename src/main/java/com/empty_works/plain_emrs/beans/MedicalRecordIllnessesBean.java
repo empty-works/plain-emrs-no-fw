@@ -13,9 +13,10 @@ import com.empty_works.plain_emrs.patient_choices.PatientIllnessUnit;
  */
 public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanDaoInterface {
 
+	private int illnessId;
 	private String medicalRecordId;
-	private List<MedicalRecordFamilyIllnessUnit> illness;
-	private PatientIllnessUnit[] illnesses;
+	private String illness;
+	private List<MedicalRecordFamilyIllnessUnit> illnesses;
 	private boolean illnessSelf;
 	private boolean illnessFather;
 	private boolean illnessMother;
@@ -24,6 +25,26 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanD
 	private boolean illnessSons;
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
+
+	public int getIllnessId() {
+		return illnessId;
+	}
+
+	public void setIllnessId(int illnessId) {
+		this.illnessId = illnessId;
+	}
+	
+	public void setIllness(String illness) {
+		this.illness = illness;
+	}
+	
+	public List<MedicalRecordFamilyIllnessUnit> getIllnesses() {
+		return illnesses;
+	}
+
+	public void setIllnesses(List<MedicalRecordFamilyIllnessUnit> illnesses) {
+		this.illnesses = illnesses;
+	}
 
 	@Override
 	public String getMedicalRecordId() {
@@ -36,18 +57,10 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanD
 	}
 
 	public List<MedicalRecordFamilyIllnessUnit> getIllness() {
-		return illness;
-	}
-
-	public void setIllness(List<MedicalRecordFamilyIllnessUnit> illness) {
-		this.illness = illness;
-	}
-
-	public PatientIllnessUnit[] getIllnesses() {
 		return illnesses;
 	}
 
-	public void setIllnesses(PatientIllnessUnit[] illnesses) {
+	public void setIllness(List<MedicalRecordFamilyIllnessUnit> illnesses) {
 		this.illnesses = illnesses;
 	}
 
@@ -122,18 +135,18 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanD
 	}
 
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add illnesses data to the database!";
 	}
 
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		
-		if(illness != null && illness.size() > 0) {
-			for(int i = 0; i < illness.size(); i++) {
+		if(illnesses != null && illnesses.size() > 0) {
+			for(int i = 0; i < illnesses.size(); i++) {
 				preparedStatement.setString(1, medicalRecordId);
-				preparedStatement.setString(2, illness.get(i).getFamilyIllness());
-				addRelations(illness.get(i), preparedStatement);
+				preparedStatement.setString(2, illnesses.get(i).getFamilyIllness());
+				addRelations(illnesses.get(i), preparedStatement);
 				preparedStatement.addBatch();
 			}
 			return preparedStatement.executeBatch()[0];

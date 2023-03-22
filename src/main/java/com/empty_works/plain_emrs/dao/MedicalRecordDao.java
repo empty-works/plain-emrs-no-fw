@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.empty_works.plain_emrs.beans.BeanDaoInterface;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
@@ -54,7 +56,7 @@ public class MedicalRecordDao {
 
 			preparedStatement = con.prepareStatement(medRecordBean.getWriteQuery());
 			// The prepareStatements method executes the update.
-			int i = medRecordBean.prepareStatments(preparedStatement);
+			int i = medRecordBean.prepareWriteStatement(preparedStatement);
 			if(i != 0) 
 				return MEDICALRECORDDAO_SUCCESS;
 
@@ -65,6 +67,6 @@ public class MedicalRecordDao {
 			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
 
-		return medRecordBean.getErrorMessage();
+		return medRecordBean.getWriteErrorMessage();
 	}
 }

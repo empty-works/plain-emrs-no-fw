@@ -26,11 +26,11 @@ public class UserLoginLogBean implements BeanDaoInterface {
 		return "INSERT INTO user_login_logs(user_id, user_date_time_of_visit) values (?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add user login log to user_login_logs table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 
 		System.out.println("Adding user login log...");
 		preparedStatement.setString(1, getUserId());

@@ -41,11 +41,11 @@ public class UserActivityLogBean implements BeanDaoInterface {
 				+ "values (?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add user activity log to user_activity_logs table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 
 		System.out.println("Adding user activity log...");
 		preparedStatement.setString(1, getUserId());

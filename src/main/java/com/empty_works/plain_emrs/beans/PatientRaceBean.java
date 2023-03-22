@@ -27,11 +27,11 @@ public class PatientRaceBean implements BeanDaoInterface {
 		return "INSERT INTO patient_races(user_id, patient_race) values(?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add races to patient race table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 
 		System.out.println("Adding patient race..." + getRaces());
 		for(int i = 0; i < getRaces().size(); i++) {

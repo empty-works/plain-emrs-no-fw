@@ -184,11 +184,11 @@ public class UserPatientBean extends UserBean implements BeanDaoInterface {
 				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	}
 	@Override
-	public String getErrorMessage() {
+	public String getWriteErrorMessage() {
 		return "Could not add patient to patients table!";
 	}
 	@Override
-	public int prepareStatments(PreparedStatement preparedStatement) throws SQLException {
+	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
 		
 		System.out.println("Adding patient...");
 		preparedStatement.setString(1, getUserId());
