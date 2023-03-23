@@ -40,8 +40,25 @@ public class MedicalRecordChiefComplaintsDao {
 		return medRecordChiefComplaintsBeanList;
 	}
 	
-	public static String add(List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsBeanList) {
+	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) {
 		
-		return MedicalRecordDao.add(medRecordChiefComplaintsBeanList);
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		String query = "INSERT INTO chief_complaints(medical_record_id, admissions_id, statement) "
+				+ "VALUES (?,?,?)";
+		
+		int success = 0;
+		
+		try {
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
+			preparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
+			preparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
+			success = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return success;
 	}
 }

@@ -21,13 +21,13 @@ public class SurgicalProblemsDao {
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			for(int i = 0; i < surgery.getSurgeryMedProblems().size(); i++) {
+			for(int i = 0; i < surgery.getSurgicalRelatedProblems().size(); i++) {
 				
 				preparedStatement.setString(1, surgery.getMedicalRecordId());
-				preparedStatement.setString(2, surgery.getSurgeryMedProblems().get(i).getSurgicalRelatedProblem());
-				preparedStatement.setString(3, surgery.getSurgeryMedProblems().get(i).getProblemArea());
-				preparedStatement.setString(4, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedure());
-				preparedStatement.setString(5, surgery.getSurgeryMedProblems().get(i).getSurgicalProcedureYear());
+				preparedStatement.setString(2, surgery.getSurgicalRelatedProblems().get(i).getSurgicalRelatedProblem());
+				preparedStatement.setString(3, surgery.getSurgicalRelatedProblems().get(i).getProblemArea());
+				preparedStatement.setString(4, surgery.getSurgicalRelatedProblems().get(i).getSurgicalProcedure());
+				preparedStatement.setString(5, surgery.getSurgicalRelatedProblems().get(i).getSurgicalProcedureYear());
 				preparedStatement.addBatch();
 			}
 			int[] checks = preparedStatement.executeBatch();

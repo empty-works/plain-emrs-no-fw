@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordIllnessesDao {
@@ -46,8 +47,49 @@ public class MedicalRecordIllnessesDao {
 		return medRecordIllnessesBeanList;
 	}
 	
-	public static String add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
+	public static int add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
 		
-		return MedicalRecordDao.add(medRecordIllnessesBean);
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		String query = "INSERT INTO illnesses(medical_record_id, illness, self, father, mother, brothers, sisters, sons, daughters, grandparents) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
+		
+		int success = 0;
+
+		try {
+			preparedStatement = con.prepareStatement(query);
+			List<MedicalRecordFamilyIllnessUnit> illnesses = medRecordIllnessesBean.getIllnesses();
+			if(illnesses != null && illnesses.size() > 0) {
+				for(int i = 0; i < illnesses.size(); i++) {
+					preparedStatement.setString(1, medRecordIllnessesBean.getMedicalRecordId());
+					preparedStatement.setString(2, illnesses.get(i).getFamilyIllness());
+					addRelations(illnesses.get(i), preparedStatement);
+					preparedStatement.addBatch();
+				}
+				success = preparedStatement.executeBatch()[0];
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return success;
+	}
+
+	/**
+	 * 
+	 * @param illness
+	 * @param preparedStatement
+	 */
+	private static void addRelations(MedicalRecordFamilyIllnessUnit illness, PreparedStatement preparedStatement) {
+		
+		int prepStatementNum = 3; // Prepared statement starts at 3.
+		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
+			try {
+				preparedStatement.setBoolean(prepStatementNum, illness.getFamilyRelations().get(i));
+				prepStatementNum++;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

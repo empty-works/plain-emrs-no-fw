@@ -34,16 +34,16 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, BeanD
 		this.illnessId = illnessId;
 	}
 	
-	public void setIllness(String illness) {
-		this.illness = illness;
-	}
-	
 	public List<MedicalRecordFamilyIllnessUnit> getIllnesses() {
 		return illnesses;
 	}
 
 	public void setIllnesses(List<MedicalRecordFamilyIllnessUnit> illnesses) {
 		this.illnesses = illnesses;
+	}
+	
+	public void setIllness(String illness) {
+		this.illness = illness;
 	}
 
 	@Override

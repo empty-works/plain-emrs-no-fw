@@ -11,6 +11,7 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 	private int surgicalRelatedId;
 	private String medicalRecordId;
 	private String surgicalRelatedProblem;
+	private List<SurgicalProblemUnit> surgicalRelatedProblems;
 	private String problemArea;
 	private String surgicalProcedure;
 	private String surgicalProcedureYear;
@@ -29,6 +30,13 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 
 	public void setSurgicalRelatedProblem(String surgicalRelatedProblem) {
 		this.surgicalRelatedProblem = surgicalRelatedProblem;
+	}
+	public List<SurgicalProblemUnit> getSurgicalRelatedProblems() {
+		return surgicalRelatedProblems;
+	}
+
+	public void setSurgicalRelatedProblems(List<SurgicalProblemUnit> surgicalRelatedProblems) {
+		this.surgicalRelatedProblems = surgicalRelatedProblems;
 	}
 
 	public String getProblemArea() {
@@ -83,6 +91,6 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 		preparedStatement.setString(3, getProblemArea());
 		preparedStatement.setString(4, getSurgicalProcedure());
 		preparedStatement.setString(5, getSurgicalProcedureYear());
-		return 0;
+		return preparedStatement.executeUpdate();
 	}
 }

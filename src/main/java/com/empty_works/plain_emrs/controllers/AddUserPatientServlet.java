@@ -207,7 +207,7 @@ public class AddUserPatientServlet extends HttpServlet {
 
 		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
-		surgicalProblems.setSurgeryMedProblems(parseSurgeries(request));
+		surgicalProblems.setSurgicalRelatedProblems(parseSurgeries(request));
 		
 		// diseases
 		diseases = new MedicalRecordDiseasesBean();
