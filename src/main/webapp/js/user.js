@@ -127,6 +127,62 @@ genMed = new MedProbAdder("genMed");
 heartMed = new MedProbAdder("heartMed");
 reproductMed = new MedProbAdder("reproductMed");
 
+class AllergiesAdder {
+	limitMsg;
+	MAX_NAME_INT;
+	constructor(allergiesType) {
+		this.allergiesType = allergiesType;
+		this.allergiesLimit = 0;
+		this.ALLERGIES_MAX = 15;
+		this.MAX_NAME_INT = 99999;
+	}
+	
+	addNode(allergiesCon, needsRemoveButton) {
+		if(this.allergiesLimit < this.ALLERGIES_MAX) {
+			this.allergiesLimit++;
+			console.log(jsonList);
+			let allergiesNode = document.createElement("div");
+			// Add the rest of the medical problem inputs to the node
+			let allergiesHtml = 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + "\" placeholder=\"Medical problem:\">" + 
+			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + "\" placeholder=\"Surgical procedure:\">" + 
+			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + "\">Surgical procedure date: </label>" + 
+			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + "\">";
+			allergiesNode.appendChild(allergiesDropDown);
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesHtml);
+			if(needsRemoveButton == true) {
+				allergiesNode.insertAdjacentHTML("beforeend", this.setAllergiesType());
+			}
+			allergiesCon.appendChild(allergiesNode);
+		}
+		else {
+			// Disable add button first.
+			document.getElementById(this.allergiesType + "AddButton").disabled = true;	
+			// Set limit message.
+			this.limitMsg = document.getElementById(this.allergiesType + "LimitMsg");	
+			this.limitMsg.innerHTML = "Cannot add more!";
+		}
+	}
+	
+	setAllergiesType() {
+		if(this.allergiesType === "allergiesMed") {
+			return "<button type=\"button\" onclick=\"genMed.removeNode(this)\">-</button>";
+		}
+	}
+
+	removeNode(removeButton) {
+		removeButton.parentNode.remove();		
+		this.allergiesLimit--; 
+		// Reenable add button.
+		document.getElementById(this.allergiesType + "AddButton").disabled = false;	
+		// Remove limit message.
+		this.limitMsg = document.getElementById(this.allergiesType + "LimitMsg");	
+		this.limitMsg.innerHTML = "";
+	}
+}
+
+allergiesMed = new AllergiesAdder("allergiesMed");
+
 function addFamilyCondition(jsonList) {
 	const illnessDiv = document.getElementById("familyConditionsCon");
 	// Add illness relations labels

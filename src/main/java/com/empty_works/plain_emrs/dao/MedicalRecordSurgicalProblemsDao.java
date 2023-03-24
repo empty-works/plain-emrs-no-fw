@@ -43,7 +43,7 @@ public class MedicalRecordSurgicalProblemsDao {
 		return medRecordSurgicalProblemsBeanList;
 	}
 	
-	public static String get(MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean) {
+	public static String add(MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;

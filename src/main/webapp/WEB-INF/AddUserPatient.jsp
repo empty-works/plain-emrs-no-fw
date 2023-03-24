@@ -212,6 +212,10 @@
 
 					<h3>Medical History</h3>
 					<fieldset>
+						<legend>Allergies</legend>	
+						
+					</fieldset>
+					<fieldset>
 						<legend>Patient condition</legend>	
 						<!-- Patient conditions based on HIPAA guidelines -->
 						<select id="patientConditionDropdown" name="patientConditionDropdown">

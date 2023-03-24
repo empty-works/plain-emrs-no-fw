@@ -18,6 +18,7 @@ import com.empty_works.plain_emrs.beans.AuthorityBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
@@ -94,6 +95,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
+		MedicalRecordAllergiesBean allergies;
 		MedicalRecordDiseasesBean diseases;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
@@ -204,6 +206,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
+		
+		allergies = new MedicalRecordAllergiesBean();
+		
 
 		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
