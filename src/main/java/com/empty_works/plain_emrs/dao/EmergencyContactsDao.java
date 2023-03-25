@@ -44,5 +44,29 @@ public class EmergencyContactsDao {
 		return emergencyContacts;
 	}
 	
-	
+	public static String add(EmergencyContactsBean contacts) throws SQLException {
+		
+		String query = "INSERT INTO emergency_contacts(user_id, emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
+				+ "emergency_contact_phone_number, emergency_contact_email_address) "
+				+ "VALUES (?,?,?,?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Adding emergency contact...");
+				preparedStatement.setString(1, contacts.getUserPatientId());
+				preparedStatement.setString(2, contacts.getFirstName());
+				preparedStatement.setString(3, contacts.getMiddleInitial());
+				preparedStatement.setString(4, contacts.getLastName());
+				preparedStatement.setString(5, contacts.getPhoneNumber());
+				preparedStatement.setString(6, contacts.getEmail());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		if(success == 0) {
+			return "Could not add patient emergency contacts to the database!";
+		}
+		return "Successfully added patient emergency contacts to the database!";
+	}
 }

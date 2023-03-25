@@ -104,11 +104,35 @@ public class UserDao {
 		return userList;
 	}
 	
-	public static String add(UserBean user) {
+	public static String add(UserBean user) throws SQLException {
 		
-		String userQuery = QueryUtil.insert("users", "user_name", "user_password", "user_email_address", "user_enabled", "user_created_on", 
-				"patient_id", "nonpatient_id", "current_facility_id");
+		String query = "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
+				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
 		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Adding user...");
+				preparedStatement.setString(1, user.getUserId());
+				preparedStatement.setString(2, user.getUserPassword());
+				preparedStatement.setString(3, user.getEmailAddress());
+				preparedStatement.setBoolean(4, user.isUserEnabled());
+				preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(user.getDateCreated()));
+				preparedStatement.setString(6, user.getCurrentFacilityId());
+				preparedStatement.setDate(7, java.sql.Date.valueOf(user.getDateOfBirth()));
+				preparedStatement.setString(8, user.getFirstName());
+				preparedStatement.setString(9, user.getMiddleInitial());
+				preparedStatement.setString(10, user.getLastName());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		
+		if(success == 0) {
+			return "Could not add user to the database!";
+		}
+		return USERDAO_SUCCESS;
 		/*
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -132,7 +156,8 @@ public class UserDao {
 			
 			//ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
-			*/
 		return "Something went wrong. User could not be added to the database!";
+
+			*/
 	}
 }

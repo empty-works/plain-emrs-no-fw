@@ -143,23 +143,20 @@ public class UserPatientDao {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public static String add(UserPatientBean patient) {
+	public static String add(UserPatientBean patient) throws SQLException {
 		
-		String patientQuery = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, "
-				+ "patient_type, patient_language_reference, patient_street_address, patient_city, patient_state, patient_country, "
-				+ "patient_phone_number, patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, "
-				+ "patient_is_adopted) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		
-		String patientRaceQuery = "INSERT INTO patient_races(patients_user_id, patient_race) values(?,?)";
-		
-		boolean exceptionThrown = false;
-		String thrownResult = "";
-		
-		// Using try-with-resources to insert into multiple tables.
-		try (Connection con = ConnectionUtil.getConnection()) {
+		String query = "INSERT INTO patients(user_id, patient_provider, patient_provider_id, patient_room, patient_current_gender, patient_type, "
+				+ "patient_language_preference, patient_street_address, patient_city, patient_state, patient_country, patient_phone_number, "
+				+ "patient_gender_at_birth, patient_sexual_orientation, patient_marital_status, patient_living_arrangement, patient_is_adopted, "
+				+ "patient_license_number, patient_vehicle_serial_number, patient_vehicle_plate_number, patient_url, patient_device_serial_number, "
+				+ "patient_ip_address) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
 			
-			try (PreparedStatement preparedStatement = con.prepareStatement(patientQuery)) {
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
+				System.out.println("Adding patient...");
 				preparedStatement.setString(1, patient.getUserId());
 				preparedStatement.setString(2, patient.getProvider());
 				preparedStatement.setString(3, patient.getProviderId());
@@ -177,38 +174,18 @@ public class UserPatientDao {
 				preparedStatement.setString(15, patient.getMaritalStatus());
 				preparedStatement.setString(16, patient.getLivingArrangement());
 				preparedStatement.setBoolean(17, patient.isAdopted());
+				preparedStatement.setString(18, patient.getLicenseNumber());
+				preparedStatement.setString(19, patient.getVehicleSerialNumber());
+				preparedStatement.setString(20, patient.getVehiclePlateNumber());
+				preparedStatement.setString(21, patient.getUrl());
+				preparedStatement.setString(22, patient.getDeviceSerialNumber());
+				preparedStatement.setString(23, patient.getIpAddress());
+				success = preparedStatement.executeUpdate();
 			}
-			catch(SQLException e) {
-				
-				exceptionThrown = true;
-				thrownResult = "Could not add patient to patients table! ";
-			}
-
-			try (PreparedStatement preparedStatement = con.prepareStatement(patientRaceQuery)) {
-			/*	
-				for(int i = 0; i < patient.getRaces().size(); i++) {
-					
-					preparedStatement.setString(1, patient.getUserId());
-					preparedStatement.setString(2, patient.getRaces().get(i));
-				}
-				*/
-			}
-			catch(SQLException e) {
-				
-				exceptionThrown = true;
-				thrownResult += "Could not add races to patient race table! ";
-			}
-		}	
-		catch(SQLException e) {
-			
-			exceptionThrown = true;
-			thrownResult += "Something went wrong with connection for adding a patient.";
 		}
-		if(exceptionThrown) {
-			return thrownResult;
+		if(success == 0) {
+			return "Could not add patient to the database!";
 		}
-		else {
-			return PATIENTDAO_SUCCESS;
-		}
+		return "Successfully added patient to the database!";
 	}
 }

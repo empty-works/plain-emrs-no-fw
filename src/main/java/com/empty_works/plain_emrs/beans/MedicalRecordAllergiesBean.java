@@ -6,11 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordAllergyUnit;
+
 public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanDaoInterface {
 
 	private int allergiesId;
 	private String medicalRecordId;
 	private String allergyName;
+	private List<MedicalRecordAllergyUnit> allergyUnits;
 	
 	public int getAllergiesId() {
 		return allergiesId;
@@ -24,7 +27,13 @@ public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanD
 	public void setAllergyName(String allergyName) {
 		this.allergyName = allergyName;
 	}
-
+	
+	public List<MedicalRecordAllergyUnit> getAllergyUnits() {
+		return allergyUnits;
+	}
+	public void setAllergyUnits(List<MedicalRecordAllergyUnit> allergyUnits) {
+		this.allergyUnits = allergyUnits;
+	}
 	@Override
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;

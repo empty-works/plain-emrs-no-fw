@@ -47,7 +47,7 @@ public class MedicalRecordIllnessesDao {
 		return medRecordIllnessesBeanList;
 	}
 	
-	public static int add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
+	public static String add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -71,8 +71,10 @@ public class MedicalRecordIllnessesDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		return success;
+		if(success == 0) {
+			return "Could not add patient illnesses to the database!";
+		}
+		return "Successfully added patient illnesses to the database!";
 	}
 
 	/**

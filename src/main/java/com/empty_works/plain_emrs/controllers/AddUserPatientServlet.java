@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,15 +23,29 @@ import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
-import com.empty_works.plain_emrs.beans.PatientRaceBean;
+import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.beans.UserLoginLogBean;
 import com.empty_works.plain_emrs.dao.AddUserDao;
+import com.empty_works.plain_emrs.dao.AuthoritiesDao;
+import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
+import com.empty_works.plain_emrs.dao.UserActivityLogDao;
+import com.empty_works.plain_emrs.dao.UserDao;
+import com.empty_works.plain_emrs.dao.UserLoginLogDao;
+import com.empty_works.plain_emrs.dao.UserPatientDao;
+import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalProblemGeneralLists;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordAllergyUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseLists;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
@@ -91,7 +106,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		AuthorityBean authority;
 		UserPatientBean patient; // Instantiated if user is a new patient.
 		EmergencyContactsBean contacts;
-		PatientRaceBean patientRace;
+		UserPatientRaceBean patientRace;
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
@@ -165,7 +180,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		contacts.setEmail(request.getParameter("contactEmailAddress"));
 		
 		// Patient race
-		patientRace = new PatientRaceBean();
+		patientRace = new UserPatientRaceBean();
 		patientRace.setUserId(userId);
 		String[] races = request.getParameterValues("raceCheck");
 		for(String race : races) {
@@ -208,7 +223,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
 		
 		allergies = new MedicalRecordAllergiesBean();
-		
+		allergies.setMedicalRecordId(medicalRecordId);
+		allergies.setAllergyUnits(parseAllergies(request));
 
 		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
@@ -239,19 +255,38 @@ public class AddUserPatientServlet extends HttpServlet {
 		illnesses.setIllness(parseIllnesses(request));
 
 		// Now execute all collected queries.
-		addUserDao.add(user);
-		addUserDao.add(authority);
-		addUserDao.add(userLogin);
-		addUserDao.add(userActivity);
-		addUserDao.add(patient);
-		addUserDao.add(patientRace);
-		addUserDao.add(medRecord);
-		addUserDao.add(surgicalProblems);
-		addUserDao.add(diseases);
-		addUserDao.add(relations);
-		addUserDao.add(illnesses);
-		addUserDao.add(contacts);
-		addUserDao.executeQueries();
+
+		try {
+			UserDao.add(user);
+			AuthoritiesDao.add(authority);
+			UserLoginLogDao.add(userLogin);
+			UserActivityLogDao.add(userActivity);
+			UserPatientDao.add(patient);
+			UserPatientRaceDao.add(patientRace);
+			MedicalRecordDao.add(medRecord);
+			MedicalRecordAllergiesDao.add(allergies);
+			MedicalRecordSurgicalProblemsDao.add(surgicalProblems);
+			MedicalRecordDiseasesDao.add(diseases);
+			MedicalRecordBloodRelativesDao.add(relations);
+			MedicalRecordIllnessesDao.add(illnesses);
+			EmergencyContactsDao.add(contacts);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		//addUserDao.add(user);
+		//addUserDao.add(authority);
+		//addUserDao.add(userLogin);
+		//addUserDao.add(userActivity);
+		//addUserDao.add(patient);
+		//addUserDao.add(patientRace);
+		//addUserDao.add(medRecord);
+		//addUserDao.add(surgicalProblems);
+		//addUserDao.add(diseases);
+		//addUserDao.add(relations);
+		//addUserDao.add(illnesses);
+		//addUserDao.add(contacts);
+		//addUserDao.executeQueries();
 		
 		response.sendRedirect(request.getContextPath() + "/UserPatientServlet?userPatientId=" + user.getUserId());
 	}
@@ -271,33 +306,17 @@ public class AddUserPatientServlet extends HttpServlet {
 		return jobj.toString();
 	}
 	
-	/**
-	 * 
-	 * @param request
-	 * @return
-	 */
-	protected static List<String> parseRaces(HttpServletRequest request) {
+	protected static List<MedicalRecordAllergyUnit> parseAllergies(HttpServletRequest request) {
 		
-		List<String> races = new ArrayList<>(); 
-		String[] reqRaces = request.getParameterValues("raceCheck");
-		for(String raceName : reqRaces) {
-			
-			String parsedRace = raceName;
-			if(raceName.equals(UserRaceLists.asianName)) {
-				
-				parsedRace += "-" + request.getParameter("asianEthnDropdown");
+		List<MedicalRecordAllergyUnit> allergiesList = new ArrayList<>();
+		String[] allergyNames = request.getParameterValues("allergyText");
+		if(allergyNames != null) {
+			for(int i = 0; i < allergyNames.length; i++) {
+				MedicalRecordAllergyUnit allergyUnit = new MedicalRecordAllergyUnit(allergyNames[i]);
+				allergiesList.add(allergyUnit);
 			}
-			else if(raceName.equals(UserRaceLists.hiLaName)) {
-				
-				parsedRace += "-" + request.getParameter("hisLatinEthnDropdown");
-			}
-			else if(raceName.equals(UserRaceLists.naHaPaIsName)) {
-				
-				parsedRace += "-" + request.getParameter("pacIslEthnDropdown");
-			}
-			races.add(parsedRace);
 		}
-		return races;
+		return allergiesList;
 	}
 	
 	/**

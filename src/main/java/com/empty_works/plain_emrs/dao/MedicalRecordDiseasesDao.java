@@ -41,31 +41,31 @@ public class MedicalRecordDiseasesDao {
 		return medRecordDiseasesBeanList;
 	}
 	
-	public static int add(MedicalRecordDiseasesBean medRecordDiseasesBean) {
+	public static String add(MedicalRecordDiseasesBean medRecordDiseasesBean) throws SQLException {
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "INSERT INTO diseases(medical_record_id, disease, contracted_disease, received_immunization) "
 				+ "values (?,?,?,?)";
 
+		List<MedicalRecordDiseaseUnit> diseases = medRecordDiseasesBean.getDiseases();
 		int success = 0;
-		try {
-			preparedStatement = con.prepareStatement(query);
-			List<MedicalRecordDiseaseUnit> diseases = medRecordDiseasesBean.getDiseases();
-			if(diseases != null && diseases.size() > 0) {
-				for(int i = 0; i < diseases.size(); i++) {
-					
-					preparedStatement.setString(1, medRecordDiseasesBean.getMedicalRecordId());
-					preparedStatement.setString(2, diseases.get(i).getDiseaseName());
-					preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
-					preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
-					preparedStatement.addBatch();
+		try(Connection con = ConnectionUtil.getConnection()) {
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				if(diseases != null && diseases.size() > 0) {
+					for(int i = 0; i < diseases.size(); i++) {
+						
+						preparedStatement.setString(1, medRecordDiseasesBean.getMedicalRecordId());
+						preparedStatement.setString(2, diseases.get(i).getDiseaseName());
+						preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
+						preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
+						preparedStatement.addBatch();
+					}
+					success = preparedStatement.executeBatch()[0];
 				}
-				success = preparedStatement.executeBatch()[0];
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		return success;
+		if(success == 0) {
+			return "Could not add patient diseases to the database!";
+		}
+		return "Successfully added patient diseases to the database!";
 	}
 }

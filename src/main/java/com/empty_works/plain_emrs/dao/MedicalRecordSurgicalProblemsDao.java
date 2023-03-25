@@ -43,33 +43,28 @@ public class MedicalRecordSurgicalProblemsDao {
 		return medRecordSurgicalProblemsBeanList;
 	}
 	
-	public static String add(MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean) {
-		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+	public static String add(MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean) throws SQLException {
 		
 		String query = "INSERT INTO surgical_related_problems(medical_record_id, surgical_related_problem, problem_area, "
 				+ "surgical_procedure, surgical_procedure_year) values (?,?,?,?,?)";
 
-		try {
-			preparedStatement = con.prepareStatement(query);
-			for(int i = 0; i < medRecordSurgicalProblemsBean.getSurgicalRelatedProblems().size(); i++) {
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
+				System.out.println("Adding to surgical_related_problems...");
 				preparedStatement.setString(1, medRecordSurgicalProblemsBean.getMedicalRecordId());
-				preparedStatement.setString(2, medRecordSurgicalProblemsBean.getSurgicalRelatedProblems().get(i).getSurgicalRelatedProblem());
-				preparedStatement.setString(3, medRecordSurgicalProblemsBean.getSurgicalRelatedProblems().get(i).getProblemArea());
-				preparedStatement.setString(4, medRecordSurgicalProblemsBean.getSurgicalRelatedProblems().get(i).getSurgicalProcedure());
-				preparedStatement.setString(5, medRecordSurgicalProblemsBean.getSurgicalRelatedProblems().get(i).getSurgicalProcedureYear());
-				preparedStatement.addBatch();
+				preparedStatement.setString(2, medRecordSurgicalProblemsBean.getSurgicalRelatedProblem());
+				preparedStatement.setString(3, medRecordSurgicalProblemsBean.getProblemArea());
+				preparedStatement.setString(4, medRecordSurgicalProblemsBean.getSurgicalProcedure());
+				preparedStatement.setString(5, medRecordSurgicalProblemsBean.getSurgicalProcedureYear());
+				success = preparedStatement.executeUpdate();
 			}
-			int[] checks = preparedStatement.executeBatch();
-			for(int check : checks) {
-				// If even one returns zero, insertion failed.
-				if(check == 0) {return "Something went wrong. Could not add surgery-related problem data.";}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		return SURGICALDAO_SUCCESS;
+		if(success == 0) {
+			return "Could not add surgical problems to the database!";
+		}
+		return "Successfully added surgical problems to the database!";
 	}
 }

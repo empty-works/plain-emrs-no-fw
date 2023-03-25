@@ -47,26 +47,29 @@ public class MedicalRecordDao {
 		return medBean;
 	}
 	
-	public static String add(BeanDaoInterface medRecordBean) {
+	public static String add(MedicalRecordBean medRecordBean) throws SQLException {
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		String query = "INSERT INTO medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
+				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
 		
-		try {
-
-			preparedStatement = con.prepareStatement(medRecordBean.getWriteQuery());
-			// The prepareStatements method executes the update.
-			int i = medRecordBean.prepareWriteStatement(preparedStatement);
-			if(i != 0) 
-				return MEDICALRECORDDAO_SUCCESS;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Adding medical record...");
+				preparedStatement.setString(1, medRecordBean.getMedicalRecordId());
+				preparedStatement.setString(2, medRecordBean.getUserId());
+				preparedStatement.setString(3, medRecordBean.getPatientCondition());
+				preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordBean.getMedicalRecordCreatedOn()));
+				preparedStatement.setBoolean(5, medRecordBean.isActive());
+				preparedStatement.setString(6, medRecordBean.getBloodTransfusionStatus());
+				success = preparedStatement.executeUpdate();
+			}
 		}
-		finally {
-			ConnectionUtil.closeConnection(con, preparedStatement, null);
+		if(success == 0) {
+			return "Could not add medical record to the database!";
 		}
-
-		return medRecordBean.getWriteErrorMessage();
+		return "Successfully added medical record to the database!";
 	}
 }

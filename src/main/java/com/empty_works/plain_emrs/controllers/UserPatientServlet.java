@@ -22,7 +22,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
-import com.empty_works.plain_emrs.beans.PatientRaceBean;
+import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
@@ -47,7 +47,7 @@ public class UserPatientServlet extends HttpServlet {
 		String userPatientId = (String)request.getParameter("userPatientId");
 		request.setAttribute("userPatientId", userPatientId);
 		UserPatientBean patient = UserPatientDao.get(userPatientId);
-		PatientRaceBean patientRace = UserPatientRaceDao.get(userPatientId);
+		UserPatientRaceBean patientRace = UserPatientRaceDao.get(userPatientId);
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.get(userPatientId);
 		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
 		String medRecordId = medRecord.getMedicalRecordId();

@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javax.servlet.ServletException;
@@ -58,9 +59,14 @@ public class AddPatientServlet extends HttpServlet {
 		//pb.setPatientId(PatientIdUtil.get(givenName, lastName));
 		
 		System.out.println("Adding patient to the database...");
-		String patientAddResult = UserPatientDao.add(pb);
+		String patientAddResult = "";
+		try {
+			patientAddResult = UserPatientDao.add(pb);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(patientAddResult.equals(UserPatientDao.PATIENTDAO_SUCCESS)) {
-			
 			System.out.println("Patient successfully added to the database!");
 			//request.setAttribute(UserPatientServlet.patientDbAttribute, pb);
 			request.getRequestDispatcher("/WEB-INF/Patient.jsp").forward(request, response);

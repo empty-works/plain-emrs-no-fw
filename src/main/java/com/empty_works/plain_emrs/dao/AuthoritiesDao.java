@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.empty_works.plain_emrs.beans.AuthorityBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class AuthoritiesDao {
 
 	public static String AUTHORITIESDAO_SUCCESS = "Successfully added new authority.";
 	
-	public static String add(String userId, String userRole) {
+	public static String add(AuthorityBean authority) {
 		
 		Connection con = null;
 		PreparedStatement preparedStatement = null;
@@ -20,8 +21,8 @@ public class AuthoritiesDao {
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, userId);
-			preparedStatement.setString(2, userRole);
+			preparedStatement.setString(1, authority.getUserId());
+			preparedStatement.setString(2, authority.getAuthority());
 			int i = preparedStatement.executeUpdate();
 			if(i != 0) return AUTHORITIESDAO_SUCCESS;
 		} catch (SQLException e) {
@@ -32,7 +33,6 @@ public class AuthoritiesDao {
 			
 			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
-		
 		return "Something went wrong with adding a user authority to the database!";
 	}
 }

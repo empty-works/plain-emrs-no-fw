@@ -41,8 +41,25 @@ public class MedicalRecordAllergiesDao {
 		return medRecordAllergiesList;
 	}
 	
-	public static String add(MedicalRecordAllergiesBean medRecordAllergiesBean) {
+	public static String add(MedicalRecordAllergiesBean medRecordAllergiesBean) throws SQLException {
 		
-		return MedicalRecordDao.add(medRecordAllergiesBean);
+		String query = "INSERT INTO allergies(allergies_id, medical_record_id, allergy_name) VALUES (?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Adding to allergies table...");
+				preparedStatement.setInt(1, medRecordAllergiesBean.getAllergiesId());
+				preparedStatement.setString(2, medRecordAllergiesBean.getMedicalRecordId());
+				preparedStatement.setString(3, medRecordAllergiesBean.getAllergyName());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		if(success == 0) {
+			return "Could not add patient allergies to the database!";
+		}
+		return "Successfully added patient allergies to the database!";
 	}
 }

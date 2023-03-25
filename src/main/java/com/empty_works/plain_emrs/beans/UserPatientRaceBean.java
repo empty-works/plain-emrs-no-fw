@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientRaceBean implements BeanDaoInterface {
+public class UserPatientRaceBean implements BeanDaoInterface {
 
 	private String userId;
 	private List<String> races = new ArrayList<>();

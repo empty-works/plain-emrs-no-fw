@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.BeanDaoInterface;
-import com.empty_works.plain_emrs.beans.PatientRaceBean;
+import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class UserPatientRaceDao {
@@ -16,9 +16,9 @@ public class UserPatientRaceDao {
 	final public static String USERDAO_SUCCESS = "User successfully added!";
 	private List<BeanDaoInterface> beans = new ArrayList<>();
 	
-	public static PatientRaceBean get(String userPatientId) {
+	public static UserPatientRaceBean get(String userPatientId) {
 		
-		PatientRaceBean raceBean = new PatientRaceBean();
+		UserPatientRaceBean raceBean = new UserPatientRaceBean();
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		String raceQuery = "SELECT patient_race "
@@ -41,5 +41,29 @@ public class UserPatientRaceDao {
 			ConnectionUtil.closeConnection(con, preparedStatement, null);
 		}
 		return raceBean;
+	}
+	
+	public static String add(UserPatientRaceBean patientRace) throws SQLException {
+		
+		String query = "INSERT INTO patient_races(user_id, patient_race) values(?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				for(int i = 0; i < patientRace.getRaces().size(); i++) {
+					
+					preparedStatement.setString(1, patientRace.getUserId());
+					preparedStatement.setString(2, patientRace.getRaces().get(i));
+					preparedStatement.addBatch();
+				}
+				success =  preparedStatement.executeBatch()[0];
+			}
+		}
+		if(success == 0) {
+			return "Could not add patient races to the database!";
+		}
+		return "Successfully added patient races to the database!";
 	}
 }
