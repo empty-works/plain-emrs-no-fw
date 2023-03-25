@@ -213,7 +213,10 @@
 					<h3>Medical History</h3>
 					<fieldset>
 						<legend>Allergies</legend>	
-						
+						<!-- genMedProbContainer is the container for dynamically added general nodes. -->
+						<div id="allergiesProbContainer"></div>
+						<button type="button" id="allergiesAddButton" onclick='allergiesMed.addNode(allergiesProbContainer, true)'>Add</button><div id="addLimitReached"></div>
+						<div id="genMedLimitMsg"></div>
 					</fieldset>
 					<fieldset>
 						<legend>Patient condition</legend>	

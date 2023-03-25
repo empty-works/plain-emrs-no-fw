@@ -140,15 +140,10 @@ class AllergiesAdder {
 	addNode(allergiesCon, needsRemoveButton) {
 		if(this.allergiesLimit < this.ALLERGIES_MAX) {
 			this.allergiesLimit++;
-			console.log(jsonList);
 			let allergiesNode = document.createElement("div");
 			// Add the rest of the medical problem inputs to the node
 			let allergiesHtml = 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbText" + "\" placeholder=\"Medical problem:\">" + 
-			"<input type=\"text\" class=\"med-prob-text\" name=\"medProbSurgeryText" + "\" placeholder=\"Surgical procedure:\">" + 
-			"<label class=\"med-prob-text\" for=\"medProbSurgeryDate" + "\">Surgical procedure date: </label>" + 
-			"<input type=\"date\" class=\"medProbSurgeryDate\" name=\"medProbSurgeryDate" + "\">";
-			allergiesNode.appendChild(allergiesDropDown);
+			"<input type=\"text\" class=\"med-prob-text\" name=\"allergyText" + "\" placeholder=\"Allergy:\">"; 
 			allergiesNode.insertAdjacentHTML("beforeend", allergiesHtml);
 			if(needsRemoveButton == true) {
 				allergiesNode.insertAdjacentHTML("beforeend", this.setAllergiesType());
@@ -166,7 +161,7 @@ class AllergiesAdder {
 	
 	setAllergiesType() {
 		if(this.allergiesType === "allergiesMed") {
-			return "<button type=\"button\" onclick=\"genMed.removeNode(this)\">-</button>";
+			return "<button type=\"button\" onclick=\"allergiesMed.removeNode(this)\">-</button>";
 		}
 	}
 
