@@ -40,8 +40,27 @@ public class MedicalRecordMedicationDao {
 		return medRecordMedicationBeanList;
 	}
 	
-	public static String add(MedicalRecordMedicationBean medRecordMedicationBean) {
+	public static String add(MedicalRecordMedicationBean medRecordMedicationBean) throws SQLException {
 		
-		return MedicalRecordDao.add(medRecordMedicationBean);
+		// medication_id is auto-incremented.
+		String query = "INSERT INTO medication(medical_record_id, medication_name, medication_is_current, medication_description) "
+				+ "VALUES (?,?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medRecordMedicationBean.getMedicalRecordId());
+				preparedStatement.setString(2, medRecordMedicationBean.getMedicationName());
+				preparedStatement.setBoolean(3, medRecordMedicationBean.isMedicationCurrent());
+				preparedStatement.setString(4, medRecordMedicationBean.getMedicationDescription());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		if(success == 0) {
+			return "Could not add patient medication to the database!";
+		}
+		return "Successfully added patient medication to the database!";
 	}
 }

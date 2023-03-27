@@ -54,8 +54,40 @@ public class MedicalRecordROSDao {
 		return medRecordROSBeanList;
 	}
 	
-	public static String add(MedicalRecordROSBean medRecordROSBean) {
+	public static String add(MedicalRecordROSBean medRecordROSBean) throws SQLException {
 		
-		return MedicalRecordDao.add(medRecordROSBean);
+		String query = "INSERT INTO reviews_of_systems(chief_complaint_id, medical_record_id, constitutional_symptoms, eyes, "
+				+ "ears_nose_throat, cardiovascular, respiratory, gastrointestinal, genitournary, musculoskeletal, integumentary, "
+				+ "neurological, psychiatric, endocrine, hematologic_lymphatic, allergic_immunologic) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setInt(1, medRecordROSBean.getChiefComplaintId());
+				preparedStatement.setString(2, medRecordROSBean.getMedicalRecordId());
+				preparedStatement.setString(3, medRecordROSBean.getConstitutionalSymptoms());
+				preparedStatement.setString(4, medRecordROSBean.getEyes());
+				preparedStatement.setString(5, medRecordROSBean.getEarsNoseThroat());
+				preparedStatement.setString(6, medRecordROSBean.getCardiovascular());
+				preparedStatement.setString(7, medRecordROSBean.getRespiratory());
+				preparedStatement.setString(8, medRecordROSBean.getGastrointestinal());
+				preparedStatement.setString(9, medRecordROSBean.getGenitournary());
+				preparedStatement.setString(10, medRecordROSBean.getMusculoskeletal());
+				preparedStatement.setString(11, medRecordROSBean.getIntegumentary());
+				preparedStatement.setString(12, medRecordROSBean.getNeurological());
+				preparedStatement.setString(13, medRecordROSBean.getPsychiatric());
+				preparedStatement.setString(14, medRecordROSBean.getEndocrine());
+				preparedStatement.setString(15, medRecordROSBean.getHematologicLymphatic());
+				preparedStatement.setString(16, medRecordROSBean.getAllergicImmunologic());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		if(success == 0) {
+			return "Could not add review of systems to the database!";
+		}
+		return "Successfully added review of systems to the database!";
 	}
 }

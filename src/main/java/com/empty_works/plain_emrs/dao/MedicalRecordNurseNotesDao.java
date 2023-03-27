@@ -41,8 +41,26 @@ public class MedicalRecordNurseNotesDao {
 		return medRecordNurseNotesBeanList;
 	}
 	
-	public static String add(MedicalRecordNurseNotesBean medRecordNurseNotesBean) {
+	public static String add(MedicalRecordNurseNotesBean medRecordNurseNotesBean) throws SQLException {
 		
-		return MedicalRecordDao.add(medRecordNurseNotesBean);
+		String query = "INSERT INTO nurse_notes(medical_record_id, nurse_note_date_posted, nurse_note_focus, nurse_note_text) "
+				+ "VALUES (?,?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medRecordNurseNotesBean.getMedicalRecordId());
+				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(medRecordNurseNotesBean.getDatePosted()));
+				preparedStatement.setString(3, medRecordNurseNotesBean.getFocus());
+				preparedStatement.setString(4, medRecordNurseNotesBean.getText());
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		if(success == 0) {
+			return "Could not add nurse notes to the database!";
+		}
+		return "Successfully added nurse notes to the database!";
 	}
 }
