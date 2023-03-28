@@ -1,6 +1,6 @@
 package com.empty_works.plain_emrs.patient_choices;
 
-public class SurgicalProblemUnit {
+public class MedicalRecordSurgicalProblemUnit {
 
 	private String surgicalRelatedProblem;
 	private String problemArea;

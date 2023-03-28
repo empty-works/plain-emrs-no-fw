@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordSurgicalProblemsDao {
@@ -53,13 +54,19 @@ public class MedicalRecordSurgicalProblemsDao {
 			
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
-				System.out.println("Adding to surgical_related_problems...");
-				preparedStatement.setString(1, medRecordSurgicalProblemsBean.getMedicalRecordId());
-				preparedStatement.setString(2, medRecordSurgicalProblemsBean.getSurgicalRelatedProblem());
-				preparedStatement.setString(3, medRecordSurgicalProblemsBean.getProblemArea());
-				preparedStatement.setString(4, medRecordSurgicalProblemsBean.getSurgicalProcedure());
-				preparedStatement.setString(5, medRecordSurgicalProblemsBean.getSurgicalProcedureYear());
-				success = preparedStatement.executeUpdate();
+				List<MedicalRecordSurgicalProblemUnit> surgicalUnits = medRecordSurgicalProblemsBean.getSurgicalRelatedProblems();
+				if(surgicalUnits != null && surgicalUnits.size() > 0) {
+					for(MedicalRecordSurgicalProblemUnit surgicalUnit : surgicalUnits) {
+						System.out.println("Adding to surgical_related_problems...");
+						preparedStatement.setString(1, medRecordSurgicalProblemsBean.getMedicalRecordId());
+						preparedStatement.setString(2, surgicalUnit.getSurgicalRelatedProblem());
+						preparedStatement.setString(3, surgicalUnit.getProblemArea());
+						preparedStatement.setString(4, surgicalUnit.getSurgicalProcedure());
+						preparedStatement.setString(5, surgicalUnit.getSurgicalProcedureYear());
+						preparedStatement.addBatch();
+					}
+					success = preparedStatement.executeBatch()[0];
+				}
 			}
 		}
 		if(success == 0) {

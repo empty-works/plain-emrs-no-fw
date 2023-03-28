@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
-import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
 
 public class AddUserServletTest {
 
@@ -106,8 +106,8 @@ public class AddUserServletTest {
 		List<String> surgRelatedResult = new ArrayList<>();
 		List<String> surgProceduresResult = new ArrayList<>();
 		List<String> surgProceduresYearsResult = new ArrayList<>();
-		List<SurgicalProblemUnit> parsedMedProblems = AddUserPatientServlet.parseSurgeries(request);
-		for(SurgicalProblemUnit parsedMedProblem : parsedMedProblems) {
+		List<MedicalRecordSurgicalProblemUnit> parsedMedProblems = AddUserPatientServlet.parseSurgeries(request);
+		for(MedicalRecordSurgicalProblemUnit parsedMedProblem : parsedMedProblems) {
 			
 			probAreaResult.add(parsedMedProblem.getProblemArea());
 			surgRelatedResult.add(parsedMedProblem.getSurgicalRelatedProblem());
@@ -129,7 +129,7 @@ public class AddUserServletTest {
 		
 		int NUM_ARGS = 4;
 		HttpServletRequest request = mock(HttpServletRequest.class);
-		List<SurgicalProblemUnit> relations;
+		List<MedicalRecordSurgicalProblemUnit> relations;
 		when(request.getParameter("Brothers")).thenReturn("2");
 		when(request.getParameter("Sisters")).thenReturn("3");
 		when(request.getParameter("Sons")).thenReturn("1");

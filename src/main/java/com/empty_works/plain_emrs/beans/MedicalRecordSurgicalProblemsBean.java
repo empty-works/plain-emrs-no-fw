@@ -4,14 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.empty_works.plain_emrs.patient_choices.SurgicalProblemUnit;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
 
 public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface, BeanDaoInterface {
 
 	private int surgicalRelatedId;
 	private String medicalRecordId;
 	private String surgicalRelatedProblem;
-	private List<SurgicalProblemUnit> surgicalRelatedProblems;
+	private List<MedicalRecordSurgicalProblemUnit> surgicalRelatedProblems;
 	private String problemArea;
 	private String surgicalProcedure;
 	private String surgicalProcedureYear;
@@ -31,11 +31,11 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 	public void setSurgicalRelatedProblem(String surgicalRelatedProblem) {
 		this.surgicalRelatedProblem = surgicalRelatedProblem;
 	}
-	public List<SurgicalProblemUnit> getSurgicalRelatedProblems() {
+	public List<MedicalRecordSurgicalProblemUnit> getSurgicalRelatedProblems() {
 		return surgicalRelatedProblems;
 	}
 
-	public void setSurgicalRelatedProblems(List<SurgicalProblemUnit> surgicalRelatedProblems) {
+	public void setSurgicalRelatedProblems(List<MedicalRecordSurgicalProblemUnit> surgicalRelatedProblems) {
 		this.surgicalRelatedProblems = surgicalRelatedProblems;
 	}
 
