@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
+import com.empty_works.plain_emrs.patient_choices.MedicalRecordAllergyUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordAllergiesDao {
@@ -43,23 +44,28 @@ public class MedicalRecordAllergiesDao {
 	
 	public static String add(MedicalRecordAllergiesBean medRecordAllergiesBean) throws SQLException {
 		
-		String query = "INSERT INTO allergies(allergies_id, medical_record_id, allergy_name) VALUES (?,?,?)";
+		String query = "INSERT INTO allergies(medical_record_id, allergy_name) VALUES (?,?)";
 		
+		List<MedicalRecordAllergyUnit> allergyUnits = medRecordAllergiesBean.getAllergyUnits();
 		int success = 0;
 		try(Connection con = ConnectionUtil.getConnection()) {
 			
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
-				System.out.println("Adding to allergies table...");
-				preparedStatement.setInt(1, medRecordAllergiesBean.getAllergiesId());
-				preparedStatement.setString(2, medRecordAllergiesBean.getMedicalRecordId());
-				preparedStatement.setString(3, medRecordAllergiesBean.getAllergyName());
-				success = preparedStatement.executeUpdate();
+				if(allergyUnits != null && allergyUnits.size() > 0) {
+					for(MedicalRecordAllergyUnit allergyUnit : allergyUnits) {
+						
+						System.out.println("Adding to allergies table...");
+						preparedStatement.setString(1, medRecordAllergiesBean.getMedicalRecordId());
+						preparedStatement.setString(2, allergyUnit.getAllergyName());
+						preparedStatement.addBatch();
+					}
+					success = preparedStatement.executeBatch()[0];
+				}
 			}
 		}
 		if(success == 0) {
 			return "Could not add patient allergies to the database!";
-		}
-		return "Successfully added patient allergies to the database!";
+		} return "Successfully added patient allergies to the database!";
 	}
 }
