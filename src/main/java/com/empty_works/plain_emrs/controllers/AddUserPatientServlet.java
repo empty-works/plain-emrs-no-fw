@@ -213,7 +213,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		// User activity log
 		userActivity = new UserActivityLogBean();
 		userActivity.setUserId(userId);
-		userActivity.setMedicalRecordId(medicalRecordId);
 		userActivity.setUserDateTimeOfActivity(LocalDateTime.now());
 		userActivity.setActivityDescription("Medical record created.");
 

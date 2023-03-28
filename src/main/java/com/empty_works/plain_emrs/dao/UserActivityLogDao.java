@@ -11,8 +11,8 @@ public class UserActivityLogDao {
 
 	public static String add(UserActivityLogBean userActivity) throws SQLException {
 		
-		String query = "INSERT INTO user_activity_logs(user_id, medical_record_id, user_date_time_of_activity, activity_description) "
-				+ "VALUES (?,?,?,?)";
+		String query = "INSERT INTO user_activity_logs(user_id, user_date_time_of_activity, activity_description) "
+				+ "VALUES (?,?,?)";
 		
 		int success = 0;
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -21,9 +21,8 @@ public class UserActivityLogDao {
 				
 				System.out.println("Adding user activity log...");
 				preparedStatement.setString(1, userActivity.getUserId());
-				preparedStatement.setString(2, userActivity.getMedicalRecordId());
-				preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(userActivity.getUserDateTimeOfActivity()));
-				preparedStatement.setString(4, userActivity.getActivityDescription());
+				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(userActivity.getUserDateTimeOfActivity()));
+				preparedStatement.setString(3, userActivity.getActivityDescription());
 				success = preparedStatement.executeUpdate();
 			}
 		}

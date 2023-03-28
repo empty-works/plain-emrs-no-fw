@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 public class UserActivityLogBean implements BeanDaoInterface {
 
 	private String userId;
-	private String medicalRecordId;
 	private LocalDateTime userDateTimeOfActivity;
 	private String activityDescription;
 
@@ -16,12 +15,6 @@ public class UserActivityLogBean implements BeanDaoInterface {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-	public String getMedicalRecordId() {
-		return medicalRecordId;
-	}
-	public void setMedicalRecordId(String medicalRecordId) {
-		this.medicalRecordId = medicalRecordId;
 	}
 	public LocalDateTime getUserDateTimeOfActivity() {
 		return userDateTimeOfActivity;
@@ -37,8 +30,8 @@ public class UserActivityLogBean implements BeanDaoInterface {
 	}
 	@Override
 	public String getWriteQuery() {
-		return "INSERT INTO user_activity_logs(user_id, medical_record_id, user_date_time_of_activity, activity_description) "
-				+ "values (?,?,?,?)";
+		return "INSERT INTO user_activity_logs(user_id, user_date_time_of_activity, activity_description) "
+				+ "values (?,?,?)";
 	}
 	@Override
 	public String getWriteErrorMessage() {
@@ -49,9 +42,8 @@ public class UserActivityLogBean implements BeanDaoInterface {
 
 		System.out.println("Adding user activity log...");
 		preparedStatement.setString(1, getUserId());
-		preparedStatement.setString(2, getMedicalRecordId());
-		preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(getUserDateTimeOfActivity()));
-		preparedStatement.setString(4, getActivityDescription());
+		preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(getUserDateTimeOfActivity()));
+		preparedStatement.setString(3, getActivityDescription());
 		return preparedStatement.executeUpdate();
 	}
 }
