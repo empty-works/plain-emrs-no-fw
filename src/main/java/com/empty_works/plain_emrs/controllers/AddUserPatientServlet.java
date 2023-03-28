@@ -182,6 +182,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		// Patient race
 		patientRace = new UserPatientRaceBean();
 		patientRace.setUserId(userId);
+		patientRace.addRaces(parseRaces(request));
+		/*
 		String[] races = request.getParameterValues("raceCheck");
 		for(String race : races) {
 			if(race.equals(UserRaceLists.asianName)) {
@@ -196,6 +198,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			System.out.println("Checked race: " + race);
 			patientRace.addRace(race);
 		}
+		*/
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
@@ -304,6 +307,26 @@ public class AddUserPatientServlet extends HttpServlet {
 		}
 		System.out.println(jobj);
 		return jobj.toString();
+	}
+	
+	protected static List<String> parseRaces(HttpServletRequest request) {
+		
+		List<String> patientRaces = new ArrayList<>();
+		String[] races = request.getParameterValues("raceCheck");
+		for(String race : races) {
+			if(race.equals(UserRaceLists.asianName)) {
+				race += " - " + request.getParameter("asianEthnDropdown");
+			}
+			else if(race.equals(UserRaceLists.hiLaName)) {
+				race += " - " + request.getParameter("hisLatinEthnDropdown");
+			}
+			else if(race.equals(UserRaceLists.naHaPaIsName)) {
+				race += " - " + request.getParameter("pacIslEthnDropdown");
+			}
+			System.out.println("Checked race: " + race);
+			patientRaces.add(race);
+		}
+		return patientRaces;
 	}
 	
 	protected static List<MedicalRecordAllergyUnit> parseAllergies(HttpServletRequest request) {
