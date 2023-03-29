@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-public class MedicalRecordBean implements PatientIdInterface, BeanDaoInterface {
+public class MedicalRecordBean implements PatientIdInterface {
 
 	private String userId;
 	private String medicalRecordId;
@@ -50,26 +50,5 @@ public class MedicalRecordBean implements PatientIdInterface, BeanDaoInterface {
 	}
 	public void setBloodTransfusionStatus(String bloodTransfusionStatus) {
 		this.bloodTransfusionStatus = bloodTransfusionStatus;
-	}
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO medical_records(medical_record_id, user_id, patient_condition, medical_record_created_on, is_active, "
-				+ "blood_transfusion_status) values (?,?,?,?,?,?)";
-	}
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add medical record!";
-	}
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-
-		System.out.println("Adding medical record...");
-		preparedStatement.setString(1, getMedicalRecordId());
-		preparedStatement.setString(2, getUserId());
-		preparedStatement.setString(3, getPatientCondition());
-		preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(getMedicalRecordCreatedOn()));
-		preparedStatement.setBoolean(5, isActive());
-		preparedStatement.setString(6, getBloodTransfusionStatus());
-		return preparedStatement.executeUpdate();
 	}
 }

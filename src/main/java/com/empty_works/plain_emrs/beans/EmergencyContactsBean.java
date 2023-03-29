@@ -1,9 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-public class EmergencyContactsBean implements BeanDaoInterface {
+public class EmergencyContactsBean {
 
 	private String firstName, middleInitial, lastName;
 	private String phoneNumber, email;
@@ -44,26 +41,5 @@ public class EmergencyContactsBean implements BeanDaoInterface {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO emergency_contacts(user_id, emergency_contact_given_name, emergency_contact_middle_initial, emergency_contact_last_name, "
-				+ "emergency_contact_phone_number, emergency_contact_email_address) "
-				+ "VALUES (?,?,?,?,?,?)";
-	}
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add emergency contact to emergency_contacts!";
-	}
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-		System.out.println("Adding emergency contact...");
-		preparedStatement.setString(1, getUserPatientId());
-		preparedStatement.setString(2, getFirstName());
-		preparedStatement.setString(3, getMiddleInitial());
-		preparedStatement.setString(4, getLastName());
-		preparedStatement.setString(5, getPhoneNumber());
-		preparedStatement.setString(6, getEmail());
-		return preparedStatement.executeUpdate();
 	}
 }

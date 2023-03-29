@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 
-public class MedicalRecordDiseasesBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordDiseasesBean implements MedicalRecordInterface {
 
 	private int diseaseId;
 	private String medicalRecordId;
@@ -50,30 +50,5 @@ public class MedicalRecordDiseasesBean implements MedicalRecordInterface, BeanDa
 	}
 	public List<MedicalRecordDiseaseUnit> getDiseases() {
 		return diseases;
-	}
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO diseases(medical_record_id, disease, contracted_disease, received_immunization) "
-				+ "values (?,?,?,?)";
-	}
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add disease data into the database!";
-	}
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-
-		if(diseases != null && diseases.size() > 0) {
-			for(int i = 0; i < diseases.size(); i++) {
-				
-				preparedStatement.setString(1, medicalRecordId);
-				preparedStatement.setString(2, diseases.get(i).getDiseaseName());
-				preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
-				preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
-				preparedStatement.addBatch();
-			}
-			return preparedStatement.executeBatch()[0];
-		}
-		return 0;
 	}
 }

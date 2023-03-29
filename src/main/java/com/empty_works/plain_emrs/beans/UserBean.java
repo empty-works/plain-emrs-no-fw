@@ -1,11 +1,9 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class UserBean extends GeneralBean implements BeanDaoInterface {
+public class UserBean extends GeneralBean {
 
 	// No password attribute because it's generated during user creation
 	private String userId;
@@ -89,30 +87,5 @@ public class UserBean extends GeneralBean implements BeanDaoInterface {
 	}
 	public void setRole(String role) {
 		this.role = role;
-	}
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO users(user_id, user_password, user_email_address, user_enabled, user_created_on, current_facility_id, "
-				+ "user_date_of_birth, user_first_name, user_middle_initial, user_last_name) values (?,?,?,?,?,?,?,?,?,?)";
-	}
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add user to users table!";
-	}
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-		
-		System.out.println("Adding user...");
-		preparedStatement.setString(1, getUserId());
-		preparedStatement.setString(2, getUserPassword());
-		preparedStatement.setString(3, getEmailAddress());
-		preparedStatement.setBoolean(4, isUserEnabled());
-		preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(getDateCreated()));
-		preparedStatement.setString(6, getCurrentFacilityId());
-		preparedStatement.setDate(7, java.sql.Date.valueOf(getDateOfBirth()));
-		preparedStatement.setString(8, getFirstName());
-		preparedStatement.setString(9, getMiddleInitial());
-		preparedStatement.setString(10, getLastName());
-		return preparedStatement.executeUpdate();
 	}
 }

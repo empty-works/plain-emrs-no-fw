@@ -1,12 +1,10 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
 
-public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface {
 
 	private int surgicalRelatedId;
 	private String medicalRecordId;
@@ -69,28 +67,5 @@ public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface
 
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;
-	}
-
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO surgical_related_problems(medical_record_id, surgical_related_problem, problem_area, "
-				+ "surgical_procedure, surgical_procedure_year) values (?,?,?,?,?)";
-	}
-
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add surgical procedures data!";
-	}
-
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-
-		System.out.println("Adding to surgical_related_problems...");
-		preparedStatement.setString(1, getMedicalRecordId());
-		preparedStatement.setString(2, getSurgicalRelatedProblem());
-		preparedStatement.setString(3, getProblemArea());
-		preparedStatement.setString(4, getSurgicalProcedure());
-		preparedStatement.setString(5, getSurgicalProcedureYear());
-		return preparedStatement.executeUpdate();
 	}
 }

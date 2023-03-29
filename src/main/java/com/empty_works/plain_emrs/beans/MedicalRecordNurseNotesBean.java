@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-public class MedicalRecordNurseNotesBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordNurseNotesBean implements MedicalRecordInterface {
 
 	private int nurseNoteId;
 	private String medicalRecordId;
@@ -42,29 +42,6 @@ public class MedicalRecordNurseNotesBean implements MedicalRecordInterface, Bean
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO nurse_notes(nurse_note_id, medical_record_id, nurse_note_date_posted, nurse_note_focus, nurse_note_text) "
-				+ "VALUES (?,?,?,?,?)";
-	}
-
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add to nurse_notes table!";
-	}
-
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-		
-		System.out.println("Adding to nurse_notes table...");
-		preparedStatement.setInt(1, getNurseNoteId());
-		preparedStatement.setString(2, getMedicalRecordId());
-		preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(getDatePosted()));
-		preparedStatement.setString(4, getFocus());
-		preparedStatement.setString(5, getText());
-		return preparedStatement.executeUpdate();
 	}
 
 	@Override

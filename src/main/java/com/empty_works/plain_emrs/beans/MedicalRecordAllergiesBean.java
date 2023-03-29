@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordAllergyUnit;
 
-public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordAllergiesBean implements MedicalRecordInterface {
 
 	private int allergiesId;
 	private String medicalRecordId;
@@ -41,22 +41,5 @@ public class MedicalRecordAllergiesBean implements MedicalRecordInterface, BeanD
 	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
-	}
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO allergies(allergies_id, medical_record_id, allergy_name) VALUES (?,?,?)";
-	}
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add to allergies table!";
-	}
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-
-		System.out.println("Adding to allergies table...");
-		preparedStatement.setInt(1, getAllergiesId());
-		preparedStatement.setString(2, getMedicalRecordId());
-		preparedStatement.setString(3, getAllergyName());
-		return preparedStatement.executeUpdate();
 	}
 }

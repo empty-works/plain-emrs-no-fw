@@ -1,9 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-public class AuthorityBean implements BeanDaoInterface {
+public class AuthorityBean {
 
 	private String userId;
 	private String authority;
@@ -22,22 +19,5 @@ public class AuthorityBean implements BeanDaoInterface {
 
 	public void setAuthority(String authority) {
 		this.authority = authority;
-	}
-
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO authorities(user_id, authority) values (?, ?)";
-	}
-
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add authority to authorities table!";
-	}
-
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-		preparedStatement.setString(1, getUserId());
-		preparedStatement.setString(2, getAuthority());
-		return preparedStatement.executeUpdate();
 	}
 }

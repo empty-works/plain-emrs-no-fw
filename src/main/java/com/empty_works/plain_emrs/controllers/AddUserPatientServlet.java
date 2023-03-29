@@ -29,7 +29,6 @@ import com.empty_works.plain_emrs.beans.UserActivityLogBean;
 import com.empty_works.plain_emrs.beans.UserAuthorityBean;
 import com.empty_works.plain_emrs.beans.UserBean;
 import com.empty_works.plain_emrs.beans.UserLoginLogBean;
-import com.empty_works.plain_emrs.dao.AddUserDao;
 import com.empty_works.plain_emrs.dao.AuthoritiesDao;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
@@ -116,7 +115,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
 		MedicalRecordIllnessesBean illnesses;
 		MedicalRecordBean medRecord;	
-		AddUserDao addUserDao = new AddUserDao();
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
 		user.setUserEnabled(true); // User enabled right away when created.

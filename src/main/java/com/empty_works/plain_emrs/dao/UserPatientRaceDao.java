@@ -4,17 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.empty_works.plain_emrs.beans.BeanDaoInterface;
 import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class UserPatientRaceDao {
 	
 	final public static String USERDAO_SUCCESS = "User successfully added!";
-	private List<BeanDaoInterface> beans = new ArrayList<>();
 	
 	public static UserPatientRaceBean get(String userPatientId) {
 		

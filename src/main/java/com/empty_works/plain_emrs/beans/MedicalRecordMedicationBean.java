@@ -1,9 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-public class MedicalRecordMedicationBean implements MedicalRecordInterface, BeanDaoInterface {
+public class MedicalRecordMedicationBean implements MedicalRecordInterface {
 
 	private int medicationId;
 	private String medicalRecordId;
@@ -41,28 +38,6 @@ public class MedicalRecordMedicationBean implements MedicalRecordInterface, Bean
 
 	public void setMedicationDescription(String medicationDescription) {
 		this.medicationDescription = medicationDescription;
-	}
-
-	@Override
-	public String getWriteQuery() {
-		return "INSERT INTO medication(medication_id, medical_record_id, medication_name, medication_is_current, medication_description) "
-				+ "values (?,?,?,?,?)";
-	}
-
-	@Override
-	public String getWriteErrorMessage() {
-		return "Could not add to the medication table!";
-	}
-
-	@Override
-	public int prepareWriteStatement(PreparedStatement preparedStatement) throws SQLException {
-		System.out.println("Adding to the medication table...");
-		preparedStatement.setInt(1, getMedicationId());
-		preparedStatement.setString(2, getMedicalRecordId());
-		preparedStatement.setString(3, getMedicationName());
-		preparedStatement.setBoolean(4, isMedicationCurrent());
-		preparedStatement.setString(5, getMedicationDescription());
-		return preparedStatement.executeUpdate();
 	}
 
 	@Override
