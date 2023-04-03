@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordAdmissionsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
@@ -18,14 +20,25 @@ import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordAdmissionsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordChiefComplaintsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordMedicationDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordNurseNotesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordROSDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordVitalsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
 import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
 
@@ -52,14 +65,21 @@ public class UserPatientServlet extends HttpServlet {
 		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
 		String medRecordId = medRecord.getMedicalRecordId();
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
-		MedicalRecordBloodRelativesBean medRecordBloodRelations;
-		MedicalRecordChiefComplaintsBean medRecordChiefComplaints;
-		MedicalRecordDiseasesBean medRecordDiseases;
-		MedicalRecordIllnessesBean medRecordIllnesses;
-		MedicalRecordMedicationBean medRecordMedication;
-		MedicalRecordROSBean medRecordRos;
-		MedicalRecordSurgicalProblemsBean medRecordSurgicalProblems;
-		MedicalRecordVitalsBean medRecordVitals;
+		MedicalRecordBloodRelativesBean medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
+		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
+		List<MedicalRecordDiseasesBean> medRecordDiseasesList = MedicalRecordDiseasesDao.get(medRecordId);
+		List<MedicalRecordIllnessesBean> medRecordIllnessesList = MedicalRecordIllnessesDao.get(medRecordId);
+		List<MedicalRecordMedicationBean> medRecordMedicationList = MedicalRecordMedicationDao.get(medRecordId);
+		List<MedicalRecordSurgicalProblemsBean> medRecordSurgicalProblemsList = MedicalRecordSurgicalProblemsDao.get(medRecordId);
+		List<MedicalRecordNurseNotesBean> medRecordNurseNotesList = MedicalRecordNurseNotesDao.get(medRecordId);
+		List<MedicalRecordVitalsBean> medRecordVitalsList = null;
+		List<MedicalRecordAdmissionsBean> medRecordAdmissionsList = null; 
+		try {
+			medRecordVitalsList = MedicalRecordVitalsDao.get(medRecordId);
+			medRecordAdmissionsList = MedicalRecordAdmissionsDao.get(medRecordId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		// Store retrieved variables from the database into session variables. 
 		HttpSession session = request.getSession();
@@ -101,6 +121,17 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
 		session.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
 		session.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
+		
+		session.setAttribute("medRecordAllergiesList", medRecordAllergiesList);
+		session.setAttribute("medRecordBloodRelatives", medRecordBloodRelations);
+		session.setAttribute("medRecordChiefComplaintsList", medRecordChiefComplaintsList);
+		session.setAttribute("medRecordDiseasesList", medRecordDiseasesList);
+		session.setAttribute("medRecordIllnessesList", medRecordIllnessesList);
+		session.setAttribute("medRecordMedicationList", medRecordMedicationList);
+		session.setAttribute("medRecordSurgicalProblemsList", medRecordSurgicalProblemsList);
+		session.setAttribute("medRecordNurseNotesList", medRecordNurseNotesList);
+		session.setAttribute("medRecordVitalsList", medRecordVitalsList);
+		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
 		response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
 		//request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);

@@ -76,6 +76,10 @@
 						<div id="chartSurgery">Surgery-related problems</div>
 						<div id="chartNurseNotes">Nurse notes</div>
 					</div>
+					<div class="dynamic-grid">
+						<div id="chartAdmission">Admissions</div>
+						<div id="chartBloodRelatives">Blood relatives</div>
+					</div>
 				</div>
 			</div>
 		</div>
