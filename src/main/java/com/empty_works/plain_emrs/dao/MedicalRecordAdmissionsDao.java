@@ -31,6 +31,7 @@ public class MedicalRecordAdmissionsDao {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
 				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the admissions table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordAdmissionsBean admission = new MedicalRecordAdmissionsBean();

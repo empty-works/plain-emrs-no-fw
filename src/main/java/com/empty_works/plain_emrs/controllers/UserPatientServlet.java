@@ -21,7 +21,6 @@ import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
@@ -36,7 +35,6 @@ import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordMedicationDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordNurseNotesDao;
-import com.empty_works.plain_emrs.dao.MedicalRecordROSDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordVitalsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
@@ -64,6 +62,7 @@ public class UserPatientServlet extends HttpServlet {
 		EmergencyContactsBean emergencyContacts = EmergencyContactsDao.get(userPatientId);
 		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
 		String medRecordId = medRecord.getMedicalRecordId();
+		System.out.println("Medical record ID: " + medRecordId);
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
 		MedicalRecordBloodRelativesBean medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
 		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
@@ -121,7 +120,8 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("emergencyContactLastName", emergencyContacts.getLastName());
 		session.setAttribute("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
 		session.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
-		
+
+		session.setAttribute("medRecord", medRecord);
 		session.setAttribute("medRecordAllergiesList", medRecordAllergiesList);
 		session.setAttribute("medRecordBloodRelatives", medRecordBloodRelations);
 		session.setAttribute("medRecordChiefComplaintsList", medRecordChiefComplaintsList);

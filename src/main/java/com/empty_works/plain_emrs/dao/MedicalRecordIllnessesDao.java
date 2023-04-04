@@ -25,6 +25,7 @@ public class MedicalRecordIllnessesDao {
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicalRecordId);
+			System.out.println("Retrieving from the illnesses table...");
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				MedicalRecordIllnessesBean medRecordIllnessesBean = new MedicalRecordIllnessesBean();

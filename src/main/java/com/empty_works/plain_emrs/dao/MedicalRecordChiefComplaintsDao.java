@@ -25,6 +25,7 @@ public class MedicalRecordChiefComplaintsDao {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicalRecordId);
 			
+			System.out.println("Retrieving from the chief_complaints table...");
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean = new MedicalRecordChiefComplaintsBean();

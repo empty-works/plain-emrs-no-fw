@@ -27,18 +27,22 @@ public class MedicalRecordBloodRelativesDao {
 			preparedStatement.setString(1, medicalRecordId);
 			
 			ResultSet rs = preparedStatement.executeQuery();
-			medRecordBloodRelativesBean.setBloodRelativesId(rs.getInt("blood_relatives_id"));
-			medRecordBloodRelativesBean.setMotherStatus(rs.getString("mother_status"));
-			medRecordBloodRelativesBean.setFatherStatus(rs.getString("father_status"));
-			medRecordBloodRelativesBean.setMothDecAge(rs.getInt("mother_deceased_age"));
-			medRecordBloodRelativesBean.setFathDecAge(rs.getInt("father_deceased_age")); 
-			medRecordBloodRelativesBean.setNumSisters(rs.getInt("num_sisters_alive")); 
-			medRecordBloodRelativesBean.setNumBrothers(rs.getInt("num_brothers_alive")); 
-			medRecordBloodRelativesBean.setNumDaughters(rs.getInt("num_daughters_alive")); 
-			medRecordBloodRelativesBean.setNumSons(rs.getInt("num_sons_alive")); 
-			medRecordBloodRelativesBean.setMothCauseDea(rs.getString("mother_cause_of_death")); 
-			medRecordBloodRelativesBean.setFathCauseDea(rs.getString("father_cause_of_death")); 
+			System.out.println("Retrieving from the blood_relatives table...");
+			while(rs.next()) {
+				medRecordBloodRelativesBean.setBloodRelativesId(rs.getInt("blood_relatives_id"));
+				medRecordBloodRelativesBean.setMotherStatus(rs.getString("mother_status"));
+				medRecordBloodRelativesBean.setFatherStatus(rs.getString("father_status"));
+				medRecordBloodRelativesBean.setMothDecAge(rs.getInt("mother_deceased_age"));
+				medRecordBloodRelativesBean.setFathDecAge(rs.getInt("father_deceased_age")); 
+				medRecordBloodRelativesBean.setNumSisters(rs.getInt("num_sisters_alive")); 
+				medRecordBloodRelativesBean.setNumBrothers(rs.getInt("num_brothers_alive")); 
+				medRecordBloodRelativesBean.setNumDaughters(rs.getInt("num_daughters_alive")); 
+				medRecordBloodRelativesBean.setNumSons(rs.getInt("num_sons_alive")); 
+				medRecordBloodRelativesBean.setMothCauseDea(rs.getString("mother_cause_of_death")); 
+				medRecordBloodRelativesBean.setFathCauseDea(rs.getString("father_cause_of_death")); 
+			}
 		} catch (SQLException e) {
+			System.out.println("Something's wrong in MedicalRecordBloodRelativesDao.get()...");
 			e.printStackTrace();
 		}
 		

@@ -25,6 +25,7 @@ public class MedicalRecordNurseNotesDao {
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicalRecordId);
+			System.out.println("Retrieving from the nurse_notes table...");
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				MedicalRecordNurseNotesBean medRecordNurseNotes = new MedicalRecordNurseNotesBean();

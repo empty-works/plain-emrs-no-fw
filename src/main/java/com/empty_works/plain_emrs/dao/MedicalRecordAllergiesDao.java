@@ -29,6 +29,7 @@ public class MedicalRecordAllergiesDao {
 			preparedStatement.setString(1, medicalRecordId);
 			
 			ResultSet rs = preparedStatement.executeQuery();
+			System.out.println("Retrieving from the allergies table...");
 			while(rs.next()) {
 				MedicalRecordAllergiesBean medRecordAllergies = new MedicalRecordAllergiesBean();
 				medRecordAllergies.setAllergiesId(rs.getInt("allergies_id"));

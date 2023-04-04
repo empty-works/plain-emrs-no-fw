@@ -28,6 +28,7 @@ public class MedicalRecordVitalsDao {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
 				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the vitals table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordVitalsBean vitalsBean = new MedicalRecordVitalsBean();

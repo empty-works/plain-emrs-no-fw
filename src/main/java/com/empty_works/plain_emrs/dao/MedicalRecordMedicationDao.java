@@ -24,6 +24,7 @@ public class MedicalRecordMedicationDao {
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicalRecordId);
+			System.out.println("Retrieving from the medication table...");
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				MedicalRecordMedicationBean medRecordMedicationBean = new MedicalRecordMedicationBean();
