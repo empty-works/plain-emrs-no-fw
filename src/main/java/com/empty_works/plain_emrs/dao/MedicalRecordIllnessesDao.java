@@ -13,38 +13,36 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordIllnessesDao {
 
-	public static List<MedicalRecordIllnessesBean> get(String medicalRecordId) {
+	public static List<MedicalRecordIllnessesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordIllnessesBean> medRecordIllnessesBeanList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT illness_id, illness, self, father, mother, brothers, sisters, sons, daughters, grandparents "
 				+ "FROM illnesses "
 				+ "WHERE medical_record_id=?";
 
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
-			System.out.println("Retrieving from the illnesses table...");
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()) {
-				MedicalRecordIllnessesBean medRecordIllnessesBean = new MedicalRecordIllnessesBean();
-				medRecordIllnessesBean.setIllnessId(rs.getInt("illness_id"));
-				medRecordIllnessesBean.setIllness(rs.getString("illness"));
-				medRecordIllnessesBean.setIllnessSelf(rs.getBoolean("self"));
-				medRecordIllnessesBean.setIllnessFather(rs.getBoolean("father"));
-				medRecordIllnessesBean.setIllnessMother(rs.getBoolean("mother"));
-				medRecordIllnessesBean.setIllnessBrothers(rs.getBoolean("brothers"));
-				medRecordIllnessesBean.setIllnessSisters(rs.getBoolean("sisters"));
-				medRecordIllnessesBean.setIllnessSons(rs.getBoolean("sons"));
-				medRecordIllnessesBean.setIllnessDaughters(rs.getBoolean("daughters"));
-				medRecordIllnessesBean.setIllnessGrandparents(rs.getBoolean("grandparents"));
-				medRecordIllnessesBeanList.add(medRecordIllnessesBean);
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the illnesses table...");
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next()) {
+					MedicalRecordIllnessesBean medRecordIllnessesBean = new MedicalRecordIllnessesBean();
+					medRecordIllnessesBean.setIllnessId(rs.getInt("illness_id"));
+					medRecordIllnessesBean.setIllness(rs.getString("illness"));
+					medRecordIllnessesBean.setIllnessSelf(rs.getBoolean("self"));
+					medRecordIllnessesBean.setIllnessFather(rs.getBoolean("father"));
+					medRecordIllnessesBean.setIllnessMother(rs.getBoolean("mother"));
+					medRecordIllnessesBean.setIllnessBrothers(rs.getBoolean("brothers"));
+					medRecordIllnessesBean.setIllnessSisters(rs.getBoolean("sisters"));
+					medRecordIllnessesBean.setIllnessSons(rs.getBoolean("sons"));
+					medRecordIllnessesBean.setIllnessDaughters(rs.getBoolean("daughters"));
+					medRecordIllnessesBean.setIllnessGrandparents(rs.getBoolean("grandparents"));
+					medRecordIllnessesBeanList.add(medRecordIllnessesBean);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordIllnessesBeanList;
 	}
 	

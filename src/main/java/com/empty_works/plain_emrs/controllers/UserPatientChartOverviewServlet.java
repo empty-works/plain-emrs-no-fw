@@ -36,6 +36,7 @@ public class UserPatientChartOverviewServlet extends HttpServlet {
 		request.setAttribute("patientBirthGender", session.getAttribute("patientBirthGender"));
 		request.setAttribute("patientCurrentGender", session.getAttribute("patientCurrentGender"));
 		
+		System.out.println("Forwarding to UserPatientChartOverview.jsp...");
 		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
 	}
 

@@ -63,17 +63,26 @@ public class UserPatientServlet extends HttpServlet {
 		MedicalRecordBean medRecord = MedicalRecordDao.get(userPatientId);
 		String medRecordId = medRecord.getMedicalRecordId();
 		System.out.println("Medical record ID: " + medRecordId);
-		List<MedicalRecordAllergiesBean> medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
-		MedicalRecordBloodRelativesBean medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
-		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
-		List<MedicalRecordDiseasesBean> medRecordDiseasesList = MedicalRecordDiseasesDao.get(medRecordId);
-		List<MedicalRecordIllnessesBean> medRecordIllnessesList = MedicalRecordIllnessesDao.get(medRecordId);
-		List<MedicalRecordMedicationBean> medRecordMedicationList = MedicalRecordMedicationDao.get(medRecordId);
-		List<MedicalRecordSurgicalProblemsBean> medRecordSurgicalProblemsList = MedicalRecordSurgicalProblemsDao.get(medRecordId);
-		List<MedicalRecordNurseNotesBean> medRecordNurseNotesList = MedicalRecordNurseNotesDao.get(medRecordId);
+		List<MedicalRecordAllergiesBean> medRecordAllergiesList = null;
+		MedicalRecordBloodRelativesBean medRecordBloodRelations = null;
+		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsList = null;
+		List<MedicalRecordDiseasesBean> medRecordDiseasesList = null;
+		List<MedicalRecordIllnessesBean> medRecordIllnessesList = null;
+		List<MedicalRecordMedicationBean> medRecordMedicationList = null;
+		List<MedicalRecordSurgicalProblemsBean> medRecordSurgicalProblemsList = null;
+		List<MedicalRecordNurseNotesBean> medRecordNurseNotesList = null;
 		List<MedicalRecordVitalsBean> medRecordVitalsList = null;
 		List<MedicalRecordAdmissionsBean> medRecordAdmissionsList = null; 
 		try {
+
+			medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
+			medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
+			medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
+			medRecordDiseasesList = MedicalRecordDiseasesDao.get(medRecordId);
+			medRecordIllnessesList = MedicalRecordIllnessesDao.get(medRecordId);
+			medRecordMedicationList = MedicalRecordMedicationDao.get(medRecordId);
+			medRecordSurgicalProblemsList = MedicalRecordSurgicalProblemsDao.get(medRecordId);
+			medRecordNurseNotesList = MedicalRecordNurseNotesDao.get(medRecordId);
 			medRecordVitalsList = MedicalRecordVitalsDao.get(medRecordId);
 			medRecordAdmissionsList = MedicalRecordAdmissionsDao.get(medRecordId);
 		} catch (SQLException e) {
@@ -133,6 +142,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordVitalsList", medRecordVitalsList);
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
+		System.out.println("Forwarding to UserPatientChartOverviewServlet...");
 		response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
 		//request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
 	}

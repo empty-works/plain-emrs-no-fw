@@ -12,32 +12,30 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordMedicationDao {
 
-	public static List<MedicalRecordMedicationBean> get(String medicalRecordId) {
+	public static List<MedicalRecordMedicationBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordMedicationBean> medRecordMedicationBeanList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT medication_id, medication_name, medication_is_current, medication_description "
 				+ "FROM medication "
 				+ "WHERE medical_record_id=?";
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
-			System.out.println("Retrieving from the medication table...");
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()) {
-				MedicalRecordMedicationBean medRecordMedicationBean = new MedicalRecordMedicationBean();
-				medRecordMedicationBean.setMedicationId(rs.getInt("medication_id"));
-				medRecordMedicationBean.setMedicationName(rs.getString("medication_name"));
-				medRecordMedicationBean.setMedicationIsCurrent(rs.getBoolean("medication_is_current"));
-				medRecordMedicationBean.setMedicationDescription(rs.getString("medication_description"));
-				medRecordMedicationBeanList.add(medRecordMedicationBean);
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the medication table...");
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next()) {
+					MedicalRecordMedicationBean medRecordMedicationBean = new MedicalRecordMedicationBean();
+					medRecordMedicationBean.setMedicationId(rs.getInt("medication_id"));
+					medRecordMedicationBean.setMedicationName(rs.getString("medication_name"));
+					medRecordMedicationBean.setMedicationIsCurrent(rs.getBoolean("medication_is_current"));
+					medRecordMedicationBean.setMedicationDescription(rs.getString("medication_description"));
+					medRecordMedicationBeanList.add(medRecordMedicationBean);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordMedicationBeanList;
 	}
 	

@@ -15,33 +15,31 @@ public class MedicalRecordSurgicalProblemsDao {
 
 	public static String SURGICALDAO_SUCCESS = "Surgical problem data successfully added.";
 
-	public static List<MedicalRecordSurgicalProblemsBean> get(String medicalRecordId) {
+	public static List<MedicalRecordSurgicalProblemsBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordSurgicalProblemsBean> medRecordSurgicalProblemsBeanList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT surgical_related_id, surgical_related_problem, problem_area, surgical_procedure, surgical_procedure_year "
 				+ "FROM surgical_related_problems "
 				+ "WHERE medical_record_id=?";
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
-			System.out.println("Retrieving from the surgical_related_problems table...");
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()) {
-				MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean = new MedicalRecordSurgicalProblemsBean();
-				medRecordSurgicalProblemsBean.getSurgicalRelatedId();
-				medRecordSurgicalProblemsBean.getSurgicalRelatedProblem();
-				medRecordSurgicalProblemsBean.getProblemArea();
-				medRecordSurgicalProblemsBean.getSurgicalProcedure();
-				medRecordSurgicalProblemsBean.getSurgicalProcedureYear();
-				medRecordSurgicalProblemsBeanList.add(medRecordSurgicalProblemsBean);
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the surgical_related_problems table...");
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next()) {
+					MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean = new MedicalRecordSurgicalProblemsBean();
+					medRecordSurgicalProblemsBean.getSurgicalRelatedId();
+					medRecordSurgicalProblemsBean.getSurgicalRelatedProblem();
+					medRecordSurgicalProblemsBean.getProblemArea();
+					medRecordSurgicalProblemsBean.getSurgicalProcedure();
+					medRecordSurgicalProblemsBean.getSurgicalProcedureYear();
+					medRecordSurgicalProblemsBeanList.add(medRecordSurgicalProblemsBean);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordSurgicalProblemsBeanList;
 	}
 	

@@ -15,31 +15,28 @@ public class MedicalRecordAllergiesDao {
 
 	final public static String MEDICALRECORDALLERGIESDAO_SUCCESS = "Allergies medical record successfully added!";
 	
-	public static List<MedicalRecordAllergiesBean> get(String medicalRecordId) {
+	public static List<MedicalRecordAllergiesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT allergies_id, allergy_name "
 				+ "FROM allergies "
 				+ "WHERE medical_record_id=?";
 
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
+		try(Connection con = ConnectionUtil.getConnection()) {
 			
-			ResultSet rs = preparedStatement.executeQuery();
-			System.out.println("Retrieving from the allergies table...");
-			while(rs.next()) {
-				MedicalRecordAllergiesBean medRecordAllergies = new MedicalRecordAllergiesBean();
-				medRecordAllergies.setAllergiesId(rs.getInt("allergies_id"));
-				medRecordAllergies.setAllergyName(rs.getString("allergy_name"));
-				medRecordAllergiesList.add(medRecordAllergies);
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				ResultSet rs = preparedStatement.executeQuery();
+				System.out.println("Retrieving from the allergies table...");
+				while(rs.next()) {
+					MedicalRecordAllergiesBean medRecordAllergies = new MedicalRecordAllergiesBean();
+					medRecordAllergies.setAllergiesId(rs.getInt("allergies_id"));
+					medRecordAllergies.setAllergyName(rs.getString("allergy_name"));
+					medRecordAllergiesList.add(medRecordAllergies);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordAllergiesList;
 	}
 	

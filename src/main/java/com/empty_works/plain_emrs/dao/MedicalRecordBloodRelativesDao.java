@@ -11,41 +11,36 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordBloodRelativesDao {
 
-	public static MedicalRecordBloodRelativesBean get(String medicalRecordId) {
+	public static MedicalRecordBloodRelativesBean get(String medicalRecordId) throws SQLException {
 		
 		MedicalRecordBloodRelativesBean medRecordBloodRelativesBean = new MedicalRecordBloodRelativesBean();
-
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT blood_relatives_id, mother_status, father_status, mother_deceased_age, father_deceased_age, num_sisters_alive, "
 				+ "num_brothers_alive, num_daughters_alive, num_sons_alive, mother_cause_of_death, father_cause_of_death "
 				+ "FROM blood_relatives "
 				+ "WHERE medical_record_id=?";
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
+		try(Connection con = ConnectionUtil.getConnection()) {
 			
-			ResultSet rs = preparedStatement.executeQuery();
-			System.out.println("Retrieving from the blood_relatives table...");
-			while(rs.next()) {
-				medRecordBloodRelativesBean.setBloodRelativesId(rs.getInt("blood_relatives_id"));
-				medRecordBloodRelativesBean.setMotherStatus(rs.getString("mother_status"));
-				medRecordBloodRelativesBean.setFatherStatus(rs.getString("father_status"));
-				medRecordBloodRelativesBean.setMothDecAge(rs.getInt("mother_deceased_age"));
-				medRecordBloodRelativesBean.setFathDecAge(rs.getInt("father_deceased_age")); 
-				medRecordBloodRelativesBean.setNumSisters(rs.getInt("num_sisters_alive")); 
-				medRecordBloodRelativesBean.setNumBrothers(rs.getInt("num_brothers_alive")); 
-				medRecordBloodRelativesBean.setNumDaughters(rs.getInt("num_daughters_alive")); 
-				medRecordBloodRelativesBean.setNumSons(rs.getInt("num_sons_alive")); 
-				medRecordBloodRelativesBean.setMothCauseDea(rs.getString("mother_cause_of_death")); 
-				medRecordBloodRelativesBean.setFathCauseDea(rs.getString("father_cause_of_death")); 
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				ResultSet rs = preparedStatement.executeQuery();
+				System.out.println("Retrieving from the blood_relatives table...");
+				while(rs.next()) {
+					medRecordBloodRelativesBean.setBloodRelativesId(rs.getInt("blood_relatives_id"));
+					medRecordBloodRelativesBean.setMotherStatus(rs.getString("mother_status"));
+					medRecordBloodRelativesBean.setFatherStatus(rs.getString("father_status"));
+					medRecordBloodRelativesBean.setMothDecAge(rs.getInt("mother_deceased_age"));
+					medRecordBloodRelativesBean.setFathDecAge(rs.getInt("father_deceased_age")); 
+					medRecordBloodRelativesBean.setNumSisters(rs.getInt("num_sisters_alive")); 
+					medRecordBloodRelativesBean.setNumBrothers(rs.getInt("num_brothers_alive")); 
+					medRecordBloodRelativesBean.setNumDaughters(rs.getInt("num_daughters_alive")); 
+					medRecordBloodRelativesBean.setNumSons(rs.getInt("num_sons_alive")); 
+					medRecordBloodRelativesBean.setMothCauseDea(rs.getString("mother_cause_of_death")); 
+					medRecordBloodRelativesBean.setFathCauseDea(rs.getString("father_cause_of_death")); 
+				}
 			}
-		} catch (SQLException e) {
-			System.out.println("Something's wrong in MedicalRecordBloodRelativesDao.get()...");
-			e.printStackTrace();
 		}
-		
 		return medRecordBloodRelativesBean;
 	}
 	

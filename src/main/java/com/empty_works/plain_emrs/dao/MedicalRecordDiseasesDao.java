@@ -13,32 +13,30 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordDiseasesDao {
 
-	public static List<MedicalRecordDiseasesBean> get(String medicalRecordId) {
+	public static List<MedicalRecordDiseasesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordDiseasesBean> medRecordDiseasesBeanList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT disease_id, disease, contracted_disease, received_immunization "
 				+ "FROM diseases "
 				+ "WHERE medical_record_id=?";
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
-			System.out.println("Retrieving from the diseases table...");
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()) {
-				MedicalRecordDiseasesBean medRecordDiseasesBean = new MedicalRecordDiseasesBean();
-				medRecordDiseasesBean.setDiseaseId(rs.getInt("disease_id"));
-				medRecordDiseasesBean.setDisease(rs.getString("disease"));
-				medRecordDiseasesBean.setContractedDisease(rs.getBoolean("contracted_disease"));
-				medRecordDiseasesBean.setReceivedImmunization(rs.getBoolean("received_immunization"));
-				medRecordDiseasesBeanList.add(medRecordDiseasesBean);
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				System.out.println("Retrieving from the diseases table...");
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next()) {
+					MedicalRecordDiseasesBean medRecordDiseasesBean = new MedicalRecordDiseasesBean();
+					medRecordDiseasesBean.setDiseaseId(rs.getInt("disease_id"));
+					medRecordDiseasesBean.setDisease(rs.getString("disease"));
+					medRecordDiseasesBean.setContractedDisease(rs.getBoolean("contracted_disease"));
+					medRecordDiseasesBean.setReceivedImmunization(rs.getBoolean("received_immunization"));
+					medRecordDiseasesBeanList.add(medRecordDiseasesBean);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordDiseasesBeanList;
 	}
 	

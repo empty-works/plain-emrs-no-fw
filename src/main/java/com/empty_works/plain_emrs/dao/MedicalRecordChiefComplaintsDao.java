@@ -12,32 +12,30 @@ import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordChiefComplaintsDao {
 
-	public static List<MedicalRecordChiefComplaintsBean> get(String medicalRecordId) {
+	public static List<MedicalRecordChiefComplaintsBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsBeanList = new ArrayList<>();
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "SELECT chief_complaint_id, admissions_id, statement "
 				+ "FROM chief_complaints "
 				+ "WHERE medical_record_id=?";
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicalRecordId);
+		try(Connection con = ConnectionUtil.getConnection()) {
 			
-			System.out.println("Retrieving from the chief_complaints table...");
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()) {
-				MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
-				medRecordChiefComplaintsBean.setChiefComplaintId(rs.getInt("chief_complaint_id"));
-				medRecordChiefComplaintsBean.setAdmissionsId(rs.getInt("admissions_id"));
-				medRecordChiefComplaintsBean.setStatement(rs.getString("statement"));
-				medRecordChiefComplaintsBeanList.add(medRecordChiefComplaintsBean);
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				preparedStatement.setString(1, medicalRecordId);
+				
+				System.out.println("Retrieving from the chief_complaints table...");
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next()) {
+					MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
+					medRecordChiefComplaintsBean.setChiefComplaintId(rs.getInt("chief_complaint_id"));
+					medRecordChiefComplaintsBean.setAdmissionsId(rs.getInt("admissions_id"));
+					medRecordChiefComplaintsBean.setStatement(rs.getString("statement"));
+					medRecordChiefComplaintsBeanList.add(medRecordChiefComplaintsBean);
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		
 		return medRecordChiefComplaintsBeanList;
 	}
 	
