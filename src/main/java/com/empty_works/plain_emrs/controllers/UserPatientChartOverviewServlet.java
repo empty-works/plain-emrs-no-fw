@@ -27,6 +27,7 @@ public class UserPatientChartOverviewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		/*
 		HttpSession session = request.getSession();
 		request.setAttribute("patientProvider", session.getAttribute("patientProvider"));
 		request.setAttribute("patientProviderId", session.getAttribute("patientProviderId"));
@@ -35,6 +36,7 @@ public class UserPatientChartOverviewServlet extends HttpServlet {
 		request.setAttribute("patientLanguagePreference", session.getAttribute("patientLanguagePreference"));
 		request.setAttribute("patientBirthGender", session.getAttribute("patientBirthGender"));
 		request.setAttribute("patientCurrentGender", session.getAttribute("patientCurrentGender"));
+		*/
 		
 		System.out.println("Forwarding to UserPatientChartOverview.jsp...");
 		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);

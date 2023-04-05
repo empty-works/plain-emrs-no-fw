@@ -2,7 +2,11 @@ package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -139,7 +143,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordMedicationList", medRecordMedicationList);
 		session.setAttribute("medRecordSurgicalProblemsList", medRecordSurgicalProblemsList);
 		session.setAttribute("medRecordNurseNotesList", medRecordNurseNotesList);
-		session.setAttribute("medRecordVitalsList", medRecordVitalsList);
+		session.setAttribute("medRecordVitals", getLatest(medRecordVitalsList));
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
 		System.out.println("Forwarding to UserPatientChartOverviewServlet...");
@@ -157,5 +161,18 @@ public class UserPatientServlet extends HttpServlet {
 		// Update start row and row count variables after incrementing depending on if the previous or next button was clicked.
 		// Update session start row and row count.
 		HttpSession session = request.getSession();
+	}
+	
+	/**
+	 * 
+	 * @param vitalsList
+	 * @return
+	 */
+	private MedicalRecordVitalsBean getLatest(List<MedicalRecordVitalsBean> vitalsList) {
+		
+		if(vitalsList == null || vitalsList.isEmpty()) {
+			return null;
+		}
+		return Collections.max(vitalsList, Comparator.comparing(MedicalRecordVitalsBean::getDateTaken));
 	}
 }
