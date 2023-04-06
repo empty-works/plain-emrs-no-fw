@@ -61,9 +61,16 @@
 							</div>
 							<div>
 								<h4>Allergies: </h4>
-								<c:forEach items="${medRecordAllergiesList}" var="allergy">
-									${allergy.getAllergyName()}
-								</c:forEach>	
+								<c:choose>
+								<c:when test="">
+									<div>No allergies</div>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${medRecordAllergiesList}" var="allergy">
+										${allergy.getAllergyName()}
+									</c:forEach>	
+								</c:otherwise>
+								</c:choose>
 							</div>
 							<div>
 								<h4>Medication: </h4>	
@@ -72,7 +79,7 @@
 										<div>No medication</div>
 									</c:when>
 									<c:otherwise>
-										<c:forEach items="medRecordMedicationList" var="medication">
+										<c:forEach items="${medRecordMedicationList}" var="medication">
 											${medication.getMedicationName()}	
 										</c:forEach>
 									</c:otherwise>
