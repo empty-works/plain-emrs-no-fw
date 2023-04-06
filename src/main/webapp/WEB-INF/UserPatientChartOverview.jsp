@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
+<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
 
 <title>Patient Profile</title>
 </head>
@@ -54,8 +55,8 @@
 							</div>
 							<div>
 								<div>${userDateOfBirth}</div>
-								<div>Height</div>
-								<div>Weight</div>
+								<div>Height: ${medRecordVitals.getHeight()}</div>
+								<div>Weight: ${medRecordVitals.getWeight()}</div>
 								<div>${patientType}</div>
 								<div>${patientLanguagePreference}</div>
 							</div>
@@ -67,7 +68,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${medRecordAllergiesList}" var="allergy">
-										${allergy.getAllergyName()}
+										${allergy.getAllergyName()}, 
 									</c:forEach>	
 								</c:otherwise>
 								</c:choose>
@@ -80,7 +81,7 @@
 									</c:when>
 									<c:otherwise>
 										<c:forEach items="${medRecordMedicationList}" var="medication">
-											${medication.getMedicationName()}	
+											${medication.getMedicationName()}, 
 										</c:forEach>
 									</c:otherwise>
 								</c:choose>
@@ -88,8 +89,6 @@
 							<div>
 								<h4>Vitals: </h4>	
 								<div>Last taken: ${medRecordVitals.getDateTaken()}</div>
-								<div>Height: ${medRecordVitals.getHeight()}</div>
-								<div>Weight: ${medRecordVitals.getWeight()}</div>
 								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
 								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
 								<div>Pulse: ${medRecordVitals.getPulse()}</div>
@@ -100,8 +99,9 @@
 							</div>
 						</div>
 					</fieldset>
-					<div class="dynamic-grid">
-						<div id="chartChiefComplaints">Chief complaints</div>
+					<button class="med-record-accordion">Chief complaints</button>
+					<div class="panel">
+						<div id="chartChiefComplaints">chief complaint 1</div>
 					</div>
 					<div class="dynamic-grid">
 						<div id="chartIllnesses">Illnesses</div>

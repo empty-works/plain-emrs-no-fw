@@ -1,5 +1,6 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.io.Serializable;
 import java.util.List;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 
@@ -7,8 +8,12 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class MedicalRecordIllnessesBean implements MedicalRecordInterface {
+public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1144063173632007764L;
 	private int illnessId;
 	private String medicalRecordId;
 	private String illness;

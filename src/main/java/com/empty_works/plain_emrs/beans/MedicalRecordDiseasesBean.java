@@ -1,13 +1,16 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.Serializable;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 
-public class MedicalRecordDiseasesBean implements MedicalRecordInterface {
+public class MedicalRecordDiseasesBean implements MedicalRecordInterface, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1669984925218648995L;
 	private int diseaseId;
 	private String medicalRecordId;
 	private String disease;

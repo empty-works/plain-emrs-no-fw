@@ -1,11 +1,16 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
 
-public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface {
+public class MedicalRecordSurgicalProblemsBean implements MedicalRecordInterface, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3465862160472950934L;
 	private int surgicalRelatedId;
 	private String medicalRecordId;
 	private String surgicalRelatedProblem;

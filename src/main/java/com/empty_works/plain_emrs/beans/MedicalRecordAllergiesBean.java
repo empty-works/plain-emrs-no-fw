@@ -4,8 +4,12 @@ import java.util.List;
 
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordAllergyUnit;
 
-public class MedicalRecordAllergiesBean implements MedicalRecordInterface {
+public class MedicalRecordAllergiesBean implements MedicalRecordInterface, java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3425989602412918530L;
 	private int allergiesId;
 	private String medicalRecordId;
 	private String allergyName;

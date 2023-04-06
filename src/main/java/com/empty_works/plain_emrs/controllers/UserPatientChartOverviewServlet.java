@@ -15,13 +15,6 @@ import javax.servlet.http.HttpSession;
 public class UserPatientChartOverviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserPatientChartOverviewServlet() {
-        super();
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
