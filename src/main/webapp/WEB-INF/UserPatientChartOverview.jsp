@@ -67,9 +67,16 @@
 							</div>
 							<div>
 								<h4>Medication: </h4>	
-								<c:forEach items="medRecordMedicationList" var="medication">
-									${medication.getMedicationName()}	
-								</c:forEach>
+								<c:choose>
+									<c:when test="${empty medRecordMedicationList}">
+										<div>No medication</div>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="medRecordMedicationList" var="medication">
+											${medication.getMedicationName()}	
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div>
 								<h4>Vitals: </h4>	
@@ -86,11 +93,6 @@
 							</div>
 						</div>
 					</fieldset>
-					<div class="dynamic-grid">
-						<div id="chartAllergies">Allergies</div>
-						<div id="chartMedication">Medication</div>
-						<div id="chartVitals">Vitals</div>
-					</div>
 					<div class="dynamic-grid">
 						<div id="chartChiefComplaints">Chief complaints</div>
 					</div>
