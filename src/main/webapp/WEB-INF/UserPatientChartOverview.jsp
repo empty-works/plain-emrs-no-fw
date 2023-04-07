@@ -40,7 +40,7 @@
 				<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
 				<div>
 					<fieldset>
-						<legend class="patient-header">Patient Overview</legend>
+						<legend class="patient-header">Personal Overview</legend>
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
 								<div>Patient Picture</div>
@@ -59,6 +59,11 @@
 								<div>${patientType}</div>
 								<div>${patientLanguagePreference}</div>
 							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend class="patient-header">Critical Overview</legend>							
+						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
 								<h4>Allergies: </h4>
 								<c:choose>
@@ -86,14 +91,12 @@
 								</c:choose>
 							</div>
 							<div>
-								<h4>Vitals: </h4>	
-								<div>Last taken: ${medRecordVitals.getDateTaken()}</div>
+								<h4>Vitals ${medRecordVitals.getDateTaken()}: </h4>	
 								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
 								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
 								<div>Pulse: ${medRecordVitals.getPulse()}</div>
 								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
-								<div>Blood pressure systolic: ${medRecordVitals.getBloodPressureSystolic()}</div>
-								<div>Blood pressure diastolic: ${medRecordVitals.getBloodPressureDiastolic()}</div>
+								<div>Blood pressure systolic / diastolic: ${medRecordVitals.getBloodPressureSystolic()} / ${medRecordVitals.getBloodPressureDiastolic()}</div>
 								<div>Arterial blood oxygen saturation: ${medRecordVitals.getArterialBloodOxygenSaturation()}</div>
 							</div>
 						</div>
@@ -102,17 +105,30 @@
 					<div class="med-record-panel">
 						<p>TESTING</p>
 					</div>
-					<div class="dynamic-grid">
-						<div id="chartIllnesses">Illnesses</div>
-						<div id="chartDiseases">Diseases</div>
+
+					<button class="med-record-accordion">Nurse notes</button>
+					<div class="med-record-panel">
+						<p>TESTING</p>
 					</div>
-					<div class="dynamic-grid">
-						<div id="chartSurgery">Surgery-related problems</div>
-						<div id="chartNurseNotes">Nurse notes</div>
+
+					<button class="med-record-accordion">Illnesses</button>
+					<div class="med-record-panel">
+						<p>TESTING</p>
 					</div>
+
+					<button class="med-record-accordion">Diseases</button>
+					<div class="med-record-panel">
+						<p>TESTING</p>
+					</div>
+
+					<button class="med-record-accordion">Surgery-related problems</button>
+					<div class="med-record-panel">
+						<p>TESTING</p>
+					</div>
+
 					<div class="dynamic-grid">
-						<div id="chartAdmission">Admissions</div>
-						<div id="chartBloodRelatives">Blood relatives</div>
+						<div id="chartAdmission">Admissions GOES INTO TIMELINE</div>
+						<div id="chartBloodRelatives">Blood relatives GOES INTO PERSONAL DETAILS</div>
 					</div>
 				</div>
 			</div>
