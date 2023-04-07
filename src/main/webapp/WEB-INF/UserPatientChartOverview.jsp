@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
-<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
 
 <title>Patient Profile</title>
 </head>
@@ -100,8 +99,8 @@
 						</div>
 					</fieldset>
 					<button class="med-record-accordion">Chief complaints</button>
-					<div class="panel">
-						<div id="chartChiefComplaints">chief complaint 1</div>
+					<div class="med-record-panel">
+						<p>TESTING</p>
 					</div>
 					<div class="dynamic-grid">
 						<div id="chartIllnesses">Illnesses</div>
@@ -119,5 +118,22 @@
 			</div>
 		</div>
 	</div>
+	<!-- Script taken from w3schools HowTO - Collapsibles/Accordion -->
+	<script>
+		var acc = document.getElementsByClassName("med-record-accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.maxHeight) {
+			  panel.style.maxHeight = null;
+			} else {
+			  panel.style.maxHeight = panel.scrollHeight + "px";
+			} 
+		  });
+		}
+	</script>
 </body>
 </html>

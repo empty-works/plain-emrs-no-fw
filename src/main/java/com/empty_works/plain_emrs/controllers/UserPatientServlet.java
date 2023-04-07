@@ -78,7 +78,6 @@ public class UserPatientServlet extends HttpServlet {
 		List<MedicalRecordVitalsBean> medRecordVitalsList = null;
 		List<MedicalRecordAdmissionsBean> medRecordAdmissionsList = null; 
 		try {
-
 			medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
 			medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
 			medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
@@ -147,8 +146,8 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
 		System.out.println("Forwarding to UserPatientChartOverviewServlet...");
-		response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
-		//request.getRequestDispatcher("/WEB-INF/UserPatient.jsp").forward(request, response);
+		//response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
+		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
 	}
 
 	/**
