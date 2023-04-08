@@ -107,7 +107,10 @@
 					</div>
 				</fieldset>
 				<fieldset>
-					<legend></legend>	
+					<legend class="patient-header">Blood relatives</legend>	
+					<div class="patient-data">
+						<div id="patientBloodRelatives">${medRecordBloodRelatives}</div>
+					</div>
 				</fieldset>
 			</div>
 		</div>

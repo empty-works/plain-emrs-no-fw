@@ -130,11 +130,6 @@
 					<div class="med-record-panel">
 						<p>TESTING</p>
 					</div>
-
-					<div class="dynamic-grid">
-						<div id="chartAdmission">Admissions GOES INTO TIMELINE</div>
-						<div id="chartBloodRelatives">Blood relatives GOES INTO PERSONAL DETAILS</div>
-					</div>
 				</div>
 			</div>
 		</div>
