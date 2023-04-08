@@ -1,8 +1,5 @@
 package com.empty_works.plain_emrs.beans;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface {
 
 	private String medicalRecordId;

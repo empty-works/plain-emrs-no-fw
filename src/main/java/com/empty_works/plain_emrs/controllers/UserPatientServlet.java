@@ -137,12 +137,13 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordAllergiesList", medRecordAllergiesList);
 		session.setAttribute("medRecordBloodRelatives", medRecordBloodRelations);
 		session.setAttribute("medRecordChiefComplaintsList", medRecordChiefComplaintsList);
+		session.setAttribute("medRecordChiefComplaintsLatest", getLatest(medRecordChiefComplaintsList));
 		session.setAttribute("medRecordDiseasesList", medRecordDiseasesList);
 		session.setAttribute("medRecordIllnessesList", medRecordIllnessesList);
 		session.setAttribute("medRecordMedicationList", medRecordMedicationList);
 		session.setAttribute("medRecordSurgicalProblemsList", medRecordSurgicalProblemsList);
 		session.setAttribute("medRecordNurseNotesList", medRecordNurseNotesList);
-		session.setAttribute("medRecordVitals", getLatest(medRecordVitalsList));
+		session.setAttribute("medRecordVitals", getLatestDate(medRecordVitalsList));
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
 		System.out.println("Forwarding to UserPatientChartOverviewServlet...");
@@ -167,11 +168,19 @@ public class UserPatientServlet extends HttpServlet {
 	 * @param vitalsList
 	 * @return
 	 */
-	private MedicalRecordVitalsBean getLatest(List<MedicalRecordVitalsBean> vitalsList) {
+	private MedicalRecordVitalsBean getLatestDate(List<MedicalRecordVitalsBean> vitalsList) {
 		
 		if(vitalsList == null || vitalsList.isEmpty()) {
 			return null;
 		}
 		return Collections.max(vitalsList, Comparator.comparing(MedicalRecordVitalsBean::getDateTaken));
+	}
+
+	private MedicalRecordChiefComplaintsBean getLatest(List<MedicalRecordChiefComplaintsBean> chiefComplaintsList) {
+		
+		if(chiefComplaintsList == null || chiefComplaintsList.isEmpty()) {
+			return null;
+		}
+		return Collections.max(chiefComplaintsList, Comparator.comparing(MedicalRecordChiefComplaintsBean::getChiefComplaintId));
 	}
 }

@@ -20,24 +20,22 @@
 </head>
 <body onload="setPatientId(${userPatientId})">
 	
-	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
-	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-	
 	<div class="main-container">
-		<!-- Side main menu -->
-		<div class="side-main-menu">
-			<script id="replace_with_sidemainmenu" src="${pageContext.request.contextPath}/js/adminsidemainmenu.js"></script>	
-		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
 			<div class="sidenav-active">Chart Overview</div>
 			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a href="<c:url value="/" />">Timeline</a></div>
+			<!-- Prompt user if they really want to return to the patient list -->
+			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
 		</div>
 		
 		<div class="main-grid-container">
 			<div class="main-grid">
-				<div><a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a></div>
+				<div>
+					<a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a>
+					<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
+				</div>
 				<div>
 					<fieldset>
 						<legend class="patient-header">Personal Overview</legend>
