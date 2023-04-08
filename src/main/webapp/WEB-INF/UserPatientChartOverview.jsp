@@ -41,29 +41,22 @@
 						<legend class="patient-header">Personal Overview</legend>
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<div>Patient Picture</div>
+								<div>${userPatientId}</div>
+								<div>${patientType}</div>
 							</div>
 							<div>
-								<div>${userPatientId}</div>
 								<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
-								<div>${patientPhoneNumber}</div>
-								<div>${userEmailAddress}</div>
-								<div>${patientStreetAddress}</div>
+								<div>${patientLanguagePreference}</div>
 							</div>
 							<div>
 								<div>${userDateOfBirth}</div>
-								<div>Height: ${medRecordVitals.getHeight()}</div>
-								<div>Weight: ${medRecordVitals.getWeight()}</div>
-								<div>${patientType}</div>
-								<div>${patientLanguagePreference}</div>
 							</div>
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend class="patient-header">Critical Overview</legend>							
+						<legend class="patient-header">Allergies</legend>							
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<h4>Allergies: </h4>
 								<c:choose>
 								<c:when test="">
 									<div>No allergies</div>	
@@ -75,8 +68,12 @@
 								</c:otherwise>
 								</c:choose>
 							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend class="patient-header">Medication</legend>							
+						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<h4>Medication: </h4>	
 								<c:choose>
 									<c:when test="${empty medRecordMedicationList}">
 										<div>No medication</div>
@@ -88,14 +85,24 @@
 									</c:otherwise>
 								</c:choose>
 							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
+						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<h4>Vitals ${medRecordVitals.getDateTaken()}: </h4>	
-								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
+								<div>Height: ${medRecordVitals.getHeight()}</div>
 								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
-								<div>Pulse: ${medRecordVitals.getPulse()}</div>
-								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
 								<div>Blood pressure systolic / diastolic: ${medRecordVitals.getBloodPressureSystolic()} / ${medRecordVitals.getBloodPressureDiastolic()}</div>
+							</div>
+							<div>
+								<div>Weight: ${medRecordVitals.getWeight()}</div>
+								<div>Pulse: ${medRecordVitals.getPulse()}</div>
 								<div>Arterial blood oxygen saturation: ${medRecordVitals.getArterialBloodOxygenSaturation()}</div>
+							</div>
+							<div>
+								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
+								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
 							</div>
 						</div>
 					</fieldset>
