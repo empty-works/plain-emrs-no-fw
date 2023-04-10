@@ -23,7 +23,7 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div class="sidenav-active">Chart Overview</div>
+			<div class="sidenav-active">Latest Chief Complaint</div>
 			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a href="<c:url value="/" />">Timeline</a></div>
 			<!-- Prompt user if they really want to return to the patient list -->
@@ -50,6 +50,33 @@
 							</div>
 							<div>
 								<div>${userDateOfBirth}</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend class="patient-header">Chief complaint</legend>	
+						<div id="patient-overview-grid-1" class="patient-data">
+							<div>
+								<div>TESTING</div>	
+							</div>	
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
+						<div id="patient-overview-grid-1" class="patient-data">
+							<div>
+								<div>Height: ${medRecordVitals.getHeight()}</div>
+								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
+								<div>Blood pressure systolic / diastolic: ${medRecordVitals.getBloodPressureSystolic()} / ${medRecordVitals.getBloodPressureDiastolic()}</div>
+							</div>
+							<div>
+								<div>Weight: ${medRecordVitals.getWeight()}</div>
+								<div>Pulse: ${medRecordVitals.getPulse()}</div>
+								<div>Arterial blood oxygen saturation: ${medRecordVitals.getArterialBloodOxygenSaturation()}</div>
+							</div>
+							<div>
+								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
+								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
 							</div>
 						</div>
 					</fieldset>
@@ -87,46 +114,19 @@
 							</div>
 						</div>
 					</fieldset>
-					<fieldset>
-						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
-						<div id="patient-overview-grid-1" class="patient-data">
-							<div>
-								<div>Height: ${medRecordVitals.getHeight()}</div>
-								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
-								<div>Blood pressure systolic / diastolic: ${medRecordVitals.getBloodPressureSystolic()} / ${medRecordVitals.getBloodPressureDiastolic()}</div>
-							</div>
-							<div>
-								<div>Weight: ${medRecordVitals.getWeight()}</div>
-								<div>Pulse: ${medRecordVitals.getPulse()}</div>
-								<div>Arterial blood oxygen saturation: ${medRecordVitals.getArterialBloodOxygenSaturation()}</div>
-							</div>
-							<div>
-								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
-								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
-							</div>
-						</div>
-					</fieldset>
-					<button class="med-record-accordion">Chief complaints</button>
-					<div class="med-record-panel">
-						<p>TESTING</p>
-					</div>
-
-					<button class="med-record-accordion">Nurse notes</button>
-					<div class="med-record-panel">
-						<p>TESTING</p>
-					</div>
-
 					<button class="med-record-accordion">Illnesses</button>
 					<div class="med-record-panel">
 						<p>TESTING</p>
 					</div>
-
 					<button class="med-record-accordion">Diseases</button>
 					<div class="med-record-panel">
 						<p>TESTING</p>
 					</div>
-
 					<button class="med-record-accordion">Surgery-related problems</button>
+					<div class="med-record-panel">
+						<p>TESTING</p>
+					</div>
+					<button class="med-record-accordion">Nurse notes</button>
 					<div class="med-record-panel">
 						<p>TESTING</p>
 					</div>
