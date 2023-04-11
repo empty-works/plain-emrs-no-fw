@@ -8,8 +8,10 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css" />
 
@@ -22,7 +24,7 @@
 		<div class="sidenav main-font">
 			<div><a href="${pageContext.request.contextPath}/UserPatientChartOverviewServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
 			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
-			<div><a href="<c:url value="/" />">Timeline</a></div>
+			<div><a>Timeline</a></div>
 			<div class="sidenav-active">Add Chief Complaint</div>
 			<br />
 			<br />
@@ -40,7 +42,7 @@
 					<textarea id="chiefComplaintInput" name="chiefComplaintInput"></textarea>
 				</fieldset>					
 
-				<div><input id="patientFormSubmitButton" type="submit" /><input type="reset" name="Reset" /></div>
+				<div><input id="patientFormSubmitButton" type="submit" value="Submit"/><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>

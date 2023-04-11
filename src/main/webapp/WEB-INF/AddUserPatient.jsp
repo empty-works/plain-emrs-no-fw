@@ -381,7 +381,7 @@
 				</fieldset>
 
 				<!-- user.js sets the value of submit to "isPatient" or "isNonPatient" -->
-				<div><input id="patientFormSubmitButton" type="submit" /><input type="reset" name="Reset" /></div>
+				<div><input id="patientFormSubmitButton" type="submit" value="Submit" /><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
 	</div>
