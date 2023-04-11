@@ -26,6 +26,10 @@
 			<div class="sidenav-active">Latest Chief Complaint</div>
 			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a href="<c:url value="/" />">Timeline</a></div>
+			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
+			<br />
+			<br />
+			<br />
 			<!-- Prompt user if they really want to return to the patient list -->
 			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
 		</div>

@@ -134,6 +134,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("emergencyContactEmail", emergencyContacts.getEmail());
 
 		session.setAttribute("medRecord", medRecord);
+		session.setAttribute("medRecordId", medRecordId);
 		session.setAttribute("medRecordAllergiesList", medRecordAllergiesList);
 		session.setAttribute("medRecordBloodRelatives", medRecordBloodRelations);
 		session.setAttribute("medRecordChiefComplaintsList", medRecordChiefComplaintsList);
