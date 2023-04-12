@@ -41,7 +41,13 @@
 					<legend>New Chief Complaint</legend>
 					<textarea id="chiefComplaintInput" name="chiefComplaintInput"></textarea>
 				</fieldset>					
-
+				<fieldset>
+					<legend>Vitals</legend>	
+					<label for="vitalsHeightCm">Height: </label>
+					<input type="number" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255">
+					<label for="vitalsWeightKg">Weight: </label>
+					<input type="number" id="vitalsWeightKg" name="vitalsWeightKg">
+				</fieldset>
 				<div><input id="patientFormSubmitButton" type="submit" value="Submit"/><input type="reset" name="Reset" /></div>
 			</form>
 		</div>
