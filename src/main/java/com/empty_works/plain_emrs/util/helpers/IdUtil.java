@@ -69,7 +69,7 @@ public class IdUtil {
 		
 		// Add the number of seconds with the random sequence
 		// Then extract only a portion of that sequence to ensure a limit on the sequence
-		String rawSequence = "" + ((int)seconds + sum);
+		String rawSequence = "" + (int)(seconds + sum);
 		System.out.println("User ID, raw sequence: " + rawSequence);
 		for(int i = rawSequence.length() - 1; i >= 0; i--) {
 			seqSb.append(rawSequence.charAt(i));
