@@ -1,11 +1,14 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.time.LocalDateTime;
+
 public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface {
 
 	private String medicalRecordId;
 	private int chiefComplaintId;
 	private int admissionsId;
 	private String statement;
+	private LocalDateTime date;
 	
 	public int getChiefComplaintId() {
 		return chiefComplaintId;
@@ -39,5 +42,13 @@ public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface 
 	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
 	}
 }

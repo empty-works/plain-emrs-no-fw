@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.beans;
 
+import java.time.LocalDateTime;
+
 public class MedicalRecordROSBean implements MedicalRecordInterface {
 	
 	private int reviewOfSystemsId;
@@ -19,6 +21,7 @@ public class MedicalRecordROSBean implements MedicalRecordInterface {
 	private String endocrine;
 	private String hematologicLymphatic;
 	private String allergicImmunologic;
+	private LocalDateTime date;
 	
 	public int getReviewOfSystemsId() {
 		return reviewOfSystemsId;
@@ -123,5 +126,11 @@ public class MedicalRecordROSBean implements MedicalRecordInterface {
 	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
+	}
+	public LocalDateTime getDate() {
+		return date;
+	}
+	public void setDate(LocalDateTime date) {
+		this.date = date;
 	}
 }
