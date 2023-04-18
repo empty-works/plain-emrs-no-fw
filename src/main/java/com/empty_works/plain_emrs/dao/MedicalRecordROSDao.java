@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class MedicalRecordROSDao {
 		PreparedStatement preparedStatement = null;
 		String query = "SELECT review_of_systems_id, chief_complaint_id, constitutional_symptoms, eyes, ears_nose_throat, cardiovascular, "
 				+ "respiratory, gastrointestinal, genitournary, musculoskeletal, integumentary, neurological, psychiatric, endocrine, "
-				+ "hematologic_lymphatic, allergic_immunologic "
+				+ "hematologic_lymphatic, allergic_immunologic, reviews_of_systems_date "
 				+ "FROM reviews_of_systems "
 				+ "WHERE medical_record_id=?";
 		
@@ -45,6 +46,7 @@ public class MedicalRecordROSDao {
 				medRecordROSBean.setEndocrine(rs.getString("endocrine"));
 				medRecordROSBean.setHematologicLymphatic(rs.getString("hematologic_lymphatic"));
 				medRecordROSBean.setAllergicImmunologic(rs.getString("allergic_immunologic"));
+				medRecordROSBean.setDate(rs.getObject("reviews_of_systems_date", LocalDateTime.class));
 				medRecordROSBeanList.add(medRecordROSBean);
 			}
 		} catch (SQLException e) {
@@ -58,8 +60,8 @@ public class MedicalRecordROSDao {
 		
 		String query = "INSERT INTO reviews_of_systems(chief_complaint_id, medical_record_id, constitutional_symptoms, eyes, "
 				+ "ears_nose_throat, cardiovascular, respiratory, gastrointestinal, genitournary, musculoskeletal, integumentary, "
-				+ "neurological, psychiatric, endocrine, hematologic_lymphatic, allergic_immunologic) "
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "neurological, psychiatric, endocrine, hematologic_lymphatic, allergic_immunologic, reviews_of_systems_date) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		int success = 0;
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -82,6 +84,7 @@ public class MedicalRecordROSDao {
 				preparedStatement.setString(14, medRecordROSBean.getEndocrine());
 				preparedStatement.setString(15, medRecordROSBean.getHematologicLymphatic());
 				preparedStatement.setString(16, medRecordROSBean.getAllergicImmunologic());
+				preparedStatement.setTimestamp(17, java.sql.Timestamp.valueOf(medRecordROSBean.getDate()));
 				success = preparedStatement.executeUpdate();
 			}
 		}

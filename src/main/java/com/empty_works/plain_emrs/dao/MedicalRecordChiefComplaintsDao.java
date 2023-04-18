@@ -41,26 +41,25 @@ public class MedicalRecordChiefComplaintsDao {
 		return medRecordChiefComplaintsBeanList;
 	}
 	
-	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) {
+	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) throws SQLException {
 		
-		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
 		String query = "INSERT INTO chief_complaints(medical_record_id, admissions_id, statement, chief_complaint_date) "
 				+ "VALUES (?,?,?,?)";
 		
 		int success = 0;
 		
-		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
-			preparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
-			preparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
-			preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
-			success = preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Writing to the chief_complaints table...");
+				preparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
+				preparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
+				preparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
+				preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
+				success = preparedStatement.executeUpdate();
+			}
 		}
-		
 		return success;
 	}
 }

@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
+import com.empty_works.plain_emrs.dao.MedicalRecordChiefComplaintsDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordROSDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordVitalsDao;
 import com.empty_works.plain_emrs.util.ChiefComplaintIdUtil;
 
 /**
@@ -77,6 +81,12 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		ros.setAllergicImmunologic((String)request.getAttribute("rosAllergicImmunologic"));
 		
 		// DAOs
-		
+		try {
+			MedicalRecordChiefComplaintsDao.add(chiefComplaints);
+			MedicalRecordVitalsDao.add(vitals);
+			MedicalRecordROSDao.add(ros);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
