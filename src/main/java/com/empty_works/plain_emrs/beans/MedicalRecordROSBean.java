@@ -6,7 +6,7 @@ public class MedicalRecordROSBean implements MedicalRecordInterface {
 	
 	private int reviewOfSystemsId;
 	private String medicalRecordId;
-	private int chiefComplaintId;
+	private String chiefComplaintId;
 	private	String constitutionalSymptoms; 
 	private String eyes;
 	private String earsNoseThroat;
@@ -29,10 +29,10 @@ public class MedicalRecordROSBean implements MedicalRecordInterface {
 	public void setReviewOfSystemsId(int reviewOfSystemsId) {
 		this.reviewOfSystemsId = reviewOfSystemsId;
 	}
-	public int getChiefComplaintId() {
+	public String getChiefComplaintId() {
 		return chiefComplaintId;
 	}
-	public void setChiefComplaintId(int chiefComplaintId) {
+	public void setChiefComplaintId(String chiefComplaintId) {
 		this.chiefComplaintId = chiefComplaintId;
 	}
 	public String getConstitutionalSymptoms() {

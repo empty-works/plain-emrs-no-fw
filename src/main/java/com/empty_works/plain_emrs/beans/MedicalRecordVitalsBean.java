@@ -7,15 +7,15 @@ public class MedicalRecordVitalsBean implements MedicalRecordInterface {
 	private String medicalRecordId;
 	private int vitalsId;
 	private LocalDateTime dateTaken;
-	private int height;
-	private int weight;
-	private int calculatedBmi;
+	private double height;
+	private double weight;
+	private double calculatedBmi;
 	private double temperature;
-	private int pulse;
-	private int respiratoryRate;
-	private int bloodPressureSystolic;
-	private int bloodPressureDiastolic;
-	private int arterialBloodOxygenSaturation;
+	private double pulse;
+	private double respiratoryRate;
+	private double bloodPressureSystolic;
+	private double bloodPressureDiastolic;
+	private double arterialBloodOxygenSaturation;
 	
 	public int getVitalsId() {
 		return vitalsId;
@@ -33,27 +33,27 @@ public class MedicalRecordVitalsBean implements MedicalRecordInterface {
 		this.dateTaken = dateTaken;
 	}
 
-	public int getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
 
-	public int getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(int weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
-	public int getCalculatedBmi() {
+	public double getCalculatedBmi() {
 		return calculatedBmi;
 	}
 
-	public void setCalculatedBmi(int calculatedBmi) {
+	public void setCalculatedBmi(double calculatedBmi) {
 		this.calculatedBmi = calculatedBmi;
 	}
 
@@ -65,43 +65,43 @@ public class MedicalRecordVitalsBean implements MedicalRecordInterface {
 		this.temperature = temperature;
 	}
 
-	public int getPulse() {
+	public double getPulse() {
 		return pulse;
 	}
 
-	public void setPulse(int pulse) {
+	public void setPulse(double pulse) {
 		this.pulse = pulse;
 	}
 
-	public int getRespiratoryRate() {
+	public double getRespiratoryRate() {
 		return respiratoryRate;
 	}
 
-	public void setRespiratoryRate(int respiratoryRate) {
+	public void setRespiratoryRate(double respiratoryRate) {
 		this.respiratoryRate = respiratoryRate;
 	}
 
-	public int getBloodPressureSystolic() {
+	public double getBloodPressureSystolic() {
 		return bloodPressureSystolic;
 	}
 
-	public void setBloodPressureSystolic(int bloodPressureSystolic) {
+	public void setBloodPressureSystolic(double bloodPressureSystolic) {
 		this.bloodPressureSystolic = bloodPressureSystolic;
 	}
 
-	public int getBloodPressureDiastolic() {
+	public double getBloodPressureDiastolic() {
 		return bloodPressureDiastolic;
 	}
 
-	public void setBloodPressureDiastolic(int bloodPressureDiastolic) {
+	public void setBloodPressureDiastolic(double bloodPressureDiastolic) {
 		this.bloodPressureDiastolic = bloodPressureDiastolic;
 	}
 
-	public int getArterialBloodOxygenSaturation() {
+	public double getArterialBloodOxygenSaturation() {
 		return arterialBloodOxygenSaturation;
 	}
 
-	public void setArterialBloodOxygenSaturation(int arterialBloodOxygenSaturation) {
+	public void setArterialBloodOxygenSaturation(double arterialBloodOxygenSaturation) {
 		this.arterialBloodOxygenSaturation = arterialBloodOxygenSaturation;
 	}
 

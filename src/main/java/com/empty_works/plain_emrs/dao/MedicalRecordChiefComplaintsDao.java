@@ -29,7 +29,7 @@ public class MedicalRecordChiefComplaintsDao {
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
-					medRecordChiefComplaintsBean.setChiefComplaintId(rs.getInt("chief_complaint_id"));
+					medRecordChiefComplaintsBean.setChiefComplaintId(rs.getString("chief_complaint_id"));
 					medRecordChiefComplaintsBean.setAdmissionsId(rs.getInt("admissions_id"));
 					medRecordChiefComplaintsBean.setStatement(rs.getString("statement"));
 					medRecordChiefComplaintsBeanList.add(medRecordChiefComplaintsBean);
