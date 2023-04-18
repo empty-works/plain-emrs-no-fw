@@ -64,15 +64,15 @@ public class MedicalRecordVitalsDao {
 				
 				preparedStatement.setString(1, vitalsBean.getMedicalRecordId());
 				preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(vitalsBean.getDateTaken()));
-				preparedStatement.setInt(3, vitalsBean.getHeight());
-				preparedStatement.setInt(4, vitalsBean.getWeight());
-				preparedStatement.setInt(5, vitalsBean.getCalculatedBmi());
+				preparedStatement.setDouble(3, vitalsBean.getHeight());
+				preparedStatement.setDouble(4, vitalsBean.getWeight());
+				preparedStatement.setDouble(5, vitalsBean.getCalculatedBmi());
 				preparedStatement.setDouble(6, vitalsBean.getTemperature());
-				preparedStatement.setInt(7, vitalsBean.getPulse());
-				preparedStatement.setInt(8, vitalsBean.getRespiratoryRate());
-				preparedStatement.setInt(9, vitalsBean.getBloodPressureSystolic());
-				preparedStatement.setInt(10, vitalsBean.getBloodPressureDiastolic());
-				preparedStatement.setInt(11, vitalsBean.getArterialBloodOxygenSaturation());
+				preparedStatement.setDouble(7, vitalsBean.getPulse());
+				preparedStatement.setDouble(8, vitalsBean.getRespiratoryRate());
+				preparedStatement.setDouble(9, vitalsBean.getBloodPressureSystolic());
+				preparedStatement.setDouble(10, vitalsBean.getBloodPressureDiastolic());
+				preparedStatement.setDouble(11, vitalsBean.getArterialBloodOxygenSaturation());
 				success = preparedStatement.executeUpdate();
 			}
 		}

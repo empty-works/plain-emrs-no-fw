@@ -75,5 +75,8 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		ros.setEndocrine((String)request.getAttribute("rosEndocrine"));
 		ros.setHematologicLymphatic((String)request.getAttribute("rosHematologicLymphatic"));
 		ros.setAllergicImmunologic((String)request.getAttribute("rosAllergicImmunologic"));
+		
+		// DAOs
+		
 	}
 }

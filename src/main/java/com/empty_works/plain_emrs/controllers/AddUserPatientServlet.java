@@ -181,22 +181,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		patientRace = new UserPatientRaceBean();
 		patientRace.setUserId(userId);
 		patientRace.addRaces(parseRaces(request));
-		/*
-		String[] races = request.getParameterValues("raceCheck");
-		for(String race : races) {
-			if(race.equals(UserRaceLists.asianName)) {
-				race += " - " + request.getParameter("asianEthnDropdown");
-			}
-			else if(race.equals(UserRaceLists.hiLaName)) {
-				race += " - " + request.getParameter("hisLatinEthnDropdown");
-			}
-			else if(race.equals(UserRaceLists.naHaPaIsName)) {
-				race += " - " + request.getParameter("pacIslEthnDropdown");
-			}
-			System.out.println("Checked race: " + race);
-			patientRace.addRace(race);
-		}
-		*/
 
 		// User authority
 		userAuthority = new UserAuthorityBean();
@@ -273,20 +257,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		//addUserDao.add(user);
-		//addUserDao.add(authority);
-		//addUserDao.add(userLogin);
-		//addUserDao.add(userActivity);
-		//addUserDao.add(patient);
-		//addUserDao.add(patientRace);
-		//addUserDao.add(medRecord);
-		//addUserDao.add(surgicalProblems);
-		//addUserDao.add(diseases);
-		//addUserDao.add(relations);
-		//addUserDao.add(illnesses);
-		//addUserDao.add(contacts);
-		//addUserDao.executeQueries();
 		
 		response.sendRedirect(request.getContextPath() + "/UserPatientServlet?userPatientId=" + user.getUserId());
 	}

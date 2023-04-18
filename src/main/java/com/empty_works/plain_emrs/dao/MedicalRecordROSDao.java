@@ -30,7 +30,7 @@ public class MedicalRecordROSDao {
 			while(rs.next()) {
 				MedicalRecordROSBean medRecordROSBean = new MedicalRecordROSBean();
 				medRecordROSBean.setReviewOfSystemsId(rs.getInt("review_of_systems_id"));
-				medRecordROSBean.setChiefComplaintId(rs.getInt("chief_complaint_id"));
+				medRecordROSBean.setChiefComplaintId(rs.getString("chief_complaint_id"));
 				medRecordROSBean.setConstitutionalSymptoms(rs.getString("constitutional_symptoms"));
 				medRecordROSBean.setEyes(rs.getString(rs.getString("eyes")));
 				medRecordROSBean.setEarsNoseThroat(rs.getString("ears_nose_throat"));
@@ -66,7 +66,7 @@ public class MedicalRecordROSDao {
 			
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
-				preparedStatement.setInt(1, medRecordROSBean.getChiefComplaintId());
+				preparedStatement.setString(1, medRecordROSBean.getChiefComplaintId());
 				preparedStatement.setString(2, medRecordROSBean.getMedicalRecordId());
 				preparedStatement.setString(3, medRecordROSBean.getConstitutionalSymptoms());
 				preparedStatement.setString(4, medRecordROSBean.getEyes());
