@@ -45,12 +45,17 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		MedicalRecordROSBean ros = new MedicalRecordROSBean();
 		LocalDateTime currentDate = LocalDateTime.now();
 		
-		String chiefComplaintId = ChiefComplaintIdUtil.get((String)request.getAttribute("medRecord"));
+
+		HttpSession session = request.getSession();
+		String medRecordId = (String)session.getAttribute("medRecordId");
+		System.out.println("MedicalRecordAddChiefComplaintServlet med ID: " + medRecordId);
+		String chiefComplaintId = ChiefComplaintIdUtil.get(medRecordId);
+		chiefComplaints.setMedicalRecordId(medRecordId);
 		chiefComplaints.setChiefComplaintId(chiefComplaintId);
 		chiefComplaints.setDate(currentDate);
-		chiefComplaints.setStatement((String)request.getAttribute("chiefComplaintInput"));
+		chiefComplaints.setStatement(request.getParameter("chiefComplaintInput"));
 		
-		vitals.setMedicalRecordId((String)request.getAttribute("medRecord"));
+		vitals.setMedicalRecordId(medRecordId);
 		vitals.setDateTaken(currentDate);
 		vitals.setHeight(Double.parseDouble(request.getParameter("vitalsHeightCm")));
 		vitals.setWeight(Double.parseDouble(request.getParameter("vitalsWeightKg")));
@@ -62,7 +67,7 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		vitals.setBloodPressureDiastolic(Double.parseDouble(request.getParameter("vitalsBPDiastolic")));
 		vitals.setArterialBloodOxygenSaturation(Double.parseDouble(request.getParameter("vitalsBloodO2Saturation")));
 		
-		ros.setMedicalRecordId((String)request.getAttribute("medRecord"));
+		ros.setMedicalRecordId(medRecordId);
 		ros.setChiefComplaintId(chiefComplaintId);
 		ros.setDate(currentDate);
 		ros.setConstitutionalSymptoms(request.getParameter("rosConstitutionalSymptoms"));
