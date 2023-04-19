@@ -43,8 +43,8 @@ public class MedicalRecordChiefComplaintsDao {
 	
 	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) throws SQLException {
 		
-		String query = "INSERT INTO chief_complaints(medical_record_id, admissions_id, statement, chief_complaint_date) "
-				+ "VALUES (?,?,?,?)";
+		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
+				+ "VALUES (?,?,?,?,?)";
 		
 		int success = 0;
 		
@@ -53,10 +53,11 @@ public class MedicalRecordChiefComplaintsDao {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
 				System.out.println("Writing to the chief_complaints table...");
-				preparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
-				preparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
-				preparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
-				preparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
+				preparedStatement.setString(1, medRecordChiefComplaintsBean.getChiefComplaintId());
+				preparedStatement.setString(2, medRecordChiefComplaintsBean.getMedicalRecordId());
+				preparedStatement.setInt(3, medRecordChiefComplaintsBean.getAdmissionsId());
+				preparedStatement.setString(4, medRecordChiefComplaintsBean.getStatement());
+				preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
 				success = preparedStatement.executeUpdate();
 			}
 		}
