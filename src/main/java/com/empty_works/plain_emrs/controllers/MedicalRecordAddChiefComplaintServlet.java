@@ -52,33 +52,33 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		
 		vitals.setMedicalRecordId((String)request.getAttribute("medRecord"));
 		vitals.setDateTaken(currentDate);
-		vitals.setHeight((double)request.getAttribute("vitalsHeightCm"));
-		vitals.setWeight((double)request.getAttribute("vitalsWeightKg"));
-		vitals.setCalculatedBmi((double)request.getAttribute("vitalsBmi"));
-		vitals.setTemperature((double)request.getAttribute("vitalsTemperature"));
-		vitals.setPulse((double)request.getAttribute("vitalsPulse"));
-		vitals.setRespiratoryRate((double)request.getAttribute("vitalsRespiratoryRate"));
-		vitals.setBloodPressureSystolic((double)request.getAttribute("vitalsBPSystolic"));
-		vitals.setBloodPressureDiastolic((double)request.getAttribute("vitalsBPDiastolic"));
-		vitals.setArterialBloodOxygenSaturation((double)request.getAttribute("vitalsBloodO2Saturation"));
+		vitals.setHeight(Double.parseDouble(request.getParameter("vitalsHeightCm")));
+		vitals.setWeight(Double.parseDouble(request.getParameter("vitalsWeightKg")));
+		vitals.setCalculatedBmi(Double.parseDouble(request.getParameter("vitalsBmi")));
+		vitals.setTemperature(Double.parseDouble(request.getParameter("vitalsTemperature")));
+		vitals.setPulse(Double.parseDouble(request.getParameter("vitalsPulse")));
+		vitals.setRespiratoryRate(Double.parseDouble(request.getParameter("vitalsRespiratoryRate")));
+		vitals.setBloodPressureSystolic(Double.parseDouble(request.getParameter("vitalsBPSystolic")));
+		vitals.setBloodPressureDiastolic(Double.parseDouble(request.getParameter("vitalsBPDiastolic")));
+		vitals.setArterialBloodOxygenSaturation(Double.parseDouble(request.getParameter("vitalsBloodO2Saturation")));
 		
 		ros.setMedicalRecordId((String)request.getAttribute("medRecord"));
 		ros.setChiefComplaintId(chiefComplaintId);
 		ros.setDate(currentDate);
-		ros.setConstitutionalSymptoms((String)request.getAttribute("rosConstitutionalSymptoms"));
-		ros.setEyes((String)request.getAttribute("rosEyes"));
-		ros.setEarsNoseThroat((String)request.getAttribute("rosEarsNoseThroat"));
-		ros.setCardiovascular((String)request.getAttribute("rosCardiovascular"));
-		ros.setRespiratory((String)request.getAttribute("rosRespiratory"));
-		ros.setGastrointestinal((String)request.getAttribute("rosGastrointestinal"));
-		ros.setGenitournary((String)request.getAttribute("rosGenitournary"));
-		ros.setMusculoskeletal((String)request.getAttribute("rosMusculoskeletal"));
-		ros.setIntegumentary((String)request.getAttribute("rosIntegumentary"));
-		ros.setNeurological((String)request.getAttribute("rosNeurological"));
-		ros.setPsychiatric((String)request.getAttribute("rosPsychiatric"));
-		ros.setEndocrine((String)request.getAttribute("rosEndocrine"));
-		ros.setHematologicLymphatic((String)request.getAttribute("rosHematologicLymphatic"));
-		ros.setAllergicImmunologic((String)request.getAttribute("rosAllergicImmunologic"));
+		ros.setConstitutionalSymptoms(request.getParameter("rosConstitutionalSymptoms"));
+		ros.setEyes(request.getParameter("rosEyes"));
+		ros.setEarsNoseThroat(request.getParameter("rosEarsNoseThroat"));
+		ros.setCardiovascular(request.getParameter("rosCardiovascular"));
+		ros.setRespiratory(request.getParameter("rosRespiratory"));
+		ros.setGastrointestinal(request.getParameter("rosGastrointestinal"));
+		ros.setGenitournary(request.getParameter("rosGenitournary"));
+		ros.setMusculoskeletal(request.getParameter("rosMusculoskeletal"));
+		ros.setIntegumentary(request.getParameter("rosIntegumentary"));
+		ros.setNeurological(request.getParameter("rosNeurological"));
+		ros.setPsychiatric(request.getParameter("rosPsychiatric"));
+		ros.setEndocrine(request.getParameter("rosEndocrine"));
+		ros.setHematologicLymphatic(request.getParameter("rosHematologicLymphatic"));
+		ros.setAllergicImmunologic(request.getParameter("rosAllergicImmunologic"));
 		
 		// DAOs
 		try {
@@ -88,5 +88,8 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("Forwarding to UserPatientChartOverview.jsp from MedicalRecordAddChiefComplaintServlet...");
+		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
 	}
 }

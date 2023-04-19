@@ -147,7 +147,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordVitals", getLatestDate(medRecordVitalsList));
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
-		System.out.println("Forwarding to UserPatientChartOverviewServlet...");
+		System.out.println("Forwarding to UserPatientChartOverviewServlet from UserPatientServlet...");
 		//response.sendRedirect(request.getContextPath() + "/UserPatientChartOverviewServlet");
 		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
 	}
