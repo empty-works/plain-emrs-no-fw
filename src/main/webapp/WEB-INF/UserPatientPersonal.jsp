@@ -16,19 +16,18 @@
 </head>
 <body>
 	
-	<!-- Calls script to place top bar instead of copy/pasting top bar code. Can easily make changes. -->
-	<script id="replace_with_topbar" src="${pageContext.request.contextPath}/js/topbar.js"></script>
-	 	
 	<div class="main-container">
-		<!-- Side main menu -->
-		<div class="side-main-menu">
-			<script id="replace_with_sidemainmenu" src="${pageContext.request.contextPath}/js/adminsidemainmenu.js"></script>	
-		</div>
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div><a href="${pageContext.request.contextPath}/UserPatientChartOverviewServlet?userPatientId=${userPatientId}">Chart Overview</a></div>
+			<div><a href="${pageContext.request.contextPath}/UserPatientChartOverviewServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
 			<div class="sidenav-active">Personal Details</div>
-			<div><a href="<c:url value="/" />">Timeline</a></div>
+			<div><a>Timeline</a></div>
+			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
+			<br />
+			<br />
+			<br />
+			<!-- Prompt user if they really want to return to the patient list -->
+			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
 		</div>
 		
 		<div class="main-grid-container">

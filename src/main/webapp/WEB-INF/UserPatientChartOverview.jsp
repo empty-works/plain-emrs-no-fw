@@ -25,7 +25,7 @@
 		<div class="sidenav main-font">
 			<div class="sidenav-active">Latest Chief Complaint</div>
 			<div><a href="${pageContext.request.contextPath}/UserPatientPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
-			<div><a href="<c:url value="/" />">Timeline</a></div>
+			<div><a>Timeline</a></div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
 			<br />
 			<br />
