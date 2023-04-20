@@ -114,6 +114,7 @@ public class UserPatientServlet extends HttpServlet {
 		/* Retrieve patient races as a list in the JSP. */
 		session.setAttribute("patientRaceList", patientRace.getRaces());
 
+		session.setAttribute("userPatientId", userPatientId);
 		session.setAttribute("userEmailAddress", patient.getEmailAddress());
 		session.setAttribute("userEnabled", patient.isUserEnabled());
 		session.setAttribute("userCreatedOn", patient.getDateCreated());

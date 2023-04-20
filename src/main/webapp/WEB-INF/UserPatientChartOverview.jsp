@@ -58,6 +58,25 @@
 						</div>
 					</fieldset>
 					<fieldset>
+						<legend class="patient-header">Overview</legend>	
+						<div id="patient-overview-grid-1" class="patient-data">
+							<div>
+								<label for="medRecordId">Medical Record ID:</label>
+								<div id="medRecordId">${medicalRecordId}</div>	
+								<label for="medRecordCond">Medical Record Condition:</label>
+								<div id="medRecordCond">${medRecordPatientCondition}</div>
+								<label for="medRecordCreated">Medical Record Created:</label>
+							</div>	
+							<div>
+								<div id="medRecordCreated">${medRecordCreated}</div>
+								<label for="medRecordActive">Medical Record Active:</label>
+								<div id="medRecordActive">${medRecordIsActive}</div>
+								<label for="medRecordBloodTransfusion">Blood Transfusion Status:</label>
+								<div id="medRecordBloodTransfusion">${medRecordBloodTransfusionStatus}</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
 						<legend class="patient-header">Chief complaint</legend>	
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
