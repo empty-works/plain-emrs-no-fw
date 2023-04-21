@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +32,11 @@ public class MedicalRecordSurgicalProblemsDao {
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordSurgicalProblemsBean medRecordSurgicalProblemsBean = new MedicalRecordSurgicalProblemsBean();
-					medRecordSurgicalProblemsBean.getSurgicalRelatedId();
-					medRecordSurgicalProblemsBean.getSurgicalRelatedProblem();
-					medRecordSurgicalProblemsBean.getProblemArea();
-					medRecordSurgicalProblemsBean.getSurgicalProcedure();
-					medRecordSurgicalProblemsBean.getSurgicalProcedureYear();
+					medRecordSurgicalProblemsBean.setSurgicalRelatedId(rs.getInt("surgical_related_id"));
+					medRecordSurgicalProblemsBean.setSurgicalRelatedProblem(rs.getString("surgical_related_problem"));
+					medRecordSurgicalProblemsBean.setProblemArea(rs.getString("problem_area"));
+					medRecordSurgicalProblemsBean.setSurgicalProcedure(rs.getString("surgical_procedure"));
+					medRecordSurgicalProblemsBean.setSurgicalProcedureYear(rs.getString("surgical_procedure_year"));
 					medRecordSurgicalProblemsBeanList.add(medRecordSurgicalProblemsBean);
 				}
 			}
