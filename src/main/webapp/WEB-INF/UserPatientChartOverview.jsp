@@ -154,15 +154,53 @@
 					</div>
 					<button class="med-record-accordion">Diseases</button>
 					<div class="med-record-panel">
-						<p>TESTING</p>
+						<p>
+						<c:choose>
+						<c:when test="${empty medRecordDiseasesList}">
+							No diseases	
+						</c:when>	
+						<c:otherwise>
+							<c:forEach items="${medRecordDiseasesList}" var="disease">
+								${disease.getDisease()}, 
+							</c:forEach>	
+						</c:otherwise>
+						</c:choose>
+						</p>
 					</div>
 					<button class="med-record-accordion">Surgery-related problems</button>
 					<div class="med-record-panel">
-						<p>TESTING</p>
+						<p>
+						<c:choose>
+						<c:when test="${empty medRecordSurgicalProblemsList}">
+							No surgical history	
+						</c:when>	
+						<c:otherwise>
+							<c:forEach items="${medRecordSurgicalProblemsList}" var="surgery">
+								<div>
+									Problem: ${surgery.getSurgicalRelatedProblem()}<br /> 
+									Problem area: ${surgery.getProblemArea()}<br />
+									Procedure: ${surgery.getSurgicalProcedure()}<br />
+									Procedure year: ${surgery.getSurgicalProcedure()}<br />
+								</div>
+							</c:forEach>	
+						</c:otherwise>
+						</c:choose>	
+						</p>
 					</div>
 					<button class="med-record-accordion">Nurse notes</button>
 					<div class="med-record-panel">
-						<p>TESTING</p>
+						<p>
+						<c:choose>
+						<c:when test="${empty medRecordNurseNotesList}">
+							No nurse notes
+						</c:when>	
+						<c:otherwise>
+							<c:forEach items="${medRecordNurseNotesList}" var="nurseNote">
+								<div>- ${nurseNote.getText()}</div>	
+							</c:forEach>	
+						</c:otherwise>
+						</c:choose>
+						</p>
 					</div>
 				</div>
 			</div>
