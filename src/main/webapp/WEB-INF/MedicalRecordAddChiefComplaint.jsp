@@ -18,7 +18,6 @@
 <title>Add Chief Complaint</title>
 </head>
 <body>
-	
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">

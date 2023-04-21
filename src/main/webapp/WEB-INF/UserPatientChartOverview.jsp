@@ -80,7 +80,7 @@
 						<legend class="patient-header">Chief complaint</legend>	
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<div>TESTING</div>	
+								<div>${medRecordChiefComplaintsLatest.getStatement()}</div>	
 							</div>	
 						</div>
 					</fieldset>
@@ -106,40 +106,51 @@
 					<fieldset>
 						<legend class="patient-header">Allergies</legend>							
 						<div id="patient-overview-grid-1" class="patient-data">
-							<div>
-								<c:choose>
-								<c:when test="">
-									<div>No allergies</div>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${medRecordAllergiesList}" var="allergy">
-										${allergy.getAllergyName()}, 
-									</c:forEach>	
-								</c:otherwise>
-								</c:choose>
-							</div>
+							<p>
+							<c:choose>
+							<c:when test="empty ${medRecordAllergiesList}">
+								No allergies
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${medRecordAllergiesList}" var="allergy">
+									${allergy.getAllergyName()}, 
+								</c:forEach>	
+							</c:otherwise>
+							</c:choose>
+							</p>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Medication</legend>							
 						<div id="patient-overview-grid-1" class="patient-data">
-							<div>
-								<c:choose>
-									<c:when test="${empty medRecordMedicationList}">
-										<div>No medication</div>
-									</c:when>
-									<c:otherwise>
-										<c:forEach items="${medRecordMedicationList}" var="medication">
-											${medication.getMedicationName()}, 
-										</c:forEach>
-									</c:otherwise>
-								</c:choose>
-							</div>
+							<p>
+							<c:choose>
+								<c:when test="${empty medRecordMedicationList}">
+									No medication
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${medRecordMedicationList}" var="medication">
+										${medication.getMedicationName()}, 
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+							</p>
 						</div>
 					</fieldset>
 					<button class="med-record-accordion">Illnesses</button>
 					<div class="med-record-panel">
-						<p>TESTING</p>
+						<p>
+						<c:choose>
+						<c:when test="${empty medRecordIllnessesList}">
+							No illnesses
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${medRecordIllnessesList}" var="illness">
+								${illness.getIllness()}, 		
+							</c:forEach>
+						</c:otherwise>
+						</c:choose>
+						</p>
 					</div>
 					<button class="med-record-accordion">Diseases</button>
 					<div class="med-record-panel">
