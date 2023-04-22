@@ -88,8 +88,27 @@
 				</fieldset>
 				<fieldset>
 					<legend class="patient-header">Blood relatives</legend>	
-					<div class="patient-data">
-						<div id="patientBloodRelatives">${medRecordBloodRelatives}</div>
+					<div class="dynamic-grid">
+						<div id="patientBloodRelatives" class="content-container">Father status: ${medRecordBloodRelatives.getFatherStatus()}</div>
+						<div>
+							<c:choose>
+							<c:when test="${medRecordBloodRelatives.getFatherStatus() != 'alive'}">
+								<div id="patientBloodRelatives" class="content-container">Father deceased age: ${medRecordBloodRelatives.getFathDecAge()}</div>
+							</c:when>	
+							</c:choose>	
+						</div>
+						<div id="patientBloodRelatives" class="content-container">Mother status: ${medRecordBloodRelatives.getMotherStatus()}</div>
+						<div>
+							<c:choose>
+							<c:when test="${medRecordBloodRelatives.getMotherStatus() != 'alive'}">
+								<div id="patientBloodRelatives" class="content-container">Mother deceased age: ${medRecordBloodRelatives.getMothDecAge()}</div>
+							</c:when>	
+							</c:choose>	
+						</div>
+						<div id="patientBloodRelatives" class="content-container">Number of brothers: ${medRecordBloodRelatives.getNumBrothers()}</div>
+						<div id="patientBloodRelatives" class="content-container">Number of sisters: ${medRecordBloodRelatives.getNumSisters()}</div>
+						<div id="patientBloodRelatives" class="content-container">Number of sons: ${medRecordBloodRelatives.getNumSons()}</div>
+						<div id="patientBloodRelatives" class="content-container">Number of daughters: ${medRecordBloodRelatives.getNumDaughters()}</div>
 					</div>
 				</fieldset>
 			</div>
