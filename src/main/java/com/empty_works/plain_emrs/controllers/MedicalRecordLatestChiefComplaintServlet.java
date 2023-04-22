@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UserPatientChartOverviewServlet
+ * Servlet implementation class MedicalRecordLatestChiefComplaintServlet
  */
-@WebServlet("/UserPatientChartOverviewServlet")
-public class UserPatientChartOverviewServlet extends HttpServlet {
+@WebServlet("/MedicalRecordLatestChiefComplaintServlet")
+public class MedicalRecordLatestChiefComplaintServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -31,7 +31,7 @@ public class UserPatientChartOverviewServlet extends HttpServlet {
 		*/
 		
 		System.out.println("Forwarding to UserPatientChartOverview.jsp...");
-		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
 	}
 
 	/**

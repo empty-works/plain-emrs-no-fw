@@ -12,10 +12,10 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
 
 /**
- * Servlet implementation class UserPatientPersonalServlet
+ * Servlet implementation class MedicalRecordPersonalServlet
  */
-@WebServlet("/UserPatientPersonalServlet")
-public class UserPatientPersonalServlet extends HttpServlet {
+@WebServlet("/MedicalRecordPersonalServlet")
+public class MedicalRecordPersonalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -55,7 +55,7 @@ public class UserPatientPersonalServlet extends HttpServlet {
 		request.setAttribute("emergencyContactPhoneNumber", session.getAttribute("emergencyContactPhoneNumber"));
 		request.setAttribute("emergencyContactEmail", session.getAttribute("emergencyContactEmail"));
 		
-		request.getRequestDispatcher("/WEB-INF/UserPatientPersonal.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/MedicalRecordPersonal.jsp").forward(request, response);
 	}
 
 	/**

@@ -19,7 +19,7 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div><a href="${pageContext.request.contextPath}/UserPatientChartOverviewServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
+			<div><a href="${pageContext.request.contextPath}/MedicalRecordLatestChiefComplaintServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
 			<div class="sidenav-active">Personal Details</div>
 			<div><a>Timeline</a></div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
