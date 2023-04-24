@@ -42,6 +42,7 @@
 				</fieldset>					
 				<fieldset>
 					<legend>Vitals</legend>	
+					<div class="dynamic-grid">
 					<label for="vitalsHeightCm">Height: </label>
 					<input type="number" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255">
 					<label for="vitalsWeightKg">Weight: </label>
@@ -60,9 +61,11 @@
 					<input type="number" id="vitalsBPDiastolic" name="vitalsBPDiastolic">
 					<label for="vitalsBloodO2Saturation">Arterial blood oxygen saturation:</label>
 					<input type="number" id="vitalsBloodO2Saturation" name="vitalsBloodO2Saturation">
+					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Review of Systems</legend>	
+					<div class="dynamic-grid">
 					<label for="rosConstitutionalSymptoms">Constitutional symptoms: </label>
 					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms"></textarea></div>
 					<label for="rosEyes">Eyes: </label>
@@ -91,6 +94,7 @@
 					<div><textarea id="rosHematologicLymphatic" name="rosHematologicLymphatic"></textarea></div>
 					<label for="rosAllergicImmunologic">Allergic immunologic: </label>
 					<div><textarea id="rosAllergicImmunologic" name="rosAllergicImmunologic"></textarea></div>
+					</div>
 				</fieldset>
 				<div><input id="patientFormSubmitButton" type="submit" value="Submit"/><input type="reset" name="Reset" /></div>
 			</form>
