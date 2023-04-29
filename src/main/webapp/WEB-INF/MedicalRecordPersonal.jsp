@@ -33,7 +33,7 @@
 		<div class="main-grid-container">
 			<div class="main-grid">
 				<fieldset>
-					<legend class="patient-header">Patient Overview</legend>
+					<legend class="patient-header">General information</legend>
 					<div id="patient-overview-grid-1" class="patient-data">
 						<div>
 							<div>Patient Picture</div>
@@ -65,7 +65,7 @@
 				</fieldset>
 				<fieldset>
 					<legend class="patient-header">Personal details</legend>		
-					<div class="patient-data">
+					<div class="dynamic-grid">
 						<label for="patientProvider">Patient provider:</label>
 						<div id="patientProvider">${patientProvider} | ${patientProviderId}</div>
 						<label for="genderAtBirth">Gender at birth:</label>

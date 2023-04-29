@@ -23,7 +23,7 @@
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
-			<div class="sidenav-active">Latest Chief Complaint</div>
+			<div class="sidenav-active">Latest Chief Complaint </div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a>Timeline</a></div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
@@ -32,6 +32,18 @@
 			<br />
 			<!-- Prompt user if they really want to return to the patient list -->
 			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
+
+			<br />
+			<br />
+			<br />
+			<!-- Can only add patient if an admin -->
+			<div>
+			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+				<div>[Only authorized personnel]</div>
+				<div>Edit chief complaints</div>
+				<div>Edit patient</div>
+			</c:if>
+			</div>
 		</div>
 		
 		<div class="main-grid-container">
@@ -58,7 +70,7 @@
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend class="patient-header">Overview</legend>	
+						<legend class="patient-header">Medical Record Overview</legend>	
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
 								<label for="medRecordId">Medical Record ID:</label>
