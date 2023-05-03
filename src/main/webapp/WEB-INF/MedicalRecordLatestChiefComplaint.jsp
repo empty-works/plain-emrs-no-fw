@@ -40,7 +40,7 @@
 			<div>
 			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
 				<div>[Only authorized personnel]</div>
-				<div><a href="${pageContext.request.contextPath}/">Edit chief complaints</a></div>
+				<div><a href="${pageContext.request.contextPath}/MedicalRecordEditChiefComplaintServlet?userPatientId=${userPatientId}">Edit chief complaints</a></div>
 				<div><a>Edit patient</a></div>
 			</c:if>
 			</div>
