@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
 			<!-- Prompt user if they really want to return to the patient list -->
-			<div><a href="<c:url value="/UserPatientListServlet" />">Cancel editing chief complaint</a></div>
+			<div><a href="<c:url value="/UserPatientServlet?userPatientId=${patient.getUserId()}" />">Cancel editing chief complaint</a></div>
 		</div>
 
 		<!-- Main content -->
