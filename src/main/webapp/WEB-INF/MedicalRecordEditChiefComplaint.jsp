@@ -22,7 +22,7 @@
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
 			<!-- Prompt user if they really want to return to the patient list -->
-			<div><a href="<c:url value="/UserPatientServlet?userPatientId=${patient.getUserId()}" />">Cancel editing chief complaint</a></div>
+			<div><a href="<c:url value="/UserPatientServlet?userPatientId=${userPatientId}" />">Cancel editing chief complaint</a></div>
 		</div>
 
 		<!-- Main content -->
