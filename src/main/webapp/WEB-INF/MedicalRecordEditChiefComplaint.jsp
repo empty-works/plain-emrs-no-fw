@@ -37,30 +37,30 @@
 					<legend>Vitals</legend>	
 					<div class="dynamic-grid">
 					<label for="vitalsHeightCm">Height: </label>
-					<input type="number" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255" value="51">
+					<input type="number" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255" value="${medRecordVitals.getHeight()}">
 					<label for="vitalsWeightKg">Weight: </label>
-					<input type="number" id="vitalsWeightKg" name="vitalsWeightKg">
+					<input type="number" id="vitalsWeightKg" name="vitalsWeightKg" value="${medRecordVitals.getWeight()}">
 					<label for="vitalsBmi">Calculated BMI:</label>
-					<input type="number" id="vitalsBmi" name="vitalsBmi">	
+					<input type="number" id="vitalsBmi" name="vitalsBmi" value="${medRecordVitals.getCalculatedBmi()}">	
 					<label for="vitalsTemperature">Temperature:</label>
-					<input type="number" id="vitalsTemperature" name="vitalsTemperature">
+					<input type="number" id="vitalsTemperature" name="vitalsTemperature" value="${medRecordVitals.getTemperature()}">
 					<label for="vitalsPulse">Pulse rate:</label>
-					<input type="number" id="vitalsPulse" name="vitalsPulse">
+					<input type="number" id="vitalsPulse" name="vitalsPulse" value="${medRecordVitals.getPulse()}">
 					<label for="vitalsRespiratoryRate">Respiratory rate:</label>
-					<input type="number" id="vitalsRespiratoryRate" name="vitalsRespiratoryRate">
+					<input type="number" id="vitalsRespiratoryRate" name="vitalsRespiratoryRate" value="${medRecordVitals.getRespiratoryRate()}">
 					<label for="vitalsBPSystolic">Blood pressure systolic:</label>
-					<input type="number" id="vitalsBPSystolic" name="vitalsBPSystolic">
+					<input type="number" id="vitalsBPSystolic" name="vitalsBPSystolic" value="${medRecordVitals.getBloodPressureSystolic()}">
 					<label for="vitalsBPDiastolic">Blood pressure diastolic:</label>
-					<input type="number" id="vitalsBPDiastolic" name="vitalsBPDiastolic">
+					<input type="number" id="vitalsBPDiastolic" name="vitalsBPDiastolic" value="${medRecordVitals.getBloodPressureDiastolic()}">
 					<label for="vitalsBloodO2Saturation">Arterial blood oxygen saturation:</label>
-					<input type="number" id="vitalsBloodO2Saturation" name="vitalsBloodO2Saturation">
+					<input type="number" id="vitalsBloodO2Saturation" name="vitalsBloodO2Saturation" value="${medRecordVitals.getArterialBloodOxygenSaturation()}">
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Review of Systems</legend>	
 					<div class="dynamic-grid">
 					<label for="rosConstitutionalSymptoms">Constitutional symptoms: </label>
-					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms"></textarea></div>
+					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms" value=""></textarea></div>
 					<label for="rosEyes">Eyes: </label>
 					<div><textarea id="rosEyes" name="rosEyes"></textarea></div>
 					<label for="rosEarsNoseThroat">Ears nose throat: </label>
