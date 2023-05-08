@@ -23,8 +23,10 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordInterface;
 import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
@@ -39,6 +41,7 @@ import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordMedicationDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordNurseNotesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordROSDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordVitalsDao;
 import com.empty_works.plain_emrs.dao.UserPatientDao;
@@ -77,6 +80,7 @@ public class UserPatientServlet extends HttpServlet {
 		List<MedicalRecordNurseNotesBean> medRecordNurseNotesList = null;
 		List<MedicalRecordVitalsBean> medRecordVitalsList = null;
 		List<MedicalRecordAdmissionsBean> medRecordAdmissionsList = null; 
+		List<MedicalRecordROSBean> medRecordRosBeanList = null;
 		try {
 			medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
 			medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
@@ -88,6 +92,7 @@ public class UserPatientServlet extends HttpServlet {
 			medRecordNurseNotesList = MedicalRecordNurseNotesDao.get(medRecordId);
 			medRecordVitalsList = MedicalRecordVitalsDao.get(medRecordId);
 			medRecordAdmissionsList = MedicalRecordAdmissionsDao.get(medRecordId);
+			medRecordRosBeanList = MedicalRecordROSDao.get(userPatientId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -145,8 +150,11 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordMedicationList", medRecordMedicationList);
 		session.setAttribute("medRecordSurgicalProblemsList", medRecordSurgicalProblemsList);
 		session.setAttribute("medRecordNurseNotesList", medRecordNurseNotesList);
-		session.setAttribute("medRecordVitals", getLatestDate(medRecordVitalsList));
+		session.setAttribute("medRecordVitals", getLatestVitalsDate(medRecordVitalsList));
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
+		
+		session.setAttribute("medRecordRosList", medRecordRosBeanList);
+		session.setAttribute("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
 		
 		System.out.println("Forwarding to MedicalRecordLatestChiefComplaintServlet from UserPatientServlet...");
 		//response.sendRedirect(request.getContextPath() + "/MedicalRecordLatestChiefComplaintServlet");
@@ -170,14 +178,22 @@ public class UserPatientServlet extends HttpServlet {
 	 * @param vitalsList
 	 * @return
 	 */
-	private MedicalRecordVitalsBean getLatestDate(List<MedicalRecordVitalsBean> vitalsList) {
+	private MedicalRecordVitalsBean getLatestVitalsDate(List<MedicalRecordVitalsBean> vitalsList) {
 		
 		if(vitalsList == null || vitalsList.isEmpty()) {
 			return null;
 		}
 		return Collections.max(vitalsList, Comparator.comparing(MedicalRecordVitalsBean::getDateTaken));
 	}
-
+	
+	private MedicalRecordROSBean getLatestRosDate(List<MedicalRecordROSBean> rosList) {
+		
+		if(rosList == null || rosList.isEmpty()) {
+			return null;
+		}
+		return Collections.max(rosList, Comparator.comparing(MedicalRecordROSBean::getDate));
+	}
+	
 	private MedicalRecordChiefComplaintsBean getLatest(List<MedicalRecordChiefComplaintsBean> chiefComplaintsList) {
 		
 		if(chiefComplaintsList == null || chiefComplaintsList.isEmpty()) {

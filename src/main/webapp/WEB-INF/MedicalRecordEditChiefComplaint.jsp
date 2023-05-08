@@ -60,7 +60,7 @@
 					<legend>Review of Systems</legend>	
 					<div class="dynamic-grid">
 					<label for="rosConstitutionalSymptoms">Constitutional symptoms: </label>
-					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms" value=""></textarea></div>
+					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms">${medRecordRosLatest.getConstitutionalSymptoms()}</textarea></div>
 					<label for="rosEyes">Eyes: </label>
 					<div><textarea id="rosEyes" name="rosEyes"></textarea></div>
 					<label for="rosEarsNoseThroat">Ears nose throat: </label>

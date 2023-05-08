@@ -94,7 +94,7 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Forwarding to UserPatientChartOverview.jsp from MedicalRecordAddChiefComplaintServlet...");
-		request.getRequestDispatcher("/WEB-INF/UserPatientChartOverview.jsp").forward(request, response);
+		System.out.println("Forwarding to MedicalRecordLatestChiefComplaint.jsp from MedicalRecordAddChiefComplaintServlet...");
+		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
 	}
 }
