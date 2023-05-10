@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
+import com.empty_works.plain_emrs.util.BlobConverter;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordROSDao {
@@ -70,20 +71,20 @@ public class MedicalRecordROSDao {
 				
 				preparedStatement.setString(1, medRecordROSBean.getChiefComplaintId());
 				preparedStatement.setString(2, medRecordROSBean.getMedicalRecordId());
-				preparedStatement.setClob(3, medRecordROSBean.getConstitutionalSymptoms().getBytes());
-				preparedStatement.setString(4, medRecordROSBean.getEyes());
-				preparedStatement.setString(5, medRecordROSBean.getEarsNoseThroat());
-				preparedStatement.setString(6, medRecordROSBean.getCardiovascular());
-				preparedStatement.setString(7, medRecordROSBean.getRespiratory());
-				preparedStatement.setString(8, medRecordROSBean.getGastrointestinal());
-				preparedStatement.setString(9, medRecordROSBean.getGenitournary());
-				preparedStatement.setString(10, medRecordROSBean.getMusculoskeletal());
-				preparedStatement.setString(11, medRecordROSBean.getIntegumentary());
-				preparedStatement.setString(12, medRecordROSBean.getNeurological());
-				preparedStatement.setString(13, medRecordROSBean.getPsychiatric());
-				preparedStatement.setString(14, medRecordROSBean.getEndocrine());
-				preparedStatement.setString(15, medRecordROSBean.getHematologicLymphatic());
-				preparedStatement.setString(16, medRecordROSBean.getAllergicImmunologic());
+				preparedStatement.setBlob(3, BlobConverter.convert(con, medRecordROSBean.getConstitutionalSymptoms()));
+				preparedStatement.setBlob(4, BlobConverter.convert(con, medRecordROSBean.getEyes()));
+				preparedStatement.setBlob(5, BlobConverter.convert(con, medRecordROSBean.getEarsNoseThroat()));
+				preparedStatement.setBlob(6, BlobConverter.convert(con, medRecordROSBean.getCardiovascular()));
+				preparedStatement.setBlob(7, BlobConverter.convert(con, medRecordROSBean.getRespiratory()));
+				preparedStatement.setBlob(8, BlobConverter.convert(con, medRecordROSBean.getGastrointestinal()));
+				preparedStatement.setBlob(9, BlobConverter.convert(con, medRecordROSBean.getGenitournary()));
+				preparedStatement.setBlob(10, BlobConverter.convert(con, medRecordROSBean.getMusculoskeletal()));
+				preparedStatement.setBlob(11, BlobConverter.convert(con, medRecordROSBean.getIntegumentary()));
+				preparedStatement.setBlob(12, BlobConverter.convert(con, medRecordROSBean.getNeurological()));
+				preparedStatement.setBlob(13, BlobConverter.convert(con, medRecordROSBean.getPsychiatric()));
+				preparedStatement.setBlob(14, BlobConverter.convert(con, medRecordROSBean.getEndocrine()));
+				preparedStatement.setBlob(15, BlobConverter.convert(con, medRecordROSBean.getHematologicLymphatic()));
+				preparedStatement.setBlob(16, BlobConverter.convert(con, medRecordROSBean.getAllergicImmunologic()));
 				preparedStatement.setTimestamp(17, java.sql.Timestamp.valueOf(medRecordROSBean.getDate()));
 				success = preparedStatement.executeUpdate();
 			}
