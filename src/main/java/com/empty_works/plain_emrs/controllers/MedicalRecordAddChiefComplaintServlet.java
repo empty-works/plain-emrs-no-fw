@@ -45,7 +45,6 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		MedicalRecordROSBean ros = new MedicalRecordROSBean();
 		LocalDateTime currentDate = LocalDateTime.now();
 		
-
 		HttpSession session = request.getSession();
 		String medRecordId = (String)session.getAttribute("medRecordId");
 		System.out.println("MedicalRecordAddChiefComplaintServlet med ID: " + medRecordId);

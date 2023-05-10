@@ -70,7 +70,7 @@ public class MedicalRecordROSDao {
 				
 				preparedStatement.setString(1, medRecordROSBean.getChiefComplaintId());
 				preparedStatement.setString(2, medRecordROSBean.getMedicalRecordId());
-				preparedStatement.setString(3, medRecordROSBean.getConstitutionalSymptoms());
+				preparedStatement.setClob(3, medRecordROSBean.getConstitutionalSymptoms().getBytes());
 				preparedStatement.setString(4, medRecordROSBean.getEyes());
 				preparedStatement.setString(5, medRecordROSBean.getEarsNoseThroat());
 				preparedStatement.setString(6, medRecordROSBean.getCardiovascular());
