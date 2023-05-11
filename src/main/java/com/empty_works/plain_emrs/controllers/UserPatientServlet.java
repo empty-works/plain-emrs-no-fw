@@ -154,6 +154,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordAdmissionsList", medRecordAdmissionsList);
 		
 		session.setAttribute("medRecordRosList", medRecordRosBeanList);
+		System.out.println("Latest ROS: " + getLatestRosDate(medRecordRosBeanList));
 		session.setAttribute("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
 		
 		System.out.println("Forwarding to MedicalRecordLatestChiefComplaintServlet from UserPatientServlet...");

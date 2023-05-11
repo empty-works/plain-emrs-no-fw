@@ -21,7 +21,6 @@ public class MedicalRecordEditChiefComplaintServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		
 		System.out.println("Forwarding to MedicalRecordEditChiefComplaint.jsp...");
 		request.getRequestDispatcher("/WEB-INF/MedicalRecordEditChiefComplaint.jsp").forward(request, response);
 	}

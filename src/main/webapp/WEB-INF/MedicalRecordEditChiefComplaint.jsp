@@ -27,7 +27,7 @@
 
 		<!-- Main content -->
 		<div class="main-grid-container form-font form-dimensions">
-			<h2 id="patientTitle">Add Chief Complaint Form</h2>
+			<h2 id="patientTitle">Edit Chief Complaint Form</h2>
 			<form id="addChiefComplaintForm" name="addChiefComplaintForm" class="content-padding" action="MedicalRecordAddChiefComplaintServlet" method="post">
 				<fieldset>
 					<legend>New Chief Complaint</legend>

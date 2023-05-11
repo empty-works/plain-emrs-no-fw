@@ -199,6 +199,35 @@
 						</c:choose>	
 						</p>
 					</div>
+					<button class="med-record-accordion">Review of systems</button>
+					<div class="med-record-panel">
+						<p>
+						<c:choose>
+						<c:when test="${empty medRecordRosLatest}">
+							No review of systems
+						</c:when>
+						<c:otherwise>
+							<div>
+								Date recorded: ${medRecordRosLatest.getDate()}<br />
+								Constitutional symptoms: ${medRecordRosLatest.getConstitutionalSymptoms()}<br />
+								Eyes: ${medRecordRosLatest.getEyes()}<br />
+								Ears, nose, throat: ${medRecordRosLatest.getEarsNoseThroat()}<br />
+								Cardiovascular: ${medRecordRosLatest.getCardiovascular()}<br />
+								Respiratory: ${medRecordRosLatest.getRespiratory()}<br />
+								Gastrointestinal: ${medRecordRosLatest.getGastrointestinal()}<br />
+								Genitournary: ${medRecordRosLatest.getGenitournary()}<br />
+								Musculoskeletal: ${medRecordRosLatest.getMusculoskeletal()}<br />
+								Integumentary: ${medRecordRosLatest.getIntegumentary()}<br />
+								Neurological: ${medRecordRosLatest.getNeurological()}<br />
+								Psychiatric: ${medRecordRosLatest.getPsychiatric()}<br />
+								Endocrine: ${medRecordRosLatest.getEndocrine()}<br />
+								Hematologic lymphatic: ${medRecordRosLatest.getHematologicLymphatic()}<br />
+								Allergic immunologic: ${medRecordRosLatest.getAllergicImmunologic()}<br />
+							</div>
+						</c:otherwise>
+						</c:choose>
+						</p>
+					</div>
 					<button class="med-record-accordion">Nurse notes</button>
 					<div class="med-record-panel">
 						<p>
