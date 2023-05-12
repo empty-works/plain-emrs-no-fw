@@ -31,7 +31,7 @@
 			<form id="addChiefComplaintForm" name="addChiefComplaintForm" class="content-padding" action="MedicalRecordAddChiefComplaintServlet" method="post">
 				<fieldset>
 					<legend>New Chief Complaint</legend>
-					<textarea id="chiefComplaintInput" name="chiefComplaintInput"></textarea>
+					<textarea id="chiefComplaintInput" name="chiefComplaintInput">${medRecordChiefComplaintsLatest.getStatement()}</textarea>
 				</fieldset>					
 				<fieldset>
 					<legend>Vitals</legend>	
@@ -59,34 +59,36 @@
 				<fieldset>
 					<legend>Review of Systems</legend>	
 					<div class="dynamic-grid">
+					<label for="rosDate">Date recorded: </label>
+					<div><textarea id="rosDate" name="rosDate">${medRecordRosLatest.getDate()}</textarea></div>
 					<label for="rosConstitutionalSymptoms">Constitutional symptoms: </label>
 					<div><textarea id="rosConstitutionalSymptoms" name="rosConstitutionalSymptoms">${medRecordRosLatest.getConstitutionalSymptoms()}</textarea></div>
 					<label for="rosEyes">Eyes: </label>
-					<div><textarea id="rosEyes" name="rosEyes"></textarea></div>
+					<div><textarea id="rosEyes" name="rosEyes">${medRecordRosLatest.getEyes()}</textarea></div>
 					<label for="rosEarsNoseThroat">Ears nose throat: </label>
-					<div><textarea id="rosEarsNoseThroat" name="rosEarsNoseThroat"></textarea></div>
+					<div><textarea id="rosEarsNoseThroat" name="rosEarsNoseThroat">${medRecordRosLatest.getEarsNoseThroat()}</textarea></div>
 					<label for="rosCardiovascular">Cardiovascular: </label>
-					<div><textarea id="rosCardiovascular" name="rosCardiovascular"></textarea></div>
+					<div><textarea id="rosCardiovascular" name="rosCardiovascular">${medRecordRosLatest.getCardiovascular()}</textarea></div>
 					<label for="rosRespiratory">Respiratory: </label>
-					<div><textarea id="rosRespiratory" name="rosRespiratory"></textarea></div>
+					<div><textarea id="rosRespiratory" name="rosRespiratory">${medRecordRosLatest.getRespiratory()}</textarea></div>
 					<label for="rosGastrointestinal">Gastrointestinal: </label>
-					<div><textarea id="rosGastrointestinal" name="rosGastrointestinal"></textarea></div>
+					<div><textarea id="rosGastrointestinal" name="rosGastrointestinal">${medRecordRosLatest.getGastrointestinal()}</textarea></div>
 					<label for="rosGenitournary">Genitournary: </label>
-					<div><textarea id="rosGenitournary" name="rosGenitournary"></textarea></div>
+					<div><textarea id="rosGenitournary" name="rosGenitournary">${medRecordRosLatest.getGenitournary()}</textarea></div>
 					<label for="rosMusculoskeletal">Musculoskeletal: </label>
-					<div><textarea id="rosMusculoskeletal" name="rosMusculoskeletal"></textarea></div>
+					<div><textarea id="rosMusculoskeletal" name="rosMusculoskeletal">${medRecordRosLatest.getMusculoskeletal()}</textarea></div>
 					<label for="rosIntegumentary">Integumentary: </label>
-					<div><textarea id="rosIntegumentary" name="rosIntegumentary"></textarea></div>
+					<div><textarea id="rosIntegumentary" name="rosIntegumentary">${medRecordRosLatest.getIntegumentary()}</textarea></div>
 					<label for="rosNeurological">Neurological: </label>
-					<div><textarea id="rosNeurological" name="rosNeurological"></textarea></div>
+					<div><textarea id="rosNeurological" name="rosNeurological">${medRecordRosLatest.getNeurological()}</textarea></div>
 					<label for="rosPsychiatric">Psychiatric: </label>
-					<div><textarea id="rosPsychiatric" name="rosPsychiatric"></textarea></div>
+					<div><textarea id="rosPsychiatric" name="rosPsychiatric">${medRecordRosLatest.getPsychiatric()}</textarea></div>
 					<label for="rosEndocrine">Endocrine: </label>
-					<div><textarea id="rosEndocrine" name="rosEndocrine"></textarea></div>
+					<div><textarea id="rosEndocrine" name="rosEndocrine">${medRecordRosLatest.getEndocrine()}</textarea></div>
 					<label for="rosHematologicLymphatic">Hematologic lymphatic: </label>
-					<div><textarea id="rosHematologicLymphatic" name="rosHematologicLymphatic"></textarea></div>
+					<div><textarea id="rosHematologicLymphatic" name="rosHematologicLymphatic">${medRecordRosLatest.getHematologicLymphatic()}</textarea></div>
 					<label for="rosAllergicImmunologic">Allergic immunologic: </label>
-					<div><textarea id="rosAllergicImmunologic" name="rosAllergicImmunologic"></textarea></div>
+					<div><textarea id="rosAllergicImmunologic" name="rosAllergicImmunologic">${medRecordRosLatest.getAllergicImmunologic()}</textarea></div>
 					</div>
 				</fieldset>
 				<div><input id="patientFormSubmitButton" type="submit" value="Submit"/><input type="reset" name="Reset" /></div>
