@@ -33,7 +33,9 @@ public class BlobConverter {
         try {
 			InputStream input = rs.getBinaryStream(parameter);
 			result = new BufferedReader(
-					new InputStreamReader(input, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
+					new InputStreamReader(input, StandardCharsets.UTF_8))
+					.lines()
+					.collect(Collectors.joining("\n"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

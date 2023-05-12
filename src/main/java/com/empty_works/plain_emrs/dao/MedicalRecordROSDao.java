@@ -53,6 +53,7 @@ public class MedicalRecordROSDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println("Get ROS list in DAO: " + medRecordROSBeanList);
 		
 		return medRecordROSBeanList;
 	}

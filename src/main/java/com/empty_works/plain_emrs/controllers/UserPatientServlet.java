@@ -92,7 +92,7 @@ public class UserPatientServlet extends HttpServlet {
 			medRecordNurseNotesList = MedicalRecordNurseNotesDao.get(medRecordId);
 			medRecordVitalsList = MedicalRecordVitalsDao.get(medRecordId);
 			medRecordAdmissionsList = MedicalRecordAdmissionsDao.get(medRecordId);
-			medRecordRosBeanList = MedicalRecordROSDao.get(userPatientId);
+			medRecordRosBeanList = MedicalRecordROSDao.get(medRecordId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
