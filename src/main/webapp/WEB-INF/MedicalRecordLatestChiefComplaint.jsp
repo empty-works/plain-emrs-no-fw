@@ -26,8 +26,6 @@
 			<div class="sidenav-active">Latest Chief Complaint </div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a>Timeline</a></div>
-			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
-			<br />
 			<br />
 			<br />
 			<!-- Prompt user if they really want to return to the patient list -->
@@ -40,8 +38,8 @@
 			<div>
 			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
 				<div>[Only authorized personnel]</div>
+				<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
 				<div><a href="${pageContext.request.contextPath}/MedicalRecordEditChiefComplaintServlet?userPatientId=${userPatientId}">Edit chief complaints</a></div>
-				<div><a>Edit patient</a></div>
 			</c:if>
 			</div>
 		</div>

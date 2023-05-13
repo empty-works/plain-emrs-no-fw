@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -23,12 +24,23 @@
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordLatestChiefComplaintServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordPersonalServlet?userPatientId=${userPatientId}">Personal Details</a></div>
 			<div><a>Timeline</a></div>
-			<div class="sidenav-active">Add Chief Complaint</div>
 			<br />
 			<br />
 			<br />
 			<!-- Prompt user if they really want to return to the patient list -->
 			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
+
+			<br />
+			<br />
+			<br />
+			<!-- Can only add patient if an admin -->
+			<div>
+			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+				<div>[Only authorized personnel]</div>
+				<div class="sidenav-active-free">Add Chief Complaint</div>
+				<div><a href="${pageContext.request.contextPath}/MedicalRecordEditChiefComplaintServlet?userPatientId=${userPatientId}">Edit chief complaints</a></div>
+			</c:if>
+			</div>
 		</div>
 
 		<!-- Main content -->

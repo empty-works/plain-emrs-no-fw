@@ -22,12 +22,22 @@
 			<div><a href="${pageContext.request.contextPath}/MedicalRecordLatestChiefComplaintServlet?userPatientId=${userPatientId}">Latest Chief Complaint</a></div>
 			<div class="sidenav-active">Personal Details</div>
 			<div><a>Timeline</a></div>
-			<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
 			<br />
 			<br />
 			<br />
 			<!-- Prompt user if they really want to return to the patient list -->
 			<div><a href="<c:url value="/UserPatientListServlet" />"><-- Return to patient list</a></div>
+
+			<br />
+			<br />
+			<br />
+			<!-- Can only add patient if an admin -->
+			<div>
+			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+				<div>[Only authorized personnel]</div>
+				<div><a>Edit personal</a></div>
+			</c:if>
+			</div>
 		</div>
 		
 		<div class="main-grid-container">

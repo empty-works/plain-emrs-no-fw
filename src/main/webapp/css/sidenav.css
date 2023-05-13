@@ -50,6 +50,13 @@ html, body {
 	display: block;
 }
 
+.sidenav-active-free {
+	padding: 8px 8px 6px 25px;
+	background-color: var(--off-white);
+	color: var(--darker-blue);
+	display: block;
+}
+
 @media screen and (max-height: 450px) {
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}
