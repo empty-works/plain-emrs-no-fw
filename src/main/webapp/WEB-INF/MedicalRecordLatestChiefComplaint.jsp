@@ -96,6 +96,15 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
+						<!-- Vitals edit link -->
+						<div><a id="vitalsEditLink" class="edit-link">Edit</a></div>
+						<!-- Vitals edit modal -->
+						<div id="vitalsEditModal" class="med-rec-modal">
+							<div class="vitals-edit-modal-content">
+								<span class="close-med-rec-modal">&times;</span>
+								<p>Vitals modal...</p>
+							</div>	
+						</div>
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
 								<div>Height: ${medRecordVitals.getHeight()}</div>
@@ -260,6 +269,31 @@
 			  panel.style.maxHeight = panel.scrollHeight + "px";
 			} 
 		  });
+		}
+		// Get the modal
+		var modal = document.getElementsByClassName("med-rec-modal")[0];
+
+		// Get the button that opens the modal
+		var btn = document.getElementsByClassName("edit-link")[0];
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
 		}
 	</script>
 </body>

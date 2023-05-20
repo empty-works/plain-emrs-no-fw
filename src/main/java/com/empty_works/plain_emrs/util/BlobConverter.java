@@ -15,18 +15,6 @@ import java.util.stream.Collectors;
 
 public class BlobConverter {
 
-	public static Blob convert(Connection con, String str) {
-		
-		Blob blob = null;
-		try {
-			blob = con.createBlob();
-			blob.setBytes(1, str.getBytes());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return blob;
-	}
-	
 	public static String toStr(ResultSet rs, String parameter) {
 		
 		String result = "";
