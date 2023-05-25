@@ -2,33 +2,33 @@
 
  /* Style the buttons that are used to open and close the accordion panel */
 .med-record-accordion {
-  background-color: var(--accordion-color);
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
+	background-color: var(--accordion-color);
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .med-record-accordion:hover {
-  background-color: var(--accordion-hover);
+	background-color: var(--accordion-hover);
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .med-record-panel {
-  padding: 0 18px;
-  background-color: var(--off-white);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
+	padding: 0 18px;
+	background-color: var(--off-white);
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
 } 
 
 .med-rec-modal {
-	display: none; /* Hidden by default */
+	display: none;  /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
 	padding-top: 100px; /* Location of the box */

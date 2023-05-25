@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
-<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
+<!--  <script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>-->
 
 <title>Patient Profile</title>
 </head>
@@ -48,7 +48,7 @@
 		<div class="main-grid-container">
 			<div class="main-grid">
 				<div>
-					<a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a>
+					<a href="<c:url value="/MedicalRecordEditPatientServlet" />">Edit Patient</a>
 					<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
 				</div>
 				<div>
@@ -98,7 +98,7 @@
 					<fieldset>
 						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
 						<!-- Vitals edit link -->
-						<div><a onclick="showMedRecordModal(vitalsEditLink, vitalsEditModal, vitalsEditSpan)" id="vitalsEditLink" class="edit-link">Edit</a></div>
+						<button id="vitalsEditButton" class="edit-link">Edit</button>
 						<!-- Vitals edit modal -->
 						<div id="vitalsEditModal" class="med-rec-modal">
 							<div class="vitals-edit-modal-content">
@@ -270,6 +270,32 @@
 			  panel.style.maxHeight = panel.scrollHeight + "px";
 			} 
 		  });
+		}
+
+		// Get the modal
+		var modal = document.getElementById("vitalsEditModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("vitalsEditButton");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementById("vitalsEditSpan");
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+		  }
 		}
 	</script>
 </body>
