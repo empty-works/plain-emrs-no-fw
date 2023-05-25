@@ -4,17 +4,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sidenav.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/topnav.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-setup.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-content-grid.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
 <title>Edit patient record</title>
 </head>
+
 <body>
 	<div class="main-container">
 		<div class="main-grid-container">
 			<div class="main-grid">
-				<div>
-					<a href="<c:url value="/EditUserPatientServlet" />">Edit Patient</a>
-					<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
-				</div>
 				<div>
 					<fieldset>
 						<legend class="patient-header">Personal Overview</legend>
@@ -219,5 +226,23 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Script taken from w3schools HowTO - Collapsibles/Accordion -->
+	<script>
+		var acc = document.getElementsByClassName("med-record-accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.maxHeight) {
+			  panel.style.maxHeight = null;
+			} else {
+			  panel.style.maxHeight = panel.scrollHeight + "px";
+			} 
+		  });
+		}
+	</script>
 </body>
 </html>
