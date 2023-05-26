@@ -70,8 +70,6 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
-						<!-- Vitals edit link -->
-						<button id="vitalsEditButton" class="edit-link">Edit</button>
 						<!-- Vitals edit modal -->
 						<div id="vitalsEditModal" class="med-rec-modal">
 							<div class="vitals-edit-modal-content">
@@ -82,22 +80,27 @@
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
 								<label for="vitalsHeightInput">Height: </label><br />
-								<input type="number" id="vitalsHeightInput" name="vitalsHeightInput" value="${medRecordVitals.getHeight()}"><br />
+								<input type="number" pattern="[0-9]*" id="vitalsHeightInput" name="vitalsHeightInput" value="${medRecordVitals.getHeight()}"><br />
 								<label for="vitalsTempInput">Temperature: </label><br />
-								<input type="number" id="vitalsTempInput" name="vitalsTempInput" value="${medRecordVitals.getTemperature()}"><br /> 
+								<input type="number" pattern="[0-9]*" id="vitalsTempInput" name="vitalsTempInput" value="${medRecordVitals.getTemperature()}"><br /> 
 								<label for="vitalsSystolicInput">Blood pressure systolic: </label><br />
-								<input type="number" id="vitalsSystolicInput" name="vitalsSystolicInput" value="${medRecordVitals.getBloodPressureSystolic()}"><br />
+								<input type="number" pattern="[0-9]*" id="vitalsSystolicInput" name="vitalsSystolicInput" value="${medRecordVitals.getBloodPressureSystolic()}"><br />
 								<label for="vitalsDiastolicInput">Blood pressure diastolic: </label><br />
-								<input type="number" id="vitalsDiastolicInput" name="vitalsDiastolicInput" value="${medRecordVitals.getBloodPressureDiastolic()}"><br />
+								<input type="number" pattern="[0-9]*" id="vitalsDiastolicInput" name="vitalsDiastolicInput" value="${medRecordVitals.getBloodPressureDiastolic()}"><br />
 							</div>
 							<div>
-								<div>Weight: ${medRecordVitals.getWeight()}</div>
-								<div>Pulse: ${medRecordVitals.getPulse()}</div>
-								<div>Arterial blood oxygen saturation: ${medRecordVitals.getArterialBloodOxygenSaturation()}</div>
+								<label for="vitalsWeightInput">Weight: </label><br />
+								<input type="number" pattern="[0-9]*" id="vitalsWeightInput" name="vitalsWeightInput" value="${medRecordVitals.getWeight()}"><br />
+								<label for="vitalsPulseInput">Pulse: </label><br />
+								<input type="number" pattern="[0-9]*" id="vitalsPulseInput" name="vitalsPulseInput" value="${medRecordVitals.getPulse()}"><br />
+								<label for="vitalsOxySatInput">Arterial blood oxygen saturation: </label><br />
+								<input type="number" pattern="[0-9]*" id="vitalsOxySatInput" name="vitalsOxySatInput" value="${medRecordVitals.getArterialBloodOxygenSaturation()}"><br />
 							</div>
 							<div>
-								<div>Calculated BMI: ${medRecordVitals.getCalculatedBmi()}</div>
-								<div>Respiratory rate: ${medRecordVitals.getRespiratoryRate()}</div>
+								<label for="vitalsCalcBmiInput">Calculated BMI: </label><br />
+								<input type="number" id="vitalsCalcBmiInput" name="vitalsCalcBmiInput" value="${medRecordVitals.getCalculatedBmi()}"><br />
+								<label for="vitalsRespRateInput">Respiratory rate: </label><br />
+								<input type="number" id="vitalsRespRateInput" name="vitalsRespRateInput" value="${medRecordVitals.getRespiratoryRate()}"><br />
 							</div>
 						</div>
 					</fieldset>

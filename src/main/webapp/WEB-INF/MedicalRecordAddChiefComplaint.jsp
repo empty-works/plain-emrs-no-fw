@@ -55,23 +55,23 @@
 					<legend>Vitals</legend>	
 					<div class="dynamic-grid">
 					<label for="vitalsHeightCm">Height: </label>
-					<input type="number" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255">
+					<input type="number" pattern="[0-9]*" id="vitalsHeightCm" name="vitalsHeightCm" min="50" max="255">
 					<label for="vitalsWeightKg">Weight: </label>
-					<input type="number" id="vitalsWeightKg" name="vitalsWeightKg">
+					<input type="number" pattern="[0-9]*" id="vitalsWeightKg" name="vitalsWeightKg">
 					<label for="vitalsBmi">Calculated BMI:</label>
-					<input type="number" id="vitalsBmi" name="vitalsBmi">	
+					<input type="number" pattern="[0-9]*" id="vitalsBmi" name="vitalsBmi">	
 					<label for="vitalsTemperature">Temperature:</label>
-					<input type="number" id="vitalsTemperature" name="vitalsTemperature">
+					<input type="number" pattern="[0-9]*" id="vitalsTemperature" name="vitalsTemperature">
 					<label for="vitalsPulse">Pulse rate:</label>
-					<input type="number" id="vitalsPulse" name="vitalsPulse">
+					<input type="number" pattern="[0-9]*" id="vitalsPulse" name="vitalsPulse">
 					<label for="vitalsRespiratoryRate">Respiratory rate:</label>
-					<input type="number" id="vitalsRespiratoryRate" name="vitalsRespiratoryRate">
+					<input type="number" pattern="[0-9]*" id="vitalsRespiratoryRate" name="vitalsRespiratoryRate">
 					<label for="vitalsBPSystolic">Blood pressure systolic:</label>
-					<input type="number" id="vitalsBPSystolic" name="vitalsBPSystolic">
+					<input type="number" pattern="[0-9]*" id="vitalsBPSystolic" name="vitalsBPSystolic">
 					<label for="vitalsBPDiastolic">Blood pressure diastolic:</label>
-					<input type="number" id="vitalsBPDiastolic" name="vitalsBPDiastolic">
+					<input type="number" pattern="[0-9]*" id="vitalsBPDiastolic" name="vitalsBPDiastolic">
 					<label for="vitalsBloodO2Saturation">Arterial blood oxygen saturation:</label>
-					<input type="number" id="vitalsBloodO2Saturation" name="vitalsBloodO2Saturation">
+					<input type="number" pattern="[0-9]*" id="vitalsBloodO2Saturation" name="vitalsBloodO2Saturation">
 					</div>
 				</fieldset>
 				<fieldset>
