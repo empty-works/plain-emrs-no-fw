@@ -21,6 +21,7 @@
 <body>
 	<div class="main-container">
 		<div class="main-grid-container">
+		<form id="editPatientForm" name="editPatientForm" class="content-padding" action="MedicalRecordEditPatientServlet" method="post">
 			<div class="main-grid">
 				<div>
 					<fieldset>
@@ -62,7 +63,8 @@
 						<legend class="patient-header">Chief complaint</legend>	
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<div>${medRecordChiefComplaintsLatest.getStatement()}</div>	
+								<input type="text" id="chiefComplaintStatementInput" name="chiefComplaintStatementInput" 
+								value="${medRecordChiefComplaintsLatest.getStatement()}">	
 							</div>	
 						</div>
 					</fieldset>
@@ -79,9 +81,14 @@
 						</div>
 						<div id="patient-overview-grid-1" class="patient-data">
 							<div>
-								<div>Height: ${medRecordVitals.getHeight()}</div>
-								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
-								<div>Blood pressure systolic / diastolic: ${medRecordVitals.getBloodPressureSystolic()} / ${medRecordVitals.getBloodPressureDiastolic()}</div>
+								<label for="vitalsHeightInput">Height: </label><br />
+								<input type="number" id="vitalsHeightInput" name="vitalsHeightInput" value="${medRecordVitals.getHeight()}"><br />
+								<label for="vitalsTempInput">Temperature: </label><br />
+								<input type="number" id="vitalsTempInput" name="vitalsTempInput" value="${medRecordVitals.getTemperature()}"><br /> 
+								<label for="vitalsSystolicInput">Blood pressure systolic: </label><br />
+								<input type="number" id="vitalsSystolicInput" name="vitalsSystolicInput" value="${medRecordVitals.getBloodPressureSystolic()}"><br />
+								<label for="vitalsDiastolicInput">Blood pressure diastolic: </label><br />
+								<input type="number" id="vitalsDiastolicInput" name="vitalsDiastolicInput" value="${medRecordVitals.getBloodPressureDiastolic()}"><br />
 							</div>
 							<div>
 								<div>Weight: ${medRecordVitals.getWeight()}</div>
@@ -224,6 +231,7 @@
 					</div>
 				</div>
 			</div>
+		</form>
 		</div>
 	</div>
 
