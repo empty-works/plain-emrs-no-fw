@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
+<script src="${pageContext.request.contextPath}/js/user.js"></script>
 <title>Edit patient record</title>
 </head>
 
@@ -116,6 +117,9 @@
 								<c:forEach items="${medRecordAllergiesList}" var="allergy">
 									${allergy.getAllergyName()}, 
 								</c:forEach>	
+								<div id="allergiesProbContainer"></div>
+								<button type="button" id="allergiesAddButton" onclick='allergiesMed.addNode(allergiesProbContainer, true)'>Add</button><div id="addLimitReached"></div>
+								<div id="genMedLimitMsg"></div>
 							</c:otherwise>
 							</c:choose>
 							</p>
