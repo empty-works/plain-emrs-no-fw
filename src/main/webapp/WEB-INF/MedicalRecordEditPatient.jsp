@@ -115,7 +115,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${medRecordAllergiesList}" var="allergy">
-									${allergy.getAllergyName()}, 
+									<input type="text" id="allergy${allergy.getAllergyName()}" name="allergyText" value="${allergy.getAllergyName()}"><button>X</button><br /> 
 								</c:forEach>	
 							</c:otherwise>
 							</c:choose>
