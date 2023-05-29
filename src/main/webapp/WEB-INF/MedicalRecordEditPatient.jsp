@@ -117,13 +117,13 @@
 								<c:forEach items="${medRecordAllergiesList}" var="allergy">
 									${allergy.getAllergyName()}, 
 								</c:forEach>	
-								<div id="allergiesProbContainer"></div>
-								<button type="button" id="allergiesAddButton" onclick='allergiesMed.addNode(allergiesProbContainer, true)'>Add</button><div id="addLimitReached"></div>
-								<div id="genMedLimitMsg"></div>
 							</c:otherwise>
 							</c:choose>
 							</p>
 						</div>
+						<div id="allergiesProbContainer"></div>
+						<button type="button" id="allergiesAddButton" onclick='allergiesMed.addNode(allergiesProbContainer, true)'>Add</button><div id="addLimitReached"></div>
+						<div id="genMedLimitMsg"></div>
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Medication</legend>							
