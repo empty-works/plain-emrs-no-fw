@@ -25,6 +25,7 @@
 		<form id="editPatientForm" name="editPatientForm" class="content-padding" action="MedicalRecordEditPatientServlet" method="post">
 			<div class="main-grid">
 				<div>
+					<button id="editPatientCancelButton">Cancel</button>
 					<fieldset>
 						<legend class="patient-header">Personal Overview</legend>
 						<div id="patient-overview-grid-1" class="patient-data">
@@ -238,6 +239,7 @@
 					</div>
 				</div>
 			</div>
+			<button id="editPatientCancelButton">Cancel</button>
 		</form>
 		</div>
 	</div>

@@ -51,3 +51,11 @@ function showMedRecordModal(button, modal, span) {
 	  }
 	}
 }
+
+// Cancel button functionality to go back to the patient's page.
+document.getElementById("editPatientCancelButton").addEventListener("click", function() {
+
+	window.location.href="/WEB-INF/MedicalRecordLatestChiefComplaint.jsp";
+	//if (confirm("Are you sure you want to cancel editing and return to the patient's page?")) {
+	//}
+});
