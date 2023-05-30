@@ -25,7 +25,7 @@
 		<form id="editPatientForm" name="editPatientForm" class="content-padding" action="MedicalRecordEditPatientServlet" method="post">
 			<div class="main-grid">
 				<div>
-					<button id="editPatientCancelButton">Cancel</button>
+					<button onclick="cancelButtonClickHandler()" id="editPatientCancelButtonTop">Cancel</button>
 					<fieldset>
 						<legend class="patient-header">Personal Overview</legend>
 						<div id="patient-overview-grid-1" class="patient-data">
@@ -239,7 +239,7 @@
 					</div>
 				</div>
 			</div>
-			<button id="editPatientCancelButton">Cancel</button>
+			<button onclick="cancelButtonClickHandler()" id="editPatientCancelButtonBottom">Cancel</button>
 		</form>
 		</div>
 	</div>
@@ -259,6 +259,12 @@
 			  panel.style.maxHeight = panel.scrollHeight + "px";
 			} 
 		  });
+		}
+
+		function cancelButtonClickHandler() {
+			if (confirm("Are you sure you want to cancel editing and return to the patient's page?")) {
+				window.location.href="/WEB-INF/MedicalRecordLatestChiefComplaint.jsp";
+			}
 		}
 	</script>
 </body>

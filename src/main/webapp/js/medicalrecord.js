@@ -2,6 +2,7 @@
  * 
  */
 
+/*
 // Get the modal
 var modal = document.getElementById("vitalsEditModal");
 
@@ -28,34 +29,18 @@ window.onclick = function(event) {
   }
 }
 
-function showMedRecordModal(button, modal, span) {
-	// When the user clicks the button, open the modal 
-	button.onclick = function() {
-		if (modal.style.display === "none") {
-			modal.style.display = "block";	
-		}
-		else {
-	  		modal.style.display = "none";
-		}
-	}
 
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	  modal.style.display = "none";
-	}
+//##################### Cancel button functionality to go back to the patient's page. ################################
+var editPatientCancelButtonTop = document.getElementById("editPatientCancelButtonTop");
+var editPatientCancelButtonBottom = document.getElementById("editPatientCancelButtonBottom");
 
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	  if (event.target == modal) {
-		modal.style.display = "none";
-	  }
+function cancelButtonClickHandler() {
+	if (confirm("Are you sure you want to cancel editing and return to the patient's page?")) {
+		window.location.href="/WEB-INF/MedicalRecordLatestChiefComplaint.jsp";
 	}
 }
 
-// Cancel button functionality to go back to the patient's page.
-document.getElementById("editPatientCancelButton").addEventListener("click", function() {
-
-	window.location.href="/WEB-INF/MedicalRecordLatestChiefComplaint.jsp";
-	//if (confirm("Are you sure you want to cancel editing and return to the patient's page?")) {
-	//}
-});
+// Assign the event handler to both cancel buttons.
+editPatientCancelButtonTop.addEventListener("click", cancelButtonClickHandler());
+editPatientCancelButtonBottom.addEventListener("click", cancelButtonClickHandler());
+*/
