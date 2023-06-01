@@ -109,18 +109,16 @@
 					<fieldset>
 						<legend class="patient-header">Allergies</legend>							
 						<div id="patient-overview-grid-1" class="patient-data">
-							<p>
 							<c:choose>
 							<c:when test="empty ${medRecordAllergiesList}">
 								No allergies
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${medRecordAllergiesList}" var="allergy">
-									<input type="text" id="allergy${allergy.getAllergyName()}" name="allergyText" value="${allergy.getAllergyName()}"><button>X</button><br /> 
+									<div><input type="checkbox" name="allergyTextToAdd" value="${allergy.getAllergiesId()}" checked> ${allergy.getAllergyName()}</div>
 								</c:forEach>	
 							</c:otherwise>
 							</c:choose>
-							</p>
 						</div>
 						<div id="allergiesProbContainer"></div>
 						<button type="button" id="allergiesAddButton" onclick='allergiesMed.addNode(allergiesProbContainer, true)'>Add</button><div id="addLimitReached"></div>
@@ -260,6 +258,8 @@
 			} 
 		  });
 		}
+		
+		document.getElementById("editPatientForm").addEventListener("")
 	</script>
 </body>
 </html>
