@@ -54,6 +54,7 @@ public class MedicalRecordEditPatientServlet extends HttpServlet {
 		Collections.addAll(mergedAllergies, allergiesArray);
 		if(mergedAllergies.size() > 0) {
 			for(String allergy : mergedAllergies) {
+				System.out.println("Allergy: " + allergy);
 				MedicalRecordAllergyUnit allergyUnit = new MedicalRecordAllergyUnit(allergy);
 				allergiesList.add(allergyUnit);
 			}
