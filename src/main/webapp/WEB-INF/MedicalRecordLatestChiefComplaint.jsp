@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
-<!--  <script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>-->
 
 <title>Patient Profile</title>
 </head>

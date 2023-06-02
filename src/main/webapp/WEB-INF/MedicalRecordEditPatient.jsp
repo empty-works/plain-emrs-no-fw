@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
-<script src="${pageContext.request.contextPath}/js/user.js"></script>
+
 <title>Edit patient record</title>
 </head>
 
@@ -141,7 +141,7 @@
 							</p>
 						</div>
 					</fieldset>
-					<button class="med-record-accordion">Illnesses</button>
+					<button type="button" class="med-record-accordion">Illnesses</button>
 					<div class="med-record-panel">
 						<p>
 						<c:choose>
@@ -156,7 +156,7 @@
 						</c:choose>
 						</p>
 					</div>
-					<button class="med-record-accordion">Diseases</button>
+					<button type="button" class="med-record-accordion">Diseases</button>
 					<div class="med-record-panel">
 						<p>
 						<c:choose>
@@ -171,7 +171,7 @@
 						</c:choose>
 						</p>
 					</div>
-					<button class="med-record-accordion">Surgery-related problems</button>
+					<button type="button" class="med-record-accordion">Surgery-related problems</button>
 					<div class="med-record-panel">
 						<p>
 						<c:choose>
@@ -191,7 +191,7 @@
 						</c:choose>	
 						</p>
 					</div>
-					<button class="med-record-accordion">Review of systems</button>
+					<button type="button" class="med-record-accordion">Review of systems</button>
 					<div class="med-record-panel">
 						<p>
 						<c:choose>
@@ -220,7 +220,7 @@
 						</c:choose>
 						</p>
 					</div>
-					<button class="med-record-accordion">Nurse notes</button>
+					<button type="button" class="med-record-accordion">Nurse notes</button>
 					<div class="med-record-panel">
 						<p>
 						<c:choose>
@@ -258,8 +258,6 @@
 			} 
 		  });
 		}
-		
-		document.getElementById("editPatientForm").addEventListener("")
 	</script>
 </body>
 </html>
