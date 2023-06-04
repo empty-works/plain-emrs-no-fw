@@ -38,7 +38,6 @@ public class MedicalRecordEditPatientServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String medicalRecordId = (String) session.getAttribute("userPatientId"); 
 		
-		
 
 		MedicalRecordAllergiesBean allergies = new MedicalRecordAllergiesBean();
 		allergies.setMedicalRecordId(medicalRecordId);

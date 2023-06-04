@@ -2,6 +2,25 @@
  * 
  */
 
+function openMedRecordModal(section) {
+	var medRecModal = document.getElementById("medRecModal");
+	var medRecModalData = document.getElementById("medRecModalData");
+	
+	// Load data based on the section
+	if(section === "medRecChiefComplaint") {
+		medRecModalData.innerHTML = "<div><input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=\"${medRecordChiefComplaintsLatest.getStatement()}\"></div>";	
+	}
+	
+	// Display the modal
+ 	medRecModal.style.display = "block";
+
+}
+
+// Close the modal
+function closeModal() {
+	var medRecModal = document.getElementById("medRecModal");
+	medRecModal.style.display = "none";
+}				
 /*
 // Get the modal
 var modal = document.getElementById("vitalsEditModal");

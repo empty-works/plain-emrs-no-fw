@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
+<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
 
 <title>Patient Profile</title>
 </head>
@@ -53,7 +54,7 @@
 				<div>
 					<fieldset>
 						<legend class="patient-header">Personal Overview</legend>
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecPersonalOverview" class="patient-data">
 							<div>
 								<div>${userPatientId}</div>
 								<div>${patientType}</div>
@@ -69,7 +70,7 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Medical Record Overview</legend>	
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecOverview" class="patient-data">
 							<div>
 								<label for="medRecordId">Medical Record ID:</label>
 								<div id="medRecordId">${medicalRecordId}</div>	
@@ -88,7 +89,8 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Chief complaint</legend>	
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecChiefComplaint" class="patient-data">
+							<button onclick="openMedRecordModal('medRecChiefComplaint')">Edit</button>
 							<div>
 								<div>${medRecordChiefComplaintsLatest.getStatement()}</div>	
 							</div>	
@@ -105,7 +107,7 @@
 								<p>Vitals modal...</p>
 							</div>	
 						</div>
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecVitals" class="patient-data">
 							<div>
 								<div>Height: ${medRecordVitals.getHeight()}</div>
 								<div>Temperature: ${medRecordVitals.getTemperature()}</div>
@@ -124,7 +126,7 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Allergies</legend>							
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecAllergies" class="patient-data">
 							<p>
 							<c:choose>
 							<c:when test="empty ${medRecordAllergiesList}">
@@ -141,7 +143,7 @@
 					</fieldset>
 					<fieldset>
 						<legend class="patient-header">Medication</legend>							
-						<div id="patient-overview-grid-1" class="patient-data">
+						<div id="medRecMedication" class="patient-data">
 							<p>
 							<c:choose>
 								<c:when test="${empty medRecordMedicationList}">
@@ -157,7 +159,7 @@
 						</div>
 					</fieldset>
 					<button class="med-record-accordion">Illnesses</button>
-					<div class="med-record-panel">
+					<div id="medRecIllnesses" class="med-record-panel">
 						<p>
 						<c:choose>
 						<c:when test="${empty medRecordIllnessesList}">
@@ -172,7 +174,7 @@
 						</p>
 					</div>
 					<button class="med-record-accordion">Diseases</button>
-					<div class="med-record-panel">
+					<div id="medRecDiseases" class="med-record-panel">
 						<p>
 						<c:choose>
 						<c:when test="${empty medRecordDiseasesList}">
@@ -187,7 +189,7 @@
 						</p>
 					</div>
 					<button class="med-record-accordion">Surgery-related problems</button>
-					<div class="med-record-panel">
+					<div id="medRecSurgProbs" class="med-record-panel">
 						<p>
 						<c:choose>
 						<c:when test="${empty medRecordSurgicalProblemsList}">
@@ -207,7 +209,7 @@
 						</p>
 					</div>
 					<button class="med-record-accordion">Review of systems</button>
-					<div class="med-record-panel">
+					<div id="medRecRos" class="med-record-panel">
 						<p>
 						<c:choose>
 						<c:when test="${empty medRecordRosLatest}">
@@ -236,7 +238,7 @@
 						</p>
 					</div>
 					<button class="med-record-accordion">Nurse notes</button>
-					<div class="med-record-panel">
+					<div id="medRecNurseNotes" class="med-record-panel">
 						<p>
 						<c:choose>
 						<c:when test="${empty medRecordNurseNotesList}">
@@ -250,6 +252,15 @@
 						</c:choose>
 						</p>
 					</div>
+					
+					<!-- Modal -->
+					<div id="medRecModal" class="modal">
+					  <div class="modal-content">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<div id="medRecModalData"></div>
+					  </div>
+					</div>
+					
 				</div>
 			</div>
 		</div>

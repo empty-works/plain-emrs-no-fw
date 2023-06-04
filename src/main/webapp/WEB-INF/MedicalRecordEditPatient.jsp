@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/patients.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
+<script src="${pageContext.request.contextPath}/js/user.js"></script>
 
 <title>Edit patient record</title>
 </head>
@@ -237,7 +238,10 @@
 					</div>
 				</div>
 			</div>
-			<div><a href="${pageContext.request.contextPath}/MedicalRecordLatestChiefComplaintServlet?userPatientId=${userPatientId}">Cancel</a></div>
+			<div>
+				<input id="patientFormSubmitButton" type="submit" value="Submit" />
+				<a href="${pageContext.request.contextPath}/MedicalRecordLatestChiefComplaintServlet?userPatientId=${userPatientId}">Cancel</a>
+			</div>
 		</form>
 		</div>
 	</div>
