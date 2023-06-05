@@ -90,7 +90,7 @@
 					<fieldset>
 						<legend class="patient-header">Chief complaint</legend>	
 						<div id="medRecChiefComplaint" class="patient-data">
-							<button onclick="openMedRecordModal('medRecChiefComplaint')">Edit</button>
+							<button onclick="openMedRecordModal('medRecChiefComplaint', '${medRecordChiefComplaintsLatest.getStatement()}')">Edit</button>
 							<div>
 								<div>${medRecordChiefComplaintsLatest.getStatement()}</div>	
 							</div>	

@@ -2,18 +2,18 @@
  * 
  */
 
-function openMedRecordModal(section) {
+function openMedRecordModal(section, dataExample) {
 	var medRecModal = document.getElementById("medRecModal");
 	var medRecModalData = document.getElementById("medRecModalData");
 	
 	// Load data based on the section
 	if(section === "medRecChiefComplaint") {
-		medRecModalData.innerHTML = "<div><input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=\"${medRecordChiefComplaintsLatest.getStatement()}\"></div>";	
+		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=${medRecordChiefComplaintsLatest.getStatement()}>";	
+		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=" + dataExample + "}>";	
 	}
 	
 	// Display the modal
  	medRecModal.style.display = "block";
-
 }
 
 // Close the modal
