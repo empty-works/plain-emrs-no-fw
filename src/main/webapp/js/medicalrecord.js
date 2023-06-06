@@ -9,7 +9,7 @@ function openMedRecordModal(section, dataExample) {
 	// Load data based on the section
 	if(section === "medRecChiefComplaint") {
 		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=${medRecordChiefComplaintsLatest.getStatement()}>";	
-		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=" + dataExample + "}>";	
+		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value='" + dataExample + "'}>";	
 	}
 	
 	// Display the modal
