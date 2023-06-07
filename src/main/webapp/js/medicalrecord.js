@@ -2,18 +2,52 @@
  * 
  */
 
-function openMedRecordModal(section, dataExample) {
+function openMedRecordModal(section, ...dataExample) {
 	var medRecModal = document.getElementById("medRecModal");
 	var medRecModalData = document.getElementById("medRecModalData");
 	
+	// Clear previous content
+  	medRecModalData.innerHTML = "";
+	
+	var editForm = document.createElement('form');
+	editForm.method = 'POST';
+	
 	// Load data based on the section
 	if(section === "medRecChiefComplaint") {
-		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=${medRecordChiefComplaintsLatest.getStatement()}>";	
-		medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value='" + dataExample + "'}>";	
+		// Create form element
+		editForm.action = 'MedicalRecordLatestChiefComplaintServlet';
+		let statementInput = document.createElement('input');
+		statementInput.type = 'text';
+		statementInput.id = 'chiefComplaintStatementInput';
+		statementInput.name = 'chiefComplaintStatementInput';
+		statementInput.value = dataExample[0];
+		editForm.appendChild(statementInput);
+
+		//medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=${medRecordChiefComplaintsLatest.getStatement()}>";	
+		//medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value='" + dataExample[0] + "'}>";	
 	}
+		
+	// Create submit button
+	var editSubmitButton = document.createElement('input');
+	editSubmitButton.type = 'submit';
+	editSubmitButton.value = 'Submit';
+	editForm.appendChild(editSubmitButton);
+	
+	// Append the form to the modal
+	medRecModalData.appendChild(editForm);
 	
 	// Display the modal
  	medRecModal.style.display = "block";
+
+	// Handle form submission
+	/*
+	editForm.addEventListener('submit', function(event) {
+		event.preventDefault(); // Prevent default form submission
+		// Perform any additional actions or AJAX requests here
+		// You can access the form input values using editForm.elements
+		console.log(editForm.elements.chiefComplaintStatementInput.value);
+	});
+	*/
 }
 
 // Close the modal
