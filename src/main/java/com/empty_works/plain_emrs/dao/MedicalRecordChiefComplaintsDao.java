@@ -11,8 +11,18 @@ import java.util.List;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
+/**
+ * 
+ *
+ */
 public class MedicalRecordChiefComplaintsDao {
 
+	/**
+	 * 
+	 * @param medicalRecordId
+	 * @return
+	 * @throws SQLException
+	 */
 	public static List<MedicalRecordChiefComplaintsBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsBeanList = new ArrayList<>();
@@ -41,6 +51,12 @@ public class MedicalRecordChiefComplaintsDao {
 		return medRecordChiefComplaintsBeanList;
 	}
 	
+	/**
+	 * 
+	 * @param medRecordChiefComplaintsBean
+	 * @return
+	 * @throws SQLException
+	 */
 	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) throws SQLException {
 		
 		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
@@ -58,6 +74,34 @@ public class MedicalRecordChiefComplaintsDao {
 				preparedStatement.setInt(3, medRecordChiefComplaintsBean.getAdmissionsId());
 				preparedStatement.setString(4, medRecordChiefComplaintsBean.getStatement());
 				preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
+				success = preparedStatement.executeUpdate();
+			}
+		}
+		return success;
+	}
+	
+	/**
+	 * 
+	 * @param newStatement
+	 * @return
+	 * @throws SQLException
+	 */
+	public static int updateStatement(String newStatement, String chiefComplaintId, String medRecordId) throws SQLException {
+		
+		String query = "UPDATE chief_complaints "
+				+ "SET statement = ? "
+				+ "WHERE chief_complaint_id = ? AND medical_record_id = ?";
+		
+		int success = 0;
+		
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				System.out.println("Updating the statement in the chief_complaints table...");
+				preparedStatement.setString(1, newStatement);
+				preparedStatement.setString(2, chiefComplaintId);
+				preparedStatement.setString(3, medRecordId);
 				success = preparedStatement.executeUpdate();
 			}
 		}

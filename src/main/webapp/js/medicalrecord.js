@@ -10,7 +10,8 @@ function openMedRecordModal(section, ...dataExample) {
   	medRecModalData.innerHTML = "";
 	
 	var editForm = document.createElement('form');
-	editForm.method = 'POST';
+	editForm.method = 'PUT';
+	editForm.className = 'modal-form';
 	
 	// Load data based on the section
 	if(section === "medRecChiefComplaint") {
@@ -22,9 +23,8 @@ function openMedRecordModal(section, ...dataExample) {
 		statementInput.name = 'chiefComplaintStatementInput';
 		statementInput.value = dataExample[0];
 		editForm.appendChild(statementInput);
-
-		//medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value=${medRecordChiefComplaintsLatest.getStatement()}>";	
-		//medRecModalData.innerHTML = "<input type=\"text\" id=\"chiefComplaintStatementInput\" name=\"chiefComplaintStatementInput\" value='" + dataExample[0] + "'}>";	
+		
+			
 	}
 		
 	// Create submit button
@@ -44,8 +44,11 @@ function openMedRecordModal(section, ...dataExample) {
 	editForm.addEventListener('submit', function(event) {
 		event.preventDefault(); // Prevent default form submission
 		// Perform any additional actions or AJAX requests here
+		if(section === "medRecChiefComplaint") {
+			
+			console.log(editForm.elements.chiefComplaintStatementInput.value);
+		}
 		// You can access the form input values using editForm.elements
-		console.log(editForm.elements.chiefComplaintStatementInput.value);
 	});
 	*/
 }
