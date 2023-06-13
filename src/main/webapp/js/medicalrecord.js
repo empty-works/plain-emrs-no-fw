@@ -10,20 +10,19 @@ function openMedRecordModal(section, ...dataExample) {
   	medRecModalData.innerHTML = "";
 	
 	var editForm = document.createElement('form');
-	editForm.method = 'PUT';
+	editForm.method = 'POST';
 	editForm.className = 'modal-form';
 	
 	// Load data based on the section
 	if(section === "medRecChiefComplaint") {
 		// Create form element
-		editForm.action = 'MedicalRecordLatestChiefComplaintServlet';
+		editForm.action = 'MedicalRecordEditChiefComplaintServlet';
 		let statementInput = document.createElement('input');
 		statementInput.type = 'text';
 		statementInput.id = 'chiefComplaintStatementInput';
 		statementInput.name = 'chiefComplaintStatementInput';
 		statementInput.value = dataExample[0];
 		editForm.appendChild(statementInput);
-		
 			
 	}
 		
@@ -58,6 +57,30 @@ function closeModal() {
 	var medRecModal = document.getElementById("medRecModal");
 	medRecModal.style.display = "none";
 }				
+
+/*
+function changeTab(evt, tabName) {
+  // Declare all variables
+  var i, medrectabcontent, medrectablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  medrectabcontent = document.getElementsByClassName("medrectabcontent");
+  for (i = 0; i < medrectabcontent.length; i++) {
+    medrectabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  medrectablinks = document.getElementsByClassName("medrectablinks");
+  for (i = 0; i < medrectablinks.length; i++) {
+    medrectablinks[i].className = medrectablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+*/ 
+
 /*
 // Get the modal
 var modal = document.getElementById("vitalsEditModal");

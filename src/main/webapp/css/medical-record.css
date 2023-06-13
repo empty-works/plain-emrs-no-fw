@@ -126,3 +126,71 @@
 .modal-form input[type="submit"]:hover {
   background-color: #45a049;
 }
+
+ /* Style the tab */
+/*
+.medrectab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.medrectab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.medrectab button:hover {
+  background-color: #ddd;
+}
+
+.medrectab button.active {
+  background-color: #ccc;
+}
+
+.medrectabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+} 
+*/
+.container {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab.active {
+  background-color: #999;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}

@@ -49,12 +49,17 @@ public class MedicalRecordLatestChiefComplaintServlet extends HttpServlet {
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("MedicalRecordLatestChiefComplaint doPut() method...");
 		HttpSession session = request.getSession();
 		String medRecordId = (String) session.getAttribute("medRecordId");
 		MedicalRecordChiefComplaintsBean latestComplaint = (MedicalRecordChiefComplaintsBean) session.getAttribute("medRecordChiefComplaintsLatest");
 		String statement = request.getParameter("chiefComplaintStatementInput");
 		try {
-			MedicalRecordChiefComplaintsDao.updateStatement(statement, latestComplaint.getChiefComplaintId(), medRecordId);
+			int success = MedicalRecordChiefComplaintsDao.updateStatement(statement, latestComplaint.getChiefComplaintId(), medRecordId);
+			if(success != 0) {
+				latestComplaint.setStatement(statement);
+				session.setAttribute("medRecordChiefComplaintsLatest", latestComplaint);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

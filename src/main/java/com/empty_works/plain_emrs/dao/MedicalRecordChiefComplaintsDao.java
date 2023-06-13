@@ -88,6 +88,7 @@ public class MedicalRecordChiefComplaintsDao {
 	 */
 	public static int updateStatement(String newStatement, String chiefComplaintId, String medRecordId) throws SQLException {
 		
+		System.out.println("Inside updateStatement() method in MedicalRecordChiefComplaintsDao...");
 		String query = "UPDATE chief_complaints "
 				+ "SET statement = ? "
 				+ "WHERE chief_complaint_id = ? AND medical_record_id = ?";
