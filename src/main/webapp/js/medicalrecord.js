@@ -17,13 +17,21 @@ function openMedRecordModal(section, ...dataExample) {
 	if(section === "medRecChiefComplaint") {
 		// Create form element
 		editForm.action = 'MedicalRecordEditChiefComplaintServlet';
+		// View fields
+		var ccViewDiv = document.createElement('div');
+		var ccTitle = document.createElement('h2');
+		ccTitle.textContent = dataExample[0];	
+		ccViewDiv.appendChild(ccTitle);
+		editForm.appendChild(ccViewDiv);
+		// Editable fields
+		/*
 		let statementInput = document.createElement('input');
 		statementInput.type = 'text';
 		statementInput.id = 'chiefComplaintStatementInput';
 		statementInput.name = 'chiefComplaintStatementInput';
 		statementInput.value = dataExample[0];
 		editForm.appendChild(statementInput);
-			
+		*/	
 	}
 		
 	// Create submit button

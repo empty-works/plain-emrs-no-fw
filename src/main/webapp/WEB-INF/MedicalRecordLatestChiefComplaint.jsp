@@ -206,8 +206,8 @@
 				<ul class="encounter-list">
   					<c:forEach items="${medRecordChiefComplaintsList}" var="encounter" varStatus="status">
     					<li class="encounter-item">
-      						<a href="#" onclick="openMedRecordModal('medRecChiefComplaint', '${medRecordChiefComplaintsLatest.getStatement()}')">
-        						<div class="encounter-title">${medRecordChiefComplaintsLatest.getStatement()}</div>
+      						<a href="#" onclick="openMedRecordModal('medRecChiefComplaint', '${encounter.getStatement()}')">
+        						<div class="encounter-title">${encounter.getStatement()}</div>
         						<div class="encounter-date">${medRecordVitals.getDateTaken()}</div>
       						</a>
     					</li>
