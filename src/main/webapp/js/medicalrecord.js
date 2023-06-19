@@ -35,6 +35,10 @@ function openMedRecordModal(section, ...dataExample) {
 	// Append the form to the modal
 	medRecModalData.appendChild(editForm);
 	
+	// Append modal to the second tab
+	var secondTab = document.getElementById("secondTab");
+	secondTab.appendChild(medRecModal);
+	
 	// Display the modal
  	medRecModal.style.display = "block";
 

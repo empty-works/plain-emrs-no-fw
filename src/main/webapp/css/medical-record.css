@@ -194,3 +194,35 @@
 .tab-content.active {
   display: block;
 }
+
+.encounter-list {
+  list-style: none;
+  padding: 0;
+}
+
+.encounter-item {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.encounter-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+}
+
+.encounter-date {
+  color: #888;
+  font-size: 14px;
+}
+
+.encounter-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.encounter-item:hover {
+  background-color: #e0e0e0;
+}

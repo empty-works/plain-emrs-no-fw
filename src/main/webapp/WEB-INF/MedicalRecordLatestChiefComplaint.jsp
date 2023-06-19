@@ -20,7 +20,6 @@
 <title>Patient Profile</title>
 </head>
 <body>
-	
 	<div class="main-container">
 		<!-- Side navigation -->
 		<div class="sidenav main-font">
@@ -203,7 +202,18 @@
 						</div>
 			</div>
 
-			<div class="tab-content">
+			<div id="secondTab" class="tab-content">
+				<ul class="encounter-list">
+  					<c:forEach items="${medRecordChiefComplaintsList}" var="encounter" varStatus="status">
+    					<li class="encounter-item">
+      						<a href="#" onclick="openMedRecordModal('medRecChiefComplaint', '${medRecordChiefComplaintsLatest.getStatement()}')">
+        						<div class="encounter-title">${medRecordChiefComplaintsLatest.getStatement()}</div>
+        						<div class="encounter-date">${medRecordVitals.getDateTaken()}</div>
+      						</a>
+    					</li>
+  					</c:forEach>
+				</ul>
+				
 				<fieldset>
 					<legend class="patient-header">Chief complaint</legend>	
 					<div id="medRecChiefComplaint" class="patient-data">
