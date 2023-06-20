@@ -22,6 +22,8 @@ function openMedRecordModal(section, ...dataExample) {
 		var ccTitle = document.createElement('h2');
 		ccTitle.textContent = dataExample[0];	
 		ccViewDiv.appendChild(ccTitle);
+		ccViewDiv.id = 'medRecChiefComplaint';
+		ccViewDiv.class = 'patient-data';
 		editForm.appendChild(ccViewDiv);
 		// Editable fields
 		/*

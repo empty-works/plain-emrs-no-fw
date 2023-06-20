@@ -203,26 +203,28 @@
 			</div>
 
 			<div id="secondTab" class="tab-content">
+
+			<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+				<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
+			</c:if>
 				<ul class="encounter-list">
-  					<c:forEach items="${medRecordChiefComplaintsList}" var="encounter" varStatus="status">
-    					<li class="encounter-item">
-      						<a href="#" onclick="openMedRecordModal('medRecChiefComplaint', '${encounter.getStatement()}')">
-        						<div class="encounter-title">${encounter.getStatement()}</div>
-        						<div class="encounter-date">${medRecordVitals.getDateTaken()}</div>
-      						</a>
-    					</li>
-  					</c:forEach>
+					<c:choose>
+					<c:when test="${empty medRecordChiefComplaintsList}">
+						<p>No encounters/chief complaints</p>	
+					</c:when>
+					<c:otherwise>
+					  <c:forEach items="${medRecordChiefComplaintsList}" var="encounter" varStatus="status">
+						<li class="encounter-item">
+							  <a href="#" onclick="openMedRecordModal('medRecChiefComplaint', '${encounter.getStatement()}')">
+								<div class="encounter-title">${encounter.getStatement()}</div>
+								<div class="encounter-date">${medRecordVitals.getDateTaken()}</div>
+							  </a>
+						</li>
+					  </c:forEach>
+					</c:otherwise>
+					</c:choose>
 				</ul>
 				
-				<fieldset>
-					<legend class="patient-header">Chief complaint</legend>	
-					<div id="medRecChiefComplaint" class="patient-data">
-						<button onclick="openMedRecordModal('medRecChiefComplaint', '${medRecordChiefComplaintsLatest.getStatement()}')">Edit</button>
-						<div>
-							<div>${medRecordChiefComplaintsLatest.getStatement()}</div>	
-						</div>	
-					</div>
-				</fieldset>
 				<fieldset>
 					<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
 					<!-- Vitals edit link -->
