@@ -191,7 +191,7 @@
 								</p>
 							</div>
 							
-							<!-- Modal -->
+							<!-- MODAL -->
 							<div id="medRecModal" class="modal">
 							  <div class="modal-content">
 								<span class="close" onclick="closeModal()">&times;</span>

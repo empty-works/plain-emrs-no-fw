@@ -2,6 +2,17 @@
  * 
  */
 
+function openPatientModal(patientId) {
+	var medRecModal = document.getElementById("medRecModal");
+	var medRecModalData = document.getElementById("medRecModalData");
+	
+	// Clear previous content
+  	//medRecModalData.innerHTML = "";
+
+	// Display the modal
+ 	medRecModal.style.display = "block";
+}
+
 function openMedRecordModal(section, ...dataExample) {
 	var medRecModal = document.getElementById("medRecModal");
 	var medRecModalData = document.getElementById("medRecModalData");
