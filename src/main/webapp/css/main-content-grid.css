@@ -54,6 +54,11 @@
 	width: 100%;
 }
 
+.main-grid-container > #medRecModal {
+	overflow-y: hidden;
+	
+}
+
 .main-grid-container-side-nav {
 	overflow-x: hidden;
 	background-color: var(--off-white);
