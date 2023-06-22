@@ -13,6 +13,7 @@ html, body {
 	grid-gap: 10px;
 	height: 100%;
 	background-color: #EEEEEE;
+    box-sizing: border-box;
 }
 
 .grid-item-updates, .grid-item-update-patient, .grid-item-add-patient, .grid-item-users-logged-in {

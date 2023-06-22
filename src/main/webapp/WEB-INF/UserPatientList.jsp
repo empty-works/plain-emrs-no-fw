@@ -71,7 +71,6 @@
 			  <div class="modal-content">
 				<span class="close" onclick="closeModal()">&times;</span>
 				<div id="medRecModalData">
-				
 					<div class="main-grid">
 					<div class="container">	
 						<div>
@@ -315,8 +314,8 @@
 								</div>
 							</div>
 						  </div>
-						</div>
-					</div>
+			</div>
+		</div>
 	</div>
 	<!-- Script taken from w3schools HowTO - Collapsibles/Accordion -->
 	<script>
