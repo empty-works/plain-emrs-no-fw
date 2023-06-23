@@ -86,13 +86,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80%;
+  max-width: 82%;
   min-height: 95%;
   max-height: 95%;
-  width: 85%;
+  width: 82%;
   overflow: auto;
   z-index: 10000;
-  background-color: #fefefe;
+  background-color: var(--lightest-blue);
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -100,26 +100,33 @@
 
 .modal-fieldset {
 	margin-bottom: 20px;
-	border: none;
 	padding: 0;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
 }
 
 .modal-legend {
 	font-weight: bold;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: #333;
 	padding: 10px;
 	background-color: #f5f5f5;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 5px 5px 0 0;
+	border: none;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-.modal-legend::after {
-	content: '';
-	display: block;
-	height: 2px;
-	background-color: #333;
-	margin-top: 5px;
+.modal-fieldset-content {
+	padding: 10px;
+	background-color: #fff;
+	border: none;
+	border-radius: 0 0 5px 5px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .close {
@@ -199,7 +206,7 @@
 } 
 */
 .container {
-  background-color: #f0f0f0;
+  background-color: var(--off-white);
   border-radius: 5px;
   padding: 20px;
   min-width: 100%;
@@ -215,9 +222,9 @@
 }
 
 .tab {
-  background-color: #ccc;
+  background-color: var(--light-blue);
   border: none;
-  color: #fff;
+  color: var(--off-white);
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 10px;
@@ -225,12 +232,14 @@
 }
 
 .tab.active {
-  background-color: #999;
+  background-color: var(--lightest-blue);
+  color: var(--darker-blue);
 }
 
 .tab-content {
   display: none;
   padding: 20px;
+  background-color: var(--lightest-blue);
 }
 
 .tab-content.active {

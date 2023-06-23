@@ -84,7 +84,7 @@
 									<div>
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Personal Overview</legend>
-											<div id="medRecPersonalOverview" class="patient-data">
+											<div id="medRecPersonalOverview" class="modal-fieldset-content">
 												<div>
 													<div>${userPatientId}</div>
 													<div>${patientType}</div>
@@ -100,7 +100,7 @@
 										</fieldset>
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Medical Record Overview</legend>	
-											<div id="medRecOverview" class="patient-data">
+											<div id="medRecOverview" class="modal-fieldset-content">
 												<div>
 													<label for="medRecordId">Medical Record ID:</label>
 													<div id="medRecordId">${medicalRecordId}</div>	
@@ -119,7 +119,7 @@
 										</fieldset>
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Allergies</legend>							
-											<div id="medRecAllergies" class="patient-data">
+											<div id="medRecAllergies" class="modal-fieldset-content">
 												<p>
 												<c:choose>
 												<c:when test="empty ${medRecordAllergiesList}">
@@ -136,7 +136,7 @@
 										</fieldset>
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Medication</legend>							
-											<div id="medRecMedication" class="patient-data">
+											<div id="medRecMedication" class="modal-fieldset-content">
 												<p>
 												<c:choose>
 													<c:when test="${empty medRecordMedicationList}">
@@ -262,7 +262,7 @@
 										<p>Vitals modal...</p>
 									</div>	
 								</div>
-								<div id="medRecVitals" class="patient-data">
+								<div id="medRecVitals" class="modal-fieldset-content">
 									<div>
 										<div>Height: ${medRecordVitals.getHeight()}</div>
 										<div>Temperature: ${medRecordVitals.getTemperature()}</div>
