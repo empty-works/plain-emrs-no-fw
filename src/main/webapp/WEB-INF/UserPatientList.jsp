@@ -52,13 +52,13 @@
 					<tr id="list-link">
 						<!--  <td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}" onclick="">${patient.getUserId()}</a></td>-->
 						<td><a href="#" onclick="openPatientModal()">${patient.getUserId()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getFirstName()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getMiddleInitial()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getLastName()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getDateOfBirth()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getType()}</a></td>
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getGenderAtBirth()}</a></td>	
-						<td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}">${patient.getLanguagePreference()}</a></td>	
+						<td><a href="#" onclick="openPatientModal()">${patient.getFirstName()}</a></td>
+						<td><a href="#" onclick="openPatientModal()">${patient.getMiddleInitial()}</a></td>
+						<td><a href="#" onclick="openPatientModal()">${patient.getLastName()}</a></td>
+						<td><a href="#" onclick="openPatientModal()">${patient.getDateOfBirth()}</a></td>
+						<td><a href="#" onclick="openPatientModal()">${patient.getType()}</a></td>
+						<td><a href="#" onclick="openPatientModal()">${patient.getGenderAtBirth()}</a></td>	
+						<td><a href="#" onclick="openPatientModal()">${patient.getLanguagePreference()}</a></td>	
 					</tr>
 				</c:forEach>
 			</table>
@@ -82,8 +82,8 @@
 										<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
 									</div>
 									<div>
-										<fieldset>
-											<legend class="patient-header">Personal Overview</legend>
+										<fieldset class="modal-fieldset">
+											<legend class="modal-legend">Personal Overview</legend>
 											<div id="medRecPersonalOverview" class="patient-data">
 												<div>
 													<div>${userPatientId}</div>
@@ -98,8 +98,8 @@
 												</div>
 											</div>
 										</fieldset>
-										<fieldset>
-											<legend class="patient-header">Medical Record Overview</legend>	
+										<fieldset class="modal-fieldset">
+											<legend class="modal-legend">Medical Record Overview</legend>	
 											<div id="medRecOverview" class="patient-data">
 												<div>
 													<label for="medRecordId">Medical Record ID:</label>
@@ -117,8 +117,8 @@
 												</div>
 											</div>
 										</fieldset>
-										<fieldset>
-											<legend class="patient-header">Allergies</legend>							
+										<fieldset class="modal-fieldset">
+											<legend class="modal-legend">Allergies</legend>							
 											<div id="medRecAllergies" class="patient-data">
 												<p>
 												<c:choose>
@@ -134,8 +134,8 @@
 												</p>
 											</div>
 										</fieldset>
-										<fieldset>
-											<legend class="patient-header">Medication</legend>							
+										<fieldset class="modal-fieldset">
+											<legend class="modal-legend">Medication</legend>							
 											<div id="medRecMedication" class="patient-data">
 												<p>
 												<c:choose>
@@ -251,8 +251,8 @@
 								</c:choose>
 							</ul>
 							
-							<fieldset>
-								<legend class="patient-header">Vitals ${medRecordVitals.getDateTaken()}</legend>							
+							<fieldset class="modal-fieldset">
+								<legend class="modal-legend">Vitals ${medRecordVitals.getDateTaken()}</legend>							
 								<!-- Vitals edit link -->
 								<button id="vitalsEditButton" class="edit-link">Edit</button>
 								<!-- Vitals edit modal -->
