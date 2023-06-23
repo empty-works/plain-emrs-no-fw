@@ -71,7 +71,6 @@
 			  <div class="modal-content">
 				<span class="close" onclick="closeModal()">&times;</span>
 				<div id="medRecModalData">
-					<div class="main-grid">
 					<div class="container">	
 						<div>
 							<button class="tab active" onclick="changeTab(0)">Patient record</button>
@@ -311,7 +310,6 @@
 							</div>
 						</div>
 					</div>
-								</div>
 							</div>
 						  </div>
 			</div>
