@@ -69,9 +69,10 @@
 			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!MODAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 			<div id="medRecModal" class="modal">
 			  <div class="modal-content">
-				<span class="close" onclick="closeModal()">&times;</span>
-				<div id="medRecModalData">
-					<div class="container">	
+					<div id="patientSidebar">
+						<!-- Patient sidebar -->	
+					</div>
+					<div id="tabsContainer">	
 						<div>
 							<button class="tab active" onclick="changeTab(0)">Patient record</button>
 							<button class="tab" onclick="changeTab(1)">Encounters</button>	
@@ -310,7 +311,7 @@
 							</div>
 						</div>
 					</div>
-							</div>
+				<span class="close" onclick="closeModal()">&times;</span>
 						  </div>
 			</div>
 		</div>
