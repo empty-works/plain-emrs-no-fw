@@ -71,6 +71,13 @@
 			  <div class="modal-content">
 					<div id="patientSidebar">
 						<!-- Patient sidebar -->	
+						<div class="patient-profile">
+							<img src="default_img.jpg"	alt="Patient Image" class="patient-picture">
+							<div class="patient-info">
+								<h2 class="patient-name">NAME: ${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</h2>
+								<p class="patient-dob">DOB: ${userDateOfBirth}</p>
+							</div>
+						</div>
 					</div>
 					<div id="tabsContainer">	
 						<div>
@@ -311,8 +318,8 @@
 							</div>
 						</div>
 					</div>
+					</div>
 				<span class="close" onclick="closeModal()">&times;</span>
-						  </div>
 			</div>
 		</div>
 	</div>

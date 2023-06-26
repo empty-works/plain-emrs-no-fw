@@ -126,9 +126,11 @@
 }
 
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
+  position: absolute;
+  top: 20px;
+  right: calc(20px + 16px);
+  color: #fff;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -205,9 +207,49 @@
 #patientSidebar {
  	flex: 1;
 	background-color: var(--off-white);
-	padding: 20px;
+	border-radius: 5px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
 	max-width: 20%;
  	box-sizing: border-box;
+ 	height: 100%;
+ 	position: sticky;
+ 	top: 0;
+}
+
+.patient-sidebar {
+  flex: 1;
+  background-color: #f2f2f2;
+}
+
+.patient-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--lightest-blue);
+}
+
+.patient-picture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.patient-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.patient-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.patient-dob {
+  font-size: 16px;
+  color: #888;
 }
 
 #tabsContainer {
@@ -217,6 +259,8 @@
 	padding: 20px;
 	max-width: 80%;
 	box-sizing: border-box;
+	/* Always show vertical scrollbar */
+	overflow-y: scroll;
 }
 
 @media screen and (min-width: 768px) {
