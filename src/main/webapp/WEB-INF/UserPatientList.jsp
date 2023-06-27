@@ -72,11 +72,20 @@
 					<div id="patientSidebar">
 						<!-- Patient sidebar -->	
 						<div class="patient-profile">
-							
-							<img src="default_img.jpg"	alt="Patient Image" class="patient-picture">
+							<c:choose>
+								<c:when test="${patient.getCurrentGender() == 'female'}">
+									<img src="images/default_female_img.jpg"	alt="Female Image" class="patient-picture">
+								</c:when>
+								<c:when test="${patient.getCurrentGender() == 'male'}">
+									<img src="images/default_male_img.jpg"	alt="Male Image" class="patient-picture">
+								</c:when>
+								<c:otherwise>
+									<img src="images/default_nb_img.jpg"	alt="NB Image" class="patient-picture">
+								</c:otherwise>
+							</c:choose>
 							<div class="patient-info">
-								<h2 class="patient-name">NAME: ${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</h2>
-								<p class="patient-dob">DOB: ${userDateOfBirth}</p>
+								<h2 id="patientSidebarName" class="patient-name"></h2>
+								<p class="patient-dob"></p>
 							</div>
 						</div>
 					</div>

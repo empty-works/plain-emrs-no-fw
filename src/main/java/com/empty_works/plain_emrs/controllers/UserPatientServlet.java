@@ -2,7 +2,6 @@ package com.empty_works.plain_emrs.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -15,6 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAdmissionsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
@@ -23,7 +27,6 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordInterface;
 import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
@@ -97,6 +100,66 @@ public class UserPatientServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		// Store retrieved variables from the database into JSON.
+		JSONObject jsonPatient = new JSONObject();
+		jsonPatient.put("patientProvider", patient.getProvider());
+		jsonPatient.put("patientProviderId", patient.getProviderId());
+		jsonPatient.put("patientRoom", patient.getRoomNumber());
+		jsonPatient.put("patientType", patient.getType());
+		jsonPatient.put("patientLanguagePreference", patient.getLanguagePreference());
+		jsonPatient.put("patientStreetAddress", patient.getStreetAddress());
+		jsonPatient.put("patientCity", patient.getCity());
+		jsonPatient.put("patientState", patient.getState());
+		jsonPatient.put("patientCountry", patient.getCountry());
+		jsonPatient.put("patientPhoneNumber", patient.getPhoneNumber());
+		jsonPatient.put("patientBirthGender", patient.getGenderAtBirth());
+		jsonPatient.put("patientCurrentGender", patient.getCurrentGender());
+		jsonPatient.put("patientSexualOrientation", patient.getSexualOrientation());
+		jsonPatient.put("patientMaritalStatus", patient.getMaritalStatus());
+		jsonPatient.put("patientLivingArrangement", patient.getLivingArrangement());
+		jsonPatient.put("patientAdopted", patient.isAdopted());
+		
+		jsonPatient.put("patientRaceList", patientRace.getRaces());
+		jsonPatient.put("userPatientId", userPatientId);
+		jsonPatient.put("userEmailAddress", patient.getEmailAddress());
+		jsonPatient.put("userEnabled", patient.isUserEnabled());
+		jsonPatient.put("userCreatedOn", patient.getDateCreated());
+		jsonPatient.put("userCurrentFacilityId", patient.getCurrentFacilityId());
+		jsonPatient.put("userPatientFirstName", patient.getFirstName());
+		jsonPatient.put("userPatientMiddleInitial", patient.getMiddleInitial());
+		jsonPatient.put("userPatientLastName", patient.getLastName());
+		jsonPatient.put("userDateOfBirth", patient.getDateOfBirth());
+		jsonPatient.put("licenseNumber", patient.getLicenseNumber());
+		jsonPatient.put("vehicleSerialNumber", patient.getVehicleSerialNumber());
+		jsonPatient.put("vehiclePlateNumber", patient.getVehiclePlateNumber());
+		jsonPatient.put("url", patient.getUrl());
+		jsonPatient.put("deviceSerialNumber", patient.getDeviceSerialNumber());
+		jsonPatient.put("ipAddress", patient.getIpAddress());
+		jsonPatient.put("emergencyContactFirstName", emergencyContacts.getFirstName());
+		jsonPatient.put("emergencyContactLastName", emergencyContacts.getLastName());
+		jsonPatient.put("emergencyContactPhoneNumber", emergencyContacts.getPhoneNumber());
+		jsonPatient.put("emergencyContactEmail", emergencyContacts.getEmail());
+		jsonPatient.put("medRecord", medRecord);
+		jsonPatient.put("medRecordId", medRecordId);
+		jsonPatient.put("medRecordAllergiesList", medRecordAllergiesList);
+		jsonPatient.put("medRecordBloodRelatives", medRecordBloodRelations);
+		jsonPatient.put("medRecordChiefComplaintsList", medRecordChiefComplaintsList);
+		jsonPatient.put("medRecordChiefComplaintsLatest", getLatest(medRecordChiefComplaintsList));
+		jsonPatient.put("medRecordDiseasesList", medRecordDiseasesList);
+		jsonPatient.put("medRecordIllnessesList", medRecordIllnessesList);
+		jsonPatient.put("medRecordMedicationList", medRecordMedicationList);
+		jsonPatient.put("medRecordSurgicalProblemsList", medRecordSurgicalProblemsList);
+		jsonPatient.put("medRecordNurseNotesList", medRecordNurseNotesList);
+		jsonPatient.put("medRecordVitals", getLatestVitalsDate(medRecordVitalsList));
+		jsonPatient.put("medRecordAdmissionsList", medRecordAdmissionsList);
+		jsonPatient.put("medRecordRosList", medRecordRosBeanList);
+		jsonPatient.put("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
+		
+		// Set the response content type to JSON
+	    response.setContentType("application/json");
+	    
+	    
+
 		// Store retrieved variables from the database into session variables. 
 		HttpSession session = request.getSession();
 		session.setAttribute("patientProvider", patient.getProvider());
@@ -116,7 +179,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("patientLivingArrangement", patient.getLivingArrangement());
 		session.setAttribute("patientAdopted", patient.isAdopted());
 		
-		/* Retrieve patient races as a list in the JSP. */
+		// Retrieve patient races as a list in the JSP. 
 		session.setAttribute("patientRaceList", patientRace.getRaces());
 
 		session.setAttribute("userPatientId", userPatientId);

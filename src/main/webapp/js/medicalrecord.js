@@ -8,6 +8,25 @@ function openPatientModal(patientId) {
 	
 	// Display the modal
  	medRecModal.style.display = "block";
+	var encodedPatientId = encodeURIComponent(patientId);
+	var servletUrl = '/UserPatientServlet?userPatientId=' + encodedPatientId;
+	fetch(servletUrl)
+		.then(response => response.json())
+		.then(patientData => {
+			// Process the patient data
+			displayPatientData(patientData);
+		})
+		.catch(error => {
+			// Handle any error that occurred during the request
+			console.error('Error fetching patient data:', error);
+		});
+}
+
+function displayPatientData(patientData) {
+	// Access the patient data and updated the DOM
+	var fullName = patientData.userPatientFirstName + ' ' + patientData.userPatientMiddleInitial + ' ' + userPatientLastName;
+	alert(fullName);
+	document.getElementById('patientSidebarName').innerText = fullName;
 }
 
 function openMedRecordModal(section, ...dataExample) {
