@@ -72,6 +72,7 @@
 					<div id="patientSidebar">
 						<!-- Patient sidebar -->	
 						<div class="patient-profile">
+							
 							<img src="default_img.jpg"	alt="Patient Image" class="patient-picture">
 							<div class="patient-info">
 								<h2 class="patient-name">NAME: ${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</h2>

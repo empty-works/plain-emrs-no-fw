@@ -6,6 +6,13 @@ import java.util.List;
 
 public class UserRelationGenderLists {
 	
+	final public static String male = "male";
+	final public static String female = "female";
+	final public static String transFtm = "transFtm";
+	final public static String transMtf = "transMtf";
+	final public static String genQueer = "genQueer";
+	final public static String curGenOther = "curGenOther";
+	final public static String curGenNotDisclosed = "curGenNotDisclosed";
 	final public static List<UserCurrentGenderUnit> currentGenderList = new ArrayList<>() {
 		/**
 		 * 
@@ -13,13 +20,13 @@ public class UserRelationGenderLists {
 		private static final long serialVersionUID = -1816798785282417562L;
 
 		{
-			add(new UserCurrentGenderUnit("male", "Male"));
-			add(new UserCurrentGenderUnit("female", "Female"));
-			add(new UserCurrentGenderUnit("transFtm", "Transgender Male/Transgender Man/Female-to-Male (FtM)"));
-			add(new UserCurrentGenderUnit("transMtf", "Transgender Female/Transgender Woman/Male-to-Female (MtF)"));
-			add(new UserCurrentGenderUnit("genQueer", "Genderqueer - neither exclusively male nor female"));
-			add(new UserCurrentGenderUnit("curGenOther", "Other"));
-			add(new UserCurrentGenderUnit("curGenNotDisclosed", "Not disclosed"));
+			add(new UserCurrentGenderUnit(male, "Male"));
+			add(new UserCurrentGenderUnit(female, "Female"));
+			add(new UserCurrentGenderUnit(transFtm, "Transgender Male/Transgender Man/Female-to-Male (FtM)"));
+			add(new UserCurrentGenderUnit(transMtf, "Transgender Female/Transgender Woman/Male-to-Female (MtF)"));
+			add(new UserCurrentGenderUnit(genQueer, "Genderqueer - neither exclusively male nor female"));
+			add(new UserCurrentGenderUnit(curGenOther, "Other"));
+			add(new UserCurrentGenderUnit(curGenNotDisclosed, "Not disclosed"));
 		}
 	};
 
