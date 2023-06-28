@@ -4,7 +4,6 @@
 
 function openPatientModal(patientId) {
 	var medRecModal = document.getElementById("medRecModal");
-	var medRecModalData = document.getElementById("medRecModalData");
 	
 	// Display the modal
  	medRecModal.style.display = "block";

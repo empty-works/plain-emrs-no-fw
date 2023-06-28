@@ -51,8 +51,8 @@
 				<c:forEach items="${patientSublist}" var="patient" >
 					<tr id="list-link">
 						<!--  <td><a href="${pageContext.request.contextPath}/UserPatientServlet?userPatientId=${patient.getUserId()}" onclick="">${patient.getUserId()}</a></td>-->
-						<td><a href="#" onclick="openPatientModal()">${patient.getUserId()}</a></td>
-						<td><a href="#" onclick="openPatientModal()">${patient.getFirstName()}</a></td>
+						<td><a href="#" onclick="openPatientModal('${patient.getUserId()}')">${patient.getUserId()}</a></td>
+						<td><a href="#" onclick="openPatientModal('${patient.getUserId()}')">${patient.getFirstName()}</a></td>
 						<td><a href="#" onclick="openPatientModal()">${patient.getMiddleInitial()}</a></td>
 						<td><a href="#" onclick="openPatientModal()">${patient.getLastName()}</a></td>
 						<td><a href="#" onclick="openPatientModal()">${patient.getDateOfBirth()}</a></td>

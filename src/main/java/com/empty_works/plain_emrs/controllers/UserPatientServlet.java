@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAdmissionsBean;
@@ -32,6 +28,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordSurgicalProblemsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
+import com.empty_works.plain_emrs.beans.PatientWrapper;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
 import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
@@ -99,10 +96,38 @@ public class UserPatientServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		PatientWrapper patientWrapper = new PatientWrapper();
+		patientWrapper.setUserPatientId(userPatientId);
+		patientWrapper.setUserPatient(patient);
+		patientWrapper.setUserPatientRace(patientRace);
+		patientWrapper.setEmergencyContacts(emergencyContacts);
+		patientWrapper.setMedicalRecord(medRecord);
+		patientWrapper.setAllergiesList(medRecordAllergiesList);
+		patientWrapper.setBloodRelatives(medRecordBloodRelations);
+		patientWrapper.setChiefComplaintsList(medRecordChiefComplaintsList);
+		patientWrapper.setDiseasesList(medRecordDiseasesList);
+		patientWrapper.setIllnessesList(medRecordIllnessesList);
+		patientWrapper.setMedicationList(medRecordMedicationList);
+		patientWrapper.setSurgicalProblemsList(medRecordSurgicalProblemsList);
+		patientWrapper.setNurseNotesList(medRecordNurseNotesList);
+		patientWrapper.setVitalsList(medRecordVitalsList);
+		patientWrapper.setAdmissionsList(medRecordAdmissionsList);
+		patientWrapper.setRosList(medRecordRosBeanList);
+		
+		Gson gson = new Gson();
+		String gsonPatientString = gson.toJson(patientWrapper);
 
+		// Set the response content type to JSON
+        response.setContentType("application/json");
+        
+        // Write the JSON string to the response body
+        response.getWriter().write(gsonPatientString);
+		/*
 		// Store retrieved variables from the database into JSON.
 		JSONObject jsonPatient = new JSONObject();
 		jsonPatient.put("patientProvider", patient.getProvider());
+		System.out.println("JSON patientProvider: " + jsonPatient.getString("patientProvider"));
 		jsonPatient.put("patientProviderId", patient.getProviderId());
 		jsonPatient.put("patientRoom", patient.getRoomNumber());
 		jsonPatient.put("patientType", patient.getType());
@@ -158,6 +183,9 @@ public class UserPatientServlet extends HttpServlet {
 		// Set the response content type to JSON
 	    response.setContentType("application/json");
 	    
+	    // Write the JSON data to the response
+	    PrintWriter out = response.getWriter();
+	    out.print(jsonPatient);
 	    
 
 		// Store retrieved variables from the database into session variables. 
@@ -219,10 +247,13 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordRosList", medRecordRosBeanList);
 		System.out.println("Latest ROS: " + getLatestRosDate(medRecordRosBeanList));
 		session.setAttribute("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
+		*/
 		
+		/*
 		System.out.println("Forwarding to MedicalRecordLatestChiefComplaintServlet from UserPatientServlet...");
 		//response.sendRedirect(request.getContextPath() + "/MedicalRecordLatestChiefComplaintServlet");
 		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
+		*/
 	}
 
 	/**
