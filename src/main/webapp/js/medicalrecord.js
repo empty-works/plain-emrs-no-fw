@@ -2,13 +2,14 @@
  * 
  */
 
-function openPatientModal(patientId) {
+function openPatientModal(contextPath, patientId) {
 	var medRecModal = document.getElementById("medRecModal");
 	
 	// Display the modal
  	medRecModal.style.display = "block";
 	var encodedPatientId = encodeURIComponent(patientId);
-	var servletUrl = '/UserPatientServlet?userPatientId=' + encodedPatientId;
+	var servletUrl = contextPath + '/UserPatientServlet?userPatientId=' + encodedPatientId;
+	console.log("About to fetch JSON...");
 	fetch(servletUrl)
 		.then(response => response.json())
 		.then(patientData => {
@@ -21,10 +22,11 @@ function openPatientModal(patientId) {
 		});
 }
 
-function displayPatientData(patientData) {
+function displayPatientData(parsedPatientData) {
 	// Access the patient data and updated the DOM
-	var fullName = patientData.userPatientFirstName + ' ' + patientData.userPatientMiddleInitial + ' ' + userPatientLastName;
-	alert(fullName);
+	// The way data in the JSON is accessed is simply by using the dot notation to however many layers deep.
+	var patientId = parsedPatientData.userPatientId;
+	var fullName = parsedPatientData.userPatient.firstName + ' ' + parsedPatientData.userPatient.middleInitial + ' ' + parsedPatientData.userPatient.lastName;
 	document.getElementById('patientSidebarName').innerText = fullName;
 }
 

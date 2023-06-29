@@ -105,6 +105,7 @@ public class UserPatientServlet extends HttpServlet {
 		patientWrapper.setMedicalRecord(medRecord);
 		patientWrapper.setAllergiesList(medRecordAllergiesList);
 		patientWrapper.setBloodRelatives(medRecordBloodRelations);
+		/*
 		patientWrapper.setChiefComplaintsList(medRecordChiefComplaintsList);
 		patientWrapper.setDiseasesList(medRecordDiseasesList);
 		patientWrapper.setIllnessesList(medRecordIllnessesList);
@@ -114,9 +115,12 @@ public class UserPatientServlet extends HttpServlet {
 		patientWrapper.setVitalsList(medRecordVitalsList);
 		patientWrapper.setAdmissionsList(medRecordAdmissionsList);
 		patientWrapper.setRosList(medRecordRosBeanList);
+		*/
 		
 		Gson gson = new Gson();
 		String gsonPatientString = gson.toJson(patientWrapper);
+		
+		System.out.println("Gson patient string: " + gsonPatientString);
 
 		// Set the response content type to JSON
         response.setContentType("application/json");
