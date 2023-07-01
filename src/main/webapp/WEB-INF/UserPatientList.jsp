@@ -84,8 +84,9 @@
 								</c:otherwise>
 							</c:choose>
 							<div class="patient-info">
-								<h2 id="patientSidebarName" class="patient-name"></h2>
-								<p class="patient-dob"></p>
+								<h3 id="patientSidebarName" class="patient-name"></h3>
+								<p id="patientSidebarId" class="patient-sidebar-text"></p>
+								<p id="patientSidebarDob" class="patient-sidebar-text"></p>
 							</div>
 						</div>
 					</div>

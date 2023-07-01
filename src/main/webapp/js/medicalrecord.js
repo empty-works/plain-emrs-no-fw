@@ -25,9 +25,22 @@ function openPatientModal(contextPath, patientId) {
 function displayPatientData(parsedPatientData) {
 	// Access the patient data and updated the DOM
 	// The way data in the JSON is accessed is simply by using the dot notation to however many layers deep.
-	var patientId = parsedPatientData.userPatientId;
+	//document.getElementById('patientSidebarId').innerText = parsedPatientData.userPatientId;
 	var fullName = parsedPatientData.userPatient.firstName + ' ' + parsedPatientData.userPatient.middleInitial + ' ' + parsedPatientData.userPatient.lastName;
 	document.getElementById('patientSidebarName').innerText = fullName;
+	var id = parsedPatientData.userPatientId;
+	document.getElementById('patientSidebarId').innerText = "ID: " + id;
+	/**********Convert to local date***********/
+	var dob = parsedPatientData.userPatient.dateOfBirth;
+	var parsedDob = new Date(dob.year, dob.month - 1, dob.day);
+	var formattedDob = parsedDob.toLocaleDateString(undefined, {
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric'
+	});
+	/*******************************************/
+	document.getElementById('patientSidebarDob').innerText = "DOB: " + formattedDob + " Age: " + calculateAge(formattedDob);
+
 }
 
 function openMedRecordModal(section, ...dataExample) {
@@ -99,6 +112,22 @@ function closeModal() {
 	var medRecModal = document.getElementById("medRecModal");
 	medRecModal.style.display = "none";
 }				
+
+function calculateAge(dateOfBirth) {
+	var currentDate = new Date();
+	var dob = new Date(dateOfBirth)
+	console.log("currentDate.getFullYear: " + currentDate.getFullYear + " " + "dob.getFullYear: " + dob.getFullYear);
+	var yearsDiff = currentDate.getFullYear() - dob.getFullYear();
+	var monthsDiff = currentDate.getMonth() - dob.getMonth();
+	var daysDiff = currentDate.getDate() - dob.getDate();
+	
+	// Adjust the age if the current date if before the birth date.
+	if (monthsDiff < 0 || monthsDiff === 0 && daysDiff < 0) {
+		yearsDiff--;
+	}
+	
+	return yearsDiff; 
+}
 
 /*
 function changeTab(evt, tabName) {
