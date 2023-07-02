@@ -40,7 +40,11 @@ function displayPatientData(parsedPatientData) {
 	});
 	/*******************************************/
 	document.getElementById('patientSidebarDob').innerText = "DOB: " + formattedDob + " Age: " + calculateAge(formattedDob);
-
+	document.getElementById('patientSidebarType').innerText = "Type: " + parsedPatientData.userPatient.type;
+	document.getElementById('patientSidebarLangPref').innerText = "Language preference: " + parsedPatientData.userPatient.languagePreference;
+	document.getElementById('patientSidebarCondition').innerText = "Patient condition: " + parsedPatientData.medicalRecord.patientCondition;
+	document.getElementById('patientSidebarActive').innerText = "Active status: " + parsedPatientData.medicalRecord.isActive;
+	document.getElementById('patientSidebarTransfusionStatus').innerText = "Blood transfusion status: " + parsedPatientData.medicalRecord.bloodTransfusionStatus;
 }
 
 function openMedRecordModal(section, ...dataExample) {

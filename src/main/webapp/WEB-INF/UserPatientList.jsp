@@ -86,7 +86,12 @@
 							<div class="patient-info">
 								<h3 id="patientSidebarName" class="patient-name"></h3>
 								<p id="patientSidebarId" class="patient-sidebar-text"></p>
+								<p id="patientSidebarType" class="patient-sidebar-text"></p>
 								<p id="patientSidebarDob" class="patient-sidebar-text"></p>
+								<p id="patientSidebarLangPref" class="patient-sidebar-text"></p>
+								<p id="patientSidebarCondition" class="patient-sidebar-text"></p>
+								<p id="patientSidebarActive" class="patient-sidebar-text"></p>
+								<p id="patientSidebarTransfusionStatus" class="patient-sidebar-text"></p>
 							</div>
 						</div>
 					</div>
