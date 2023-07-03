@@ -218,6 +218,12 @@
  	top: 0;
 }
 
+#patientSidebarActive {
+  text-align: center;
+  color: green;
+  padding-bottom: 30px;
+}
+
 .patient-sidebar {
   flex: 1;
   background-color: #f2f2f2;
@@ -225,9 +231,20 @@
 
 .patient-profile {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   background-color: var(--lightest-blue);
+}
+
+.patient-info .label {
+  flex-basis: 120px; /* Adjust the width as needed */
+  text-align: left;
+}
+
+.patient-info .value {
+  flex-grow: 1;
+  text-align: right;
 }
 
 .patient-picture {
@@ -238,13 +255,15 @@
 }
 
 .patient-info {
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
 }
 
 .patient-name {
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 2px;
 }
 
 .patient-sidebar-text {

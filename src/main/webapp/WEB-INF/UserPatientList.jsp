@@ -83,14 +83,16 @@
 									<img src="images/default_nb_img.jpg"	alt="NB Image" class="patient-picture">
 								</c:otherwise>
 							</c:choose>
+
+							<h3 id="patientSidebarName" class="patient-name"></h3>
+							<p id="patientSidebarActive" class="patient-sidebar-text"></p>
 							<div class="patient-info">
-								<h3 id="patientSidebarName" class="patient-name"></h3>
+								<span class="label">ID:</span>
 								<p id="patientSidebarId" class="patient-sidebar-text"></p>
 								<p id="patientSidebarType" class="patient-sidebar-text"></p>
 								<p id="patientSidebarDob" class="patient-sidebar-text"></p>
 								<p id="patientSidebarLangPref" class="patient-sidebar-text"></p>
 								<p id="patientSidebarCondition" class="patient-sidebar-text"></p>
-								<p id="patientSidebarActive" class="patient-sidebar-text"></p>
 								<p id="patientSidebarTransfusionStatus" class="patient-sidebar-text"></p>
 							</div>
 						</div>
