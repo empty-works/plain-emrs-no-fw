@@ -28,8 +28,13 @@ function displayPatientData(parsedPatientData) {
 	//document.getElementById('patientSidebarId').innerText = parsedPatientData.userPatientId;
 	var fullName = parsedPatientData.userPatient.firstName + ' ' + parsedPatientData.userPatient.middleInitial + ' ' + parsedPatientData.userPatient.lastName;
 	document.getElementById('patientSidebarName').innerText = fullName;
+	var isActive = "Active Record";
+	if(parsedPatientData.medicalRecord.isActive !== true) {
+		isActive = "Inactive Record";
+	}
+	document.getElementById('patientSidebarActive').innerHTML = "<strong>" + isActive + "</strong>";
 	var id = parsedPatientData.userPatientId;
-	document.getElementById('patientSidebarId').innerText = "ID: " + id;
+	document.getElementById('patientSidebarId').innerText = id;
 	/**********Convert to local date***********/
 	var dob = parsedPatientData.userPatient.dateOfBirth;
 	var parsedDob = new Date(dob.year, dob.month - 1, dob.day);
@@ -39,16 +44,12 @@ function displayPatientData(parsedPatientData) {
 		day: 'numeric'
 	});
 	/*******************************************/
-	document.getElementById('patientSidebarDob').innerHTML = "DOB: " + "<strong>" + formattedDob + "</strong>" + " Age: " + "<strong>" + calculateAge(formattedDob) + "</strong>";
-	document.getElementById('patientSidebarType').innerHTML = "Type: " + "<strong>" + parsedPatientData.userPatient.type + "</strong>";
-	document.getElementById('patientSidebarLangPref').innerHTML = "Language preference: " + "<strong>" + parsedPatientData.userPatient.languagePreference + "</strong>";
-	document.getElementById('patientSidebarCondition').innerHTML = "Patient condition: " + "<strong>" + parsedPatientData.medicalRecord.patientCondition + "</strong>";
-	var isActive = "Active";
-	if(parsedPatientData.medicalRecord.isActive !== true) {
-		isActive = "Inactive";
-	}
-	document.getElementById('patientSidebarActive').innerHTML = "<strong>" + isActive + "</strong>";
-	document.getElementById('patientSidebarTransfusionStatus').innerHTML = "Blood transfusion status: " + "<strong>" + parsedPatientData.medicalRecord.bloodTransfusionStatus + "</strong>";
+	document.getElementById('patientSidebarDob').innerHTML = formattedDob;
+	document.getElementById('patientSidebarAge').innerHTML = calculateAge(formattedDob)
+	document.getElementById('patientSidebarType').innerHTML = parsedPatientData.userPatient.type;
+	document.getElementById('patientSidebarLangPref').innerHTML = parsedPatientData.userPatient.languagePreference;
+	document.getElementById('patientSidebarCondition').innerHTML = parsedPatientData.medicalRecord.patientCondition;
+	document.getElementById('patientSidebarTransfusionStatus').innerHTML = parsedPatientData.medicalRecord.bloodTransfusionStatus;
 }
 
 function openMedRecordModal(section, ...dataExample) {

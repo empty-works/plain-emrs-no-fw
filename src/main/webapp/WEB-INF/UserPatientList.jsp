@@ -87,13 +87,20 @@
 							<h3 id="patientSidebarName" class="patient-name"></h3>
 							<p id="patientSidebarActive" class="patient-sidebar-text"></p>
 							<div class="patient-info">
-								<span class="label">ID:</span>
-								<p id="patientSidebarId" class="patient-sidebar-text"></p>
-								<p id="patientSidebarType" class="patient-sidebar-text"></p>
-								<p id="patientSidebarDob" class="patient-sidebar-text"></p>
-								<p id="patientSidebarLangPref" class="patient-sidebar-text"></p>
-								<p id="patientSidebarCondition" class="patient-sidebar-text"></p>
-								<p id="patientSidebarTransfusionStatus" class="patient-sidebar-text"></p>
+								<div class="label">ID:</div>
+								<div id="patientSidebarId" class="value"></div>
+								<div class="label">Type:</div>
+								<div id="patientSidebarType" class="value"></div>
+								<div class="label">Date of birth:</div>
+								<div id="patientSidebarDob" class="value"></div>
+								<div class="label">Age:</div>
+								<div id="patientSidebarAge" class="value"></div>
+								<div class="label">Language preference:</div>
+								<div id="patientSidebarLangPref" class="value"></div>
+								<div class="label">Condition:</div>
+								<div id="patientSidebarCondition" class="value"></div>
+								<div class="label">Blood transfusion:</div>
+								<div id="patientSidebarTransfusionStatus" class="value"></div>
 							</div>
 						</div>
 					</div>
