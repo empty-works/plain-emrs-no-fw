@@ -85,12 +85,13 @@
 							</c:choose>
 
 							<h3 id="patientSidebarName" class="patient-name"></h3>
-							<p id="patientSidebarActive" class="patient-sidebar-text"></p>
+							<!--  <p id="patientSidebarActive" class="patient-sidebar-text"></p>-->
+							<div id="patientSidebarId" class="patient-sidebar-text"></div>
 							<div class="patient-info">
-								<div class="label">ID:</div>
-								<div id="patientSidebarId" class="value"></div>
 								<div class="label">Current gender: </div>
 								<div id="patientSidebarCurGen" class="value"></div>
+								<div class="label">Gender at birth:</div>
+								<div id="patientSidebarGenBirth" class="value"></div>
 								<div class="label">Date of birth:</div>
 								<div id="patientSidebarDob" class="value"></div>
 								<div class="label">Age:</div>

@@ -222,6 +222,10 @@
   padding-bottom: 40px;
 }
 
+#patientSidebarId {
+	padding-bottom: 30px;
+}
+
 .patient-sidebar {
   flex: 1;
   background-color: #f2f2f2;

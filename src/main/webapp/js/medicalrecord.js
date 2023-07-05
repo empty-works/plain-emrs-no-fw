@@ -28,11 +28,13 @@ function displayPatientData(parsedPatientData) {
 	//document.getElementById('patientSidebarId').innerText = parsedPatientData.userPatientId;
 	var fullName = parsedPatientData.userPatient.firstName + ' ' + parsedPatientData.userPatient.middleInitial + ' ' + parsedPatientData.userPatient.lastName;
 	document.getElementById('patientSidebarName').innerText = fullName;
+	/*
 	var isActive = "Active Record";
 	if(parsedPatientData.medicalRecord.isActive !== true) {
 		isActive = "Inactive Record";
 	}
 	document.getElementById('patientSidebarActive').innerHTML = "<strong>" + isActive + "</strong>";
+	*/
 	var id = parsedPatientData.userPatientId;
 	document.getElementById('patientSidebarId').innerText = id;
 	/**********Convert to local date***********/
@@ -51,6 +53,7 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarCondition').innerHTML = parsedPatientData.medicalRecord.patientCondition;
 	document.getElementById('patientSidebarTransfusionStatus').innerHTML = parsedPatientData.medicalRecord.bloodTransfusionStatus;
 	document.getElementById('patientSidebarCurGen').innerHTML = parsedPatientData.userPatient.currentGender;
+	document.getElementById('patientSidebarGenBirth').innerHTML = parsedPatientData.userPatient.genderAtBirth;
 }
 
 function openMedRecordModal(section, ...dataExample) {
