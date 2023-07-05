@@ -50,6 +50,7 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarLangPref').innerHTML = parsedPatientData.userPatient.languagePreference;
 	document.getElementById('patientSidebarCondition').innerHTML = parsedPatientData.medicalRecord.patientCondition;
 	document.getElementById('patientSidebarTransfusionStatus').innerHTML = parsedPatientData.medicalRecord.bloodTransfusionStatus;
+	document.getElementById('patientSidebarCurGen').innerHTML = parsedPatientData.userPatient.currentGender;
 }
 
 function openMedRecordModal(section, ...dataExample) {

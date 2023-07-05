@@ -89,18 +89,20 @@
 							<div class="patient-info">
 								<div class="label">ID:</div>
 								<div id="patientSidebarId" class="value"></div>
-								<div class="label">Type:</div>
-								<div id="patientSidebarType" class="value"></div>
+								<div class="label">Current gender: </div>
+								<div id="patientSidebarCurGen" class="value"></div>
 								<div class="label">Date of birth:</div>
 								<div id="patientSidebarDob" class="value"></div>
 								<div class="label">Age:</div>
 								<div id="patientSidebarAge" class="value"></div>
-								<div class="label">Language preference:</div>
-								<div id="patientSidebarLangPref" class="value"></div>
+								<div class="label">Type:</div>
+								<div id="patientSidebarType" class="value"></div>
 								<div class="label">Condition:</div>
 								<div id="patientSidebarCondition" class="value"></div>
 								<div class="label">Blood transfusion:</div>
 								<div id="patientSidebarTransfusionStatus" class="value"></div>
+								<div class="label">Language preference:</div>
+								<div id="patientSidebarLangPref" class="value"></div>
 							</div>
 						</div>
 					</div>

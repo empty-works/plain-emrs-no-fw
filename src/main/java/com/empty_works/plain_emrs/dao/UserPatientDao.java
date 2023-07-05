@@ -25,7 +25,7 @@ public class UserPatientDao {
 		PreparedStatement preparedStatement = null;
 		String patientQuery = "SELECT patients.patient_provider, patients.patient_provider_id, patients.patient_room, patients.patient_type, "
 				+ "patients.patient_language_preference, patients.patient_street_address, patients.patient_city, patients.patient_state, patients.patient_country, "
-				+ "patients.patient_phone_number, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
+				+ "patients.patient_phone_number, patients.patient_current_gender, patients.patient_gender_at_birth, users.user_email_address, users.user_enabled, users.user_created_on, "
 				+ "users.current_facility_id, users.user_first_name, users.user_middle_initial, users.user_last_name, users.user_date_of_birth, "
 				+ "patients.patient_sexual_orientation, patients.patient_marital_status, patients.patient_living_arrangement, "
 				+ "patients.patient_license_number, patients.patient_vehicle_serial_number, patients.patient_vehicle_plate_number, patients.patient_url, "
@@ -49,6 +49,7 @@ public class UserPatientDao {
 				patient.setState(rs.getString("patient_state"));
 				patient.setCountry(rs.getString("patient_country"));
 				patient.setPhoneNumber(rs.getString("patient_phone_number"));
+				patient.setCurrentGender(rs.getString("patient_current_gender"));
 				patient.setGenderAtBirth(rs.getString("patient_gender_at_birth"));
 				patient.setEmailAddress(rs.getString("user_email_address"));
 				patient.setUserEnabled(rs.getBoolean("user_enabled"));
