@@ -326,9 +326,9 @@
 }
 
 .tab {
-  background-color: var(--light-blue);
+  background-color: var(--lightest-blue);
+  color: var(--darker-blue);
   border: none;
-  color: var(--off-white);
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 10px;
@@ -336,8 +336,8 @@
 }
 
 .tab.active {
-  background-color: var(--lightest-blue);
-  color: var(--darker-blue);
+  background-color: var(--light-blue);
+  color: var(--off-white);
 }
 
 .tab-content {

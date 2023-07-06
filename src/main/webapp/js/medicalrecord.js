@@ -63,6 +63,9 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarTransfusionStatus').innerHTML = parsedPatientData.medicalRecord.bloodTransfusionStatus;
 	document.getElementById('patientSidebarCurGen').innerHTML = parsedPatientData.userPatient.currentGender;
 	document.getElementById('patientSidebarGenBirth').innerHTML = parsedPatientData.userPatient.genderAtBirth;
+	
+	/* Patient tab */
+	document.getElementById('medRecAllergies').innerHTML = 
 }
 
 function openMedRecordModal(section, ...dataExample) {

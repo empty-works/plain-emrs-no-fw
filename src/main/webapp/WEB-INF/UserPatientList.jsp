@@ -123,7 +123,7 @@
 											<div id="medRecAllergies" class="modal-fieldset-content">
 												<p>
 												<c:choose>
-												<c:when test="empty ${medRecordAllergiesList}">
+												<c:when test="${empty medRecordAllergiesList}">
 													No allergies
 												</c:when>
 												<c:otherwise>
@@ -216,6 +216,16 @@
 											</c:otherwise>
 											</c:choose>
 											</p>
+										</div>
+										<button class="med-record-accordion">Personal details</button>
+										<div id="medRecPersonalDetails" class="med-record-panel">
+											<p>
+											<c:choose>
+											<c:when test="">
+												
+											</c:when>	
+											</c:choose>
+											</p>	
 										</div>
 										
 										<!-- MODAL -->
