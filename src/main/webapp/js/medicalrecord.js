@@ -36,7 +36,16 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarActive').innerHTML = "<strong>" + isActive + "</strong>";
 	*/
 	var id = parsedPatientData.userPatientId;
-	document.getElementById('patientSidebarId').innerText = id;
+	var patientSidebarId = document.getElementById('patientSidebarId');
+	patientSidebarId.classList.remove('active', 'inactive');
+	// Patient ID changes color depending on if the medical record is active or not.
+	if(parsedPatientData.medicalRecord.isActive === true) {
+		patientSidebarId.classList.add('active');
+	}
+	else {
+		patientSidebarId.classList.add('inactive');
+	}	
+	patientSidebarId.innerText = id;
 	/**********Convert to local date***********/
 	var dob = parsedPatientData.userPatient.dateOfBirth;
 	var parsedDob = new Date(dob.year, dob.month - 1, dob.day);

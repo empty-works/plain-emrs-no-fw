@@ -224,6 +224,16 @@
 
 #patientSidebarId {
 	padding-bottom: 30px;
+	background-color: var(--lightest-blue);
+  	font-size: 14px;
+}
+
+#patientSidebarId.active {
+	color: green;	
+}
+
+#patientSidebarId.inactive {
+	color: grey;	
 }
 
 .patient-sidebar {

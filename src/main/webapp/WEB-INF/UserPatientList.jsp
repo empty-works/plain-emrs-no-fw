@@ -119,41 +119,6 @@
 									</div>
 									<div>
 										<fieldset class="modal-fieldset">
-											<legend class="modal-legend">Personal Overview</legend>
-											<div id="medRecPersonalOverview" class="modal-fieldset-content">
-												<div>
-													<div>${userPatientId}</div>
-													<div>${patientType}</div>
-												</div>
-												<div>
-													<div>${userPatientFirstName} ${userPatientMiddleInitial} ${userPatientLastName}</div>
-													<div>${patientLanguagePreference}</div>
-												</div>
-												<div>
-													<div>${userDateOfBirth}</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset class="modal-fieldset">
-											<legend class="modal-legend">Medical Record Overview</legend>	
-											<div id="medRecOverview" class="modal-fieldset-content">
-												<div>
-													<label for="medRecordId">Medical Record ID:</label>
-													<div id="medRecordId">${medicalRecordId}</div>	
-													<label for="medRecordCond">Medical Record Condition:</label>
-													<div id="medRecordCond">${medRecordPatientCondition}</div>
-													<label for="medRecordCreated">Medical Record Created:</label>
-												</div>	
-												<div>
-													<div id="medRecordCreated">${medRecordCreated}</div>
-													<label for="medRecordActive">Medical Record Active:</label>
-													<div id="medRecordActive">${medRecordIsActive}</div>
-													<label for="medRecordBloodTransfusion">Blood Transfusion Status:</label>
-													<div id="medRecordBloodTransfusion">${medRecordBloodTransfusionStatus}</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Allergies</legend>							
 											<div id="medRecAllergies" class="modal-fieldset-content">
 												<p>
