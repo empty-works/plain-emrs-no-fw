@@ -65,8 +65,15 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarGenBirth').innerHTML = parsedPatientData.userPatient.genderAtBirth;
 	
 	/* Patient tab */
-	document.getElementById('medRecAllergies').innerHTML = 
+	var allergiesList = parsedPatientData.allergiesList;
+	var allergiesUl = document.getElementById('allergyUl');
+	for(let i = 0; i < allergiesList.length; i++) {
+		const allergy = document.createElement('li');
+		allergy.textContent = allergiesList[i].allergyName;
+		allergiesUl.appendChild(allergy);
+	}
 }
+
 
 function openMedRecordModal(section, ...dataExample) {
 	var medRecModal = document.getElementById("medRecModal");
