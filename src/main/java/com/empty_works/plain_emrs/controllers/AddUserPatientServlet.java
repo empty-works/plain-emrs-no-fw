@@ -109,7 +109,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
-		MedicalRecordAllergiesBean allergies;
+		//MedicalRecordAllergiesBean allergies;
+		List<MedicalRecordAllergiesBean> allergies;
 		MedicalRecordDiseasesBean diseases;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
@@ -205,10 +206,13 @@ public class AddUserPatientServlet extends HttpServlet {
 		medRecord.setMedicalRecordCreatedOn(LocalDateTime.now());
 		medRecord.setActive(true); // Not in add user jsp, so automatically set to true.
 		medRecord.setBloodTransfusionStatus(request.getParameter("bloodTransfusionRadio"));
-		
+
+		allergies = parseAllergies(request, medicalRecordId);
+		/*
 		allergies = new MedicalRecordAllergiesBean();
 		allergies.setMedicalRecordId(medicalRecordId);
 		allergies.setAllergyUnits(parseAllergies(request));
+		*/
 
 		surgicalProblems = new MedicalRecordSurgicalProblemsBean();
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
@@ -296,13 +300,18 @@ public class AddUserPatientServlet extends HttpServlet {
 		return patientRaces;
 	}
 	
-	protected static List<MedicalRecordAllergyUnit> parseAllergies(HttpServletRequest request) {
+	protected static List<MedicalRecordAllergiesBean> parseAllergies(HttpServletRequest request, String medicalRecordId) {
 		
-		List<MedicalRecordAllergyUnit> allergiesList = new ArrayList<>();
+		//List<MedicalRecordAllergyUnit> allergiesList = new ArrayList<>();
+		List<MedicalRecordAllergiesBean> allergiesList = new ArrayList<>();
+		
 		String[] allergyNames = request.getParameterValues("allergyText");
 		if(allergyNames != null) {
 			for(int i = 0; i < allergyNames.length; i++) {
-				MedicalRecordAllergyUnit allergyUnit = new MedicalRecordAllergyUnit(allergyNames[i]);
+				MedicalRecordAllergiesBean allergyUnit = new MedicalRecordAllergiesBean();
+				allergyUnit.setMedicalRecordId(medicalRecordId);
+				allergyUnit.setAllergyName(allergyNames[i]);
+				allergyUnit.set
 				allergiesList.add(allergyUnit);
 			}
 		}

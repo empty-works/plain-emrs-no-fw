@@ -10,15 +10,18 @@ public class MedicalRecordAllergiesBean implements MedicalRecordInterface, java.
 	 * 
 	 */
 	private static final long serialVersionUID = -3425989602412918530L;
-	private int allergiesId;
 	private String medicalRecordId;
+	private String allergiesId;
 	private String allergyName;
+	private String allergySeverity;
+	private String additionalInformation;
+	
 	private List<MedicalRecordAllergyUnit> allergyUnits;
 	
-	public int getAllergiesId() {
+	public String getAllergyId() {
 		return allergiesId;
 	}
-	public void setAllergiesId(int allergiesId) {
+	public void setAllergyId(String allergiesId) {
 		this.allergiesId = allergiesId;
 	}
 	public String getAllergyName() {
@@ -28,6 +31,18 @@ public class MedicalRecordAllergiesBean implements MedicalRecordInterface, java.
 		this.allergyName = allergyName;
 	}
 	
+	public String getAllergySeverity() {
+		return allergySeverity;
+	}
+	public void setAllergySeverity(String allergySeverity) {
+		this.allergySeverity = allergySeverity;
+	}
+	public String getAdditionalInformation() {
+		return additionalInformation;
+	}
+	public void setAdditionalInformation(String additionalInformation) {
+		this.additionalInformation = additionalInformation;
+	}
 	public List<MedicalRecordAllergyUnit> getAllergyUnits() {
 		return allergyUnits;
 	}

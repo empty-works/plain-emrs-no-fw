@@ -145,6 +145,13 @@ class AllergiesAdder {
 			let allergiesHtml = 
 			"<input type=\"text\" class=\"med-prob-text\" name=\"allergyText" + "\" placeholder=\"Allergy:\">"; 
 			allergiesNode.insertAdjacentHTML("beforeend", allergiesHtml);
+			let allergiesSeverityHtml = 
+			`<select class="med-prob-text" name="allergySeverity">
+     			<option value="Mild" selected>Mild</option>
+     			<option value="Moderate">Moderate</option>
+     			<option value="Severe">Severe</option>
+   			</select>`;
+			allergiesNode.insertAdjacentElement("beforeend", allergiesSeverityHtml);
 			if(needsRemoveButton == true) {
 				allergiesNode.insertAdjacentHTML("beforeend", this.setAllergiesType());
 			}

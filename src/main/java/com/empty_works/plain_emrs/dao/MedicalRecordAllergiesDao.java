@@ -18,7 +18,7 @@ public class MedicalRecordAllergiesDao {
 	public static List<MedicalRecordAllergiesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = new ArrayList<>();
-		String query = "SELECT allergies_id, allergy_name "
+		String query = "SELECT allergies_id, allergy_name, allergy_severity, additional_information "
 				+ "FROM allergies "
 				+ "WHERE medical_record_id=?";
 
@@ -40,7 +40,37 @@ public class MedicalRecordAllergiesDao {
 		return medRecordAllergiesList;
 	}
 	
-	public static String add(MedicalRecordAllergiesBean medRecordAllergiesBean) throws SQLException {
+	public static String add(List<MedicalRecordAllergiesBean> allergiesList) throws SQLException {
+		
+		String query = "INSERT INTO allergies(medical_record_id, allergy_name, allergy_severity, additional_information) VALUES (?,?,?,?)";
+		
+		int success = 0;
+		try(Connection con = ConnectionUtil.getConnection()) {
+			
+			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+				
+				if(allergiesList != null && allergiesList.size() > 0) {
+					for(MedicalRecordAllergiesBean allergyUnit : allergiesList) {
+						
+						System.out.println("Adding to allergies table...");
+						preparedStatement.setString(1, allergyUnit.getMedicalRecordId());
+						preparedStatement.setString(2, allergyUnit.getAllergyName());
+						preparedStatement.setString(3, allergyUnit.getAllergySeverity());
+						preparedStatement.setString(4, allergyUnit.getAdditionalInformation());
+						preparedStatement.addBatch();
+					}
+					success = preparedStatement.executeBatch()[0];
+				}
+			}
+		}
+		if(success == 0) {
+			return "Could not add patient allergies to the database!";
+			
+		} 
+		return "Successfully added patient allergies to the database!";
+	}
+
+	public static String addw(MedicalRecordAllergiesBean medRecordAllergiesBean) throws SQLException {
 		
 		String query = "INSERT INTO allergies(medical_record_id, allergy_name) VALUES (?,?)";
 		
