@@ -141,6 +141,7 @@ class AllergiesAdder {
 		if(this.allergiesLimit < this.ALLERGIES_MAX) {
 			this.allergiesLimit++;
 			let allergiesNode = document.createElement("div");
+			allergiesNode.classList.add("allergies-form-group");
 			// Add the rest of the medical problem inputs to the node
 			let allergiesHtml = 
 			"<input type=\"text\" class=\"med-prob-text\" name=\"allergyText" + "\" placeholder=\"Allergy:\">"; 
@@ -151,7 +152,10 @@ class AllergiesAdder {
      			<option value="Moderate">Moderate</option>
      			<option value="Severe">Severe</option>
    			</select>`;
-			allergiesNode.insertAdjacentElement("beforeend", allergiesSeverityHtml);
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesSeverityHtml);
+			let allergiesAddInfoHtml = 
+			'<textarea class="med-prob-text" name="allergyAddInfo"></textarea>';
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesAddInfoHtml);
 			if(needsRemoveButton == true) {
 				allergiesNode.insertAdjacentHTML("beforeend", this.setAllergiesType());
 			}

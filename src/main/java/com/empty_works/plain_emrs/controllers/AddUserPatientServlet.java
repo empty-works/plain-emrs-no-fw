@@ -306,12 +306,15 @@ public class AddUserPatientServlet extends HttpServlet {
 		List<MedicalRecordAllergiesBean> allergiesList = new ArrayList<>();
 		
 		String[] allergyNames = request.getParameterValues("allergyText");
+		String[] allergySeverities = request.getParameterValues("allergySeverity");
+		String[] additionalInformation = request.getParameterValues("allergyAddInfo");
 		if(allergyNames != null) {
 			for(int i = 0; i < allergyNames.length; i++) {
 				MedicalRecordAllergiesBean allergyUnit = new MedicalRecordAllergiesBean();
 				allergyUnit.setMedicalRecordId(medicalRecordId);
 				allergyUnit.setAllergyName(allergyNames[i]);
-				allergyUnit.set
+				allergyUnit.setAllergySeverity(allergySeverities[i]);
+				allergyUnit.setAdditionalInformation(additionalInformation[i]);
 				allergiesList.add(allergyUnit);
 			}
 		}

@@ -262,24 +262,30 @@
 							</div>	
 						</c:forEach>
 					</fieldset>
+					<!--  
 					<fieldset>
 						<legend>Medical problems and surgical procedures</legend>	
 						<!-- genMedProbContainer is the container for dynamically added general nodes. -->
+						<!--  
 						<label for="genMedProbContainer">General</label>
 						<div id="genMedProbContainer"></div>
 						<button type="button" id="genMedAddButton" onclick='genMed.addNode(${fn:escapeXml(generalMedicalProblemListJson)}, genMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="genMedLimitMsg"></div>
 						<!-- heartMedProbContainer is the container for dynamically added heart-related nodes. -->
+						<!--  
 						<label for="heartMedProbContainer">Heart-related</label>
 						<div id="heartMedProbContainer"></div>
 						<button type="button" id="heartMedAddButton" onclick='heartMed.addNode(${fn:escapeXml(heartMedicalProblemListJson)}, heartMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="heartMedLimitMsg"></div>
 						<!-- reproductMedProbContainer is the container for dynamically added reproductive nodes. -->
+						<!--  
 						<label for="reproductMedProbContainer">Reproductive</label>
 						<div id="reproductMedProbContainer"></div>
 						<button type="button" id="reproductMedAddButton" onclick='reproductMed.addNode(${fn:escapeXml(reproductMedicalProblemListJson)}, reproductMedProbContainer, true)'>Add</button><div id="addLimitReached"></div>
 						<div id="reproductMedLimitMsg"></div>
 					</fieldset>
+					-->
+					<!--  
 					<fieldset>
 						<legend>Other surgical procedures not listed above</legend>
 						<input type="text" class="medProbText" name="medProbAreaText" placeholder="Medical problem area:">
@@ -288,6 +294,7 @@
 						<label for="medProbSurgeryDate">Surgical procedure date: </label>
 						<input type="date" class="medProbText" name="medProbSurgeryDate">
 					</fieldset>
+					-->
 					<fieldset>
 						<legend>Personal and family history</legend>	
 						<div>Is patient adopted?</div>

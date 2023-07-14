@@ -58,3 +58,8 @@
 #patient-overview-grid-1 > div > div {
 	padding: 5px;
 }
+
+.allergies-form-group {
+	display: flex;
+	flex-direction: column;
+}
