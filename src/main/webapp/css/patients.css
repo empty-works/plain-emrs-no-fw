@@ -61,5 +61,17 @@
 
 .allergies-form-group {
 	display: flex;
-	flex-direction: column;
+  	justify-content: space-between;
+  	align-items: center;
+}
+
+.allergies-input-group {
+	display: flex;
+  	align-items: center;
+  	gap: 10px;;
+}
+
+.allergies-input-item {
+	flex: 1;
+	height: 40px;
 }
