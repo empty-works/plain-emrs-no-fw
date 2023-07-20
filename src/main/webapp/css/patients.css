@@ -67,11 +67,18 @@
 
 .allergies-input-group {
 	display: flex;
-  	align-items: center;
-  	gap: 10px;;
+  	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.allergies-input-label {
+	margin-bottom: 5px;
 }
 
 .allergies-input-item {
-	flex: 1;
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+	box-sizing: border-box;
 	height: 40px;
+	padding: 8px;
 }

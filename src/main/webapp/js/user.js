@@ -144,32 +144,23 @@ class AllergiesAdder {
 			let allergiesNode = document.createElement("div");
 			allergiesNode.classList.add("allergies-form-group");
 			
-			// Create container for the input group
-			let allergiesInputGroup = document.createElement("div");
-			allergiesInputGroup.classList.add("allergies-input-group");
-
 			// Add the rest of the medical problem inputs to the node
-			let allergiesLabelHtml = "<label for=\"allergyName\"></label>";
 			let allergiesHtml = 
-			"<div class=\"\"><label for=\"allergyName\">Allergy name: </label><input type=\"text\" id=\"allergyName\" class=\"allergies-input-item\" name=\"allergyText\" placeholder=\"Allergy name:\"></div>"; 
-			allergiesInputGroup.insertAdjacentHTML("beforeend", allergiesLabelHtml);
-			allergiesInputGroup.insertAdjacentHTML("beforeend", allergiesHtml);
+			"<div class=\"allergies-input-group\"><label for=\"allergyName\" class=\"allergies-input-label\">Allergy name: </label><input type=\"text\" id=\"allergyName\" class=\"allergies-input-item\" name=\"allergyText\"></div>"; 
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesHtml);
 
 			let allergiesSeverityHtml = 
-			`<div><label for=\"allergySeverity\">Allergy severity: </label><select id=\"allergySeverity\" class=\"allergies-input-item\" name=\"allergySeverity\">
+			`<div class=\"allergies-input-group\"><label for=\"allergySeverity\" class=\"allergies-input-label\">Allergy severity: </label><select id=\"allergySeverity\" class=\"allergies-input-item\" name=\"allergySeverity\">
      			<option value="Mild" selected>Mild</option>
      			<option value="Moderate">Moderate</option>
      			<option value="Severe">Severe</option>
    			</select></div>`;
-			allergiesInputGroup.insertAdjacentHTML("beforeend", allergiesSeverityHtml);
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesSeverityHtml);
 
 			let allergiesAddInfoHtml = 
-			'<div><label for=\"allergyAddInfo\">Allergy additional info: </label><textarea id=\"allergyAddInfo\" class=\"allergies-input-item\" name=\"allergyAddInfo\" placeholder=\"Additional information:\"></textarea></div>';
-			allergiesInputGroup.insertAdjacentHTML("beforeend", allergiesAddInfoHtml);
+			'<div class=\"allergies-input-group\"><label for=\"allergyAddInfo\" class=\"allergies-input-label\">Allergy additional info: </label><textarea id=\"allergyAddInfo\" class=\"allergies-input-item\" name=\"allergyAddInfo\"></textarea></div>';
+			allergiesNode.insertAdjacentHTML("beforeend", allergiesAddInfoHtml);
 			
-			// Add allergies input group to the allergies node
-			allergiesNode.appendChild(allergiesInputGroup);
-
 			if(needsRemoveButton == true) {
 				allergiesNode.insertAdjacentHTML("beforeend", this.setAllergiesType());
 			}
