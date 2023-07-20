@@ -246,12 +246,12 @@
 					</fieldset>
 					<fieldset>
 						<!-- Immunizations/diseases -->	
-						<legend>Immunizations/diseases</legend>
+						<legend>Immunizations</legend>
 						<div class="horiz-label-then-buttons-row">
 							<div class="horiz-label-then-buttons-name"></div>
-							<div class="horiz-label-then-buttons-checkbox">Had disease but no immunization</div>
-							<div class="horiz-label-then-buttons-checkbox">Had disease and immunized</div>
-							<div class="horiz-label-then-buttons-checkbox">Never had disease or do not know</div>
+							<div class="horiz-label-then-buttons-checkbox">Immunized</div>
+							<div class="horiz-label-then-buttons-checkbox">Not immunized</div>
+							<div class="horiz-label-then-buttons-checkbox">Do not know</div>
 						</div>
 						<c:forEach items="${diseaseList}" var="disease">
 							<div class="horiz-label-then-buttons-row">
