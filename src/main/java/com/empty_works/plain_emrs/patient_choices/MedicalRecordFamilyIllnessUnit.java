@@ -5,7 +5,6 @@ import java.util.List;
 
 public class MedicalRecordFamilyIllnessUnit {
 
-	public static String SELF = "Self";
 	public static String FATHER = "Father";
 	public static String MOTHER = "Mother";
 	public static String BROTHERS = "Brothers";

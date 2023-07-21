@@ -334,17 +334,17 @@ public class AddUserPatientServlet extends HttpServlet {
 			String result = request.getParameter(disease.getDiseaseId());
 			System.out.println("Retrieved disease: " + result + " Disease ID: " + disease.getDiseaseId());
 			if(result != null) {
-				if(result.contains("HadNoImmun") || result.contains("HadImmun")) {
+				//if(result.contains("NoImmun") || result.contains("Immun")) {
 					
 					MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
 					patientDisease.setContractedDisease(true);
-					if(result.contains("HadImmun")) {
+					if(result.contains("Immun")) {
 						patientDisease.setImmunized(true);
 					}
 					// Only added if the patient had the disease regardless of immunization.
 					System.out.println("Added patient disease: " + patientDisease);
 					diseases.add(patientDisease);
-				}
+				//}
 			}
 		}
 		return diseases;
@@ -387,7 +387,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 		
 			MedicalRecordFamilyIllnessUnit unit = new MedicalRecordFamilyIllnessUnit(illness.getId(), illness.getValue());
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SELF, unit));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER, unit));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER, unit));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS, unit));

@@ -212,7 +212,6 @@ function setUpIllRelationsRow() {
 	illName.classList.add("horiz-label-then-buttons-name");
 	illWrapper.appendChild(illName);
 	// Add relations labels
-	illWrapper.appendChild(getIllRelationsLabel("Self"));
 	illWrapper.appendChild(getIllRelationsLabel("Father"));
 	illWrapper.appendChild(getIllRelationsLabel("Mother"));
 	illWrapper.appendChild(getIllRelationsLabel("Brothers"));
@@ -238,7 +237,6 @@ function getIllnessRow(illnessId, illnessName) {
 	illName.textContent = illnessName;
 	illWrapper.appendChild(illName);
 	// Add relations
-	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessSelf"));
 	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessFather"));
 	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessMother"));
 	illWrapper.appendChild(getIllCheckbox(illnessId, "familyIllnessBrothers"));
