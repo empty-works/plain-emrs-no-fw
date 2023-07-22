@@ -111,7 +111,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserActivityLogBean userActivity;
 		List<MedicalRecordAllergiesBean> allergies;
 		List<MedicalRecordDiseasesBean> immunizations;
-		MedicalRecordDiseasesBean diseases;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
 		MedicalRecordIllnessesBean illnesses;
@@ -218,10 +217,12 @@ public class AddUserPatientServlet extends HttpServlet {
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgicalRelatedProblems(parseSurgeries(request));
 		
-		immunizations
+		immunizations = parseImmuns(request, medicalRecordId);
+		/*
 		diseases = new MedicalRecordDiseasesBean();
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
+		*/
 
 		// blood_relatives
 		relations = new MedicalRecordBloodRelativesBean();
@@ -254,7 +255,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			MedicalRecordDao.add(medRecord);
 			MedicalRecordAllergiesDao.add(allergies);
 			MedicalRecordSurgicalProblemsDao.add(surgicalProblems);
-			MedicalRecordDiseasesDao.add(diseases);
+			MedicalRecordDiseasesDao.add(immunizations);
 			MedicalRecordBloodRelativesDao.add(relations);
 			MedicalRecordIllnessesDao.add(illnesses);
 			EmergencyContactsDao.add(contacts);
@@ -302,7 +303,6 @@ public class AddUserPatientServlet extends HttpServlet {
 	
 	protected static List<MedicalRecordAllergiesBean> parseAllergies(HttpServletRequest request, String medicalRecordId) {
 		
-		//List<MedicalRecordAllergyUnit> allergiesList = new ArrayList<>();
 		List<MedicalRecordAllergiesBean> allergiesList = new ArrayList<>();
 		
 		String[] allergyNames = request.getParameterValues("allergyText");
@@ -323,7 +323,19 @@ public class AddUserPatientServlet extends HttpServlet {
 	
 	protected static List<MedicalRecordDiseasesBean> parseImmuns(HttpServletRequest request, String medicalRecordId) {
 		
-		List<MedicalRecordDiseasesBean>
+		List<MedicalRecordDiseasesBean> immunizationsList = new ArrayList<>();
+		for(MedicalRecordDiseasesBean immunization : MedicalRecordDiseaseLists.diseaseList) {
+			String result = request.getParameter(immunization.getDiseaseId());
+			System.out.println("Retrieved disease: " + result + " Disease ID: " + immunization.getDiseaseId());
+			if(result != null) {
+				MedicalRecordDiseasesBean patientImmunization = new MedicalRecordDiseasesBean(immunization.getDiseaseId(), immunization.getDisease());
+				patientImmunization.setImmunization(immunization.getImmunization());
+				patientImmunization.setMedicalRecordId(immunization.getMedicalRecordId());
+				System.out.println("Added patient immunization: " + patientImmunization);
+				immunizationsList.add(patientImmunization);
+			}
+		}
+		return immunizationsList;
 	}
 	
 	/**
@@ -331,7 +343,8 @@ public class AddUserPatientServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordDiseaseUnit> (HttpServletRequest request) {
+	/*
+	protected static List<MedicalRecordDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
 		
 		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
 		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
@@ -351,6 +364,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		}
 		return diseases;
 	}
+	*/
 
 	/**
 	 * 

@@ -16,6 +16,14 @@ public class MedicalRecordDiseasesBean implements MedicalRecordInterface, Serial
 	private String diseaseId;
 	private String medicalRecordId;
 	private String disease;
+	
+	public MedicalRecordDiseasesBean() {}
+	
+	public MedicalRecordDiseasesBean(String diseaseId, String disease) {
+		
+		this.diseaseId = diseaseId;
+		this.disease = disease;
+	}
 
 	public int getImmunizationId() {
 		return immunizationId;
