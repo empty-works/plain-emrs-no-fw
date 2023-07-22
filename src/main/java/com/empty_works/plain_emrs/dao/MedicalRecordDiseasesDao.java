@@ -16,8 +16,8 @@ public class MedicalRecordDiseasesDao {
 	public static List<MedicalRecordDiseasesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordDiseasesBean> medRecordDiseasesBeanList = new ArrayList<>();
-		String query = "SELECT disease_id, disease, contracted_disease, received_immunization "
-				+ "FROM diseases "
+		String query = "SELECT immunization_id, disease_id, disease, immunization "
+				+ "FROM immunizations "
 				+ "WHERE medical_record_id=?";
 		
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -25,14 +25,14 @@ public class MedicalRecordDiseasesDao {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
 				preparedStatement.setString(1, medicalRecordId);
-				System.out.println("Retrieving from the diseases table...");
+				System.out.println("Retrieving from the immunizations table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordDiseasesBean medRecordDiseasesBean = new MedicalRecordDiseasesBean();
-					medRecordDiseasesBean.setDiseaseId(rs.getInt("disease_id"));
+					medRecordDiseasesBean.setImmunizationId(rs.getInt("immunization_id"));
+					medRecordDiseasesBean.setDiseaseId(rs.getString("disease_id"));
 					medRecordDiseasesBean.setDisease(rs.getString("disease"));
-					medRecordDiseasesBean.setContractedDisease(rs.getBoolean("contracted_disease"));
-					medRecordDiseasesBean.setReceivedImmunization(rs.getBoolean("received_immunization"));
+					medRecordDiseasesBean.setImmunization(rs.getString("immunization"));
 					medRecordDiseasesBeanList.add(medRecordDiseasesBean);
 				}
 			}
@@ -40,22 +40,22 @@ public class MedicalRecordDiseasesDao {
 		return medRecordDiseasesBeanList;
 	}
 	
-	public static String add(MedicalRecordDiseasesBean medRecordDiseasesBean) throws SQLException {
+	public static String add(List<MedicalRecordDiseasesBean> immunizationsList) throws SQLException {
 		
-		String query = "INSERT INTO diseases(medical_record_id, disease, contracted_disease, received_immunization) "
+		String query = "INSERT INTO immunizations(medical_record_id, immunization, disease, disease_id) "
 				+ "values (?,?,?,?)";
 
-		List<MedicalRecordDiseaseUnit> diseases = medRecordDiseasesBean.getDiseases();
 		int success = 0;
 		try(Connection con = ConnectionUtil.getConnection()) {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
-				if(diseases != null && diseases.size() > 0) {
-					for(int i = 0; i < diseases.size(); i++) {
+				if(immunizationsList != null && immunizationsList.size() > 0) {
+					for(MedicalRecordDiseasesBean immunization : immunizationsList) {
 						
-						preparedStatement.setString(1, medRecordDiseasesBean.getMedicalRecordId());
-						preparedStatement.setString(2, diseases.get(i).getDiseaseName());
-						preparedStatement.setBoolean(3, diseases.get(i).isContractedDisease());
-						preparedStatement.setBoolean(4, diseases.get(i).isImmunized());
+						System.out.println("Adding to the immunizations table...");
+						preparedStatement.setString(1, immunization.getMedicalRecordId());
+						preparedStatement.setString(2, immunization.getImmunization());
+						preparedStatement.setString(3, immunization.getDisease());
+						preparedStatement.setString(4, immunization.getDiseaseId());
 						preparedStatement.addBatch();
 					}
 					success = preparedStatement.executeBatch()[0];

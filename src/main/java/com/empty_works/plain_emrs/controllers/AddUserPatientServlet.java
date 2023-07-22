@@ -109,8 +109,8 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserAuthorityBean userAuthority;
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
-		//MedicalRecordAllergiesBean allergies;
 		List<MedicalRecordAllergiesBean> allergies;
+		List<MedicalRecordDiseasesBean> immunizations;
 		MedicalRecordDiseasesBean diseases;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
@@ -218,7 +218,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		surgicalProblems.setMedicalRecordId(medicalRecordId);
 		surgicalProblems.setSurgicalRelatedProblems(parseSurgeries(request));
 		
-		// diseases
+		immunizations
 		diseases = new MedicalRecordDiseasesBean();
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
@@ -321,12 +321,17 @@ public class AddUserPatientServlet extends HttpServlet {
 		return allergiesList;
 	}
 	
+	protected static List<MedicalRecordDiseasesBean> parseImmuns(HttpServletRequest request, String medicalRecordId) {
+		
+		List<MedicalRecordDiseasesBean>
+	}
+	
 	/**
 	 * 
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
+	protected static List<MedicalRecordDiseaseUnit> (HttpServletRequest request) {
 		
 		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
 		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
@@ -334,17 +339,14 @@ public class AddUserPatientServlet extends HttpServlet {
 			String result = request.getParameter(disease.getDiseaseId());
 			System.out.println("Retrieved disease: " + result + " Disease ID: " + disease.getDiseaseId());
 			if(result != null) {
-				//if(result.contains("NoImmun") || result.contains("Immun")) {
-					
-					MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
-					patientDisease.setContractedDisease(true);
-					if(result.contains("Immun")) {
-						patientDisease.setImmunized(true);
-					}
-					// Only added if the patient had the disease regardless of immunization.
-					System.out.println("Added patient disease: " + patientDisease);
-					diseases.add(patientDisease);
-				//}
+				MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
+				patientDisease.setContractedDisease(true);
+				if(result.contains("Immun")) {
+					patientDisease.setImmunized(true);
+				}
+				// Only added if the patient had the disease regardless of immunization.
+				System.out.println("Added patient disease: " + patientDisease);
+				diseases.add(patientDisease);
 			}
 		}
 		return diseases;

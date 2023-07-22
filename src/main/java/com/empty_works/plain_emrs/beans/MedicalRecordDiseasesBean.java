@@ -11,17 +11,28 @@ public class MedicalRecordDiseasesBean implements MedicalRecordInterface, Serial
 	 * 
 	 */
 	private static final long serialVersionUID = 1669984925218648995L;
-	private int diseaseId;
+	private int immunizationId;
+	private String immunization;
+	private String diseaseId;
 	private String medicalRecordId;
 	private String disease;
-	private boolean contractedDisease;
-	private boolean receivedImmunization;
-	private List<MedicalRecordDiseaseUnit> diseases;
 
-	public int getDiseaseId() {
+	public int getImmunizationId() {
+		return immunizationId;
+	}
+	public void setImmunizationId(int immunizationId) {
+		this.immunizationId = immunizationId;
+	}
+	public String getImmunization() {
+		return immunization;
+	}
+	public void setImmunization(String immunization) {
+		this.immunization = immunization;
+	}
+	public String getDiseaseId() {
 		return diseaseId;
 	}
-	public void setDiseaseId(int diseaseId) {
+	public void setDiseaseId(String diseaseId) {
 		this.diseaseId = diseaseId;
 	}
 	public String getMedicalRecordId() {
@@ -35,23 +46,5 @@ public class MedicalRecordDiseasesBean implements MedicalRecordInterface, Serial
 	}
 	public void setDisease(String disease) {
 		this.disease = disease;
-	}
-	public boolean isContractedDisease() {
-		return contractedDisease;
-	}
-	public void setContractedDisease(boolean contractedDisease) {
-		this.contractedDisease = contractedDisease;
-	}
-	public boolean isReceivedImmunization() {
-		return receivedImmunization;
-	}
-	public void setReceivedImmunization(boolean receivedImmunization) {
-		this.receivedImmunization = receivedImmunization;
-	}
-	public void setDiseases(List<MedicalRecordDiseaseUnit> diseases) {
-		this.diseases = diseases;
-	}
-	public List<MedicalRecordDiseaseUnit> getDiseases() {
-		return diseases;
 	}
 }

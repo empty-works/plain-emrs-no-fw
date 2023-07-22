@@ -69,31 +69,4 @@ public class MedicalRecordAllergiesDao {
 		} 
 		return "Successfully added patient allergies to the database!";
 	}
-
-	public static String addw(MedicalRecordAllergiesBean medRecordAllergiesBean) throws SQLException {
-		
-		String query = "INSERT INTO allergies(medical_record_id, allergy_name) VALUES (?,?)";
-		
-		List<MedicalRecordAllergyUnit> allergyUnits = medRecordAllergiesBean.getAllergyUnits();
-		int success = 0;
-		try(Connection con = ConnectionUtil.getConnection()) {
-			
-			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
-				
-				if(allergyUnits != null && allergyUnits.size() > 0) {
-					for(MedicalRecordAllergyUnit allergyUnit : allergyUnits) {
-						
-						System.out.println("Adding to allergies table...");
-						preparedStatement.setString(1, medRecordAllergiesBean.getMedicalRecordId());
-						preparedStatement.setString(2, allergyUnit.getAllergyName());
-						preparedStatement.addBatch();
-					}
-					success = preparedStatement.executeBatch()[0];
-				}
-			}
-		}
-		if(success == 0) {
-			return "Could not add patient allergies to the database!";
-		} return "Successfully added patient allergies to the database!";
-	}
 }
