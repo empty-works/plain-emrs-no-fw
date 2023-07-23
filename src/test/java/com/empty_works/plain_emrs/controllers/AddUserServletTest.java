@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.junit.jupiter.api.Test;
 
+import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
@@ -64,10 +65,10 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = new ArrayList<>();
-		List<MedicalRecordDiseaseUnit> diseases = AddUserPatientServlet.parseDiseasesImmun(request);
-		for(MedicalRecordDiseaseUnit disease : diseases) {
+		List<MedicalRecordDiseasesBean> diseases = AddUserPatientServlet.parseImmuns(request, "FakeMedicalRecordID");
+		for(MedicalRecordDiseasesBean disease : diseases) {
 		
-			result.add(disease.getDiseaseName());
+			result.add(disease.getDisease());
 		}
 		System.out.println(result);
 		assertIterableEquals(expected, result);

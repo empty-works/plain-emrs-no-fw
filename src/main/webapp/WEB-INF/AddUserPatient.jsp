@@ -255,7 +255,7 @@
 						</div>
 						<c:forEach items="${diseaseList}" var="disease">
 							<div class="horiz-label-then-buttons-row">
-								<div class="horiz-label-then-buttons-name">${disease.getDiseaseName()}: </div>
+								<div class="horiz-label-then-buttons-name">${disease.getDisease()}: </div>
 								<input class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}Immun" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}Immun">
 								<input class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}NoImm" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}NoImm">
 								<input checked class="horiz-label-then-buttons-checkbox" type="radio" id="${disease.getDiseaseId()}Unknown" name="${disease.getDiseaseId()}" value="${disease.getDiseaseId()}Unknown">
