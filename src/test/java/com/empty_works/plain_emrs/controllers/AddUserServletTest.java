@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordSurgicalProblemUnit;
@@ -162,7 +163,7 @@ public class AddUserServletTest {
 	void testParseConditions_asthmaBrothersGrandparentsOnly_otherConditionsNotAdded() {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
-		List<MedicalRecordFamilyIllnessUnit> conditions = new ArrayList<>();
+		List<MedicalRecordIllnessesBean> conditions = new ArrayList<>();
 		when(request.getParameter("AsthmafamilyConditionSelf")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionFather")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionMother")).thenReturn("false");
@@ -174,12 +175,12 @@ public class AddUserServletTest {
 		conditions = AddUserPatientServlet.parseIllnesses(request);
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
-		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.BROTHERS);
-		expectedRelativesNumList.add(MedicalRecordFamilyIllnessUnit.GRANDPARENTS);
+		expectedRelativesNumList.add(MedicalRecordIllnessesBean.BROTHERS);
+		expectedRelativesNumList.add(MedicalRecordIllnessesBean.GRANDPARENTS);
 		
 		List<Boolean> resultRelativesList = new ArrayList<>();
 		
-		for(MedicalRecordFamilyIllnessUnit condition: conditions) {
+		for(MedicalRecordIllnessesBean condition: conditions) {
 			
 			for(Boolean relative : condition.getFamilyRelations()) {
 				
