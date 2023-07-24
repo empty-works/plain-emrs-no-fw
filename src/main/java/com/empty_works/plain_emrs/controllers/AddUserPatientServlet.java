@@ -111,9 +111,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserActivityLogBean userActivity;
 		List<MedicalRecordAllergiesBean> allergies;
 		List<MedicalRecordDiseasesBean> immunizations;
+		List<MedicalRecordIllnessesBean> illnesses;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
-		MedicalRecordIllnessesBean illnesses;
 		MedicalRecordBean medRecord;	
 		
 		user.setEmailAddress(request.getParameter("userEmailAddress"));
@@ -239,9 +239,9 @@ public class AddUserPatientServlet extends HttpServlet {
 		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
 		// illnesses
-		illnesses = new MedicalRecordIllnessesBean();
-		illnesses.setMedicalRecordId(medicalRecordId);
-		illnesses.setIllness(parseIllnesses(request));
+		//illnesses = new MedicalRecordIllnessesBean();
+		//illnesses.setMedicalRecordId(medicalRecordId);
+		illnesses = parseIllnesses(request);
 
 		// Now execute all collected queries.
 
@@ -397,19 +397,19 @@ public class AddUserPatientServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordFamilyIllnessUnit> parseIllnesses(HttpServletRequest request) {
+	protected static List<MedicalRecordIllnessesBean> parseIllnesses(HttpServletRequest request) {
 		
-		List<MedicalRecordFamilyIllnessUnit> illnesses = new ArrayList<>();
+		List<MedicalRecordIllnessesBean> illnesses = new ArrayList<>();
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 		
-			MedicalRecordFamilyIllnessUnit unit = new MedicalRecordFamilyIllnessUnit(illness.getId(), illness.getValue());
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SISTERS, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SONS, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS, unit));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS, unit));
+			MedicalRecordIllnessesBean unit = new MedicalRecordIllnessesBean(illness.getId(), illness.getValue());
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SISTERS));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SONS));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS));
+			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS));
 
 			// Only add unit if there are relatives/self have/had illnesses.
 			if(unit.getFamilyRelations().contains(true)) {
@@ -426,9 +426,8 @@ public class AddUserPatientServlet extends HttpServlet {
 	 * @param request
 	 * @param illness
 	 * @param relation
-	 * @param unit
 	 */
-	private static Boolean getFamilyRelation(HttpServletRequest request, PatientFormUnit illness, String relation, MedicalRecordFamilyIllnessUnit unit) {
+	private static Boolean getFamilyRelation(HttpServletRequest request, PatientFormUnit illness, String relation) {
 		
 		Boolean hasIllness = request.getParameter(illness.getId() + "familyIllness" + relation) != null && 
 				request.getParameter(illness.getId() + "familyIllness" + relation).equals("true") ? true : false;

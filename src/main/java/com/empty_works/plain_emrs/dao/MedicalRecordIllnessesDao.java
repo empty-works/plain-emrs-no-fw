@@ -16,8 +16,8 @@ public class MedicalRecordIllnessesDao {
 	public static List<MedicalRecordIllnessesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordIllnessesBean> medRecordIllnessesBeanList = new ArrayList<>();
-		String query = "SELECT illness_id, illness, self, father, mother, brothers, sisters, sons, daughters, grandparents "
-				+ "FROM illnesses "
+		String query = "SELECT illness_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents "
+				+ "FROM family_illnesses "
 				+ "WHERE medical_record_id=?";
 
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -25,13 +25,12 @@ public class MedicalRecordIllnessesDao {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
 				preparedStatement.setString(1, medicalRecordId);
-				System.out.println("Retrieving from the illnesses table...");
+				System.out.println("Retrieving from the family_illnesses table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordIllnessesBean medRecordIllnessesBean = new MedicalRecordIllnessesBean();
 					medRecordIllnessesBean.setIllnessId(rs.getInt("illness_id"));
 					medRecordIllnessesBean.setIllness(rs.getString("illness"));
-					medRecordIllnessesBean.setIllnessSelf(rs.getBoolean("self"));
 					medRecordIllnessesBean.setIllnessFather(rs.getBoolean("father"));
 					medRecordIllnessesBean.setIllnessMother(rs.getBoolean("mother"));
 					medRecordIllnessesBean.setIllnessBrothers(rs.getBoolean("brothers"));
@@ -50,8 +49,8 @@ public class MedicalRecordIllnessesDao {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
-		String query = "INSERT INTO illnesses(medical_record_id, illness, self, father, mother, brothers, sisters, sons, daughters, grandparents) "
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO family_illnesses(medical_record_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?)";
 		
 		int success = 0;
 

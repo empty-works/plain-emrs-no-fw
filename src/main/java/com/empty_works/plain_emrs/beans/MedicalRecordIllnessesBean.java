@@ -1,6 +1,7 @@
 package com.empty_works.plain_emrs.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 
@@ -14,11 +15,18 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Seria
 	 * 
 	 */
 	private static final long serialVersionUID = 1144063173632007764L;
+	public static String FATHER = "Father";
+	public static String MOTHER = "Mother";
+	public static String BROTHERS = "Brothers";
+	public static String SISTERS = "Sisters";
+	public static String SONS = "Sons";
+	public static String DAUGHTERS = "Daughters";
+	public static String GRANDPARENTS = "Grandparents";
 	private int illnessId;
+	private String listIllnessId;
 	private String medicalRecordId;
 	private String illness;
-	private List<MedicalRecordFamilyIllnessUnit> illnesses;
-	private boolean illnessSelf;
+	private List<Boolean> familyRelations = new ArrayList<>();
 	private boolean illnessFather;
 	private boolean illnessMother;
 	private boolean illnessBrothers;
@@ -26,6 +34,13 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Seria
 	private boolean illnessSons;
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
+	
+	public MedicalRecordIllnessesBean() {}
+	
+	public MedicalRecordIllnessesBean(String listIllnessId, String illness) {
+		this.listIllnessId = listIllnessId;
+		this.illness = illness;
+	}
 
 	public int getIllnessId() {
 		return illnessId;
@@ -35,14 +50,14 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Seria
 		this.illnessId = illnessId;
 	}
 	
-	public List<MedicalRecordFamilyIllnessUnit> getIllnesses() {
-		return illnesses;
+	public String getListIllnessId() {
+		return listIllnessId;
 	}
 
-	public void setIllnesses(List<MedicalRecordFamilyIllnessUnit> illnesses) {
-		this.illnesses = illnesses;
+	public void setListIllnessId(String listIllnessId) {
+		this.listIllnessId = listIllnessId;
 	}
-	
+
 	public void setIllness(String illness) {
 		this.illness = illness;
 	}
@@ -61,16 +76,12 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Seria
 		this.medicalRecordId = medicalRecordId;
 	}
 
-	public void setIllness(List<MedicalRecordFamilyIllnessUnit> illnesses) {
-		this.illnesses = illnesses;
+	public List<Boolean> getFamilyRelations() {
+		return familyRelations;
 	}
 
-	public boolean isIllnessSelf() {
-		return illnessSelf;
-	}
-
-	public void setIllnessSelf(boolean illnessSelf) {
-		this.illnessSelf = illnessSelf;
+	public void setFamilyRelation(Boolean relation) {
+		this.familyRelations.add(relation);
 	}
 
 	public boolean isIllnessFather() {
