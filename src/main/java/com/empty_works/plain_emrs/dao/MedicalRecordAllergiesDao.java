@@ -18,7 +18,7 @@ public class MedicalRecordAllergiesDao {
 	public static List<MedicalRecordAllergiesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = new ArrayList<>();
-		String query = "SELECT allergies_id, allergy_name, allergy_severity, additional_information "
+		String query = "SELECT allergy_id, allergy_name, allergy_severity, additional_information "
 				+ "FROM allergies "
 				+ "WHERE medical_record_id=?";
 
@@ -31,7 +31,7 @@ public class MedicalRecordAllergiesDao {
 				System.out.println("Retrieving from the allergies table...");
 				while(rs.next()) {
 					MedicalRecordAllergiesBean medRecordAllergies = new MedicalRecordAllergiesBean();
-					medRecordAllergies.setAllergyId(rs.getInt("allergies_id"));
+					medRecordAllergies.setAllergyId(rs.getInt("allergy_id"));
 					medRecordAllergies.setAllergyName(rs.getString("allergy_name"));
 					medRecordAllergiesList.add(medRecordAllergies);
 				}

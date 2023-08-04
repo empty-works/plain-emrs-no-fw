@@ -241,7 +241,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		// illnesses
 		//illnesses = new MedicalRecordIllnessesBean();
 		//illnesses.setMedicalRecordId(medicalRecordId);
-		illnesses = parseIllnesses(request);
+		illnesses = parseIllnesses(request, medicalRecordId);
 
 		// Now execute all collected queries.
 
@@ -397,12 +397,13 @@ public class AddUserPatientServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordIllnessesBean> parseIllnesses(HttpServletRequest request) {
+	protected static List<MedicalRecordIllnessesBean> parseIllnesses(HttpServletRequest request, String medicalRecordId) {
 		
 		List<MedicalRecordIllnessesBean> illnesses = new ArrayList<>();
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 		
 			MedicalRecordIllnessesBean unit = new MedicalRecordIllnessesBean(illness.getId(), illness.getValue());
+			unit.setMedicalRecordId(medicalRecordId);
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS));
