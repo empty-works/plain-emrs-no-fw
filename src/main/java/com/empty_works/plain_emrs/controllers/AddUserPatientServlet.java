@@ -257,7 +257,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			MedicalRecordSurgicalProblemsDao.add(surgicalProblems);
 			MedicalRecordDiseasesDao.add(immunizations);
 			MedicalRecordBloodRelativesDao.add(relations);
-			MedicalRecordIllnessesDao.add(illnesses);
+			MedicalRecordIllnessesDao.add(illnesses, medicalRecordId);
 			EmergencyContactsDao.add(contacts);
 		} catch (SQLException e) {
 			e.printStackTrace();

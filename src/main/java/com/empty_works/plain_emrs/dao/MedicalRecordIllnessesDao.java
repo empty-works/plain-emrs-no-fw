@@ -45,6 +45,35 @@ public class MedicalRecordIllnessesDao {
 		return medRecordIllnessesBeanList;
 	}
 	
+	public static String add(List<MedicalRecordIllnessesBean> medRecordIllnessesList, String medicalRecordId) {
+		Connection con = ConnectionUtil.getConnection();
+		PreparedStatement preparedStatement = null;
+		String query = "INSERT INTO family_illnesses(medical_record_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?)";
+		
+		int success = 0;
+		
+		try {
+			preparedStatement = con.prepareStatement(query);
+			if(medRecordIllnessesList != null && medRecordIllnessesList.size() > 0) {
+				for(MedicalRecordIllnessesBean familyIllness : medRecordIllnessesList) {
+					preparedStatement.setString(1, medicalRecordId);
+					preparedStatement.setString(2, familyIllness.getIllness());
+					addRelations(familyIllness, preparedStatement);
+					preparedStatement.addBatch();
+				}
+				success = preparedStatement.executeBatch()[0];
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(success == 0) {
+			return "Could not add family illnesses to the database!";
+		}
+		return "Successfully added family illnesses to the database!";
+	}
+
+	/*
 	public static String add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
 		
 		Connection con = ConnectionUtil.getConnection();
@@ -74,13 +103,14 @@ public class MedicalRecordIllnessesDao {
 		}
 		return "Successfully added patient illnesses to the database!";
 	}
+	*/
 
 	/**
 	 * 
 	 * @param illness
 	 * @param preparedStatement
 	 */
-	private static void addRelations(MedicalRecordFamilyIllnessUnit illness, PreparedStatement preparedStatement) {
+	private static void addRelations(MedicalRecordIllnessesBean illness, PreparedStatement preparedStatement) {
 		
 		int prepStatementNum = 3; // Prepared statement starts at 3.
 		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {
