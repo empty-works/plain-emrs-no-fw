@@ -172,7 +172,7 @@ public class AddUserServletTest {
 		when(request.getParameter("AsthmafamilyConditionSons")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionDaughters")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionGrandparents")).thenReturn("true");
-		conditions = AddUserPatientServlet.parseIllnesses(request);
+		conditions = AddUserPatientServlet.parseIllnesses(request, "Fake Medical Record ID");
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
 		expectedRelativesNumList.add(MedicalRecordIllnessesBean.BROTHERS);
