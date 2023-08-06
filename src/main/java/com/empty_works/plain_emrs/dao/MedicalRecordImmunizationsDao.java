@@ -11,7 +11,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
-public class MedicalRecordDiseasesDao {
+public class MedicalRecordImmunizationsDao {
 
 	public static List<MedicalRecordDiseasesBean> get(String medicalRecordId) throws SQLException {
 		

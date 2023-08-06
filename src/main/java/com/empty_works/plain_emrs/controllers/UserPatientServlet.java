@@ -37,7 +37,7 @@ import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordChiefComplaintsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
-import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordImmunizationsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordMedicationDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordNurseNotesDao;
@@ -85,7 +85,7 @@ public class UserPatientServlet extends HttpServlet {
 			medRecordAllergiesList = MedicalRecordAllergiesDao.get(medRecordId);
 			medRecordBloodRelations = MedicalRecordBloodRelativesDao.get(medRecordId);
 			medRecordChiefComplaintsList = MedicalRecordChiefComplaintsDao.get(medRecordId);
-			medRecordDiseasesList = MedicalRecordDiseasesDao.get(medRecordId);
+			medRecordDiseasesList = MedicalRecordImmunizationsDao.get(medRecordId);
 			medRecordIllnessesList = MedicalRecordIllnessesDao.get(medRecordId);
 			medRecordMedicationList = MedicalRecordMedicationDao.get(medRecordId);
 			medRecordSurgicalProblemsList = MedicalRecordSurgicalProblemsDao.get(medRecordId);

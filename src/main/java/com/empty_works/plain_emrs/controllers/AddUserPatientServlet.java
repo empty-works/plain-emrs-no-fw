@@ -34,7 +34,7 @@ import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
-import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordImmunizationsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
 import com.empty_works.plain_emrs.dao.UserActivityLogDao;
@@ -255,7 +255,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			MedicalRecordDao.add(medRecord);
 			MedicalRecordAllergiesDao.add(allergies);
 			MedicalRecordSurgicalProblemsDao.add(surgicalProblems);
-			MedicalRecordDiseasesDao.add(immunizations);
+			MedicalRecordImmunizationsDao.add(immunizations);
 			MedicalRecordBloodRelativesDao.add(relations);
 			MedicalRecordIllnessesDao.add(illnesses, medicalRecordId);
 			EmergencyContactsDao.add(contacts);
@@ -330,7 +330,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			if(result != null) {
 				MedicalRecordDiseasesBean patientImmunization = new MedicalRecordDiseasesBean(immunization.getDiseaseId(), immunization.getDisease());
 				patientImmunization.setImmunization(immunization.getImmunization());
-				patientImmunization.setMedicalRecordId(immunization.getMedicalRecordId());
+				patientImmunization.setMedicalRecordId(medicalRecordId);
 				System.out.println("Added patient immunization: " + patientImmunization);
 				immunizationsList.add(patientImmunization);
 			}
