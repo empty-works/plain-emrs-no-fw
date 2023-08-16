@@ -329,7 +329,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			System.out.println("Retrieved disease: " + result + " Disease ID: " + immunization.getDiseaseId());
 			if(result != null) {
 				MedicalRecordDiseasesBean patientImmunization = new MedicalRecordDiseasesBean(immunization.getDiseaseId(), immunization.getDisease());
-				patientImmunization.setImmunization(immunization.getImmunization());
+				patientImmunization.setImmunization(immunization.getDisease());
 				patientImmunization.setMedicalRecordId(medicalRecordId);
 				System.out.println("Added patient immunization: " + patientImmunization);
 				immunizationsList.add(patientImmunization);
