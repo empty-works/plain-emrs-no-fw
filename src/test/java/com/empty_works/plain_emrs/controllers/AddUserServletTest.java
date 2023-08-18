@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.junit.jupiter.api.Test;
 
-import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
@@ -66,8 +66,8 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = new ArrayList<>();
-		List<MedicalRecordDiseasesBean> diseases = AddUserPatientServlet.parseImmuns(request, "FakeMedicalRecordID");
-		for(MedicalRecordDiseasesBean disease : diseases) {
+		List<MedicalRecordImmunizationsBean> diseases = AddUserPatientServlet.parseImmuns(request, "FakeMedicalRecordID");
+		for(MedicalRecordImmunizationsBean disease : diseases) {
 		
 			result.add(disease.getDisease());
 		}

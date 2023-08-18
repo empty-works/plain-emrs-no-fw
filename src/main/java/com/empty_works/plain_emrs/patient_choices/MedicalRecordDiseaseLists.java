@@ -3,7 +3,8 @@ package com.empty_works.plain_emrs.patient_choices;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
+import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesBean;
 
 public class MedicalRecordDiseaseLists {
 

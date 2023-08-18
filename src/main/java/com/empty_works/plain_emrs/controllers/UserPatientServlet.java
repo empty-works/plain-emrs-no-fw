@@ -21,7 +21,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordMedicationBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordNurseNotesBean;
@@ -73,7 +73,7 @@ public class UserPatientServlet extends HttpServlet {
 		List<MedicalRecordAllergiesBean> medRecordAllergiesList = null;
 		MedicalRecordBloodRelativesBean medRecordBloodRelations = null;
 		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsList = null;
-		List<MedicalRecordDiseasesBean> medRecordDiseasesList = null;
+		List<MedicalRecordImmunizationsBean> medRecordDiseasesList = null;
 		List<MedicalRecordIllnessesBean> medRecordIllnessesList = null;
 		List<MedicalRecordMedicationBean> medRecordMedicationList = null;
 		List<MedicalRecordSurgicalProblemsBean> medRecordSurgicalProblemsList = null;

@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import com.empty_works.plain_emrs.beans.AuthorityBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
@@ -34,6 +34,7 @@ import com.empty_works.plain_emrs.dao.EmergencyContactsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordAllergiesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordImmunizationsDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
@@ -110,7 +111,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserLoginLogBean userLogin;
 		UserActivityLogBean userActivity;
 		List<MedicalRecordAllergiesBean> allergies;
-		List<MedicalRecordDiseasesBean> immunizations;
+		List<MedicalRecordImmunizationsBean> immunizations;
 		List<MedicalRecordIllnessesBean> illnesses;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
@@ -219,7 +220,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 		immunizations = parseImmuns(request, medicalRecordId);
 		/*
-		diseases = new MedicalRecordDiseasesBean();
+		diseases = new MedicalRecordImmunizationsBean();
 		diseases.setMedicalRecordId(medicalRecordId);
 		diseases.setDiseases(parseDiseasesImmun(request));
 		*/
@@ -321,15 +322,15 @@ public class AddUserPatientServlet extends HttpServlet {
 		return allergiesList;
 	}
 	
-	protected static List<MedicalRecordDiseasesBean> parseImmuns(HttpServletRequest request, String medicalRecordId) {
+	protected static List<MedicalRecordImmunizationsBean> parseImmuns(HttpServletRequest request, String medicalRecordId) {
 		
-		List<MedicalRecordDiseasesBean> immunizationsList = new ArrayList<>();
-		for(MedicalRecordDiseasesBean immunization : MedicalRecordDiseaseLists.diseaseList) {
-			String result = request.getParameter(immunization.getDiseaseId());
-			System.out.println("Retrieved disease: " + result + " Disease ID: " + immunization.getDiseaseId());
+		List<MedicalRecordImmunizationsBean> immunizationsList = new ArrayList<>();
+		for(MedicalRecordDiseasesBean disease : MedicalRecordDiseaseLists.diseaseList) {
+			String result = request.getParameter(disease.getDiseaseId());
+			System.out.println("Retrieved disease: " + result + " Disease ID: " + disease.getDiseaseId());
 			if(result != null) {
-				MedicalRecordDiseasesBean patientImmunization = new MedicalRecordDiseasesBean(immunization.getDiseaseId(), immunization.getDisease());
-				patientImmunization.setImmunization(immunization.getDisease());
+				MedicalRecordImmunizationsBean patientImmunization = new MedicalRecordImmunizationsBean();
+				patientImmunization.setImmunization(disease.getDiseaseName());
 				patientImmunization.setMedicalRecordId(medicalRecordId);
 				System.out.println("Added patient immunization: " + patientImmunization);
 				immunizationsList.add(patientImmunization);

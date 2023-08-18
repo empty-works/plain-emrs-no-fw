@@ -7,15 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empty_works.plain_emrs.beans.MedicalRecordDiseasesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordDiseaseUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordImmunizationsDao {
 
-	public static List<MedicalRecordDiseasesBean> get(String medicalRecordId) throws SQLException {
+	public static List<MedicalRecordImmunizationsBean> get(String medicalRecordId) throws SQLException {
 		
-		List<MedicalRecordDiseasesBean> medRecordDiseasesBeanList = new ArrayList<>();
+		List<MedicalRecordImmunizationsBean> medRecordDiseasesBeanList = new ArrayList<>();
 		String query = "SELECT immunization_id, disease_id, disease, immunization "
 				+ "FROM immunizations "
 				+ "WHERE medical_record_id=?";
@@ -28,7 +28,7 @@ public class MedicalRecordImmunizationsDao {
 				System.out.println("Retrieving from the immunizations table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
-					MedicalRecordDiseasesBean medRecordDiseasesBean = new MedicalRecordDiseasesBean();
+					MedicalRecordImmunizationsBean medRecordDiseasesBean = new MedicalRecordImmunizationsBean();
 					medRecordDiseasesBean.setImmunizationId(rs.getInt("immunization_id"));
 					medRecordDiseasesBean.setDiseaseId(rs.getString("disease_id"));
 					medRecordDiseasesBean.setDisease(rs.getString("disease"));
@@ -40,7 +40,7 @@ public class MedicalRecordImmunizationsDao {
 		return medRecordDiseasesBeanList;
 	}
 	
-	public static String add(List<MedicalRecordDiseasesBean> immunizationsList) throws SQLException {
+	public static String add(List<MedicalRecordImmunizationsBean> immunizationsList) throws SQLException {
 		
 		String query = "INSERT INTO immunizations(medical_record_id, immunization, disease, disease_id) "
 				+ "values (?,?,?,?)";
@@ -49,7 +49,7 @@ public class MedicalRecordImmunizationsDao {
 		try(Connection con = ConnectionUtil.getConnection()) {
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				if(immunizationsList != null && immunizationsList.size() > 0) {
-					for(MedicalRecordDiseasesBean immunization : immunizationsList) {
+					for(MedicalRecordImmunizationsBean immunization : immunizationsList) {
 						
 						System.out.println("Adding to the immunizations table...");
 						preparedStatement.setString(1, immunization.getMedicalRecordId());
