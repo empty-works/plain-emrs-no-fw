@@ -15,8 +15,8 @@ public class MedicalRecordImmunizationsDao {
 
 	public static List<MedicalRecordImmunizationsBean> get(String medicalRecordId) throws SQLException {
 		
-		List<MedicalRecordImmunizationsBean> medRecordDiseasesBeanList = new ArrayList<>();
-		String query = "SELECT immunization_id, disease_id, disease, immunization "
+		List<MedicalRecordImmunizationsBean> medRecordImmunizationsBeanList = new ArrayList<>();
+		String query = "SELECT immunization_id, immunization "
 				+ "FROM immunizations "
 				+ "WHERE medical_record_id=?";
 		
@@ -28,22 +28,20 @@ public class MedicalRecordImmunizationsDao {
 				System.out.println("Retrieving from the immunizations table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
-					MedicalRecordImmunizationsBean medRecordDiseasesBean = new MedicalRecordImmunizationsBean();
-					medRecordDiseasesBean.setImmunizationId(rs.getInt("immunization_id"));
-					medRecordDiseasesBean.setDiseaseId(rs.getString("disease_id"));
-					medRecordDiseasesBean.setDisease(rs.getString("disease"));
-					medRecordDiseasesBean.setImmunization(rs.getString("immunization"));
-					medRecordDiseasesBeanList.add(medRecordDiseasesBean);
+					MedicalRecordImmunizationsBean medRecordImmunizationsBean = new MedicalRecordImmunizationsBean();
+					medRecordImmunizationsBean.setImmunizationId(rs.getInt("immunization_id"));
+					medRecordImmunizationsBean.setImmunization(rs.getString("immunization"));
+					medRecordImmunizationsBeanList.add(medRecordImmunizationsBean);
 				}
 			}
 		}
-		return medRecordDiseasesBeanList;
+		return medRecordImmunizationsBeanList;
 	}
 	
 	public static String add(List<MedicalRecordImmunizationsBean> immunizationsList) throws SQLException {
 		
-		String query = "INSERT INTO immunizations(medical_record_id, immunization, disease, disease_id) "
-				+ "values (?,?,?,?)";
+		String query = "INSERT INTO immunizations(medical_record_id, immunization) "
+				+ "values (?,?)";
 
 		int success = 0;
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -54,8 +52,6 @@ public class MedicalRecordImmunizationsDao {
 						System.out.println("Adding to the immunizations table...");
 						preparedStatement.setString(1, immunization.getMedicalRecordId());
 						preparedStatement.setString(2, immunization.getImmunization());
-						preparedStatement.setString(3, immunization.getDisease());
-						preparedStatement.setString(4, immunization.getDiseaseId());
 						preparedStatement.addBatch();
 					}
 					success = preparedStatement.executeBatch()[0];

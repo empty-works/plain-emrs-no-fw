@@ -66,10 +66,10 @@ public class AddUserServletTest {
 		};
 		
 		List<String> result = new ArrayList<>();
-		List<MedicalRecordImmunizationsBean> diseases = AddUserPatientServlet.parseImmuns(request, "FakeMedicalRecordID");
-		for(MedicalRecordImmunizationsBean disease : diseases) {
+		List<MedicalRecordImmunizationsBean> immunizations = AddUserPatientServlet.parseImmuns(request, "FakeMedicalRecordID");
+		for(MedicalRecordImmunizationsBean immunization : immunizations) {
 		
-			result.add(disease.getDisease());
+			result.add(immunization.getImmunization());
 		}
 		System.out.println(result);
 		assertIterableEquals(expected, result);
