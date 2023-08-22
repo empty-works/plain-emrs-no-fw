@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,9 @@ public class MedicalRecordMedicationDao {
 	public static List<MedicalRecordMedicationBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordMedicationBean> medRecordMedicationBeanList = new ArrayList<>();
-		String query = "SELECT medication_id, medication_name, medication_is_current, medication_description "
-				+ "FROM medication "
+		String query = "SELECT medication_id, chief_complaint_id, medication_name, medication_is_current, medication_description, frequency,"
+				+ "dosage, start_date, end_date, healthcare_provider "
+				+ "FROM medications "
 				+ "WHERE medical_record_id=?";
 		
 		try(Connection con = ConnectionUtil.getConnection()) {
@@ -28,10 +30,16 @@ public class MedicalRecordMedicationDao {
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordMedicationBean medRecordMedicationBean = new MedicalRecordMedicationBean();
+					medRecordMedicationBean.setChiefComplaintId(rs.getString("chief_complaint_id"));;
 					medRecordMedicationBean.setMedicationId(rs.getInt("medication_id"));
 					medRecordMedicationBean.setMedicationName(rs.getString("medication_name"));
 					medRecordMedicationBean.setMedicationIsCurrent(rs.getBoolean("medication_is_current"));
 					medRecordMedicationBean.setMedicationDescription(rs.getString("medication_description"));
+					medRecordMedicationBean.setFrequency(rs.getString("frequency"));
+					medRecordMedicationBean.setDosage(rs.getDouble("dosage"));
+					medRecordMedicationBean.setStartDate(rs.getObject("start_date", LocalDateTime.class));
+					medRecordMedicationBean.setEndDate(rs.getObject("end_date", LocalDateTime.class));
+					medRecordMedicationBean.setHealthcareProvider(rs.getString("healthcare_provider"));
 					medRecordMedicationBeanList.add(medRecordMedicationBean);
 				}
 			}

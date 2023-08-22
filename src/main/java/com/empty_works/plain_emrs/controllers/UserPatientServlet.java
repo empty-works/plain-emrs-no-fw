@@ -125,6 +125,7 @@ public class UserPatientServlet extends HttpServlet {
         
         // Write the JSON string to the response body
         response.getWriter().write(gsonPatientString);
+        
 		/*
 		// Store retrieved variables from the database into JSON.
 		JSONObject jsonPatient = new JSONObject();
@@ -189,7 +190,9 @@ public class UserPatientServlet extends HttpServlet {
 	    PrintWriter out = response.getWriter();
 	    out.print(jsonPatient);
 	    
+		*/
 
+        /*
 		// Store retrieved variables from the database into session variables. 
 		HttpSession session = request.getSession();
 		session.setAttribute("patientProvider", patient.getProvider());
@@ -249,9 +252,7 @@ public class UserPatientServlet extends HttpServlet {
 		session.setAttribute("medRecordRosList", medRecordRosBeanList);
 		System.out.println("Latest ROS: " + getLatestRosDate(medRecordRosBeanList));
 		session.setAttribute("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
-		*/
 		
-		/*
 		System.out.println("Forwarding to MedicalRecordLatestChiefComplaintServlet from UserPatientServlet...");
 		//response.sendRedirect(request.getContextPath() + "/MedicalRecordLatestChiefComplaintServlet");
 		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);

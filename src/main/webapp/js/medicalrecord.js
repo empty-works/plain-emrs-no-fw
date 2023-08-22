@@ -64,6 +64,9 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarCurGen').innerHTML = parsedPatientData.userPatient.currentGender;
 	document.getElementById('patientSidebarGenBirth').innerHTML = parsedPatientData.userPatient.genderAtBirth;
 	
+	/* History of illnesses, family history etc. */
+	
+	
 	/* Patient tab */
 	var allergiesList = parsedPatientData.allergiesList;
 	var allergiesUl = document.getElementById('allergyUl');
