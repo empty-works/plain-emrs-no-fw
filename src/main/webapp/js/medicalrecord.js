@@ -64,10 +64,8 @@ function displayPatientData(parsedPatientData) {
 	document.getElementById('patientSidebarCurGen').innerHTML = parsedPatientData.userPatient.currentGender;
 	document.getElementById('patientSidebarGenBirth').innerHTML = parsedPatientData.userPatient.genderAtBirth;
 	
-	/* History of illnesses, family history etc. */
-	
-	
 	/* Patient tab */
+	// Allergies
 	var allergiesList = parsedPatientData.allergiesList;
 	var allergiesUl = document.getElementById('allergyUl');
 	for(let i = 0; i < allergiesList.length; i++) {
@@ -75,6 +73,20 @@ function displayPatientData(parsedPatientData) {
 		allergy.textContent = allergiesList[i].allergyName;
 		allergiesUl.appendChild(allergy);
 	}
+	// Medications	
+	var medicationsList = parsedPatientData.medicationList;
+	if(medicationsList.length == 0) {
+		document.getElementById('medicationUl').appendChild('No medication');
+	}
+	else {
+		var medicationsUl = document.getElementById('medicationUl');
+		for(let i = 0; i < medicationsList.length; i++) {
+			const medication = document.createElement('li');
+			medication.textContent = medicationsList[i].medicationName;
+			medicationsUl.appendChild(medication);
+		}	
+	}
+	// Illnesses
 }
 
 

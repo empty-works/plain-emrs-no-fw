@@ -121,7 +121,7 @@
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Allergies</legend>							
 											<div id="medRecAllergies" class="modal-fieldset-content">
-											<ul id="allergyUl"></ul>
+												<ul id="allergyUl"></ul>
 											<!--  
 												<p>
 												<c:choose>
@@ -141,6 +141,8 @@
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Medication</legend>							
 											<div id="medRecMedication" class="modal-fieldset-content">
+												<ul id="medicationUl"></ul>
+												<!-- 
 												<p>
 												<c:choose>
 													<c:when test="${empty medRecordMedicationList}">
@@ -153,6 +155,7 @@
 													</c:otherwise>
 												</c:choose>
 												</p>
+ 												-->
 											</div>
 										</fieldset>
 										<button class="med-record-accordion">Illnesses</button>
