@@ -75,7 +75,7 @@ function displayPatientData(parsedPatientData) {
 	}
 	// Medications	
 	var medicationsList = parsedPatientData.medicationList;
-	if(medicationsList.length == 0) {
+	if(!medicationsList || medicationsList.length == 0) {
 		document.getElementById('medicationUl').appendChild('No medication');
 	}
 	else {
@@ -86,7 +86,14 @@ function displayPatientData(parsedPatientData) {
 			medicationsUl.appendChild(medication);
 		}	
 	}
-	// Illnesses
+	// Immunizations
+	var immunizationsList = parsedPatientData.immunizationsList	;
+	var immunizationsUl = document.getElementById('immunizationUl');
+	for(let i = 0; i < immunizationsList.length; i++) {
+		const immunization = document.createElement('li');
+		immunization.textContent = immunizationsList[i].immunization;
+		immunizationsUl.appendChild(immunization);
+	}
 }
 
 

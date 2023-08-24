@@ -7,15 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordFamilyIllnessesBean;
 import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordIllnessesDao {
 
-	public static List<MedicalRecordIllnessesBean> get(String medicalRecordId) throws SQLException {
+	public static List<MedicalRecordFamilyIllnessesBean> get(String medicalRecordId) throws SQLException {
 		
-		List<MedicalRecordIllnessesBean> medRecordIllnessesBeanList = new ArrayList<>();
+		List<MedicalRecordFamilyIllnessesBean> medRecordIllnessesBeanList = new ArrayList<>();
 		String query = "SELECT illness_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents "
 				+ "FROM family_illnesses "
 				+ "WHERE medical_record_id=?";
@@ -28,7 +28,7 @@ public class MedicalRecordIllnessesDao {
 				System.out.println("Retrieving from the family_illnesses table...");
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
-					MedicalRecordIllnessesBean medRecordIllnessesBean = new MedicalRecordIllnessesBean();
+					MedicalRecordFamilyIllnessesBean medRecordIllnessesBean = new MedicalRecordFamilyIllnessesBean();
 					medRecordIllnessesBean.setIllnessId(rs.getInt("illness_id"));
 					medRecordIllnessesBean.setIllness(rs.getString("illness"));
 					medRecordIllnessesBean.setIllnessFather(rs.getBoolean("father"));
@@ -45,7 +45,7 @@ public class MedicalRecordIllnessesDao {
 		return medRecordIllnessesBeanList;
 	}
 	
-	public static String add(List<MedicalRecordIllnessesBean> medRecordIllnessesList, String medicalRecordId) {
+	public static String add(List<MedicalRecordFamilyIllnessesBean> medRecordIllnessesList, String medicalRecordId) {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		String query = "INSERT INTO family_illnesses(medical_record_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents) "
@@ -56,7 +56,7 @@ public class MedicalRecordIllnessesDao {
 		try {
 			preparedStatement = con.prepareStatement(query);
 			if(medRecordIllnessesList != null && medRecordIllnessesList.size() > 0) {
-				for(MedicalRecordIllnessesBean familyIllness : medRecordIllnessesList) {
+				for(MedicalRecordFamilyIllnessesBean familyIllness : medRecordIllnessesList) {
 					preparedStatement.setString(1, medicalRecordId);
 					preparedStatement.setString(2, familyIllness.getIllness());
 					addRelations(familyIllness, preparedStatement);
@@ -74,7 +74,7 @@ public class MedicalRecordIllnessesDao {
 	}
 
 	/*
-	public static String add(MedicalRecordIllnessesBean medRecordIllnessesBean) {
+	public static String add(MedicalRecordFamilyIllnessesBean medRecordIllnessesBean) {
 		
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -110,7 +110,7 @@ public class MedicalRecordIllnessesDao {
 	 * @param illness
 	 * @param preparedStatement
 	 */
-	private static void addRelations(MedicalRecordIllnessesBean illness, PreparedStatement preparedStatement) {
+	private static void addRelations(MedicalRecordFamilyIllnessesBean illness, PreparedStatement preparedStatement) {
 		
 		int prepStatementNum = 3; // Prepared statement starts at 3.
 		for(int i = 0; i < illness.getFamilyRelations().size(); i++) {

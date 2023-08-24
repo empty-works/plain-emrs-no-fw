@@ -9,7 +9,7 @@ import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit
  * Difference between disease and illness:
  * A disease has a specific result on a body part or function. Illness can be a perceived notion of unwellness or derive from self-diagnosis.
  */
-public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Serializable {
+public class MedicalRecordFamilyIllnessesBean implements MedicalRecordInterface, Serializable {
 
 	/**
 	 * 
@@ -35,9 +35,9 @@ public class MedicalRecordIllnessesBean implements MedicalRecordInterface, Seria
 	private boolean illnessDaughters;
 	private boolean illnessGrandparents;
 	
-	public MedicalRecordIllnessesBean() {}
+	public MedicalRecordFamilyIllnessesBean() {}
 	
-	public MedicalRecordIllnessesBean(String listIllnessId, String illness) {
+	public MedicalRecordFamilyIllnessesBean(String listIllnessId, String illness) {
 		this.listIllnessId = listIllnessId;
 		this.illness = illness;
 	}

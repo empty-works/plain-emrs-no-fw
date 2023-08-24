@@ -20,7 +20,7 @@ import com.empty_works.plain_emrs.beans.MedicalRecordBloodRelativesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordImmunizationsBean;
 import com.empty_works.plain_emrs.beans.EmergencyContactsBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordAllergiesBean;
-import com.empty_works.plain_emrs.beans.MedicalRecordIllnessesBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordFamilyIllnessesBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordBean;
 import com.empty_works.plain_emrs.beans.UserPatientBean;
 import com.empty_works.plain_emrs.beans.UserPatientRaceBean;
@@ -112,7 +112,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		UserActivityLogBean userActivity;
 		List<MedicalRecordAllergiesBean> allergies;
 		List<MedicalRecordImmunizationsBean> immunizations;
-		List<MedicalRecordIllnessesBean> illnesses;
+		List<MedicalRecordFamilyIllnessesBean> illnesses;
 		MedicalRecordBloodRelativesBean relations;
 		MedicalRecordSurgicalProblemsBean surgicalProblems;
 		MedicalRecordBean medRecord;	
@@ -240,7 +240,7 @@ public class AddUserPatientServlet extends HttpServlet {
 		relations.setNumSons(Integer.parseInt(request.getParameter("SonsAlive")));
 
 		// illnesses
-		//illnesses = new MedicalRecordIllnessesBean();
+		//illnesses = new MedicalRecordFamilyIllnessesBean();
 		//illnesses.setMedicalRecordId(medicalRecordId);
 		illnesses = parseIllnesses(request, medicalRecordId);
 
@@ -398,12 +398,12 @@ public class AddUserPatientServlet extends HttpServlet {
 	 * @param request
 	 * @return
 	 */
-	protected static List<MedicalRecordIllnessesBean> parseIllnesses(HttpServletRequest request, String medicalRecordId) {
+	protected static List<MedicalRecordFamilyIllnessesBean> parseIllnesses(HttpServletRequest request, String medicalRecordId) {
 		
-		List<MedicalRecordIllnessesBean> illnesses = new ArrayList<>();
+		List<MedicalRecordFamilyIllnessesBean> illnesses = new ArrayList<>();
 		for(PatientFormUnit illness : MedicalRecordFamilyIllnessLists.familyConditionList) {
 		
-			MedicalRecordIllnessesBean unit = new MedicalRecordIllnessesBean(illness.getId(), illness.getValue());
+			MedicalRecordFamilyIllnessesBean unit = new MedicalRecordFamilyIllnessesBean(illness.getId(), illness.getValue());
 			unit.setMedicalRecordId(medicalRecordId);
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER));
 			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER));

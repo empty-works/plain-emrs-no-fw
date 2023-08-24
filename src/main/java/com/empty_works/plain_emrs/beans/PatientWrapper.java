@@ -12,8 +12,8 @@ public class PatientWrapper {
 	private List<MedicalRecordAllergiesBean> allergiesList;
 	private MedicalRecordBloodRelativesBean bloodRelatives;
 	private List<MedicalRecordChiefComplaintsBean> chiefComplaintsList;
-	private List<MedicalRecordImmunizationsBean> diseasesList;
-	private List<MedicalRecordIllnessesBean> illnessesList;
+	private List<MedicalRecordImmunizationsBean> immunizationsList;
+	private List<MedicalRecordFamilyIllnessesBean> familyIllnessesList;
 	private List<MedicalRecordMedicationBean> medicationList;
 	private List<MedicalRecordSurgicalProblemsBean> surgicalProblemsList;
 	private List<MedicalRecordNurseNotesBean> nurseNotesList;
@@ -69,17 +69,17 @@ public class PatientWrapper {
 	public void setChiefComplaintsList(List<MedicalRecordChiefComplaintsBean> chiefComplaintsList) {
 		this.chiefComplaintsList = chiefComplaintsList;
 	}
-	public List<MedicalRecordImmunizationsBean> getDiseasesList() {
-		return diseasesList;
+	public List<MedicalRecordImmunizationsBean> getImmunizationsList() {
+		return immunizationsList;
 	}
-	public void setDiseasesList(List<MedicalRecordImmunizationsBean> diseasesList) {
-		this.diseasesList = diseasesList;
+	public void setImmunizationsList(List<MedicalRecordImmunizationsBean> immunizationsList) {
+		this.immunizationsList = immunizationsList;
 	}
-	public List<MedicalRecordIllnessesBean> getIllnessesList() {
-		return illnessesList;
+	public List<MedicalRecordFamilyIllnessesBean> getFamilyIllnessesList() {
+		return familyIllnessesList;
 	}
-	public void setIllnessesList(List<MedicalRecordIllnessesBean> illnessesList) {
-		this.illnessesList = illnessesList;
+	public void setFamilyIllnessesList(List<MedicalRecordFamilyIllnessesBean> familyIllnessesList) {
+		this.familyIllnessesList = familyIllnessesList;
 	}
 	public List<MedicalRecordMedicationBean> getMedicationList() {
 		return medicationList;

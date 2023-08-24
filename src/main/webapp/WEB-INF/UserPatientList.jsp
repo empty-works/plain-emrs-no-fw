@@ -139,7 +139,7 @@
 											</div>
 										</fieldset>
 										<fieldset class="modal-fieldset">
-											<legend class="modal-legend">Medication</legend>							
+											<legend class="modal-legend">Medications</legend>							
 											<div id="medRecMedication" class="modal-fieldset-content">
 												<ul id="medicationUl"></ul>
 												<!-- 
@@ -158,8 +158,12 @@
  												-->
 											</div>
 										</fieldset>
-										<button class="med-record-accordion">Illnesses</button>
-										<div id="medRecIllnesses" class="med-record-panel">
+										<button class="med-record-accordion">Immunizations</button>
+										<div id="medRecImmunizations" class="med-record-panel">
+											<ul id="immunizationUl"></ul>
+										</div>
+										<button class="med-record-accordion">Family Illnesses</button>
+										<div id="medRecFamilyIllnesses" class="med-record-panel">
 											<p>
 											<c:choose>
 											<c:when test="${empty medRecordIllnessesList}">
@@ -169,21 +173,6 @@
 												<c:forEach items="${medRecordIllnessesList}" var="illness">
 													${illness.getIllness()}, 		
 												</c:forEach>
-											</c:otherwise>
-											</c:choose>
-											</p>
-										</div>
-										<button class="med-record-accordion">Diseases</button>
-										<div id="medRecDiseases" class="med-record-panel">
-											<p>
-											<c:choose>
-											<c:when test="${empty medRecordDiseasesList}">
-												No diseases	
-											</c:when>	
-											<c:otherwise>
-												<c:forEach items="${medRecordDiseasesList}" var="disease">
-													${disease.getDisease()}, 
-												</c:forEach>	
 											</c:otherwise>
 											</c:choose>
 											</p>
