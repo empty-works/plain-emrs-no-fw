@@ -76,7 +76,9 @@ function displayPatientData(parsedPatientData) {
 	// Medications	
 	var medicationsList = parsedPatientData.medicationList;
 	if(!medicationsList || medicationsList.length == 0) {
-		document.getElementById('medicationUl').appendChild('No medication');
+		const noMed = document.createElement('p');
+		noMed.innerText = 'No medication';
+		document.getElementById('medicationUl').appendChild(noMed);
 	}
 	else {
 		var medicationsUl = document.getElementById('medicationUl');
