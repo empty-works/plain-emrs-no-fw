@@ -36,7 +36,7 @@ import com.empty_works.plain_emrs.dao.MedicalRecordBloodRelativesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordDiseasesBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordImmunizationsDao;
-import com.empty_works.plain_emrs.dao.MedicalRecordIllnessesDao;
+import com.empty_works.plain_emrs.dao.MedicalRecordFamilyIllnessesDao;
 import com.empty_works.plain_emrs.dao.MedicalRecordSurgicalProblemsDao;
 import com.empty_works.plain_emrs.dao.UserActivityLogDao;
 import com.empty_works.plain_emrs.dao.UserDao;
@@ -258,7 +258,7 @@ public class AddUserPatientServlet extends HttpServlet {
 			MedicalRecordSurgicalProblemsDao.add(surgicalProblems);
 			MedicalRecordImmunizationsDao.add(immunizations);
 			MedicalRecordBloodRelativesDao.add(relations);
-			MedicalRecordIllnessesDao.add(illnesses, medicalRecordId);
+			MedicalRecordFamilyIllnessesDao.add(illnesses, medicalRecordId);
 			EmergencyContactsDao.add(contacts);
 		} catch (SQLException e) {
 			e.printStackTrace();

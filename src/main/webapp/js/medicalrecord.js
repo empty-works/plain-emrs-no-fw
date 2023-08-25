@@ -2,6 +2,8 @@
  * 
  */
 
+var currentPatientId;
+
 function openPatientModal(contextPath, patientId) {
 	var medRecModal = document.getElementById("medRecModal");
 	
@@ -96,6 +98,23 @@ function displayPatientData(parsedPatientData) {
 		immunization.textContent = immunizationsList[i].immunization;
 		immunizationsUl.appendChild(immunization);
 	}
+	// Family illnesses
+	var familyIllnessesList = parsedPatientData.familyIllnessesList;
+	if(!familyIllnessesList || familyIllnessesList.length == 0) {
+		console.log("No family illness");
+		const noFamIllness = document.createElement('p');
+		noFamIllness.innerText = 'No family illness';
+		document.getElementById('familyIllnessUl').appendChild(noFamIllness);
+	}
+	else {
+		var familyIllnessUl = document.getElementById('familyIllnessUl');
+		for(let i = 0; i < familyIllnessesList; i++) {
+			const familyIllness = document.createElement('li');
+			console.log("Family illness: " + familyIllnessesList[i].illness);
+			familyIllness.textContent = familyIllnessesList[i].illness; 
+			familyIllnessUl.appendChild(familyIllness);
+		}
+	}
 }
 
 
@@ -153,7 +172,7 @@ function openMedRecordModal(section, ...dataExample) {
 	/*
 	editForm.addEventListener('submit', function(event) {
 		event.preventDefault(); // Prevent default form submission
-		// Perform any additional actions or AJAX requests here
+	// Perform any additional actions or AJAX requests here
 		if(section === "medRecChiefComplaint") {
 			
 			console.log(editForm.elements.chiefComplaintStatementInput.value);
@@ -163,11 +182,31 @@ function openMedRecordModal(section, ...dataExample) {
 	*/
 }
 
+// Confirmation dialog when closing the modal
+document.getElementById('modalCloseButton').addEventListener("click", function () {
+	// Display confirmation dialog
+	const confirmation = confirm("Are you sure you want to close the patient's profile?");
+	
+	// Check the user's choice
+	if(confirmation) {
+		// User clicked OK, close the modal
+		closeModal();
+	}
+});
+
 // Close the modal
 function closeModal() {
+	clearModalData();
 	var medRecModal = document.getElementById("medRecModal");
 	medRecModal.style.display = "none";
 }				
+
+function clearModalData() {
+	document.getElementById('allergyUl').innerText = "";
+	document.getElementById('medicationUl').innerText = "";
+	document.getElementById('immunizationUl').innerText = "";
+	document.getElementById('familyIllnessUl').innerText = "";
+}
 
 function calculateAge(dateOfBirth) {
 	var currentDate = new Date();

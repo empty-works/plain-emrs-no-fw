@@ -14,8 +14,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/medical-record.css" />
 
-<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
-
 <title>Patient List</title>
 </head>
 <body>
@@ -164,6 +162,8 @@
 										</div>
 										<button class="med-record-accordion">Family Illnesses</button>
 										<div id="medRecFamilyIllnesses" class="med-record-panel">
+											<ul id="familyIllnessUl"></ul>
+											<!-- 
 											<p>
 											<c:choose>
 											<c:when test="${empty medRecordIllnessesList}">
@@ -176,6 +176,7 @@
 											</c:otherwise>
 											</c:choose>
 											</p>
+ 											-->
 										</div>
 										<button class="med-record-accordion">Surgery-related problems</button>
 										<div id="medRecSurgProbs" class="med-record-panel">
@@ -317,10 +318,12 @@
 						</div>
 					</div>
 					</div>
-				<span class="close" onclick="closeModal()">&times;</span>
+				<span class="close" id="modalCloseButton" onclick="closeModal()">&times;</span>
 			</div>
 		</div>
 	</div>
+
+	<script src="${pageContext.request.contextPath}/js/medicalrecord.js"></script>
 	<!-- Script taken from w3schools HowTO - Collapsibles/Accordion -->
 	<script>
 		var acc = document.getElementsByClassName("med-record-accordion");
