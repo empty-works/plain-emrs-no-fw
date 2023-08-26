@@ -100,6 +100,7 @@ function displayPatientData(parsedPatientData) {
 	}
 	// Family illnesses
 	var familyIllnessesList = parsedPatientData.familyIllnessesList;
+	console.log("FamilyIllnessesList is parsed...");
 	if(!familyIllnessesList || familyIllnessesList.length == 0) {
 		console.log("No family illness");
 		const noFamIllness = document.createElement('p');
@@ -108,13 +109,16 @@ function displayPatientData(parsedPatientData) {
 	}
 	else {
 		var familyIllnessUl = document.getElementById('familyIllnessUl');
-		for(let i = 0; i < familyIllnessesList; i++) {
+		console.log("Inside familyIllnesses function else...");
+		for(let i = 0; i < familyIllnessesList.length; i++) {
 			const familyIllness = document.createElement('li');
 			console.log("Family illness: " + familyIllnessesList[i].illness);
 			familyIllness.textContent = familyIllnessesList[i].illness; 
 			familyIllnessUl.appendChild(familyIllness);
 		}
 	}
+	console.log("Family illnesses is done...");
+	//  
 }
 
 
