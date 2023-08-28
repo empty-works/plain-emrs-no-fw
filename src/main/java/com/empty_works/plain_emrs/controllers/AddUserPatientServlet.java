@@ -338,34 +338,6 @@ public class AddUserPatientServlet extends HttpServlet {
 		}
 		return immunizationsList;
 	}
-	
-	/**
-	 * 
-	 * @param request
-	 * @return
-	 */
-	/*
-	protected static List<MedicalRecordDiseaseUnit> parseDiseasesImmun(HttpServletRequest request) {
-		
-		List<MedicalRecordDiseaseUnit> diseases = new ArrayList<>();
-		for(MedicalRecordDiseaseUnit disease : MedicalRecordDiseaseLists.diseaseList) {
-			
-			String result = request.getParameter(disease.getDiseaseId());
-			System.out.println("Retrieved disease: " + result + " Disease ID: " + disease.getDiseaseId());
-			if(result != null) {
-				MedicalRecordDiseaseUnit patientDisease = new MedicalRecordDiseaseUnit(disease.getDiseaseId(), disease.getDiseaseName());
-				patientDisease.setContractedDisease(true);
-				if(result.contains("Immun")) {
-					patientDisease.setImmunized(true);
-				}
-				// Only added if the patient had the disease regardless of immunization.
-				System.out.println("Added patient disease: " + patientDisease);
-				diseases.add(patientDisease);
-			}
-		}
-		return diseases;
-	}
-	*/
 
 	/**
 	 * 

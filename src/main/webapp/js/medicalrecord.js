@@ -110,8 +110,15 @@ function displayPatientData(parsedPatientData) {
 		var familyIllnessUl = document.getElementById('familyIllnessUl');
 		for(let i = 0; i < familyIllnessesList.length; i++) {
 			const familyIllness = document.createElement('li');
-			familyIllness.textContent = familyIllnessesList[i].illness; 
-			for(let j = 0; i < familyIllnessesList[i][j])
+			var familyIllnessText = familyIllnessesList[i].illness + " ";
+			if(familyIllnessesList[i].illnessFather == true) familyIllnessText += "Father";
+			if(familyIllnessesList[i].illnessMother == true) familyIllnessText += "Mother";
+			if(familyIllnessesList[i].illnessBrothers == true) familyIllnessText += "Brothers";
+			if(familyIllnessesList[i].illnessSisters == true) familyIllnessText += "Sisters";
+			if(familyIllnessesList[i].illnessSons == true) familyIllnessText += "Sons";
+			if(familyIllnessesList[i].illnessDaughters == true) familyIllnessText += "Daughters";
+			if(familyIllnessesList[i].illnessGrandparents == true) familyIllnessText += "Grandparents";
+			familyIllness.textContent = familyIllnessText;
 			familyIllnessUl.appendChild(familyIllness);
 		}
 	}
