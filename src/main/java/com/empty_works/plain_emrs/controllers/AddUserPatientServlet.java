@@ -405,22 +405,37 @@ public class AddUserPatientServlet extends HttpServlet {
 		
 			MedicalRecordFamilyIllnessesBean unit = new MedicalRecordFamilyIllnessesBean(illness.getId(), illness.getValue());
 			unit.setMedicalRecordId(medicalRecordId);
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SISTERS));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SONS));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS));
-			unit.setFamilyRelation(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS));
-
-			// Only add unit if there are relatives/self have/had illnesses.
-			if(unit.getFamilyRelations().contains(true)) {
+			unit.setIllnessFather(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.FATHER));
+			unit.setIllnessMother(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.MOTHER));
+			unit.setIllnessBrothers(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.BROTHERS));
+			unit.setIllnessSisters(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SISTERS));
+			unit.setIllnessSons(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.SONS));
+			unit.setIllnessDaughters(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.DAUGHTERS));
+			unit.setIllnessGrandparents(getFamilyRelation(request, illness, MedicalRecordFamilyIllnessUnit.GRANDPARENTS));
+			
+			if(checkUnit(unit) == true) {
 				System.out.println("Adding illnesses: " + unit);
 				illnesses.add(unit);
 			}
 		}
 		System.out.println("Illnesses: " + illnesses);
 		return illnesses;
+	}
+	
+	/**
+	 * 
+	 * @param unit
+	 * @return
+	 */
+	private static Boolean checkUnit(MedicalRecordFamilyIllnessesBean unit) {
+		if(unit.isIllnessFather()) return true;
+		if(unit.isIllnessMother()) return true;
+		if(unit.isIllnessBrothers()) return true;
+		if(unit.isIllnessSisters()) return true;
+		if(unit.isIllnessSons()) return true;
+		if(unit.isIllnessDaughters()) return true;
+		if(unit.isIllnessGrandparents()) return true;
+		return false;
 	}
 	
 	/**

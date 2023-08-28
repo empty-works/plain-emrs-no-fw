@@ -26,7 +26,6 @@ public class MedicalRecordFamilyIllnessesBean implements MedicalRecordInterface,
 	private String listIllnessId;
 	private String medicalRecordId;
 	private String illness;
-	private List<Boolean> familyRelations = new ArrayList<>();
 	private boolean illnessFather;
 	private boolean illnessMother;
 	private boolean illnessBrothers;
@@ -74,14 +73,6 @@ public class MedicalRecordFamilyIllnessesBean implements MedicalRecordInterface,
 	@Override
 	public void setMedicalRecordId(String medicalRecordId) {
 		this.medicalRecordId = medicalRecordId;
-	}
-
-	public List<Boolean> getFamilyRelations() {
-		return familyRelations;
-	}
-
-	public void setFamilyRelation(Boolean relation) {
-		this.familyRelations.add(relation);
 	}
 
 	public boolean isIllnessFather() {

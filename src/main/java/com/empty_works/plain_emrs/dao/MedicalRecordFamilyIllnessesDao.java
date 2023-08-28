@@ -59,7 +59,13 @@ public class MedicalRecordFamilyIllnessesDao {
 				for(MedicalRecordFamilyIllnessesBean familyIllness : medRecordIllnessesList) {
 					preparedStatement.setString(1, medicalRecordId);
 					preparedStatement.setString(2, familyIllness.getIllness());
-					addRelations(familyIllness, preparedStatement);
+					preparedStatement.setBoolean(3, familyIllness.isIllnessFather());
+					preparedStatement.setBoolean(4, familyIllness.isIllnessMother());
+					preparedStatement.setBoolean(5, familyIllness.isIllnessBrothers());
+					preparedStatement.setBoolean(6, familyIllness.isIllnessSisters());
+					preparedStatement.setBoolean(7, familyIllness.isIllnessSons());
+					preparedStatement.setBoolean(8, familyIllness.isIllnessDaughters());
+					preparedStatement.setBoolean(9, familyIllness.isIllnessGrandparents());
 					preparedStatement.addBatch();
 				}
 				success = preparedStatement.executeBatch()[0];
@@ -110,6 +116,7 @@ public class MedicalRecordFamilyIllnessesDao {
 	 * @param illness
 	 * @param preparedStatement
 	 */
+	/*
 	private static void addRelations(MedicalRecordFamilyIllnessesBean illness, PreparedStatement preparedStatement) {
 		
 		int prepStatementNum = 3; // Prepared statement starts at 3.
@@ -122,4 +129,5 @@ public class MedicalRecordFamilyIllnessesDao {
 			}
 		}
 	}
+	*/
 }
