@@ -164,7 +164,6 @@ public class AddUserServletTest {
 		
 		HttpServletRequest request = mock(HttpServletRequest.class);
 		List<MedicalRecordFamilyIllnessesBean> conditions = new ArrayList<>();
-		when(request.getParameter("AsthmafamilyConditionSelf")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionFather")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionMother")).thenReturn("false");
 		when(request.getParameter("AsthmafamilyConditionBrothers")).thenReturn("true");
@@ -175,20 +174,15 @@ public class AddUserServletTest {
 		conditions = AddUserPatientServlet.parseIllnesses(request, "Fake Medical Record ID");
 		
 		List<String> expectedRelativesNumList = new ArrayList<>();
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.FATHER);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.MOTHER);
 		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.BROTHERS);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.SISTERS);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.SONS);
+		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.DAUGHTERS);
 		expectedRelativesNumList.add(MedicalRecordFamilyIllnessesBean.GRANDPARENTS);
 		
-		List<Boolean> resultRelativesList = new ArrayList<>();
-		
-		for(MedicalRecordFamilyIllnessesBean condition: conditions) {
-			
-			for(Boolean relative : condition.getFamilyRelations()) {
-				
-				resultRelativesList.add(relative);
-			}
-		}
-		
-		assertEquals(expectedRelativesNumList.size(), resultRelativesList.size());
-		assertIterableEquals(expectedRelativesNumList, resultRelativesList);
+		assertEquals(expectedRelativesNumList.size(), conditions.size());
+		assertIterableEquals(expectedRelativesNumList, conditions);
 	}
 }
