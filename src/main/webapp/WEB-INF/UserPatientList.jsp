@@ -119,7 +119,7 @@
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Allergies</legend>							
 											<div id="medRecAllergies" class="modal-fieldset-content">
-												<ul id="allergyUl"></ul>
+												<ul id="allergyUl"><!-- Populated in medicalrecord.js --></ul>
 											<!--  
 												<p>
 												<c:choose>
@@ -135,6 +135,12 @@
 												</p>
 											-->
 											</div>
+										<fieldset>
+											<legend class="modal-legend">Chief Complaints</legend>
+											<div id="medRecChiefComplaints" class="modal-fieldset-content">
+												<ul id="chiefComplaintUl"></ul>
+											</div>
+										</fieldset>
 										</fieldset>
 										<fieldset class="modal-fieldset">
 											<legend class="modal-legend">Medications</legend>							

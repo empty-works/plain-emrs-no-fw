@@ -100,7 +100,6 @@ function displayPatientData(parsedPatientData) {
 	}
 	// Family illnesses
 	var familyIllnessesList = parsedPatientData.familyIllnessesList;
-	console.log("FamilyIllnessesList is parsed...");
 	if(!familyIllnessesList || familyIllnessesList.length == 0) {
 		const noFamIllness = document.createElement('p');
 		noFamIllness.innerText = 'No family illness';
@@ -122,7 +121,12 @@ function displayPatientData(parsedPatientData) {
 			familyIllnessUl.appendChild(familyIllness);
 		}
 	}
-	//  
+	// Chief Complaints
+	var chiefComplaintsList = parsedPatientData.chiefComplaintsList;
+	if(!chiefComplaintsList || chiefComplaintsList.length == 0) {
+		const chiefComplaint = document.createElement('li');
+		
+	}
 }
 
 
