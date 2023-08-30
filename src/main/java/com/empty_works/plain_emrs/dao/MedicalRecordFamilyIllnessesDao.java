@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordFamilyIllnessesBean;
-import com.empty_works.plain_emrs.patient_choices.MedicalRecordFamilyIllnessUnit;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 public class MedicalRecordFamilyIllnessesDao {
@@ -45,6 +44,12 @@ public class MedicalRecordFamilyIllnessesDao {
 		return medRecordFamilyIllnessesBeanList;
 	}
 	
+	/**
+	 * 
+	 * @param medRecordIllnessesList
+	 * @param medicalRecordId
+	 * @return
+	 */
 	public static String add(List<MedicalRecordFamilyIllnessesBean> medRecordIllnessesList, String medicalRecordId) {
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
