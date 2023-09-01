@@ -137,6 +137,38 @@ function displayPatientData(parsedPatientData) {
 			chiefComplaintsUl.appendChild(chiefComplaint);
 		}
 	}
+	// Surgery-related Problems
+	var surgeriesList = parsedPatientData.surgicalProblemsList;
+	if(!surgeriesList || surgeriesList.length == 0) {
+		const noSurgery = document.createElement('p');
+		noSurgery.innerText = 'No record of surgeries.';
+		document.getElementById('surgeryUl').appendChild(noSurgery);
+	}
+	else {
+		var surgeryUl = document.getElementById('surgeryUl');
+		for(let i = 0; i < surgeriesList.length; i++) {
+			const surgery = document.createElement('li');
+			var surgeryText = surgeriesList[i].surgicalProcedure + " " + surgeriesList[i].surgicalProcedureYear;
+			surgery.textContent = surgeryText;
+			surgeryUl.appendChild(surgery);
+		}
+	}
+	// Nurse Notes
+	var nurseNotesList = parsedPatientData.nurseNotesList;
+	if(!nurseNotesList || nurseNotesList.length == 0) {
+		const noNurseNote = document.createElement('p');
+		noNurseNote.innerText = 'No record of nurse notes.';
+		document.getElementById('nurseNoteUl').appendChild(noNurseNote);
+	}
+	else {
+		var noNurseNoteUl = document.getElementById('nurseNoteUl');
+		for(let i = 0; i < nurseNotesList.length; i++) {
+			const nurseNote = document.createElement('li');
+			var nurseNoteText = nurseNotesList[i].focus + " || " + nurseNotesList[i].text;
+			nurseNote.textContent = nurseNoteText;
+			noNurseNoteUl.appendChild(nurseNote);
+		}
+	}
 }
 
 function openMedRecordModal(section, ...dataExample) {

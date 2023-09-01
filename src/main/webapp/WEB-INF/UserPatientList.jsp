@@ -207,6 +207,8 @@
 										</div>
 										<button class="med-record-accordion">Nurse notes</button>
 										<div id="medRecNurseNotes" class="med-record-panel">
+											<ul id="nurseNoteUl"><!-- Populated in medicalrecord.js --></ul>
+											<!-- 
 											<p>
 											<c:choose>
 											<c:when test="${empty medRecordNurseNotesList}">
@@ -219,9 +221,12 @@
 											</c:otherwise>
 											</c:choose>
 											</p>
+ 											-->
 										</div>
 										<button class="med-record-accordion">Personal details</button>
 										<div id="medRecPersonalDetails" class="med-record-panel">
+											<ul id="personalDetailUl"><!-- Populated in medicalrecord.js --></ul>
+											<!-- 
 											<p>
 											<c:choose>
 											<c:when test="">
@@ -229,6 +234,7 @@
 											</c:when>	
 											</c:choose>
 											</p>	
+ 											-->
 										</div>
 										
 										<!-- MODAL -->
