@@ -102,7 +102,7 @@ function displayPatientData(parsedPatientData) {
 	var familyIllnessesList = parsedPatientData.familyIllnessesList;
 	if(!familyIllnessesList || familyIllnessesList.length == 0) {
 		const noFamIllness = document.createElement('p');
-		noFamIllness.innerText = 'No family illness';
+		noFamIllness.innerText = 'No family illness.';
 		document.getElementById('familyIllnessUl').appendChild(noFamIllness);
 	}
 	else {
@@ -121,14 +121,23 @@ function displayPatientData(parsedPatientData) {
 			familyIllnessUl.appendChild(familyIllness);
 		}
 	}
-	// Chief Complaints
+	// Chief Complaints 
 	var chiefComplaintsList = parsedPatientData.chiefComplaintsList;
 	if(!chiefComplaintsList || chiefComplaintsList.length == 0) {
-		const chiefComplaint = document.createElement('li');
-		
+		const noChiefComplaint = document.createElement('p');
+		noChiefComplaint.innerText = 'No record of chief complaints.';
+		document.getElementById('chiefComplaintUl').appendChild(noChiefComplaint);
+	}
+	else {
+		var chiefComplaintsUl = document.getElementById('chiefComplaintUl');
+		for(let i = 0; i < chiefComplaintsList.length; i++) {
+			const chiefComplaint = document.createElement('li');
+			var chiefComplaintText = chiefComplaintsList[i].chiefComplaintId + " " + chiefComplaintsList[i].statement;	
+			chiefComplaint.textContent = chiefComplaintText;
+			chiefComplaintsUl.appendChild(chiefComplaint);
+		}
 	}
 }
-
 
 function openMedRecordModal(section, ...dataExample) {
 	var medRecModal = document.getElementById("medRecModal");

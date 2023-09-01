@@ -14,6 +14,7 @@ public class PatientWrapper {
 	private List<MedicalRecordChiefComplaintsBean> chiefComplaintsList;
 	private List<MedicalRecordImmunizationsBean> immunizationsList;
 	private List<MedicalRecordFamilyIllnessesBean> familyIllnessesList;
+	private List<MedicalRecordIllnessesBean> illnessesList;
 	private List<MedicalRecordMedicationBean> medicationList;
 	private List<MedicalRecordSurgicalProblemsBean> surgicalProblemsList;
 	private List<MedicalRecordNurseNotesBean> nurseNotesList;
@@ -80,6 +81,12 @@ public class PatientWrapper {
 	}
 	public void setFamilyIllnessesList(List<MedicalRecordFamilyIllnessesBean> familyIllnessesList) {
 		this.familyIllnessesList = familyIllnessesList;
+	}
+	public List<MedicalRecordIllnessesBean> getIllnessesList() {
+		return illnessesList;
+	}
+	public void setIllnessesList(List<MedicalRecordIllnessesBean> illnessesList) {
+		this.illnessesList = illnessesList;
 	}
 	public List<MedicalRecordMedicationBean> getMedicationList() {
 		return medicationList;

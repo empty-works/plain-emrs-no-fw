@@ -82,7 +82,7 @@
 								</c:otherwise>
 							</c:choose>
 
-							<h3 id="patientSidebarName" class="patient-name"></h3>
+							<h4 id="patientSidebarName" class="patient-name"></h4>
 							<!--  <p id="patientSidebarActive" class="patient-sidebar-text"></p>-->
 							<div id="patientSidebarId" class="patient-sidebar-text"></div>
 							<div class="patient-info">
@@ -178,9 +178,9 @@
 											</p>
  											-->
 										</div>
-										<button class="med-record-accordion">Illnesses</button>
-										<div id="medRecIllnesses" class="med-record-panel">
-											<ul id="illnessUl"><!-- Populated in medicalrecord.js --></ul>
+										<button class="med-record-accordion">Chief Complaints</button>
+										<div id="medRecChiefComplaint" class="med-record-panel">
+											<ul id="chiefComplaintUl"><!-- Populated in medicalrecord.js --></ul>
 										</div>
 										<button class="med-record-accordion">Surgery-related problems</button>
 										<div id="medRecSurgProbs" class="med-record-panel">
@@ -345,7 +345,12 @@
 			  panel.style.maxHeight = panel.scrollHeight + "px";
 			} 
 		  });
+
+		  // Keep the accordion panels closed by default
+		  var panel = acc[i].nextElementSibling;
+		  panel.style.maxHeight = null;
 		}
+		
 		function changeTab(index) {
 			  // Get all tab buttons and tab contents
 			  var tabButtons = document.getElementsByClassName("tab");
