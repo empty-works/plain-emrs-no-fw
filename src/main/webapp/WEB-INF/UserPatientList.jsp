@@ -140,20 +140,6 @@
 											<legend class="modal-legend">Medications</legend>							
 											<div id="medRecMedication" class="modal-fieldset-content">
 												<ul id="medicationUl"><!-- Populated in medicalrecord.js --></ul>
-												<!-- 
-												<p>
-												<c:choose>
-													<c:when test="${empty medRecordMedicationList}">
-														No medication
-													</c:when>
-													<c:otherwise>
-														<c:forEach items="${medRecordMedicationList}" var="medication">
-															${medication.getMedicationName()}, 
-														</c:forEach>
-													</c:otherwise>
-												</c:choose>
-												</p>
- 												-->
 											</div>
 										</fieldset>
 										<button class="med-record-accordion">Immunizations</button>
@@ -163,24 +149,6 @@
 										<button class="med-record-accordion">Family Illnesses</button>
 										<div id="medRecFamilyIllnesses" class="med-record-panel">
 											<ul id="familyIllnessUl"><!-- Populated in medicalrecord.js --></ul>
-											<!-- 
-											<p>
-											<c:choose>
-											<c:when test="${empty medRecordIllnessesList}">
-												No illnesses
-											</c:when>
-											<c:otherwise>
-												<c:forEach items="${medRecordIllnessesList}" var="illness">
-													${illness.getIllness()}, 		
-												</c:forEach>
-											</c:otherwise>
-											</c:choose>
-											</p>
- 											-->
-										</div>
-										<button class="med-record-accordion">Chief Complaints</button>
-										<div id="medRecChiefComplaint" class="med-record-panel">
-											<ul id="chiefComplaintUl"><!-- Populated in medicalrecord.js --></ul>
 										</div>
 										<button class="med-record-accordion">Surgery-related problems</button>
 										<div id="medRecSurgProbs" class="med-record-panel">
@@ -208,20 +176,6 @@
 										<button class="med-record-accordion">Nurse notes</button>
 										<div id="medRecNurseNotes" class="med-record-panel">
 											<ul id="nurseNoteUl"><!-- Populated in medicalrecord.js --></ul>
-											<!-- 
-											<p>
-											<c:choose>
-											<c:when test="${empty medRecordNurseNotesList}">
-												No nurse notes
-											</c:when>	
-											<c:otherwise>
-												<c:forEach items="${medRecordNurseNotesList}" var="nurseNote">
-													<div>- ${nurseNote.getText()}</div>	
-												</c:forEach>	
-											</c:otherwise>
-											</c:choose>
-											</p>
- 											-->
 										</div>
 										<button class="med-record-accordion">Personal details</button>
 										<div id="medRecPersonalDetails" class="med-record-panel">
@@ -252,7 +206,14 @@
 						<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
 							<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
 						</c:if>
-							<ul class="encounter-list">
+							<fieldset class="modal-fieldset">
+								<legend class="modal-legend">Chief Complaints</legend>							
+								<div id="medRecChiefComplaint" class="modal-fieldset-content">
+									<ul id="chiefComplaintUl"><!-- Populated in medicalrecord.js --></ul>
+								</div>
+							</fieldset>
+								<!-- 
+							<ul id="chiefComplaintUl" class="encounter-list">
 								<c:choose>
 								<c:when test="${empty medRecordChiefComplaintsList}">
 									<p>No encounters/chief complaints</p>	
@@ -270,6 +231,7 @@
 								</c:choose>
 							</ul>
 							
+ 								-->
 							<fieldset class="modal-fieldset">
 								<legend class="modal-legend">Vitals ${medRecordVitals.getDateTaken()}</legend>							
 								<!-- Vitals edit link -->
