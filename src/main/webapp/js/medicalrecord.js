@@ -209,6 +209,24 @@ function displayPatientData(parsedPatientData) {
 		const pd9 = document.createElement('li');
 		pd9.textContent = 'Is adopted: ' + patientData.isAdopted;
 		personalDetailUl.appendChild(pd9);
+		const pd10 = document.createElement('li');
+		pd10.textContent = 'License number: ' + patientData.licenseNumber;
+		personalDetailUl.appendChild(pd10);
+		const pd11 = document.createElement('li');
+		pd11.textContent = 'Vehicle serial number: ' + patientData.vehicleSerialNumber;
+		personalDetailUl.appendChild(pd11);
+		const pd12 = document.createElement('li');
+		pd12.textContent = 'Vehicle plate number: ' + patientData.vehiclePlateNumber;
+		personalDetailUl.appendChild(pd12);
+		const pd13 = document.createElement('li');
+		pd13.textContent = 'URL: ' + patientData.url;
+		personalDetailUl.appendChild(pd13);
+		const pd14 = document.createElement('li');
+		pd14.textContent = 'Device serial number: ' + patientData.deviceSerialNumber;
+		personalDetailUl.appendChild(pd14);
+		const pd15 = document.createElement('li');
+		pd15.textContent = 'IP address: ' + patientData.ipAddress;
+		personalDetailUl.appendChild(pd15);
 	}
 }
 
