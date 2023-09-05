@@ -186,6 +186,29 @@ function displayPatientData(parsedPatientData) {
 		var pdProviderId = 'Provider ID: ' + patientData.providerId;
 		pd2.textContent = pdProviderId;
 		personalDetailUl.appendChild(pd2);
+		const pd3 = document.createElement('li');
+		var pdAddress = 'Address: ' + patientData.streetAddress + " " + patientData.city + " " + patientData.state + " " + patientData.country;
+		pd3.textContent = pdAddress;
+		personalDetailUl.appendChild(pd3);
+		const pd4 = document.createElement('li');
+		var pdPhoneNumber = 'Phone number: ' + patientData.phoneNumber;
+		pd4.textContent = pdPhoneNumber;
+		personalDetailUl.appendChild(pd4);
+		const pd5 = document.createElement('li');
+		pd5.textContent = 'Facility ID: ' + patientData.facilityId;
+		personalDetailUl.appendChild(pd5);
+		const pd6 = document.createElement('li');
+		pd6.textContent = 'Sexual orientation: ' + patientData.sexualOrientation;
+		personalDetailUl.appendChild(pd6);
+		const pd7 = document.createElement('li');
+		pd7.textContent = 'Marital status: ' + patientData.maritalStatus;
+		personalDetailUl.appendChild(pd7);
+		const pd8 = document.createElement('li');
+		pd8.textContent = 'Living arrangement: ' + patientData.livingArrangement;
+		personalDetailUl.appendChild(pd8);
+		const pd9 = document.createElement('li');
+		pd9.textContent = 'Is adopted: ' + patientData.isAdopted;
+		personalDetailUl.appendChild(pd9);
 	}
 }
 
