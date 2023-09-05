@@ -161,13 +161,31 @@ function displayPatientData(parsedPatientData) {
 		document.getElementById('nurseNoteUl').appendChild(noNurseNote);
 	}
 	else {
-		var noNurseNoteUl = document.getElementById('nurseNoteUl');
+		var nurseNoteUl = document.getElementById('nurseNoteUl');
 		for(let i = 0; i < nurseNotesList.length; i++) {
 			const nurseNote = document.createElement('li');
 			var nurseNoteText = nurseNotesList[i].focus + " || " + nurseNotesList[i].text;
 			nurseNote.textContent = nurseNoteText;
-			noNurseNoteUl.appendChild(nurseNote);
+			nurseNoteUl.appendChild(nurseNote);
 		}
+	}
+	// Personal Details
+	var patientData = parsedPatientData.userPatient;
+	if(!patientData) {
+		const noPatientData = document.createElement('p');
+		noPatientData.innerText = 'No patient data.';
+		document.getElementById('personalDetailUl').appendChild(noPatientData);
+	}
+	else {
+		var personalDetailUl = document.getElementById('personalDetailUl');
+		const pd1 = document.createElement('li');
+		var pdProvider = 'Provider: ' + patientData.provider;
+		pd1.textContent = pdProvider;
+		personalDetailUl.appendChild(pd1);
+		const pd2 = document.createElement('li');
+		var pdProviderId = 'Provider ID: ' + patientData.providerId;
+		pd2.textContent = pdProviderId;
+		personalDetailUl.appendChild(pd2);
 	}
 }
 
