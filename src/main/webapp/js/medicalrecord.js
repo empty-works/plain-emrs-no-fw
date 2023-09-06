@@ -234,6 +234,7 @@ function displayPatientData(parsedPatientData) {
 			ccDetails.setAttribute("id", "medRecPersonalDetails");
 			ccDetails.classList.add("med-record-panel");
 			chiefComplaintDiv.appendChild(ccDetails);
+			
 		}
 			
 		/*

@@ -111,94 +111,94 @@
 							<button class="tab" onclick="changeTab(1)">Encounters</button>	
 						</div>
 						<div class="tab-content active">
-									<div>
-										<a href="<c:url value="/MedicalRecordEditPatientServlet" />">Edit Patient</a>
-										<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
-									</div>
-									<div>
-										<fieldset class="modal-fieldset">
-											<legend class="modal-legend">Allergies</legend>							
-											<div id="medRecAllergies" class="modal-fieldset-content">
-												<ul id="allergyUl"><!-- Populated in medicalrecord.js --></ul>
-											<!--  
-												<p>
-												<c:choose>
-												<c:when test="${empty medRecordAllergiesList}">
-													No allergies
-												</c:when>
-												<c:otherwise>
-													<c:forEach items="${medRecordAllergiesList}" var="allergy">
-														${allergy.getAllergyName()}, 
-													</c:forEach>	
-												</c:otherwise>
-												</c:choose>
-												</p>
-											-->
-											</div>
-										</fieldset>
-										<fieldset class="modal-fieldset">
-											<legend class="modal-legend">Medications</legend>							
-											<div id="medRecMedication" class="modal-fieldset-content">
-												<ul id="medicationUl"><!-- Populated in medicalrecord.js --></ul>
-											</div>
-										</fieldset>
-										<button class="med-record-accordion">Immunizations</button>
-										<div id="medRecImmunizations" class="med-record-panel">
-											<ul id="immunizationUl"><!-- Populated in medicalrecord.js --></ul>
-										</div>
-										<button class="med-record-accordion">Family Illnesses</button>
-										<div id="medRecFamilyIllnesses" class="med-record-panel">
-											<ul id="familyIllnessUl"><!-- Populated in medicalrecord.js --></ul>
-										</div>
-										<!-- 
-										<button class="med-record-accordion">Surgery-related problems</button>
-										<div id="medRecSurgProbs" class="med-record-panel">
-											<ul id="surgeryUl"></ul>
+								<div>
+									<a href="<c:url value="/MedicalRecordEditPatientServlet" />">Edit Patient</a>
+									<a class="topnav-user"><%=session.getAttribute("userId") %></a>	
+								</div>
+								<div>
+									<fieldset class="modal-fieldset">
+										<legend class="modal-legend">Allergies</legend>							
+										<div id="medRecAllergies" class="modal-fieldset-content">
+											<ul id="allergyUl"><!-- Populated in medicalrecord.js --></ul>
+										<!--  
 											<p>
 											<c:choose>
-											<c:when test="${empty medRecordSurgicalProblemsList}">
-												No surgical history	
-											</c:when>	
+											<c:when test="${empty medRecordAllergiesList}">
+												No allergies
+											</c:when>
 											<c:otherwise>
-												<c:forEach items="${medRecordSurgicalProblemsList}" var="surgery">
-													<div>
-														Problem: ${surgery.getSurgicalRelatedProblem()}<br /> 
-														Problem area: ${surgery.getProblemArea()}<br />
-														Procedure: ${surgery.getSurgicalProcedure()}<br />
-														Procedure year: ${surgery.getSurgicalProcedure()}<br />
-													</div>
+												<c:forEach items="${medRecordAllergiesList}" var="allergy">
+													${allergy.getAllergyName()}, 
 												</c:forEach>	
 											</c:otherwise>
-											</c:choose>	
-											</p>
-										</div>
- 										-->
-										<button class="med-record-accordion">Nurse notes</button>
-										<div id="medRecNurseNotes" class="med-record-panel">
-											<ul id="nurseNoteUl"><!-- Populated in medicalrecord.js --></ul>
-										</div>
-										<button class="med-record-accordion">Personal details</button>
-										<div id="medRecPersonalDetails" class="med-record-panel">
-											<ul id="personalDetailUl"><!-- Populated in medicalrecord.js --></ul>
-											<!-- 
-											<p>
-											<c:choose>
-											<c:when test="">
-												
-											</c:when>	
 											</c:choose>
-											</p>	
- 											-->
+											</p>
+										-->
 										</div>
-										
-										<!-- MODAL -->
-										<div id="medRecModal" class="modal">
-										  <div class="modal-content">
-											<span class="close" onclick="closeModal()">&times;</span>
-											<div id="medRecModalData"></div>
-										  </div>
+									</fieldset>
+									<fieldset class="modal-fieldset">
+										<legend class="modal-legend">Medications</legend>							
+										<div id="medRecMedication" class="modal-fieldset-content">
+											<ul id="medicationUl"><!-- Populated in medicalrecord.js --></ul>
 										</div>
+									</fieldset>
+									<button class="med-record-accordion">Immunizations</button>
+									<div id="medRecImmunizations" class="med-record-panel">
+										<ul id="immunizationUl"><!-- Populated in medicalrecord.js --></ul>
 									</div>
+									<button class="med-record-accordion">Family Illnesses</button>
+									<div id="medRecFamilyIllnesses" class="med-record-panel">
+										<ul id="familyIllnessUl"><!-- Populated in medicalrecord.js --></ul>
+									</div>
+									<!-- 
+									<button class="med-record-accordion">Surgery-related problems</button>
+									<div id="medRecSurgProbs" class="med-record-panel">
+										<ul id="surgeryUl"></ul>
+										<p>
+										<c:choose>
+										<c:when test="${empty medRecordSurgicalProblemsList}">
+											No surgical history	
+										</c:when>	
+										<c:otherwise>
+											<c:forEach items="${medRecordSurgicalProblemsList}" var="surgery">
+												<div>
+													Problem: ${surgery.getSurgicalRelatedProblem()}<br /> 
+													Problem area: ${surgery.getProblemArea()}<br />
+													Procedure: ${surgery.getSurgicalProcedure()}<br />
+													Procedure year: ${surgery.getSurgicalProcedure()}<br />
+												</div>
+											</c:forEach>	
+										</c:otherwise>
+										</c:choose>	
+										</p>
+									</div>
+									 -->
+									<button class="med-record-accordion">Nurse notes</button>
+									<div id="medRecNurseNotes" class="med-record-panel">
+										<ul id="nurseNoteUl"><!-- Populated in medicalrecord.js --></ul>
+									</div>
+									<button class="med-record-accordion">Personal details</button>
+									<div id="medRecPersonalDetails" class="med-record-panel">
+										<ul id="personalDetailUl"><!-- Populated in medicalrecord.js --></ul>
+										<!-- 
+										<p>
+										<c:choose>
+										<c:when test="">
+											
+										</c:when>	
+										</c:choose>
+										</p>	
+										 -->
+									</div>
+									
+									<!-- MODAL -->
+									<div id="medRecModal" class="modal">
+									  <div class="modal-content">
+										<span class="close" onclick="closeModal()">&times;</span>
+										<div id="medRecModalData"></div>
+									  </div>
+									</div>
+								</div>
 						</div>
 
 						<div id="secondTab" class="tab-content">
