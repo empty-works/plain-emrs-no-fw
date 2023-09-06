@@ -150,10 +150,10 @@
 										<div id="medRecFamilyIllnesses" class="med-record-panel">
 											<ul id="familyIllnessUl"><!-- Populated in medicalrecord.js --></ul>
 										</div>
+										<!-- 
 										<button class="med-record-accordion">Surgery-related problems</button>
 										<div id="medRecSurgProbs" class="med-record-panel">
-											<ul id="surgeryUl"><!-- Populated in medicalrecord.js --></ul>
-											<!-- 
+											<ul id="surgeryUl"></ul>
 											<p>
 											<c:choose>
 											<c:when test="${empty medRecordSurgicalProblemsList}">
@@ -171,8 +171,8 @@
 											</c:otherwise>
 											</c:choose>	
 											</p>
- 										-->
 										</div>
+ 										-->
 										<button class="med-record-accordion">Nurse notes</button>
 										<div id="medRecNurseNotes" class="med-record-panel">
 											<ul id="nurseNoteUl"><!-- Populated in medicalrecord.js --></ul>

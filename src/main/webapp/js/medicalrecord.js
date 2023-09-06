@@ -121,23 +121,8 @@ function displayPatientData(parsedPatientData) {
 			familyIllnessUl.appendChild(familyIllness);
 		}
 	}
-	// Chief Complaints 
-	var chiefComplaintsList = parsedPatientData.chiefComplaintsList;
-	if(!chiefComplaintsList || chiefComplaintsList.length == 0) {
-		const noChiefComplaint = document.createElement('p');
-		noChiefComplaint.innerText = 'No record of chief complaints.';
-		document.getElementById('chiefComplaintUl').appendChild(noChiefComplaint);
-	}
-	else {
-		var chiefComplaintsUl = document.getElementById('chiefComplaintUl');
-		for(let i = 0; i < chiefComplaintsList.length; i++) {
-			const chiefComplaint = document.createElement('li');
-			var chiefComplaintText = chiefComplaintsList[i].chiefComplaintId + " " + chiefComplaintsList[i].statement;	
-			chiefComplaint.textContent = chiefComplaintText;
-			chiefComplaintsUl.appendChild(chiefComplaint);
-		}
-	}
 	// Surgery-related Problems
+	/*
 	var surgeriesList = parsedPatientData.surgicalProblemsList;
 	if(!surgeriesList || surgeriesList.length == 0) {
 		const noSurgery = document.createElement('p');
@@ -153,6 +138,7 @@ function displayPatientData(parsedPatientData) {
 			surgeryUl.appendChild(surgery);
 		}
 	}
+	*/
 	// Nurse Notes
 	var nurseNotesList = parsedPatientData.nurseNotesList;
 	if(!nurseNotesList || nurseNotesList.length == 0) {
@@ -227,6 +213,24 @@ function displayPatientData(parsedPatientData) {
 		const pd15 = document.createElement('li');
 		pd15.textContent = 'IP address: ' + patientData.ipAddress;
 		personalDetailUl.appendChild(pd15);
+	}
+	
+	
+	// Chief Complaints 
+	var chiefComplaintsList = parsedPatientData.chiefComplaintsList;
+	if(!chiefComplaintsList || chiefComplaintsList.length == 0) {
+		const noChiefComplaint = document.createElement('p');
+		noChiefComplaint.innerText = 'No record of chief complaints.';
+		document.getElementById('chiefComplaintUl').appendChild(noChiefComplaint);
+	}
+	else {
+		var chiefComplaintsUl = document.getElementById('chiefComplaintUl');
+		for(let i = 0; i < chiefComplaintsList.length; i++) {
+			const chiefComplaint = document.createElement('li');
+			var chiefComplaintText = chiefComplaintsList[i].chiefComplaintId + " " + chiefComplaintsList[i].statement;	
+			chiefComplaint.textContent = chiefComplaintText;
+			chiefComplaintsUl.appendChild(chiefComplaint);
+		}
 	}
 }
 
