@@ -218,12 +218,25 @@ function displayPatientData(parsedPatientData) {
 	
 	// Chief Complaints 
 	var chiefComplaintsList = parsedPatientData.chiefComplaintsList;
+	var chiefComplaintDiv = document.getElementById('medRecChiefComplaint');
 	if(!chiefComplaintsList || chiefComplaintsList.length == 0) {
 		const noChiefComplaint = document.createElement('p');
 		noChiefComplaint.innerText = 'No record of chief complaints.';
-		document.getElementById('chiefComplaintUl').appendChild(noChiefComplaint);
+		chiefComplaintDiv.appendChild(noChiefComplaint);
 	}
 	else {
+		for(let i = 0; i < chiefComplaintsList.length; i++) {
+			var chiefComplaintButton = document.createElement('button');
+			chiefComplaintButton.classList.add("med-record-accordion");
+			chiefComplaintButton.innerText = chiefComplaintsList[i].statement;
+			chiefComplaintDiv.appendChild(chiefComplaintButton);
+			var ccDetails = document.createElement('div');
+			ccDetails.setAttribute("id", "medRecPersonalDetails");
+			ccDetails.classList.add("med-record-panel");
+			chiefComplaintDiv.appendChild(ccDetails);
+		}
+			
+		/*
 		var chiefComplaintsUl = document.getElementById('chiefComplaintUl');
 		for(let i = 0; i < chiefComplaintsList.length; i++) {
 			const chiefComplaint = document.createElement('li');
@@ -231,6 +244,7 @@ function displayPatientData(parsedPatientData) {
 			chiefComplaint.textContent = chiefComplaintText;
 			chiefComplaintsUl.appendChild(chiefComplaint);
 		}
+		*/
 	}
 }
 

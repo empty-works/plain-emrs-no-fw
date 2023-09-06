@@ -206,12 +206,15 @@
 						<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
 							<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
 						</c:if>
+							<div id="medRecChiefComplaint" class="modal-fieldset-content"></div>
+							<!--  
 							<fieldset class="modal-fieldset">
 								<legend class="modal-legend">Chief Complaints</legend>							
 								<div id="medRecChiefComplaint" class="modal-fieldset-content">
-									<ul id="chiefComplaintUl"><!-- Populated in medicalrecord.js --></ul>
+									<ul id="chiefComplaintUl"></ul>
 								</div>
 							</fieldset>
+							-->
 								<!-- 
 							<ul id="chiefComplaintUl" class="encounter-list">
 								<c:choose>
@@ -232,11 +235,10 @@
 							</ul>
 							
  								-->
+ 							<!-- 
 							<fieldset class="modal-fieldset">
 								<legend class="modal-legend">Vitals ${medRecordVitals.getDateTaken()}</legend>							
-								<!-- Vitals edit link -->
 								<button id="vitalsEditButton" class="edit-link">Edit</button>
-								<!-- Vitals edit modal -->
 								<div id="vitalsEditModal" class="med-rec-modal">
 									<div class="vitals-edit-modal-content">
 										<span id="vitalsEditSpan" class="close-med-rec-modal">&times;</span>
@@ -260,6 +262,8 @@
 									</div>
 								</div>
 							</fieldset>
+ 							-->
+ 							<!-- 
 							<button class="med-record-accordion">Review of systems</button>
 							<div id="medRecRos" class="med-record-panel">
 								<p>
@@ -289,6 +293,7 @@
 								</c:choose>
 								</p>
 							</div>
+ 							-->
 						</div>
 					</div>
 					</div>
