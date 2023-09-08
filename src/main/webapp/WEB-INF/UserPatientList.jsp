@@ -210,7 +210,7 @@
 							<div id="medRecChiefComplaint" class="modal-fieldset-content">
 								<!-- Inside medicalrecord.js -->	
 							</div>
-							<button id="backToChiefComplaintsList">Back to chief complaints</button>
+							<button id="backToChiefComplaintsListButton" style="display: none;">Back to chief complaints</button>
 							<form id="addChiefComplaintForm" style="display: none;">
 								<!-- Inside medicalrecord.js -->
 							</form>
@@ -331,10 +331,31 @@
 		  panel.style.maxHeight = null;
 		}
 		
+		/***************************Chief complaints toggle************************************/
 		// Toggle between the chief complaints list and add chief complaint form
 		const chiefComplaintsList = document.getElementById("medRecChiefComplaint");
 		const addChiefComplaintsForm = document.getElementById("addChiefComplaintForm");
+		const addChiefComplaintButton = document.getElementById("addChiefComplaintButton");
+		const backToChiefComplaintsListButton = document.getElementById("backToChiefComplaintsListButton");
 		
+		// Event listeners
+		addChiefComplaintButton.addEventListener('click', () => {
+			// Hide the list and show the add chief complaint form
+			chiefComplaintsList.style.display = 'none';
+			addChiefComplaintsForm.style.display = 'block';
+			addChiefComplaintButton.style.display = 'none';
+			backToChiefComplaintsListButton.style.display = 'block'
+		});
+		
+		backToChiefComplaintsList.addEventListener('click', () => {
+			// Hide the chief complaint form and show the list
+			chiefComplaintsList.style.display = 'block';
+			addChiefComplaintsForm.style.display = 'none';
+			addChiefComplaintButton.style.display = 'block';
+			backToChiefComplaintsListButton.style.display = 'none'
+		});
+
+		/**************************************************************************************/
 		
 		function changeTab(index) {
 			  // Get all tab buttons and tab contents

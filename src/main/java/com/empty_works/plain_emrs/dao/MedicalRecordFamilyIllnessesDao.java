@@ -15,7 +15,7 @@ public class MedicalRecordFamilyIllnessesDao {
 	public static List<MedicalRecordFamilyIllnessesBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordFamilyIllnessesBean> medRecordFamilyIllnessesBeanList = new ArrayList<>();
-		String query = "SELECT illness_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents "
+		String query = "SELECT family_illness_id, illness, father, mother, brothers, sisters, sons, daughters, grandparents "
 				+ "FROM family_illnesses "
 				+ "WHERE medical_record_id=?";
 
@@ -28,7 +28,7 @@ public class MedicalRecordFamilyIllnessesDao {
 				ResultSet rs = preparedStatement.executeQuery();
 				while(rs.next()) {
 					MedicalRecordFamilyIllnessesBean medRecordFamilyIllnessesBean = new MedicalRecordFamilyIllnessesBean();
-					medRecordFamilyIllnessesBean.setIllnessId(rs.getInt("illness_id"));
+					medRecordFamilyIllnessesBean.setIllnessId(rs.getInt("family_illness_id"));
 					medRecordFamilyIllnessesBean.setIllness(rs.getString("illness"));
 					medRecordFamilyIllnessesBean.setIllnessFather(rs.getBoolean("father"));
 					medRecordFamilyIllnessesBean.setIllnessMother(rs.getBoolean("mother"));
