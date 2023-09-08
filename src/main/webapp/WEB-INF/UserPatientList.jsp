@@ -344,15 +344,15 @@
 			chiefComplaintsList.style.display = 'none';
 			addChiefComplaintsForm.style.display = 'block';
 			addChiefComplaintButton.style.display = 'none';
-			backToChiefComplaintsListButton.style.display = 'block'
+			backToChiefComplaintsListButton.style.display = 'block';
 		});
 		
-		backToChiefComplaintsList.addEventListener('click', () => {
+		backToChiefComplaintsListButton.addEventListener('click', () => {
 			// Hide the chief complaint form and show the list
 			chiefComplaintsList.style.display = 'block';
 			addChiefComplaintsForm.style.display = 'none';
 			addChiefComplaintButton.style.display = 'block';
-			backToChiefComplaintsListButton.style.display = 'none'
+			backToChiefComplaintsListButton.style.display = 'none';
 		});
 
 		/**************************************************************************************/
