@@ -203,10 +203,17 @@
 
 						<div id="secondTab" class="tab-content">
 
-						<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
-							<div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>
-						</c:if>
-							<div id="medRecChiefComplaint" class="modal-fieldset-content"></div>
+							<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
+								<button id="addChiefComplaintButton">Add a chief complaint</button>
+								<!--  <div><a href="${pageContext.request.contextPath}/MedicalRecordAddChiefComplaintServlet?userPatientId=${userPatientId}">Add Chief Complaint</a></div>-->
+							</c:if>
+							<div id="medRecChiefComplaint" class="modal-fieldset-content">
+								<!-- Inside medicalrecord.js -->	
+							</div>
+							<button id="backToChiefComplaintsList">Back to chief complaints</button>
+							<form id="addChiefComplaintForm" style="display: none;">
+								<!-- Inside medicalrecord.js -->
+							</form>
 							<!--  
 							<fieldset class="modal-fieldset">
 								<legend class="modal-legend">Chief Complaints</legend>							
@@ -323,6 +330,11 @@
 		  var panel = acc[i].nextElementSibling;
 		  panel.style.maxHeight = null;
 		}
+		
+		// Toggle between the chief complaints list and add chief complaint form
+		const chiefComplaintsList = document.getElementById("medRecChiefComplaint");
+		const addChiefComplaintsForm = document.getElementById("addChiefComplaintForm");
+		
 		
 		function changeTab(index) {
 			  // Get all tab buttons and tab contents

@@ -17,6 +17,7 @@ function openPatientModal(contextPath, patientId) {
 		.then(patientData => {
 			// Process the patient data
 			displayPatientData(patientData);
+			loadAddChiefComplaintForm(patientData);
 		})
 		.catch(error => {
 			// Handle any error that occurred during the request
@@ -247,6 +248,18 @@ function displayPatientData(parsedPatientData) {
 		}
 		*/
 	}
+}
+
+function loadAddChiefComplaintForm(parsedPatientData) {
+	var addForm = document.getElementById('addChiefComplaintForm');
+	var medRecordLabel = document.createElement('label');
+	medRecordLabel.innerText = "Medical Record ID: " + parsedPatientData.medicalRecord.medicalRecordId;
+	addForm.appendChild(medRecordLabel);
+	var medRecordInput = document.createElement('input');
+	medRecordInput.id = 'medRecordId';
+	medRecordInput.name = 'medRecordId';
+	medRecordInput.value = parsedPatientData.medicalRecord.medicalRecordId;
+	addForm.appendChild(medRecordInput);
 }
 
 function openMedRecordModal(section, ...dataExample) {
