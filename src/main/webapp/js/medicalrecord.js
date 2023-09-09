@@ -278,6 +278,7 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	statementLabel.htmlFor = "statementText";
 	addForm.appendChild(statementLabel);
 	var statementText = document.createElement('textarea');
+	statementText.setAttribute("required", "");
 	statementText.id = "statementText";
 	statementText.name = "statementText";
 	statementText.rows = "4";
@@ -295,6 +296,14 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	fetch("https://worldtimeapi.org/api/timezone/"+tz)
   		.then(response => response.json())
   		.then(data => chiefComplaintDateInput.value = data.datetime);
+
+	// Submit button
+	var chiefComplaintFormSubmit = document.createElement('button');
+	chiefComplaintFormSubmit.type = "submit";
+	chiefComplaintFormSubmit.id = "chiefComplaintFormSubmit";
+	chiefComplaintFormSubmit.name = "chiefComplaintFormSubmit";
+	chiefComplaintFormSubmit.innerText = "Add chief complaint";
+	addForm.appendChild(chiefComplaintFormSubmit);
 }
 
 function openMedRecordModal(section, ...dataExample) {
