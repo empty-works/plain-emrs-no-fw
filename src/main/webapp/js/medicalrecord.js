@@ -254,12 +254,47 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	var addForm = document.getElementById('addChiefComplaintForm');
 	var medRecordLabel = document.createElement('label');
 	medRecordLabel.innerText = "Medical Record ID: " + parsedPatientData.medicalRecord.medicalRecordId;
-	addForm.appendChild(medRecordLabel);
+	var div0 = document.createElement('div');
+	div0.appendChild(medRecordLabel);
+	addForm.appendChild(div0);
 	var medRecordInput = document.createElement('input');
+	medRecordInput.type = 'hidden';
 	medRecordInput.id = 'medRecordId';
 	medRecordInput.name = 'medRecordId';
 	medRecordInput.value = parsedPatientData.medicalRecord.medicalRecordId;
 	addForm.appendChild(medRecordInput);
+	var admissionsIdLabel = document.createElement('label');
+	admissionsIdLabel.innerText = "Admissions ID";
+	admissionsIdLabel.htmlFor = "admissionsIdInput";
+	addForm.appendChild(admissionsIdLabel);
+	var admissionsIdInput = document.createElement('input');
+	admissionsIdInput.id = "admissionsIdInput";
+	admissionsIdInput.name = "admissionsIdInput";
+	var div1 = document.createElement('div');
+	div1.appendChild(admissionsIdInput);
+	addForm.appendChild(div1);
+	var statementLabel = document.createElement('label');
+	statementLabel.innerText = "Statement";
+	statementLabel.htmlFor = "statementText";
+	addForm.appendChild(statementLabel);
+	var statementText = document.createElement('textarea');
+	statementText.id = "statementText";
+	statementText.name = "statementText";
+	statementText.rows = "4";
+	statementText.cols = "50";
+	var div2 = document.createElement('div');
+	div2.appendChild(statementText);
+	addForm.appendChild(div2);
+	
+	// Current date time is automatically submitted.
+	var chiefComplaintDateInput = document.createElement('input');
+	chiefComplaintDateInput.type = "hidden";
+	chiefComplaintDateInput.id = "chiefComplaintDateInput";
+	chiefComplaintDateInput.name = "chiefComplaintDateInput";
+	const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	fetch("https://worldtimeapi.org/api/timezone/"+tz)
+  		.then(response => response.json())
+  		.then(data => chiefComplaintDateInput.value = data.datetime);
 }
 
 function openMedRecordModal(section, ...dataExample) {
