@@ -281,7 +281,7 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	statementText.setAttribute("required", "");
 	statementText.id = "statementText";
 	statementText.name = "statementText";
-	statementText.rows = "4";
+	statementText.rows = "3";
 	statementText.cols = "50";
 	var div2 = document.createElement('div');
 	div2.appendChild(statementText);
@@ -297,6 +297,120 @@ function loadAddChiefComplaintForm(parsedPatientData) {
   		.then(response => response.json())
   		.then(data => chiefComplaintDateInput.value = data.datetime);
 
+	// Location of chief complaint
+	var locationLabel = document.createElement('label');
+	locationLabel.innerText = "Location";
+	locationLabel.htmlFor = "locationInput";
+	addForm.appendChild(locationLabel);
+	var locationInput = document.createElement('textarea');
+	locationInput.id = "locationInput";
+	locationInput.name = "locationInput";
+	locationInput.rows = "1";
+	locationInput.cols = "50";
+	var div3 = document.createElement('div');
+	div3.appendChild(locationInput);
+	addForm.appendChild(div3);
+	
+	// Character of chief complaint
+	var characterLabel = document.createElement('label');
+	characterLabel.innerText = "Character";
+	characterLabel.htmlFor = "characterInput";
+	addForm.appendChild(characterLabel);
+	var characterInput = document.createElement('textarea');
+	characterInput.id = "characterInput";
+	characterInput.name = "characterInput";
+	characterInput.rows = "1";
+	characterInput.cols = "50";
+	var div4 = document.createElement('div');
+	div4.appendChild(characterInput);
+	addForm.appendChild(div4);
+	
+	// Duration of chief complaint
+	var durationLabel = document.createElement('label');
+	durationLabel.innerText = "Duration";
+	durationLabel.htmlFor = "durationInput";
+	addForm.appendChild(durationLabel);
+	var durationInput = document.createElement('textarea');
+	durationInput.id = "durationInput";
+	durationInput.name = "durationInput";
+	durationInput.rows = "1";
+	durationInput.cols = "50";
+	var div5 = document.createElement('div');
+	div5.appendChild(durationInput);
+	addForm.appendChild(div5);
+	
+	// Onset of chief complaint
+	var onsetLabel = document.createElement('label');
+	onsetLabel.innerText = "Onset";
+	onsetLabel.htmlFor = "onsetInput";
+	addForm.appendChild(onsetLabel);
+	var onsetInput = document.createElement('textarea');
+	onsetInput.id = "onsetInput";
+	onsetInput.name = "onsetInput";
+	onsetInput.rows = "1";
+	onsetInput.cols = "50";
+	var div6 = document.createElement('div');
+	div6.appendChild(onsetInput);
+	addForm.appendChild(div6);
+	
+	// Modifying factors
+	var modifyingFactorsLabel = document.createElement('label');
+	modifyingFactorsLabel.innerText = "Modifying Factors";
+	modifyingFactorsLabel.htmlFor = "modifyingFactorsInput";
+	addForm.appendChild(modifyingFactorsLabel);
+	var modifyingFactorsInput = document.createElement('textarea');
+	modifyingFactorsInput.id = "modifyingFactorsInput";
+	modifyingFactorsInput.name = "modifyingFactorsInput";
+	modifyingFactorsInput.rows = "3";
+	modifyingFactorsInput.cols = "50";
+	var div7 = document.createElement('div');
+	div7.appendChild(modifyingFactorsInput);
+	addForm.appendChild(div7);
+	
+	// Radiation
+	var radiationLabel = document.createElement('label');
+	radiationLabel.innerText = "Radiation";
+	radiationLabel.htmlFor = "radiationInput";
+	addForm.appendChild(radiationLabel);
+	var radiationInput = document.createElement('textarea');
+	radiationInput.id = "radiationInput";
+	radiationInput.name = "radiationInput";
+	radiationInput.rows = "3";
+	radiationInput.cols = "50";
+	var div8 = document.createElement('div');
+	div8.appendChild(radiationInput);
+	addForm.appendChild(div8);
+	
+	// Temporal pattern
+	var temporalPatternLabel = document.createElement('label');
+	temporalPatternLabel.innerText = "Temporal Pattern";
+	temporalPatternLabel.htmlFor = "temporalPatternInput";
+	addForm.appendChild(temporalPatternLabel);
+	var temporalPatternInput = document.createElement('textarea');
+	temporalPatternInput.id = "temporalPatternInput";
+	temporalPatternInput.name = "temporalPatternInput";
+	temporalPatternInput.rows = "3";
+	temporalPatternInput.cols ="50";
+	var div9 = document.createElement('div');
+	div9.appendChild(temporalPatternInput);
+	addForm.appendChild(div9);
+	
+	// Severity
+	var severityLabel = document.createElement('label');
+	severityLabel.innerText = "Severity";
+	severityLabel.htmlFor = "severityInput";
+	addForm.appendChild(severityLabel);
+	var severityInput = document.createElement('textarea');
+	severityInput.id = "severityInput";
+	severityInput.name = "severityInput";
+	severityInput.rows = "1";
+	severityInput.cols = "50";
+	var div10 = document.createElement('div');
+	div10.appendChild(severityInput);
+	addForm.appendChild(div10);
+	
+	// Description
+
 	// Submit button
 	var chiefComplaintFormSubmit = document.createElement('button');
 	chiefComplaintFormSubmit.type = "submit";
@@ -304,6 +418,17 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	chiefComplaintFormSubmit.name = "chiefComplaintFormSubmit";
 	chiefComplaintFormSubmit.innerText = "Add chief complaint";
 	addForm.appendChild(chiefComplaintFormSubmit);
+}
+
+// Handle the submit functionality for the add chief complaints form
+document.getElementById('addChiefComplaintForm').addEventListener("submit", function(event) {
+	event.preventDefault();
+	// Handle the form data
+	sendChiefComplaintData();
+});
+
+function sendChiefComplaintData() {
+	
 }
 
 function openMedRecordModal(section, ...dataExample) {

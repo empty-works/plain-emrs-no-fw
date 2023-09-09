@@ -297,6 +297,11 @@
   color: #888;
 }
 
+textarea {
+	resize: none;	
+	padding: 10px;
+}
+
 #tabsContainer {
 	flex: 2;
 	background-color: var(--off-white);
