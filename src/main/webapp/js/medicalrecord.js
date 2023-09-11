@@ -261,6 +261,8 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	medRecordInput.type = 'hidden';
 	medRecordInput.id = 'medRecordId';
 	medRecordInput.name = 'medRecordId';
+	
+	// Admissions ID
 	medRecordInput.value = parsedPatientData.medicalRecord.medicalRecordId;
 	addForm.appendChild(medRecordInput);
 	var admissionsIdLabel = document.createElement('label');
@@ -273,6 +275,8 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	var div1 = document.createElement('div');
 	div1.appendChild(admissionsIdInput);
 	addForm.appendChild(div1);
+	
+	// Statement
 	var statementLabel = document.createElement('label');
 	statementLabel.innerText = "Statement";
 	statementLabel.htmlFor = "statementText";
@@ -281,7 +285,7 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	statementText.setAttribute("required", "");
 	statementText.id = "statementText";
 	statementText.name = "statementText";
-	statementText.rows = "3";
+	statementText.rows = "2";
 	statementText.cols = "50";
 	var div2 = document.createElement('div');
 	div2.appendChild(statementText);
@@ -410,6 +414,18 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	addForm.appendChild(div10);
 	
 	// Description
+	var descriptionLabel = document.createElement('label');
+	descriptionLabel.innerText = "Description";
+	descriptionLabel.htmlFor = "descriptionInput";
+	addForm.appendChild(descriptionLabel);
+	var descriptionInput = document.createElement('textarea');
+	descriptionInput.id = "descriptionInput";
+	descriptionInput.name = "descriptionInput";
+	descriptionInput.rows = "1";
+	descriptionInput.cols = "50";
+	var div11 = document.createElement('div');
+	div11.appendChild(descriptionInput);
+	addForm.appendChild(div11);
 
 	// Submit button
 	var chiefComplaintFormSubmit = document.createElement('button');
@@ -428,7 +444,26 @@ document.getElementById('addChiefComplaintForm').addEventListener("submit", func
 });
 
 function sendChiefComplaintData() {
+	const form = document.getElementById('addChiefComplaintForm');
+	const addChiefComplaintFormData = new FormData(form);
 	
+	fetch("/MedicalRecordAddChiefComplaintServlet", {
+		method: "POST",
+		body: addChiefComplaintFormData,
+	})
+		.then(response => {
+			if(response.ok) {
+				console.log("Data sent successfully.");
+				// TODO: update the modal
+			} else {
+				// TODO: Handle any errors
+				console.log("Sending data failed.");
+			}
+		})
+		.catch(error => {
+			// TODO: Handle network errors
+			console.error("Network error: ", error);
+		});
 }
 
 function openMedRecordModal(section, ...dataExample) {
