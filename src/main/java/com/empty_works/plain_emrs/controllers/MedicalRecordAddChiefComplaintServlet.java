@@ -3,6 +3,7 @@ package com.empty_works.plain_emrs.controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,6 +40,14 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/plain");
+		
+		// Get the form data as a map
+		Map<String, String[]> formData = request.getParameterMap();
+		
+		// Access individual form fields by their names
+		
 
 		MedicalRecordChiefComplaintsBean chiefComplaints = new MedicalRecordChiefComplaintsBean();
 		MedicalRecordVitalsBean vitals = new MedicalRecordVitalsBean();
