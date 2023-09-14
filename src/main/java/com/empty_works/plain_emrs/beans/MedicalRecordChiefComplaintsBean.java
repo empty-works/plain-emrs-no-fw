@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 public class MedicalRecordChiefComplaintsBean implements MedicalRecordInterface {
 
 	private String medicalRecordId;
-	private String chiefComplaintId;
+	private int chiefComplaintId;
 	private int admissionsId;
 	private String statement;
 	private LocalDateTime date;
 	
-	public String getChiefComplaintId() {
+	public int getChiefComplaintId() {
 		return chiefComplaintId;
 	}
 
-	public void setChiefComplaintId(String chiefComplaintId) {
+	public void setChiefComplaintId(int chiefComplaintId) {
 		this.chiefComplaintId = chiefComplaintId;
 	}
 

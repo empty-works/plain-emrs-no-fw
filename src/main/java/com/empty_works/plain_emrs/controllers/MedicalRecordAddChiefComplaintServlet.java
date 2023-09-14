@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordHistoriesPresentIllnessBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordROSBean;
 import com.empty_works.plain_emrs.beans.MedicalRecordVitalsBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordChiefComplaintsDao;
@@ -49,20 +50,22 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		// Access individual form fields by their names
 		
 
-		MedicalRecordChiefComplaintsBean chiefComplaints = new MedicalRecordChiefComplaintsBean();
-		MedicalRecordVitalsBean vitals = new MedicalRecordVitalsBean();
-		MedicalRecordROSBean ros = new MedicalRecordROSBean();
+		MedicalRecordChiefComplaintsBean chiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
+		MedicalRecordHistoriesPresentIllnessBean hpiBean = new MedicalRecordHistoriesPresentIllnessBean();
+		//MedicalRecordVitalsBean vitals = new MedicalRecordVitalsBean();
+		//MedicalRecordROSBean ros = new MedicalRecordROSBean();
 		LocalDateTime currentDate = LocalDateTime.now();
 		
 		HttpSession session = request.getSession();
 		String medRecordId = (String)session.getAttribute("medRecordId");
 		System.out.println("MedicalRecordAddChiefComplaintServlet med ID: " + medRecordId);
 		String chiefComplaintId = ChiefComplaintIdUtil.get(medRecordId);
-		chiefComplaints.setMedicalRecordId(medRecordId);
-		chiefComplaints.setChiefComplaintId(chiefComplaintId);
-		chiefComplaints.setDate(currentDate);
-		chiefComplaints.setStatement(request.getParameter("chiefComplaintInput"));
+		chiefComplaintsBean.setMedicalRecordId(medRecordId);
+		chiefComplaintsBean.setChiefComplaintId(chiefComplaintId);
+		chiefComplaintsBean.setDate(currentDate);
+		chiefComplaintsBean.setStatement(request.getParameter("chiefComplaintInput"));
 		
+		/*
 		vitals.setMedicalRecordId(medRecordId);
 		vitals.setDateTaken(currentDate);
 		vitals.setHeight(Double.parseDouble(request.getParameter("vitalsHeightCm")));
@@ -92,12 +95,13 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		ros.setEndocrine(request.getParameter("rosEndocrine"));
 		ros.setHematologicLymphatic(request.getParameter("rosHematologicLymphatic"));
 		ros.setAllergicImmunologic(request.getParameter("rosAllergicImmunologic"));
+		*/
 		
 		// DAOs
 		try {
 			MedicalRecordChiefComplaintsDao.add(chiefComplaints);
-			MedicalRecordVitalsDao.add(vitals);
-			MedicalRecordROSDao.add(ros);
+			//MedicalRecordVitalsDao.add(vitals);
+			//MedicalRecordROSDao.add(ros);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
