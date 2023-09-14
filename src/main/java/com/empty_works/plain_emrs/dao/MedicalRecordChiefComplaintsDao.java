@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
+import com.empty_works.plain_emrs.beans.MedicalRecordHistoriesPresentIllnessBean;
 import com.empty_works.plain_emrs.util.ConnectionUtil;
 
 /**
@@ -57,7 +58,7 @@ public class MedicalRecordChiefComplaintsDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) throws SQLException {
+	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean, MedicalRecordHistoriesPresentIllnessBean hpiBean) throws SQLException {
 		
 		/*
 		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
@@ -67,25 +68,49 @@ public class MedicalRecordChiefComplaintsDao {
 				+ "modifying_factors, radiation, temporal_pattern, severity, description) "
 				+ "VALUES (@last_chief_complaint_id,?,?,?,?,?,?,?,?,?)";
 		*/
-		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
+		String chiefComplaintQuery = "INSERT INTO chief_complaints(medical_record_id, admissions_id, statement, chief_complaint_date) "
 				+ "VALUES (?,?,?,?,?)";
+		
+		String hpiQuery = "INSERT INTO histories_present_illness(chief_complaint_id, medical_record_id, location, character, duration, onset, "
+				+ "modifying_factors, radiation, temporal_pattern, severity, description) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		int success = 0;
 		
 		try(Connection con = ConnectionUtil.getConnection()) {
 			
-			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
+			ResultSet generatedCCKeys;
+			int lastChiefComplaintId = -1;
+			try(PreparedStatement chiefComplaintPreparedStatement = con.prepareStatement(chiefComplaintQuery)) {
 				System.out.println("Writing to the chief_complaints table...");
-				preparedStatement.setString(1, medRecordChiefComplaintsBean.getChiefComplaintId());
-				preparedStatement.setString(2, medRecordChiefComplaintsBean.getMedicalRecordId());
-				preparedStatement.setInt(3, medRecordChiefComplaintsBean.getAdmissionsId());
-				preparedStatement.setString(4, medRecordChiefComplaintsBean.getStatement());
-				preparedStatement.setTimestamp(5, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
-				success = preparedStatement.executeUpdate();
+				chiefComplaintPreparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
+				chiefComplaintPreparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
+				chiefComplaintPreparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
+				chiefComplaintPreparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
+				success = chiefComplaintPreparedStatement.executeUpdate();
+				
+				generatedCCKeys = chiefComplaintPreparedStatement.getGeneratedKeys();
+				if(generatedCCKeys.next()) {
+					lastChiefComplaintId = generatedCCKeys.getInt(1);
+				}
+			}
+			
+			try(PreparedStatement hpiPreparedStatement = con.prepareStatement(hpiQuery)) {
+				System.out.println("Writing to the histories_present_illness...");
+				hpiPreparedStatement.setInt(1, lastChiefComplaintId);
+				hpiPreparedStatement.setString(2, hpiBean.getMedicalRecordId());
+				hpiPreparedStatement.setString(3, hpiBean.getLocation());
+				hpiPreparedStatement.setString(4, hpiBean.getCharacter());
+				hpiPreparedStatement.setString(5, hpiBean.getDuration());
+				hpiPreparedStatement.setString(6, hpiBean.getOnset());
+				hpiPreparedStatement.setString(7, hpiBean.getModifyingFactors());
+				hpiPreparedStatement.setString(8, hpiBean.getRadiation());
+				hpiPreparedStatement.setString(9, hpiBean.getTemporalPattern());
+				hpiPreparedStatement.setString(10, hpiBean.getSeverity());
+				hpiPreparedStatement.setString(11, hpiBean.getDescription());
+				success = hpiPreparedStatement.executeUpdate();
 			}
 		}
-		
-		
 		
 		return success;
 	}

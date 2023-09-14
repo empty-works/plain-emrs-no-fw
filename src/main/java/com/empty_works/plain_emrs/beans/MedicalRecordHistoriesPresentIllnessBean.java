@@ -13,6 +13,7 @@ public class MedicalRecordHistoriesPresentIllnessBean implements MedicalRecordIn
 	private String radiation;
 	private String temporalPattern;
 	private String severity;
+	private String description;
 	
 	public int getHistoryPresentIllnessId() {
 		return historyPresentIllnessId;
@@ -102,5 +103,13 @@ public class MedicalRecordHistoriesPresentIllnessBean implements MedicalRecordIn
 	@Override
 	public String getMedicalRecordId() {
 		return medicalRecordId;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
