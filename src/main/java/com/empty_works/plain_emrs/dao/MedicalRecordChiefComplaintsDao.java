@@ -59,19 +59,22 @@ public class MedicalRecordChiefComplaintsDao {
 	 */
 	public static int add(MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean) throws SQLException {
 		
+		/*
 		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
 				+ "VALUES (?,?,?,?,?) "
 				+ "SET @last_chief_complaint_id = LAST_INSERT_ID() "
 				+ "INSERT INTO histories_present_illness(chief_complaint_id, medical_record_id, location, character, duration, onset, "
 				+ "modifying_factors, radiation, temporal_pattern, severity, description) "
 				+ "VALUES (@last_chief_complaint_id,?,?,?,?,?,?,?,?,?)";
+		*/
+		String query = "INSERT INTO chief_complaints(chief_complaint_id, medical_record_id, admissions_id, statement, chief_complaint_date) "
+				+ "VALUES (?,?,?,?,?)";
 		
 		int success = 0;
 		
 		try(Connection con = ConnectionUtil.getConnection()) {
 			
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
-				// TODO: match to query
 				System.out.println("Writing to the chief_complaints table...");
 				preparedStatement.setString(1, medRecordChiefComplaintsBean.getChiefComplaintId());
 				preparedStatement.setString(2, medRecordChiefComplaintsBean.getMedicalRecordId());
@@ -81,6 +84,9 @@ public class MedicalRecordChiefComplaintsDao {
 				success = preparedStatement.executeUpdate();
 			}
 		}
+		
+		
+		
 		return success;
 	}
 	
