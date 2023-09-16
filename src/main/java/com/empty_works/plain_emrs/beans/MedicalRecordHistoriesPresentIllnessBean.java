@@ -4,7 +4,7 @@ public class MedicalRecordHistoriesPresentIllnessBean implements MedicalRecordIn
 
 	private int historyPresentIllnessId;
 	private String medicalRecordId;
-	private int chiefComplaintId;
+	private String chiefComplaintId;
 	private String location;
 	private String character;
 	private String duration;
@@ -23,11 +23,11 @@ public class MedicalRecordHistoriesPresentIllnessBean implements MedicalRecordIn
 		this.historyPresentIllnessId = historyPresentIllnessId;
 	}
 
-	public int getChiefComplaintId() {
+	public String getChiefComplaintId() {
 		return chiefComplaintId;
 	}
 
-	public void setChiefComplaintId(int chiefComplaintId) {
+	public void setChiefComplaintId(String chiefComplaintId) {
 		this.chiefComplaintId = chiefComplaintId;
 	}
 

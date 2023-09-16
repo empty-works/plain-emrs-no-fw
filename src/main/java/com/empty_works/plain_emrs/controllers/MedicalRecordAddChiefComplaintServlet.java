@@ -63,7 +63,20 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		chiefComplaintsBean.setMedicalRecordId(medRecordId);
 		chiefComplaintsBean.setChiefComplaintId(chiefComplaintId);
 		chiefComplaintsBean.setDate(currentDate);
+		chiefComplaintsBean.setAdmissionsId(Integer.parseInt(request.getParameter("admissionsIdInput")));
 		chiefComplaintsBean.setStatement(request.getParameter("chiefComplaintInput"));
+		
+		hpiBean.setMedicalRecordId(medRecordId);
+		hpiBean.setChiefComplaintId(chiefComplaintId);
+		hpiBean.setLocation(request.getParameter("locationInput"));
+		hpiBean.setCharacter(request.getParameter("characterInput"));
+		hpiBean.setDuration(request.getParameter("durationInput"));
+		hpiBean.setOnset(request.getParameter("onsetInput"));
+		hpiBean.setModifyingFactors(request.getParameter("modifyingFactorsInput"));
+		hpiBean.setRadiation(request.getParameter("radiationInput"));
+		hpiBean.setTemporalPattern(request.getParameter("temporalPatternInput"));
+		hpiBean.setSeverity(request.getParameter("severityInput"));
+		hpiBean.setDescription(request.getParameter("descriptionInput"));
 		
 		/*
 		vitals.setMedicalRecordId(medRecordId);
@@ -99,14 +112,15 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		
 		// DAOs
 		try {
-			MedicalRecordChiefComplaintsDao.add(chiefComplaints);
+			MedicalRecordChiefComplaintsDao.add(chiefComplaintsBean, hpiBean);
 			//MedicalRecordVitalsDao.add(vitals);
 			//MedicalRecordROSDao.add(ros);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Forwarding to MedicalRecordLatestChiefComplaint.jsp from MedicalRecordAddChiefComplaintServlet...");
-		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
+		//System.out.println("Forwarding to MedicalRecordLatestChiefComplaint.jsp from MedicalRecordAddChiefComplaintServlet...");
+		//request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
+		
 	}
 }
