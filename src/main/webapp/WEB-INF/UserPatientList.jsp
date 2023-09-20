@@ -201,7 +201,7 @@
 								</div>
 						</div>
 
-						<div id="secondTab" class="tab-content">
+						<div id="medRecordSecondTab" class="tab-content">
 
 							<c:if test = "${sessionScope.rolePair.getRoleDb() == 'ROLE_ADMIN'}">
 								<button id="addChiefComplaintButton">Add a chief complaint</button>

@@ -14,10 +14,10 @@ import com.empty_works.plain_emrs.beans.MedicalRecordChiefComplaintsBean;
 import com.empty_works.plain_emrs.dao.MedicalRecordChiefComplaintsDao;
 
 /**
- * Servlet implementation class MedicalRecordLatestChiefComplaintServlet
+ * Servlet implementation class MedicalRecordChiefComplaintsServlet
  */
-@WebServlet("/MedicalRecordLatestChiefComplaintServlet")
-public class MedicalRecordLatestChiefComplaintServlet extends HttpServlet {
+@WebServlet("/MedicalRecordChiefComplaintsServlet")
+public class MedicalRecordChiefComplaintsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**

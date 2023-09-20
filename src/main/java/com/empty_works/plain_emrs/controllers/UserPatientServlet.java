@@ -52,7 +52,7 @@ import com.empty_works.plain_emrs.dao.UserPatientRaceDao;
  * 
  * NOTE: when selecting a patient this will only run once. So if the user clicks on the chart overview link again, 
  * storing everything in session doesn't need to happen again. This is the reason for this intermediary servlet before 
- * MedicalRecordLatestChiefComplaintServlet.
+ * MedicalRecordChiefComplaintsServlet.
  */
 @WebServlet("/UserPatientServlet")
 public class UserPatientServlet extends HttpServlet {
@@ -253,8 +253,8 @@ public class UserPatientServlet extends HttpServlet {
 		System.out.println("Latest ROS: " + getLatestRosDate(medRecordRosBeanList));
 		session.setAttribute("medRecordRosLatest", getLatestRosDate(medRecordRosBeanList));
 		
-		System.out.println("Forwarding to MedicalRecordLatestChiefComplaintServlet from UserPatientServlet...");
-		//response.sendRedirect(request.getContextPath() + "/MedicalRecordLatestChiefComplaintServlet");
+		System.out.println("Forwarding to MedicalRecordChiefComplaintsServlet from UserPatientServlet...");
+		//response.sendRedirect(request.getContextPath() + "/MedicalRecordChiefComplaintsServlet");
 		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
 		*/
 	}

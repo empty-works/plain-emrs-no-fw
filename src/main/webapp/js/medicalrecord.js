@@ -437,11 +437,40 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 }
 
 // Handle the submit functionality for the add chief complaints form
-document.getElementById('addChiefComplaintForm').addEventListener("submit", function(event) {
+var addChiefComplaintForm = document.getElementById('addChiefComplaintForm');
+addChiefComplaintForm.addEventListener("submit", function(event) {
 	event.preventDefault();
 	// Handle the form data
-	sendChiefComplaintData();
+	var formData = new FormData(addChiefComplaintForm);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/AddUserPatientServlet", true);
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4 && xhr.status === 200) {
+			updateEncountersTab();
+		}
+	};
+	
+	xhr.onerror = function() {
+		console.error("Error adding chief complaint.");
+	}
+	xhr.send(formData);
 });
+
+function updateEncountersTab() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "/MedicalRecordChiefComplaintsServlet", true);
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4 && xhr.status === 200) {
+			document.getElementById("medRecordSecondTab").innerHTML = xhr.responseText;
+		}
+	};
+	
+	xhr.onerror = function () {
+        console.error("Error updating the Encounters tab.");
+    };
+
+    xhr.send();
+}
 
 function sendChiefComplaintData() {
 	const form = document.getElementById('addChiefComplaintForm');
@@ -554,6 +583,11 @@ function clearModalData() {
 	document.getElementById('medicationUl').innerText = "";
 	document.getElementById('immunizationUl').innerText = "";
 	document.getElementById('familyIllnessUl').innerText = "";
+}
+
+function updateModal() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "");
 }
 
 function calculateAge(dateOfBirth) {
