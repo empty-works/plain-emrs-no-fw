@@ -438,12 +438,12 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 
 // Handle the submit functionality for the add chief complaints form
 var addChiefComplaintForm = document.getElementById('addChiefComplaintForm');
-addChiefComplaintForm.addEventListener("submit", function(event) {
+addChiefComplaintForm.addEventListener("chiefComplaintFormSubmit", function(event) {
 	event.preventDefault();
 	// Handle the form data
 	var formData = new FormData(addChiefComplaintForm);
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/AddUserPatientServlet", true);
+	xhr.open("POST", "/MedicalRecordAddChiefComplaintServlet", true);
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState === 4 && xhr.status === 200) {
 			updateEncountersTab();

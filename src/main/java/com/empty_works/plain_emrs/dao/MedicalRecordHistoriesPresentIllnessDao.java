@@ -30,7 +30,7 @@ public class MedicalRecordHistoriesPresentIllnessDao {
 					
 					MedicalRecordHistoriesPresentIllnessBean hpiBean = new MedicalRecordHistoriesPresentIllnessBean();
 					hpiBean.setHistoryPresentIllnessId(rs.getInt("history_present_illness_id"));
-					hpiBean.setChiefComplaintId(rs.getInt("chief_complaint_id"));
+					hpiBean.setChiefComplaintId(rs.getString("chief_complaint_id"));
 					hpiBean.setLocation(rs.getString("location"));
 					hpiBean.setCharacter(rs.getString("character"));
 					hpiBean.setDuration(rs.getString("duration"));
@@ -57,7 +57,7 @@ public class MedicalRecordHistoriesPresentIllnessDao {
 			
 			try(PreparedStatement preparedStatement = con.prepareStatement(query)) {
 				
-				preparedStatement.setInt(1, hpiBean.getChiefComplaintId());
+				preparedStatement.setString(1, hpiBean.getChiefComplaintId());
 				preparedStatement.setString(2, hpiBean.getMedicalRecordId());
 				preparedStatement.setString(3, hpiBean.getLocation());
 				preparedStatement.setString(4, hpiBean.getCharacter());

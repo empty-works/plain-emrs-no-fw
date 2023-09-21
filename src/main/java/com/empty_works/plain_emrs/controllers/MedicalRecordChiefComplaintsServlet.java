@@ -36,8 +36,9 @@ public class MedicalRecordChiefComplaintsServlet extends HttpServlet {
 		request.setAttribute("patientCurrentGender", session.getAttribute("patientCurrentGender"));
 		*/
 		
-		System.out.println("Forwarding to UserPatientChartOverview.jsp...");
-		request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
+		//System.out.println("Forwarding to UserPatientChartOverview.jsp...");
+		//request.getRequestDispatcher("/WEB-INF/MedicalRecordLatestChiefComplaint.jsp").forward(request, response);
+		
 	}
 
 	/**
