@@ -27,7 +27,7 @@ public class MedicalRecordChiefComplaintsDao {
 	public static List<MedicalRecordChiefComplaintsBean> get(String medicalRecordId) throws SQLException {
 		
 		List<MedicalRecordChiefComplaintsBean> medRecordChiefComplaintsBeanList = new ArrayList<>();
-		String query = "SELECT chief_complaint_id, admissions_id, statement, chief_complaint_date "
+		String query = "SELECT chief_complaint_id, statement, chief_complaint_date "
 				+ "FROM chief_complaints "
 				+ "WHERE medical_record_id=?";
 		
@@ -42,7 +42,7 @@ public class MedicalRecordChiefComplaintsDao {
 				while(rs.next()) {
 					MedicalRecordChiefComplaintsBean medRecordChiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
 					medRecordChiefComplaintsBean.setChiefComplaintId(rs.getString("chief_complaint_id"));
-					medRecordChiefComplaintsBean.setAdmissionsId(rs.getInt("admissions_id"));
+					//medRecordChiefComplaintsBean.setAdmissionsId(rs.getInt("admissions_id"));
 					medRecordChiefComplaintsBean.setStatement(rs.getString("statement"));
 					medRecordChiefComplaintsBean.setDate(rs.getObject("chief_complaint_date", LocalDateTime.class));
 					medRecordChiefComplaintsBeanList.add(medRecordChiefComplaintsBean);
@@ -68,8 +68,8 @@ public class MedicalRecordChiefComplaintsDao {
 				+ "modifying_factors, radiation, temporal_pattern, severity, description) "
 				+ "VALUES (@last_chief_complaint_id,?,?,?,?,?,?,?,?,?)";
 		*/
-		String chiefComplaintQuery = "INSERT INTO chief_complaints(medical_record_id, admissions_id, statement, chief_complaint_date) "
-				+ "VALUES (?,?,?,?,?)";
+		String chiefComplaintQuery = "INSERT INTO chief_complaints(medical_record_id, statement, chief_complaint_date) "
+				+ "VALUES (?,?,?)";
 		
 		String hpiQuery = "INSERT INTO histories_present_illness(chief_complaint_id, medical_record_id, location, character, duration, onset, "
 				+ "modifying_factors, radiation, temporal_pattern, severity, description) "
@@ -84,9 +84,9 @@ public class MedicalRecordChiefComplaintsDao {
 			try(PreparedStatement chiefComplaintPreparedStatement = con.prepareStatement(chiefComplaintQuery)) {
 				System.out.println("Writing to the chief_complaints table...");
 				chiefComplaintPreparedStatement.setString(1, medRecordChiefComplaintsBean.getMedicalRecordId());
-				chiefComplaintPreparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
-				chiefComplaintPreparedStatement.setString(3, medRecordChiefComplaintsBean.getStatement());
-				chiefComplaintPreparedStatement.setTimestamp(4, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
+				//chiefComplaintPreparedStatement.setInt(2, medRecordChiefComplaintsBean.getAdmissionsId());
+				chiefComplaintPreparedStatement.setString(2, medRecordChiefComplaintsBean.getStatement());
+				chiefComplaintPreparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(medRecordChiefComplaintsBean.getDate()));
 				success = chiefComplaintPreparedStatement.executeUpdate();
 				
 				generatedCCKeys = chiefComplaintPreparedStatement.getGeneratedKeys();

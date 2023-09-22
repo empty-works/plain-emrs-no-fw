@@ -261,8 +261,11 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	medRecordInput.type = 'hidden';
 	medRecordInput.id = 'medRecordId';
 	medRecordInput.name = 'medRecordId';
+	medRecordInput.value = parsedPatientData.medicalRecord.medicalRecordId;
+	addForm.appendChild(medRecordInput);
 	
 	// Admissions ID
+	/*
 	medRecordInput.value = parsedPatientData.medicalRecord.medicalRecordId;
 	addForm.appendChild(medRecordInput);
 	var admissionsIdLabel = document.createElement('label');
@@ -275,6 +278,7 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	var div1 = document.createElement('div');
 	div1.appendChild(admissionsIdInput);
 	addForm.appendChild(div1);
+	*/
 	
 	// Statement
 	var statementLabel = document.createElement('label');

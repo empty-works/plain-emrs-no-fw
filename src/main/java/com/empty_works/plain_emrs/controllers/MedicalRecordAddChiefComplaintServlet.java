@@ -57,13 +57,13 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		LocalDateTime currentDate = LocalDateTime.now();
 		
 		HttpSession session = request.getSession();
-		String medRecordId = (String)session.getAttribute("medRecordId");
+		String medRecordId = (String)request.getParameter("medRecordId");
 		System.out.println("MedicalRecordAddChiefComplaintServlet med ID: " + medRecordId);
 		String chiefComplaintId = ChiefComplaintIdUtil.get(medRecordId);
 		chiefComplaintsBean.setMedicalRecordId(medRecordId);
 		chiefComplaintsBean.setChiefComplaintId(chiefComplaintId);
 		chiefComplaintsBean.setDate(currentDate);
-		chiefComplaintsBean.setAdmissionsId(Integer.parseInt(request.getParameter("admissionsIdInput")));
+		//chiefComplaintsBean.setAdmissionsId(Integer.parseInt(request.getParameter("admissionsIdInput")));
 		chiefComplaintsBean.setStatement(request.getParameter("chiefComplaintInput"));
 		
 		hpiBean.setMedicalRecordId(medRecordId);
