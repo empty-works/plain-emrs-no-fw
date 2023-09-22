@@ -45,11 +45,11 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		response.setContentType("text/plain");
 		
 		// Get the form data as a map
-		Map<String, String[]> formData = request.getParameterMap();
+		//Map<String, String[]> formData = request.getParameterMap();
 		
 		// Access individual form fields by their names
 		
-
+		System.out.println("Adding chief complaint...");
 		MedicalRecordChiefComplaintsBean chiefComplaintsBean = new MedicalRecordChiefComplaintsBean();
 		MedicalRecordHistoriesPresentIllnessBean hpiBean = new MedicalRecordHistoriesPresentIllnessBean();
 		//MedicalRecordVitalsBean vitals = new MedicalRecordVitalsBean();
@@ -77,6 +77,8 @@ public class MedicalRecordAddChiefComplaintServlet extends HttpServlet {
 		hpiBean.setTemporalPattern(request.getParameter("temporalPatternInput"));
 		hpiBean.setSeverity(request.getParameter("severityInput"));
 		hpiBean.setDescription(request.getParameter("descriptionInput"));
+		
+		System.out.println("Adding chief complaint...");
 		
 		/*
 		vitals.setMedicalRecordId(medRecordId);

@@ -434,31 +434,38 @@ function loadAddChiefComplaintForm(parsedPatientData) {
 	chiefComplaintFormSubmit.name = "chiefComplaintFormSubmit";
 	chiefComplaintFormSubmit.innerText = "Add chief complaint";
 	addForm.appendChild(chiefComplaintFormSubmit);
+	
+	// Handle the submit functionality for the add chief complaints form
+	var chiefComplaintSubmit = document.getElementById('chiefComplaintFormSubmit');
+	chiefComplaintSubmit.addEventListener("click", function(event) {
+		event.preventDefault();
+		// Get the form element using the button's parent
+		var addChiefComplaintForm = chiefComplaintSubmit.closest('form');
+		// Handle the form data
+		var formData = new FormData(addChiefComplaintForm);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "MedicalRecordAddChiefComplaintServlet", true);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState === 4 && xhr.status === 200) {
+				console.log("Successfully added chief complaint...");
+				updateEncountersTab();
+			}
+			else {
+				console.error("Error adding chief complaint.");
+			}
+		};
+		
+		xhr.onerror = function() {
+			console.error("Network error occurred.");
+		}
+		xhr.send(formData);
+	});
 }
 
-// Handle the submit functionality for the add chief complaints form
-var addChiefComplaintForm = document.getElementById('addChiefComplaintForm');
-addChiefComplaintForm.addEventListener("chiefComplaintFormSubmit", function(event) {
-	event.preventDefault();
-	// Handle the form data
-	var formData = new FormData(addChiefComplaintForm);
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/MedicalRecordAddChiefComplaintServlet", true);
-	xhr.onreadystatechange = function() {
-		if(xhr.readyState === 4 && xhr.status === 200) {
-			updateEncountersTab();
-		}
-	};
-	
-	xhr.onerror = function() {
-		console.error("Error adding chief complaint.");
-	}
-	xhr.send(formData);
-});
 
 function updateEncountersTab() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/MedicalRecordChiefComplaintsServlet", true);
+	xhr.open("GET", "MedicalRecordChiefComplaintsServlet", true);
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState === 4 && xhr.status === 200) {
 			document.getElementById("medRecordSecondTab").innerHTML = xhr.responseText;
